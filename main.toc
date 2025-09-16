@@ -132,12 +132,8 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {ngerman}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
@@ -148,8 +144,12 @@
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1.5}Propeller}{7}{section.1.5}%
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1.5}Propeller}{8}{section.1.5}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
@@ -190,8 +190,8 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
