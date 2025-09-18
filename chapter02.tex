@@ -30,7 +30,7 @@ TBD
 
 TBD
 
-\colend
+\colende
 
 \renewcommand{\deutschertitel}{Flight Controller Firmware}
 \renewcommand{\englischertitel}{Flight Controller Firmware}
@@ -41,8 +41,7 @@ TBD
 
 \colger
 
-TBD
-
+Jeder Flugcontroller braucht ein Betriebssystem, das in erster Linie die Sensordaten (u.a. Gyroskop, Beschleunigungssensor, GPS, magnetischer Kompass) und die Steuerbefehle des Benutzers in Motorbefehle umsetzt. Zusätzlich implementieren die Betriebssysteme für Flugcontroller verschiedene Flugmodi (z.B. Acro, Angle, Horizon) und sie leiten Datenströme der Kamera an den Videosender weiter, implementieren ein On-Screen-Display (OSD), erstellen und speichern Log-Daten (Blackbox-Logs) zur nachträglichen Analyse von Flugverhalten, ermöglichen die Feineinstellung des Flugverhaltens mit Hilfe von Filtern und Mixern und bieten verschiedene Schnittstellen zur Kommunikation und Konfiguration. 
 
 \coleng
 
@@ -50,9 +49,17 @@ TBD
 
 \colger
 
+Das Betriebssystem des Flugcontrollers implementiert die Firmware, die im Flash-Speicher abgelegt ist. Da alle gängigen Flugcontrollers-Firmwares Open-Source-Projekte sind, passiert es alle paar Jahre, dass sich Entwicklergruppen abspalten und Forks initiieren, die durch neue Features und aktivere Weiterentwicklung mittelfristig eventuell dem Projekt, aus dem Sie hervor gekommen sind, verdrängen. Auch passiert es, dass Projekte durch den Fortgang von Entwicklern oder veränderte Lebensentwürfe nicht mehr weiterentwickelt werden und mit der Zeit Obsolet werden.
+
+\coleng
+
 TBD
 
-\colend
+\colger
+
+Dieses Dokument stellt die Flugcontroller-Firmwares Betaflight, INAV und ArduPilot vor.
+
+\colende
 
 \renewcommand{\deutschertitel}{Betaflight}
 \renewcommand{\englischertitel}{Betaflight}
@@ -63,9 +70,27 @@ TBD
 
 \colger
 
+Betaflight ist eine Firmware für Flugcontroller von FPV-Drohnen. Die Installation und Konfiguration der Firmware geschieht bis Betaflight 4.5 mit der lokal installierten Software Betaflight Configurator. Neue Versionen verwenden hierfür die Webanwendung \url{app.betaflight.com}.
+
+\coleng
+
 TBD
 
-\colend
+\colger
+
+Der Fokus bei der Entwicklung von Betaflight ist die Unterstützung des manuellen Fliegens (Freestyle, Racing, etc.). Ziele von Betaflight sind schnelle Reaktion auf Benutzereingaben und umfangreiche Einstellungsmöglichkeiten um das Flugerhalten zu optimieren (tuning). 
+
+Einstellungsmöglichkeiten Autonomes Fliegen unterstützt Betaflight -- ganz im  Gegensatz zu den alternativem Firmwares INAV oder ArduPilot -- fast gar nicht. Ausnahmen sind der Rettungsmodus (\textsl{Rescue Mode}), der die Drohne im Fall von Verbindungsproblemen mit Hilfe eines GPS-Moduls automatisch zurückzukehren lässt, und ein experimenteller Modus um Höhe und Position automatisch zu halten. 
+ 
+\coleng
+
+TBD
+
+\colger
+
+Betaflight ist kompatibel zu praktisch allen am Markt verfügbaren Flugcontrollern und Empfängern und bietet eine intuitive Benutzeroberfläche. 
+
+\colende
 
 \renewcommand{\deutschertitel}{INAV}
 \renewcommand{\englischertitel}{INAV}
@@ -78,7 +103,7 @@ TBD
 
 TBD
 
-\colend
+\colende
 
 \renewcommand{\deutschertitel}{ArduPilot}
 \renewcommand{\englischertitel}{ArduPilot}
@@ -89,10 +114,17 @@ TBD
 
 \colger
 
+ArduPilot legt als Flugcontroller-Firmware den Fokus auf vollautonomen Flug und komplexe Missionsprofile. Es ermöglicht Missionsplanung mit Wegpunkten, automatische Starts und automatisches Landen, Hindernisvermeidung, Follow-Me, etc. Hierfür nutzt ArduPilot nicht nur die üblichen Sensoren wie GPS, magnetischer Kompass, Geschwindigkeit, sondern kann auch Lidar-Sensoren zur Entfernungen und Kameras einbeziehen.
+
+\coleng
+
 TBD
 
-\colend
+\colger
 
+Von den in diesem Dokument vorgestellten Flugcontroller-Firmwares braucht ArduPilot am meisten Speicher. Idealerweise sind zum Betrieb von ArduPilot 2\,MB Flash-Speicher verfügbar. Das bieten nur Flugcontroller mit einem H743 Mikrocontroller. Mit 1\,MB Flash-Speicher (F405 und F745 Mikrocontroller) ist der Betrieb mit einem reduzierten Funktionsumfang möglich. Mit nur 512\,kB (F411 und F722 Mikrocontroller) kann ArduPilot gar nicht verwendet werden.
+
+\colende
 
 \renewcommand{\deutschertitel}{Fernbedienung Firmware}
 \renewcommand{\englischertitel}{Remote Control Firmware}
@@ -105,16 +137,7 @@ TBD
 
 TBD
 
-
-\coleng
-
-TBD
-
-\colger
-
-TBD
-
-\colend
+\colende
 
 \renewcommand{\deutschertitel}{EdgeTX}
 \renewcommand{\englischertitel}{EdgeTX}
@@ -127,9 +150,7 @@ TBD
 
 TBD
 
-\colend
-
-
+\colende
 
 \renewcommand{\deutschertitel}{Sendemodul- und Empfänger-Firmware}
 \renewcommand{\englischertitel}{Transmitter and Receiver Firmware}
@@ -142,16 +163,7 @@ TBD
 
 TBD
 
-
-\coleng
-
-TBD
-
-\colger
-
-TBD
-
-\colend
+\colende
 
 \renewcommand{\deutschertitel}{ExpressLRS}
 \renewcommand{\englischertitel}{ExpressLRS}
@@ -164,5 +176,5 @@ TBD
 
 TBD
 
-\colend
+\colende
 
