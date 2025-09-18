@@ -91,6 +91,24 @@
 \let\nohline\relax
 \sloppy
 
+\newcommand{\colger}{%
+\switchcolumn%
+\selectlanguage{ngerman}%
+}
+
+\newcommand{\coleng}{%
+\switchcolumn*%
+\selectlanguage{english}%
+}
+
+\newcommand{\colend}{%
+\end{paracol}%
+}
+
+\newcommand{\colstart}{%
+\begin{paracol}{2}[]%
+\selectlanguage{english}%
+}
 
 \newcolumntype{Y}{>{\centering\arraybackslash}X}%
 \newcolumntype{Z}{>{\hfill\arraybackslash}X}%

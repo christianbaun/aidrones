@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  17 SEP 2025 22:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  18 SEP 2025 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1027,7 +1027,7 @@ Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
 \ESO@tempdimb=\dimen287
 )
 
-Package array Warning: Column Z is already defined on input line 96.
+Package array Warning: Column Z is already defined on input line 114.
 
 \de@idxfile=\write4
 \openout4 = `de.idx'.
@@ -1044,8 +1044,8 @@ Writing index file main.idx
 \c@deutschestocdepth=\count370
 \cftbeforedeutschestoctitleskip=\skip145
 \cftafterdeutschestoctitleskip=\skip146
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 28
-4.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 30
+2.
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1061,34 +1061,34 @@ LaTeX Warning: Label `AbbildungLiPoAkku' multiply defined.
 ) (./chapter02.aux) (./glossary.aux) (./bibliography.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 284.
-LaTeX Font Info:    ... okay on input line 284.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 284.
-LaTeX Font Info:    ... okay on input line 284.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 284.
-LaTeX Font Info:    ... okay on input line 284.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 284.
-LaTeX Font Info:    ... okay on input line 284.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 284.
-LaTeX Font Info:    ... okay on input line 284.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 284.
-LaTeX Font Info:    ... okay on input line 284.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 284.
-LaTeX Font Info:    ... okay on input line 284.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 284.
-LaTeX Font Info:    ... okay on input line 284.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 284.
-LaTeX Font Info:    ... okay on input line 284.
-Package scrbase Info: activating english \partname on input line 284.
-Package scrbase Info: activating english \chaptername on input line 284.
-Package scrbase Info: activating english \appendixname on input line 284.
-Package scrbase Info: activating english \figurename on input line 284.
-Package scrbase Info: activating english \tablename on input line 284.
-Package scrbase Info: activating english \contentsname on input line 284.
-Package scrbase Info: activating english \listfigurename on input line 284.
-Package scrbase Info: activating english \listtablename on input line 284.
-Package scrbase Info: activating english \bibname on input line 284.
-Package scrbase Info: activating english \indexname on input line 284.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+Package scrbase Info: activating english \partname on input line 302.
+Package scrbase Info: activating english \chaptername on input line 302.
+Package scrbase Info: activating english \appendixname on input line 302.
+Package scrbase Info: activating english \figurename on input line 302.
+Package scrbase Info: activating english \tablename on input line 302.
+Package scrbase Info: activating english \contentsname on input line 302.
+Package scrbase Info: activating english \listfigurename on input line 302.
+Package scrbase Info: activating english \listtablename on input line 302.
+Package scrbase Info: activating english \bibname on input line 302.
+Package scrbase Info: activating english \indexname on input line 302.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1146,7 +1146,7 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 284.
+Package hyperref Info: Link coloring OFF on input line 302.
 (./main.out) (./main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
@@ -1158,7 +1158,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 284.
+(scrbook)           before \begin{document} on input line 302.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -1168,23 +1168,23 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 )
 \BKM@id=\count378
 ))
-LaTeX Info: Redefining \microtypecontext on input line 284.
-Package microtype Info: Applying patch `item' on input line 284.
-Package microtype Info: Applying patch `toc' on input line 284.
-Package microtype Info: Applying patch `eqnum' on input line 284.
+LaTeX Info: Redefining \microtypecontext on input line 302.
+Package microtype Info: Applying patch `item' on input line 302.
+Package microtype Info: Applying patch `toc' on input line 302.
+Package microtype Info: Applying patch `eqnum' on input line 302.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 284.
+Package microtype Warning: Unable to apply patch `footnote' on input line 302.
 
-Package microtype Info: Applying patch `verbatim' on input line 284.
-LaTeX Info: Redefining \microtypesetup on input line 284.
+Package microtype Info: Applying patch `verbatim' on input line 302.
+LaTeX Info: Redefining \microtypesetup on input line 302.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 284.
+LaTeX Info: Redefining \showhyphens on input line 302.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1198,7 +1198,7 @@ Package caption Info: rotating package is loaded.
 Package caption Info: sidecap package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count379
-Package tocbasic Info: setting babel extension for `lol' on input line 284.
+Package tocbasic Info: setting babel extension for `lol' on input line 302.
 \scr@dte@lstlisting@maxnumwidth=\skip147
 \openout2 = `preface.aux'.
 
@@ -1224,57 +1224,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
  []
 
 
-Underfull \hbox (badness 3646) in paragraph at lines 38--39
+Underfull \hbox (badness 3646) in paragraph at lines 32--33
 []\T1/lmr/m/n/10 (+20) Beim Schrei-ben die-ses Do-ku-ments flos-
  []
 
 
-Underfull \hbox (badness 1178) in paragraph at lines 38--39
+Underfull \hbox (badness 1178) in paragraph at lines 32--33
 \T1/lmr/m/n/10 (+20) Vernetzungs- und In-no-va-ti-ons-fond des hes-
  []
 
 
-Underfull \hbox (badness 3942) in paragraph at lines 38--39
+Underfull \hbox (badness 3942) in paragraph at lines 32--33
 \T1/lmr/m/n/10 (+20) si-an.AI ge-för-der-ten For-schungs-pro-jekt \T1/lmr/m/sl/
 10 (+20) KI-
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
-1.
-(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-))
+)
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-98.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
+16.
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-98.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
+16.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-298.
+316.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-298.
+316.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 298.
+(Font)              <10> on input line 316.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 298.
+(Font)              <7> on input line 316.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 298.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 298
+(Font)              <5> on input line 316.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 316
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1283,7 +1279,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 298
+LaTeX Font Info:    Trying to load font information for U+msb on input line 316
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1299,7 +1295,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
+dvips/lm/lm-ec.enc}]
 
 [6
 
@@ -1336,165 +1332,162 @@ dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
 chapter 1.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\new@ifnextchar' on input line 12.
+(hyperref)                removing `\new@ifnextchar' on input line 7.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
-[1
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9
+4.
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [1
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 []\T1/lmr/m/n/10 (+20) Gängige FC ent-hal-ten einen STM32-
  []
 
-
-
 [2]
-<./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg, id=130, 1003.75p
+<./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg, id=133, 1003.75p
 t x 1003.75pt>
 File: ./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg Graphic file
  (type jpg)
 <use ./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg>
 Package pdftex.def Info: ./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_cr
-op.jpg  used on input line 237.
+op.jpg  used on input line 214.
 (pdftex.def)             Requested size: 200.75996pt x 200.76175pt.
-<./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg, id=131, 1003.75pt
+<./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg, id=134, 1003.75pt
  x 1003.75pt>
 File: ./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg Graphic file 
 (type jpg)
 <use ./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg>
 Package pdftex.def Info: ./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_cro
-p.jpg  used on input line 242.
+p.jpg  used on input line 219.
 (pdftex.def)             Requested size: 200.75996pt x 200.76175pt.
-<./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg, id=132, 2007.5pt x 1003.75pt>
+<./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg, id=135, 2007.5pt x 1003.75pt>
 File: ./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg Graphic file (type jpg)
 <use ./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg>
 Package pdftex.def Info: ./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg  used o
-n input line 251.
+n input line 228.
 (pdftex.def)             Requested size: 418.25368pt x 209.12428pt.
-<./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg, id=133, 2007.5pt x 1003.75pt>
+<./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg, id=136, 2007.5pt x 1003.75pt>
 File: ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg Graphic file (type jpg)
 <use ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg>
 Package pdftex.def Info: ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg  used on
- input line 258.
+ input line 235.
 (pdftex.def)             Requested size: 418.25368pt x 209.12428pt.
-
-
-[3 <./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg> <./images/Spe
-edyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg>]
-
-[4 <./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg> <./images/SpeedyBee_F405_Mi
-ni_BLS_35A_back.jpg>]
-<./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg, id=149, 853.1875pt x 85
+ [3] [4 <./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg> <./image
+s/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg> <./images/SpeedyBee_F405_
+Mini_BLS_35A_front.jpg>]
+<./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg, id=155, 853.1875pt x 85
 3.1875pt>
 File: ./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg Graphic file (type 
 jpg)
 <use ./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg>
 Package pdftex.def Info: ./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg 
- used on input line 285.
+ used on input line 257.
 (pdftex.def)             Requested size: 200.75996pt x 200.75946pt.
-<./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg, id=150, 853.1875pt x 853
+<./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg, id=156, 853.1875pt x 853
 .1875pt>
 File: ./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg Graphic file (type j
 pg)
 <use ./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg>
 Package pdftex.def Info: ./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg  
-used on input line 290.
+used on input line 262.
 (pdftex.def)             Requested size: 200.75996pt x 200.75946pt.
-
-Overfull \hbox (4.70468pt too wide) in paragraph at lines 314--325
+ [5 <./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg> <./images/SpeedyBee_TX800_F
+PV_VTX_vorderseite_crop.jpg> <./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.
+jpg>]
+Overfull \hbox (4.70468pt too wide) in paragraph at lines 283--294
  [][] 
  []
 
-[5 <./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg> <./images/SpeedyBee_
-TX800_FPV_VTX_rueckseite_crop.jpg>] [6]
+[6] [7]
 
-[7] [8{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/font
-s/enc/dvips/lm/lm-rm.enc}] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 737--738
+[8{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-rm.enc}] [9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 605--606
 \T1/lmr/m/n/10 (+20) Klassischerweise ver-wen-den FPV-Drohnen
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 737--738
+Underfull \hbox (badness 1960) in paragraph at lines 605--606
 \T1/lmr/m/n/10 (+20) Akkus (Li-Ion). Un-ter-schie-den wer-den die
  []
 
-<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg, id=206, 3468.96pt x 2312.64
+<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg, id=209, 3468.96pt x 2312.64
 pt>
 File: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg Graphic file (type jpg)
 
 <use ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg>
 Package pdftex.def Info: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg  use
-d on input line 771.
+d on input line 634.
 (pdftex.def)             Requested size: 200.75996pt x 133.81209pt.
-<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg, id=207, 3468.96pt x 2312.64p
+<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg, id=210, 3468.96pt x 2312.64p
 t>
 File: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg Graphic file (type jpg)
 <use ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg>
 Package pdftex.def Info: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg  used
- on input line 776.
+ on input line 639.
 (pdftex.def)             Requested size: 200.75996pt x 133.81209pt.
-[11{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12 <./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg> <./images/CNHL_1500mAh
-_100C_4S_XT60_Lipo_back.jpg>] [13]
-<./images/HGLRS_GPS_M100_PRO_front.jpg, id=236, 702.625pt x 702.625pt>
+ [11{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}] [12 <./images/CNHL_150
+0mAh_100C_4S_XT60_Lipo_front.jpg> <./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back
+.jpg>]
+[13] [14]
+<./images/HGLRS_GPS_M100_PRO_front.jpg, id=245, 702.625pt x 702.625pt>
 File: ./images/HGLRS_GPS_M100_PRO_front.jpg Graphic file (type jpg)
 <use ./images/HGLRS_GPS_M100_PRO_front.jpg>
 Package pdftex.def Info: ./images/HGLRS_GPS_M100_PRO_front.jpg  used on input l
-ine 987.
+ine 801.
 (pdftex.def)             Requested size: 200.75996pt x 200.75409pt.
-<./images/HGLRS_GPS_M100_PRO_back.jpg, id=237, 752.8125pt x 752.8125pt>
+<./images/HGLRS_GPS_M100_PRO_back.jpg, id=246, 752.8125pt x 752.8125pt>
 File: ./images/HGLRS_GPS_M100_PRO_back.jpg Graphic file (type jpg)
 <use ./images/HGLRS_GPS_M100_PRO_back.jpg>
 Package pdftex.def Info: ./images/HGLRS_GPS_M100_PRO_back.jpg  used on input li
-ne 992.
+ne 806.
 (pdftex.def)             Requested size: 200.75996pt x 200.75792pt.
-
-
-[14] [15 <./images/HGLRS_GPS_M100_PRO_front.jpg> <./images/HGLRS_GPS_M100_PRO_b
-ack.jpg>]
-<./images/RadioMaster_RP2_Receiver_ELRS_front.jpg, id=252, 352.31625pt x 439.64
+ [15 <./images/HGLRS_GPS_M100_PRO_front.jpg> <./images/HGLRS_GPS_M100_PRO_back.
+jpg>]
+<./images/RadioMaster_RP2_Receiver_ELRS_front.jpg, id=256, 352.31625pt x 439.64
 25pt>
 File: ./images/RadioMaster_RP2_Receiver_ELRS_front.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP2_Receiver_ELRS_front.jpg>
 Package pdftex.def Info: ./images/RadioMaster_RP2_Receiver_ELRS_front.jpg  used
- on input line 1052.
+ on input line 855.
 (pdftex.def)             Requested size: 100.37997pt x 125.25916pt.
-<./images/RadioMaster_RP2_Receiver_ELRS_back.jpg, id=253, 351.3125pt x 439.6425
+<./images/RadioMaster_RP2_Receiver_ELRS_back.jpg, id=257, 351.3125pt x 439.6425
 pt>
 File: ./images/RadioMaster_RP2_Receiver_ELRS_back.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP2_Receiver_ELRS_back.jpg>
 Package pdftex.def Info: ./images/RadioMaster_RP2_Receiver_ELRS_back.jpg  used 
-on input line 1057.
+on input line 860.
 (pdftex.def)             Requested size: 100.37997pt x 125.6147pt.
-<./images/RadioMaster_RP1_Receiver_ELRS_front.jpg, id=254, 351.3125pt x 439.642
+<./images/RadioMaster_RP1_Receiver_ELRS_front.jpg, id=258, 351.3125pt x 439.642
 5pt>
 File: ./images/RadioMaster_RP1_Receiver_ELRS_front.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP1_Receiver_ELRS_front.jpg>
 Package pdftex.def Info: ./images/RadioMaster_RP1_Receiver_ELRS_front.jpg  used
- on input line 1068.
+ on input line 871.
 (pdftex.def)             Requested size: 100.37997pt x 125.6147pt.
-<./images/RadioMaster_RP1_Receiver_ELRS_back.jpg, id=255, 351.3125pt x 439.6425
+<./images/RadioMaster_RP1_Receiver_ELRS_back.jpg, id=259, 351.3125pt x 439.6425
 pt>
 File: ./images/RadioMaster_RP1_Receiver_ELRS_back.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP1_Receiver_ELRS_back.jpg>
 Package pdftex.def Info: ./images/RadioMaster_RP1_Receiver_ELRS_back.jpg  used 
-on input line 1073.
+on input line 876.
 (pdftex.def)             Requested size: 100.37997pt x 125.6147pt.
 
 
@@ -1562,15 +1555,15 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26047 strings out of 475052
- 479182 string characters out of 5762548
- 1084954 words of memory out of 5000000
- 48279 multiletter control sequences out of 15000+600000
+ 26053 strings out of 475052
+ 479239 string characters out of 5762548
+ 1086020 words of memory out of 5000000
+ 48284 multiletter control sequences out of 15000+600000
  614611 words of font info for 138 fonts, out of 8000000 for 9000
  143 hyphenation exceptions out of 8191
- 108i,20n,108p,10899b,1134s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,108p,10899b,1150s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{section*.58} has been referenced but does not exist
+pdfTeX warning (dest): name{section*.59} has been referenced but does not exist
 , replaced by a fixed one
 
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type
@@ -1578,10 +1571,10 @@ pdfTeX warning (dest): name{section*.58} has been referenced but does not exist
 share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/publ
 ic/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (26 pages, 15143126 bytes).
+Output written on main.pdf (26 pages, 15142789 bytes).
 PDF statistics:
- 425 PDF objects out of 1000 (max. 8388607)
- 363 compressed objects within 4 object streams
- 108 named destinations out of 1000 (max. 500000)
+ 430 PDF objects out of 1000 (max. 8388607)
+ 368 compressed objects within 4 object streams
+ 109 named destinations out of 1000 (max. 500000)
  33039 words of extra memory for PDF output out of 35830 (max. 10000000)
 

@@ -1,11 +1,6 @@
 \renewcommand{\deutschertitel}{Hardware}
 \renewcommand{\englischertitel}{Hardware}
 
-% !!! Das hier war vorher !!!
-% \chapter[\englischertitel]{\englischertitel\newline\deutschertitel}
-% !!! Das hier war vorher !!!
-
-
 % Das vspace fügt im Inhaltsverzeichnis einen kleinen Abstand unter dem Kapiteleintrag ein.
 % Beim deutschen Inhaltsverzeichnis ist es im book.tex an nur einer Stelle in der Zeile 
 % \addcontentsline{deutschestoc}{chapter}{\protect{\vspace{2pt}\thechapter}~#1}}
@@ -22,59 +17,77 @@
 
 {\raggedright\huge\bfseries\sffamily \deutschertitel \par\ } \\[1.8ex]
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 TBD
 
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Rahmen}
 \renewcommand{\englischertitel}{Frames}
-
 \makroabschnitt
-
 \label{AbschnittFrames}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Der Rahmen aus verbindet alle Komponenten der Drohne. Das verwendete Material ist üblicherweise Carbon. Dabei handelt es sich um einen leichtgewichtigen und dennoch hochfesten und verwindungssteifen Verbundwerkstoff aus Kohlenstofffasern. Seltener kommen auch Rahmen aus Kunststoff zum Einsatz. Der Rahmen definiert die Propellergröße (siehe Abschnitt~\ref{AbschnittPropeller}).
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
-Der Rahmen nimmt üblicherweise zentral die wichtigsten elektronischen Komponenten wie Flugcontroller, Videosender, Empfänger und Kamera auf, um diese zu schützen. Der Akku befindet sich üblicherweise oben auf der Drohne, um Beschädigungen beim Landen zu vermeiden. 
+Die wichtigsten elektronischen Komponenten wie Flugcontroller, Videosender, Empfänger und Kamera nimmt der Rahmen zentral auf, um diese zu schützen. Der Akku befindet sich in den meisten Fällen oben auf der Drohne, um Beschädigungen beim Landen zu vermeiden. 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
+
+Größere Rahmen bieten mehr Platz für Komponenten innerhalb und oberhalb und ermöglichen die Nutzung leistungsstärkerer Motoren (siehe Abschnitt~\ref{AbschnittMotoren}) und größerer Propeller. Allerdings steigt mit der Rahmengröße auch dessen Eigengewicht. Gängige Rahmengrößen und deren typische Anwendung enthält Tabelle~\ref{TabelleRahmen}.
+
+\colend
+
+\begin{table}[htb!]
+\centering
+\captionabove{Overview of different Frame Sizes and Drone Categories}
+\label{TabelleRahmen}
+\begin{tabular}{l@{\hskip 8mm}r@{\hskip 8mm}r@{\hskip 8mm}}
+\toprule
+Drone Category         & Typical Frame Size & Typical Propeller Diameter \\
+\midrule
+TinyWhoop              & 1.2 - 2.5 Inch     & 31 - 64\,mm   \\
+Toothpick              & 2   - 3 Inch       & 51 - 76\,mm   \\
+Cinewhoop              & 2.5 - 3.5 Inch     & 64 - 90\,mm   \\
+Freestyle              & 3 - 6 Inch         & 76 - 152\,mm  \\
+Racing                 & 5 Inch             & 127\,mm       \\
+Long-Range, Cinelifter & 4 - 10 Inch        & 100 - 254\,mm \\
+Heavy-Lift             & 10 - 12 Inch       & 254 - 304\,mm \\
+\bottomrule 
+\end{tabular}
+\end{table}
+
+\colstart
+
+TBD
+
+\colger
 
 Wichtige Unterscheidungskriterien bei der Auswahl des passenden Rahmens sind auch die Abstände der Bohrlöcher zur Befestigung des Flugcontrollers und des Videosenders. Gängige Maße sind: 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 \begin{itemize}
 \item 30,5 x 30,5\,mm
@@ -82,63 +95,44 @@ TBD
 \item 20 x 20\,mm
 \end{itemize}
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Verfügt ein Rahmen nicht über passende Bohrlöcher für den ausgewählten Flugcontrollers und den Videosender, kann ein per 3D-Drucker gedruckte Adapter helfen, wenn der Platz im Rahmen dafür ausreicht. 
 
-
-
-\end{paracol}
-
-
-
-
-
+\colend
 
 \renewcommand{\deutschertitel}{Flugcontroller und Motorsteuerung}
 \renewcommand{\englischertitel}{Flight Controller and Electronic Speed Controller}
-
 \makroabschnitt
-
 \label{AbschnittFC}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 Der Flight Controller (FC) ist ist die zentrale Komponente jeder Drohne. Der FC  verarbeitet die Sensordaten von Gyroskop, Beschleunigungssensor, Barometer und GPS-Modul. Er stabilisiert die Fluglage durch Regelalgorithmen und nimmt über den Empfänger Steuerbefehle durch den Piloten entgegen. Zudem steuert der FC die Motoren über die Electronic Speed Controller (ESC).
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Auch FPV-Kamera und Videosender sind mit dem FC verbunden und werden durch ihn gesteuert und dem Strom des Akkus versorgt. Der FC gibt auch Telemetriedaten als On Screen Display an den Videosender weiter. 
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Gängige FC enthalten einen STM32-Mikrocontroller. Hier wird auch die Firmware gespeichert. Moderne MCUs sind F4, F7 und H7. Diese unterscheiden sich im Takt und Speicher (siehe Tabelle~\ref{TabelleFCMCU}).
 
-\end{paracol}
+\colend
 
 \begin{table}[htb!]
 \centering
@@ -157,78 +151,60 @@ H743       & 480\,MHz & 2\,MB        & 1\,MB   \\
 \end{tabular}
 \end{table}
 
-\begin{paracol}{2}[]
-\selectlanguage{english}
+\colstart
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Die Electronic Speed Controller (ESCs) steuert die Motoren. Der ESC ist eines der am stärksten belasteten Teile der Drohne, weil durch ihn teils 10 bis 20 Ampere Dauerstrom fließen.
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Separate ESCs als einzelne Platinen sind heute unüblich. Bei modernen Drohnen sind die vier oder mehr ESCs auf einer einzelnen Platine, einem sogenannten 4-in-1-ESCs zur Motorsteuerung integriert. An dieser werden die Motoren und die Verbindung zum Akku (siehe Abschnitt~\ref{AbschnittAkkus}) angelötet. 
 
-\end{paracol}
-
+\colend
 
 \renewcommand{\deutschertitel}{Stack oder AIO}
 \renewcommand{\englischertitel}{Stack or AIO}
-
 \makrounterabschnitt
-
 \label{AbschnittESC}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Die Kombination einer einer separaten Platine zur Motorsteuerung und dem Flugcontroller heißt Stack. 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Befinden sich die ESCs auf der gleichen Platine wie der FC, spricht man von einem All In One Flight Controller (AIO FC). 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 Bei kleineren Drohnen (2 bis 4 Zoll) sind schon aus Platzgründen AIO FCs üblich. Bei größeren Drohnen kommen meist Stacks zum Einsatz. Ein Vorteil von ist, dass separate Motorsteuerungen mit höheren Dauerströmen am Markt verfügbar sind. Separate Motorsteuerungen gibt es mit 45 bis 70\,A. Zudem bieten die FCs von Stacks tendenziell gegenüber AIO FCs mehr Platz für Lötpads, größere Lötpads, häufig zusätzlich Steckverbindungen und mehr nutzbare UART-Schnittstellen für Sensoren und Aktoren.
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 Abbildung~\ref{AbbildungSpeedyBeeFCBluejayAIO}) zeigt einen einen AIO Flight-Controller. Die Abbildungen~\ref{AbbildungSpeedyBeeFCF405MiniBLS35front} und~\ref{AbbildungSpeedyBeeFCF405MiniBLS35Aback}) zeigen die Vorder- und Rückseite eines Stack bestehen aus Flight-Controller und separater ESC-Platine.
 
-\end{paracol}
+\colend
 
 \begin{figure}[htbp]
   \centering
@@ -260,23 +236,18 @@ Abbildung~\ref{AbbildungSpeedyBeeFCBluejayAIO}) zeigt einen einen AIO Flight-Con
   \label{AbbildungSpeedyBeeFCF405MiniBLS35Aback}
 \end{figure}
 
-
-
 \renewcommand{\deutschertitel}{Videosender}
 \renewcommand{\englischertitel}{Video Transmitter}
-
 \makroabschnitt
-
 \label{AbschnittVTX}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Der Videosender (VTX) überträgt das Livebildes der FPV-Camera über den eingestellten Kanal im festgelegten Band an die FPV Brille. Neben analogen Videosendern existieren auch verschiedene digitale Systeme, die zueinander inkompatibel sind. Videosender werden als einzelnes Gerät oder als Kit mit Kamera und Antenne(n) verkauft. Einen analogen Videosender zeigt Abbildung~\ref{AbbildungSpeedyBeeTX800FPVVTX}.
 
-\end{paracol}
+\colend
 
 \begin{figure}[htbp]
   \centering
@@ -294,18 +265,15 @@ Der Videosender (VTX) überträgt das Livebildes der FPV-Camera über den einges
   \label{AbbildungSpeedyBeeTX800FPVVTX}
 \end{figure}
 
-\begin{paracol}{2}[]
-\selectlanguage{english}
+\colstart
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 In Deutschland ist die Nutzung des Frequenzbereichs 5725-5875\,Mhz bei einer maximalen Sendeleistung von 25\,mW zulässig. Die für analoge Bildübertragung zulässigen Kanäle in den jeweiligen Bändern zeigt Tabelle~\ref{TabelleFrequenzenVTX}). Auffällig sind beim Race Band die großen Kanalabstände von 37\,MHz, die Kanalüberlagerungen verhindern.
 
-\end{paracol}
+\colend
 
 \begin{table}[htb!]
 \centering
@@ -324,445 +292,339 @@ Race Band  & 3 (5732), 4 (5769), 5 (5806), 6 (5843) \\
 \end{tabular}
 \end{table}
 
-\begin{paracol}{2}[]
-\selectlanguage{english}
+\colstart
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Der von einem Videosender zur Übertragung verwendete Kanal und das Band werden in der grafischen Oberfläche Firmware des Flugcontrollers festgelegt.
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Analoge Videosender sind herstellerübergreifend mit analogen Videobrillen kompatibel. Bei digitalen Systemen ist das nicht der Fall. Hier müssen die Hersteller von Sender und Empfänger übereinstimmen. Digitale Systeme zur Übertragung des Livebildes sind von den Herstellern DJI, HDZero und CaddxFPV unter dem Namen Walksnail verfügbar. 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Vorteile von digitaler Livebildübertratung sind die exzellente Bildqualität und die Möglichkeit, ohne weitere Action-Camera Videos in HD-Qualität aufnehmen zu können.
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 Vorteile von analoger Übertratung sind neben der bereits erwähnten herstellerübergreifenden Kompatibilität, die geringe Verzögerung (Latenz), das das Bild bei Störungen schlechter wird, aber nicht abrupt abreißt, und deutlich geringeren Anschaffungskosten für die benötigten Komponenten.
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Einen wichtigen Einfluss auf die Bildqualität und Reichweite haben die verwendeten Antennen. Der Betrieb des Videosenders ohne Antenne ist nicht empfehlenswert, da der Videosender so überhitzt und Beschädigungen wahrscheinlich sind. Der Anschluss der Antenne geschieht bei analogen Systemen üblicherweise über sehr filigrane Steckverbinder für Hochfrequenzsignale gemäß dem Standard U.FL. Diese Steckverbinder sind auch von WLAN (WiFi) bekannt und heißen umgangssprachlich \textsl{Pigtail}. Digitale Systemen (z.B. von DJI) verwenden in der Regel MMCX-Steckverbinder. Der Anschluss von Antennen mit dem größeren und robusteren SMA-Schraubgewinde ist über Adapterkabel möglich. Häufig liegen diese dem Videosender bei.
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 Die Antennen sollten auf auf Sender- und Empfängerseite zusammenpassen. Die verfügbaren Antennen für Videosender unterscheiden sich anhand ihrer Polarisation. Es existieren:
 
-
-\switchcolumn*
-\selectlanguage{english}
-
+\coleng
 \begin{itemize}
 \item linearly polarized antennas (LP)
 \item circularly polarized antennas (CP)
 \end{itemize}
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 \begin{itemize}
 \item Antennen mit linearer Polarisation (LP)
 \item Antennen mit zirkularer Polarisation (CP)
 \end{itemize}
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 LP-Antennen sind die kostengünstigste und einfachste Variante. Sie werden häufig mit dem Videosender und mit der Videobrille mitgeliefert und haben eine Stabform. 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 CP-Antennen ermöglichen eine bessere Bildqualität und eine höhere Reichweite. Bei zirkularer Polarisation dreht sich die Polarisation, während sich das Signal ausbreitet. Es existieren Antennen mit rechtsseitiger zirkularer Polarisation (RHCP) und mit linksseitiger zirkularer Polarisation (LHCP). 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 RHCP kommen in der Regel bei analogen FPV-Drohnen zum Einsatz und LHCP-Antennen bei FPV-Drohnen mit digitaler Bildübertragung.
 
-
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Motoren}
 \renewcommand{\englischertitel}{Motors}
-
 \makroabschnitt
-
 \label{AbschnittMotoren}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Motoren unterscheiden sich in ihrem Aufbau (Motoraufbau und -größe), der elektrischen Spannung (Volt), mit der sie arbeiten können, Drehzahl (KV-Wert), der Aufnahme des Propellers und der Befestigung mit der Rahmen.
 
-\end{paracol}
-
+\colend
 
 \renewcommand{\deutschertitel}{Motoraufbau und -größe}
 \renewcommand{\englischertitel}{Size of the Motors}
-
 \makrounterabschnitt
-
 \label{AbschnittMotorenSize}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Die Motoren bestehen aus einem Stator und einem Rotor. Der Stator enthält die Wicklungen und das Kugellager. Der Rotor ist die Motorgloke mit den Magneten, die die eigentliche Drehbewegung ausführt. Jeder Motor ist mit einer Zahlenkombination ausgezeichnet, die den Durchmesser und die Höhe des Stators in Millimeter angibt. Bei einem Motor mit der Zahlenkombination 2306 beispielsweise hat der Stators einen Durchmesser von 23\,mm und eine Höhe von 6\,mm. 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Je größer das Statorvolumen, desto höher ist die Motorleistung im Bezug auf Drehmoment. Zudem ist die thermische Robustheit von großen Motoren besser.  Motoren mit kleinem Statorvolumen sind hingegen leichter und sparsamer bei kleinen Lasten. 
 
-
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Elektrische Spannung}
 \renewcommand{\englischertitel}{Electrical Voltage}
-
 \makrounterabschnitt
-
 \label{AbschnittMotorenVolt}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Motoren und Akkus (siehe Abschnitt~\ref{AbschnittAkkus}) müssen zusammenpassen. 4S-Motoren benötigen 4S-Akkus mit maximal 16,8\,V und 6S-Motoren benötigen 6S-Akkus mit maximal 25,2\,V. 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Komponenten für 4S sind meist günstiger und leichter, bieten dafür aber weniger Leistung. Komponenten für 6S bieten mehr Leistung oder mehr Flugzeit, haben dafür aber auch meist mehr Gewicht (insbesondere die Akkus). Für leichte kostengünstige Drohnen ist 4S die bessere Wahl. Es gibt auch Motoren, die 4S und 6S vertragen und dadurch flexibler eingesetzt werden können.
 
-
-
-\end{paracol}
-
+\colend
 
 \renewcommand{\deutschertitel}{KV-Wert}
 \renewcommand{\englischertitel}{KV Value}
-
 \makrounterabschnitt
-
 \label{AbschnittMotorenKV}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Der KV-Wert beschreibt, wie schnell sich ein Motor pro Volt im Leerlauf dreht. Ein Motor mit beispielsweise 3000\,KV dreht also ohne Propeller bei 1\,V Versorgungsspannung 3000\,U/min. An einem 4S-Akku (siehe Abschnitt~\ref{AbschnittAkkus}) mit \(\approx\)\,16\,V Spannung hat dieser Motor also eine Leerlaufdrehzahl von \(3000 \times 16 \approx\ 48000\)\,U/min. 
 
-
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Motoren mit hohen KV-Werten (2800-7000 Kv) sind agiler (ermöglichen schnellere Reaktion), haben ein geringeres Drehmoment pro Ampere und sind für kleinere Propeller und leichtere Drohnen gut geeignet. Motoren mit niedrigen KV-Werten (1500-2450 Kv) haben ein höheres Drehmoment pro Ampere und sind für größere Propeller und schwerere Drohnen gut geeignet. 
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Ein hoher KV-Wert bedeutet nicht, dass ein Motor stärker ist als ein Motor mit einem niedrigeren KV-Wert. Der Motor dreht nur schneller, braucht aber auch mehr Strom für Schub.
 
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Propelleraufnahme}
 \renewcommand{\englischertitel}{Propeller Mounting}
-
 \makrounterabschnitt
-
 \label{AbschnittMotorenPropelleraufnahme}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
+Größere Motoren (z.B. 22xx, 23xx, 24xx) für Drohnen ab 5\,Zoll haben zur Propelleraufnahme meistens eine M5-Welle mit 5\,mm Durchmesser. Die Propeller werden direkt auf die Motorwelle gesteckt und mit einer Mutter gesichert. Kleineren Motoren (z.B. 13xx, 14xx, 18xx) für Drohnen bis 3,5\,Zoll haben meist eine viel kleinere Wellen mit 1,5\,mm Durchmesser. Hier werden die Propeller mit zwei Schrauben am Motor befestigt. Motoren (z.B. 20xx, 21xx) für mittelgroße Drohnen (3,5 oder 4\,Zoll) gibt es für M5-Wellen und Wellen mit 1,5\,mm Durchmesser.
 
-Größere Motoren (z.B. 22xx, 23xx, 24xx) für Drohnen ab 5'' haben zur Propelleraufnahme meistens eine M5-Welle mit 5\,mm Durchmesser. Die Propeller werden direkt auf die Motorwelle gesteckt und mit einer Mutter gesichert. Kleineren Motoren (z.B. 13xx, 14xx, 18xx) für Drohnen bis 3,5'' haben meist eine viel kleinere Wellen mit 1,5\,mm Durchmesser. Hier werden die Propeller mit zwei Schrauben am Motor befestigt. Motoren (z.B. 20xx, 21xx) für mittelgroße Drohnen (3,5''- oder 4'') gibt es für M5-Wellen und Wellen mit 1,5\,mm Durchmesser.
-
-
-
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Rahmenbefestigung}
 \renewcommand{\englischertitel}{Frame Attachment}
-
 \makrounterabschnitt
-
 \label{AbschnittMotorenRahmenbefestigung}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 
 Bei der Auswahl der Motoren ist darauf zu achten, dass die Bohrlöcher des Rahmens bezüglich Anzahl, Abstand und Durchmesser übereinstimmen. Üblich ist die Befestigung der Motoren am Rahmen mit drei oder vier Schrauben (M1,4, M2 oder M3). Die Schrauben sind bei kleinen Rahmen als gleichseitiges Dreieck oder als Quadrat angeordnet. Der Lochabstand kann 7\,mm, 9\,mm, 12\,mm oder 16\,mm oder 19\,mm betragen. 
 
-
-\end{paracol}
-
+\colend
 
 \renewcommand{\deutschertitel}{Propeller}
 \renewcommand{\englischertitel}{Propeller}
-
 \makroabschnitt
-
 \label{AbschnittPropeller}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Die Propeller wandeln die Drehbewegung des Motors in Schub (Lift) und Steuerkraft um. Die Propellergröße (Durchmesser), Steigung (Pitch) und Blätterzahl beeinflussen Schub, Effizienz, Geräuschentwicklung und Flugverhalten. Dieses Dokument berücksichtigt nur Drohnen mit vier Propellern. Andere Konfigurationen wie Hexacopter und Octocopter sind möglich.
 
-
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Propellergröße (Durchmesser)}
 \renewcommand{\englischertitel}{Propeller Size (Diameter)}
-
 \makrounterabschnitt
-
 \label{AbschnittPropellerDurchmesser}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Die Propellergröße bestimmt, einfach gesagt, wie viel Luft bewegt wird. 
 
 Die Angegebene Propellergröße ist immer der Durchmesser in Zoll. Die Propeller müssen zum verwendeten Rahmen (siehe Abschnitt~\ref{AbschnittFrames}) passen.  
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
-\switchcolumn
-\selectlanguage{ngerman}
+TBD 
 
+\colger
 
 Kleinere Propeller sind wendiger. Das bedeutet, dass schnellere Reaktion auf Steuerbefehle möglich sind. Die Drohne reagiert agiler. Der Grund dafür ist, dass kleinere Propeller einen geringeren Luftwiderstand haben und insgesamt leichter sind. Sie haben eine geringere Rotationsmasse (Trägheitsmoment). Dadurch kann der Motor die Drehzahl schneller erhöhen oder verringern. Da kleinere Propeller typischerweise mit kleineren Motoren mit höherem KV-Wert kombiniert sind, drehen sie zusätzlich schneller, was Die Agilität bzw. das Ansprechverhalten erneut steigert.
 
+\coleng
 
-\switchcolumn*
-\selectlanguage{english}
+TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Größere Propeller erzeugen mehr Schub und haben eine bessere Effizienz. Zudem machen Sie den Flug ruhiger -- auf Kosten der Agilität. Mit der Propellergröße steigt auch die Belastung für die Motoren und die Motorsteuerung (ESC), denn die größere Blattfläche erzeugt einen höheren Luftwiderstand. Zudem haben größere Propeller ein höheres Eigengewicht.
 
-
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Anzahl der Blätter}
 \renewcommand{\englischertitel}{Number of Blades}
-
 \makrounterabschnitt
-
 \label{AbschnittPropellerAnzahlBlaetter}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Es gibt Propeller mit 2 bis 8 Blättern. Je weniger Blätter ein Propeller hat, desto höher sind die erreichbare Geschwindigkeit und Effizienz (Schub pro aufgenommenem Watt oder pro Ampere). Mit steigender Anzahl an Blättern verbessern sich Kontrolle, Laufruhe und Beschleunigung und gleichzeitig auch der Stromverbrauch. 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Für Long-Range-Anwendungen, bei denen Effizienz das Maß aller Dinge ist, kommen in der Regel 2-Blatt-Propeller zum Einsatz. Racing- und Freestyle-Drohnen sind häufig mit 3-Blatt-Propellern ausgestattet. Cinewhoop verwenden häufig Propeller mit 5 oder mehr Blättern, da diese möglichst stabil in der Luft liegen und präzise steuerbar sein sollen.
 
-
-\end{paracol}
-
-
+\colend
 
 \renewcommand{\deutschertitel}{Steigung (Pitch)} 
 \renewcommand{\englischertitel}{Pitch}
-
 \makrounterabschnitt
-
 \label{AbschnittPropellerPitch}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Neben der Anzahl der Propeller beeinflusst auch die Steigung (Pitch) der Blätter die Geschwindigkeit und die Effizienz (Stromverbrauch). Ein niedriger Pitch ist durch den geringeren Luftwiederstand effizienter bei Schweben und führt zu ruhigerem Flugverhalten. Ein hoher Pitch ermöglicht eine höhere Geschwindigkeit und aggressivere Flugmanöver, steigert aber auch den Stromverbrauch. 
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Der Pitch wird in Zoll angegeben und beschreibt den Vortrieb pro Umdrehung, also wie weit sich der Propeller bei einer Umdrehung durch die Luft schrauben würde, wenn es keine Schlupfverluste gäbe.
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
-Bei einem Pitch von 4,3'' pro Umdrehung und 3000\,U/min gibt es einen theoretischen Weg von von \(3000 \times 4,3 = 12.900\,Zoll/min\). Ein Zoll entspricht 25,4\,mm. Somit ist der theoretischen Weg pro Zeit, also die Geschwindigkeit: \(12.900\times 0,0254 \approx 327,7\,m/min\) bzw. \(327,7\,m/min / 60 \approx 5,46\,m/s\).
+Bei einem Pitch von 4,3 Zoll pro Umdrehung und 3000\,U/min gibt es einen theoretischen Weg von von \(3000 \times 4,3 = 12.900\,Zoll/min\). Ein Zoll entspricht 25,4\,mm. Somit ist der theoretischen Weg pro Zeit, also die Geschwindigkeit: \(12.900\times 0,0254 \approx 327,7\,m/min\) bzw. \(327,7\,m/min / 60 \approx 5,46\,m/s\).
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
-Diese theoretischen Werte werden in der Realität durch Schlupfverluste um 20-30\% verringert. Der Grund dafür ist die Physik der Luftströmung. Luft ist kein festes Medium, sondern gibt nach und ist beweglich. Durch dieses ausweichen und verwirbeln, \textsl{rutscht} immer ein Teil der Luft weg und der Propeller erreicht in der Praxis weniger Vortrieb als in der Theorie. 
+Diese theoretischen Werte werden in der Realität durch Schlupfverluste um 20-30\% verringert. Der Grund dafür ist, das Luft kein festes Medium ist, sondern beweglich ist. Durch das Ausweichen und Verwirbeln, \textsl{rutscht} immer ein Teil der Luft weg und der Propeller erreicht in der Praxis weniger Vortrieb als in der Theorie. 
 
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Akkus}
 \renewcommand{\englischertitel}{Batteries}
-
 \makroabschnitt
-
 \label{AbschnittAkkus}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Klassischerweise verwenden FPV-Drohnen Lithium-Polymer (LiPo) oder Lithium-Ionen-Akkus (Li-Ion). Unterschieden werden die Akkus zudem hinsichtlich Kapazität (mAh), Spannung (Zellenzahl) und Entladespannung bzw. C-Wert (\textsl{Capacity Rate}), und Stecker. 
 
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Lade- oder Entladerate (C-Wert)}
 \renewcommand{\englischertitel}{Charge and Discharge Rate (C-Rate)}
-
 \makrounterabschnitt
-
 \label{AbschnittCWertAkkus}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Die Akkus bestehen aus einer oder mehreren in Reihe geschalteten Zellen und bieten sehr hohe C-Werte von 75 bis 120\,C. Der C-Wert (\textsl{Capacity Rate}) gibt an, wie schnell ein Akku entladen werden kann.
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Bei einem 1500\,mAh LiPo-Akku (siehe Abbildung~\ref{AbbildungLiPoAkku}) mit einem C-Wert 100 können somit \(1,5 A * 100 = 150\) Ampere dauerhaft abgegeben werden. 
 
-\end{paracol}
+\colend
 
 \begin{figure}[htbp]
   \centering
@@ -780,39 +642,31 @@ Bei einem 1500\,mAh LiPo-Akku (siehe Abbildung~\ref{AbbildungLiPoAkku}) mit eine
   \label{AbbildungLiPoAkku}
 \end{figure}
 
-\begin{paracol}{2}[]
-\selectlanguage{english}
+\colstart
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 Für sehr rasante Flugmanöver braucht man solche hohen Ströme. Für typische Anwendungen in Lehre und Forschungsprojekten ist das aber uninteressant. Patrouillenflüge oder gar das Verharren an einer Position zur Datensammlung erfordern keine hohen C-Werte. 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 LiPo-Akkus haben mehrere Nachteile. Die werden sehr leicht tiefentladen, was sie dauerhaft beschäftigt oder zerstört. Abstürze führen auch häufig zu Beschädigungen und bei unsachgemäßer Handhabung wie dem zu schnellen Laden oder dem Betrieb trotz Beschädigungen der Außenhülle, besteht das latente Risiko von Bränden. Eine deutlich robustere Alternative zu LiPo-Akkus sind Lithium-Ionen-Akkus. Diese bieten allerdings viel geringere C-Werte.
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Der C-Wert gibt auch die empfohlene Laderate an. Diese ist 1\,C, wenn der Hersteller nicht dediziert eine höhere Laderate wie z.B. 2\,C freigegeben hat. Bei dem eingangs erwähnten 1500\,mAh LiPo-Akku entspricht 1\,C Laderate einem Strom von 1,5\,A und dementsprechend dauert es eine Stunde den Akku vollständig zu laden. Das ist aber ein hypothetischer Wert, da ein derart tiefentladener Akku nicht mehr geladen werden kann.
 
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Anzahl der Zellen (S4/S6)}
 \renewcommand{\englischertitel}{Number of Cells (S4/S6)}
@@ -821,27 +675,21 @@ Der C-Wert gibt auch die empfohlene Laderate an. Diese ist 1\,C, wenn der Herste
 
 \label{AbschnittSWertAkkusZellen}
 
-
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 LiPo-Akkus enthalten eine oder mehrere in Reihe geschaltete Zellen. Der sogenannte S-Wert bei Akkus definiert die Anzahl der Zellen. Jede LiPo-Zelle hat eine Nennspannung von ca. 3,7\,V. (voll geladen ca. 4,2\,V, entladen ca. 3,0\,V). Sind mehrere Zellen in Reihe geschaltet, addieren sich die Spannungen. 
 
-
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Die gängigsten Akkus sind 4S und 6S. Bei einem 4S-Akku sind 4 Zellen in Reihe geschaltet. Die Nennspannung ist \(4 \times 3,7\,V = 14,8\,V\). Ist ein solcher Akku voll geladen ist seine Spannung 16,8\,V. Eine Übersieht über die verschiedenen LiPo-Akkus enthält Tabelle~\ref{TabelleAkkus}).
 
-\end{paracol}
+\colend
 
 \begin{table}[htb!]
 \centering
@@ -861,124 +709,89 @@ S6            & 6     & 22.2\,V          & 25.2,V       & 18.0\,V        \\
 \end{tabular}
 \end{table}
 
-
-\begin{paracol}{2}[]
-\selectlanguage{english}
+\colstart
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Bei einer höheren Spannung braucht ein Motor bei gleicher Leistung weniger Strom und läuft effizienter. S6-Komponenten sind leistungsstärker aber auch schwerer und teurer. Größere oder leistungsorientierte Drohnen verwenden meist 6S-Akkus. Kleinere und mittlere Drohnen verwenden meist S4-Akkus und entsprechende leichtgewichtige Komponenten.
 
-
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Mit steigender Kapazität eines Akkus steigt nicht nur die Flugdauer, sondern auch das Gesamtgewicht. Sehr kleine S4-Akkus mit 450\,mAh Kapazität wiegen ca. 60\,g. Der in Abbildung~\ref{AbbildungLiPoAkku} gezeigte Akku mit 1500\,mAh Kapazität wiegt hingegen ca. 185\,g. Ein höheres Gesamtgewicht beeinflusst auch das Flugverhalten. 
 
-\end{paracol}
+\colend
 
 \renewcommand{\deutschertitel}{Stecker (XT30/XT60/XT90) zum Entladen und Laden}
 \renewcommand{\englischertitel}{Plugs (XT30/XT60/XT90) for Discharge and Charge}
-
 \makrounterabschnitt
-
 \label{AbschnittSteckerAkkus}
-
-
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Der Anschluss der Akkus an den Flugcontroller geschieht in der Regel über einen XT30- oder alternativ über eine XT60-Gleichstromstecker. Es gibt auch sehr große Akkus mit XT90-Stecker. Zwei Kabel mit einer Buchse sind an die Motorsteuerung (bei einem Stack) oder an den Flugcontroller bei einem AIO angelötet (siehe Abschnitt~\ref{AbschnittFC}). 
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
-Bei kleinen und leichten Drohnen bis zu einer Größe von 4''sind XT30-Buchsen üblich. 5'' und 6'' Drohnen verwenden üblicherweise XT60-Buchsen. Noch größe Drohnen verwenden häufig XT90-Buchen. Je größer die Zahl, desto größere Ströme verträgt der Stecker. Größere Buchsen und Stecker sind allerdings auch größer und schwerer. Auch der Leitungsquerschnitt muss zu den Buchen passen. 
+Bei kleinen und leichten Drohnen bis zu einer Größe von 4\,Zoll sind XT30-Buchsen üblich. 5- und 6-Zoll-Drohnen verwenden üblicherweise XT60-Buchsen. Noch größe Drohnen verwenden häufig XT90-Buchen. Je größer die Zahl, desto größere Ströme verträgt der Stecker. Größere Buchsen und Stecker sind allerdings auch größer und schwerer. Auch der Leitungsquerschnitt muss zu den Buchen passen. 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Neben den Gleichstromstecker verfügt jeder Akku mit zwei oder mehr Zellen über einen Balancerstecker zum sicheren Laden. Dieser Stecker, der bei modernen Akkus meist der Norm JST-XHR entspricht, ermöglicht es dem Ladegerät die Zellspannung jeder einzelnen Zelle zu messen und den Ladevorgang entsprechend zu steuern. Die Anzahl der Pins entspricht der Anzahl der Zellen plus eins (wegen der gemeinsamen Masse). Ein 4S-Akku hat somit fünf Leitungen und ein 6S-Akku hat sieben Leitungen. Durch die Werte, die über den Balancerstecker ausgelesen werden, gleicht das Ladegerät die Spannung der einzelnen Zellen an. Das verhindert die Überladung einzelner Zellen beim Ladevorgang und damit das Riskio für eine Beschädigung des Akkos oder sogar einen Brand und beugt einer Tiefentladung einzelner Zellen beim späteren Betrieb vor.
 
-
-
-\end{paracol}
-
-
-
+\colend
 
 \renewcommand{\deutschertitel}{GPS}
 \renewcommand{\englischertitel}{GPS}
-
 \makroabschnitt
-
 \label{AbschnittGPS}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Ein GPS-Modul (Global Positioning System) ist obligatorisch für viele nützliche Funktionen wie zum Beispiel Return-to-Home (automatisches Heimfliegen), Geschwindigkeitsmessung, Bestimmung der Höhe, Unterstützung der Positionshaltung, autonomer Flug, etc. 
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 Nicht jedes GPS-Modul ist mit allen gängigen Firmwares für Flugcontroller kompatibel. Während Betaflight quasi jedes GPS-Modul unterstützt, ist das bei INAV und ArduPilot nicht der Fall. 
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Verfügt ein GPS-Modul nur für sechs Anschlüsse (Lötpads oder Kabel), enthält es einen magnetischen Kompass. Verfügt das Modul allerdings nur über vier Anschlüsse, fehlt der magnetische Kompass. Ohne magnetischen Kompass weiß eine Drohne aber ohne Vorwärtsbewegung nicht, wie sie positioniert ist, also in welche Richtung sie schaut. Mehrere sinnvolle Funktionen wie GPS-Position-Hold bei Ardupilot sind dann nicht möglich.
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 Gängige GPS-Module (siehe Abbildung~\ref{AbbildungLiPoAkku}) mit integriertem magnetischem Kompass sind in der Regel zwischen 20x20\,mm und 25x25\,mm groß. 
 
-
-\end{paracol}
+\colend
 
 \begin{figure}[htbp]
   \centering
@@ -999,51 +812,40 @@ Gängige GPS-Module (siehe Abbildung~\ref{AbbildungLiPoAkku}) mit integriertem m
 
 \renewcommand{\deutschertitel}{Empfänger}
 \renewcommand{\englischertitel}{Receiver}
-
 \makroabschnitt
-
 \label{AbschnittReceiver}
 
+TBD
 
-
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Der Empfänger nimmt die Steuersignale (verschiedene Kanalwerte) der Fernsteuerung entgegen und gibt Sie an den Flugcontroller weiter. Der Empfänger demoduliert die empfangenen Signale und wandelt sie in digitale Kanalwerte um. 
 
-
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Empfänger und Fernbedienung müssen zueinander kompatibel sein. Das bedeutet Sie müssen das gleiche Protokoll und den gleichen Frequenzbereich nutzen. Die gängigen Systeme nutzen die Frequenzbereiche 2.4 GHz und für Long-Range-Anwendungen 868\,MHz in der EU bzw. 915\,MHz in den USA. In Deutschland ist die Nutzung dieser Frequenzbereiche bei einer maximalen Sendeleistung von 25\,mW zulässig.
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
-
+\colger
 
 Zwei populäre Protokolle sind das offene System ExpressLRS (ELRS) und das proprietäre TBS Crossfire. Da ELRS ein Open-Source-Protokoll ist, gibt es zahlreiche Anbieter für Hardwarekomponenten und die Weiterentwicklung ist schnell. Aus diesem Grund fokussiert dieses Dokument ganz auf den Standard ELRS. ELRS-Geräte (Sender und Empfänger) nutzen als Firmware ExpressLRS. Idealerweise verwenden Sender und Empfänger die gleichen Firmware-Version.
 
-\switchcolumn*
-\selectlanguage{english}
+\coleng
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
 
 Es gibt Empfänger mit einer festen Antenne aus Keramik (siehe Abbildung~\ref{AbbildungRadioMasterRP2}), die auf der Platine integriert ist, und Empfänger mit einem (siehe Abbildung~\ref{AbbildungRadioMasterRP1}) oder zwei Anschlüssen für abnehmbare Antennen. Der üblicherweise verwendete Steckverbinder ist auch hier das filigrane U.FL (\textsl{Pigtail}). Empfänger mit fester Keramikantenne sind kompakter, da kein Antennenkabel verlegt werden muss. Durch die nur wenige mm hohe Antenne reduziert sich allerdings die Reichweite signifikant.
 
-\end{paracol}
+\colend
 
 \begin{figure}[htbp]
   \centering
@@ -1078,29 +880,23 @@ Es gibt Empfänger mit einer festen Antenne aus Keramik (siehe Abbildung~\ref{Ab
 \end{figure}
 
 
-
 \renewcommand{\deutschertitel}{Fernbedienung (Sender)}
 \renewcommand{\englischertitel}{Remote Control (Sender)}
-
 \makroabschnitt
-
 \label{AbschnittSender}
-
-
-
-\switchcolumn
-\selectlanguage{ngerman}
-
-Die verwendet Fernbedienung muss muss das gleiche Protokoll implementieren wie der verwendete Empfänger. Zudem müssen die gleichen Frequenzbereiche verwendet werden. Zu den Herstellern von zum ELRS-Protokoll kompatiblen Fernbedienungen gehören RadioMaster, Axisflying und Jumper. 
-
-\switchcolumn*
-\selectlanguage{english}
 
 TBD
 
-\switchcolumn
-\selectlanguage{ngerman}
+\colger
+
+Die verwendet Fernbedienung muss muss das gleiche Protokoll implementieren wie der verwendete Empfänger. Zudem müssen die gleichen Frequenzbereiche verwendet werden. Zu den Herstellern von zum ELRS-Protokoll kompatiblen Fernbedienungen gehören RadioMaster, Axisflying und Jumper. 
+
+\coleng
+
+TBD
+
+\colger
 
 ELRS-Fernbedienungen (Sender) nutzen als Firmware für das Funkprotokoll und das Sender-Modul ExpressLRS und als Betriebssystem EdgeTX, eine modernere Form von OpenTX. EdgeTX erzeugt sozusagen die Steuersignale und ExpressLRS überträgt sie.
 
-\end{paracol}
+\colend
