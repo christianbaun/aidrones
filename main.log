@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  18 SEP 2025 12:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  18 SEP 2025 12:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1044,8 +1044,8 @@ Writing index file main.idx
 \c@deutschestocdepth=\count370
 \cftbeforedeutschestoctitleskip=\skip145
 \cftafterdeutschestoctitleskip=\skip146
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 30
-0.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 21
+7.
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1061,34 +1061,34 @@ LaTeX Warning: Label `AbbildungLiPoAkku' multiply defined.
 ) (./chapter02.aux) (./chapter03.aux) (./glossary.aux) (./bibliography.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 300.
-LaTeX Font Info:    ... okay on input line 300.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 300.
-LaTeX Font Info:    ... okay on input line 300.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 300.
-LaTeX Font Info:    ... okay on input line 300.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 300.
-LaTeX Font Info:    ... okay on input line 300.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 300.
-LaTeX Font Info:    ... okay on input line 300.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 300.
-LaTeX Font Info:    ... okay on input line 300.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 300.
-LaTeX Font Info:    ... okay on input line 300.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 300.
-LaTeX Font Info:    ... okay on input line 300.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 300.
-LaTeX Font Info:    ... okay on input line 300.
-Package scrbase Info: activating english \partname on input line 300.
-Package scrbase Info: activating english \chaptername on input line 300.
-Package scrbase Info: activating english \appendixname on input line 300.
-Package scrbase Info: activating english \figurename on input line 300.
-Package scrbase Info: activating english \tablename on input line 300.
-Package scrbase Info: activating english \contentsname on input line 300.
-Package scrbase Info: activating english \listfigurename on input line 300.
-Package scrbase Info: activating english \listtablename on input line 300.
-Package scrbase Info: activating english \bibname on input line 300.
-Package scrbase Info: activating english \indexname on input line 300.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+Package scrbase Info: activating english \partname on input line 217.
+Package scrbase Info: activating english \chaptername on input line 217.
+Package scrbase Info: activating english \appendixname on input line 217.
+Package scrbase Info: activating english \figurename on input line 217.
+Package scrbase Info: activating english \tablename on input line 217.
+Package scrbase Info: activating english \contentsname on input line 217.
+Package scrbase Info: activating english \listfigurename on input line 217.
+Package scrbase Info: activating english \listtablename on input line 217.
+Package scrbase Info: activating english \bibname on input line 217.
+Package scrbase Info: activating english \indexname on input line 217.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1146,7 +1146,7 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 300.
+Package hyperref Info: Link coloring OFF on input line 217.
 (./main.out) (./main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
@@ -1158,7 +1158,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 300.
+(scrbook)           before \begin{document} on input line 217.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -1168,23 +1168,23 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 )
 \BKM@id=\count378
 ))
-LaTeX Info: Redefining \microtypecontext on input line 300.
-Package microtype Info: Applying patch `item' on input line 300.
-Package microtype Info: Applying patch `toc' on input line 300.
-Package microtype Info: Applying patch `eqnum' on input line 300.
+LaTeX Info: Redefining \microtypecontext on input line 217.
+Package microtype Info: Applying patch `item' on input line 217.
+Package microtype Info: Applying patch `toc' on input line 217.
+Package microtype Info: Applying patch `eqnum' on input line 217.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 300.
+Package microtype Warning: Unable to apply patch `footnote' on input line 217.
 
-Package microtype Info: Applying patch `verbatim' on input line 300.
-LaTeX Info: Redefining \microtypesetup on input line 300.
+Package microtype Info: Applying patch `verbatim' on input line 217.
+LaTeX Info: Redefining \microtypesetup on input line 217.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 300.
+LaTeX Info: Redefining \showhyphens on input line 217.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1198,7 +1198,7 @@ Package caption Info: rotating package is loaded.
 Package caption Info: sidecap package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count379
-Package tocbasic Info: setting babel extension for `lol' on input line 300.
+Package tocbasic Info: setting babel extension for `lol' on input line 217.
 \scr@dte@lstlisting@maxnumwidth=\skip147
 
 
@@ -1595,12 +1595,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26171 strings out of 475052
- 481127 string characters out of 5762548
- 1085020 words of memory out of 5000000
+ 26092 strings out of 475052
+ 480384 string characters out of 5762548
+ 1084969 words of memory out of 5000000
  48340 multiletter control sequences out of 15000+600000
  629136 words of font info for 153 fonts, out of 8000000 for 9000
- 143 hyphenation exceptions out of 8191
+ 64 hyphenation exceptions out of 8191
  108i,20n,121p,10899b,1227s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{section*.79} has been referenced but does not exist
