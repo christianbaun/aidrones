@@ -29,6 +29,7 @@
 \usepackage{pdflscape}   % \begin{landscape} ... \end{landscape}
 \usepackage{textcomp}
 \usepackage{lmodern}
+\usepackage[official]{eurosym}% Eurosymbol: \euro{}
 \usepackage{icomma} % Das verhindert einen großen Abstand nach einem Komma in Formeln.
 % Quelle: https://texfragen.de/komma_in_formel
 
@@ -275,8 +276,8 @@ methods
 \include{chapter01}
 \include{chapter02}
 \include{chapter03}
-% \include{chapter04}
-
+\include{chapter04}
+\include{chapter05}
 
 \backmatter 
 
@@ -287,8 +288,6 @@ methods
 
 % \cleardoublepage
 \phantomsection
-
-
 
 \apptocmd{\thebibliography}{\csname phantomsection\endcsname
 \renewcommand{\bibname}{References}\addcontentsline{toc}{chapter}{References}\addcontentsline{deutschestoc}{chapter}{Literatur}}{}{}

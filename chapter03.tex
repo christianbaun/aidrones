@@ -1,18 +1,9 @@
-\renewcommand{\deutschertitel}{KI-Drohnen-Projekte}
-\renewcommand{\englischertitel}{AI Drone Projects}
-
-% !!! Das hier war vorher !!!
-% \chapter[\englischertitel]{\englischertitel\newline\deutschertitel}
-% !!! Das hier war vorher !!!
-
-
-% Das vspace fügt im Inhaltsverzeichnis einen kleinen Abstand unter dem Kapiteleintrag ein.
-% Beim deutschen Inhaltsverzeichnis ist es im book.tex an nur einer Stelle in der Zeile 
-% \addcontentsline{deutschestoc}{chapter}{\protect{\vspace{2pt}\thechapter}~#1}}
+\renewcommand{\deutschertitel}{Objekterkennung}
+\renewcommand{\englischertitel}{Object Detection}
 \chapter[\protect{\vspace{2pt}\englischertitel}]{}
 \kapitel{\deutschertitel}
 
-\label{KapitelKI}
+\label{KapitelObjekterkennung}
 
 \begin{paracol}{2}[]
 
@@ -28,19 +19,6 @@ TBD
 
 \colger
 
-Dieses Kapitel beschreibt KI-Anwendungen, die FPV-Drohnen zur Datenerfassung und/oder als Tarnsportvehikel nutzen. Vorgestellt werden Anwendungen, die in Forschungsprojekten, Lehrveranstaltungen und Abschlussarbeiten in der Lehreinheit Informatik an der Frankfurt University of Applied Sciences entwickelt, implementiert und evaluiert wurde. Das Kapitel beschreibt zu jeder dieser KI-Anwendungen die benötigten zusätzlichen Hard- und Softwarekomponenten, nötige Schritte zur Realisierung und die Kosten.
-
-\colende
-
-\renewcommand{\deutschertitel}{Objekterkennung}
-\renewcommand{\englischertitel}{Object Detection}
-\makroabschnitt
-\label{AbschnittObjekterkennung}
-
-TBD
-
-\colger
-
 Objekterkennung ist eine der bekanntesten KI-Anwendungen. Zu den bekanntesten quelloffenen Softwarelösungen, die Objekterkennung ermöglichten, gehören das Framework TensorFlow (Lite) für Maschinelles Lernen in Zusammenarbeit mit der Bibliothek OpenCV (\textsl{Open Computer Vision}) zur Bildverarbeitung und Objekterkennung. Eine alternative Lösung ist das Objekterkennungs-Framework (\textsl{You Only Look Once}).
 
 \coleng
@@ -49,7 +27,99 @@ TBD
 
 \colger
 
-Prinzipiell ist es möglich die nötige Hard- und Software als zusätzliche Komponenten in der Drohne zu integrieren und diese Komponenten mitfliegen zu lassen. Alternativ kann auch das Livebild am Boden erfasst und zur weiteren Verarbeitung in einen Computer geleitet werden. Eine einfache Möglichkeit, auf das Livebild zuzugreifen, bietet die eventuell vorhandene AV-Schnittstelle der Videobrille. Das Videosignal kann mit Hilfe eines Videograbbers digitalisiert und an einen Computer zur Verarbeitung weitergeleitet werden.
+Objekterkennung mit FPV-Drohnen kann auf zwei grundsätzliche Methoden implementiert werden. Beide Realisierungskonzepte haben Vor- und Nachteile, deren Gewichtung u.a. von den finanziellen Möglichkeiten, den verfügbaren Hardwarekomponenten, der Entfernung von Drohne und Benutzer, der Anzahl der Drohnen und nicht zuletzt den persönlichen Präferenzen abhängt.
+
+\coleng
+
+\begin{itemize}
+\item TBD
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textbf{Realisierungskonzept Edge-Knoten:} Die KI-Funktionalität erbringt ein Computer, der mit der Drohne mitfliegt. Diese Alternative beschreibt Abschnitt~\ref{AbschnittObjekterkennungHuckepack}. Die Anschaffung zusätzlicher Hardware verursacht immer Kosten und macht die Drohne schwerer. Zudem benötigt zusätzliche Hardware Strom, was die Flugzeit reduziert. Ist ein Akkus mit höherer Kapazität erforderlich, steigt das Gewicht der Drohne zusätzlich. Vorteile dieses Realisierungskonzepts sind die potentiell sehr gute Skalierbarkeit. Die Verarbeitung der Sensordaten findet auf der Drohne statt. Nur die Ergebnisse (aggregierten Daten) müssen während des Drohnenflugs oder danach abgerufen. Dadurch reduziert sich die zu übertragene Datenmenge drastisch. Es halt sich somit um eine Variante des Edge-Computing. Besonders wichtig ist eine drastische Reduktion der zu übertragenen Daten in Szenarien mit mehreren Drohnen, die gleichzeitig fliegen und Daten sammeln, also Objekte erkennen sollen.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item TBD
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textbf{Realisierungskonzept Übertragung aller Live-Daten:} Die KI-Funktionalität erbringt ein Computer am Boden indem er Zugriff auf das Livebild hat. Diese Alternative beschreibt Abschnitt~\ref{AbschnittObjekterkennungVideoGrabber}. Eine einfache Möglichkeit der Implementierung eröffnet eine Videobrille mit AV-Schnittstelle und ein Videograbber. Vorteile dieses Realisierungskonzepts sind, dass es die Drohne nicht schwerer macht und die geringen zusätzlichen Anschaffungskosten, da ein Videograbber nur 15-20\,\euro{} kostet. Zusätzliche Übertragungskapazitäten fallen bei diesem Implementierungskonzept nicht, wenn man davon ausgeht, dass die genutzten Drohne in jedem Fall Ihr Livebild über einen der verfügbaren Kanäle überträgt. Die Auswirkung dieser Sensordaten findet allerdings zentral auf einem Computer statt. In Szenarien mit mehreren Drohnen, die gleichzeitig fliegen und Daten sammeln, kann der Ressourcenaufwand der Datenauswertung, also der Objekterkennung, signifikant ansteigen und zusätzliche KI-Hardware am Boden erfordern. 
+\end{itemize}
+
+\colende
+
+\renewcommand{\deutschertitel}{Objekterkennung mit zusätzlicher Hardware an der Drohne}
+\renewcommand{\englischertitel}{Object Detection by addition Hardware on the Drone}
+\makroabschnitt
+\label{AbschnittObjekterkennungHuckepack}
+
+TBD
+
+\colger
+
+Es ist möglich, die zur Objekterkennung nötige Hard- und Software als zusätzliche Komponenten in der Drohne zu integrieren und diese Komponenten mitfliegen zu lassen. Sinnvollerweise handelt es sich dabei um einen platz- und stromsparenden Einplatinencomputer. Tabelle~\ref{TabelleRaspberryPiUnterschiede} zeigt die unterschiedlichen Dimensionen und Strombedarfe verschiedener Generationen des Einplatinencomputers Raspberry\,Pi.
+
+\colende
+
+\begin{table}[htb!]
+\centering
+\captionabove{Generations of the Raspberry\,Pi Single-Board Computer}
+\label{TabelleRaspberryPiUnterschiede}
+\setlength{\tabcolsep}{5pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.0} % Default
+\begin{tabular}{lcrlrrr}
+\toprule
+Generation   & CPU Cores   & \multicolumn{1}{c}{RAM}       & \multicolumn{1}{c}{Size}    &  \multicolumn{1}{c}{Weight}  & \multicolumn{1}{c}{Power Usage} & \multicolumn{1}{c}{Power Usage} \\
+                       &               &     &      &      & \multicolumn{1}{c}{(idle)} &  \multicolumn{1}{c}{(peak)} \\
+\midrule
+Pi Zero W    & 1\,\(@\)\,1000\,MHz  & 512\,MB  & 65x30x5\,mm   & \(\sim 9\)\,g  & \(\sim\)\,120\,mAh & \(\sim\)\,350\,mAh \\
+Pi Zero 2 W  & 4\,\(@\)\,1000\,MHz  & 512\,MB  & 65x30x5\,mm   & \(\sim 10\)\,g & \(\sim\)\,140\,mAh & \(\sim\)\,600\,mAh \\
+Pi 3 B+      & 4\,\(@\)\,1200\,MHz  & 1\,GB    & 85x56x16\,mm  & \(\sim 50\)\,g & \(\sim\)\,500\,mAh & \(\sim\)\,1400\,mAh \\
+Pi 4 B       & 4\,\(@\)\,1500\,MHz  & 1-8\,GB  & 85x56x16\,mm  & \(\sim 50\)\,g & \(\sim\)\,600\,mAh & \(\sim\)\,1500\,mAh \\
+Pi 5         & 4\,\(@\)\,2400\,MHz  & 2-16\,GB & 85x56x16\,mm  & \(\sim 70\)\,g & \(\sim\)\,700\,mAh & \(\sim\)\,2500\,mAh \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\colstart
+
+TBD
+
+\colger
+
+Im Vergleich zu den etwa scheckkartengroßen Modellreihen sind die Raspberry Zero Modelle deutliche kleiner, leichter und brauchen weniger Strom. Die Prozessorleistung des Raspberry Pi\,2\,W ist auch ausreichend um gängige KI-Frameworks neben dem Betriebssystem zu betreiben. 
+
+\coleng
+
+TBD
+
+\colger
+
+
+Da ein Raspberry\,Pi Einplatinencomputer, egal welcher Baureihe, nicht über die Prozessorleistung verfügt, um Objekterkennung in einem Videoteam zu realisieren, ist eine zusätzliche Hardware zur Beschleunigung der KI-Anwendung nötig.  Beim hier vorgestellten Lösungsweg kommt zur Beschleunigung ein Google Coral TPU Accelerator zum Einsatz. Dieser 2019 erschienene KI-Beschleuniger bietet 4\,Billionen Operationen pro Sekunde (Tera-operations per second -- TOPS), verbraucht je nach Geschwindigkeitseinstellung ca.\,500-900\,mAh und ist nur 65x30x8\,mm groß. Das Gewicht dieses KI-Beschleunigers ist ca.\,20\,g. Zusätzlich ist noch ein USB-Kabel zum Anschluss nötig, das weitere 10-15\,g wiegt. Der Kaufpreis ist ca. 80-90\,\euro{}.
+
+\coleng
+
+TBD
+
+\colger
+
+Da es nicht möglich ist, über den Flugcontroller oder über den VTX das Livebild der FPV-Kamera auch an Raspberry Pi weiterzuleiten, muss die Drohne eine weitere, zum Einplatinencomputer kompatible Kamera transportieren. Eine einfache und kostengünstige Lösung sind die Raspberry Pi Camera Module v1, v2 und v3. Diese unterscheiden sich primär in der Auflösung. Sie wiegen alle nur 3-4\,g und sind ähnlich groß (ca. 25x24x10\,mm). Alternativ kann auch die 2024 erschienene Raspberry Pi AI Camera verwendet werden. Diese enthält bereits einen KI-Beschleuniger, der 30 Bilder pro Sekunde zur Objekternennung verarbeiten kann. Der Kaufpreis der Raspberry Pi AI Camera ist mit ca. 80\,\euro{}. zwar höher als der der anderen Camera-Module, aber dafür kann Sie einen KI-Beschleunigers wie den Google Coral TPU Accelerator komplett ersetzen, was bei bei einem Gewicht von ca. 6\,g zu einer deutlichen Gewichtsersparnis und geringeren Gesamtkosten führt. 
+
+\coleng
+
+TBD
+
+\colger
+
+Aus verschiedenen Gründen wie kurzfristige Hardwareverfügbarkeit war es bislang nicht möglich, die Raspberry Pi AI Camera in ein Drohnen-Projekt zu integrieren. Aus diesem Grund verwendet der hier voreingestellte Lösungsweg den  Google Coral TPU Accelerator.
 
 \coleng
 
@@ -61,17 +131,30 @@ Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} zeigt die K
 
 \colende
 
-\begin{figure}[htb]
+\begin{figure}[htb!]
   \centering
     \includegraphics[width=\linewidth]{Komponenten_der_Drohne_Diagramm_v1_en.pdf}
   \caption{Components of a FPV Drone with additional Hardware Components for Object Detection by the Drone itself}
   \label{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral}
 \end{figure}
 
-\renewcommand{\deutschertitel}{Autopilot}
-\renewcommand{\englischertitel}{Auto Pilot}
-\makroabschnitt
-\label{AbschnittAutopilot}
+\renewcommand{\deutschertitel}{Aufbau und Implementierung}
+\renewcommand{\englischertitel}{Construction and Implementation}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungImplementierungHuckepack}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Kosten}
+\renewcommand{\englischertitel}{Cost}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungKostenHuckepack}
 
 TBD
 
@@ -82,11 +165,23 @@ TBD
 \colende
 
 
-
-\renewcommand{\deutschertitel}{Follow-Me-Function}
-\renewcommand{\englischertitel}{Follow Me Function}
+\renewcommand{\deutschertitel}{Objekterkennung durch Auswertung des Livebilds am Boden}
+\renewcommand{\englischertitel}{Object Detection by using the Live Image on the Ground}
 \makroabschnitt
-\label{AbschnittAutopilot}
+\label{AbschnittObjekterkennungVideoGrabber}
+
+TBD
+
+\colger
+
+Eine einfache Möglichkeit, auf das Livebild zuzugreifen, bietet die eventuell vorhandene AV-Schnittstelle der Videobrille. Das Videosignal kann mit Hilfe eines Videograbbers digitalisiert und an einen Computer zur Verarbeitung weitergeleitet werden.
+
+\colende
+
+\renewcommand{\deutschertitel}{Aufbau und Implementierung}
+\renewcommand{\englischertitel}{Construction and Implementation}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungImplementierungVideoGrabber}
 
 TBD
 
@@ -95,3 +190,17 @@ TBD
 TBD
 
 \colende
+
+\renewcommand{\deutschertitel}{Kosten}
+\renewcommand{\englischertitel}{Cost}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungKostenVideoGrabber}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+

@@ -31,7 +31,12 @@
 \contentsline {subsection}{{2.2.1}~EdgeTX}{28}{subsection.2.2.1}%
 \contentsline {section}{{2.3}~Sendemodul- und Empfänger-Firmware}{28}{section.2.3}%
 \contentsline {subsection}{{2.3.1}~ExpressLRS}{28}{subsection.2.3.1}%
-\contentsline {chapter}{{\vspace {2pt}3}~KI-Drohnen-Projekte}{29}{chapter.3}%
-\contentsline {section}{{3.1}~Objekterkennung}{29}{section.3.1}%
-\contentsline {section}{{3.2}~Autopilot}{30}{section.3.2}%
-\contentsline {section}{{3.3}~Follow-Me-Function}{30}{section.3.3}%
+\contentsline {chapter}{{\vspace {2pt}3}~Objekterkennung}{29}{chapter.3}%
+\contentsline {section}{{3.1}~Objekterkennung mit zusätzlicher Hardware an der Drohne}{30}{section.3.1}%
+\contentsline {subsection}{{3.1.1}~Aufbau und Implementierung}{32}{subsection.3.1.1}%
+\contentsline {subsection}{{3.1.2}~Kosten}{33}{subsection.3.1.2}%
+\contentsline {section}{{3.2}~Objekterkennung durch Auswertung des Livebilds am Boden}{33}{section.3.2}%
+\contentsline {subsection}{{3.2.1}~Aufbau und Implementierung}{33}{subsection.3.2.1}%
+\contentsline {subsection}{{3.2.2}~Kosten}{33}{subsection.3.2.2}%
+\contentsline {chapter}{{\vspace {2pt}4}~Autopilot}{35}{chapter.4}%
+\contentsline {chapter}{{\vspace {2pt}5}~Follow-Me-Function}{37}{chapter.5}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  20 SEP 2025 11:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  21 SEP 2025 23:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -386,6 +386,10 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/eurosym/eurosym.sty
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box59
+)
 (/usr/share/texlive/texmf-dist/tex/latex/was/icomma.sty
 Package: icomma 2002/03/10 v2.0 (WaS)
 )
@@ -599,7 +603,7 @@ Class scrbook Warning: Usage of package `tocloft' together
 (scrbook)              `part', `section', `subsection',
 (scrbook)              `subsubsection', `paragraph' and `subparagraph'.
 (scrbook)              Nevertheless, using requested
-(scrbook)              package `tocloft' on input line 51.
+(scrbook)              package `tocloft' on input line 52.
 
 (/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
@@ -660,12 +664,12 @@ Package: paracol 2024/10/22 1.36 typeset columns in parallel
 \pagerim=\dimen190
 \pcol@topskip=\skip107
 \belowfootnoteskip=\skip108
-\pcol@topfnotes=\box59
-\pcol@prespan=\box60
-\pcol@rightpage=\box61
-\pcol@colorstack@saved=\box62
-\pcol@tempboxa=\box63
-\pcol@tempboxb=\box64
+\pcol@topfnotes=\box60
+\pcol@prespan=\box61
+\pcol@rightpage=\box62
+\pcol@colorstack@saved=\box63
+\pcol@tempboxa=\box64
+\pcol@tempboxb=\box65
 \pcol@colorins=\insert252
 \pcol@everyvbox=\toks29
 )
@@ -673,7 +677,7 @@ Package: paracol 2024/10/22 1.36 typeset columns in parallel
 Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
 \FV@CodeLineNo=\count319
 \FV@InFile=\read3
-\FV@TabBox=\box65
+\FV@TabBox=\box66
 \c@FancyVerbLine=\count320
 \FV@StepNumber=\count321
 \FV@OutFile=\write3
@@ -689,26 +693,26 @@ Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \LTpost=\skip112
 \LTchunksize=\count322
 \LTcapwidth=\dimen191
-\LT@head=\box66
-\LT@firsthead=\box67
-\LT@foot=\box68
-\LT@lastfoot=\box69
-\LT@gbox=\box70
+\LT@head=\box67
+\LT@firsthead=\box68
+\LT@foot=\box69
+\LT@lastfoot=\box70
+\LT@gbox=\box71
 \LT@cols=\count323
 \LT@rows=\count324
 \c@LT@tables=\count325
 \c@LT@chunks=\count326
 \LT@p@ftn=\toks30
 )
-Class scrbook Info: longtable captions redefined on input line 55.
+Class scrbook Info: longtable captions redefined on input line 56.
 
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count327
 \float@exts=\toks31
-\float@box=\box71
+\float@box=\box72
 \@float@everytoks=\toks32
-\@floatcapt=\box72
+\@floatcapt=\box73
 )
 (/usr/share/texlive/texmf-dist/tex/latex/verbatimbox/verbatimbox.sty
 Package: verbatimbox 2023/08/08 v3.2\ Routines for placing verbatim text into b
@@ -753,18 +757,18 @@ sep char (CT)
 
 readarray: bounds checking OFF
 )
-\savedverbbox=\box73
+\savedverbbox=\box74
 \c@VerbboxLineNo=\count338
 \boxtopsep=\dimen192
 \boxbottomsep=\dimen193
 \ps@tempdima=\dimen194
-\ps@tempboxa=\box74
+\ps@tempboxa=\box75
 \boxtop@sep=\skip113
 \boxbottom@sep=\skip114
 ) (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
 \MT@toks=\toks37
-\MT@tempbox=\box75
+\MT@tempbox=\box76
 \MT@count=\count339
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
 LaTeX Info: Redefining \leftprotrusion on input line 1088.
@@ -864,7 +868,7 @@ Package: sidecap 2023/01/24 v1.7a SideCap Package (RN/HjG)
 \SC@tempdima=\dimen266
 \SC@tempdimb=\dimen267
 \c@SC@C=\count346
-\SC@BOX=\box76
+\SC@BOX=\box77
 )
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
@@ -919,12 +923,12 @@ Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
 \c@r@tfl@t=\count349
 \rotFPtop=\skip138
 \rotFPbot=\skip139
-\rot@float@box=\box77
+\rot@float@box=\box78
 \rot@mess@toks=\toks39
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count350
-\lst@gtempboxa=\box78
+\lst@gtempboxa=\box79
 \lst@token=\toks40
 \lst@length=\count351
 \lst@currlwidth=\dimen273
@@ -943,7 +947,7 @@ File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 \c@lstnumber=\count356
 \lst@skipnumbers=\count357
-\lst@framebox=\box79
+\lst@framebox=\box80
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2024/09/23 1.10c listings configuration
@@ -974,7 +978,7 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
 \c@tracingmulticols=\count359
-\mult@box=\box80
+\mult@box=\box81
 \multicol@leftmargin=\dimen277
 \c@unbalance=\count360
 \c@collectmore=\count361
@@ -987,15 +991,14 @@ Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
 \postmulticols=\dimen281
 \multicolsep=\skip140
 \multicolbaselineskip=\skip141
-\partial@page=\box81
-\last@line=\box82
-\mc@boxedresult=\box83
+\partial@page=\box82
+\last@line=\box83
+\mc@boxedresult=\box84
 \maxbalancingoverflow=\dimen282
-\mult@rightbox=\box84
-\mult@grightbox=\box85
-\mult@firstbox=\box86
-\mult@gfirstbox=\box87
-\@tempa=\box88
+\mult@rightbox=\box85
+\mult@grightbox=\box86
+\mult@firstbox=\box87
+\mult@gfirstbox=\box88
 \@tempa=\box89
 \@tempa=\box90
 \@tempa=\box91
@@ -1031,14 +1034,15 @@ Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
 \@tempa=\box121
 \@tempa=\box122
 \@tempa=\box123
+\@tempa=\box124
 \c@minrows=\count365
 \c@columnbadness=\count366
 \c@finalcolumnbadness=\count367
 \last@try=\dimen283
 \multicolovershoot=\dimen284
 \multicolundershoot=\dimen285
-\mult@nat@firstbox=\box124
-\colbreak@box=\box125
+\mult@nat@firstbox=\box125
+\colbreak@box=\box126
 \mc@col@check@num=\count368
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
@@ -1047,7 +1051,7 @@ Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
 \ESO@tempdimb=\dimen287
 )
 
-Package array Warning: Column Z is already defined on input line 113.
+Package array Warning: Column Z is already defined on input line 114.
 
 \de@idxfile=\write4
 \openout4 = `de.idx'.
@@ -1065,60 +1069,57 @@ Writing index file main.idx
 \cftbeforedeutschestoctitleskip=\skip145
 \cftafterdeutschestoctitleskip=\skip146
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 21
-6.
+7.
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count371
-\l__pdf_internal_box=\box126
+\l__pdf_internal_box=\box127
 )
 (./main.aux (./chapter00.aux) (./chapter01.aux
 
 LaTeX Warning: Label `AbbildungLiPoAkku' multiply defined.
 
-) (./chapter02.aux) (./chapter03.aux
-
-LaTeX Warning: Label `AbschnittAutopilot' multiply defined.
-
-) (./glossary.aux) (./bibliography.aux))
+) (./chapter02.aux) (./chapter03.aux) (./chapter04.aux) (./chapter05.aux)
+(./glossary.aux) (./bibliography.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 216.
-LaTeX Font Info:    ... okay on input line 216.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 216.
-LaTeX Font Info:    ... okay on input line 216.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 216.
-LaTeX Font Info:    ... okay on input line 216.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 216.
-LaTeX Font Info:    ... okay on input line 216.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 216.
-LaTeX Font Info:    ... okay on input line 216.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 216.
-LaTeX Font Info:    ... okay on input line 216.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 216.
-LaTeX Font Info:    ... okay on input line 216.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 216.
-LaTeX Font Info:    ... okay on input line 216.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 216.
-LaTeX Font Info:    ... okay on input line 216.
-Package scrbase Info: activating english \partname on input line 216.
-Package scrbase Info: activating english \chaptername on input line 216.
-Package scrbase Info: activating english \appendixname on input line 216.
-Package scrbase Info: activating english \figurename on input line 216.
-Package scrbase Info: activating english \tablename on input line 216.
-Package scrbase Info: activating english \contentsname on input line 216.
-Package scrbase Info: activating english \listfigurename on input line 216.
-Package scrbase Info: activating english \listtablename on input line 216.
-Package scrbase Info: activating english \bibname on input line 216.
-Package scrbase Info: activating english \indexname on input line 216.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 217.
+LaTeX Font Info:    ... okay on input line 217.
+Package scrbase Info: activating english \partname on input line 217.
+Package scrbase Info: activating english \chaptername on input line 217.
+Package scrbase Info: activating english \appendixname on input line 217.
+Package scrbase Info: activating english \figurename on input line 217.
+Package scrbase Info: activating english \tablename on input line 217.
+Package scrbase Info: activating english \contentsname on input line 217.
+Package scrbase Info: activating english \listfigurename on input line 217.
+Package scrbase Info: activating english \listtablename on input line 217.
+Package scrbase Info: activating english \bibname on input line 217.
+Package scrbase Info: activating english \indexname on input line 217.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count372
 \scratchdimen=\dimen288
-\scratchbox=\box127
+\scratchbox=\box128
 \nofMPsegments=\count373
 \nofMParguments=\count374
 \everyMPshowfont=\toks43
@@ -1170,7 +1171,7 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 216.
+Package hyperref Info: Link coloring OFF on input line 217.
 (./main.out) (./main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
@@ -1182,7 +1183,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 216.
+(scrbook)           before \begin{document} on input line 217.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -1192,23 +1193,23 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 )
 \BKM@id=\count378
 ))
-LaTeX Info: Redefining \microtypecontext on input line 216.
-Package microtype Info: Applying patch `item' on input line 216.
-Package microtype Info: Applying patch `toc' on input line 216.
-Package microtype Info: Applying patch `eqnum' on input line 216.
+LaTeX Info: Redefining \microtypecontext on input line 217.
+Package microtype Info: Applying patch `item' on input line 217.
+Package microtype Info: Applying patch `toc' on input line 217.
+Package microtype Info: Applying patch `eqnum' on input line 217.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 216.
+Package microtype Warning: Unable to apply patch `footnote' on input line 217.
 
-Package microtype Info: Applying patch `verbatim' on input line 216.
-LaTeX Info: Redefining \microtypesetup on input line 216.
+Package microtype Info: Applying patch `verbatim' on input line 217.
+LaTeX Info: Redefining \microtypesetup on input line 217.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 216.
+LaTeX Info: Redefining \showhyphens on input line 217.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1222,7 +1223,7 @@ Package caption Info: rotating package is loaded.
 Package caption Info: sidecap package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count379
-Package tocbasic Info: setting babel extension for `lol' on input line 216.
+Package tocbasic Info: setting babel extension for `lol' on input line 217.
 \scr@dte@lstlisting@maxnumwidth=\skip147
 
 
@@ -1325,38 +1326,34 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 ]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 83.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 99.
 )
 
-[6] (./main.toc)
-\tf@toc=\write7
-\openout7 = `main.toc'.
-
-
+[6] (./main.toc
 
 [7
 
 
 
 
-]
+])
+\tf@toc=\write7
+\openout7 = `main.toc'.
 
-[8
 
 
-] (./main.deutschestoc)
+[8] (./main.deutschestoc
+
+[9
+
+
+])
 \tf@deutschestoc=\write8
 \openout8 = `main.deutschestoc'.
 
 
 
-[9]
-
-[10
-
-
-
-]
+[10]
 \openout2 = `chapter01.aux'.
 
  (./chapter01.tex
@@ -1375,7 +1372,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
  []
 
-<./images/Komponenten_einer_FPV_Drohne_ohne_KI_v1_en.pdf, id=157, 2873.73625pt 
+
+LaTeX Warning: Reference `KapitelKI' on page 1 undefined on input line 34.
+
+<./images/Komponenten_einer_FPV_Drohne_ohne_KI_v1_en.pdf, id=172, 2873.73625pt 
 x 1885.0425pt>
 File: ./images/Komponenten_einer_FPV_Drohne_ohne_KI_v1_en.pdf Graphic file (typ
 e pdf)
@@ -1384,6 +1384,9 @@ Package pdftex.def Info: ./images/Komponenten_einer_FPV_Drohne_ohne_KI_v1_en.pd
 f  used on input line 47.
 (pdftex.def)             Requested size: 418.25368pt x 274.34526pt.
 [1
+
+
+
 
 
 
@@ -1402,7 +1405,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
 
 [4]
-<./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg, id=213, 1003.75p
+<./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg, id=227, 1003.75p
 t x 1003.75pt>
 File: ./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg Graphic file
  (type jpg)
@@ -1410,7 +1413,7 @@ File: ./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg Graphic file
 Package pdftex.def Info: ./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_cr
 op.jpg  used on input line 252.
 (pdftex.def)             Requested size: 200.75996pt x 200.76175pt.
-<./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg, id=214, 1003.75pt
+<./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg, id=228, 1003.75pt
  x 1003.75pt>
 File: ./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg Graphic file 
 (type jpg)
@@ -1418,13 +1421,13 @@ File: ./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg Graphic file
 Package pdftex.def Info: ./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_cro
 p.jpg  used on input line 257.
 (pdftex.def)             Requested size: 200.75996pt x 200.76175pt.
-<./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg, id=218, 2007.5pt x 1003.75pt>
+<./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg, id=232, 2007.5pt x 1003.75pt>
 File: ./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg Graphic file (type jpg)
 <use ./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg>
 Package pdftex.def Info: ./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg  used o
 n input line 276.
 (pdftex.def)             Requested size: 418.25368pt x 209.12428pt.
-<./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg, id=219, 2007.5pt x 1003.75pt>
+<./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg, id=233, 2007.5pt x 1003.75pt>
 File: ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg Graphic file (type jpg)
 <use ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg>
 Package pdftex.def Info: ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg  used on
@@ -1433,7 +1436,7 @@ Package pdftex.def Info: ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg  used on
  [5 <./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg> <./images/Sp
 eedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg>] [6 <./images/SpeedyBee_F405_
 Mini_BLS_35A_front.jpg>]
-<./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_front.jpg, id=239, 1003.75pt x 1003.7
+<./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_front.jpg, id=253, 1003.75pt x 1003.7
 5pt>
 File: ./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_front.jpg Graphic file (type jpg
 )
@@ -1441,7 +1444,7 @@ File: ./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_front.jpg Graphic file (type jpg
 Package pdftex.def Info: ./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_front.jpg  us
 ed on input line 321.
 (pdftex.def)             Requested size: 200.75996pt x 200.76175pt.
-<./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_back.jpg, id=240, 1003.75pt x 1003.75
+<./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_back.jpg, id=254, 1003.75pt x 1003.75
 pt>
 File: ./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_back.jpg Graphic file (type jpg)
 
@@ -1482,7 +1485,7 @@ Underfull \hbox (badness 1960) in paragraph at lines 620--621
 \T1/lmr/m/n/10 (+20) Akkus (Li-Ion). Un-ter-schie-den wer-den die
  []
 
-<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg, id=301, 3468.96pt x 2312.64
+<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg, id=315, 3468.96pt x 2312.64
 pt>
 File: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg Graphic file (type jpg)
 
@@ -1490,7 +1493,7 @@ File: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg  use
 d on input line 670.
 (pdftex.def)             Requested size: 200.75996pt x 133.81209pt.
-<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg, id=302, 3468.96pt x 2312.64p
+<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg, id=316, 3468.96pt x 2312.64p
 t>
 File: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg Graphic file (type jpg)
 <use ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg>
@@ -1499,13 +1502,13 @@ Package pdftex.def Info: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg  used
 (pdftex.def)             Requested size: 200.75996pt x 133.81209pt.
 [13] [14 <./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg> <./images/CNHL_150
 0mAh_100C_4S_XT60_Lipo_back.jpg>] [15] [16]
-<./images/HGLRS_GPS_M100_PRO_front.jpg, id=336, 702.625pt x 702.625pt>
+<./images/HGLRS_GPS_M100_PRO_front.jpg, id=350, 702.625pt x 702.625pt>
 File: ./images/HGLRS_GPS_M100_PRO_front.jpg Graphic file (type jpg)
 <use ./images/HGLRS_GPS_M100_PRO_front.jpg>
 Package pdftex.def Info: ./images/HGLRS_GPS_M100_PRO_front.jpg  used on input l
 ine 854.
 (pdftex.def)             Requested size: 200.75996pt x 200.75409pt.
-<./images/HGLRS_GPS_M100_PRO_back.jpg, id=337, 752.8125pt x 752.8125pt>
+<./images/HGLRS_GPS_M100_PRO_back.jpg, id=351, 752.8125pt x 752.8125pt>
 File: ./images/HGLRS_GPS_M100_PRO_back.jpg Graphic file (type jpg)
 <use ./images/HGLRS_GPS_M100_PRO_back.jpg>
 Package pdftex.def Info: ./images/HGLRS_GPS_M100_PRO_back.jpg  used on input li
@@ -1513,28 +1516,28 @@ ne 859.
 (pdftex.def)             Requested size: 200.75996pt x 200.75792pt.
  [17 <./images/HGLRS_GPS_M100_PRO_front.jpg> <./images/HGLRS_GPS_M100_PRO_back.
 jpg>]
-<./images/RadioMaster_RP2_Receiver_ELRS_front.jpg, id=346, 352.31625pt x 439.64
+<./images/RadioMaster_RP2_Receiver_ELRS_front.jpg, id=360, 352.31625pt x 439.64
 25pt>
 File: ./images/RadioMaster_RP2_Receiver_ELRS_front.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP2_Receiver_ELRS_front.jpg>
 Package pdftex.def Info: ./images/RadioMaster_RP2_Receiver_ELRS_front.jpg  used
  on input line 908.
 (pdftex.def)             Requested size: 100.37997pt x 125.25916pt.
-<./images/RadioMaster_RP2_Receiver_ELRS_back.jpg, id=347, 351.3125pt x 439.6425
+<./images/RadioMaster_RP2_Receiver_ELRS_back.jpg, id=361, 351.3125pt x 439.6425
 pt>
 File: ./images/RadioMaster_RP2_Receiver_ELRS_back.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP2_Receiver_ELRS_back.jpg>
 Package pdftex.def Info: ./images/RadioMaster_RP2_Receiver_ELRS_back.jpg  used 
 on input line 913.
 (pdftex.def)             Requested size: 100.37997pt x 125.6147pt.
-<./images/RadioMaster_RP1_Receiver_ELRS_front.jpg, id=348, 351.3125pt x 439.642
+<./images/RadioMaster_RP1_Receiver_ELRS_front.jpg, id=362, 351.3125pt x 439.642
 5pt>
 File: ./images/RadioMaster_RP1_Receiver_ELRS_front.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP1_Receiver_ELRS_front.jpg>
 Package pdftex.def Info: ./images/RadioMaster_RP1_Receiver_ELRS_front.jpg  used
  on input line 924.
 (pdftex.def)             Requested size: 100.37997pt x 125.6147pt.
-<./images/RadioMaster_RP1_Receiver_ELRS_back.jpg, id=349, 351.3125pt x 439.6425
+<./images/RadioMaster_RP1_Receiver_ELRS_back.jpg, id=363, 351.3125pt x 439.6425
 pt>
 File: ./images/RadioMaster_RP1_Receiver_ELRS_back.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP1_Receiver_ELRS_back.jpg>
@@ -1543,7 +1546,7 @@ on input line 929.
 (pdftex.def)             Requested size: 100.37997pt x 125.6147pt.
  [18 <./images/RadioMaster_RP2_Receiver_ELRS_front.jpg> <./images/RadioMaster_R
 P2_Receiver_ELRS_back.jpg>]
-<./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg, id=360, 853.1875pt x 85
+<./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg, id=374, 853.1875pt x 85
 3.1875pt>
 File: ./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg Graphic file (type 
 jpg)
@@ -1551,7 +1554,7 @@ jpg)
 Package pdftex.def Info: ./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg 
  used on input line 975.
 (pdftex.def)             Requested size: 200.75996pt x 200.75946pt.
-<./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg, id=361, 853.1875pt x 853
+<./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg, id=375, 853.1875pt x 853
 .1875pt>
 File: ./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg Graphic file (type j
 pg)
@@ -1571,7 +1574,7 @@ Underfull \hbox (badness 1199) in paragraph at lines 1150--1151
 \T1/lmr/m/n/10 (+20) oder 19mm (Micro-Kamera) brei-te. Ab-bil-
  []
 
-<./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_top.jpg, id=384, 552.0625pt x 552.
+<./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_top.jpg, id=398, 552.0625pt x 552.
 0625pt>
 File: ./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_top.jpg Graphic file (type jp
 g)
@@ -1579,7 +1582,7 @@ g)
 Package pdftex.def Info: ./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_top.jpg  u
 sed on input line 1159.
 (pdftex.def)             Requested size: 100.37997pt x 100.3778pt.
-<./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_back.jpg, id=385, 552.0625pt x 552
+<./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_back.jpg, id=399, 552.0625pt x 552
 .0625pt>
 File: ./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_back.jpg Graphic file (type j
 pg)
@@ -1587,7 +1590,7 @@ pg)
 Package pdftex.def Info: ./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_back.jpg  
 used on input line 1164.
 (pdftex.def)             Requested size: 100.37997pt x 100.3778pt.
-<./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_top.jpg, id=386, 752.8125pt x 75
+<./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_top.jpg, id=400, 752.8125pt x 75
 2.8125pt>
 File: ./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_top.jpg Graphic file (type 
 jpg)
@@ -1595,7 +1598,7 @@ jpg)
 Package pdftex.def Info: ./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_top.jpg 
  used on input line 1175.
 (pdftex.def)             Requested size: 100.37997pt x 100.37321pt.
-<./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_back.jpg, id=387, 752.8125pt x 7
+<./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_back.jpg, id=401, 752.8125pt x 7
 52.8125pt>
 File: ./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_back.jpg Graphic file (type
  jpg)
@@ -1614,15 +1617,15 @@ ano_1200TVL_14mm_165FOV_back.jpg>] [23 <./images/RunCam_Phoenix_2_1000TVL_19mm_
 chapter 2.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\new@ifnextchar' on input line 12.
+(hyperref)                removing `\new@ifnextchar' on input line 3.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
@@ -1633,8 +1636,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
-3.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
+4.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1655,15 +1658,15 @@ Package microtype Info: Loading generic protrusion settings for font family
 chapter 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\new@ifnextchar' on input line 12.
+(hyperref)                removing `\new@ifnextchar' on input line 3.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
@@ -1674,17 +1677,97 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
 
 ]
-<./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf, id=464, 4076.22874pt x 188
+Overfull \hbox (1.17847pt too wide) in paragraph at lines 77--89
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30]
+Underfull \hbox (badness 1014) in paragraph at lines 106--107
+\T1/lmr/m/n/10 (+20) je nach Ge-schwin-dig-keitseinstel-lung ca.500-
+ []
+
+[31]
+<./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf, id=493, 4076.22874pt x 188
 5.0425pt>
 File: ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf Graphic file (type pdf
 )
 <use ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>
 Package pdftex.def Info: ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf  us
-ed on input line 66.
+ed on input line 136.
 (pdftex.def)             Requested size: 418.25368pt x 193.40506pt.
+
+
+[32 <./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>])
+
+[33]
+\openout2 = `chapter04.aux'.
+
+ (./chapter04.tex
+
+[34
+
+
+
+
+
+]
+chapter 4.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 3.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
 )
 
-[30 <./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>]
+[35]
+\openout2 = `chapter05.aux'.
+
+ (./chapter05.tex
+
+[36
+
+
+
+
+
+]
+chapter 5.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 3.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+)
+
+[37]
+
+[38
+
+
+
+
+]
 \openout2 = `glossary.aux'.
 
 
@@ -1695,11 +1778,15 @@ No file bibliography.tex.
 runsystem(makeindex main.idx)...executed safely (allowed).
 
 (./main.ind) (./main.aux (./chapter00.aux) (./chapter01.aux) (./chapter02.aux)
-(./chapter03.aux) (./glossary.aux) (./bibliography.aux))
+(./chapter03.aux) (./chapter04.aux) (./chapter05.aux) (./glossary.aux)
+(./bibliography.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1708,31 +1795,32 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26779 strings out of 475052
- 493872 string characters out of 5762548
- 1116739 words of memory out of 5000000
- 48936 multiletter control sequences out of 15000+600000
- 650671 words of font info for 183 fonts, out of 8000000 for 9000
+ 26941 strings out of 475052
+ 496925 string characters out of 5762548
+ 1117556 words of memory out of 5000000
+ 49057 multiletter control sequences out of 15000+600000
+ 650882 words of font info for 185 fonts, out of 8000000 for 9000
  64 hyphenation exceptions out of 8191
  108i,20n,119p,10899b,1207s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{section*.108} has been referenced but does not exis
+pdfTeX warning (dest): name{section*.115} has been referenced but does not exis
 t, replaced by a fixed one
 
-</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type
-1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr
-/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/t
-ype1/public/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></
-usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type
-1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (37 pages, 22595799 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
+12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/publ
+ic/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share
+/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (45 pages, 22621308 bytes).
 PDF statistics:
- 731 PDF objects out of 1000 (max. 8388607)
- 602 compressed objects within 7 object streams
- 182 named destinations out of 1000 (max. 500000)
- 56223 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 811 PDF objects out of 1000 (max. 8388607)
+ 672 compressed objects within 7 object streams
+ 202 named destinations out of 1000 (max. 500000)
+ 56263 words of extra memory for PDF output out of 61914 (max. 10000000)
 
