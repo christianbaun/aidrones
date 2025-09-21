@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  21 SEP 2025 23:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  21 SEP 2025 23:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1696,7 +1696,7 @@ File: ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf Graphic file (type pdf
 )
 <use ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>
 Package pdftex.def Info: ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf  us
-ed on input line 136.
+ed on input line 142.
 (pdftex.def)             Requested size: 418.25368pt x 193.40506pt.
 
 
@@ -1817,7 +1817,7 @@ ic/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (45 pages, 22621308 bytes).
+Output written on main.pdf (45 pages, 22621296 bytes).
 PDF statistics:
  811 PDF objects out of 1000 (max. 8388607)
  672 compressed objects within 7 object streams
