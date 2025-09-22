@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  22 SEP 2025 20:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  22 SEP 2025 20:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1768,18 +1768,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [33 <./images/Intel_Neuronal_Compute_Stick2_front.png> <./images/Intel_Neurona
 l_Compute_Stick2_back.png>]
-<./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf, id=522, 4076.22874pt x 188
+Underfull \hbox (badness 2671) in paragraph at lines 243--244
+\T1/lmr/m/n/10 (+20) con-trol-ler ver-fügt nur über sechs UART-
+ []
+
+[34]
+<./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf, id=530, 4076.22874pt x 188
 5.0425pt>
 File: ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf Graphic file (type pdf
 )
 <use ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>
 Package pdftex.def Info: ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf  us
-ed on input line 249.
+ed on input line 257.
 (pdftex.def)             Requested size: 418.25368pt x 193.40506pt.
- [34]
-Overfull \hbox (1.32286pt too wide) in paragraph at lines 298--299
+
+Overfull \hbox (1.32286pt too wide) in paragraph at lines 306--307
  [][] 
  []
+
+
 
 [35 <./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>])
 
@@ -1896,10 +1903,10 @@ ic/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (47 pages, 27651433 bytes).
+Output written on main.pdf (47 pages, 27652384 bytes).
 PDF statistics:
- 847 PDF objects out of 1000 (max. 8388607)
- 700 compressed objects within 7 object streams
+ 849 PDF objects out of 1000 (max. 8388607)
+ 701 compressed objects within 8 object streams
  211 named destinations out of 1000 (max. 500000)
  56291 words of extra memory for PDF output out of 61914 (max. 10000000)
 

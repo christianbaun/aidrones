@@ -240,6 +240,14 @@ TBD
 
 \colger
 
+Der Verwendete SpeedyBee F405 AIO Flugcontroller verfügt nur über sechs UART-Schnittstellen. Dieses lässt, wie in  Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} gezeigt, nur wenig weiteren Spielraum. Videosender (UART3), GPS-Modul (UART5), Empfänger (UART6) benötigen jeweils eine UART-Schnittstelle. Ebenso wird für die Administration über die WLAN- und USB-Schnittstellen (UART1) eine UART-Schnittstelle belegt. Von den beiden restlichen Schnittstellen unterstützt UART2 nur Simplex-Betrieb (nur-lesen). Damit verbleibt eine einzige vollwertige (bidirektionale) UART-Schnittstelle zum Anschluss des Raspberry Pi Zero\,2\,W. Darüber ist es möglich, Kommandos zwischen Flugcontroller und Einplatinencomputer auszutauschen.
+
+\coleng
+
+TBD
+
+\colger
+
 Ein Nachteil des Google Coral TPU Accelerator ist, dass der Hersteller keine weiteren Ressourcen in die Weiterentwicklung der Treiber und Bibliotheken investiert. Die benötigte Python-Bibliothek PyCoral, die auf TensorFlow Lite dahingehend erweitert, dass es mit der Google Coral TPU zusammenarbeiten kann, unterstützt maximal Python 3.9. Neue Versionen sind nicht mehr zu erwarten. Die Installation auf Raspberry Pi OS (32-bit) Bullseye (Debian 11) ist empfehlenswert, da dort die Coral-Pakete mit pycoral zuverlässig funktionieren. Neuere Betriebssysteme auf Basis von Debian 12 oder 13 sind sehr schwierig zu realisieren.
 
 \colende
@@ -307,7 +315,6 @@ TBD
 Die Komponenten in Tabelle~\ref{TabelleDrohne35GoogleCoral} betreffen ausschließlich die nötigen Komponenten der Drohne selbst. Weiteres benötigtes Zubehör wir Fernbedienung, FPV-Brille, und Ladegerät müssen bereits vorhanden sein oder zusätzlich beschafft werden. Die Preise der einzelnen Komponenten hängen auch von persönlichen Präferenzen und finanziellen Möglichkeiten ab. 
 
 \colende
-
 
 \renewcommand{\deutschertitel}{Objekterkennung durch Auswertung des Livebilds am Boden}
 \renewcommand{\englischertitel}{Object Detection by using the Live Image on the Ground}
