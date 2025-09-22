@@ -102,16 +102,7 @@ TBD
 
 \colger
 
-
-Da ein Raspberry\,Pi Einplatinencomputer, egal welcher Baureihe, nicht über die Prozessorleistung verfügt, um Objekterkennung in einem Videoteam zu realisieren, ist eine zusätzliche Hardware zur Beschleunigung der KI-Anwendung nötig.  Beim hier vorgestellten Lösungsweg kommt zur Beschleunigung ein Google Coral TPU Accelerator zum Einsatz. Dieser 2019 erschienene KI-Beschleuniger bietet 4\,Billionen Operationen pro Sekunde (Tera-operations per second -- TOPS), verbraucht je nach Geschwindigkeitseinstellung ca.\,500-900\,mAh und ist nur 65x30x8\,mm groß. Das Gewicht dieses KI-Beschleunigers ist ca.\,20\,g. Zusätzlich ist noch ein USB-Kabel zum Anschluss nötig, das weitere 10-15\,g wiegt. Der Kaufpreis ist ca. 80-90\,\euro{}.
-
-\coleng
-
-TBD
-
-\colger
-
-Da es nicht möglich ist, über den Flugcontroller oder über den VTX das Livebild der FPV-Kamera auch an Raspberry Pi weiterzuleiten, muss die Drohne eine weitere, zum Einplatinencomputer kompatible Kamera transportieren. Eine einfache und kostengünstige Lösung sind die Raspberry Pi Camera Module v1, v2 und v3. Diese unterscheiden sich primär in der Auflösung. Sie wiegen alle nur 3-4\,g und sind ähnlich groß (ca. 25x24x10\,mm). Alternativ kann auch die 2024 erschienene Raspberry Pi AI Camera verwendet werden. Diese enthält bereits einen KI-Beschleuniger, der 30 Bilder pro Sekunde zur Objekternennung verarbeiten kann. Der Kaufpreis der Raspberry Pi AI Camera ist mit ca. 80\,\euro{}. zwar höher als der der anderen Camera-Module, aber dafür kann Sie einen KI-Beschleunigers wie den Google Coral TPU Accelerator komplett ersetzen, was bei bei einem Gewicht von ca. 6\,g zu einer deutlichen Gewichtsersparnis und geringeren Gesamtkosten führt. 
+Da es nicht möglich ist, über den Flugcontroller oder über den VTX das Livebild der FPV-Kamera auch an Raspberry Pi weiterzuleiten, muss die Drohne eine weitere, zum Einplatinencomputer kompatible Kamera transportieren. Eine einfache und kostengünstige Lösung sind die Raspberry Pi Camera Module v1, v2 und v3. Diese unterscheiden sich primär in der Auflösung. Sie wiegen alle nur 3-4\,g und sind ähnlich groß (ca. 25x24x10\,mm). Alternativ kann auch die Raspberry Pi AI Camera (siehe Abschnitt~\ref{AbschnittKIBeschleunigerVergleich}) verwendet werden.
 
 \coleng
 
@@ -119,10 +110,118 @@ TBD
 
 \colger
 
-Aus verschiedenen Gründen wie kurzfristige Hardwareverfügbarkeit war es bislang nicht möglich, die Raspberry Pi AI Camera in ein Drohnen-Projekt zu integrieren. Aus diesem Grund verwendet der hier voreingestellte Lösungsweg den Google Coral TPU Accelerator.
+Da ein Raspberry\,Pi Einplatinencomputer, egal welcher Baureihe, nicht über die Prozessorleistung verfügt, um Objekterkennung in einem Videoteam zu realisieren, ist eine zusätzliche Hardware zur Beschleunigung der KI-Anwendung nötig. Beim hier vorgestellten Lösungsweg kommt zur Beschleunigung ein Google Coral TPU Accelerator zum Einsatz. Der folgende Abschnitt beschreibt diesen und alternative Implementierungskonzepte.
 
 \colende
 
+\renewcommand{\deutschertitel}{Vergleich von KI-Beschleunigern}
+\renewcommand{\englischertitel}{Comparison of AI Accelerators}
+\makrounterabschnitt
+\label{AbschnittKIBeschleunigerVergleich}
+
+TBD
+
+\colger
+
+Dieser Abschnitt stellt die Vor- und Nachteile der KI-Beschleuniger Google Coral TPU Accelerator, Intel Neuronal Compute Stick\,2, Raspberry Pi AI Camera, und Raspberry Pi AI Hat vor. Eine Übersicht relevanter Informationen dazu enthält Tabelle~\ref{TabelleUnterschiedeCoralAICameraNCS2}. 
+
+\coleng
+
+TBD
+
+\colger
+
+Der 2019 erschienene Google Coral TPU Accelerator (siehe Abbildung~\ref{AbbildungGoogleCoralTPUAccelerator}) bietet 4\,Billionen Operationen pro Sekunde (Tera-operations per second -- TOPS), verbraucht je nach Geschwindigkeitseinstellung ca.\,500-900\,mAh und ist nur 65x30x8\,mm groß. Das Gewicht dieses KI-Beschleunigers ist ca.\,20\,g. Zusätzlich ist noch ein USB-Kabel zum Anschluss nötig, das weitere 10-15\,g wiegt. Der Kaufpreis ist ca. 80-90\,\euro{}. Ein Nachteil des Google Coral TPU Accelerator ist, dass der Hersteller seit 2022 keine signifikanten Ressourcen in die Weiterentwicklung der Treiber und Bibliotheken investiert hat und seitdem die Weiterentwicklung komplett zum Stillstand gekommen ist, was den Betrieb auf aktuellen und zukünftigen Betriebssystemen erschwert. 
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Google_Coral_TPU_Accelerator_front.pdf}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Google_Coral_TPU_Accelerator_back.pdf}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Google Coral TPU Accelerator (Front and Back)}
+  \label{AbbildungGoogleCoralTPUAccelerator}
+\end{figure}
+
+\colstart
+
+TBD
+
+\colger
+
+Ein alternativer KI-Beschleuniger, der auch über die USB-Schnittstelle angeschlossen wird, ist der 2019 erschienene Intel Neuronal Compute Stick\,2 -- NCS2 (siehe Abbildung~\ref{AbbildungIntelNCS2}). Dieser bietet ebenfalls 4\,TOPS, verbraucht je nach Geschwindigkeitseinstellung ca.\,200-500\,mAh, ist 73x28x14\,mm groß und wiegt (ohne ein Verlängerungskabel) ca.\,30\,g. Der Kaufpreis ist ca. 100\,\euro{}. Der NCS2 benötigt das Framework OpenVINO toolkit das freie Software ist und dessen Entwicklung von Intel vorangetrieben wird. Es konvertiert Modelle aus Frameworks wie TensorFlow (Lite), PyTorch, ONNX, Keras, und Caffe in ein für Intel-Hardware optimiertes Format und steuert die Ausführung auf kompatibler Hardware. Auch eine Zusammenarbeit mit verschiedenen Versionen von YOLO ist möglich. Neue Projekte mit dem NCS2 realisieren ist nicht empfehlenswert, da Intel die Unterstützung der Hardware mit OpenVINO 2022.3 eingestellt und seit 2022 keine signifikanten Ressourcen in die Weiterentwicklung der zum Betrieb nötigen Software investiert hat, was den Betrieb auf aktuellen und zukünftigen Betriebssystemen erschwert. 
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Intel_Neuronal_Compute_Stick2_front.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Intel_Neuronal_Compute_Stick2_back.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Intel Neuronal Compute Stick\,2 (Front and Back)}
+  \label{AbbildungIntelNCS2}
+\end{figure}
+
+\colstart
+
+TBD
+
+\colger
+
+Eine modernere Alternative zum Anschluss eines KI-Beschleuniger über die USB-Schnittstelle ist die 2024 erschienene Raspberry Pi AI Camera. Diese enthält bereits einen KI-Beschleuniger, dessen Leistungsfähigkeit in TOPS nicht bekannt ist, der aber der 30 Bilder pro Sekunde zur Objekternennung verarbeiten kann. Der Stromverbrauch ist je nach Betriebsart ca.\,300-600\,mAh  Der Kaufpreis der Raspberry Pi AI Camera ist mit ca. 80\,\euro{} zwar höher als der der anderen Camera-Module, aber dafür kann Sie einen KI-Beschleunigers wie den Google Coral TPU Accelerator komplett ersetzen, was bei bei einem Gewicht von ca. 6\,g zu einer deutlichen Gewichtsersparnis und geringeren Gesamtkosten führt. 
+
+\coleng
+
+TBD
+
+\colger
+
+Neben der Raspberry Pi AI Camera, die sich ideal für einen Einsatz mit dem Raspberry Pi Zero\,2\,W Einplatinencomputer eignet, gibt es von der Raspberry Pi Foundation noch die KI-Erweiterungen AI\,Kit und AI\,HAT+ in zwei verschiedenen Geschwindigkeitsausführungen. Alle drei Varianten sind Erweiterungsplatinen (sogenannte Hats) für den Raspberry Pi\,5. Das AI\,Kit kann einen KI-Beschleuniger als M.2-Erweiterungsmodul aufnehmen und wird mit einem KI-Beschleuniger Hailo-8L ausgeliefert, der 13\,TOPS schnell ist. Die beiden Geschwindigkeitsausführungen des AI\,HAT+ enthalten verlötete KI-Beschleuniger von Hailo und sind 13\,TOPS bzw. 26\,TOPS schnell. Diese drei HATs kosten ca. 80-120\,\euro{} und bieten eine starke KI-Leistung. Der Transport und die Stromversorgung eines Raspberry  Pi\,5 und eines solchen HATs wird in vielen Szenarien aber nicht praktikabel sein.
+
+\colende
+
+\begin{table}[htb!]
+\centering
+\captionabove{Options for additional Hardware on the Drone that accelerates AI Operations (Edge Computing Scenario)}
+\label{TabelleUnterschiedeCoralAICameraNCS2}
+\setlength{\tabcolsep}{3pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.0} % Default
+\begin{tabular}{llrrrrl}
+\toprule
+AI Hardware                     & Interface       & TOPS        & Weight           & Size [mm] & Power Usage  & \multicolumn{1}{c}{Support} \\
+\midrule
+Google Coral TPU                & USB 3.0         & 4           & \(\sim\)\,20\,g  & 65x30x8   & 500-900\,mAh & Discontinued  \\
+Intel NCS\,2                    & USB 3.0         & 4           & \(\sim\)\,30\,g  & 73x28x14  & 200-500\,mAh & Discontinued  \\
+RPi AI Camera                   & CSI             & ?           & \(\sim\)\,6\,g   & 25x24x10  & 300-600\,mAh & Active  \\
+RPi AI\,Kit/HAT+                & HAT (PCIe)      & 13          & \(\sim\)\,40\,g  & 65x57x6   & 400-800\,mAh & Active  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\colstart
+
+TBD
+
+\colger
+
+Aus verschiedenen Gründen wie kurzfristige Hardwareverfügbarkeit war es bislang nicht möglich, die Raspberry Pi AI Camera in ein Drohnen-Projekt zu integrieren. Aus diesem Grund verwendet der im nächsten Abschnitt voreingestellte Lösungsweg den Google Coral TPU Accelerator.
+
+\colende
 
 \renewcommand{\deutschertitel}{Aufbau und Implementierung}
 \renewcommand{\englischertitel}{Construction and Implementation}
@@ -135,6 +234,14 @@ TBD
 
 Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} zeigt die Komponenten der FPV-Drohne aus Abbildung~\ref{AbbildungKompoentenEinerDrohneOhneKI}, erweitert um die zur lokalen Bilderkennung nötigen Komponenten, nämlich den Raspberry Pi Einplatinencomputer, ein Kameramodul, den Google Coral TPU Accelerator und einen BEC zur Umwandlung der elektrischen Spannung des Akkus in 5\,V.
 
+\coleng
+
+TBD
+
+\colger
+
+Ein Nachteil des Google Coral TPU Accelerator ist, dass der Hersteller keine weiteren Ressourcen in die Weiterentwicklung der Treiber und Bibliotheken investiert. Die benötigte Python-Bibliothek PyCoral, die auf TensorFlow Lite dahingehend erweitert, dass es mit der Google Coral TPU zusammenarbeiten kann, unterstützt maximal Python 3.9. Neue Versionen sind nicht mehr zu erwarten. Die Installation auf Raspberry Pi OS (32-bit) Bullseye (Debian 11) ist empfehlenswert, da dort die Coral-Pakete mit pycoral zuverlässig funktionieren. Neuere Betriebssysteme auf Basis von Debian 12 oder 13 sind sehr schwierig zu realisieren.
+
 \colende
 
 \begin{figure}[htb!]
@@ -144,8 +251,8 @@ Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} zeigt die K
   \label{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral}
 \end{figure}
 
-\renewcommand{\deutschertitel}{Kosten}
-\renewcommand{\englischertitel}{Cost}
+\renewcommand{\deutschertitel}{Gesamtgewicht und Anschaffungskosten}
+\renewcommand{\englischertitel}{Total Weight and Purchase Cost}
 \makrounterabschnitt
 \label{AbschnittObjekterkennungKostenHuckepack}
 
@@ -153,9 +260,44 @@ TBD
 
 \colger
 
-TBD
+Zum Aufbau der Drohne empfiehlt sich ein Rahmen mit 3.5 bis 5 Zoll. Soll die Drohne auch innerhalb geschlossener Räume geflogen werden können, empfiehlt sich ein 3.5-Zoll-CineWhoop-Rahmen. Die in Rahmen eines Forschungsprojekts an der FRA-UAS verwendeten Komponenten enthält Tabelle~\ref{TabelleDrohne35GoogleCoral}.
 
 \colende
+
+\begin{table}[htb!]
+\centering
+\caption{Components of a Drone for Object Detection with a Raspberry Pi Zero\,2\,W and a Google Coral TPU Accelerator}
+\label{TabelleDrohne35GoogleCoral}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.0}
+
+\begin{spreadtab}{{tabular}{llrr}}
+\toprule
+@Product & @Category & @Weight [g] & @Price [\euro{}] \\
+\midrule
+@SpeedyBee Bee35 PRO 3.5                   & @Frame                  & 130  & 55 \\
+@SpeedyBee F405 AIO 40A 3-6S               & @Flight Controller      & 14   & 70 \\
+@Radiomaster RP1 2,4GHz                    & @Receiver               & 3    & 25 \\
+@Flywoo NIN 1404 V2 3750KV                 & @Motors                 & 40   & 65 \\
+@Gemfan D90-5 3.5 Inch Ducted 5-Blade      & @Propellers             & 4    & 3  \\
+@SpeedyBee TX800 VTX + SMA Adapter         & @Video Transmitter      & 10   & 40 \\
+@Foxeer Lollipop 4 RHCP SMA                & @FPV Antenna            & 5    & 20 \\
+@HGLRC M100-5883                           & @GPS and Compass        & 8    & 20 \\
+@Caddx Ratel Pro                           & @FPV Camera             & 10   & 55 \\
+@Li-Ion 2500mAh 4S1P 14,8V 12C             & @Battery                & 200  & 25 \\
+@Raspberry Pi Zero 2 WH                    & @Single-Board-Computer  & 10   & 20 \\
+@Raspberry Pi Zero case                    & @Case                   & 15   & 5  \\
+@32GB microSD card                         & @Storage                & 1    & 7  \\
+@Raspberry Pi Camera Module 8MP v2         & @Camera                 & 4    & 17 \\
+@Adafruit Camera Module case               & @Case                   & 8    & 5  \\
+@Google Coral TPU                          & @AI Hardware            & 20   & 85 \\
+@USB-C cable for Coral TPU                 & @Cable                  & 10   & 5  \\
+@Additional cables, straps and panels      & @Cables + fixing material                  & 10   & 5  \\
+\bottomrule
+@Sum & & sum(c2:c19) & sum(d2:d19) \\
+\end{spreadtab}
+\end{table}
+
 
 
 \renewcommand{\deutschertitel}{Objekterkennung durch Auswertung des Livebilds am Boden}
