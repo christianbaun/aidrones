@@ -155,6 +155,8 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 
 	\item Der Prozess des Flashens besteht aus zwei Schritten: Zunächst wird die Firmware geladen (online oder über ein File), dann wird das eigentliche Flashing über einen separaten Button gestartet. Das eigentliche Flashing sollte nicht unterbrochen werden.
 
+	\item TODO: Backup wieder einspielen.
+
 \end{enumerate}
 
 \colende
@@ -167,8 +169,64 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 TBD
 
 \colger
+% TODO: Add chapter for PID-Tuning guide and for INAV-SITL?
+Die Administration von INAV erfolgt ebenfalls über den \textsl{INAV Configurator}. Wenn die Software das erste mal installiert wurde, müssen einige Punkte konfiguriert werden, um das Fliegen initial zu ermöglichen.
 
-TBD
+Wird INAV zum ersten Mal nach der Installation aufgerufen erscheinen Fenster zum Setzen der \textsl{Default-Values} (Presets). Hier gilt es das Preset auszuwählen, was am nächsten an dem gebauten Modell dran ist. Danach können die UART-Ports (für GPS, VTX, etc.) konfiguriert werden. Dies kann allerdings auch über den Ports-Tab durchgeführt werden. Die weiteren Konfigurationsschritte gestalten sich wie folgt (TODO):
+
+\begin{enumerate}
+
+	\item Status-Tab
+
+	\item Calibration-Tab
+
+	\item Mixer-Tab
+
+	\item Outputs-Tab
+
+	\item Ports-Tab
+
+	\item Configuration-Tab
+
+	\item Failsafe-Tab
+
+	\item Receiver-Tab
+
+	\item GPS-Tab
+
+	\item Modes-Tab
+
+	\item OSD
+
+\end{enumerate}
+
+Darüber hinaus gibt es erweiterte Konfigurationsmöglichkeiten um die Performance der Drohne zu optimieren. Diese sind im folgenden kurz beschrieben (TODO):
+
+\begin{enumerate}
+
+	\item Tuning-Tab
+
+	\item Advanced-Tuning Tab
+
+	\item Programming
+
+	\item Adjustments-Tab
+
+	\item Alignment Tool
+
+	\item Mission Control
+
+	\item LED Strip
+
+	\item Sensors
+
+	\item Tethered Logging
+
+	\item Blackbox
+
+	\item CLI
+
+\end{enumerate}
 
 \colende
 
