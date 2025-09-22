@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  22 SEP 2025 17:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.26)  22 SEP 2025 20:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1781,8 +1781,6 @@ Overfull \hbox (1.32286pt too wide) in paragraph at lines 298--299
  [][] 
  []
 
-
-
 [35 <./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>])
 
 [36]
@@ -1898,10 +1896,10 @@ ic/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (47 pages, 27650948 bytes).
+Output written on main.pdf (47 pages, 27651433 bytes).
 PDF statistics:
- 846 PDF objects out of 1000 (max. 8388607)
- 699 compressed objects within 7 object streams
+ 847 PDF objects out of 1000 (max. 8388607)
+ 700 compressed objects within 7 object streams
  211 named destinations out of 1000 (max. 500000)
  56291 words of extra memory for PDF output out of 61914 (max. 10000000)
 
