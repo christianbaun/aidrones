@@ -155,7 +155,7 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 
 	\item Der Prozess des Flashens besteht aus zwei Schritten: Zunächst wird die Firmware geladen (online oder über ein File), dann wird das eigentliche Flashing über einen separaten Button gestartet. Das eigentliche Flashing sollte nicht unterbrochen werden.
 
-	\item TODO: Backup wieder einspielen.
+	\item Gegebenenfalls kann nun das Backup über den \textsl{CLI}-Tab wieder eingespielt werden. Dies geschieht über den Button \textsl{Load from File}. Damit kann die entsprechende Textdatei herausgesucht werden, um sie mit dem \textsl{Execute}-Button auszuführen.
 
 \end{enumerate}
 
@@ -172,23 +172,23 @@ TBD
 % TODO: Add chapter for PID-Tuning guide and for INAV-SITL?
 Die Administration von INAV erfolgt ebenfalls über den \textsl{INAV Configurator}. Wenn die Software das erste mal installiert wurde, müssen einige Punkte konfiguriert werden, um das Fliegen initial zu ermöglichen.
 
-Wird INAV zum ersten Mal nach der Installation aufgerufen erscheinen Fenster zum Setzen der \textsl{Default-Values} (Presets). Hier gilt es das Preset auszuwählen, was am nächsten an dem gebauten Modell dran ist. Danach können die UART-Ports (für GPS, VTX, etc.) konfiguriert werden. Dies kann allerdings auch über den Ports-Tab durchgeführt werden. Die weiteren Konfigurationsschritte gestalten sich wie folgt (TODO):
+Wird der Configurator zum ersten Mal nach der Installation aufgerufen erscheinen Fenster zum Setzen der \textsl{Default-Values} (Presets). Hier gilt es das Preset auszuwählen, was am nächsten an dem gebauten Modell dran ist. Danach können die UART-Ports (für GPS, VTX, etc.) konfiguriert werden. Dies kann allerdings auch über den Ports-Tab durchgeführt werden. Die weiteren Konfigurationsschritte gestalten sich wie folgt (TODO):
 
 \begin{enumerate}
 
-	\item Status-Tab
+	\item Der \textsl{Status-Tab} stellt einen Überblick zur Verfügung. Unter anderem ist in der Übersicht \textsl{Pre-arming checks} zu sehen, ob die Drohne abheben kann. Eventuell muss hier vorher die Boardorientierung angepasst werden. Dazu wird die Drohne aufrecht mit Kamera richtung Bildschirm des konfigurierenden Computers gestellt, um dann den \textsl{Reset Z axis} Button zu drücken.
 
-	\item Calibration-Tab
+	\item Im \textsl{Calibration-Tab} werden der Beschleunigungsmesser und der Kompass kalibriert. Dazu muss die Drohne jeweils in unterschiedliche Posen gebracht werden.
 
-	\item Mixer-Tab
+	\item Der \textsl{Mixer-Tab} konfiguriert zusammen mit dem Outputs-Tab die Motoren der Drohne. Hier ist entscheidend, dass der richtige  \textsl{Platform type} und das richtige \textsl{Mixer preset} entsprechend des Typs der Drohne konfiguriert sind. Sollten die Motoren nicht in die richtige Richtung drehen kann die Richtung über die \textsl{Motor direction} angepasst werden und die Zuordnung über den \textsl{Motor Mixer Wizard}.
 
-	\item Outputs-Tab
+	\item Im \textsl{Outputs-Tab} werden die Motoren aktiviert mit der Option \textsl{Enable motor and servo output}. Außerdem sollte sichergestellt werden, dass  \texttt{DSHOT300} als \textsl{ESC protocol} verwendet wird. Außerdem kann die \textsl{Motors IDLE power} auf 5\% gesetzt werden, wenn eine Multirotor-Drohne verwendet wird.
 
-	\item Ports-Tab
+	\item Im \textsl{Ports-Tab} werden die Peripheriegeräte konfiguriert, insofern dies nicht im Pop-Up-Menü am Anfang gemacht wurde. Wie diese konfiguriert werden, hängt von den angeschlossenen Geräten und vom Flugcontrollerchip ab. Meist kann die Konfiguration für Betaflight aus den jeweiligen Handbüchern entnommen und übertragen werden.
 
-	\item Configuration-Tab
+	\item Im \textsl{Configuration-Tab} können die Sensoren aktiviert werden, insofern dies nicht nach Konfiguration der Ports automatisch geschehen ist. Wenn möglich, sollte hier der \textsl{I2C Speed} auf \texttt{800KHZ} gestellt werden.
 
-	\item Failsafe-Tab
+	\item Der \textsl{Failsafe-Tab} ist sehr wichtig, da in diesem das Verhalten definiert ist, sollte das Fernsteuerungssignal abreißen. Hier sollte sichergestellt werden, dass entweder textsl{Drop}, \textsl{Land} oder \textsl{Return-to-Home (RTH)} konfiguriert sind, damit die Drohne nicht unkontrolliert weiterfliegt.
 
 	\item Receiver-Tab
 
