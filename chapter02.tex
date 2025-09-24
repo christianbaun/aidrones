@@ -81,8 +81,8 @@ Betaflight ist kompatibel zu praktisch allen am Markt verfügbaren Flugcontrolle
 
 \colende
 
-\renewcommand{\deutschertitel}{Installation}
-\renewcommand{\englischertitel}{Installation}
+\renewcommand{\deutschertitel}{Installation und Konfiguration}
+\renewcommand{\englischertitel}{Installation and Configuration}
 \makrounterunterabschnitt
 \label{AbschnittInstallationBetaflight}
 
@@ -156,7 +156,7 @@ TBD
 
 \colger
 
-Auch sicherheitsrelevante Einstellungen wie der maximale Aufstellwindel der Drohne, bei der das Arming (das aktivieren der Motoren, um sie für den Flug vorzubereiten) überhaupt möglich ist, werden auf dieser Seite \textsl{Configuration} festgelegt. Soll im Livebild der FPV-Drohne durch den Flugcontroller ein on-screen display (OSD) eingeblendet werden, muss es hier grundsätzlich aktiviert werden.
+Auch sicherheitsrelevante Einstellungen wie der maximale Aufstellwindel der Drohne, bei der das Arming (das Aktivieren der Motoren, um sie für den Flug vorzubereiten) überhaupt möglich ist, werden auf dieser Seite \textsl{Configuration} festgelegt. Soll im Livebild der FPV-Drohne durch den Flugcontroller ein on-screen display (OSD) eingeblendet werden, muss es hier grundsätzlich aktiviert werden. Die in Abbildung~\ref{AbbildungBetaflightAppConfiguration2} aktivierte Einstellung Airmode sorgt dafür, dass die Motoren auch bei 0 Throttle leicht weiterlaufen, was die Stabilität der Drohne und die Kontrollierbarkeit verbessert.
 
 \colende
 
@@ -190,24 +190,62 @@ TBD
 
 \colger
 
-Die Seite \textsl{Presets}...
+Die Seite \textsl{Presets} ermöglicht es die eigene Betaflight-Konfiguration zu speichern und zu wiederherzustellen. Zudem ist es möglich, eine Datenbank von veröffentlichten Konfiguration nach verschiedenen Parametern zu durchsuchen und auf diese zuzugreifen. 
 
-
-\colende
-
-
-\renewcommand{\deutschertitel}{Administration}
-\renewcommand{\englischertitel}{Administration}
-\makrounterunterabschnitt
-\label{AbschnittAdministrationBetaflight}
+\coleng
 
 TBD
 
 \colger
 
+Auf der Seite \textsl{PID Tuning} (Proportional-Integral-Derivative) können Feineinstellungen in der Motorsteuerung durch den Flugcontrollers vorgenommen werden. Ziel hierbei ist meist ein präziseres oder Flugverhalten zu erreichen und unerwünschtem Verhalten der Drohne entgegenzuwirken, wie zum Beispiel Zittern oder zu langsamem oder zu aggressivem Reagieren auf Steuerbefehle.
+
+\coleng
+
 TBD
 
+\colger
+
+Die korrekte Funktionsweise des Empfängers kann auf der Seite \textsl{Receiver} (siehe Abbildung~\ref{AbbildungBetaflightAppReceiver}) kontrolliert werden.  Bewegungen an den Schaltern des Senders werden, wenn sie vom Empfänger empfangen werden, hier angezeigt. Auch die Anschlussart des Empfängers und das verwendete Protokoll sind hier definiert. 
+
+\coleng
+
+TBD
+
+\colger
+
+Soll der Empfänger an den Sender Telemtriedaten übertragen, muss der entsprechende Regler auf der Seite \textsl{Receiver} aktiviert sein. Zu den Telemtriedaten gehören u.a. Informationen zu Akkuspannung und Stromverbrauch, Signalqualität, GPS-Informationen (Breitengrad, Längengrad, Geschwindigkeit, Anzahl der gefundenen Satelliten), Höhe und Temperatur.
+
 \colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_receiver_firmware_screenshot_app.png}
+  \caption{Receiver Page of Betaflight}
+  \label{AbbildungBetaflightAppReceiver}
+\end{figure}
+
+\colstart
+
+TBD
+
+\colger
+
+Die Verknüpfung wichtiger Funktionen der Drohne an einzelne Schalter des Senders geschieht auf der Seite \textsl{Modes}. Die wichtigste Funkion hier ist das Anlaufen (\glqq scharf schalten\grqq) der Motoren, um sie für den Flug vorzubereiten. Weitere Funktionen, die sinnvollerweise Schaltern des Senders zugeordnet werden, sind unter anderem die Flugmodi (Angle, Horizon und Acro), der Pieper (Buzzer), um abgestürzte Drohnen leichter wiederzufinden und die automatische Rückkehr (GPS Rescue) zum Startpunkt.
+
+\coleng
+
+Sehr häufig wir der der Schalter SA (AUX1) mit dem Arming belegt. Da bei nur einem Schalter auch ein versehentliches Arming vorkommen kann, kommen Verletzungen z.B. an Händen und Fingern häufiger vor. Zur Verbesserung der Sicherheit beim Halten der Drohne empfiehlt es daher das Arming mit zwei Schalten -- z.B. SA (AUX1) + SB (AUX4) -- die nicht direkt nebeneinander liegen, zu verknüpfen.
+
+\colende
+
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_modes_firmware_screenshot_app.png}
+  \caption{Modes Page of Betaflight}
+  \label{AbbildungBetaflightAppModes}
+\end{figure}
 
 \renewcommand{\deutschertitel}{INAV}
 \renewcommand{\englischertitel}{INAV}
@@ -218,7 +256,7 @@ TBD
 
 \colger
 
-INAV ist ein Fork von einer früheren Cleanflight-Version. Cleanflight ist ein verwandtes Projekt, welches allerdings nicht mehr weiterentwickelt wird. INAV besteht aus zwei Hauptkomponenten: Die Firmware, welche auf dem Flugcontrollerboard läuft und dem Konfigurationstool, welches für die Installation und Administration genutzt werden kann.
+INAV ist ein Fork von einer früheren Cleanflight-Version. Cleanflight ist ein verwandtes Projekt, welches allerdings nicht mehr weiterentwickelt wird. INAV besteht aus zwei Hauptkomponenten: Die Firmware, welche auf dem Flugcontroller läuft und dem Konfigurationstool, welches für die Installation und Administration genutzt werden kann.
 
 Neben der Return-To-Home- (RTH) bzw. Rescuefunktionalität bietet INAV weitere Autopilotenfunktionalitäten, wie Wegpunktmissionen, \textsl{Position halten}, \textsl{Flughöhe halten} und mehr. Diese können auch ohne Kompass genutzt werden (seit Version 7.1), jedoch mit geringerer Genauigkeit.
 
