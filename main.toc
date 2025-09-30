@@ -579,7 +579,19 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {subsection}{\numberline {2.1.3}ArduPilot}{39}{subsection.2.1.3}%
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {subsection}{\numberline {2.1.3}ArduPilot}{41}{subsection.2.1.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
@@ -596,26 +608,12 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {2.2}Remote Control Firmware}{39}{section.2.2}%
+\contentsline {section}{\numberline {2.2}Remote Control Firmware}{42}{section.2.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {subsection}{\numberline {2.2.1}EdgeTX}{39}{subsection.2.2.1}%
-\babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {2.3}Transmitter and Receiver Firmware}{40}{section.2.3}%
-\babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\contentsline {subsection}{\numberline {2.3.1}ExpressLRS}{40}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.2.1}EdgeTX}{42}{subsection.2.2.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
@@ -624,28 +622,21 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {3}{\vspace {2pt}Object Detection}}{41}{chapter.3}%
-\babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
+\contentsline {section}{\numberline {2.3}Transmitter and Receiver Firmware}{42}{section.2.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {3.1}Object Detection by addition Hardware on the Drone}{42}{section.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}ExpressLRS}{42}{subsection.2.3.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {3}{\vspace {2pt}Object Detection}}{43}{chapter.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
@@ -657,12 +648,12 @@
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\contentsline {subsection}{\numberline {3.1.1}Comparison of AI Accelerators}{43}{subsection.3.1.1}%
-\babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {3.1}Object Detection by addition Hardware on the Drone}{44}{section.3.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
@@ -679,24 +670,11 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\contentsline {subsection}{\numberline {3.1.2}Construction and Implementation}{46}{subsection.3.1.2}%
-\babel@toc {english}{}\relax 
+\contentsline {subsection}{\numberline {3.1.1}Comparison of AI Accelerators}{46}{subsection.3.1.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {ngerman}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {ngerman}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\contentsline {subsection}{\numberline {3.1.3}Total Weight and Purchase Cost}{47}{subsection.3.1.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
@@ -705,27 +683,61 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {3.2}Object Detection by using the Live Image on the Ground}{48}{section.3.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {subsection}{\numberline {3.2.1}Construction and Implementation}{48}{subsection.3.2.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {subsection}{\numberline {3.2.2}Cost}{48}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.1.2}Construction and Implementation}{48}{subsection.3.1.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {4}{\vspace {2pt}Auto Pilot}}{49}{chapter.4}%
+\contentsline {subsection}{\numberline {3.1.3}Total Weight and Purchase Cost}{49}{subsection.3.1.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {5}{\vspace {2pt}Follow Me Function}}{51}{chapter.5}%
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {3.2}Object Detection by using the Live Image on the Ground}{50}{section.3.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {subsection}{\numberline {3.2.1}Construction and Implementation}{51}{subsection.3.2.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {subsection}{\numberline {3.2.2}Cost}{51}{subsection.3.2.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {4}{\vspace {2pt}Auto Pilot}}{53}{chapter.4}%
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {5}{\vspace {2pt}Follow Me Function}}{55}{chapter.5}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
