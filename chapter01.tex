@@ -19,26 +19,28 @@
 
 \coleng
 
-TBD
+This chapter presents the most important hardware components required to build FPV drones. It does not aim to provide a comprehensive overview of the current state of technology. Likewise, recent developments in FPV drone technology are intentionally not addressed.
+
 
 \colger
 
-Dieses Kapitel stellt die wichtigen Hardware-Komponenten zum Bau von FPV-Drohnen vor. Das Kapitel hat nicht den Anspruch, einen vollständigen Überblick über den Stand der Technik der jeweiligen Komponenten zu geben. Auch die Entwicklung der FPV-Drohnen in den letzten Jahren wird ausgeblendet. 
+Dieses Kapitel stellt die wichtigsten Hardware-Komponenten zum Bau von FPV-Drohnen vor. Es erhebt nicht den Anspruch, einen vollständigen Überblick über den Stand der Technik zu geben. Auch die Entwicklung der FPV-Drohnen in den letzten Jahren wird bewusst ausgeklammert.
 
 \coleng
 
-TBD
+The goal of this chapter is to provide beginners with an easily understandable introduction to FPV drones. It aims to enable them to identify the components needed to design and build drones for their own projects. This forms the basis for selecting and installing the necessary software (see Chapter~\ref{KapitelSoftware}) and implementing AI functionality using additional hardware (see Chapter~\ref{KapitelKI}).
 
 \colger
 
-Ziel dieses Kapitels ist es, Einsteigern einen leicht verständlichen Einstieg in das Themengebiet FPV-Drohnen zu geben, damit diese rasch die für sie nötigen Komponenten identifizieren können, um Drohnen für eigene Projekte zu entwerfen und zu bauen. Dieses ist Voraussetzung für die Identifikation und Installation der benötigten Software (siehe Kapitel~\ref{KapitelSoftware}) auf diesen Drohnen und der Realisierung einer KI-Funktionalität mit mit zusätzlicher Hardware (siehe Kapitel~\ref{KapitelKI}).
+Ziel dieses Kapitels ist es, Einsteigern einen leicht verständlichen Zugang zum Thema FPV-Drohnen zu ermöglichen. Sie sollen in der Lage sein, die für ihre Projekte benötigten Komponenten zu identifizieren, um eigene Drohnen zu entwerfen und zu bauen. Dies ist die Voraussetzung für die Auswahl und Installation der notwendigen Software (siehe Kapitel~\ref{KapitelSoftware}) sowie die Realisierung KI-basierter Funktionen mit zusätzlicher Hardware (siehe Kapitel~\ref{KapitelKI}).
+
 \coleng
 
-TBD
+The typical components of an FPV drone without AI extensions are shown in Figure~\ref{AbbildungKompoentenEinerDrohneOhneKI}.
 
 \colger
 
-Die zum Bau einer FPV-Drohne typischen Komponenten zeigt Abbildung~\ref{AbbildungKompoentenEinerDrohneOhneKI}.
+Die typischen Komponenten einer FPV-Drohne ohne KI-Erweiterung sind in Abbildung~\ref{AbbildungKompoentenEinerDrohneOhneKI} dargestellt.
 
 \colende
 
@@ -54,27 +56,31 @@ Die zum Bau einer FPV-Drohne typischen Komponenten zeigt Abbildung~\ref{Abbildun
 \makroabschnitt
 \label{AbschnittFrames}
 
-TBD
+\coleng
+
+The frame connects all components of the drone. It is usually made of carbon fiber, a lightweight yet highly rigid and strong composite material. Frames made of plastic are less common. The frame determines the propeller size (see Section~\ref{AbschnittPropeller}).
 
 \colger
 
-Der Rahmen aus verbindet alle Komponenten der Drohne. Das verwendete Material ist üblicherweise Carbon. Dabei handelt es sich um einen leichtgewichtigen und dennoch hochfesten und verwindungssteifen Verbundwerkstoff aus Kohlenstofffasern. Seltener kommen auch Rahmen aus Kunststoff zum Einsatz. Der Rahmen definiert die Propellergröße (siehe Abschnitt~\ref{AbschnittPropeller}).
+Der Rahmen verbindet alle Komponenten der Drohne miteinander. Das verwendete Material ist üblicherweise Carbon, ein leichtes, aber äußerst stabiles und verwindungssteifes Verbundmaterial aus Kohlenstofffasern. Seltener kommen Rahmen aus Kunststoff zum Einsatz. Der Rahmen bestimmt die Propellergröße (siehe Abschnitt~\ref{AbschnittPropeller}).
 
 \coleng
 
-TBD
+\coleng
+
+The main electronic components such as the flight controller, video transmitter, receiver, and camera are mounted centrally on the frame for protection. The battery is typically placed on top of the drone to prevent damage during landings.
 
 \colger
 
-Die wichtigsten elektronischen Komponenten wie Flugcontroller, Videosender, Empfänger und Kamera nimmt der Rahmen zentral auf, um diese zu schützen. Der Akku befindet sich in den meisten Fällen oben auf der Drohne, um Beschädigungen beim Landen zu vermeiden. 
+Die wichtigsten elektronischen Komponenten wie Flugcontroller, Videosender, Empfänger und Kamera werden zentral auf dem Rahmen montiert, um sie zu schützen. Der Akku befindet sich in den meisten Fällen oben auf der Drohne, um Beschädigungen beim Landen zu vermeiden.
 
 \coleng
 
-TBD
+Larger frames provide more space for components and allow the use of more powerful motors (see Section~\ref{AbschnittMotoren}) and larger propellers. However, frame size also increases the overall weight. Common frame sizes and their typical applications are listed in Table~\ref{TabelleRahmen}.
 
 \colger
 
-Größere Rahmen bieten mehr Platz für Komponenten innerhalb und oberhalb und ermöglichen die Nutzung leistungsstärkerer Motoren (siehe Abschnitt~\ref{AbschnittMotoren}) und größerer Propeller. Allerdings steigt mit der Rahmengröße auch dessen Eigengewicht. Gängige Rahmengrößen und deren typische Anwendung enthält Tabelle~\ref{TabelleRahmen}.
+Größere Rahmen bieten mehr Platz für Komponenten und ermöglichen die Nutzung leistungsstärkerer Motoren (siehe Abschnitt~\ref{AbschnittMotoren}) und größerer Propeller. Mit zunehmender Rahmengröße steigt jedoch auch das Gesamtgewicht. Gängige Rahmengrößen und deren typische Anwendungen sind in Tabelle~\ref{TabelleRahmen} aufgeführt.
 
 \colende
 
@@ -99,48 +105,51 @@ Heavy-Lift             & 10 - 12 Inch       & 254 - 304\,mm \\
 
 \colstart
 
-TBD
+Important distinguishing criteria when selecting an appropriate frame include the hole spacing for mounting the flight controller and the video transmitter. Common dimensions are:
 
 \colger
 
-Wichtige Unterscheidungskriterien bei der Auswahl des passenden Rahmens sind auch die Abstände der Bohrlöcher zur Befestigung des Flugcontrollers und des Videosenders. Gängige Maße sind: 
+Wichtige Unterscheidungskriterien bei der Auswahl des passenden Rahmens sind auch die Abstände der Bohrlöcher zur Befestigung des Flugcontrollers und des Videosenders. Gängige Maße sind:
 
 \coleng
 
-TBD
+\begin{itemize}
+\item 30.5 \(\times\) 30.5\,mm
+\item 25.5 \(\times\) 25.5\,mm
+\item 20 \(\times\) 20\,mm
+\end{itemize}
 
 \colger
 
 \begin{itemize}
-\item 30,5 x 30,5\,mm
-\item 25,5 x 25,5\,mm
-\item 20 x 20\,mm
+\item 30,5 \(\times\) 30,5\,mm
+\item 25,5 \(\times\) 25,5\,mm
+\item 20 \(\times\) 20\,mm
 \end{itemize}
 
 \coleng
 
-TBD
+If a frame does not provide matching mounting holes for the selected flight controller and video transmitter, a 3D-printed adapter can help — provided there is sufficient space within the frame.
 
 \colger
 
-Verfügt ein Rahmen nicht über passende Bohrlöcher für den ausgewählten Flugcontrollers und den Videosender, kann ein per 3D-Drucker gedruckte Adapter helfen, wenn der Platz im Rahmen dafür ausreicht. 
+Verfügt ein Rahmen nicht über passende Bohrlöcher für den ausgewählten Flugcontroller und den Videosender, kann ein per 3D-Drucker hergestellter Adapter helfen, sofern im Rahmen genügend Platz dafür vorhanden ist.
 
 \coleng
 
-TBD
+Another distinguishing feature of frames is their geometry. The most straightforward design is the True-X shape, where all arms are of equal length. Another variant is the Squashed-X shape, in which the arms are slightly angled to improve flight characteristics. The asymmetrical Deadcat design positions the front arms farther outward and slightly backward so that the propellers do not enter the camera’s field of view. Other variants, such as the H-frame and box frame, aim to increase frame stability through additional reinforcements.
 
 \colger
 
-Ein weiteres Unterscheidungsmerkmal von Rahmen ist die Form (Geometrie). Die naheliegendste Form ist True-X. Bei dieser symmetrischen Form Form sind alle Arme gleich lang. Eine weitere Form ist Squashed-X (\textsl{gequetschtes X}, bei der die Arme leicht abgewinkelt sind, was sich positiv auf die Flugeigenschaften auswirken soll. Bei der asymmetrischen Form Deadcat sind die vorderen Arme weiter außen und nach hinten versetzt, damit die Propeller nicht in das Sichtfeld hineinragen. Weitere Varianten sind unter anderem H-Frame und Box, die die Stabilität des Rahmens durch zusätzlich Verstrebungen verbessern sollen. 
+Ein weiteres Unterscheidungsmerkmal von Rahmen ist deren Geometrie. Die naheliegendste Form ist die True-X-Form, bei der alle Arme gleich lang sind. Eine weitere Variante ist die Squashed-X-Form (\textsl{gequetschtes X}), bei der die Arme leicht abgewinkelt sind, was sich positiv auf die Flugeigenschaften auswirken soll. Bei der asymmetrischen Form Deadcat sind die vorderen Arme weiter außen und nach hinten versetzt, damit die Propeller nicht in das Sichtfeld der Kamera hineinragen. Weitere Varianten sind unter anderem H-Frame und Box, die die Stabilität des Rahmens durch zusätzliche Verstrebungen verbessern sollen.
 
 \coleng
 
-TBD
+If drones are to be flown indoors or near people, propeller guards are highly recommended. They protect not only the propellers but also the surroundings. Drones intended for racing, freestyle, or long-range applications typically have no propeller guards, as they increase the overall weight. For TinyWhoops and CineWhoops, however, propeller protection is standard.
 
 \colger
 
-Wenn Drohnen auch in Innenräumen und in der Nähe von Personen geflogen werden sollen, ist ein Propellerschutz hilfreich. Dieser Schützt nicht nur die Propeller, sondern auch die Umgebung. Drohnen für Racing, Freestyle- und Long-Range-Anwendungen haben normalerweise keinen Rahmen, da sie das Gesamtgewicht der Drohne erhöhen. Bei TinyWhoops und CineWhoops ist ein Propellerschutz Standard.
-
+Wenn Drohnen in Innenräumen oder in der Nähe von Personen geflogen werden sollen, ist ein Propellerschutz sehr empfehlenswert. Er schützt nicht nur die Propeller, sondern auch die Umgebung. Drohnen für Racing-, Freestyle- und Long-Range-Anwendungen haben normalerweise keinen Propellerschutz, da er das Gesamtgewicht der Drohne erhöht. Bei TinyWhoops und CineWhoops ist ein Propellerschutz hingegen Standard.
 
 \colende
 
@@ -149,27 +158,27 @@ Wenn Drohnen auch in Innenräumen und in der Nähe von Personen geflogen werden 
 \makroabschnitt
 \label{AbschnittFC}
 
-TBD
+The flight controller (FC) is the central component of every drone. It processes sensor data from the gyroscope, accelerometer, barometer, and GPS module. Using control algorithms, it stabilizes the drone’s attitude and receives pilot commands through the receiver. In addition, the FC controls the motors via the electronic speed controllers (ESC).
 
 \colger
 
-Der Flight Controller (FC) ist ist die zentrale Komponente jeder Drohne. Der FC verarbeitet die Sensordaten von Gyroskop, Beschleunigungssensor, Barometer und GPS-Modul. Er stabilisiert die Fluglage durch Regelalgorithmen und nimmt über den Empfänger Steuerbefehle durch den Piloten entgegen. Zudem steuert der FC die Motoren über die Electronic Speed Controller (ESC).
+Der Flight Controller (FC) ist die zentrale Komponente jeder Drohne. Der FC verarbeitet die Sensordaten von Gyroskop, Beschleunigungssensor, Barometer und GPS-Modul. Er stabilisiert die Fluglage durch Regelalgorithmen und empfängt über den Empfänger die Steuerbefehle des Piloten. Zudem steuert der FC die Motoren über die Electronic Speed Controller (ESC).
 
 \coleng
 
-TBD
+The FPV camera and video transmitter are also connected to the FC, which supplies them with power from the battery and controls their operation. The FC additionally transmits telemetry data as an on-screen display (OSD) to the video transmitter.
 
 \colger
 
-Auch FPV-Kamera und Videosender sind mit dem FC verbunden und werden durch ihn gesteuert und dem Strom des Akkus versorgt. Der FC gibt auch Telemetriedaten als On Screen Display an den Videosender weiter. 
+Auch die FPV-Kamera und der Videosender sind mit dem FC verbunden. Er versorgt sie mit Strom aus dem Akku und steuert ihre Funktionen. Zudem überträgt der FC Telemetriedaten als On-Screen-Display (OSD) an den Videosender.
 
 \coleng
 
-TBD
+Common flight controllers use an STM32 microcontroller, which also stores the firmware. Modern MCUs include the F4, F7, and H7 series. These differ in clock speed and memory capacity (see Table~\ref{TabelleFCMCU}). The available processing power and memory limit which firmware versions can be used effectively.
 
 \colger
 
-Gängige FC enthalten einen STM32-Mikrocontroller. Hier wird auch die Firmware gespeichert. Moderne MCUs sind F4, F7 und H7. Diese unterscheiden sich im Takt und Speicher (siehe Tabelle~\ref{TabelleFCMCU}). Der genannten Rechen- und Speicherressourcen schränken die sinnvolle Nutzung der Firmwares ein. 
+Gängige Flight Controller verwenden einen STM32-Mikrocontroller, auf dem auch die Firmware gespeichert ist. Moderne MCUs sind die Serien F4, F7 und H7. Sie unterscheiden sich in ihrer Taktfrequenz und Speicherkapazität (siehe Tabelle~\ref{TabelleFCMCU}). Die vorhandenen Rechen- und Speicherressourcen begrenzen, welche Firmware-Versionen sinnvoll eingesetzt werden können.
 
 \colende
 
@@ -192,27 +201,27 @@ H743       & 480\,MHz & 2\,MB        & 1\,kB   \\
 
 \colstart
 
-TBD
+Betaflight (see Section~\ref{AbschnittBetaflight}) runs on all, and INAV (see Section~\ref{AbschnittINAV}) on almost all of the microcontrollers listed in Table~\ref{TabelleFCMCU}. ArduPilot (see Section~\ref{AbschnittArduPilot}) requires at least 1 MB of flash memory for limited operation. The full range of functions is available only with 2 MB of flash memory.
 
 \colger
 
-Betaflight (siehe Abschnitt~\ref{AbschnittBetaflight}) und funktioniert auf allen und INAV (siehe Abschnitt~\ref{AbschnittINAV}) auf fast allen in (siehe Tabelle~\ref{TabelleFCMCU}) genannten Mikrocontrollern. Der Betrieb von ArduPilot (siehe Abschnitt~\ref{AbschnittArduPilot}) erfordert für einen reduzierten Betrieb mindestens 1\,MB Flash-Speicher. Erst mit 2\,MB Flash-Speicher steht der komplette Funktionsumfang zur Verfügung.
+Betaflight (siehe Abschnitt~\ref{AbschnittBetaflight}) funktioniert auf allen, und INAV (siehe Abschnitt~\ref{AbschnittINAV}) auf fast allen in Tabelle~\ref{TabelleFCMCU} genannten Mikrocontrollern. Der Betrieb von ArduPilot (siehe Abschnitt~\ref{AbschnittArduPilot}) erfordert für einen eingeschränkten Betrieb mindestens 1 MB Flash-Speicher. Erst mit 2 MB Flash-Speicher steht der vollständige Funktionsumfang zur Verfügung.
 
 \coleng
 
-TBD
+The electronic speed controllers (ESCs) control the motors. The ESC is one of the most heavily stressed components of a drone, as it often handles continuous currents of 10 to 20 amperes.
 
 \colger
 
-Die Electronic Speed Controller (ESCs) steuert die Motoren. Der ESC ist eines der am stärksten belasteten Teile der Drohne, weil durch ihn teils 10 bis 20 Ampere Dauerstrom fließen.
+Die Electronic Speed Controller (ESCs) steuern die Motoren. Der ESC ist eines der am stärksten belasteten Bauteile der Drohne, da durch ihn häufig Dauerströme von 10 bis 20 Ampere fließen.
 
 \coleng
 
-TBD
+Separate ESCs mounted as individual boards are now uncommon. In modern drones, four or more ESCs are combined on a single board—known as a 4-in-1 ESC—for motor control. The motors and the power supply connection to the battery (see Section~\ref{AbschnittAkkus}) are soldered directly to this board.
 
 \colger
 
-Separate ESCs als einzelne Platinen sind heute unüblich. Bei modernen Drohnen sind die vier oder mehr ESCs auf einer einzelnen Platine, einem sogenannten 4-in-1-ESCs zur Motorsteuerung integriert. An dieser werden die Motoren und die Verbindung zum Akku (siehe Abschnitt~\ref{AbschnittAkkus}) angelötet. 
+Separate ESCs als einzelne Platinen sind heute unüblich. Bei modernen Drohnen sind die vier oder mehr ESCs auf einer einzigen Platine -- einem sogenannten 4-in-1-ESC -- zur Motorsteuerung integriert. An dieser Platine werden die Motoren sowie die Verbindung zum Akku (siehe Abschnitt~\ref{AbschnittAkkus}) angelötet.
 
 \colende
 
@@ -221,27 +230,27 @@ Separate ESCs als einzelne Platinen sind heute unüblich. Bei modernen Drohnen s
 \makrounterabschnitt
 \label{AbschnittESC}
 
-TBD
+The combination of a separate board for motor control and a flight controller is called a stack.
 
 \colger
 
-Die Kombination einer einer separaten Platine zur Motorsteuerung und dem Flugcontroller heißt Stack. 
+Die Kombination einer separaten Platine zur Motorsteuerung und dem Flugcontroller heißt Stack.
 
 \coleng
 
-TBD
+If the ESCs are located on the same board as the flight controller, the unit is referred to as an All-In-One Flight Controller (AIO FC).
 
 \colger
 
-Befinden sich die ESCs auf der gleichen Platine wie der FC, spricht man von einem All In One Flight Controller (AIO FC). 
+Befinden sich die ESCs auf der gleichen Platine wie der Flugcontroller, spricht man von einem All-In-One Flight Controller (AIO FC).
 
 \coleng
 
-TBD
+In smaller drones (2 to 4 inches), AIO FCs are commonly used due to limited space. Larger drones typically use stacks. One advantage of stacks is that separate motor controllers with higher continuous current ratings are available on the market—typically between 45 and 70 A. In addition, FCs used in stacks generally offer more soldering pads, larger pads, often additional connectors, and more usable UART interfaces for sensors and actuators compared to AIO FCs.
 
 \colger
 
-Bei kleineren Drohnen (2 bis 4 Zoll) sind schon aus Platzgründen AIO FCs üblich. Bei größeren Drohnen kommen meist Stacks zum Einsatz. Ein Vorteil von ist, dass separate Motorsteuerungen mit höheren Dauerströmen am Markt verfügbar sind. Separate Motorsteuerungen gibt es mit 45 bis 70\,A. Zudem bieten die FCs von Stacks tendenziell gegenüber AIO FCs mehr Platz für Lötpads, größere Lötpads, häufig zusätzlich Steckverbindungen und mehr nutzbare UART-Schnittstellen für Sensoren und Aktoren.
+Bei kleineren Drohnen (2 bis 4 Zoll) sind schon aus Platzgründen AIO FCs üblich. Bei größeren Drohnen kommen meist Stacks zum Einsatz. Ein Vorteil von Stacks ist, dass separate Motorsteuerungen mit höheren Dauerströmen am Markt verfügbar sind -- typischerweise zwischen 45 und 70 A. Zudem bieten die FCs von Stacks tendenziell mehr Platz für Lötpads, größere Lötpads, häufig zusätzliche Steckverbindungen und mehr nutzbare UART-Schnittstellen für Sensoren und Aktoren als AIO FCs.
 
 \colende
 
@@ -263,11 +272,11 @@ Bei kleineren Drohnen (2 bis 4 Zoll) sind schon aus Platzgründen AIO FCs üblic
 
 \colstart
 
-TBD
+Figure~\ref{AbbildungSpeedyBeeFCBluejayAIO} shows an AIO flight controller. Figures~\ref{AbbildungSpeedyBeeFCF405MiniBLS35front} and~\ref{AbbildungSpeedyBeeFCF405MiniBLS35Aback} show the front and back sides of a stack consisting of a flight controller and a separate ESC board.
 
 \colger
 
-Abbildung~\ref{AbbildungSpeedyBeeFCBluejayAIO}) zeigt einen einen AIO Flight-Controller. Die Abbildungen~\ref{AbbildungSpeedyBeeFCF405MiniBLS35front} und~\ref{AbbildungSpeedyBeeFCF405MiniBLS35Aback}) zeigen die Vorder- und Rückseite eines Stack bestehen aus Flight-Controller und separater ESC-Platine.
+Abbildung~\ref{AbbildungSpeedyBeeFCBluejayAIO} zeigt einen AIO-Flight-Controller. Die Abbildungen~\ref{AbbildungSpeedyBeeFCF405MiniBLS35front} und~\ref{AbbildungSpeedyBeeFCF405MiniBLS35Aback} zeigen die Vorder- und Rückseite eines Stacks, bestehend aus Flight-Controller und separater ESC-Platine.
 
 \colende
 
@@ -285,31 +294,29 @@ Abbildung~\ref{AbbildungSpeedyBeeFCBluejayAIO}) zeigt einen einen AIO Flight-Con
   \label{AbbildungSpeedyBeeFCF405MiniBLS35Aback}
 \end{figure}
 
-
 \colstart
 
-TBD
+An important selection criterion for flight controllers is the number of usable UART interfaces for connecting sensors and actuators. The flight controller shown in Figure~\ref{AbbildungSpeedyBeeFCBluejayAIO}, the SpeedyBee F405 AIO, has six UART interfaces. However, one is used for Wi-Fi and USB administration, and another operates only unidirectionally (simplex), meaning it can only receive data. This leaves only four fully functional (bidirectional) UART interfaces, of which three are typically occupied by the video transmitter, receiver, and GPS module. Therefore, only one free UART interface usually remains.
 
 \colger
 
-Ein wichtiges Auswahlkriterium für Flugcontroller ist die Anzahl der nutzbaren UART-Schnittstellen zum Anschluss von Sensoren und Aktoren. Der in Abbildung~\ref{AbbildungSpeedyBeeFCBluejayAIO} gezeigte Flugcontroller SpeedyBee F405 AIO verfügt über sechs UART-Schnittstellen. Allerdings wird eine für die WLAN und USB-Schnittstellen zur Administration benötigt und eine weitere funktioniert nur unidirektional (Simplex). Sie kann nur Daten empfangen. Damit stehen lediglich vier vollwertige (bidirektionale) UART-Schnittstellen zur Verfügung, von denen üblicherweise drei durch die üblicherweise vorhandenen Komponenten Videosender, Empfänger und GPS-Modul belegt sind. Somit bleibt nur eine einzige freie UART-Schnittstelle.
-
+Ein wichtiges Auswahlkriterium für Flugcontroller ist die Anzahl der nutzbaren UART-Schnittstellen zum Anschluss von Sensoren und Aktoren. Der in Abbildung~\ref{AbbildungSpeedyBeeFCBluejayAIO} gezeigte Flugcontroller SpeedyBee F405 AIO verfügt über sechs UART-Schnittstellen. Allerdings wird eine für die WLAN- und USB-Schnittstellen zur Administration benötigt und eine weitere funktioniert nur unidirektional (Simplex), das heißt, sie kann nur Daten empfangen. Damit stehen lediglich vier vollwertige (bidirektionale) UART-Schnittstellen zur Verfügung, von denen üblicherweise drei durch die Komponenten Videosender, Empfänger und GPS-Modul belegt sind. Somit bleibt meist nur eine einzige freie UART-Schnittstelle.
 
 \coleng
 
-TBD
+The flight controller shown in Figures~\ref{AbbildungSpeedyBeeFCF405MiniBLS35front} and \ref{AbbildungSpeedyBeeFCF405MiniBLS35Aback}, the SpeedyBee F405 Mini 35A Stack, also has six UART interfaces.  Here, too, after connecting the commonly used components — video transmitter, receiver, and GPS module — only one interface remains available. This is because one UART is used by the Bluetooth interface for administration, and another is used by the ESC for telemetry data transmission.
 
 \colger
 
-Auch der in den Abbildung~\ref{AbbildungSpeedyBeeFCF405MiniBLS35front} und \ref{AbbildungSpeedyBeeFCF405MiniBLS35Aback} gezeigte Flugcontroller SpeedyBee F405 Mini 35A Stack verfügt über sechs UART-Schnittstellen und auch hier bleibt bleibt nach Anschluss der üblicherweise vorhandenen Komponenten Videosender, Empfänger und GPS-Modul nur eine Schnittstelle frei verfügbar, da die Bluetooth-Schnittstelle zur Administration eine UART-Schnittstelle benötigt und die Motorsteuerung benötigt eine weitere UART-Schnittstelle zur Übertragung der Telemetriedaten.
+Auch der in den Abbildungen~\ref{AbbildungSpeedyBeeFCF405MiniBLS35front} und \ref{AbbildungSpeedyBeeFCF405MiniBLS35Aback} gezeigte Flugcontroller SpeedyBee F405 Mini 35A Stack verfügt über sechs UART-Schnittstellen. Auch hier bleibt nach dem Anschluss der üblichen Komponenten -- Videosender, Empfänger und GPS-Modul -- nur eine Schnittstelle frei verfügbar, da die Bluetooth-Schnittstelle zur Administration eine UART-Schnittstelle belegt und die Motorsteuerung eine weitere UART-Schnittstelle zur Übertragung der Telemetriedaten nutzt.
 
 \coleng
 
-TBD
+For comparison, the flight controller shown in Figure~\ref{AbbildungFlywooFCGOKUGN745AIO}, the Flywoo GOKU GN745 AIO 45A, offers seven UART interfaces. None of them is used for USB, but one is reserved for telemetry data transmission. After connecting the common components — video transmitter, receiver, and GPS module — three UART interfaces remain available for additional sensors and actuators.
 
 \colger
 
-Zum Vergleich ein anderer Flugcontroller, der in Abbildung~\ref{AbbildungFlywooFCGOKUGN745AIO} gezeigte Flywoo GOKU GN745 AIO 45A, verfügt über sieben UART-Schnittstellen, von denen keine für die USB-Schnittstelle belegt, aber eine zur Übertragung der Telemetriedaten verwendet wird.  Dadurch sind nach Anschluss der üblicherweise vorhandenen Komponenten Videosender, Empfänger und GPS-Modul drei UART-Schnittstelle für weitere Sensoren und Aktoren verfügbar.
+Zum Vergleich: Der in Abbildung~\ref{AbbildungFlywooFCGOKUGN745AIO} gezeigte Flugcontroller Flywoo GOKU GN745 AIO 45A verfügt über sieben UART-Schnittstellen. Keine davon ist für die USB-Schnittstelle belegt, jedoch wird eine für die Übertragung von Telemetriedaten verwendet. Nach dem Anschluss der üblichen Komponenten -- Videosender, Empfänger und GPS-Modul -- bleiben somit drei UART-Schnittstellen für weitere Sensoren und Aktoren verfügbar.
 
 \colende
 
@@ -330,21 +337,15 @@ Zum Vergleich ein anderer Flugcontroller, der in Abbildung~\ref{AbbildungFlywooF
   \label{AbbildungFlywooFCGOKUGN745AIO}
 \end{figure}
 
-
-
-
 \colstart
 
-TBD
+Table~\ref{TabelleUARTuebersicht} shows the typical use of the available UART interfaces of selected flight controllers and the resulting limitations regarding their suitability for AI projects, which often require connecting additional sensors and actuators.
 
 \colger
 
-Tabelle~\ref{TabelleUARTuebersicht} zeigt die typische Nutzung der verfügbaren UART-Schnittstellen einiger ausgewählter Flugcontroller und die damit einhergehenden Einschränkungen hinsichtlich Ihrer Nutzbarkeit für KI-Projekte, die häufig den Anschluss weiterer Sensoren und Aktoren erfordern.  
+Tabelle~\ref{TabelleUARTuebersicht} zeigt die typische Nutzung der verfügbaren UART-Schnittstellen einiger ausgewählter Flugcontroller und die damit einhergehenden Einschränkungen hinsichtlich ihrer Eignung für KI-Projekte, die häufig den Anschluss weiterer Sensoren und Aktoren erfordern.
 
 \colende
-
-
-
 
 \begin{table}[htb!]
 \centering
