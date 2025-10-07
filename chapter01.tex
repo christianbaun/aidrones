@@ -28,11 +28,11 @@ Dieses Kapitel stellt die wichtigsten Hardware-Komponenten zum Bau von FPV-Drohn
 
 \coleng
 
-The goal of this chapter is to provide beginners with an easily understandable introduction to FPV drones. It aims to enable them to identify the components needed to design and build drones for their own projects. This forms the basis for selecting and installing the necessary software (see Chapter~\ref{KapitelSoftware}) and implementing AI functionality using additional hardware (see Chapter~\ref{KapitelKI}).
+The goal of this chapter is to provide beginners with an easily understandable introduction to FPV drones. It aims to enable them to identify the components needed to design and build drones for their own projects. This forms the basis for selecting and installing the necessary software (see Chapter~\ref{KapitelSoftware}) and implementing AI functionality using (see Chapter~\ref{KapitelObjekterkennung}, \ref{KapitelAutopilot}, and \ref{KapitelFollowme}).
 
 \colger
 
-Ziel dieses Kapitels ist es, Einsteigern einen leicht verständlichen Zugang zum Thema FPV-Drohnen zu ermöglichen. Sie sollen in der Lage sein, die für ihre Projekte benötigten Komponenten zu identifizieren, um eigene Drohnen zu entwerfen und zu bauen. Dies ist die Voraussetzung für die Auswahl und Installation der notwendigen Software (siehe Kapitel~\ref{KapitelSoftware}) sowie die Realisierung KI-basierter Funktionen mit zusätzlicher Hardware (siehe Kapitel~\ref{KapitelKI}).
+Ziel dieses Kapitels ist es, Einsteigern einen leicht verständlichen Zugang zum Thema FPV-Drohnen zu ermöglichen. Sie sollen in der Lage sein, die für ihre Projekte benötigten Komponenten zu identifizieren, um eigene Drohnen zu entwerfen und zu bauen. Dies ist die Voraussetzung für die Auswahl und Installation der notwendigen Software (siehe Kapitel~\ref{KapitelSoftware}) sowie die Realisierung KI-basierter Funktionen mit (siehe Kapitel~\ref{KapitelObjekterkennung}, \ref{KapitelAutopilot} und \ref{KapitelFollowme}).
 
 \coleng
 
@@ -363,7 +363,7 @@ SpeedyBee F405 AIO             & \cellcolor{Gray}MSP\textsuperscript{a}  & \cell
 SpeedyBee F405 Mini Stack      & \cellcolor{Gray}VTX   & \cellcolor{Gray}Receiver        & \cellcolor{green}available & \cellcolor{Gray}MSP\textsuperscript{a} & \cellcolor{Gray}Telem.\textsuperscript{c} & \cellcolor{Gray}GPS & --- & ---     \\
 SpeedyBee F4V3 / F4V4 Stack           & \cellcolor{Gray}VTX   & \cellcolor{Gray}Receiver        & \cellcolor{green}available & \cellcolor{Gray}MSP\textsuperscript{a} & \cellcolor{Gray}Telem.\textsuperscript{c} & \cellcolor{Gray}GPS & --- & ---     \\
 Flywoo F722 PRO MINI V2        & \cellcolor{yellow}available\textsuperscript{b} & \cellcolor{Gray}Receiver & \cellcolor{Gray}VTX & \cellcolor{green}available & \cellcolor{Gray}GPS & \cellcolor{Gray}Telem.\textsuperscript{c} & --- & --- \\
-Flywoo F722 PRO V2              & \cellcolor{green}available & \cellcolor{Gray}Receiver & \cellcolor{Gray}VTX & \cellcolor{green}available & \cellcolor{Gray}GPS & \cellcolor{Gray}Telem.\textsuperscript{c} & --- & --- \\
+Flywoo F722 PRO V2              & \cellcolor{yellow}available\textsuperscript{b} & \cellcolor{Gray}Receiver & \cellcolor{Gray}VTX & \cellcolor{green}available & \cellcolor{Gray}GPS & \cellcolor{Gray}Telem.\textsuperscript{c} & --- & --- \\
  
 GEPRC F722 35A AIO             & \cellcolor{Gray}VTX   & \cellcolor{Gray}Receiver  & \cellcolor{Gray}GPS & \cellcolor{green}available & \cellcolor{green}available & --- &   ---   & ---    \\
 SpeedyBee F7V3 Stack           & \cellcolor{Gray}VTX   & \cellcolor{Gray}Receiver        & \cellcolor{green}available & \cellcolor{Gray}Telem.\textsuperscript{c} & --- &  \cellcolor{Gray}GPS & ---   & ---    \\
@@ -388,11 +388,11 @@ T-Motor PACER H743 Stack    & \cellcolor{green}available  & \cellcolor{Gray}GPS 
 \makroabschnitt
 \label{AbschnittMotoren}
 
-TBD
+Motors differ in their design (construction and size), the operating voltage (in volts), rotational speed (KV rating), propeller mount, and the method of attachment to the frame.
 
 \colger
 
-Motoren unterscheiden sich in ihrem Aufbau (Motoraufbau und -größe), der elektrischen Spannung (Volt), mit der sie arbeiten können, Drehzahl (KV-Wert), der Aufnahme des Propellers und der Befestigung mit der Rahmen.
+Motoren unterscheiden sich in ihrem Aufbau (Konstruktion und Größe), der elektrischen Spannung (in Volt), mit der sie betrieben werden, der Drehzahl (KV-Wert), der Aufnahme des Propellers und der Befestigung am Rahmen.
 
 \colende
 
@@ -401,35 +401,35 @@ Motoren unterscheiden sich in ihrem Aufbau (Motoraufbau und -größe), der elekt
 \makrounterabschnitt
 \label{AbschnittMotorenSize}
 
-TBD
+The motors used in FPV drones are three-phase, brushless DC motors. Each motor has three connection wires that are soldered to the electronic speed controller (ESC) or directly to an AIO flight controller. The ESC sends time-shifted alternating currents through these three wires. By switching the current phases, a rotating magnetic field is created, which drives the rotor equipped with permanent magnets. The three wires are equivalent, so the order in which they are soldered to the ESC or flight controller does not matter.  The motor’s rotation direction can be changed by swapping any two of the three wires. Alternatively, the direction can be checked and reversed in the firmware’s graphical interface for each motor individually.
 
 \colger
 
-Die Motoren von FPV-Drohnen sind dreiphasige, bürstenlose Gleichstrommotoren. Jeder Motor hat drei Anschlusskabel, die an die Motorsteuerung (ESC) oder direkt an an einen AIO-Flugcontroller angelötet werden. Die Motorsteuerung schickt zeitlich versetzte Wechselströme in diese drei Leitungen. Durch das Umschalten der Ströme entsteht ein rotierendes Magnetfeld, das den Rotor mit Permanentmagneten in Drehung versetzt. Die Leitungen sind gleichwertig. Es spielt also keine Rolle in welcher Reihenfolge sie an den Motorsteuerung oder den AIO-Flugcontroller angelötet sind. Die Drehrichtung des Motors kann durch vertauschen von zwei beliebigen der drei Kabel erreicht werden. Alternativ ist es auch möglich die Drehrichtung in der grafischen Oberfläche der Firmware für jeden Motor separat zu prüfen und zu ändern.
+Die Motoren von FPV-Drohnen sind dreiphasige, bürstenlose Gleichstrommotoren. Jeder Motor besitzt drei Anschlusskabel, die an die Motorsteuerung (ESC) oder direkt an einen AIO-Flugcontroller angelötet werden. Die Motorsteuerung schickt zeitlich versetzte Wechselströme in diese drei Leitungen. Durch das Umschalten der Ströme entsteht ein rotierendes Magnetfeld, das den Rotor mit Permanentmagneten in Bewegung versetzt. Die Leitungen sind gleichwertig – die Reihenfolge, in der sie angelötet werden, spielt keine Rolle. Die Drehrichtung des Motors kann durch Vertauschen von zwei beliebigen der drei Kabel geändert werden. Alternativ lässt sich die Drehrichtung in der grafischen Benutzeroberfläche der Firmware für jeden Motor separat prüfen und anpassen.
 
 \coleng
 
-TBD
+The motors consist of a stator and a rotor. The stator contains the windings and the bearing, while the rotor—the motor bell—carries the magnets and performs the actual rotation.  Each motor is identified by a numerical code that specifies the stator’s diameter and height in millimeters. For example, a motor labeled *2306* has a stator with a diameter of 23 mm and a height of 6 mm.
 
 \colger
 
-Die Motoren bestehen aus einem Stator und einem Rotor. Der Stator enthält die Wicklungen und das Kugellager. Der Rotor ist die Motorgloke mit den Magneten, die die eigentliche Drehbewegung ausführt. Jeder Motor ist mit einer Zahlenkombination ausgezeichnet, die den Durchmesser und die Höhe des Stators in Millimeter angibt. Bei einem Motor mit der Zahlenkombination 2306 beispielsweise hat der Stators einen Durchmesser von 23\,mm und eine Höhe von 6\,mm. 
+Die Motoren bestehen aus einem Stator und einem Rotor. Der Stator enthält die Wicklungen und das Kugellager, während der Rotor – die Motorglocke – die Magnete trägt und die eigentliche Drehbewegung ausführt. Jeder Motor ist mit einer Zahlenkombination gekennzeichnet, die den Durchmesser und die Höhe des Stators in Millimetern angibt. Ein Motor mit der Bezeichnung *2306* besitzt beispielsweise einen Stator mit 23 mm Durchmesser und 6 mm Höhe.
 
 \coleng
 
-TBD
+The larger the stator volume, the higher the motor’s torque and overall performance. Larger motors also have better thermal robustness. Smaller motors, by contrast, are lighter and more efficient under low loads.
 
 \colger
 
-Je größer das Statorvolumen, desto höher ist die Motorleistung im Bezug auf Drehmoment. Zudem ist die thermische Robustheit von großen Motoren besser. Motoren mit kleinem Statorvolumen sind hingegen leichter und sparsamer bei kleinen Lasten. 
+Je größer das Statorvolumen, desto höher sind Drehmoment und Gesamtleistung des Motors. Größere Motoren sind zudem thermisch robuster, während kleinere Motoren leichter und bei geringer Last effizienter arbeiten.
 
 \coleng
 
-TBD
+Propellers (see Section~\ref{AbschnittMotorenPropelleraufnahme}) are typically mounted on an M5 shaft with a 5 mm diameter using a matching nut, or alternatively on a 1.5 mm shaft secured with two small M2 screws.
 
 \colger
 
-Die Propelleraufnahme (siehe Abschnitt~\ref{AbschnittMotorenPropelleraufnahme}) geschieht auf einer M5-Welle mit 5\,mm Durchmesser und einer passenden Mutter oder alternativ  mit einer Welle mit 1,5\,mm Durchmesser und zusätzlich zwei wenige M2-Schrauben am Motor befestigt. 
+Die Propelleraufnahme (siehe Abschnitt~\ref{AbschnittMotorenPropelleraufnahme}) erfolgt in der Regel auf einer M5-Welle mit 5 mm Durchmesser und einer passenden Mutter oder alternativ auf einer 1,5 mm-Welle, die mit zwei kleinen M2-Schrauben am Motor befestigt wird.
 
 \colende
 
@@ -438,19 +438,19 @@ Die Propelleraufnahme (siehe Abschnitt~\ref{AbschnittMotorenPropelleraufnahme}) 
 \makrounterabschnitt
 \label{AbschnittMotorenVolt}
 
-TBD
+Motors and batteries (see Section~\ref{AbschnittAkkus}) must be compatible. 4S motors require 4S batteries with a maximum voltage of 16.8 V, while 6S motors require 6S batteries with a maximum voltage of 25.2 V.
 
 \colger
 
-Motoren und Akkus (siehe Abschnitt~\ref{AbschnittAkkus}) müssen zusammenpassen. 4S-Motoren benötigen 4S-Akkus mit maximal 16,8\,V und 6S-Motoren benötigen 6S-Akkus mit maximal 25,2\,V. 
+Motoren und Akkus (siehe Abschnitt~\ref{AbschnittAkkus}) müssen zusammenpassen. 4S-Motoren benötigen 4S-Akkus mit einer maximalen Spannung von 16,8 V, während 6S-Motoren 6S-Akkus mit maximal 25,2 V benötigen.
 
 \coleng
 
-TBD
+4S components are usually cheaper and lighter but provide less power. 6S components offer more power or longer flight time but are generally heavier -- especially the batteries. For lightweight and cost-effective drones, 4S is often the better choice. Some motors can handle both 4S and 6S voltages, making them more versatile in use.
 
 \colger
 
-Komponenten für 4S sind meist günstiger und leichter, bieten dafür aber weniger Leistung. Komponenten für 6S bieten mehr Leistung oder mehr Flugzeit, haben dafür aber auch meist mehr Gewicht (insbesondere die Akkus). Für leichte kostengünstige Drohnen ist 4S die bessere Wahl. Es gibt auch Motoren, die 4S und 6S vertragen und dadurch flexibler eingesetzt werden können.
+Komponenten für 4S sind meist günstiger und leichter, bieten dafür aber weniger Leistung. 6S-Komponenten liefern mehr Leistung oder längere Flugzeiten, sind jedoch in der Regel schwerer -- insbesondere die Akkus. Für leichte und kostengünstige Drohnen ist 4S häufig die bessere Wahl. Es gibt auch Motoren, die sowohl mit 4S- als auch mit 6S-Akkus betrieben werden können und dadurch flexibler einsetzbar sind.
 
 \colende
 
@@ -459,27 +459,27 @@ Komponenten für 4S sind meist günstiger und leichter, bieten dafür aber wenig
 \makrounterabschnitt
 \label{AbschnittMotorenKV}
 
-TBD
+The KV value describes how fast a motor spins per volt under no load, measured in revolutions per minute (RPM). For example, a 3000 KV motor spins at 3000 RPM per volt. When powered by a 4S battery (see Section~\ref{AbschnittAkkus}) with approximately 16 V, this motor would have a no-load speed of about \(3000 \times 16 \approx 48000\)\,RPM.
 
 \colger
 
-Der KV-Wert beschreibt, wie schnell (Drehzahl U/min) sich ein Motor pro Volt im Leerlauf dreht. Ein Motor mit beispielsweise 3000\,KV dreht also ohne Propeller bei 1\,V Versorgungsspannung 3000\,U/min. An einem 4S-Akku (siehe Abschnitt~\ref{AbschnittAkkus}) mit \(\approx\)\,16\,V Spannung hat dieser Motor also eine Leerlaufdrehzahl von \(3000 \times 16 \approx\ 48000\)\,U/min. 
+Der KV-Wert beschreibt, wie schnell sich ein Motor im Leerlauf pro Volt dreht, gemessen in Umdrehungen pro Minute (U/min). Ein Motor mit beispielsweise 3000 KV dreht also bei 1 V Versorgungsspannung 3000 U/min. An einem 4S-Akku (siehe Abschnitt~\ref{AbschnittAkkus}) mit etwa 16 V Spannung hat dieser Motor somit eine Leerlaufdrehzahl von ungefähr \(3000 \times 16 \approx 48000\)\,U/min.
 
 \coleng
 
-TBD
+Motors with high KV values (2800–7000 KV) are more agile and provide faster response times but generate less torque per ampere. They are well suited for smaller propellers and lighter drones. Motors with lower KV values (1500–2450 KV) deliver higher torque per ampere and are better suited for larger propellers and heavier drones.
 
 \colger
 
-Motoren mit hohen KV-Werten (2800-7000 Kv) sind agiler (ermöglichen schnellere Reaktion), haben ein geringeres Drehmoment pro Ampere und sind für kleinere Propeller und leichtere Drohnen gut geeignet. Motoren mit niedrigen KV-Werten (1500-2450 Kv) haben ein höheres Drehmoment pro Ampere und sind für größere Propeller und schwerere Drohnen gut geeignet. 
+Motoren mit hohen KV-Werten (2800–7000 KV) sind agiler und ermöglichen schnellere Reaktionen, erzeugen jedoch ein geringeres Drehmoment pro Ampere. Sie eignen sich gut für kleinere Propeller und leichtere Drohnen. Motoren mit niedrigen KV-Werten (1500–2450 KV) liefern ein höheres Drehmoment pro Ampere und sind für größere Propeller und schwerere Drohnen besser geeignet.
 
 \coleng
 
-TBD
+A higher KV value does not mean that a motor is more powerful than one with a lower KV value. It simply means the motor spins faster, but also draws more current to produce thrust.
 
 \colger
 
-Ein hoher KV-Wert bedeutet nicht, dass ein Motor stärker ist als ein Motor mit einem niedrigeren KV-Wert. Der Motor dreht nur schneller, braucht aber auch mehr Strom für Schub.
+Ein hoher KV-Wert bedeutet nicht, dass ein Motor stärker ist als ein Motor mit einem niedrigeren KV-Wert. Er dreht lediglich schneller, benötigt dafür aber auch mehr Strom, um denselben Schub zu erzeugen.
 
 \colende
 
@@ -488,11 +488,11 @@ Ein hoher KV-Wert bedeutet nicht, dass ein Motor stärker ist als ein Motor mit 
 \makrounterabschnitt
 \label{AbschnittMotorenPropelleraufnahme}
 
-TBD
+Larger motors (e.g., 22xx, 23xx, 24xx) for drones of 5 inches and above typically feature an M5 shaft with a 5 mm diameter for propeller mounting. The propellers are placed directly onto the motor shaft and secured with a nut. Smaller motors (e.g., 13xx, 14xx, 18xx) for drones up to 3.5 inches usually have much smaller shafts of 1.5 mm in diameter, where the propellers are attached with two screws. Motors for medium-sized drones (e.g., 20xx, 21xx) with 3.5 or 4-inch propellers are available in both M5 and 1.5 mm shaft variants.
 
 \colger
 
-Größere Motoren (z.B. 22xx, 23xx, 24xx) für Drohnen ab 5\,Zoll haben zur Propelleraufnahme meistens eine M5-Welle mit 5\,mm Durchmesser. Die Propeller werden direkt auf die Motorwelle gesteckt und mit einer Mutter gesichert. Kleineren Motoren (z.B. 13xx, 14xx, 18xx) für Drohnen bis 3,5\,Zoll haben meist eine viel kleinere Wellen mit 1,5\,mm Durchmesser. Hier werden die Propeller mit zwei Schrauben am Motor befestigt. Motoren (z.B. 20xx, 21xx) für mittelgroße Drohnen (3,5 oder 4\,Zoll) gibt es für M5-Wellen und Wellen mit 1,5\,mm Durchmesser.
+Größere Motoren (z. B. 22xx, 23xx, 24xx) für Drohnen ab 5 Zoll besitzen zur Propelleraufnahme meist eine M5-Welle mit 5 mm Durchmesser. Die Propeller werden direkt auf die Motorwelle gesteckt und mit einer Mutter gesichert. Kleinere Motoren (z. B. 13xx, 14xx, 18xx) für Drohnen bis 3,5 Zoll haben in der Regel eine deutlich kleinere Welle mit 1,5 mm Durchmesser, an der die Propeller mit zwei Schrauben befestigt werden. Motoren (z. B. 20xx, 21xx) für mittelgroße Drohnen (3,5 oder 4 Zoll) sind sowohl mit M5-Wellen als auch mit 1,5 mm-Wellen erhältlich.
 
 \colende
 
@@ -501,12 +501,11 @@ Größere Motoren (z.B. 22xx, 23xx, 24xx) für Drohnen ab 5\,Zoll haben zur Prop
 \makrounterabschnitt
 \label{AbschnittMotorenRahmenbefestigung}
 
-TBD
+When selecting motors, it is important to ensure that the mounting holes on the frame match in number, spacing, and diameter. Motors are typically attached to the frame using three or four screws (M1.4, M2, or M3). On smaller frames, the holes are arranged in an equilateral triangle or a square pattern. Common mounting hole distances are 7 mm, 9 mm, 12 mm, 16 mm, or 19 mm.
 
 \colger
 
-
-Bei der Auswahl der Motoren ist darauf zu achten, dass die Bohrlöcher des Rahmens bezüglich Anzahl, Abstand und Durchmesser übereinstimmen. Üblich ist die Befestigung der Motoren am Rahmen mit drei oder vier Schrauben (M1,4, M2 oder M3). Die Schrauben sind bei kleinen Rahmen als gleichseitiges Dreieck oder als Quadrat angeordnet. Der Lochabstand kann 7\,mm, 9\,mm, 12\,mm oder 16\,mm oder 19\,mm betragen. 
+Bei der Auswahl der Motoren ist darauf zu achten, dass die Bohrlöcher des Rahmens in Anzahl, Abstand und Durchmesser übereinstimmen. Üblicherweise werden die Motoren mit drei oder vier Schrauben (M1,4, M2 oder M3) am Rahmen befestigt. Bei kleinen Rahmen sind die Schraubenlöcher in Form eines gleichseitigen Dreiecks oder als Quadrat angeordnet. Gängige Lochabstände sind 7 mm, 9 mm, 12 mm, 16 mm oder 19 mm.
 
 \colende
 
@@ -515,11 +514,11 @@ Bei der Auswahl der Motoren ist darauf zu achten, dass die Bohrlöcher des Rahme
 \makroabschnitt
 \label{AbschnittPropeller}
 
-TBD
+Propellers convert the motor’s rotational movement into thrust (lift) and control forces. Their diameter, pitch, and number of blades influence thrust, efficiency, noise level, and flight behavior. This document considers only drones with four propellers, although other configurations such as hexacopters and octocopters are also possible.
 
 \colger
 
-Die Propeller wandeln die Drehbewegung des Motors in Schub (Lift) und Steuerkraft um. Die Propellergröße (Durchmesser), Steigung (Pitch) und Blätterzahl beeinflussen Schub, Effizienz, Geräuschentwicklung und Flugverhalten. Dieses Dokument berücksichtigt nur Drohnen mit vier Propellern. Andere Konfigurationen wie Hexacopter und Octocopter sind möglich.
+Die Propeller wandeln die Drehbewegung des Motors in Schub (Lift) und Steuerkräfte um. Propellergröße (Durchmesser), Steigung (Pitch) und Blätterzahl beeinflussen Schub, Effizienz, Geräuschentwicklung und Flugverhalten. Dieses Dokument berücksichtigt ausschließlich Drohnen mit vier Propellern, auch wenn andere Konfigurationen wie Hexacopter und Octocopter ebenfalls möglich sind.
 
 \colende
 
@@ -532,25 +531,27 @@ TBD
 
 \colger
 
-Die Propellergröße bestimmt, einfach gesagt, wie viel Luft bewegt wird. 
-
-Die Angegebene Propellergröße ist immer der Durchmesser in Zoll. Die Propeller müssen zum verwendeten Rahmen (siehe Abschnitt~\ref{AbschnittFrames}) passen.  
-
-\coleng
-
-TBD 
+The propeller size determines, in simple terms, how much air is moved. The specified propeller size always refers to the diameter in inches. The propellers must fit the frame used (see Section~\ref{AbschnittFrames}).
 
 \colger
 
-Kleinere Propeller sind wendiger. Das bedeutet, dass schnellere Reaktion auf Steuerbefehle möglich sind. Die Drohne reagiert agiler. Der Grund dafür ist, dass kleinere Propeller einen geringeren Luftwiderstand haben und insgesamt leichter sind. Sie haben eine geringere Rotationsmasse (Trägheitsmoment). Dadurch kann der Motor die Drehzahl schneller erhöhen oder verringern. Da kleinere Propeller typischerweise mit kleineren Motoren mit höherem KV-Wert kombiniert sind, drehen sie zusätzlich schneller, was Die Agilität bzw. das Ansprechverhalten erneut steigert.
+Die Propellergröße bestimmt vereinfacht gesagt, wie viel Luft bewegt wird. Die angegebene Propellergröße entspricht immer dem Durchmesser in Zoll. Die Propeller müssen zum verwendeten Rahmen passen (siehe Abschnitt~\ref{AbschnittFrames}).
 
 \coleng
 
-TBD
+Smaller propellers make the drone more agile, allowing quicker responses to control inputs. This is because smaller propellers have less air resistance and lower rotational mass (moment of inertia). As a result, the motor can increase or decrease its rotational speed faster. Since smaller propellers are typically used with smaller motors that have a higher KV rating, they also spin faster, which further enhances agility and responsiveness.
 
 \colger
 
-Größere Propeller erzeugen mehr Schub und haben eine bessere Effizienz. Zudem machen Sie den Flug ruhiger -- auf Kosten der Agilität. Mit der Propellergröße steigt auch die Belastung für die Motoren und die Motorsteuerung (ESC), denn die größere Blattfläche erzeugt einen höheren Luftwiderstand. Zudem haben größere Propeller ein höheres Eigengewicht.
+Kleinere Propeller machen die Drohne wendiger und ermöglichen schnellere Reaktionen auf Steuerbefehle. Der Grund dafür ist, dass kleinere Propeller weniger Luftwiderstand haben und insgesamt leichter sind. Sie besitzen eine geringere Rotationsmasse (Trägheitsmoment), wodurch der Motor die Drehzahl schneller erhöhen oder verringern kann. Da kleinere Propeller typischerweise mit kleineren Motoren mit höherem KV-Wert kombiniert werden, drehen sie zusätzlich schneller, was die Agilität und das Ansprechverhalten weiter steigert.
+
+\coleng
+
+Larger propellers generate more thrust and are more efficient. They also provide smoother flight characteristics but at the cost of agility. As propeller size increases, so does the load on the motors and ESCs, since the larger blade area produces more air resistance. In addition, larger propellers are heavier.
+
+\colger
+
+Größere Propeller erzeugen mehr Schub und arbeiten effizienter. Sie sorgen zudem für ein ruhigeres Flugverhalten, allerdings auf Kosten der Agilität. Mit zunehmender Propellergröße steigt auch die Belastung für die Motoren und die Motorsteuerung (ESC), da die größere Blattfläche einen höheren Luftwiderstand erzeugt. Außerdem haben größere Propeller ein höheres Eigengewicht.
 
 \colende
 
@@ -559,19 +560,19 @@ Größere Propeller erzeugen mehr Schub und haben eine bessere Effizienz. Zudem 
 \makrounterabschnitt
 \label{AbschnittPropellerAnzahlBlaetter}
 
-TBD
+Propellers can have between two and eight blades. The fewer blades a propeller has, the higher the possible speed and efficiency (thrust per watt or per ampere). With an increasing number of blades, control, smoothness, and acceleration improve -- but power consumption also increases.
 
 \colger
 
-Es gibt Propeller mit 2 bis 8 Blättern. Je weniger Blätter ein Propeller hat, desto höher sind die erreichbare Geschwindigkeit und Effizienz (Schub pro aufgenommenem Watt oder pro Ampere). Mit steigender Anzahl an Blättern verbessern sich Kontrolle, Laufruhe und Beschleunigung und gleichzeitig auch der Stromverbrauch. 
+Es gibt Propeller mit zwei bis acht Blättern. Je weniger Blätter ein Propeller hat, desto höher sind die erreichbare Geschwindigkeit und Effizienz (Schub pro Watt oder pro Ampere). Mit steigender Anzahl an Blättern verbessern sich Kontrolle, Laufruhe und Beschleunigung, gleichzeitig steigt jedoch auch der Stromverbrauch.
 
 \coleng
 
-TBD
+For long-range applications where efficiency is the top priority, two-blade propellers are typically used. Racing and freestyle drones often use three-blade propellers. CineWhoops commonly use propellers with five or more blades, as these provide maximum flight stability and precise control.
 
 \colger
 
-Für Long-Range-Anwendungen, bei denen Effizienz das Maß aller Dinge ist, kommen in der Regel 2-Blatt-Propeller zum Einsatz. Racing- und Freestyle-Drohnen sind häufig mit 3-Blatt-Propellern ausgestattet. CineWhoop verwenden häufig Propeller mit 5 oder mehr Blättern, da diese möglichst stabil in der Luft liegen und präzise steuerbar sein sollen.
+Für Long-Range-Anwendungen, bei denen Effizienz oberste Priorität hat, werden in der Regel Zweiblattpropeller verwendet. Racing- und Freestyle-Drohnen sind häufig mit Dreiblattpropellern ausgestattet. CineWhoops nutzen oft Propeller mit fünf oder mehr Blättern, da sie ein besonders stabiles Flugverhalten und präzise Steuerung ermöglichen.
 
 \colende
 
@@ -580,35 +581,35 @@ Für Long-Range-Anwendungen, bei denen Effizienz das Maß aller Dinge ist, komme
 \makrounterabschnitt
 \label{AbschnittPropellerPitch}
 
-TBD
+In addition to the number of blades, the pitch of the propeller also affects speed and efficiency (power consumption). A low pitch provides greater efficiency when hovering due to lower air resistance and results in smoother flight behavior. A high pitch allows for greater speed and more aggressive flight maneuvers but increases power consumption.
 
 \colger
 
-Neben der Anzahl der Propeller beeinflusst auch die Steigung (Pitch) der Blätter die Geschwindigkeit und die Effizienz (Stromverbrauch). Ein niedriger Pitch ist durch den geringeren Luftwiederstand effizienter bei Schweben und führt zu ruhigerem Flugverhalten. Ein hoher Pitch ermöglicht eine höhere Geschwindigkeit und aggressivere Flugmanöver, steigert aber auch den Stromverbrauch. 
+Neben der Anzahl der Blätter beeinflusst auch die Steigung (Pitch) der Propeller die Geschwindigkeit und Effizienz (Stromverbrauch). Ein niedriger Pitch ist aufgrund des geringeren Luftwiderstands beim Schweben effizienter und führt zu einem ruhigeren Flugverhalten. Ein hoher Pitch ermöglicht höhere Geschwindigkeiten und aggressivere Flugmanöver, steigert jedoch den Stromverbrauch.
 
 \coleng
 
-TBD
+The pitch is specified in inches and describes the theoretical distance the propeller would move forward during one full rotation if there were no slippage.
 
 \colger
 
-Der Pitch wird in Zoll angegeben und beschreibt den Vortrieb pro Umdrehung, also wie weit sich der Propeller bei einer Umdrehung durch die Luft schrauben würde, wenn es keine Schlupfverluste gäbe.
+Der Pitch wird in Zoll angegeben und beschreibt den theoretischen Vortrieb pro Umdrehung, also wie weit sich der Propeller bei einer vollständigen Umdrehung durch die Luft schrauben würde, wenn es keine Schlupfverluste gäbe.
 
 \coleng
 
-TBD
+For example, with a pitch of 4.3 inches per rotation and a motor speed of 3000 RPM, the theoretical distance traveled per minute is \(3000 \times 4.3 = 12{,}900\) inches per minute. Since one inch equals 25.4 mm, the theoretical speed is \(12{,}900 \times 0.0254 \approx 327.7\,\text{m/min}\), or approximately \(327.7 / 60 \approx 5.46\,\text{m/s}\).
 
 \colger
 
-Bei einem Pitch von 4,3 Zoll pro Umdrehung und 3000\,U/min gibt es einen theoretischen Weg von von \(3000 \times 4,3 = 12.900\,Zoll/min\). Ein Zoll entspricht 25,4\,mm. Somit ist der theoretischen Weg pro Zeit, also die Geschwindigkeit: \(12.900\times 0,0254 \approx 327,7\,m/min\) bzw. \(327,7\,m/min / 60 \approx 5,46\,m/s\).
+Bei einem Pitch von 4,3 Zoll pro Umdrehung und einer Motordrehzahl von 3000 U/min ergibt sich ein theoretischer Weg von \(3000 \times 4{,}3 = 12{,}900\,\text{Zoll/min}\). Ein Zoll entspricht 25,4 mm. Daraus ergibt sich eine theoretische Geschwindigkeit von \(12{,}900 \times 0{,}0254 \approx 327{,}7\,\text{m/min}\) bzw. \(327{,}7 / 60 \approx 5{,}46\,\text{m/s}\).
 
 \coleng
 
-TBD
+In practice, these theoretical values are reduced by about 20–30\% due to slippage. This occurs because air is not a solid medium but a fluid one. As air is displaced and swirled, part of it \textsl{slips away}, meaning the propeller generates less thrust in reality than predicted theoretically.
 
 \colger
 
-Diese theoretischen Werte werden in der Realität durch Schlupfverluste um 20-30\% verringert. Der Grund dafür ist, das Luft kein festes Medium ist, sondern beweglich ist. Durch das Ausweichen und Verwirbeln, \textsl{rutscht} immer ein Teil der Luft weg und der Propeller erreicht in der Praxis weniger Vortrieb als in der Theorie. 
+In der Praxis werden diese theoretischen Werte durch Schlupfverluste um etwa 20–30\% verringert. Der Grund dafür ist, dass Luft kein festes, sondern ein bewegliches Medium ist. Durch das Ausweichen und Verwirbeln \textsl{rutscht} immer ein Teil der Luft weg, wodurch der Propeller in der Realität weniger Vortrieb erzeugt als in der Theorie.
 
 \colende
 
