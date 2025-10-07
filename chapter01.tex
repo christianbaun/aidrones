@@ -283,14 +283,14 @@ Abbildung~\ref{AbbildungSpeedyBeeFCBluejayAIO} zeigt einen AIO-Flight-Controller
 \begin{figure}[htb]
   \centering
     \includegraphics[width=\linewidth]{SpeedyBee_F405_Mini_BLS_35A_front.jpg}
-  \caption{Flight Controller SpeedyBee F405 Mini 35A 20x20 Stack (Front)}
+  \caption{Flight Controller SpeedyBee F405 Mini and BSC 35A 20x20 Stack (Front)}
   \label{AbbildungSpeedyBeeFCF405MiniBLS35front}
 \end{figure}
 
 \begin{figure}[htb]
   \centering
     \includegraphics[width=\linewidth]{SpeedyBee_F405_Mini_BLS_35A_back.jpg}
-  \caption{Flight Controller SpeedyBee F405 Mini 35A 20x20 Stack (Back)}
+  \caption{Flight Controller SpeedyBee F405 Mini and BSC 35A 20x20 Stack (Back)}
   \label{AbbildungSpeedyBeeFCF405MiniBLS35Aback}
 \end{figure}
 
@@ -319,7 +319,6 @@ For comparison, the flight controller shown in Figure~\ref{AbbildungFlywooFCGOKU
 Zum Vergleich: Der in Abbildung~\ref{AbbildungFlywooFCGOKUGN745AIO} gezeigte Flugcontroller Flywoo GOKU GN745 AIO 45A verfügt über sieben UART-Schnittstellen. Keine davon ist für die USB-Schnittstelle belegt, jedoch wird eine für die Übertragung von Telemetriedaten verwendet. Nach dem Anschluss der üblichen Komponenten -- Videosender, Empfänger und GPS-Modul -- bleiben somit drei UART-Schnittstellen für weitere Sensoren und Aktoren verfügbar.
 
 \colende
-
 
 \begin{figure}[htb]
   \centering
@@ -405,7 +404,7 @@ The motors used in FPV drones are three-phase, brushless DC motors. Each motor h
 
 \colger
 
-Die Motoren von FPV-Drohnen sind dreiphasige, bürstenlose Gleichstrommotoren. Jeder Motor besitzt drei Anschlusskabel, die an die Motorsteuerung (ESC) oder direkt an einen AIO-Flugcontroller angelötet werden. Die Motorsteuerung schickt zeitlich versetzte Wechselströme in diese drei Leitungen. Durch das Umschalten der Ströme entsteht ein rotierendes Magnetfeld, das den Rotor mit Permanentmagneten in Bewegung versetzt. Die Leitungen sind gleichwertig – die Reihenfolge, in der sie angelötet werden, spielt keine Rolle. Die Drehrichtung des Motors kann durch Vertauschen von zwei beliebigen der drei Kabel geändert werden. Alternativ lässt sich die Drehrichtung in der grafischen Benutzeroberfläche der Firmware für jeden Motor separat prüfen und anpassen.
+Die Motoren von FPV-Drohnen sind dreiphasige, bürstenlose Gleichstrommotoren. Jeder Motor besitzt drei Anschlusskabel, die an die Motorsteuerung (ESC) oder direkt an einen AIO-Flugcontroller angelötet werden. Die Motorsteuerung schickt zeitlich versetzte Wechselströme in diese drei Leitungen. Durch das Umschalten der Ströme entsteht ein rotierendes Magnetfeld, das den Rotor mit Permanentmagneten in Bewegung versetzt. Die Leitungen sind gleichwertig -- die Reihenfolge, in der sie angelötet werden, spielt keine Rolle. Die Drehrichtung des Motors kann durch Vertauschen von zwei beliebigen der drei Kabel geändert werden. Alternativ lässt sich die Drehrichtung in der grafischen Benutzeroberfläche der Firmware für jeden Motor separat prüfen und anpassen.
 
 \coleng
 
@@ -413,7 +412,7 @@ The motors consist of a stator and a rotor. The stator contains the windings and
 
 \colger
 
-Die Motoren bestehen aus einem Stator und einem Rotor. Der Stator enthält die Wicklungen und das Kugellager, während der Rotor – die Motorglocke – die Magnete trägt und die eigentliche Drehbewegung ausführt. Jeder Motor ist mit einer Zahlenkombination gekennzeichnet, die den Durchmesser und die Höhe des Stators in Millimetern angibt. Ein Motor mit der Bezeichnung *2306* besitzt beispielsweise einen Stator mit 23 mm Durchmesser und 6 mm Höhe.
+Die Motoren bestehen aus einem Stator und einem Rotor. Der Stator enthält die Wicklungen und das Kugellager, während der Rotor -- die Motorglocke -- die Magnete trägt und die eigentliche Drehbewegung ausführt. Jeder Motor ist mit einer Zahlenkombination gekennzeichnet, die den Durchmesser und die Höhe des Stators in Millimetern angibt. Ein Motor mit der Bezeichnung *2306* besitzt beispielsweise einen Stator mit 23 mm Durchmesser und 6 mm Höhe.
 
 \coleng
 
@@ -467,11 +466,11 @@ Der KV-Wert beschreibt, wie schnell sich ein Motor im Leerlauf pro Volt dreht, g
 
 \coleng
 
-Motors with high KV values (2800–7000 KV) are more agile and provide faster response times but generate less torque per ampere. They are well suited for smaller propellers and lighter drones. Motors with lower KV values (1500–2450 KV) deliver higher torque per ampere and are better suited for larger propellers and heavier drones.
+Motors with high KV values (2800--7000 KV) are more agile and provide faster response times but generate less torque per ampere. They are well suited for smaller propellers and lighter drones. Motors with lower KV values (1500--2450 KV) deliver higher torque per ampere and are better suited for larger propellers and heavier drones.
 
 \colger
 
-Motoren mit hohen KV-Werten (2800–7000 KV) sind agiler und ermöglichen schnellere Reaktionen, erzeugen jedoch ein geringeres Drehmoment pro Ampere. Sie eignen sich gut für kleinere Propeller und leichtere Drohnen. Motoren mit niedrigen KV-Werten (1500–2450 KV) liefern ein höheres Drehmoment pro Ampere und sind für größere Propeller und schwerere Drohnen besser geeignet.
+Motoren mit hohen KV-Werten (2800--7000 KV) sind agiler und ermöglichen schnellere Reaktionen, erzeugen jedoch ein geringeres Drehmoment pro Ampere. Sie eignen sich gut für kleinere Propeller und leichtere Drohnen. Motoren mit niedrigen KV-Werten (1500--2450 KV) liefern ein höheres Drehmoment pro Ampere und sind für größere Propeller und schwerere Drohnen besser geeignet.
 
 \coleng
 
@@ -605,11 +604,11 @@ Bei einem Pitch von 4,3 Zoll pro Umdrehung und einer Motordrehzahl von 3000 U/mi
 
 \coleng
 
-In practice, these theoretical values are reduced by about 20–30\% due to slippage. This occurs because air is not a solid medium but a fluid one. As air is displaced and swirled, part of it \textsl{slips away}, meaning the propeller generates less thrust in reality than predicted theoretically.
+In practice, these theoretical values are reduced by about 20--30\% due to slippage. This occurs because air is not a solid medium but a fluid one. As air is displaced and swirled, part of it \textsl{slips away}, meaning the propeller generates less thrust in reality than predicted theoretically.
 
 \colger
 
-In der Praxis werden diese theoretischen Werte durch Schlupfverluste um etwa 20–30\% verringert. Der Grund dafür ist, dass Luft kein festes, sondern ein bewegliches Medium ist. Durch das Ausweichen und Verwirbeln \textsl{rutscht} immer ein Teil der Luft weg, wodurch der Propeller in der Realität weniger Vortrieb erzeugt als in der Theorie.
+In der Praxis werden diese theoretischen Werte durch Schlupfverluste um etwa 20--30\% verringert. Der Grund dafür ist, dass Luft kein festes, sondern ein bewegliches Medium ist. Durch das Ausweichen und Verwirbeln \textsl{rutscht} immer ein Teil der Luft weg, wodurch der Propeller in der Realität weniger Vortrieb erzeugt als in der Theorie.
 
 \colende
 
@@ -618,11 +617,11 @@ In der Praxis werden diese theoretischen Werte durch Schlupfverluste um etwa 20�
 \makroabschnitt
 \label{AbschnittAkkus}
 
-TBD
+FPV drones traditionally use lithium-polymer (LiPo) or lithium-ion (Li-Ion) batteries. Batteries are also classified by their capacity (mAh), voltage (number of cells), discharge rate (C rating, or capacity rate), and connector type. Table~\ref{TabelleLiPoLiIonAkkus} provides an overview of the characteristic properties of LiPo and Li-Ion batteries.
 
 \colger
 
-Klassischerweise verwenden FPV-Drohnen Lithium-Polymer (LiPo) oder Lithium-Ionen-Akkus (Li-Ion). Unterschieden werden die Akkus zudem hinsichtlich Kapazität (mAh), Spannung (Zellenzahl) und Entladespannung bzw. C-Wert (\textsl{Capacity Rate}), und Stecker. Eine Übersicht der charakteristischen Eigenschaften von LiPo-Akkus und Li-Ion-Akkus zeigt Tabelle~\ref{TabelleLiPoLiIonAkkus}).
+Klassischerweise verwenden FPV-Drohnen Lithium-Polymer- (LiPo) oder Lithium-Ionen-Akkus (Li-Ion). Akkus werden zudem nach ihrer Kapazität (mAh), Spannung (Zellenzahl), Entladerate bzw. C-Wert (\textsl{Capacity Rate}) und dem Steckertyp unterschieden. Eine Übersicht der charakteristischen Eigenschaften von LiPo- und Li-Ion-Akkus zeigt Tabelle~\ref{TabelleLiPoLiIonAkkus}.
 
 \colende
 
@@ -652,19 +651,19 @@ Use Cases                      & Long-range, smooth flying, cruising & Racing, f
 \makrounterabschnitt
 \label{AbschnittCWertAkkus}
 
-TBD
+Batteries consist of one or more cells connected in series. FPV drones typically use LiPo batteries because they offer very high C-rates, ranging from 75 to 120 C. The C-rate indicates how quickly a battery can be discharged. In contrast, Li-Ion batteries usually have C-rates of only 10--12 C.
 
 \colger
 
-Die Akkus bestehen aus einer oder mehreren in Reihe geschalteten Zellen. Der Grund dafür, dass bei FPV-Drohnen meist LiPo-Akkus verwendet werden, sind deren sehr hohe C-Werte von 75 bis 120\,C. Der C-Wert gibt an, wie schnell ein Akku entladen werden kann. Li-Ion-Akkus bieten im Gegensatz dazu nur 10-12\,C.
+Akkus bestehen aus einer oder mehreren in Reihe geschalteten Zellen. FPV-Drohnen verwenden meist LiPo-Akkus, da diese sehr hohe C-Werte zwischen 75 und 120 C erreichen. Der C-Wert gibt an, wie schnell ein Akku entladen werden kann. Li-Ion-Akkus bieten im Gegensatz dazu nur 10--12 C.
 
 \coleng
 
-TBD
+For example, a 1500 mAh LiPo battery (see Figure~\ref{AbbildungLiPoAkku}) with a C-rate of 100 can deliver \(1.5 A \times 100 = 150 A\) of continuous current.
 
 \colger
 
-Bei einem 1500\,mAh LiPo-Akku (siehe Abbildung~\ref{AbbildungLiPoAkku}) mit einem C-Wert 100 können somit \(1,5 A * 100 = 150\) Ampere dauerhaft abgegeben werden. 
+Ein 1500 mAh LiPo-Akku (siehe Abbildung~\ref{AbbildungLiPoAkku}) mit einem C-Wert von 100 kann somit \(1{,}5 A \times 100 = 150 A\) Dauerstrom liefern.
 
 \colende
 
@@ -686,35 +685,35 @@ Bei einem 1500\,mAh LiPo-Akku (siehe Abbildung~\ref{AbbildungLiPoAkku}) mit eine
 
 \colstart
 
-TBD
+Such high current levels are only needed for very dynamic flight maneuvers. For typical use in education and research projects, this is not relevant. Patrol flights or hovering for data collection do not require high C-rates.
 
 \colger
 
-Für sehr rasante Flugmanöver braucht man solche hohen Ströme. Für typische Anwendungen in Lehre und Forschungsprojekten ist das aber uninteressant. Patrouillenflüge oder gar das Verharren an einer Position zur Datensammlung erfordern keine hohen C-Werte. 
+Solch hohe Ströme werden nur für sehr dynamische Flugmanöver benötigt. Für typische Anwendungen in Lehre und Forschungsprojekten ist das jedoch uninteressant. Patrouillenflüge oder das Verharren an einer Position zur Datensammlung erfordern keine hohen C-Werte.
 
 \coleng
 
-TBD
+LiPo batteries have several disadvantages. They can be easily over-discharged, which permanently damages or destroys them. Crashes often lead to physical damage, and improper handling — such as charging too quickly or using a damaged battery — carries a latent risk of fire. A much more robust alternative to LiPo batteries are lithium-ion batteries, although they provide much lower C-rates.
 
 \colger
 
-LiPo-Akkus haben mehrere Nachteile. Die werden sehr leicht tiefentladen, was sie dauerhaft beschäftigt oder zerstört. Abstürze führen auch häufig zu Beschädigungen und bei unsachgemäßer Handhabung wie dem zu schnellen Laden oder dem Betrieb trotz Beschädigungen der Außenhülle, besteht das latente Risiko von Bränden. Eine deutlich robustere Alternative zu LiPo-Akkus sind Lithium-Ionen-Akkus. Diese bieten allerdings viel geringere C-Werte.
+LiPo-Akkus haben mehrere Nachteile. Sie können leicht tiefentladen werden, was sie dauerhaft beschädigt oder zerstört. Abstürze führen häufig zu Beschädigungen, und bei unsachgemäßer Handhabung -- etwa durch zu schnelles Laden oder den Betrieb trotz beschädigter Außenhülle -- besteht ein latentes Brandrisiko. Eine deutlich robustere Alternative zu LiPo-Akkus sind Lithium-Ionen-Akkus, die allerdings wesentlich geringere C-Werte bieten.
 
 \coleng
 
-TBD
+Li-Ion batteries are ideal for scenarios where long flight times, smooth flight behavior, and extended range are desired. LiPo batteries, on the other hand, are better suited for fast flight maneuvers and racing applications.
 
 \colger
 
-Li-Ion-Akkus sind ideal für Szenarien, bei denen lange Flugzeiten, ruhiges Flugverhalten und eventuell lange Strecken (Long-Range) angestrebt ist. LiPo-Akkus hingegen sind besser geeignet für rasante Flugmanöver und Rennen.
+Li-Ion-Akkus sind ideal für Szenarien, in denen lange Flugzeiten, ruhiges Flugverhalten und gegebenenfalls große Reichweiten (Long-Range) angestrebt werden. LiPo-Akkus hingegen eignen sich besser für schnelle Flugmanöver und Rennanwendungen.
 
 \coleng
 
-TBD
+The C-rate also indicates the recommended charging rate. Unless the manufacturer explicitly specifies a higher value, the standard charging rate is 1 C. For the 1500 mAh LiPo battery mentioned earlier, a 1 C charging rate corresponds to a current of 1.5 A, meaning that a full charge theoretically takes one hour. However, this is a hypothetical value, as a deeply discharged battery can no longer be recharged.
 
 \colger
 
-Der C-Wert gibt auch die empfohlene Laderate an. Diese ist 1\,C, wenn der Hersteller nicht dediziert eine höhere Laderate wie z.B. 2\,C freigegeben hat. Bei dem eingangs erwähnten 1500\,mAh LiPo-Akku entspricht 1\,C Laderate einem Strom von 1,5\,A und dementsprechend dauert es eine Stunde den Akku vollständig zu laden. Das ist aber ein hypothetischer Wert, da ein derart tiefentladener Akku nicht mehr geladen werden kann.
+Der C-Wert gibt auch die empfohlene Laderate an. Diese beträgt 1 C, sofern der Hersteller nicht ausdrücklich eine höhere Laderate, wie etwa 2 C, freigegeben hat. Beim eingangs erwähnten 1500 mAh LiPo-Akku entspricht eine Laderate von 1 C einem Strom von 1,5 A, wodurch das vollständige Laden theoretisch eine Stunde dauern würde. Dies ist jedoch ein hypothetischer Wert, da ein derart tiefentladener Akku nicht mehr geladen werden kann.
 
 \colende
 
@@ -723,19 +722,19 @@ Der C-Wert gibt auch die empfohlene Laderate an. Diese ist 1\,C, wenn der Herste
 \makrounterabschnitt
 \label{AbschnittSWertAkkusZellen}
 
-TBD
+LiPo and Li-Ion batteries contain one or more cells connected in series. The so-called S rating of a battery indicates the number of cells it contains. Each LiPo cell has a nominal voltage of approximately 3.7 V (fully charged around 4.2 V, discharged around 3.0 V). When multiple cells are connected in series, their voltages add up.
 
 \colger
 
-LiPo-Akkus und Li-Ion-Akkus enthalten eine oder mehrere in Reihe geschaltete Zellen. Der sogenannte S-Wert bei Akkus definiert die Anzahl der Zellen. Jede LiPo-Zelle hat eine Nennspannung von ca. 3,7\,V. (voll geladen ca. 4,2\,V, entladen ca. 3,0\,V). Sind mehrere Zellen in Reihe geschaltet, addieren sich die Spannungen. 
+LiPo-Akkus und Li-Ion-Akkus enthalten eine oder mehrere in Reihe geschaltete Zellen. Der sogenannte S-Wert eines Akkus gibt die Anzahl der enthaltenen Zellen an. Jede LiPo-Zelle hat eine Nennspannung von etwa 3,7 V (voll geladen etwa 4,2 V, entladen etwa 3,0 V). Werden mehrere Zellen in Reihe geschaltet, addieren sich die Spannungen.
 
 \coleng
 
-TBD
+The most common battery types are 4S and 6S. A 4S battery has four cells connected in series, resulting in a nominal voltage of \(4 \times 3.7\,\text{V} = 14.8\,\text{V}\). When fully charged, its voltage is 16.8 V. Table~\ref{TabelleAkkus} provides an overview of different LiPo battery configurations.
 
 \colger
 
-Die gängigsten Akkus sind 4S und 6S. Bei einem 4S-Akku sind 4 Zellen in Reihe geschaltet. Die Nennspannung ist \(4 \times 3,7\,V = 14,8\,V\). Ist ein solcher Akku voll geladen ist seine Spannung 16,8\,V. Eine Übersieht über die verschiedenen LiPo-Akkus enthält Tabelle~\ref{TabelleAkkus}).
+Die gängigsten Akkutypen sind 4S und 6S. Bei einem 4S-Akku sind vier Zellen in Reihe geschaltet, wodurch sich eine Nennspannung von \(4 \times 3,7\,\text{V} = 14,8\,\text{V}\) ergibt. Ist ein solcher Akku voll geladen, beträgt seine Spannung 16,8 V. Eine Übersicht über verschiedene LiPo-Akkus zeigt Tabelle~\ref{TabelleAkkus}.
 
 \colende
 
@@ -759,28 +758,27 @@ S6            & 6     & 22.2\,V          & 25.2,V       & 18.0\,V        \\
 
 \colstart
 
-TBD
+At higher voltages, a motor requires less current for the same power output and operates more efficiently. 6S components are more powerful but also heavier and more expensive. Larger or performance-oriented drones usually use 6S batteries, while smaller and medium-sized drones typically use 4S batteries and correspondingly lightweight components.
 
 \colger
 
-Bei einer höheren Spannung braucht ein Motor bei gleicher Leistung weniger Strom und läuft effizienter. S6-Komponenten sind leistungsstärker aber auch schwerer und teurer. Größere oder leistungsorientierte Drohnen verwenden meist 6S-Akkus. Kleinere und mittlere Drohnen verwenden meist S4-Akkus und entsprechende leichtgewichtige Komponenten.
+Bei höherer Spannung benötigt ein Motor bei gleicher Leistung weniger Strom und arbeitet effizienter. 6S-Komponenten sind leistungsstärker, jedoch auch schwerer und teurer. Größere oder leistungsorientierte Drohnen verwenden meist 6S-Akkus, während kleinere und mittlere Drohnen in der Regel 4S-Akkus und entsprechend leichte Komponenten nutzen.
 
 \coleng
 
-TBD
+As battery capacity increases, not only does flight time improve, but total weight also increases. Very small 4S batteries with a capacity of 450 mAh weigh around 60 g, while the battery shown in Figure~\ref{AbbildungLiPoAkku} with a capacity of 1500 mAh weighs about 185 g. Higher total weight also affects flight characteristics.
 
 \colger
 
-Mit steigender Kapazität eines Akkus steigt nicht nur die Flugdauer, sondern auch das Gesamtgewicht. Sehr kleine S4-Akkus mit 450\,mAh Kapazität wiegen ca. 60\,g. Der in Abbildung~\ref{AbbildungLiPoAkku} gezeigte Akku mit 1500\,mAh Kapazität wiegt hingegen ca. 185\,g. Ein höheres Gesamtgewicht beeinflusst auch das Flugverhalten. 
-
+Mit steigender Kapazität eines Akkus erhöht sich nicht nur die Flugdauer, sondern auch das Gesamtgewicht. Sehr kleine 4S-Akkus mit 450 mAh Kapazität wiegen etwa 60 g, während der in Abbildung~\ref{AbbildungLiPoAkku} gezeigte Akku mit 1500 mAh rund 185 g wiegt. Ein höheres Gesamtgewicht beeinflusst auch das Flugverhalten.
 
 \coleng
 
-TBD
+Li-Ion batteries typically consist of 18650 cells connected in series. The capacity of individual cells depends on the manufacturer and cell quality, typically ranging from 2500 mAh to 3500 mAh. To achieve higher capacity, additional cells must be connected in parallel. The number of cells and their configuration are indicated on the Li-Ion battery using the letters S (series) and P (parallel). Common Li-Ion battery configurations on the market include 3S1P, 4S1P, 4S2P, 6S1P, and 6S2P.
 
 \colger
 
-Li-Ion-Akkus enthalten üblicherweise in Reihe geschaltete 18650-Zellen. Die Kapazität der einzelnen Zellen hängt immer vom Hersteller und der Qualität der Zellen ab. Typische Kapazitäten sind zwischen 2500 und 3500\,mAh. Ist eine höhere Kapazität gewünscht, müssen zusätzliche Zellen parallel geschaltete werden. Die Anzahl der Zellen und die Art Ihrer Verschaltung ist auf den Li-Ion-Akkus mit den Buchstaben S (Serie) und P (Parallel) angegeben. Am Markt verfügbare LI-Ion-Akkus sind häufig 3S1P, 4S1P, 4S2P, 6S1P, 6S2P.
+Li-Ion-Akkus bestehen üblicherweise aus in Reihe geschalteten 18650-Zellen. Die Kapazität der einzelnen Zellen hängt vom Hersteller und von der Zellqualität ab und liegt typischerweise zwischen 2500 mAh und 3500 mAh. Soll eine höhere Kapazität erreicht werden, müssen zusätzliche Zellen parallel geschaltet werden. Die Anzahl der Zellen und deren Verschaltung sind auf den Li-Ion-Akkus mit den Buchstaben S (Serie) und P (Parallel) angegeben. Häufig verfügbare Li-Ion-Akkus sind beispielsweise 3S1P, 4S1P, 4S2P, 6S1P und 6S2P.
 
 \colende
 
@@ -789,66 +787,64 @@ Li-Ion-Akkus enthalten üblicherweise in Reihe geschaltete 18650-Zellen. Die Kap
 \makrounterabschnitt
 \label{AbschnittSteckerAkkus}
 
-TBD
+The battery is usually connected to the flight controller via an XT30 or alternatively an XT60 DC connector. Some larger batteries use an XT90 plug. Two wires with a connector are soldered either to the electronic speed controller (in a stack) or directly to the flight controller in an AIO configuration (see Section~\ref{AbschnittFC}).
 
 \colger
 
-Der Anschluss der Akkus an den Flugcontroller geschieht in der Regel über einen XT30- oder alternativ über eine XT60-Gleichstromstecker. Es gibt auch sehr große Akkus mit XT90-Stecker. Zwei Kabel mit einer Buchse sind an die Motorsteuerung (bei einem Stack) oder an den Flugcontroller bei einem AIO angelötet (siehe Abschnitt~\ref{AbschnittFC}). 
+Der Anschluss der Akkus an den Flugcontroller erfolgt in der Regel über einen XT30- oder alternativ einen XT60-Gleichstromstecker. Einige größere Akkus verwenden einen XT90-Stecker. Zwei Kabel mit einer Buchse sind an die Motorsteuerung (bei einem Stack) oder am Flugcontroller eines AIO-Systems angelötet (siehe Abschnitt~\ref{AbschnittFC}).
 
 \coleng
 
-TBD
+For small and lightweight drones up to 4 inches, XT30 connectors are commonly used. 5- and 6-inch drones typically use XT60 connectors, while larger drones often rely on XT90 connectors. The higher the number, the higher the current the connector can safely handle. However, larger connectors are also heavier and bulkier. The wire gauge must also match the connector size.
 
 \colger
 
-Bei kleinen und leichten Drohnen bis zu einer Größe von 4\,Zoll sind XT30-Buchsen üblich. 5- und 6-Zoll-Drohnen verwenden üblicherweise XT60-Buchsen. Noch größe Drohnen verwenden häufig XT90-Buchen. Je größer die Zahl, desto größere Ströme verträgt der Stecker. Größere Buchsen und Stecker sind allerdings auch größer und schwerer. Auch der Leitungsquerschnitt muss zu den Buchen passen. 
+Bei kleinen und leichten Drohnen bis zu einer Größe von 4 Zoll sind XT30-Buchsen üblich. 5- und 6-Zoll-Drohnen verwenden üblicherweise XT60-Buchsen, während größere Drohnen häufig XT90-Buchsen nutzen. Je größer die Zahl, desto höhere Ströme kann der Stecker sicher übertragen. Größere Buchsen und Stecker sind allerdings auch schwerer und sperriger. Auch der Leitungsquerschnitt muss zur jeweiligen Buchse passen.
 
 \coleng
 
-TBD
+In addition to the main DC connector, every battery with two or more cells has a balance connector for safe charging. This connector, which in modern batteries typically follows the JST-XHR standard, allows the charger to measure the voltage of each individual cell and control the charging process accordingly. The number of pins equals the number of cells plus one (for the common ground). Thus, a 4S battery has five wires, and a 6S battery has seven. Using the data from the balance connector, the charger balances the voltage across all cells, preventing overcharging of individual cells and reducing the risk of damage or fire, while also avoiding deep discharge of single cells during operation.
 
 \colger
 
-Neben den Gleichstromstecker verfügt jeder Akku mit zwei oder mehr Zellen über einen Balancerstecker zum sicheren Laden. Dieser Stecker, der bei modernen Akkus meist der Norm JST-XHR entspricht, ermöglicht es dem Ladegerät die Zellspannung jeder einzelnen Zelle zu messen und den Ladevorgang entsprechend zu steuern. Die Anzahl der Pins entspricht der Anzahl der Zellen plus eins (wegen der gemeinsamen Masse). Ein 4S-Akku hat somit fünf Leitungen und ein 6S-Akku hat sieben Leitungen. Durch die Werte, die über den Balancerstecker ausgelesen werden, gleicht das Ladegerät die Spannung der einzelnen Zellen an. Das verhindert die Überladung einzelner Zellen beim Ladevorgang und damit das Riskio für eine Beschädigung des Akkos oder sogar einen Brand und beugt einer Tiefentladung einzelner Zellen beim späteren Betrieb vor.
+Neben dem Gleichstromstecker verfügt jeder Akku mit zwei oder mehr Zellen über einen Balancerstecker zum sicheren Laden. Dieser Stecker, der bei modernen Akkus meist dem JST-XHR-Standard entspricht, ermöglicht es dem Ladegerät, die Spannung jeder einzelnen Zelle zu messen und den Ladevorgang entsprechend zu steuern. Die Anzahl der Pins entspricht der Anzahl der Zellen plus eins (für die gemeinsame Masse). Ein 4S-Akku hat somit fünf Leitungen, ein 6S-Akku sieben. Mithilfe der über den Balancerstecker ausgelesenen Werte gleicht das Ladegerät die Spannung der einzelnen Zellen an. Dies verhindert die Überladung einzelner Zellen während des Ladevorgangs und damit das Risiko einer Beschädigung des Akkus oder gar eines Brandes und beugt einer Tiefentladung einzelner Zellen im späteren Betrieb vor.
 
 \colende
-
-
 
 \renewcommand{\deutschertitel}{GPS}
 \renewcommand{\englischertitel}{GPS}
 \makroabschnitt
 \label{AbschnittGPS}
 
-TBD
+A GPS module (Global Positioning System) is essential for many useful functions such as Return-to-Home (automatic return flight), speed measurement, altitude determination, position hold, autonomous flight, and more.
 
 \colger
 
-Ein GPS-Modul (Global Positioning System) ist obligatorisch für viele nützliche Funktionen wie zum Beispiel Return-to-Home (automatisches Heimfliegen), Geschwindigkeitsmessung, Bestimmung der Höhe, Unterstützung der Positionshaltung, autonomer Flug, etc. 
+Ein GPS-Modul (Global Positioning System) ist für viele nützliche Funktionen wie Return-to-Home (automatisches Heimfliegen), Geschwindigkeitsmessung, Höhenbestimmung, Unterstützung der Positionshaltung oder autonomen Flug unverzichtbar.
 
 \coleng
 
-TBD
+Not every GPS module is compatible with all common flight controller firmwares. While Betaflight supports almost any GPS module, this is not the case for INAV and ArduPilot.
 
 \colger
 
-Nicht jedes GPS-Modul ist mit allen gängigen Firmwares für Flugcontroller kompatibel. Während Betaflight quasi jedes GPS-Modul unterstützt, ist das bei INAV und ArduPilot nicht der Fall. 
+Nicht jedes GPS-Modul ist mit allen gängigen Firmwares für Flugcontroller kompatibel. Während Betaflight nahezu jedes GPS-Modul unterstützt, ist das bei INAV und ArduPilot nicht immer der Fall.
 
 \coleng
 
-TBD
+A GPS module with six connections (pads or wires) typically includes a magnetic compass. If the module has only four connections, it lacks this compass. Without a magnetic compass, a drone cannot determine its heading when stationary—meaning it does not know which direction it is facing. Consequently, several useful functions, such as GPS position hold in ArduPilot, are unavailable.
 
 \colger
 
-Verfügt ein GPS-Modul nur für sechs Anschlüsse (Lötpads oder Kabel), enthält es einen magnetischen Kompass. Verfügt das Modul allerdings nur über vier Anschlüsse, fehlt der magnetische Kompass. Ohne magnetischen Kompass weiß eine Drohne aber ohne Vorwärtsbewegung nicht, wie sie positioniert ist, also in welche Richtung sie schaut. Mehrere sinnvolle Funktionen wie GPS-Position-Hold bei Ardupilot sind dann nicht möglich.
+Ein GPS-Modul mit sechs Anschlüssen (Lötpads oder Kabeln) verfügt in der Regel über einen integrierten magnetischen Kompass. Hat das Modul hingegen nur vier Anschlüsse, fehlt der Kompass. Ohne magnetischen Kompass kann eine Drohne im Stillstand nicht erkennen, in welche Richtung sie ausgerichtet ist. Dadurch sind mehrere sinnvolle Funktionen, wie etwa GPS-Position-Hold bei ArduPilot, nicht nutzbar.
 
 \coleng
 
-TBD
+Common GPS modules (see Figure~\ref{AbbildungLiPoAkku}) with an integrated magnetic compass are typically between 20\(\times\)20 mm and 25\(\times\)25 mm in size.
 
 \colger
 
-Gängige GPS-Module (siehe Abbildung~\ref{AbbildungLiPoAkku}) mit integriertem magnetischem Kompass sind in der Regel zwischen 20x20\,mm und 25x25\,mm groß. 
+Gängige GPS-Module (siehe Abbildung~\ref{AbbildungLiPoAkku}) mit integriertem magnetischem Kompass sind in der Regel zwischen 20\(\times\)20 mm und 25\(\times\)25 mm groß.
 
 \colende
 
@@ -868,41 +864,40 @@ Gängige GPS-Module (siehe Abbildung~\ref{AbbildungLiPoAkku}) mit integriertem m
   \label{AbbildungLiPoAkku}
 \end{figure}
 
-
 \renewcommand{\deutschertitel}{Empfänger}
 \renewcommand{\englischertitel}{Receiver}
 \makroabschnitt
 \label{AbschnittReceiver}
 
-TBD
+The receiver receives the control signals (various channel values) from the remote controller and passes them on to the flight controller. It demodulates the incoming signals and converts them into digital channel values.
 
 \colger
 
-Der Empfänger nimmt die Steuersignale (verschiedene Kanalwerte) der Fernsteuerung entgegen und gibt Sie an den Flugcontroller weiter. Der Empfänger demoduliert die empfangenen Signale und wandelt sie in digitale Kanalwerte um. 
+Der Empfänger empfängt die Steuersignale (verschiedene Kanalwerte) der Fernsteuerung und gibt sie an den Flugcontroller weiter. Er demoduliert die empfangenen Signale und wandelt sie in digitale Kanalwerte um.
 
 \coleng
 
-TBD
+The receiver and transmitter must be compatible, meaning they must use the same protocol and operate in the same frequency band. Common frequency bands are 2.4 GHz and, for long-range applications, 868 MHz in the EU or 915 MHz in the USA. In Germany, the use of these frequency ranges is permitted at a maximum transmission power of 25 mW.
 
 \colger
 
-Empfänger und Fernbedienung müssen zueinander kompatibel sein. Das bedeutet Sie müssen das gleiche Protokoll und den gleichen Frequenzbereich nutzen. Die gängigen Systeme nutzen die Frequenzbereiche 2.4 GHz und für Long-Range-Anwendungen 868\,MHz in der EU bzw. 915\,MHz in den USA. In Deutschland ist die Nutzung dieser Frequenzbereiche bei einer maximalen Sendeleistung von 25\,mW zulässig.
+Empfänger und Fernsteuerung müssen zueinander kompatibel sein, das heißt, sie müssen dasselbe Protokoll und denselben Frequenzbereich verwenden. Gängige Systeme nutzen die Frequenzbereiche 2,4 GHz und -- für Long-Range-Anwendungen -- 868 MHz in der EU bzw. 915 MHz in den USA. In Deutschland ist die Nutzung dieser Frequenzbereiche bei einer maximalen Sendeleistung von 25 mW zulässig.
 
 \coleng
 
-TBD
+Two popular protocols are the open-source system ExpressLRS (ELRS) and the proprietary TBS Crossfire. Because ELRS is open source, there are many hardware providers, and development progresses rapidly. For this reason, this document focuses entirely on the ELRS standard. ELRS devices (transmitters and receivers) run the ExpressLRS firmware, and ideally, both should use the same firmware version.
 
 \colger
 
-Zwei populäre Protokolle sind das offene System ExpressLRS (ELRS) und das proprietäre TBS Crossfire. Da ELRS ein Open-Source-Protokoll ist, gibt es zahlreiche Anbieter für Hardwarekomponenten und die Weiterentwicklung ist schnell. Aus diesem Grund fokussiert dieses Dokument ganz auf den Standard ELRS. ELRS-Geräte (Sender und Empfänger) nutzen als Firmware ExpressLRS. Idealerweise verwenden Sender und Empfänger die gleichen Firmware-Version.
+Zwei populäre Protokolle sind das offene System ExpressLRS (ELRS) und das proprietäre TBS Crossfire. Da ELRS ein Open-Source-Protokoll ist, gibt es zahlreiche Anbieter von Hardwarekomponenten, und die Weiterentwicklung schreitet schnell voran. Aus diesem Grund konzentriert sich dieses Dokument vollständig auf den Standard ELRS. ELRS-Geräte (Sender und Empfänger) verwenden die ExpressLRS-Firmware, und idealerweise sollten beide die gleiche Firmware-Version nutzen.
 
 \coleng
 
-TBD
+There are receivers with an integrated ceramic antenna (see Figure~\ref{AbbildungRadioMasterRP2}) mounted directly on the circuit board, as well as receivers with one (see Figure~\ref{AbbildungRadioMasterRP1}) or two detachable antennas. The commonly used connector is the delicate U.FL (also called \textsl{pigtail}). Receivers with fixed ceramic antennas are more compact, as no antenna cable needs to be routed, but the small antenna height of only a few millimeters significantly reduces range.
 
 \colger
 
-Es gibt Empfänger mit einer festen Antenne aus Keramik (siehe Abbildung~\ref{AbbildungRadioMasterRP2}), die auf der Platine integriert ist, und Empfänger mit einem (siehe Abbildung~\ref{AbbildungRadioMasterRP1}) oder zwei Anschlüssen für abnehmbare Antennen. Der üblicherweise verwendete Steckverbinder ist auch hier das filigrane U.FL (\textsl{Pigtail}). Empfänger mit fester Keramikantenne sind kompakter, da kein Antennenkabel verlegt werden muss. Durch die nur wenige mm hohe Antenne reduziert sich allerdings die Reichweite signifikant.
+Es gibt Empfänger mit einer integrierten Keramikantenne (siehe Abbildung~\ref{AbbildungRadioMasterRP2}), die direkt auf der Platine montiert ist, sowie Empfänger mit einer (siehe Abbildung~\ref{AbbildungRadioMasterRP1}) oder zwei abnehmbaren Antennen. Der üblicherweise verwendete Steckverbinder ist auch hier der filigrane U.FL-Stecker (\textsl{Pigtail}). Empfänger mit fester Keramikantenne sind kompakter, da kein Antennenkabel verlegt werden muss; durch die nur wenige Millimeter hohe Antenne reduziert sich jedoch die Reichweite deutlich.
 
 \colende
 
@@ -938,25 +933,24 @@ Es gibt Empfänger mit einer festen Antenne aus Keramik (siehe Abbildung~\ref{Ab
   \label{AbbildungRadioMasterRP1}
 \end{figure}
 
-
 \renewcommand{\deutschertitel}{Fernbedienung (Sender)}
 \renewcommand{\englischertitel}{Remote Control (Sender)}
 \makroabschnitt
 \label{AbschnittSender}
 
-TBD
+The remote control must implement the same protocol as the receiver in use and operate in the same frequency band. Manufacturers that produce remote controllers compatible with the ELRS protocol include RadioMaster, Axisflying, and Jumper.
 
 \colger
 
-Die verwendet Fernbedienung muss muss das gleiche Protokoll implementieren wie der verwendete Empfänger. Zudem müssen die gleichen Frequenzbereiche verwendet werden. Zu den Herstellern von zum ELRS-Protokoll kompatiblen Fernbedienungen gehören RadioMaster, Axisflying und Jumper. 
+Die verwendete Fernbedienung muss dasselbe Protokoll implementieren wie der eingesetzte Empfänger und denselben Frequenzbereich nutzen. Zu den Herstellern von mit dem ELRS-Protokoll kompatiblen Fernbedienungen gehören RadioMaster, Axisflying und Jumper.
 
 \coleng
 
-TBD
+ELRS remote controls (transmitters) use ExpressLRS as the firmware for the radio protocol and transmitter module, and EdgeTX as the operating system -- a modernized version of OpenTX. EdgeTX generates the control signals, while ExpressLRS transmits them.
 
 \colger
 
-ELRS-Fernbedienungen (Sender) nutzen als Firmware für das Funkprotokoll und das Sender-Modul ExpressLRS und als Betriebssystem EdgeTX, eine modernere Form von OpenTX. EdgeTX erzeugt sozusagen die Steuersignale und ExpressLRS überträgt sie.
+ELRS-Fernbedienungen (Sender) verwenden ExpressLRS als Firmware für das Funkprotokoll und das Sendermodul sowie EdgeTX als Betriebssystem, eine modernisierte Variante von OpenTX. EdgeTX erzeugt die Steuersignale, und ExpressLRS überträgt sie.
 
 \colende
 
@@ -965,11 +959,11 @@ ELRS-Fernbedienungen (Sender) nutzen als Firmware für das Funkprotokoll und das
 \makroabschnitt
 \label{AbschnittVTX}
 
-TBD
+The video transmitter (VTX) transmits the live image from the FPV camera to the FPV goggles using the selected channel within the defined frequency band. In addition to analog video transmitters, there are several digital systems that are incompatible with one another. Video transmitters are sold either as standalone devices or as kits that include a camera and antenna(s). Figure~\ref{AbbildungSpeedyBeeTX800FPVVTX} shows an example of an analog video transmitter.
 
 \colger
 
-Der Videosender (VTX) überträgt das Livebildes der FPV-Camera über den eingestellten Kanal im festgelegten Band an die FPV Brille. Neben analogen Videosendern existieren auch verschiedene digitale Systeme, die zueinander inkompatibel sind. Videosender werden als einzelnes Gerät oder als Kit mit Kamera und Antenne(n) verkauft. Einen analogen Videosender zeigt Abbildung~\ref{AbbildungSpeedyBeeTX800FPVVTX}.
+Der Videosender (VTX) überträgt das Livebild der FPV-Kamera über den eingestellten Kanal im festgelegten Frequenzband an die FPV-Brille. Neben analogen Videosendern existieren auch verschiedene digitale Systeme, die untereinander nicht kompatibel sind. Videosender werden entweder als Einzelgerät oder als Kit mit Kamera und Antenne(n) verkauft. Abbildung~\ref{AbbildungSpeedyBeeTX800FPVVTX} zeigt einen analogen Videosender.
 
 \colende
 
@@ -991,11 +985,11 @@ Der Videosender (VTX) überträgt das Livebildes der FPV-Camera über den einges
 
 \colstart
 
-TBD
+In Germany, the frequency range from 5725 MHz to 5875 MHz may be used with a maximum transmission power of 25 mW. The channels permitted for analog video transmission within the respective bands are shown in Table~\ref{TabelleFrequenzenVTX}. Notably, the Race Band has wide channel spacing of 37 MHz to prevent channel overlap.
 
 \colger
 
-In Deutschland ist die Nutzung des Frequenzbereichs 5725-5875\,Mhz bei einer maximalen Sendeleistung von 25\,mW zulässig. Die für analoge Bildübertragung zulässigen Kanäle in den jeweiligen Bändern zeigt Tabelle~\ref{TabelleFrequenzenVTX}). Auffällig sind beim Race Band die großen Kanalabstände von 37\,MHz, die Kanalüberlagerungen verhindern.
+In Deutschland ist die Nutzung des Frequenzbereichs von 5725 MHz bis 5875 MHz bei einer maximalen Sendeleistung von 25 mW zulässig. Die für die analoge Bildübertragung in den jeweiligen Bändern zugelassenen Kanäle zeigt Tabelle~\ref{TabelleFrequenzenVTX}. Auffällig sind beim Race Band die großen Kanalabstände von 37 MHz, die Kanalüberlagerungen verhindern.
 
 \colende
 
@@ -1018,53 +1012,54 @@ Race Band  & 3 (5732), 4 (5769), 5 (5806), 6 (5843) \\
 
 \colstart
 
-TBD
+The channel and band used by the video transmitter for image transmission are configured in the graphical interface of the flight controller firmware.
 
 \colger
 
-Der von einem Videosender zur Übertragung verwendete Kanal und das Band werden in der grafischen Oberfläche Firmware des Flugcontrollers festgelegt.
+Der vom Videosender zur Übertragung verwendete Kanal und das Band werden in der grafischen Benutzeroberfläche der Firmware des Flugcontrollers festgelegt.
 
 \coleng
 
-TBD
+Analog video transmitters are cross-compatible among manufacturers, while this is not the case for digital systems. For digital video transmission, the transmitter and receiver must be from the same manufacturer. Digital systems for live video transmission are available from DJI, HDZero, and CaddxFPV under the brand name Walksnail.
 
 \colger
 
-Analoge Videosender sind herstellerübergreifend mit analogen Videobrillen kompatibel. Bei digitalen Systemen ist das nicht der Fall. Hier müssen die Hersteller von Sender und Empfänger übereinstimmen. Digitale Systeme zur Übertragung des Livebildes sind von den Herstellern DJI, HDZero und CaddxFPV unter dem Namen Walksnail verfügbar. 
+Analoge Videosender sind herstellerübergreifend mit analogen Videobrillen kompatibel. Bei digitalen Systemen ist das nicht der Fall -- hier müssen Sender und Empfänger vom selben Hersteller stammen. Digitale Systeme zur Übertragung des Livebilds werden von DJI, HDZero und CaddxFPV unter dem Namen Walksnail angeboten.
 
 \coleng
 
-TBD
+The advantages of digital live video transmission include excellent image quality and the ability to record HD footage directly without the need for an additional action camera.
 
 \colger
 
-Vorteile von digitaler Livebildübertratung sind die exzellente Bildqualität und die Möglichkeit, ohne weitere Action-Camera Videos in HD-Qualität aufnehmen zu können.
+Vorteile der digitalen Livebildübertragung sind die hervorragende Bildqualität und die Möglichkeit, Videos in HD-Qualität direkt ohne zusätzliche Action-Cam aufzuzeichnen.
 
 \coleng
 
-TBD
+Analog transmission, on the other hand, offers advantages such as cross-manufacturer compatibility, low latency, a gradual rather than abrupt degradation of image quality under interference, and significantly lower hardware costs.
 
 \colger
 
-Vorteile von analoger Übertratung sind neben der bereits erwähnten herstellerübergreifenden Kompatibilität, die geringe Verzögerung (Latenz), das das Bild bei Störungen schlechter wird, aber nicht abrupt abreißt, und deutlich geringeren Anschaffungskosten für die benötigten Komponenten.
+Analoge Übertragung bietet hingegen Vorteile wie herstellerübergreifende Kompatibilität, geringe Latenz, ein schrittweises statt abruptes Verschlechtern des Bildes bei Störungen und deutlich geringere Anschaffungskosten der Komponenten.
 
 \coleng
 
-TBD
+Antennas have a major impact on both image quality and transmission range. Operating a video transmitter without an antenna is not recommended, as it can overheat and become damaged. Analog systems typically use delicate high-frequency connectors following the U.FL standard, commonly known as \textsl{pigtail} connectors (also used in Wi-Fi devices). Digital systems, such as those from DJI, generally use MMCX connectors. Antennas with larger and more robust SMA screw connectors can be attached using adapter cables, which are often included with the video transmitter.
 
 \colger
 
-Einen wichtigen Einfluss auf die Bildqualität und Reichweite haben die verwendeten Antennen. Der Betrieb des Videosenders ohne Antenne ist nicht empfehlenswert, da der Videosender so überhitzt und Beschädigungen wahrscheinlich sind. Der Anschluss der Antenne geschieht bei analogen Systemen üblicherweise über sehr filigrane Steckverbinder für Hochfrequenzsignale gemäß dem Standard U.FL. Diese Steckverbinder sind auch von WLAN (WiFi) bekannt und heißen umgangssprachlich \textsl{Pigtail}. Digitale Systemen (z.B. von DJI) verwenden in der Regel MMCX-Steckverbinder. Der Anschluss von Antennen mit dem größeren und robusteren SMA-Schraubgewinde ist über Adapterkabel möglich. Häufig liegen diese dem Videosender bei.
+Die verwendeten Antennen haben großen Einfluss auf Bildqualität und Reichweite. Der Betrieb eines Videosenders ohne Antenne ist nicht empfehlenswert, da dieser überhitzen und beschädigt werden kann. Analoge Systeme verwenden in der Regel sehr filigrane Hochfrequenzsteckverbinder nach dem U.FL-Standard, umgangssprachlich auch \textsl{Pigtail} genannt, wie sie auch bei WLAN-Geräten üblich sind. Digitale Systeme, z. B. von DJI, nutzen meist MMCX-Steckverbinder. Antennen mit größerem und robusterem SMA-Schraubgewinde können über Adapterkabel angeschlossen werden, die häufig dem Videosender beiliegen.
 
 \coleng
 
-TBD
+The antennas on both the transmitter and receiver sides should match. Available video transmitter antennas differ by their polarization. There are two types:
 
 \colger
 
-Die Antennen sollten auf auf Sender- und Empfängerseite zusammenpassen. Die verfügbaren Antennen für Videosender unterscheiden sich anhand ihrer Polarisation. Es existieren:
+Die Antennen auf Sender- und Empfängerseite sollten zueinander passen. Die verfügbaren Antennen für Videosender unterscheiden sich in ihrer Polarisation. Es gibt:
 
 \coleng
+
 \begin{itemize}
 \item linearly polarized antennas (LP)
 \item circularly polarized antennas (CP)
@@ -1079,27 +1074,27 @@ Die Antennen sollten auf auf Sender- und Empfängerseite zusammenpassen. Die ver
 
 \coleng
 
-TBD
+LP antennas are the simplest and most cost-effective type. They are often included with video transmitters and FPV goggles and typically have a rod-like shape.
 
 \colger
 
-LP-Antennen sind die kostengünstigste und einfachste Variante. Sie werden häufig mit dem Videosender und mit der Videobrille mitgeliefert und haben eine Stabform. 
+LP-Antennen sind die einfachste und kostengünstigste Variante. Sie werden häufig mit dem Videosender oder der Videobrille mitgeliefert und besitzen meist eine stabförmige Bauweise.
 
 \coleng
 
-TBD
+CP antennas provide better image quality and greater range. With circular polarization, the signal’s polarization rotates as it propagates. There are two variants: right-hand circular polarization (RHCP) and left-hand circular polarization (LHCP).
 
 \colger
 
-CP-Antennen ermöglichen eine bessere Bildqualität und eine höhere Reichweite. Bei zirkularer Polarisation dreht sich die Polarisation, während sich das Signal ausbreitet. Es existieren Antennen mit rechtsseitiger zirkularer Polarisation (RHCP) und mit linksseitiger zirkularer Polarisation (LHCP). 
+CP-Antennen ermöglichen eine bessere Bildqualität und größere Reichweite. Bei zirkularer Polarisation dreht sich die Polarisation des Signals während der Ausbreitung. Es gibt zwei Varianten: rechtsdrehende (RHCP) und linksdrehende (LHCP) Polarisation.
 
 \coleng
 
-TBD
+RHCP antennas are typically used with analog FPV drones, while LHCP antennas are commonly used with digital FPV systems.
 
 \colger
 
-RHCP kommen in der Regel bei analogen FPV-Drohnen zum Einsatz und LHCP-Antennen bei FPV-Drohnen mit digitaler Bildübertragung.
+RHCP-Antennen werden in der Regel bei analogen FPV-Drohnen eingesetzt, während LHCP-Antennen häufig bei FPV-Drohnen mit digitaler Bildübertragung verwendet werden.
 
 \colende
 
@@ -1108,54 +1103,53 @@ RHCP kommen in der Regel bei analogen FPV-Drohnen zum Einsatz und LHCP-Antennen 
 \makroabschnitt
 \label{AbschnittKamera}
 
-TBD
+This section focuses exclusively on analog FPV cameras. Digital systems for live video transmission have not been used in the projects carried out so far.
 
 \colger
 
-Dieser Abschnitt befasst sich ausschließlich mit analogen analoge FPV-Kameras. Digitale Systeme zur Übertragung des Livebildes kamen bei den bisher durchgeführten Projekten nicht zum Einsatz.
+Dieser Abschnitt befasst sich ausschließlich mit analogen FPV-Kameras. Digitale Systeme zur Übertragung des Livebilds kamen in den bisher durchgeführten Projekten nicht zum Einsatz.
 
 \coleng
 
-TBD
+The camera generates a video signal (NTSC or PAL), which is passed through the flight controller to the video transmitter. In digital systems, the cameras are directly connected to the video transmitter.
 
 \colger
 
-Die Kamera erzeugt ein Videosignal (NTSC oder PAL), das über den Flugcontroller an den Videosender weitergeleitet wird. Bei digitalen Systemen sind die Kameras direkt mit dem Videosender verbunden. 
+Die Kamera erzeugt ein Videosignal (NTSC oder PAL), das über den Flugcontroller an den Videosender weitergeleitet wird. Bei digitalen Systemen sind die Kameras direkt mit dem Videosender verbunden.
 
 \coleng
 
-TBD
+The image quality of analog cameras appears outdated due to noise and blurriness, far from HD standards. The perceived quality ranges from VHS-level at worst to DVD-level at best. However, analog video transmission offers several advantages, such as lower cost, minimal latency, lightweight design, and broad cross-manufacturer compatibility of available components.
 
 \colger
 
-Die Bildqualität analoger Kameras wirkt durch Bildfehler und Unschärfen nicht mehr zeitgemäß und weit entfernt von HD-Qualität. Der Bildeindruck ist subjektiv im schlechtesten Fall mit VHS-Kassetten und im besten Fall mit DVDs vergleichbar. Analoge Bildübertragung hat aber mehrere Vorteile wie den günstigeren Preis, der bestmöglichen Latenz, geringes Gewicht und die herstellerübergreifende Kompatibilität der verfügbaren Komponenten. 
+Die Bildqualität analoger Kameras wirkt durch Bildfehler und Unschärfen nicht mehr zeitgemäß und liegt weit unter HD-Qualität. Der Bildeindruck ist subjektiv im schlechtesten Fall mit VHS-Kassetten und im besten Fall mit DVDs vergleichbar. Die analoge Bildübertragung hat jedoch mehrere Vorteile: geringere Kosten, minimale Latenz, geringes Gewicht und eine herstellerübergreifende Kompatibilität der Komponenten.
 
 \coleng
 
-TBD
+Recording high-quality video is not possible with an analog camera. If this requirement exists, an additional action camera or a similar device must be mounted on the drone.
 
 \colger
 
-Die Aufnahme qualitativ hochwerter Videos ist über eine analoge Kamera nicht möglich. Wenn diese Anforderung vorliegt, ist eine zusätzliche Kamera Actioncam oder etwas Vergleichbares nötig und muss auf der Drohne mitfliegen. 
+Die Aufnahme qualitativ hochwertiger Videos ist mit einer analogen Kamera nicht möglich. Wenn diese Anforderung besteht, muss eine zusätzliche Actioncam oder ein vergleichbares Gerät auf der Drohne mitgeführt werden.
 
 \coleng
 
-TBD
+Cameras available on the market differ primarily in resolution, lens focal length (which determines the field of view), and physical size (width).
 
 \colger
 
-Die am Markt verfügbaren Kameras unterscheiden sich primär in der Auflösung, der Brennweite der Linse, die das Sichtfeld beeinflusst, und der Bauform (Breite).
+Die am Markt verfügbaren Kameras unterscheiden sich in erster Linie in der Auflösung, der Brennweite der Linse -- die das Sichtfeld beeinflusst -- und der Bauform (Breite).
 
 \coleng
 
-TBD
+The camera must not be too wide for the frame used (see Section~\ref{AbschnittFrames}). Modern cameras typically have widths of 14 mm (nano cameras) or 19 mm (micro cameras). Figure~\ref{AbbildungCaddyAntNanoCamera} shows a nano camera, and Figure~\ref{AbbildungRunCamPhoenix2Camera} shows a micro camera.
 
 \colger
 
-Die Kamera darf für den verwendeten Rahmen (siehe Abschnitt~\ref{AbschnittFrames}) nicht zu breit sein. Modernen Kameras sind 14\,mm (Nano-Kamera) oder 19\,mm (Micro-Kamera) breite.  Abbildung~\ref{AbbildungCaddyAntNanoCamera} zeigt eine Nano-Kamera und Abbildung~\ref{AbbildungRunCamPhoenix2Camera} zeigt eine Micro-Kamera.
+Die Kamera darf für den verwendeten Rahmen (siehe Abschnitt~\ref{AbschnittFrames}) nicht zu breit sein. Moderne Kameras sind in der Regel 14 mm (Nano-Kamera) oder 19 mm (Micro-Kamera) breit. Abbildung~\ref{AbbildungCaddyAntNanoCamera} zeigt eine Nano-Kamera und Abbildung~\ref{AbbildungRunCamPhoenix2Camera} eine Micro-Kamera.
 
 \colende
-
 
 \begin{figure}[htbp]
   \centering
@@ -1191,49 +1185,48 @@ Die Kamera darf für den verwendeten Rahmen (siehe Abschnitt~\ref{AbschnittFrame
 
 \colstart
 
-TBD
+The horizontal resolution is specified in TV lines (TVL), typically 1000, 1200, or 1500 TVL. The higher this value, the better the potential image quality.
 
 \colger
 
-Die horizontale Auflösung ist in TV-Lines (TVL) angegeben und meist 1000, 1200 oder 1500\,TVL. Je höher dieser Wert ist, desto besser ist die mögliche Bildqualität. 
+Die horizontale Auflösung wird in TV-Lines (TVL) angegeben und beträgt meist 1000, 1200 oder 1500 TVL. Je höher dieser Wert ist, desto besser ist die mögliche Bildqualität.
 
 \coleng
 
-TBD
+The focal length determines the field of view. The smaller the value, the wider the field of view, which is advantageous for flying. However, a low focal length (e.g., 1.8 mm or 2.1 mm) creates a fisheye effect, resulting in image distortion that can cause eye fatigue and make small objects harder to recognize.
 
 \colger
 
-Die Brennweite definiert das Sichtfeld. Je kleiner der Wert ist, desto größer ist das Sichtfeld, was vorteilhaft beim Fliegen ist. Eine  niedrige Brennweite (z.B.\, 1.8\,mm oder 2.1\,mm) führt allerdings zu einem Fischaugen-Effekt und dementsprechend zu Verzerrungen, die das Auge schneller ermüden lassen und besonders kleine Objekte schwerer erkennbar machen. 
+Die Brennweite definiert das Sichtfeld. Je kleiner der Wert ist, desto größer ist das Sichtfeld, was beim Fliegen vorteilhaft ist. Eine niedrige Brennweite (z. B. 1.8 mm oder 2.1 mm) führt jedoch zu einem Fischaugen-Effekt und damit zu Verzerrungen, die die Augen schneller ermüden lassen und besonders kleine Objekte schwerer erkennbar machen.
 
 \coleng
 
-TBD
+Higher focal lengths (e.g., 2.5 mm or 2.8 mm) provide a more natural image but narrow the field of view, which can make orientation during flight more difficult.
 
 \colger
 
-Hohe Brennweiten (z.B.\, 2.5\,mm oder 2.8\,mm) bieten ein angenehmeres Bildgefühl, aber engen das Sichtfeld ein und erschweren so evtl. die Orientierung im Flug. 
+Hohe Brennweiten (z. B. 2.5 mm oder 2.8 mm) bieten ein angenehmeres Bildgefühl, verengen jedoch das Sichtfeld und erschweren dadurch möglicherweise die Orientierung während des Fluges.
 
 \colende
-
 
 \renewcommand{\deutschertitel}{Videobrille (FPV-Brille)}
 \renewcommand{\englischertitel}{FPV Goggles}
 \makroabschnitt
 \label{AbschnittFPVBrille}
 
-TBD
+The FPV goggles used must be compatible with the video transmitter. Components for digital live video transmission are generally only compatible if they come from the same manufacturer. Analog FPV goggles, on the other hand, are cross-compatible with all analog video transmitters.
 
 \colger
 
-Die verwendete Videobrille muss zum Videosender passen. Komponenten, zur digitalen Livebildübertratung sind in der Regel nur dann zueinander kompatibel, wenn sie vom gleichen Hersteller stammen. Analoge Videobrillen sind herstellerübergreifend zu allen analogen Videosendern kompatibel.
+Die verwendete Videobrille muss zum Videosender passen. Komponenten für die digitale Livebildübertragung sind in der Regel nur dann zueinander kompatibel, wenn sie vom gleichen Hersteller stammen. Analoge Videobrillen sind hingegen herstellerübergreifend mit allen analogen Videosendern kompatibel.
 
 \coleng
 
-TBD
+FPV goggles available on the market differ primarily in resolution, display technology, and the available interfaces (inputs and outputs). Table~\ref{TabelleVideobrillen} compares several key characteristics of some analog FPV goggles currently available on the market.
 
 \colger
 
-Die am Markt verfügbaren Videobrillen unterscheiden sich in erster Linie hinsichtlich der Auflösung, der verwendeten Display-Technologie und den Schnittstellen (Eingänge und Ausgänge). Tabelle~\ref{TabelleVideobrillen}) zeigt eine Gegenüberstellung einiger relevanter Merkmale bei einigen am Markt verfügbaren analogen Videobrillen. 
+Die am Markt verfügbaren Videobrillen unterscheiden sich in erster Linie hinsichtlich der Auflösung, der verwendeten Display-Technologie und der vorhandenen Schnittstellen (Ein- und Ausgänge). Tabelle~\ref{TabelleVideobrillen} zeigt eine Gegenüberstellung einiger relevanter Merkmale ausgewählter analoger Videobrillen.
 
 \colende
 
@@ -1262,26 +1255,26 @@ Rotorama 800D           & 800x480\,px   & LCD  & no video output     \\
 
 \colstart
 
-TBD
+The ability to output the video signal through an interface and process it in real time on another device is particularly interesting for many potential AI projects. Although numerous FPV goggles feature an HDMI port, it is typically used only for playing back video from external sources. No common FPV goggle currently supports video output via HDMI.
 
 \colger
 
-Besonders die Möglichkeit, das Videosignal über eine Schnittstelle auszugeben und in einem anderen Gerät in Echtzeit zu verarbeiten ist für viele denkbare KI-Projekte eine interessante Option. Zahlreiche Videobrillen verfügen zwar über einen HDMI-Port, ermöglichen darüber aber ausschließlich das Abspielen von Videos von externen Quellen. Die Ausgabe über HDMI an ein bietet keine gängige FPV-Brille. 
+Besonders die Möglichkeit, das Videosignal über eine Schnittstelle auszugeben und in einem anderen Gerät in Echtzeit zu verarbeiten, ist für viele denkbare KI-Projekte eine interessante Option. Zahlreiche Videobrillen verfügen zwar über einen HDMI-Port, dieser dient jedoch ausschließlich zum Abspielen von Videos von externen Quellen. Eine Ausgabe des Videosignals über HDMI wird von keiner gängigen FPV-Brille unterstützt.
 
 \coleng
 
-TBD
+Most FPV goggles include a 3.5 mm AV port that allows analog video and audio input and output. Using a video capture device, the output signal can be transmitted to a computer for further processing.
 
 \colger
 
-Die meisten Videobrillen verfügen über eine 3,5\,mm AV-Schnittstelle über die Video und Audio analog ein- und ausgegeben werden können. Mit Hilfe eines Videograbbers kann das Ausgabesignal an einen Computer weitergeleitet und dort verarbeite werden. 
+Die meisten Videobrillen verfügen über eine 3,5 mm AV-Schnittstelle, über die Video und Audio analog ein- und ausgegeben werden können. Mithilfe eines Videograbbers kann das Ausgabesignal an einen Computer weitergeleitet und dort verarbeitet werden.
 
 \coleng
 
-TBD
+If FPV goggles have a USB-C port for video output, it depends on whether the signal is exported as USB Video Class (UVC), like a webcam, or as HDMI. In the case of a UVC device, the video stream can be processed directly. If the signal is HDMI, a suitable video capture device is also required to forward and process the signal on a computer.
 
 \colger
 
-Verfügt eine Videobrille über eine USB-C-Schnittstelle zur Ausgabe des Videosignals, kommt es darauf an, um das Videosignal wie bei einer Webcam als USB Video Class (UVC) exportiert wird, oder als HDMI-Signal. Bei einem UVC-Gerät kann der Videostrom direkt  weiterverarbeitet werden. Handelt es sich hingegen um ein HDMI-Signal, ist auch ein geeigneter Videograbbers nötig, um das Ausgabesignal an einen Computer weiterzuleiten und zu verarbeiten.
+Verfügt eine Videobrille über eine USB-C-Schnittstelle zur Ausgabe des Videosignals, hängt es davon ab, ob das Videosignal -- wie bei einer Webcam -- als USB Video Class (UVC) exportiert wird oder als HDMI-Signal. Bei einem UVC-Gerät kann der Videostream direkt weiterverarbeitet werden. Handelt es sich hingegen um ein HDMI-Signal, ist ein geeigneter Videograbber erforderlich, um das Ausgabesignal an einen Computer weiterzuleiten und zu verarbeiten.
 
 \colende

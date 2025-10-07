@@ -15,11 +15,11 @@
 
 \coleng
 
-TBD
+This chapter introduces the essential software components required for operating FPV drones. Similar to Chapter~\ref{KapitelHardware}, it does not aim to provide a complete overview of all available software. Instead, it presents a selection of popular firmware options for flight controllers, transmitters, and receivers, as well as several useful tools. The chapter provides an overview of their core functionalities and suitable use cases, offering guidance for installation and initial configuration.
 
 \colger
 
-Dieses Kapitel stellt die wichtigen Software-Komponenten zum Betrieb von FPV-Drohnen vor. Genau wie Kapitel~\ref{KapitelHardware} hat auf dieses Kapitel nicht den Anspruch, einen vollständigen Überblick über den Stand der verfügbaren Software zu geben. Vorgestellt werden eine Auswahl populärer Firmwares für Flugcontroller, Sender und Empfänger sowie einzelne nützliche Werkzeuge. Das Kapitel soll einen Überblick über die grundlegenden Funktionsumfang und sinnvolle Einsatzbereich geben und bei den ersten Schritten der Installation und Administration unterstützten.
+Dieses Kapitel stellt die wichtigsten Software-Komponenten zum Betrieb von FPV-Drohnen vor. Genau wie Kapitel~\ref{KapitelHardware} hat auch dieses Kapitel nicht den Anspruch, einen vollständigen Überblick über die verfügbare Software zu geben. Vorgestellt werden eine Auswahl populärer Firmwares für Flugcontroller, Sender und Empfänger sowie einige nützliche Werkzeuge. Das Kapitel soll einen Überblick über den grundlegenden Funktionsumfang und sinnvolle Einsatzbereiche geben und bei den ersten Schritten der Installation und Administration unterstützen.
 
 \colende
 
@@ -28,23 +28,23 @@ Dieses Kapitel stellt die wichtigen Software-Komponenten zum Betrieb von FPV-Dro
 \makroabschnitt
 \label{AbschnittFirmwareFC}
 
-TBD
+Every flight controller requires an operating system that primarily processes sensor data (including gyroscope, accelerometer, GPS, and magnetic compass) and user control inputs into motor commands. In addition, flight controller operating systems implement various flight modes (e.g., Acro, Angle, Horizon), route video data from the camera to the video transmitter, provide an on-screen display (OSD), generate and store flight logs (Blackbox logs) for post-flight analysis, allow fine-tuning of flight behavior using filters and mixers, and offer multiple interfaces for communication and configuration.
 
 \colger
 
-Jeder Flugcontroller braucht ein Betriebssystem, das in erster Linie die Sensordaten (u.a. Gyroskop, Beschleunigungssensor, GPS, magnetischer Kompass) und die Steuerbefehle des Benutzers in Motorbefehle umsetzt. Zusätzlich implementieren die Betriebssysteme für Flugcontroller verschiedene Flugmodi (z.B. Acro, Angle, Horizon) und sie leiten Datenströme der Kamera an den Videosender weiter, implementieren ein On-Screen-Display (OSD), erstellen und speichern Log-Daten (Blackbox-Logs) zur nachträglichen Analyse von Flugverhalten, ermöglichen die Feineinstellung des Flugverhaltens mit Hilfe von Filtern und Mixern und bieten verschiedene Schnittstellen zur Kommunikation und Konfiguration. 
+Jeder Flugcontroller benötigt ein Betriebssystem, das in erster Linie die Sensordaten (u. a. Gyroskop, Beschleunigungssensor, GPS, magnetischer Kompass) und die Steuerbefehle des Benutzers in Motorbefehle umsetzt. Darüber hinaus implementieren die Betriebssysteme der Flugcontroller verschiedene Flugmodi (z. B. Acro, Angle, Horizon), leiten Videodaten der Kamera an den Videosender weiter, bieten ein On-Screen-Display (OSD), erzeugen und speichern Log-Daten (Blackbox-Logs) zur nachträglichen Analyse des Flugverhaltens, ermöglichen die Feineinstellung des Flugverhaltens mithilfe von Filtern und Mixern und stellen verschiedene Schnittstellen zur Kommunikation und Konfiguration bereit.
 
 \coleng
 
-TBD
+The operating system of the flight controller is implemented as firmware stored in the flash memory. Since all common flight controller firmwares are open-source projects, it occasionally happens that developer groups split off and create forks that, through new features and more active development, may eventually surpass the original project. Likewise, projects may become obsolete over time due to developer inactivity or shifting priorities.
 
 \colger
 
-Das Betriebssystem des Flugcontrollers implementiert die Firmware, die im Flash-Speicher abgelegt ist. Da alle gängigen Flugcontrollers-Firmwares Open-Source-Projekte sind, passiert es alle paar Jahre, dass sich Entwicklergruppen abspalten und Forks initiieren, die durch neue Features und aktivere Weiterentwicklung mittelfristig eventuell dem Projekt, aus dem Sie hervor gekommen sind, verdrängen. Auch passiert es, dass Projekte durch den Fortgang von Entwicklern oder veränderte Lebensentwürfe nicht mehr weiterentwickelt werden und mit der Zeit Obsolet werden.
+Das Betriebssystem des Flugcontrollers wird als Firmware implementiert, die im Flash-Speicher abgelegt ist. Da alle gängigen Flugcontroller-Firmwares Open-Source-Projekte sind, kommt es immer wieder vor, dass sich Entwicklergruppen abspalten und Forks gründen, die durch neue Funktionen und aktivere Weiterentwicklung mittelfristig das ursprüngliche Projekt verdrängen. Ebenso kann es passieren, dass Projekte aufgrund fehlender Entwickleraktivität oder veränderter Lebensumstände nicht weiterentwickelt werden und mit der Zeit obsolet werden.
 
 \coleng
 
-TBD
+This document introduces the flight controller firmwares Betaflight, INAV, and ArduPilot.
 
 \colger
 
@@ -57,27 +57,27 @@ Dieses Dokument stellt die Flugcontroller-Firmwares Betaflight, INAV und ArduPil
 \makrounterabschnitt
 \label{AbschnittBetaflight}
 
-TBD
+Betaflight is a firmware for flight controllers used in FPV drones. Its focus lies on supporting manual flight modes such as freestyle and racing. The main goals of Betaflight are fast response to user input and extensive configuration options for optimizing flight behavior (tuning).
 
 \colger
 
-Betaflight ist eine Firmware für Flugcontroller von FPV-Drohnen. Der Fokusvon Betaflight ist die Unterstützung des manuellen Fliegens (Freestyle, Racing, etc.). Ziele von Betaflight sind schnelle Reaktion auf Benutzereingaben und umfangreiche Einstellungsmöglichkeiten um das Flugerhalten zu optimieren (tuning). 
+Betaflight ist eine Firmware für Flugcontroller von FPV-Drohnen. Der Fokus von Betaflight liegt auf der Unterstützung des manuellen Fliegens (Freestyle, Racing usw.). Ziele von Betaflight sind eine schnelle Reaktion auf Benutzereingaben und umfangreiche Einstellungsmöglichkeiten zur Optimierung des Flugverhaltens (Tuning).
 
 \coleng
 
-TBD
+Unlike alternative firmwares such as INAV or ArduPilot, Betaflight provides almost no support for autonomous flight. The only exceptions are the \textsl{Rescue Mode}, which allows the drone to return automatically in case of connection loss using GPS, and an experimental mode for maintaining altitude and position automatically.
 
 \colger
 
-Einstellungsmöglichkeiten Autonomes Fliegen unterstützt Betaflight -- ganz im  Gegensatz zu den alternativem Firmwares INAV oder ArduPilot -- fast gar nicht. Ausnahmen sind der Rettungsmodus (\textsl{Rescue Mode}), der die Drohne im Fall von Verbindungsproblemen mit Hilfe eines GPS-Moduls automatisch zurückzukehren lässt, und ein experimenteller Modus um Höhe und Position automatisch zu halten. 
+Im Gegensatz zu alternativen Firmwares wie INAV oder ArduPilot unterstützt Betaflight kaum autonomes Fliegen. Ausnahmen sind der \textsl{Rescue Mode}, der die Drohne bei Verbindungsproblemen mithilfe eines GPS-Moduls automatisch zurückkehren lässt, sowie ein experimenteller Modus zum automatischen Halten von Höhe und Position.
  
 \coleng
 
-TBD
+Betaflight is compatible with almost all flight controllers and receivers available on the market and provides an intuitive graphical user interface.
 
 \colger
 
-Betaflight ist kompatibel zu praktisch allen am Markt verfügbaren Flugcontrollern und Empfängern und bietet eine intuitive Benutzeroberfläche. 
+Betaflight ist mit nahezu allen am Markt verfügbaren Flugcontrollern und Empfängern kompatibel und bietet eine intuitive grafische Benutzeroberfläche.
 
 \colende
 
@@ -86,11 +86,11 @@ Betaflight ist kompatibel zu praktisch allen am Markt verfügbaren Flugcontrolle
 \makrounterunterabschnitt
 \label{AbschnittInstallationBetaflight}
 
-TBD
+The installation and configuration of the firmware are carried out using the locally installed Betaflight Configurator or the web application available at \url{app.betaflight.com}. Figure~\ref{AbbildungBetaflighInstallation} shows the option for installing Betaflight via the web application. The model of the flight controller is usually detected automatically. This page can be accessed via the \textsl{Update Firmware} button at the top of the website. Existing configuration backups can also be restored to the flight controller on this page. A backup of the current settings is automatically created when a new version is installed.
 
 \colger
 
-Die Installation und Konfiguration der Firmware geschieht mit der lokal installierten Software Betaflight Configurator oder mit der Webanwendung \url{app.betaflight.com}. Abbildung~\ref{AbbildungBetaflighInstallation} zeigt die Möglichkeit der Installation von Betaflight über die Webanwendung. Das Modell des Flugcontrollers wird üblicherweise automatisch erkannt. Diese Seite erreicht man über den Button \textsl{Update Firmware} am oberen Rand der Webseite. Ein bestehendes Backup von Einstellungen kann auch auf dieser Seite in den Flugcontroller eingespielt werden. Ein Backup der aktuellen Einstellungen wird bei der Installation einer neuen Version automatisch angefertigt.
+Die Installation und Konfiguration der Firmware erfolgt entweder mit der lokal installierten Software Betaflight Configurator oder über die Webanwendung \url{app.betaflight.com}. Abbildung~\ref{AbbildungBetaflighInstallation} zeigt die Möglichkeit, Betaflight über die Webanwendung zu installieren. Das Modell des Flugcontrollers wird in der Regel automatisch erkannt. Diese Seite erreicht man über den Button \textsl{Update Firmware} am oberen Rand der Webseite. Ein vorhandenes Backup von Einstellungen kann auf dieser Seite ebenfalls in den Flugcontroller eingespielt werden. Ein Backup der aktuellen Einstellungen wird bei der Installation einer neuen Version automatisch angelegt.
 
 \colende
 
@@ -110,19 +110,19 @@ Die Installation und Konfiguration der Firmware geschieht mit der lokal installi
 
 \colstart
 
-TBD
+Figure~\ref{AbbildungBetaflightAppHauptseite} shows the main page (\textsl{Setup}) of Betaflight when accessed through the web application. On the main page, the accelerometer and magnetic compass can be calibrated. It also provides general information about the drone’s current status and its components. The main page is a valuable tool for verifying the correct orientation configuration of the flight controller within the frame. Especially in flight controller stacks and small drones, it often happens that the flight controller is mounted rotated or upside down. The main page displays the drone’s position as a live 3D model corresponding to the orientation configuration set on the \textsl{Configuration} page.
 
 \colger
 
-Abbildung~\ref{AbbildungBetaflightAppHauptseite} zeigt die Startseite (\textsl{Setup}) von Betaflight beim Zugriff aus der Webanwendung heraus. Auf der Startseite können der Beschleunigungssensor und der magnetische Kompass kalibriert werden. Die Startseite enthält auch generelle Informationen zum Zustand der Drohne und ihrer Komponenten. Ein wertvolles Werkzeug ist die Startseite bei der Kontrolle der korrekten Konfiguration der Ausrichtung des Flugcontrollers im Rahmen. Häufig ergibt es sich bei Flugcontroller-Stacks und bei kleineren Drohnen, dass der Flugcontroller gedreht oder auf dem Kopf stehend im Rahmen verbaut ist. Die Startseite zeigt die Position der Drohne als Live-Bild entsprechen der Konfiguration der Position des Flugcontrollers in der Seite \textsl{Configuration}.
+Abbildung~\ref{AbbildungBetaflightAppHauptseite} zeigt die Startseite (\textsl{Setup}) von Betaflight beim Zugriff über die Webanwendung. Auf der Startseite können der Beschleunigungssensor und der magnetische Kompass kalibriert werden. Sie enthält zudem allgemeine Informationen über den Zustand der Drohne und ihrer Komponenten. Ein wertvolles Werkzeug ist die Startseite bei der Kontrolle der korrekten Konfiguration der Ausrichtung des Flugcontrollers im Rahmen. Besonders bei Flight-Controller-Stacks und kleineren Drohnen kommt es häufig vor, dass der Flugcontroller gedreht oder auf dem Kopf stehend verbaut ist. Die Startseite zeigt die Position der Drohne als Live-Bild entsprechend der in der Seite \textsl{Configuration} eingestellten Ausrichtung des Flugcontrollers.
 
 \coleng
 
-TBD
+Figure~\ref{AbbildungBetaflightAppPorts} shows the \textsl{Ports} page, where the available UART interfaces are configured. Correctly setting up the UART functions is essential for using many components connected to the drone, such as the video transmitter (in Figure~\ref{AbbildungBetaflightAppPorts} on UART3), GPS module (on UART5), and receiver (on UART6).
 
 \colger
 
-Abbildung~\ref{AbbildungBetaflightAppPorts} zeigt die Seite \textsl{Ports}. Hier wird die Konfiguration der verfügbaren UART-Schnittstellen vorgenommen. Die Korrekte Einstellung der Funktionswiese der UARTs ist Voraussetzung für die Nutzung vieler an der Drohne angeschlossenen Komponenten wie zum Beispiel Videosender (in Abbildung~\ref{AbbildungBetaflightAppPorts} an UART3), GPS-Modul (in Abbildung~\ref{AbbildungBetaflightAppPorts} an UART5) und Empfänger (in Abbildung~\ref{AbbildungBetaflightAppPorts} an UART6). 
+Abbildung~\ref{AbbildungBetaflightAppPorts} zeigt die Seite \textsl{Ports}. Hier wird die Konfiguration der verfügbaren UART-Schnittstellen vorgenommen. Die korrekte Einstellung der Funktionsweise der UARTs ist Voraussetzung für die Nutzung vieler an die Drohne angeschlossener Komponenten, wie beispielsweise des Videosenders (in Abbildung~\ref{AbbildungBetaflightAppPorts} an UART3), des GPS-Moduls (an UART5) und des Empfängers (an UART6).
 
 \colende
 
@@ -135,11 +135,11 @@ Abbildung~\ref{AbbildungBetaflightAppPorts} zeigt die Seite \textsl{Ports}. Hier
 
 \colstart
 
-TBD
+On the \textsl{Configuration} page (see Figures~\ref{AbbildungBetaflightAppConfiguration1} and~\ref{AbbildungBetaflightAppConfiguration2}), settings are made for, among other things, the orientation of the flight controller and the gyro, which is essential for every drone as it serves as the core instrument for attitude determination.
 
 \colger
 
-Auf der Seite \textsl{Configuration} (siehe Abbildungen~\ref{AbbildungBetaflightAppConfiguration1} und~\ref{AbbildungBetaflightAppConfiguration2}) werden unter anderem Einstellungen zur Ausrichtung des Flugcontrollers und des für jede Drohne unverzichtbaren Gyroskops (Kreiselinstrument zur Lagebestimmung) vorgenommen. 
+Auf der Seite \textsl{Configuration} (siehe Abbildungen~\ref{AbbildungBetaflightAppConfiguration1} und~\ref{AbbildungBetaflightAppConfiguration2}) werden unter anderem Einstellungen zur Ausrichtung des Flugcontrollers und des für jede Drohne unverzichtbaren Gyroskops (Kreiselinstrument zur Lagebestimmung) vorgenommen.
 
 \colende
 
@@ -152,11 +152,11 @@ Auf der Seite \textsl{Configuration} (siehe Abbildungen~\ref{AbbildungBetaflight
 
 \colstart
 
-TBD
+Safety-relevant settings, such as the maximum tilt angle of the drone at which arming (activating the motors to prepare for flight) is allowed, are also configured on the \textsl{Configuration} page. If an on-screen display (OSD) is to be shown in the FPV live video by the flight controller, it must be enabled here. The \textsl{Airmode} option, shown as active in Figure~\ref{AbbildungBetaflightAppConfiguration2}, ensures that the motors continue to spin slightly even at zero throttle, which improves both the stability and controllability of the drone.
 
 \colger
 
-Auch sicherheitsrelevante Einstellungen wie der maximale Aufstellwindel der Drohne, bei der das Arming (das Aktivieren der Motoren, um sie für den Flug vorzubereiten) überhaupt möglich ist, werden auf dieser Seite \textsl{Configuration} festgelegt. Soll im Livebild der FPV-Drohne durch den Flugcontroller ein on-screen display (OSD) eingeblendet werden, muss es hier grundsätzlich aktiviert werden. Die in Abbildung~\ref{AbbildungBetaflightAppConfiguration2} aktivierte Einstellung Airmode sorgt dafür, dass die Motoren auch bei 0 Throttle leicht weiterlaufen, was die Stabilität der Drohne und die Kontrollierbarkeit verbessert.
+Auch sicherheitsrelevante Einstellungen, wie der maximale Neigungswinkel der Drohne, bei dem das Arming (das Aktivieren der Motoren zur Flugvorbereitung) überhaupt möglich ist, werden auf der Seite \textsl{Configuration} festgelegt. Soll im Livebild der FPV-Drohne durch den Flugcontroller ein On-Screen-Display (OSD) eingeblendet werden, muss es hier grundsätzlich aktiviert werden. Die in Abbildung~\ref{AbbildungBetaflightAppConfiguration2} aktivierte Einstellung \textsl{Airmode} sorgt dafür, dass die Motoren auch bei null Throttle leicht weiterlaufen, was die Stabilität und Kontrollierbarkeit der Drohne verbessert.
 
 \colende
 
@@ -167,54 +167,53 @@ Auch sicherheitsrelevante Einstellungen wie der maximale Aufstellwindel der Droh
   \label{AbbildungBetaflightAppConfiguration2}
 \end{figure}
 
-
 \colstart
 
-TBD
+The \textsl{Power \& Battery} page allows you to define the voltage levels at which the battery is considered fully charged or discharged, as well as the thresholds at which the flight controller should issue warnings.
 
 \colger
 
-Die Seite \textsl{Power \& Battery} erlaubt die Spannungen zu definieren, bei denen der Akku der vollständig geladen und entladen ist und bei welcher Spannungen der Flugcontroller entsprechend warnen soll. 
+Die Seite \textsl{Power \& Battery} ermöglicht es, die Spannungswerte zu definieren, bei denen der Akku als vollständig geladen oder entladen gilt, sowie die Schwellen, bei denen der Flugcontroller entsprechende Warnungen ausgeben soll.
 
 \coleng
 
-TBD
+On the \textsl{Failsafe} page, you can specify in great detail how the flight controller should respond if the pilot triggers a failsafe condition or if signal loss occurs. Useful settings include having the drone perform a controlled landing or, alternatively, return to its starting point using GPS.
 
 \colger
 
-Auf der Seite \textsl{Failsafe} kann sehr detailliert festgelegt werden, wie der Flugcontroller reagieren soll, wenn der Drohnennpilot ein Problem anzeigt oder wenn es zum Signalverlust kommt. Sinnvolle Einstellungen hier können sein, dass die Drohne kontrolliert landen oder alternativ mit Hilfe des GPS-Moduls selbständig zum Startpunkt zurückfliegen soll.
+Auf der Seite \textsl{Failsafe} kann sehr detailliert festgelegt werden, wie der Flugcontroller reagieren soll, wenn der Pilot ein Problem meldet oder ein Signalverlust auftritt. Sinnvolle Einstellungen sind beispielsweise, dass die Drohne kontrolliert landen oder mithilfe des GPS-Moduls selbstständig zum Startpunkt zurückkehren soll.
 
 \coleng
 
-TBD
+The \textsl{Presets} page allows you to save and restore your own Betaflight configuration. It also provides access to a public database of shared configurations, which can be searched and applied based on various parameters.
 
 \colger
 
-Die Seite \textsl{Presets} ermöglicht es die eigene Betaflight-Konfiguration zu speichern und zu wiederherzustellen. Zudem ist es möglich, eine Datenbank von veröffentlichten Konfiguration nach verschiedenen Parametern zu durchsuchen und auf diese zuzugreifen. 
+Die Seite \textsl{Presets} ermöglicht es, die eigene Betaflight-Konfiguration zu speichern und wiederherzustellen. Zudem bietet sie Zugriff auf eine öffentliche Datenbank veröffentlichter Konfigurationen, die nach verschiedenen Parametern durchsucht und angewendet werden können.
 
 \coleng
 
-TBD
+On the \textsl{PID Tuning} (Proportional-Integral-Derivative) page, fine adjustments to the motor control can be made through the flight controller. The goal is typically to achieve more precise flight behavior and to counteract undesirable drone reactions such as oscillations or overly slow or aggressive responses to control inputs.
 
 \colger
 
-Auf der Seite \textsl{PID Tuning} (Proportional-Integral-Derivative) können Feineinstellungen in der Motorsteuerung durch den Flugcontrollers vorgenommen werden. Ziel hierbei ist meist ein präziseres oder Flugverhalten zu erreichen und unerwünschtem Verhalten der Drohne entgegenzuwirken, wie zum Beispiel Zittern oder zu langsamem oder zu aggressivem Reagieren auf Steuerbefehle.
+Auf der Seite \textsl{PID Tuning} (Proportional-Integral-Derivative) können Feineinstellungen in der Motorsteuerung durch den Flugcontroller vorgenommen werden. Ziel ist es meist, ein präziseres Flugverhalten zu erreichen und unerwünschte Reaktionen der Drohne – etwa Zittern oder ein zu langsames bzw. zu aggressives Reagieren auf Steuerbefehle – zu vermeiden.
 
 \coleng
 
-TBD
+The correct operation of the receiver can be verified on the \textsl{Receiver} page (see Figure~\ref{AbbildungBetaflightAppReceiver}). Movements of the transmitter controls are displayed here when received by the receiver. The connection type and communication protocol are also defined on this page.
 
 \colger
 
-Die korrekte Funktionsweise des Empfängers kann auf der Seite \textsl{Receiver} (siehe Abbildung~\ref{AbbildungBetaflightAppReceiver}) kontrolliert werden.  Bewegungen an den Schaltern des Senders werden, wenn sie vom Empfänger empfangen werden, hier angezeigt. Auch die Anschlussart des Empfängers und das verwendete Protokoll sind hier definiert. 
+Die korrekte Funktionsweise des Empfängers kann auf der Seite \textsl{Receiver} (siehe Abbildung~\ref{AbbildungBetaflightAppReceiver}) überprüft werden. Bewegungen an den Bedienelementen des Senders werden, sobald sie vom Empfänger empfangen werden, hier angezeigt. Auch die Anschlussart des Empfängers und das verwendete Protokoll sind auf dieser Seite definiert.
 
 \coleng
 
-TBD
+If telemetry data is to be transmitted from the receiver to the transmitter, the corresponding option must be enabled on the \textsl{Receiver} page. Telemetry data typically include information such as battery voltage, current consumption, signal quality, GPS data (latitude, longitude, speed, number of satellites), altitude, and temperature.
 
 \colger
 
-Soll der Empfänger an den Sender Telemtriedaten übertragen, muss der entsprechende Regler auf der Seite \textsl{Receiver} aktiviert sein. Zu den Telemtriedaten gehören u.a. Informationen zu Akkuspannung und Stromverbrauch, Signalqualität, GPS-Informationen (Breitengrad, Längengrad, Geschwindigkeit, Anzahl der gefundenen Satelliten), Höhe und Temperatur.
+Soll der Empfänger Telemetriedaten an den Sender übertragen, muss die entsprechende Option auf der Seite \textsl{Receiver} aktiviert werden. Zu den Telemetriedaten gehören in der Regel Informationen wie Akkuspannung, Stromverbrauch, Signalqualität, GPS-Daten (Breitengrad, Längengrad, Geschwindigkeit, Anzahl der Satelliten), Höhe und Temperatur.
 
 \colende
 
@@ -227,11 +226,11 @@ Soll der Empfänger an den Sender Telemtriedaten übertragen, muss der entsprech
 
 \colstart
 
-TBD
+The assignment of important drone functions to individual switches on the transmitter is configured on the \textsl{Modes} page (see Figure~\ref{AbbildungBetaflightAppModes}). The most important function here is arming the motors to prepare them for flight. Other functions that are sensibly assigned to transmitter switches include flight modes (Angle, Horizon, and Acro), the beeper (buzzer) for locating a crashed drone more easily, and the automatic return-to-home (GPS Rescue) function.
 
 \colger
 
-Die Verknüpfung wichtiger Funktionen der Drohne an einzelne Schalter des Senders geschieht auf der Seite \textsl{Modes} (siehe Abbildung~\ref{AbbildungBetaflightAppModes}). Die wichtigste Funkion hier ist das Anlaufen (\glqq scharf schalten\grqq) der Motoren, um sie für den Flug vorzubereiten. Weitere Funktionen, die sinnvollerweise Schaltern des Senders zugeordnet werden, sind unter anderem die Flugmodi (Angle, Horizon und Acro), der Pieper (Buzzer), um abgestürzte Drohnen leichter wiederzufinden und die automatische Rückkehr (GPS Rescue) zum Startpunkt.
+Die Verknüpfung wichtiger Funktionen der Drohne mit einzelnen Schaltern des Senders erfolgt auf der Seite \textsl{Modes} (siehe Abbildung~\ref{AbbildungBetaflightAppModes}). Die wichtigste Funktion ist hier das Anlaufen (\glqq scharf schalten\grqq) der Motoren, um sie für den Flug vorzubereiten. Weitere Funktionen, die sinnvollerweise Schaltern des Senders zugeordnet werden, sind unter anderem die Flugmodi (Angle, Horizon und Acro), der Pieper (Buzzer) zum leichteren Wiederfinden abgestürzter Drohnen sowie die automatische Rückkehr (GPS Rescue) zum Startpunkt.
 
 \colende
 
@@ -244,43 +243,43 @@ Die Verknüpfung wichtiger Funktionen der Drohne an einzelne Schalter des Sender
 
 \colstart
 
-TBD
+The SA switch (AUX1) is very often assigned to the arming function. However, using only one switch increases the risk of accidental arming, which can lead to injuries, such as to hands or fingers. To improve safety when holding the drone, it is therefore recommended to link the arming process to two switches -- for example, SA (AUX1) + SB (AUX4) -- that are not located next to each other. This exact configuration is shown in Figure~\ref{AbbildungBetaflightAppModes}.
 
 \colger
 
-Sehr häufig wir der der Schalter SA (AUX1) mit dem Arming belegt. Da bei nur einem Schalter auch ein versehentliches Arming vorkommen kann, kommen Verletzungen z.B. an Händen und Fingern häufiger vor. Zur Verbesserung der Sicherheit beim Halten der Drohne empfiehlt es daher das Arming mit zwei Schalten -- z.B. SA (AUX1) + SB (AUX4) -- die nicht direkt nebeneinander liegen, zu verknüpfen. Genau diese Einstellung ist auch in Abbildung~\ref{AbbildungBetaflightAppModes} zu sehen.
+Sehr häufig wird der Schalter SA (AUX1) mit dem Arming belegt. Da bei nur einem Schalter auch ein versehentliches Arming vorkommen kann, treten Verletzungen, z. B. an Händen und Fingern, häufiger auf. Zur Verbesserung der Sicherheit beim Halten der Drohne empfiehlt es sich daher, das Arming mit zwei Schaltern -- z. B. SA (AUX1) + SB (AUX4) -- zu verknüpfen, die nicht direkt nebeneinander liegen. Genau diese Einstellung ist auch in Abbildung~\ref{AbbildungBetaflightAppModes} zu sehen.
 
 \coleng
 
-TBD
+Another common configuration is to assign a three-position switch for selecting the flight mode. As shown in Figure~\ref{AbbildungBetaflightAppModes}, the SB switch (AUX2) can be configured so that the lower position activates the Angle mode, the middle position activates Horizon mode, and the upper position activates Acro mode.
 
 \colger
 
-Eine weitere etablierte Konfiguration ist die Belegung eines Schalters mit drei möglichen Positionen, dass darüber der Flugmodus eingestellt wird. So kann beispielsweise, wie in Abbildung~\ref{AbbildungBetaflightAppModes} dargestellt, der Schalter SB (AUX2) dahingehend, dass bei der unteren Position der Flugmodus Angle, bei der mittleren Position Horizon und bei der oberen Position Acro verwendet wird. 
+Eine weitere etablierte Konfiguration ist die Belegung eines Schalters mit drei möglichen Positionen, über den der Flugmodus eingestellt wird. So kann beispielsweise, wie in Abbildung~\ref{AbbildungBetaflightAppModes} dargestellt, der Schalter SB (AUX2) so konfiguriert werden, dass bei der unteren Position der Flugmodus Angle, bei der mittleren Position Horizon und bei der oberen Position Acro verwendet wird.
 
 \coleng
 
-TBD
+On the \textsl{Adjustments} page, it is possible to define which drone parameters can be adjusted live during flight using specific channels (switches) or potentiometers (dials). This feature allows advanced pilots to fine-tune flight behavior in real time.
 
 \colger
 
-Auf der Seite \textsl{Adjustments} ist es möglich zu definieren welche Parameter der Drohne im Flug mit bestimmten Kanälen (Schaltern) oder Potentiometern (Drehregler) live im Flug angepasst werden können. Die Seite eröffnet Möglichkeiten der Feineinstellungen für fortgeschrittene Drohnen-Piloten während des Fluges.
+Auf der Seite \textsl{Adjustments} ist es möglich zu definieren, welche Parameter der Drohne im Flug mit bestimmten Kanälen (Schaltern) oder Potentiometern (Drehreglern) live angepasst werden können. Diese Seite eröffnet Möglichkeiten zur Feineinstellung für fortgeschrittene Drohnenpiloten während des Fluges.
 
 \coleng
 
-TBD
+The \textsl{Servos} page defines control options for servo motors. Here, transmitter channels (switches) are assigned to individual servos, and fine adjustments such as midpoint (neutral position) and endpoints (Min/Max) can be set. Typical applications include camera gimbal control or building a gripping mechanism for delivering or collecting small objects.
 
 \colger
 
-Die Definition von Steuermöglichkeiten von Servomotoren bietet die Seite \textsl{Servos}. Hier werden Kanäle (Schalter des Senders) einzelnen Servomotoren zugeordnet und nötige Feineinstellungen wie die Mittelstellung (Null-Position) und die Endpunkte (Min/Max) vorgenommen. Anwendungsszenarien sind zum Beispiel eine Gimbal-Steuerung der Kamera oder der Bau eines Greifmechanismus um Objekte mit einer Drohne auszuliefern und eventuell auch aufzusammeln. 
+Die Definition von Steuermöglichkeiten für Servomotoren erfolgt auf der Seite \textsl{Servos}. Hier werden Kanäle (Schalter des Senders) einzelnen Servomotoren zugeordnet und nötige Feineinstellungen wie Mittelstellung (Null-Position) und Endpunkte (Min/Max) vorgenommen. Anwendungsszenarien sind zum Beispiel eine Gimbal-Steuerung der Kamera oder der Bau eines Greifmechanismus, um Objekte mit einer Drohne auszuliefern oder aufzusammeln.
 
 \coleng
 
-TBD
+If a GPS module is connected to the flight controller, GPS functionality can be monitored and configured on the \textsl{GPS} page. When a sufficient number of satellites are visible, data such as current coordinates (latitude and longitude), speed, heading, altitude, and distance from the launch site can be viewed here. During flight, this information is especially useful when transmitted as telemetry data to the transmitter.
 
 \colger
 
-Wenn an den Flugcontroller der Drohne ein GPS-Modul angeschlossen ist, erfolgen die Kontrolle und Konfiguration die GPS-Funktionalität auf der Seite \textsl{GPS}. Hier können, wenn Sichtkontakt zu ausreichend vielen Satelliten besteht, unter anderem die Koordinaten (aktueller Breiten- und Längengrad), Geschwindigkeit, Bewegungsrichtung und Höhe kontrolliert werden. Auch die Entfernung zum Startplatz ist hier zusehen. Während des Fluges ist diese Information hilfreich, wenn sie über die Telemtriedaten an den Sender übertragen wird.
+Wenn an den Flugcontroller der Drohne ein GPS-Modul angeschlossen ist, können Kontrolle und Konfiguration der GPS-Funktionalität auf der Seite \textsl{GPS} erfolgen. Besteht Sichtkontakt zu ausreichend vielen Satelliten, können hier unter anderem die aktuellen Koordinaten (Breiten- und Längengrad), Geschwindigkeit, Bewegungsrichtung und Höhe kontrolliert werden. Auch die Entfernung zum Startplatz ist hier zu sehen. Während des Fluges sind diese Informationen hilfreich, wenn sie über die Telemetriedaten an den Sender übertragen werden.
 
 \colende
 
@@ -293,27 +292,27 @@ Wenn an den Flugcontroller der Drohne ein GPS-Modul angeschlossen ist, erfolgen 
 
 \colstart
 
-TBD
+All motor-related settings and the testing of motor function, mapping, and rotation direction are performed on the \textsl{Motors} page. These tests must always be carried out without propellers, as otherwise damage or even injury can easily occur.
 
 \colger
 
-Alle Einstellungen bezüglich der Motoren und das Testen der korrekten Funktion, Zuordnung und Drehrichtung der einzelnen Motoren geschieht auf der Seite \textsl{Motors}. Diese Tests müssen immer ohne Propeller durchgeführt werden, da es sonst leicht zu Beschädigungen oder gar Verletzungen kommen kann. 
+Alle Einstellungen bezüglich der Motoren sowie das Testen der korrekten Funktion, Zuordnung und Drehrichtung der einzelnen Motoren erfolgen auf der Seite \textsl{Motors}. Diese Tests müssen immer ohne Propeller durchgeführt werden, da es sonst leicht zu Beschädigungen oder gar Verletzungen kommen kann.
 
 \coleng
 
-TBD
+The precise configuration of the on-screen display (OSD) is done on the \textsl{OSD} page. Here, the positions and layout of the desired display elements can be freely arranged, and multiple configurations can be saved as profiles—for example, for racing, freestyle, or long-range flying. For OSD configuration to be possible at all, the flight controller must include an OSD chip. If it does not, an analog video transmitter cannot provide an OSD. Digital video transmitters (e.g., from DJI, HDZero, and Walksnail) implement their own OSD systems.
 
 \colger
 
-Die präzise Konfiguration des On-Screen-Displays geschieht auf der Seite \textsl{OSD}. Hier können per die Positionen und das Layout der gewünschten Anzeigen frei platziert und mehrere Konfigurationen als Profile -- zum Beispiel für Racing, Freestyle, Longrange -- gespeichert werden. Damit die Konfiguration des OSD an dieser Stelle überhaupt möglich ist, muss der Flugcontroller über einen OSD-Chip verfügen. Ist das nicht der Fall kann mit einem analogen Videosender kein OSD realisiert werden. Digitale Videosender (z.B. von DJI, HDZero, und Walksnail) implementieren ein eigenes OSD.
+Die präzise Konfiguration des On-Screen-Displays erfolgt auf der Seite \textsl{OSD}. Hier können die Positionen und das Layout der gewünschten Anzeigen frei platziert und mehrere Konfigurationen als Profile – zum Beispiel für Racing, Freestyle oder Longrange – gespeichert werden. Damit die Konfiguration des OSD überhaupt möglich ist, muss der Flugcontroller über einen OSD-Chip verfügen. Ist das nicht der Fall, kann mit einem analogen Videosender kein OSD realisiert werden. Digitale Videosender (z.~B. von DJI, HDZero und Walksnail) implementieren ein eigenes OSD.
 
 \coleng
 
-TBD
+Video transmitter settings, such as frequency (see Table~\ref{TabelleFrequenzenVTX}) and transmission power, can be configured on the \textsl{Video Transmitter} page (see Figure~\ref{AbbildungBetaflightAppVTX}).
 
 \colger
 
-Einstellungen zum Videosender wie zum Beispiel die verwendete Frequenz (siehe Tabelle~\ref{TabelleFrequenzenVTX}) und die Sendeleistung können auf der Seite \textsl{Video Transmitter} (siehe Abbildung~\ref{AbbildungBetaflightAppVTX}) vorgenommen werden. 
+Einstellungen zum Videosender, wie zum Beispiel die verwendete Frequenz (siehe Tabelle~\ref{TabelleFrequenzenVTX}) und die Sendeleistung, können auf der Seite \textsl{Video Transmitter} (siehe Abbildung~\ref{AbbildungBetaflightAppVTX}) vorgenommen werden.
 
 \colende
 
