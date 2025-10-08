@@ -197,15 +197,15 @@ On the \textsl{PID Tuning} (Proportional-Integral-Derivative) page, fine adjustm
 
 \colger
 
-Auf der Seite \textsl{PID Tuning} (Proportional-Integral-Derivative) können Feineinstellungen in der Motorsteuerung durch den Flugcontroller vorgenommen werden. Ziel ist es meist, ein präziseres Flugverhalten zu erreichen und unerwünschte Reaktionen der Drohne – etwa Zittern oder ein zu langsames bzw. zu aggressives Reagieren auf Steuerbefehle – zu vermeiden.
+Auf der Seite \textsl{PID Tuning} (Proportional-Integral-Derivative) können Feineinstellungen in der Motorsteuerung durch den Flugcontroller vorgenommen werden. Ziel ist es meist, ein präziseres Flugverhalten zu erreichen und unerwünschte Reaktionen der Drohne -- etwa Zittern oder ein zu langsames bzw. zu aggressives Reagieren auf Steuerbefehle -- zu vermeiden.
 
 \coleng
 
-The correct operation of the receiver can be verified on the \textsl{Receiver} page (see Figure~\ref{AbbildungBetaflightAppReceiver}). Movements of the transmitter controls are displayed here when received by the receiver. The connection type and communication protocol are also defined on this page.
+The correct operation of the receiver can be verified on the \textsl{Receiver} page (see Figure~\ref{AbbildungBetaflightAppReceiver}). Movements of the transmitter controls are displayed here when received by the receiver. The connection type and communication protocol are also defined on this page. For the receiver to operate correctly, it must be assigned to the correct UART on the \textsl{Ports} page.
 
 \colger
 
-Die korrekte Funktionsweise des Empfängers kann auf der Seite \textsl{Receiver} (siehe Abbildung~\ref{AbbildungBetaflightAppReceiver}) überprüft werden. Bewegungen an den Bedienelementen des Senders werden, sobald sie vom Empfänger empfangen werden, hier angezeigt. Auch die Anschlussart des Empfängers und das verwendete Protokoll sind auf dieser Seite definiert.
+Die korrekte Funktionsweise des Empfängers kann auf der Seite \textsl{Receiver} (siehe Abbildung~\ref{AbbildungBetaflightAppReceiver}) überprüft werden. Bewegungen an den Bedienelementen des Senders werden, sobald sie vom Empfänger empfangen werden, hier angezeigt. Auch die Anschlussart des Empfängers und das verwendete Protokoll sind auf dieser Seite definiert. Damit der Empfängers korrekt funktioniert, muss er auf der Seite \textsl{Ports} dem richtigen UART zugewiesen sein.
 
 \coleng
 
@@ -275,11 +275,11 @@ Die Definition von Steuermöglichkeiten für Servomotoren erfolgt auf der Seite 
 
 \coleng
 
-If a GPS module is connected to the flight controller, GPS functionality can be monitored and configured on the \textsl{GPS} page. When a sufficient number of satellites are visible, data such as current coordinates (latitude and longitude), speed, heading, altitude, and distance from the launch site can be viewed here. During flight, this information is especially useful when transmitted as telemetry data to the transmitter.
+If a GPS module is connected to the drone's flight controller, configuration and monitoring of the GPS functionality can be performed on the \textsl{GPS} page. For the GPS module to operate correctly, it must be assigned to the correct UART on the \textsl{Ports} page. When a sufficient number of satellites are visible, this page displays the current coordinates (latitude and longitude), speed, direction of movement, and altitude. The distance from the home position is also shown here. During flight, this information is useful when it is transmitted to the transmitter via telemetry data.
 
 \colger
 
-Wenn an den Flugcontroller der Drohne ein GPS-Modul angeschlossen ist, können Kontrolle und Konfiguration der GPS-Funktionalität auf der Seite \textsl{GPS} erfolgen. Besteht Sichtkontakt zu ausreichend vielen Satelliten, können hier unter anderem die aktuellen Koordinaten (Breiten- und Längengrad), Geschwindigkeit, Bewegungsrichtung und Höhe kontrolliert werden. Auch die Entfernung zum Startplatz ist hier zu sehen. Während des Fluges sind diese Informationen hilfreich, wenn sie über die Telemetriedaten an den Sender übertragen werden.
+Wenn an den Flugcontroller der Drohne ein GPS-Modul angeschlossen ist, können Kontrolle und Konfiguration der GPS-Funktionalität auf der Seite \textsl{GPS} erfolgen. Damit das GPS-Modul korrekt funktioniert, muss es auf der Seite \textsl{Ports} dem richtigen UART zugewiesen sein. Besteht Sichtkontakt zu ausreichend vielen Satelliten, können hier unter anderem die aktuellen Koordinaten (Breiten- und Längengrad), Geschwindigkeit, Bewegungsrichtung und Höhe kontrolliert werden. Auch die Entfernung zum Startplatz ist hier sichtbar. Während des Fluges sind diese Informationen hilfreich, wenn sie über die Telemetriedaten an den Sender übertragen werden.
 
 \colende
 
@@ -300,19 +300,19 @@ Alle Einstellungen bezüglich der Motoren sowie das Testen der korrekten Funktio
 
 \coleng
 
-The precise configuration of the on-screen display (OSD) is done on the \textsl{OSD} page. Here, the positions and layout of the desired display elements can be freely arranged, and multiple configurations can be saved as profiles—for example, for racing, freestyle, or long-range flying. For OSD configuration to be possible at all, the flight controller must include an OSD chip. If it does not, an analog video transmitter cannot provide an OSD. Digital video transmitters (e.g., from DJI, HDZero, and Walksnail) implement their own OSD systems.
+The precise configuration of the on-screen display (OSD) is done on the \textsl{OSD} page. Here, the positions and layout of the desired display elements can be freely arranged, and multiple configurations can be saved as profiles--for example, for racing, freestyle, or long-range flying. For OSD configuration to be possible at all, the flight controller must include an OSD chip. If it does not, an analog video transmitter cannot provide an OSD. Digital video transmitters (e.g., from DJI, HDZero, and Walksnail) implement their own OSD systems.
 
 \colger
 
-Die präzise Konfiguration des On-Screen-Displays erfolgt auf der Seite \textsl{OSD}. Hier können die Positionen und das Layout der gewünschten Anzeigen frei platziert und mehrere Konfigurationen als Profile – zum Beispiel für Racing, Freestyle oder Longrange – gespeichert werden. Damit die Konfiguration des OSD überhaupt möglich ist, muss der Flugcontroller über einen OSD-Chip verfügen. Ist das nicht der Fall, kann mit einem analogen Videosender kein OSD realisiert werden. Digitale Videosender (z.~B. von DJI, HDZero und Walksnail) implementieren ein eigenes OSD.
+Die präzise Konfiguration des On-Screen-Displays erfolgt auf der Seite \textsl{OSD}. Hier können die Positionen und das Layout der gewünschten Anzeigen frei platziert und mehrere Konfigurationen als Profile -- zum Beispiel für Racing, Freestyle oder Longrange -- gespeichert werden. Damit die Konfiguration des OSD überhaupt möglich ist, muss der Flugcontroller über einen OSD-Chip verfügen. Ist das nicht der Fall, kann mit einem analogen Videosender kein OSD realisiert werden. Digitale Videosender (z.~B. von DJI, HDZero und Walksnail) implementieren ein eigenes OSD.
 
 \coleng
 
-Video transmitter settings, such as frequency (see Table~\ref{TabelleFrequenzenVTX}) and transmission power, can be configured on the \textsl{Video Transmitter} page (see Figure~\ref{AbbildungBetaflightAppVTX}).
+Settings for the video transmitter, such as the selected frequency (see Table~\ref{TabelleFrequenzenVTX}) and transmission power, can be configured on the \textsl{Video Transmitter} page (see Figure~\ref{AbbildungBetaflightAppVTX}). For the video transmitter to function correctly, it must be assigned to the appropriate UART on the \textsl{Ports} page.
 
 \colger
 
-Einstellungen zum Videosender, wie zum Beispiel die verwendete Frequenz (siehe Tabelle~\ref{TabelleFrequenzenVTX}) und die Sendeleistung, können auf der Seite \textsl{Video Transmitter} (siehe Abbildung~\ref{AbbildungBetaflightAppVTX}) vorgenommen werden.
+Einstellungen zum Videosender, wie zum Beispiel die verwendete Frequenz (siehe Tabelle~\ref{TabelleFrequenzenVTX}) und die Sendeleistung, können auf der Seite \textsl{Video Transmitter} (siehe Abbildung~\ref{AbbildungBetaflightAppVTX}) vorgenommen werden. Damit der Videosender korrekt funktioniert, muss er auf der Seite \textsl{Ports} dem korrekten UART zugewiesen sein. 
 
 \colende
 
@@ -323,6 +323,15 @@ Einstellungen zum Videosender, wie zum Beispiel die verwendete Frequenz (siehe T
   \label{AbbildungBetaflightAppVTX}
 \end{figure}
 
+\colstart
+
+The \textsl{Sensors} page (see Figure~\ref{AbbildungBetaflightAppSensors}) displays the sensor data both graphically and numerically -- for example, values from the gyroscope, accelerometer, barometer, and magnetometer. This allows users to verify that all sensors are working correctly and delivering plausible data. The page is particularly useful for troubleshooting sensor orientation or calibration issues.
+
+\colger
+
+Die Seite \textsl{Sensors} (siehe Abbildung~\ref{AbbildungBetaflightAppSensors}) zeigt Sensorwerte sowohl grafisch als auch numerisch an -- zum Beispiel Werte des Gyroskops, Beschleunigungssensors, Höhenmessers (Barometer) und magnetischen Kompasses. Dadurch lässt sich überprüfen, ob alle Sensoren korrekt funktionieren und plausible Werte liefern. Die Seite ist insbesondere hilfreich zur Fehlersuche bei Problemen mit der Sensororientierung oder Kalibrierung.
+
+\colende
 
 \begin{figure}[htb!]
   \centering
@@ -331,6 +340,63 @@ Einstellungen zum Videosender, wie zum Beispiel die verwendete Frequenz (siehe T
   \label{AbbildungBetaflightAppSensors}
 \end{figure}
 
+\colstart
+
+The live recording of sensor data (e.g. gyroscope, motor values, GPS data, altitude) while the flight controller is connected to a computer is available on the \textsl{Tethered Logging} page. In contrast to classic Blackbox logging, where data is stored locally on the flight controller, flash memory, or an SD card, Tethered Logging allows real-time data transmission and monitoring on the computer. It only works as long as a connection (e.g. via USB) between the flight controller and the computer is active. If the connection is lost, the live recording stops immediately.
+
+\colger
+
+Die Live-Aufzeichnung von Sensordaten (z.\,B. Gyroskop, Motorwerte, GPS-Daten, Höhenmeter) während der Verbindung mit dem Computer ist auf der Seite \textsl{Tethered Logging} möglich. Im Gegensatz zum klassischen Blackbox-Logging, bei dem die Daten lokal im Flugcontroller, auf Flash oder SD-Karte gespeichert werden, erlaubt Tethered Logging die Übertragung und Überwachung der Daten in Echtzeit auf dem Computer. Das Tethered Logging funktioniert nur, solange eine Verbindung (z.\,B. via USB) zwischen Flugcontroller und Computer besteht. Wenn die Verbindung abreißt, bricht auch die Live-Aufzeichnung ab.
+
+\coleng
+
+The flight data recorder for logging various sensor data is configured on the \textsl{Blackbox} page (see Figure~\ref{AbbildungBetaflightAppBlackbox}). The collected data is recorded during flight and analyzed afterwards. The resulting insights can be used to analyze flight behavior, optimize filters, and diagnose issues. Recording typically starts automatically when arming and stops when disarming. Modern flight controllers store Blackbox data on an onboard flash chip or a microSD card. This page allows the selection of which sensors to log, the storage device to use, and the log rate, which defines how frequently data points are captured. The page also offers options to export or erase Blackbox data.
+
+\colger
+
+Der Flugdatenschreiber zur Aufzeichnung verschiedenster Sensordaten wird auf der Seite \textsl{Blackbox} (siehe Abbildung~\ref{AbbildungBetaflightAppBlackbox}) konfiguriert. Die Aufzeichnung der gesammelten Daten geschieht während des Flugs und wird nachträglich ausgewertet. Mit den gewonnenen Erkenntnissen können das Flugverhalten analysiert, Filter optimiert und Probleme diagnostiziert werden. Die Aufzeichnung beginnt üblicherweise automatisch beim Arming und stoppt beim Disarming. Moderne Flugcontroller speichern die Blackbox-Daten auf einem Onboard-Flashchip oder einer microSD-Karte. Die Seite erlaubt neben der Auswahl der zu erfassenden Sensordaten auch die Auswahl des Speichergeräts und die Einstellung der Log-Rate, die definiert, wie häufig Datenpunkte aufgezeichnet werden sollen. Auch der Export der Blackbox und das Löschen des Speichers sind auf dieser Seite möglich.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_blackbox_firmware_screenshot_app.png}
+  \caption{Blackbox Page of Betaflight}
+  \label{AbbildungBetaflightAppBlackbox}
+\end{figure}
+
+\colstart
+
+The \textsl{CLI} page in Betaflight (see Figure~\ref{AbbildungBetaflightAppCLI}) provides access to the integrated command-line interface of the flight controller. This interface allows users to inspect and configure the controller directly. Individual parameters can be displayed and changed using the commands \verb!get! and \verb!set!. The \verb!save! command saves all changes and restarts the flight controller.
+
+\colger
+
+Betaflight bietet auf der Seite \textsl{CLI} (siehe Abbildung~\ref{AbbildungBetaflightAppCLI}) Zugriff auf die integrierte Kommandozeilenumgebung des Flugcontrollers. Hierüber kann der Flugcontroller direkt untersucht und konfiguriert werden. Einzelne Parameter können mit den Kommandos \verb!get! und \verb!set! angezeigt und geändert werden. Das Kommando \verb!save! speichert alle Änderungen und startet den Flugcontroller neu.
+
+\coleng
+
+The current configuration of the flight controller can be displayed completely with the command \verb!dump!. Only the differences from the default configuration are shown using the command \verb!diff!. These outputs can be copied into text files and re-imported later using copy and paste. This makes it easy to create backups of all settings and restore them when needed.
+
+\colger
+
+Die aktuelle Konfiguration des Flugcontrollers kann vollständig mit dem Kommando \verb!dump! ausgegeben werden. Nur die Unterschiede zur Standardkonfiguration zeigt das Kommando \verb!diff!. Diese Ausgaben können in Textdateien gespeichert und bei Bedarf per Copy-and-Paste wieder importiert werden. So lassen sich einfach Backups der Einstellungen erstellen und wiederherstellen.
+
+\coleng
+
+Information about the flight controller and the installed firmware version can be retrieved with the command \verb!version!. The \verb!status! command provides current sensor readings and information about sensor configuration. The command \verb!tasks! lists all currently running processes on the flight controller, and \verb!resource! displays the pin and UART assignments.
+
+\colger
+
+Informationen zum Flugcontroller und zur installierten Firmwareversion liefert das Kommando \verb!version!. Das Kommando \verb!status! zeigt aktuelle Sensordaten und Informationen zur Konfiguration der Sensoren. Das Kommando \verb!tasks! listet alle aktuell laufenden Prozesse des Flugcontrollers auf, und \verb!resource! zeigt die Belegung der Pins und UART-Schnittstellen.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_cli_firmware_screenshot_app.png}
+  \caption{CLI Page of Betaflight}
+  \label{AbbildungBetaflightAppCLI}
+\end{figure}
 
 \renewcommand{\deutschertitel}{INAV}
 \renewcommand{\englischertitel}{INAV}
