@@ -1,9 +1,9 @@
-\renewcommand{\deutschertitel}{Autopilot}
-\renewcommand{\englischertitel}{Auto Pilot}
+\renewcommand{\deutschertitel}{Objekterkennung}
+\renewcommand{\englischertitel}{Object Detection}
 \chapter[\protect{\vspace{2pt}\englischertitel}]{}
 \kapitel{\deutschertitel}
 
-\label{KapitelAutopilot}
+\label{KapitelObjekterkennung}
 
 \begin{paracol}{2}[]
 
@@ -15,6 +15,344 @@
 
 \coleng
 
+Object detection is one of the most well-known applications of artificial intelligence. Among the best-known open-source solutions enabling object detection are the TensorFlow (Lite) machine learning framework combined with the OpenCV (\textsl{Open Computer Vision}) library for image processing and object recognition. An alternative approach is the object detection framework \textsl{You Only Look Once} (YOLO).
+
+\colger
+
+Objekterkennung ist eine der bekanntesten KI-Anwendungen. Zu den bekanntesten quelloffenen Softwarelösungen, die Objekterkennung ermöglichen, gehören das Framework TensorFlow (Lite) für maschinelles Lernen in Zusammenarbeit mit der Bibliothek OpenCV (\textsl{Open Computer Vision}) zur Bildverarbeitung und Objekterkennung. Eine alternative Lösung ist das Objekterkennungs-Framework \textsl{You Only Look Once} (YOLO).
+
+\coleng
+
+Object detection with FPV drones can be implemented in two basic ways. Both design concepts have advantages and disadvantages depending on factors such as available budget, hardware, the distance between drone and operator, the number of drones, and personal preferences.
+
+\colger
+
+Objekterkennung mit FPV-Drohnen kann auf zwei grundsätzliche Arten implementiert werden. Beide Realisierungskonzepte haben Vor- und Nachteile, deren Gewichtung unter anderem von den finanziellen Möglichkeiten, den verfügbaren Hardwarekomponenten, der Entfernung zwischen Drohne und Benutzer, der Anzahl der Drohnen und nicht zuletzt den persönlichen Präferenzen abhängt.
+
+\coleng
+
+\begin{itemize}
+\item \textbf{Edge Node Concept:} The AI functionality is performed by a computer that flies with the drone. This approach is described in Section~\ref{AbschnittObjekterkennungHuckepack}. The additional hardware increases cost, weight, and power consumption, which reduces flight time. Using a higher-capacity battery to compensate further increases the total weight. However, this design offers excellent scalability because the sensor data is processed directly on the drone. Only the results (aggregated data) need to be transmitted during or after the flight, drastically reducing the data volume. This approach follows the edge computing paradigm, which is especially advantageous in multi-drone scenarios where simultaneous data collection would otherwise overload communication channels.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textbf{Realisierungskonzept Edge-Knoten:} Die KI-Funktionalität wird von einem Computer übernommen, der mit der Drohne mitfliegt. Diese Alternative beschreibt Abschnitt~\ref{AbschnittObjekterkennungHuckepack}. Die Anschaffung zusätzlicher Hardware verursacht Kosten und erhöht das Gewicht der Drohne. Zudem benötigt die zusätzliche Hardware Strom, was die Flugzeit reduziert. Wird ein Akku mit höherer Kapazität eingesetzt, steigt das Gewicht weiter. Vorteile dieses Konzepts sind die sehr gute Skalierbarkeit, da die Verarbeitung der Sensordaten direkt auf der Drohne erfolgt. Nur die Ergebnisse (aggregierten Daten) müssen während des Flugs oder danach übertragen werden, wodurch die Datenmenge drastisch reduziert wird. Es handelt sich somit um eine Variante des Edge-Computing. Besonders wichtig ist diese Datenreduktion in Szenarien mit mehreren Drohnen, die gleichzeitig fliegen und Daten erfassen.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textbf{Full Data Transmission Concept:} The AI processing is performed by a ground-based computer that receives the drone’s live video feed. This approach is described in Section~\ref{AbschnittObjekterkennungVideoGrabber}. A simple implementation uses FPV goggles with an AV output and a video capture device. Advantages include the low additional cost (a video grabber costs about 15--20 €) and the fact that the drone’s weight remains unchanged. No extra data transmission capacity is required since the drone already transmits its live video feed. However, in multi-drone scenarios, the central AI processing can demand significant computational resources, potentially requiring additional ground-based AI hardware.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textbf{Realisierungskonzept Übertragung aller Live-Daten:} Die KI-Funktionalität wird von einem Computer am Boden übernommen, der Zugriff auf das Livebild der Drohne hat. Diese Alternative beschreibt Abschnitt~\ref{AbschnittObjekterkennungVideoGrabber}. Eine einfache Implementierungsmöglichkeit bietet eine Videobrille mit AV-Ausgang und ein Videograbber. Vorteile dieses Konzepts sind die geringen zusätzlichen Anschaffungskosten (ein Videograbber kostet etwa 15--20 €) und das unveränderte Gewicht der Drohne. Zusätzliche Übertragungskapazitäten sind nicht erforderlich, da das Livebild ohnehin übertragen wird. In Szenarien mit mehreren Drohnen kann der zentrale Rechenaufwand der Objekterkennung jedoch stark ansteigen und zusätzliche KI-Hardware am Boden erforderlich machen.
+\end{itemize}
+
+\colende
+
+\renewcommand{\deutschertitel}{Objekterkennung mit zusätzlicher Hardware an der Drohne}
+\renewcommand{\englischertitel}{Object Detection by addition Hardware on the Drone}
+\makroabschnitt
+\label{AbschnittObjekterkennungHuckepack}
+
+
+It is possible to integrate the hardware and software required for object detection as additional components directly into the drone, allowing them to fly onboard. Ideally, these components consist of a compact and energy-efficient single-board computer. Table~\ref{TabelleRaspberryPiUnterschiede} shows the different sizes and power requirements of various generations of the Raspberry Pi single-board computer.
+
+\colger
+
+Es ist möglich, die zur Objekterkennung nötige Hard- und Software als zusätzliche Komponenten in die Drohne zu integrieren und diese Komponenten mitfliegen zu lassen. Sinnvollerweise handelt es sich dabei um einen platz- und stromsparenden Einplatinencomputer. Tabelle~\ref{TabelleRaspberryPiUnterschiede} zeigt die unterschiedlichen Dimensionen und Strombedarfe verschiedener Generationen des Einplatinencomputers Raspberry Pi.
+
+\colende
+
+\begin{table}[htb!]
+\centering
+\captionabove{Generations of the Raspberry\,Pi Single-Board Computer}
+\label{TabelleRaspberryPiUnterschiede}
+\setlength{\tabcolsep}{5pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.0} % Default
+\begin{tabular}{lcrlrrr}
+\toprule
+Generation   & CPU Cores   & \multicolumn{1}{c}{RAM}       & \multicolumn{1}{c}{Size}    &  \multicolumn{1}{c}{Weight}  & \multicolumn{1}{c}{Power Usage} & \multicolumn{1}{c}{Power Usage} \\
+                       &               &     &      &      & \multicolumn{1}{c}{(idle)} &  \multicolumn{1}{c}{(peak)} \\
+\midrule
+Pi Zero W    & 1\,\(@\)\,1000\,MHz  & 512\,MB  & 65x30x5\,mm   & \(\sim 9\)\,g  & \(\sim\)\,120\,mAh & \(\sim\)\,350\,mAh \\
+Pi Zero 2 W  & 4\,\(@\)\,1000\,MHz  & 512\,MB  & 65x30x5\,mm   & \(\sim 10\)\,g & \(\sim\)\,140\,mAh & \(\sim\)\,600\,mAh \\
+Pi 3 B+      & 4\,\(@\)\,1200\,MHz  & 1\,GB    & 85x56x16\,mm  & \(\sim 50\)\,g & \(\sim\)\,500\,mAh & \(\sim\)\,1400\,mAh \\
+Pi 4 B       & 4\,\(@\)\,1500\,MHz  & 1-8\,GB  & 85x56x16\,mm  & \(\sim 50\)\,g & \(\sim\)\,600\,mAh & \(\sim\)\,1500\,mAh \\
+Pi 5         & 4\,\(@\)\,2400\,MHz  & 2-16\,GB & 85x56x16\,mm  & \(\sim 70\)\,g & \(\sim\)\,700\,mAh & \(\sim\)\,2500\,mAh \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\colstart
+
+Compared to the approximately credit card--sized Raspberry Pi models, the Raspberry Pi Zero series is significantly smaller, lighter, and consumes less power. The processing performance of the Raspberry Pi 2 W is sufficient to run common AI frameworks alongside the operating system. Figure~\ref{AbbildungRaspberryPiZero2WH} shows a Raspberry Pi 2 WH.
+
+\colger
+
+Im Vergleich zu den etwa scheckkartengroßen Modellreihen sind die Raspberry Pi Zero-Modelle deutlich kleiner, leichter und benötigen weniger Strom. Die Prozessorleistung des Raspberry Pi 2 W ist ausreichend, um gängige KI-Frameworks neben dem Betriebssystem zu betreiben. Abbildung~\ref{AbbildungRaspberryPiZero2WH} zeigt einen Raspberry Pi 2 WH.
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{raspberry_pi_2_wh_front.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{raspberry_pi_2_wh_back.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Raspberry Pi\,2\,WH (Front and Back)}
+  \label{AbbildungRaspberryPiZero2WH}
+\end{figure}
+
+\colstart
+
+Since it is not possible to forward the live FPV camera feed from the flight controller or VTX to the Raspberry Pi, the drone must carry an additional camera that is compatible with the single-board computer. A simple and cost-effective solution is to use the Raspberry Pi Camera Modules v1, v2, or v3, which primarily differ in resolution. All of them weigh only about 3-4 g and have similar dimensions (approximately 25\(\times\)24\(\times\)10 mm). Alternatively, the Raspberry Pi AI Camera (see Section~\ref{AbschnittKIBeschleunigerVergleich}) can be used.
+
+\colger
+
+Da es nicht möglich ist, über den Flugcontroller oder über den VTX das Livebild der FPV-Kamera auch an den Raspberry Pi weiterzuleiten, muss die Drohne eine weitere, zum Einplatinencomputer kompatible Kamera transportieren. Eine einfache und kostengünstige Lösung sind die Raspberry Pi Camera Module v1, v2 und v3. Diese unterscheiden sich primär in der Auflösung. Sie wiegen alle nur 3-4 g und sind ähnlich groß (ca. 25\(\times\)24\(\times\)10 mm). Alternativ kann auch die Raspberry Pi AI Camera (siehe Abschnitt~\ref{AbschnittKIBeschleunigerVergleich}) verwendet werden.
+
+\coleng
+
+Since a Raspberry Pi, regardless of model, does not have sufficient processing power to perform real-time object detection on video streams, additional hardware is required to accelerate AI applications. In the solution presented here, a Google Coral TPU Accelerator is used for this purpose. The following section describes this and alternative implementation concepts.
+
+\colger
+
+Da ein Raspberry Pi Einplatinencomputer, egal welcher Baureihe, nicht über die Prozessorleistung verfügt, um Objekterkennung in einem Videostream zu realisieren, ist zusätzliche Hardware zur Beschleunigung der KI-Anwendung nötig. Beim hier vorgestellten Lösungsweg kommt zur Beschleunigung ein Google Coral TPU Accelerator zum Einsatz. Der folgende Abschnitt beschreibt diesen und alternative Implementierungskonzepte.
+
+\colende
+
+\renewcommand{\deutschertitel}{Vergleich von KI-Beschleunigern}
+\renewcommand{\englischertitel}{Comparison of AI Accelerators}
+\makrounterabschnitt
+\label{AbschnittKIBeschleunigerVergleich}
+
+This section presents the advantages and disadvantages of several AI accelerators: the Google Coral TPU Accelerator, the Intel Neural Compute Stick 2, the Raspberry Pi AI Camera, and the Raspberry Pi AI Hat. Table~\ref{TabelleUnterschiedeCoralAICameraNCS2} summarizes key specifications and performance characteristics.
+
+\colger
+
+Dieser Abschnitt stellt die Vor- und Nachteile der KI-Beschleuniger Google Coral TPU Accelerator, Intel Neural Compute Stick 2, Raspberry Pi AI Camera und Raspberry Pi AI Hat vor. Eine Übersicht relevanter Informationen dazu enthält Tabelle~\ref{TabelleUnterschiedeCoralAICameraNCS2}.
+
+\coleng
+
+Released in 2019, the Google Coral TPU Accelerator (see Figure~\ref{AbbildungGoogleCoralTPUAccelerator}) provides 4 trillion operations per second (Tera-operations per second -- TOPS), consumes approximately 500-900 mA depending on performance mode, and measures only 65\(\times\)30\(\times\)8 mm with a weight of around 20 g. An additional USB cable for connection adds 10-15 g. The retail price is about €80-90. A notable drawback is that Google has invested little effort in maintaining or updating drivers and libraries since 2022, making it increasingly difficult to operate the device on modern and future operating systems.
+
+\colger
+
+Der 2019 erschienene Google Coral TPU Accelerator (siehe Abbildung~\ref{AbbildungGoogleCoralTPUAccelerator}) bietet 4 Billionen Operationen pro Sekunde (Tera-operations per second -- TOPS), verbraucht je nach Geschwindigkeitseinstellung ca. 500-900 mA und ist nur 65\(\times\)30\(\times\)8 mm groß. Das Gewicht dieses KI-Beschleunigers beträgt ca. 20 g. Zusätzlich ist ein USB-Kabel zum Anschluss nötig, das weitere 10-15 g wiegt. Der Kaufpreis liegt bei etwa 80-90 €. Ein Nachteil des Google Coral TPU Accelerator ist, dass der Hersteller seit 2022 keine signifikanten Ressourcen in die Weiterentwicklung der Treiber und Bibliotheken investiert hat und die Entwicklung seitdem vollständig zum Stillstand gekommen ist, was den Betrieb auf aktuellen und zukünftigen Betriebssystemen erschwert.
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Google_Coral_TPU_Accelerator_front.pdf}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Google_Coral_TPU_Accelerator_back.pdf}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Google Coral TPU Accelerator (Front and Back)}
+  \label{AbbildungGoogleCoralTPUAccelerator}
+\end{figure}
+
+\colstart
+
+An alternative AI accelerator that also connects via USB is the Intel Neural Compute Stick 2 (NCS2), released in 2019 (see Figure~\ref{AbbildungIntelNCS2}). It offers 4 TOPS, consumes approximately 200-500 mA depending on performance mode, and measures 73\(\times\)28\(\times\)14 mm while weighing about 30 g (without an extension cable). The purchase price is around €100. The NCS2 requires the OpenVINO Toolkit framework, which is free software actively developed by Intel. It converts models from frameworks such as TensorFlow (Lite), PyTorch, ONNX, Keras, and Caffe into a format optimized for Intel hardware and manages execution on compatible devices. It also supports integration with various versions of YOLO. However, starting new projects with the NCS2 is not recommended, as Intel discontinued hardware support with OpenVINO 2022.3 and has not invested significant resources in maintaining the necessary software since 2022, making operation on current and future operating systems increasingly difficult.
+
+\colger
+
+Ein alternativer KI-Beschleuniger, der ebenfalls über die USB-Schnittstelle angeschlossen wird, ist der 2019 erschienene Intel Neural Compute Stick 2 -- NCS2 (siehe Abbildung~\ref{AbbildungIntelNCS2}). Dieser bietet ebenfalls 4 TOPS, verbraucht je nach Geschwindigkeitseinstellung ca. 200-500 mA, ist 73\(\times\)28\(\times\)14 mm groß und wiegt (ohne Verlängerungskabel) etwa 30 g. Der Kaufpreis liegt bei rund 100 €. Der NCS2 benötigt das Framework OpenVINO Toolkit, das freie Software ist und von Intel entwickelt wird. Es konvertiert Modelle aus Frameworks wie TensorFlow (Lite), PyTorch, ONNX, Keras und Caffe in ein für Intel-Hardware optimiertes Format und steuert die Ausführung auf kompatibler Hardware. Auch eine Zusammenarbeit mit verschiedenen Versionen von YOLO ist möglich. Neue Projekte mit dem NCS2 zu realisieren ist jedoch nicht empfehlenswert, da Intel die Unterstützung der Hardware mit OpenVINO 2022.3 eingestellt und seit 2022 keine signifikanten Ressourcen mehr in die Weiterentwicklung der zum Betrieb nötigen Software investiert hat, was den Betrieb auf aktuellen und zukünftigen Betriebssystemen erschwert.
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Intel_Neuronal_Compute_Stick2_front.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Intel_Neuronal_Compute_Stick2_back.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Intel Neuronal Compute Stick\,2 (Front and Back)}
+  \label{AbbildungIntelNCS2}
+\end{figure}
+
+\colstart
+
+A more modern alternative to connecting an AI accelerator via the USB interface is the Raspberry Pi AI Camera, released in 2024. It already includes an integrated AI accelerator whose exact performance in TOPS is not publicly specified, but it is capable of processing up to 30 frames per second for object recognition. The power consumption is approximately 300-600 mA, depending on the operating mode. The purchase price of the Raspberry Pi AI Camera is around €80, which is higher than that of other camera modules. However, it can fully replace an external AI accelerator such as the Google Coral TPU Accelerator. With a weight of only about 6 g, this results in significant weight savings and lower overall system costs.
+
+\colger
+
+Eine modernere Alternative zum Anschluss eines KI-Beschleunigers über die USB-Schnittstelle ist die 2024 erschienene Raspberry Pi AI Camera. Diese enthält bereits einen integrierten KI-Beschleuniger, dessen Leistungsfähigkeit in TOPS nicht bekannt ist, der jedoch bis zu 30 Bilder pro Sekunde zur Objekterkennung verarbeiten kann. Der Stromverbrauch beträgt je nach Betriebsart etwa 300-600 mA. Der Kaufpreis der Raspberry Pi AI Camera liegt mit rund 80 € zwar höher als der anderer Kamera-Module, sie kann jedoch einen externen KI-Beschleuniger wie den Google Coral TPU Accelerator vollständig ersetzen. Bei einem Gewicht von nur etwa 6 g führt dies zu einer deutlichen Gewichtsersparnis und geringeren Gesamtkosten.
+
+\coleng
+
+In addition to the Raspberry Pi AI Camera, which is ideal for use with the Raspberry Pi Zero 2 W single-board computer, the Raspberry Pi Foundation also offers the AI Kit and AI HAT+ in two different performance variants. All three options are HAT (Hardware Attached on Top) expansion boards for the Raspberry Pi 5. The AI Kit can host an M.2 AI accelerator module and comes with a Hailo-8L chip capable of 13 TOPS. The two AI HAT+ variants feature soldered Hailo accelerators with performance levels of 13 TOPS and 26 TOPS, respectively. These HATs cost around €80-120 and offer high AI performance. However, carrying and powering a Raspberry Pi 5 together with such a HAT is not practical in many drone scenarios.
+
+\colger
+
+Neben der Raspberry Pi AI Camera, die sich ideal für den Einsatz mit dem Raspberry Pi Zero 2 W Einplatinencomputer eignet, bietet die Raspberry Pi Foundation auch die KI-Erweiterungen AI Kit und AI HAT+ in zwei unterschiedlichen Geschwindigkeitsvarianten an. Alle drei Varianten sind Erweiterungsplatinen (sogenannte HATs) für den Raspberry Pi 5. Das AI Kit kann einen KI-Beschleuniger als M.2-Erweiterungsmodul aufnehmen und wird mit einem Hailo-8L-Beschleuniger ausgeliefert, der 13 TOPS erreicht. Die beiden Versionen des AI HAT+ enthalten fest verlötete Hailo-Beschleuniger mit 13 TOPS bzw. 26 TOPS. Diese drei HATs kosten etwa 80-120 € und bieten eine starke KI-Leistung. Der Transport und die Stromversorgung eines Raspberry Pi 5 mit einem solchen HAT ist in vielen Anwendungsszenarien jedoch nicht praktikabel.
+
+\colende
+
+\begin{table}[htb!]
+\centering
+\captionabove{Options for additional Hardware on the Drone that accelerates AI Operations (Edge Computing Scenario)}
+\label{TabelleUnterschiedeCoralAICameraNCS2}
+\setlength{\tabcolsep}{3pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.0} % Default
+\begin{tabular}{llrrrrl}
+\toprule
+AI Hardware                     & Interface       & TOPS        & Weight           & Size [mm] & Power Usage  & \multicolumn{1}{c}{Support} \\
+\midrule
+Google Coral TPU                & USB 3.0         & 4           & \(\sim\)\,20\,g  & 65x30x8   & 500-900\,mAh & Discontinued  \\
+Intel NCS\,2                    & USB 3.0         & 4           & \(\sim\)\,30\,g  & 73x28x14  & 200-500\,mAh & Discontinued  \\
+RPi AI Camera                   & CSI             & ?           & \(\sim\)\,6\,g   & 25x24x10  & 300-600\,mAh & Active  \\
+RPi AI\,Kit/HAT+                & HAT (PCIe)      & 13          & \(\sim\)\,40\,g  & 65x57x6   & 400-800\,mAh & Active  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\colstart
+
+For various reasons, such as short-term hardware availability, it has not yet been possible to integrate the Raspberry Pi AI Camera into a drone project. Therefore, the implementation approach presented in the next section uses the Google Coral TPU Accelerator.
+
+\colger
+
+Aus verschiedenen Gründen, wie der kurzfristigen Hardwareverfügbarkeit, war es bislang nicht möglich, die Raspberry Pi AI Camera in ein Drohnenprojekt zu integrieren. Aus diesem Grund verwendet der im nächsten Abschnitt vorgestellte Lösungsweg den Google Coral TPU Accelerator.
+
+\colende
+
+\renewcommand{\deutschertitel}{Aufbau und Implementierung}
+\renewcommand{\englischertitel}{Construction and Implementation}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungImplementierungHuckepack}
+
+Figure~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} shows the components of the FPV drone from Figure~\ref{AbbildungKompoentenEinerDrohneOhneKI}, expanded by the components required for onboard image recognition: the Raspberry Pi single-board computer, a Raspberry Pi Camera Module v2, the Google Coral TPU Accelerator, and a BEC (Battery Eliminator Circuit) for converting the battery voltage to 5\,V.
+
+\colger
+
+Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} zeigt die Komponenten der FPV-Drohne aus Abbildung~\ref{AbbildungKompoentenEinerDrohneOhneKI}, erweitert um die für die lokale Bilderkennung erforderlichen Komponenten: den Raspberry Pi Einplatinencomputer, ein Raspberry Pi Camera Module v2, den Google Coral TPU Accelerator sowie einen BEC zur Umwandlung der elektrischen Spannung des Akkus in 5\,V.
+
+\coleng
+
+The SpeedyBee F405 AIO flight controller used here provides only six UART interfaces, leaving little flexibility, as shown in Figure~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral}. The video transmitter (UART3), GPS module (UART5), and receiver (UART6) each require one UART interface. In addition, one UART (UART1) is reserved for administration via Wi-Fi and USB. Of the remaining interfaces, UART2 supports only simplex mode (receive-only). This leaves a single fully functional (bidirectional) UART interface, which is used to connect the Raspberry Pi Zero\,2\,W. This connection allows command exchange between the flight controller and the single-board computer.
+
+\colger
+
+Der verwendete SpeedyBee F405 AIO Flugcontroller verfügt nur über sechs UART-Schnittstellen, was -- wie in Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} gezeigt -- nur wenig Spielraum lässt. Videosender (UART3), GPS-Modul (UART5) und Empfänger (UART6) benötigen jeweils eine UART-Schnittstelle. Zusätzlich wird für die Administration über die WLAN- und USB-Schnittstellen (UART1) eine weitere Schnittstelle belegt. Von den verbleibenden Schnittstellen unterstützt UART2 nur den Simplex-Betrieb (nur Lesen). Damit verbleibt lediglich eine einzige vollwertige (bidirektionale) UART-Schnittstelle, über die der Raspberry Pi Zero\,2\,W angeschlossen wird. Darüber können Kommandos zwischen Flugcontroller und Einplatinencomputer ausgetauscht werden.
+
+\coleng
+
+One disadvantage of the Google Coral TPU Accelerator is that the manufacturer has not invested further resources in driver or library development. The required Python library PyCoral -- an extension of TensorFlow Lite enabling integration with the Coral TPU -- supports Python 3.9 at most. No further updates are expected. Installation on Raspberry Pi OS (32-bit) Bullseye (Debian 11) is recommended, as Coral packages and PyCoral work reliably there. Newer operating systems based on Debian 12 or 13 are difficult to use with this hardware.
+
+\colger
+
+Ein Nachteil des Google Coral TPU Accelerator ist, dass der Hersteller keine weiteren Ressourcen in die Weiterentwicklung der Treiber und Bibliotheken investiert. Die benötigte Python-Bibliothek PyCoral, die TensorFlow Lite um die Unterstützung der Google Coral TPU erweitert, unterstützt maximal Python 3.9. Neue Versionen sind nicht mehr zu erwarten. Die Installation auf Raspberry Pi OS (32-bit) Bullseye (Debian 11) ist empfehlenswert, da dort die Coral-Pakete mit PyCoral zuverlässig funktionieren. Neuere Betriebssysteme auf Basis von Debian 12 oder 13 sind hingegen sehr schwierig zu verwenden.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Komponenten_der_Drohne_Diagramm_v1_en.pdf}
+  \caption{Components of a FPV Drone with additional Hardware Components for Object Detection by the Drone itself}
+  \label{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral}
+\end{figure}
+
+\renewcommand{\deutschertitel}{Gesamtgewicht und Anschaffungskosten}
+\renewcommand{\englischertitel}{Total Weight and Purchase Cost}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungKostenHuckepack}
+
+For building the drone, a frame size between 3.5 and 5 inches is recommended. If the drone is also intended to be flown indoors, a 3.5-inch CineWhoop frame is advisable. The components used in a research project at Frankfurt University of Applied Sciences are listed in Table~\ref{TabelleDrohne35GoogleCoral}.
+
+\colger
+
+Zum Aufbau der Drohne empfiehlt sich ein Rahmen mit 3,5 bis 5 Zoll. Soll die Drohne auch innerhalb geschlossener Räume geflogen werden können, empfiehlt sich ein 3,5-Zoll-CineWhoop-Rahmen. Die im Rahmen eines Forschungsprojekts an der Frankfurt University of Applied Sciences verwendeten Komponenten sind in Tabelle~\ref{TabelleDrohne35GoogleCoral} aufgeführt.
+
+\colende
+
+\begin{table}[htb!]
+\centering
+\caption{Components of a Drone for Object Detection with a Raspberry Pi Zero\,2\,W and a Google Coral TPU Accelerator}
+\label{TabelleDrohne35GoogleCoral}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.0}
+
+\begin{spreadtab}{{tabular}{llrr}}
+\toprule
+@Product & @Category & @Weight [g] & @Price [\euro{}] \\
+\midrule
+@SpeedyBee Bee35 PRO 3.5                   & @Frame                  & 130  & 55 \\
+@SpeedyBee F405 AIO 40A 3-6S               & @Flight Controller      & 14   & 70 \\
+@Radiomaster RP1 2,4GHz                    & @Receiver               & 3    & 25 \\
+@Flywoo NIN 1404 V2 3750KV                 & @Motors                 & 40   & 65 \\
+@Gemfan D90-5 3.5 Inch Ducted 5-Blade      & @Propellers             & 4    & 3  \\
+@SpeedyBee TX800 VTX + SMA Adapter         & @Video Transmitter      & 10   & 40 \\
+@Foxeer Lollipop 4 RHCP SMA                & @FPV Antenna            & 5    & 20 \\
+@HGLRC M100-5883                           & @GPS and Compass        & 8    & 20 \\
+@Caddx Ratel Pro                           & @FPV Camera             & 10   & 55 \\
+@Li-Ion 2500mAh 4S1P 14,8V 12C             & @Battery                & 200  & 25 \\
+@Raspberry Pi Zero 2 WH                    & @Single-Board-Computer  & 10   & 20 \\
+@Raspberry Pi Zero case                    & @Case                   & 15   & 5  \\
+@32GB microSD card                         & @Storage                & 1    & 7  \\
+@Raspberry Pi Camera Module 8MP v2         & @Camera                 & 4    & 17 \\
+@Adafruit Camera Module case               & @Case                   & 8    & 5  \\
+@Google Coral TPU                          & @AI Hardware            & 20   & 85 \\
+@USB-C cable for Coral TPU                 & @Cable                  & 10   & 5  \\
+@Additional cables, straps and panels      & @Cables + fixing material                  & 10   & 5  \\
+\bottomrule
+@Sum & & sum(c2:c19) & sum(d2:d19) \\
+\end{spreadtab}
+\end{table}
+
+\colstart
+
+The components listed in Table~\ref{TabelleDrohne35GoogleCoral} refer exclusively to the essential parts of the drone itself. Additional required equipment such as a remote controller, FPV goggles, and a charger must already be available or purchased separately. The prices of the individual components depend on personal preferences and financial means.
+
+\colger
+
+Die in Tabelle~\ref{TabelleDrohne35GoogleCoral} aufgeführten Komponenten betreffen ausschließlich die notwendigen Bestandteile der Drohne selbst. Weiteres erforderliches Zubehör wie Fernbedienung, FPV-Brille und Ladegerät muss bereits vorhanden sein oder zusätzlich beschafft werden. Die Preise der einzelnen Komponenten hängen auch von persönlichen Präferenzen und finanziellen Möglichkeiten ab.
+
+\colende
+
+\renewcommand{\deutschertitel}{Objekterkennung durch Auswertung des Livebilds am Boden}
+\renewcommand{\englischertitel}{Object Detection by using the Live Image on the Ground}
+\makroabschnitt
+\label{AbschnittObjekterkennungVideoGrabber}
+
+An easy way to access the live video feed is by using the AV interface that some FPV goggles provide. The video signal can be digitized with a video grabber and transmitted to a computer for further processing.
+
+\colger
+
+Eine einfache Möglichkeit, auf das Livebild zuzugreifen, bietet die gegebenenfalls vorhandene AV-Schnittstelle der Videobrille. Das Videosignal kann mithilfe eines Videograbbers digitalisiert und zur Verarbeitung an einen Computer weitergeleitet werden.
+
+\colende
+
+\renewcommand{\deutschertitel}{Aufbau und Implementierung}
+\renewcommand{\englischertitel}{Construction and Implementation}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungImplementierungVideoGrabber}
+
 TBD
 
 \colger
@@ -23,5 +361,16 @@ TBD
 
 \colende
 
+\renewcommand{\deutschertitel}{Kosten}
+\renewcommand{\englischertitel}{Cost}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungKostenVideoGrabber}
 
+TBD
+
+\colger
+
+TBD
+
+\colende
 
