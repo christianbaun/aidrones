@@ -405,7 +405,7 @@ Informationen zum Flugcontroller und zur installierten Firmwareversion liefert d
 \makrounterabschnitt
 \label{AbschnittINAV}
 
- INAV consists of two main components: the firmware that runs on the flight controller and the configuration tool that is used for installation and administration. There is no web app, as is the case with current Betaflight versions.
+INAV consists of two main components: the firmware that runs on the flight controller and the configuration tool that is used for installation and administration. There is no web app, as is the case with current Betaflight versions.
 
  \colger
 
@@ -434,11 +434,11 @@ Die Software erhält jedes Jahr einen großen Release und kleinere Support-Updat
 \makrounterunterabschnitt
 \label{AbschnittInstallationINAV}
 
-The installation of INAV is done using the \textsl{INAV Configurator}. A certain similarity to Betaflight is very apparent here, as the structure is quite similar to the Betaflight Configurator, which is used for versions up to 4.5 (Figure \ref{AbbildungINAVFirmwareFlasher}). This guide assumes that the flight controller is connected via USB to the computer used for flashing.
+The installation of INAV is done using the \textsl{INAV Configurator}. A certain similarity to Betaflight is very apparent here, as the structure is quite similar to the Betaflight Configurator, which is used for versions up to 4.5 (Figure~\ref{AbbildungINAVFirmwareFlasher}). This guide assumes that the flight controller is connected via USB to the computer used for flashing.
 
 \colger
 
-Die Installation erfolgt über den \textsl{INAV Configurator}.Der Aufbau dieses Prozesses ist sehr ähnlich zum Betaflight Configurator, welcher bis Version 4.5 verwendet wurde. (Abbildung \ref{AbbildungINAVFirmwareFlasher}). Dieser Guide geht davon aus, dass der Flugcontroller via USB an den Computer angeschlossen ist, mit welchem das Flashen durchgeführt wird.
+Die Installation erfolgt über den \textsl{INAV Configurator}.Der Aufbau dieses Prozesses ist sehr ähnlich zum Betaflight Configurator, welcher bis Version 4.5 verwendet wurde. (Abbildung~\ref{AbbildungINAVFirmwareFlasher}). Dieser Guide geht davon aus, dass der Flugcontroller via USB an den Computer angeschlossen ist, mit welchem das Flashen durchgeführt wird.
 
 \colende
 
@@ -471,41 +471,41 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 
 \coleng
 
+\setcounter{enumi}{1}
+	
 \begin{enumerate}
-	\setcounter{enumi}{1}
-
 	\item Once the board is in DFU mode, the \textsl{Firmware Flasher} tab in the INAV Configurator must be opened. First, the target must be selected. If  \textsl{Auto-select Target} does not work, the model name must be searched for manually in the list.
 \end{enumerate}
 
 \colger
 
+\setcounter{enumi}{1}
+	
 \begin{enumerate}
-	\setcounter{enumi}{1}
-
 	\item Befindet sich das Board im DFU-Modus, so muss der \textsl{Firmware Flasher} Tab im INAV Configurator aufgerufen werden. In diesem muss zunächst das Target ausgewählt werden, sollte  \textsl{Auto-select Target} nicht funktionieren, muss der Modellname händisch in der Liste gesucht werden.
 \end{enumerate}
 
 \coleng
 
-\begin{enumerate}
-	\setcounter{enumi}{2}
+\setcounter{enumi}{2}
 
+\begin{enumerate}
 	\item The available (stable) releases are then displayed in the drop-down menu below the board. The \textsl{Show unstable releases} option allows you to select even more recent versions. However, these may not work as expected.
 \end{enumerate}
 
 \colger
 
+\setcounter{enumi}{2}
+	
 \begin{enumerate}
-	\setcounter{enumi}{2}
-
 	\item Im Ausklappmenü unter dem Board werden dann die verfügbaren (stable) Releases angezeigt. Mit der Option \textsl{Show unstable releases} können noch aktuellere Versionen gewählt werden. Diese funktionieren aber unter Umständen nicht wie erwartet.
 \end{enumerate}
 
 \coleng
 
-\begin{enumerate}
-	\setcounter{enumi}{3}
+\setcounter{enumi}{3}
 
+\begin{enumerate}
 	\item INAV offers three options that can be set for flashing:
 	\begin{itemize}
 		\item \textsl{No reboot sequence} - Only required if the boot pins are bridged or the boot button remains pressed during the flashing process (depending on the model).
@@ -516,9 +516,9 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 
 \colger
 
+\setcounter{enumi}{3}
+	
 \begin{enumerate}
-	\setcounter{enumi}{3}
-
 	\item INAV bietet drei Optionen die für das Flashen gesetzt werden können:
 	\begin{itemize}
 		\item \textsl{No reboot sequence} - Wird nur benötigt, wenn die Bootpins überbrückt sind oder der Bootbutton während des Flashens gedrückt wird (modellabhängig).
@@ -529,33 +529,33 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 
 \coleng
 
+\setcounter{enumi}{4}
+	
 \begin{enumerate}
-	\setcounter{enumi}{4}
-
 	\item The flashing process consists of two steps: First, the firmware is loaded (online or file), then the software is flashed onto the board via a separate button. The actual flashing should not be interrupted, as this will brick the device. However, the bootloader required for the flashing itself is stored in ROM and \textsl{cannot be bricked}. This means the device can always be reflashed.
 \end{enumerate}
 
 \colger
 
+\setcounter{enumi}{4}
+	
 \begin{enumerate}
-	\setcounter{enumi}{4}
-
 	\item Der Prozess des Flashens besteht aus zwei Schritten: Zunächst wird die Firmware geladen (online oder Datei), dann wird das eigentliche Flashen über einen separaten Button gestartet. Dies sollte nicht unterbrochen werden, da hierdurch das Board \textsl{gebrickt}  wird. Der zum Flashen benötigte Bootloader ist allerdings im ROM gespeichert und kann \textsl{nicht gebrickt} werden. Das bedeutet, dass das Board immer wieder neu geflasht werden kann.
 \end{enumerate}
 
 \coleng
 
+\setcounter{enumi}{5}
+	
 \begin{enumerate}
-	\setcounter{enumi}{5}
-
 	\item If necessary, the backup can now be restored via the \textsl{CLI} tab. This is done using the \textsl{Load from File} button. This allows the corresponding text file to be selected and executed using the \textsl{Execute} button.
 \end{enumerate}
 
 \colger
 
+\setcounter{enumi}{5}
+	
 \begin{enumerate}
-	\setcounter{enumi}{5}
-
 	\item Gegebenenfalls kann nun das Backup über den \textsl{CLI}-Tab wieder eingespielt werden. Dies geschieht über den Button \textsl{Load from File}. Damit kann die entsprechende Textdatei herausgesucht werden, um sie mit dem \textsl{Execute}-Button auszuführen.
 \end{enumerate}
 
@@ -594,18 +594,18 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 
 \coleng
 
-\begin{enumerate}
-	 \setcounter{enumi}{1}
+\setcounter{enumi}{1}
 
-	 \item The \textsl{Calibration tab} (Figure \ref{AbbildungINAVCalibrationTab}) is used to calibrate the accelerometer and compass. To do this, the drone must be placed in different positions.
+\begin{enumerate}
+	 \item The \textsl{Calibration tab} (Figure~\ref{AbbildungINAVCalibrationTab}) is used to calibrate the accelerometer and compass. To do this, the drone must be placed in different positions.
 \end{enumerate}
 
 \colger
 
+\setcounter{enumi}{1}
+	
 \begin{enumerate}
-	\setcounter{enumi}{1}
-
-	\item Im \textsl{Calibration-Tab} (Abbildung \ref{AbbildungINAVCalibrationTab}) werden der Beschleunigungsmesser und der Kompass kalibriert. Dazu muss die Drohne jeweils in unterschiedliche Posen gebracht werden.
+	\item Im \textsl{Calibration-Tab} (Abbildung~\ref{AbbildungINAVCalibrationTab}) werden der Beschleunigungsmesser und der Kompass kalibriert. Dazu muss die Drohne jeweils in unterschiedliche Posen gebracht werden.
 \end{enumerate}
 
 \colende
@@ -654,7 +654,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{4}
 
-	\item In the \textsl{Ports tab}, the peripheral devices are configured, unless this was done in the pop-up menu at the beginning. This looks very similar to the Ports tab of the Betaflight Configurator, with the difference that \textsl{USB VCP} is hidden instead of partially grayed out (Figure \ref{AbbildungBetaflightAppPorts}).  How these are configured depends on the connected devices and the flight controller chip. In most cases, the configuration options for Betaflight (usually found in the respective device manuals) are transferable to INAV.
+	\item In the \textsl{Ports tab}, the peripheral devices are configured, unless this was done in the pop-up menu at the beginning. This looks very similar to the Ports tab of the Betaflight Configurator, with the difference that \textsl{USB VCP} is hidden instead of partially grayed out (Figure~\ref{AbbildungBetaflightAppPorts}).  How these are configured depends on the connected devices and the flight controller chip. In most cases, the configuration options for Betaflight (usually found in the respective device manuals) are transferable to INAV.
 \end{enumerate}
 
 \colger
@@ -662,7 +662,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{4}
 
-	\item Im \textsl{Ports-Tab} werden die Peripheriegeräte konfiguriert, insofern dies nicht im Pop-Up-Menü am Anfang gemacht wurde. Dieser sieht dem Ports-Tab des Betaflight-Configurators sehr ähnlich mit dem Unterschied, dass \textsl{USB VCP} ausgeblendet statt teilweise ausgegraut ist (Abbildung \ref{AbbildungBetaflightAppPorts}).  Wie diese konfiguriert werden, hängt von den angeschlossenen Geräten und vom Flugcontrollerchip ab. Meist kann die Konfiguration für Betaflight aus den jeweiligen Handbüchern entnommen und übertragen werden.
+	\item Im \textsl{Ports-Tab} werden die Peripheriegeräte konfiguriert, insofern dies nicht im Pop-Up-Menü am Anfang gemacht wurde. Dieser sieht dem Ports-Tab des Betaflight-Configurators sehr ähnlich mit dem Unterschied, dass \textsl{USB VCP} ausgeblendet statt teilweise ausgegraut ist (Abbildung~\ref{AbbildungBetaflightAppPorts}).  Wie diese konfiguriert werden, hängt von den angeschlossenen Geräten und vom Flugcontrollerchip ab. Meist kann die Konfiguration für Betaflight aus den jeweiligen Handbüchern entnommen und übertragen werden.
 \end{enumerate}
 
 \coleng
@@ -686,7 +686,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{6}
 	
-	\item The \textsl{Failsafe tab} (Figure \ref{AbbildungINAVFailsafeTab}) is very important, as it defines the behavior should the remote control signal be lost. Here, you should ensure that either \textsl{Drop}, \textsl{Land}, or \textsl{Return-to-Home (RTH)} are configured so that the drone does not continue to fly uncontrollably.
+	\item The \textsl{Failsafe tab} (Figure~\ref{AbbildungINAVFailsafeTab}) is very important, as it defines the behavior should the remote control signal be lost. Here, you should ensure that either \textsl{Drop}, \textsl{Land}, or \textsl{Return-to-Home (RTH)} are configured so that the drone does not continue to fly uncontrollably.
 \end{enumerate}
 
 \colger
@@ -694,7 +694,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{6}
 
-	\item Der \textsl{Failsafe-Tab} (Abbildung \ref{AbbildungINAVFailsafeTab}) ist sehr wichtig, da in diesem das Verhalten definiert ist, sollte das Fernsteuerungssignal abreißen. Hier sollte sichergestellt werden, dass entweder textsl{Drop}, \textsl{Land} oder \textsl{Return-to-Home (RTH)} konfiguriert sind, damit die Drohne nicht unkontrolliert weiterfliegt.
+	\item Der \textsl{Failsafe-Tab} (Abbildung~\ref{AbbildungINAVFailsafeTab}) ist sehr wichtig, da in diesem das Verhalten definiert ist, sollte das Fernsteuerungssignal abreißen. Hier sollte sichergestellt werden, dass entweder textsl{Drop}, \textsl{Land} oder \textsl{Return-to-Home (RTH)} konfiguriert sind, damit die Drohne nicht unkontrolliert weiterfliegt.
 \end{enumerate}
 
 
@@ -709,68 +709,68 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 
 \colstart
 
+\setcounter{enumi}{7}
+	
 \begin{enumerate}
-	\setcounter{enumi}{7}
-
-	\item In the \textsl{Receiver tab}, the connection to the remote control from the side of the flight controller is configured. If an ExpressLRS remote control is used, \texttt{SERIAL} must be configured as the \textsl{Receiver type} and \texttt{CRSF} as the \textsl{Serial Receiver Provider}. In addition, you can check whether the channel mappings are correct. This tab is very similar to the Receiver tab in the Betaflight Configurator (Figure \ref{AbbildungBetaflightAppReceiver}).
+	\item In the \textsl{Receiver tab}, the connection to the remote control from the side of the flight controller is configured. If an ExpressLRS remote control is used, \texttt{SERIAL} must be configured as the \textsl{Receiver type} and \texttt{CRSF} as the \textsl{Serial Receiver Provider}. In addition, you can check whether the channel mappings are correct. This tab is very similar to the Receiver tab in the Betaflight Configurator (Figure~\ref{AbbildungBetaflightAppReceiver}).
 \end{enumerate}
 
 \colger
 
+\setcounter{enumi}{7}
+	
 \begin{enumerate}
-	\setcounter{enumi}{7}
-
-	\item Im \textsl{Receiver-Tab} wird Flugcontrollerseitig die Verbindung zur Fernbedienung konfiguriert. Wird eine ExpressLRS-Fernbedienung verwendet, muss \texttt{SERIAL} als \textsl{Receiver type} und \texttt{CRSF} als \textsl{Serial Receiver Provider} konfiguriert werden. Darüber hinaus kann kontrolliert werden, ob die Channel-Mappings korrekt sind. Dieser Tab ist sehr ähnlich zum Receiver-Tab im Betaflight Configurator (Abbildung \ref{AbbildungBetaflightAppReceiver}).
+	\item Im \textsl{Receiver-Tab} wird Flugcontrollerseitig die Verbindung zur Fernbedienung konfiguriert. Wird eine ExpressLRS-Fernbedienung verwendet, muss \texttt{SERIAL} als \textsl{Receiver type} und \texttt{CRSF} als \textsl{Serial Receiver Provider} konfiguriert werden. Darüber hinaus kann kontrolliert werden, ob die Channel-Mappings korrekt sind. Dieser Tab ist sehr ähnlich zum Receiver-Tab im Betaflight Configurator (Abbildung~\ref{AbbildungBetaflightAppReceiver}).
 \end{enumerate}
 
 %8.
 \coleng
 
+\setcounter{enumi}{8}
+	
 \begin{enumerate}
-	\setcounter{enumi}{8}
-
 	\item In the \textsl{GPS tab}, the \textsl{GPS for navigation and telemetry} option must be activated in order to use the GPS. The \textsl{Protocol} option must be set according to the specifications of the model used.
 \end{enumerate}
 
 \colger
 
+\setcounter{enumi}{8}
+	
 \begin{enumerate}
-	\setcounter{enumi}{8}
-
 	\item Im \textsl{GPS-Tab} muss die Option \textsl{GPS for navigation and telemetry} aktiviert werden, um das GPS nutzen zu können. Die Option \textsl{Protocol} ist entsprechend der Spezifikation des verwendeten Modells zu setzen.
 \end{enumerate}
 
 \coleng
 
-\begin{enumerate}
 	\setcounter{enumi}{9}
-
-	\item In the \textsl{Modes tab}, which is also very similar to the Betaflight version (Figure \ref{AbbildungBetaflightAppModes}), only \texttt{ARM} needs to be configured (CH5 recommended). In addition, it is also worth configuring \texttt{ANGLE}, especially for beginner pilots, as it limits the maximum amount of pitch and roll, allowing for a smoother flight experience. \texttt{FAILSAFE} should also be configured, so it can be activated in case the drone behaves unexpectedly. Modes for autopilot functions can be configured at a later stage.
+	
+\begin{enumerate}
+	\item In the \textsl{Modes tab}, which is also very similar to the Betaflight version (Figure~\ref{AbbildungBetaflightAppModes}), only \texttt{ARM} needs to be configured (CH5 recommended). In addition, it is also worth configuring \texttt{ANGLE}, especially for beginner pilots, as it limits the maximum amount of pitch and roll, allowing for a smoother flight experience. \texttt{FAILSAFE} should also be configured, so it can be activated in case the drone behaves unexpectedly. Modes for autopilot functions can be configured at a later stage.
 \end{enumerate}
 
 \colger
 
-\begin{enumerate}
 	\setcounter{enumi}{9}
-
-	Im \textsl{Modes-Tab}, der der Betaflight-Version sehr ähnlich ist (siehe Abbildung \ref{AbbildungBetaflightAppModes}), muss grundsätzlich nur \texttt{ARM} konfiguriert werden. Dafür wird Kanal 5 empfohlen.  
+	
+\begin{enumerate}
+	\item Im \textsl{Modes-Tab}, der der Betaflight-Version sehr ähnlich ist (siehe Abbildung~\ref{AbbildungBetaflightAppModes}), muss grundsätzlich nur \texttt{ARM} konfiguriert werden. Dafür wird Kanal 5 empfohlen.  
 	Es lohnt sich außerdem, \texttt{ANGLE} einzustellen. Das ist besonders für Fluganfänger wichtig, weil dadurch die Neigung in Pitch und Roll begrenzt wird. Das macht das Fliegen einfacher.  
 	Auch \texttt{FAILSAFE} sollte aktiviert werden. So kann man reagieren, falls sich die Drohne unerwartet verhält. Modi für Autopilotfunktionalitäten können zu einem späteren Zeitpunkt konfiguriert werden. 
 \end{enumerate}
 
 \coleng
 
+\setcounter{enumi}{10}
+	
 \begin{enumerate}
-	\setcounter{enumi}{10}
-
 	\item The \textsl{on-screen display (OSD)} can be configured according to the pilot's preferences. Useful elements that are not displayed by default include \textsl{Remaining Flight Time} and \textsl{Battery Remaining Percentage}. Depending on the VTX model, the \textsl{Video Format} must also be configured in this tab. The relevant info can usually be found in the manual of the VTX.
 \end{enumerate}
 
 \colger
 
-\begin{enumerate}
 	\setcounter{enumi}{10}
-
+	
+\begin{enumerate}
 	\item Das \textsl{on-screen display (OSD)} kann so konfiguriert werden, wie es vom Piloten bevorzugt wird. Nützliche Elemente, welche nicht standardmäßig eingeblendet werden sind zum Beispiel \textsl{Remaining Flight Time} und \textsl{Battery Remaining Percentage}. Je nach VTX-Modell muss in diesem Tab auch das \textsl{Video Format} konfiguriert werden. Relevante Informationen dazu können in der Regel im Handbuch des VTX gefunden werden.
 \end{enumerate}
 
@@ -782,6 +782,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 	\caption{INAV OSD Tab}
 	\label{AbbildungINAVOSDTab}
 \end{figure}
+
 
 \renewcommand{\deutschertitel}{ArduPilot}
 \renewcommand{\englischertitel}{ArduPilot}

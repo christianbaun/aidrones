@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.10.8)  9 OCT 2025 21:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.10.8)  10 OCT 2025 23:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1150,8 +1150,12 @@ Package babel Info: 'ngerman' activates 'ngerman' shorthands.
 
 LaTeX Warning: Label `AbbildungLiPoAkku' multiply defined.
 
-) (./chapter02.aux) (./chapter03.aux) (./chapter04.aux) (./chapter05.aux)
-(./chapter06.aux) (./glossary.aux) (./bibliography.aux))
+) (./chapter02.aux
+
+LaTeX Warning: Label `AbschnittInstallationExpressLRS' multiply defined.
+
+) (./chapter03.aux) (./chapter04.aux) (./chapter05.aux) (./chapter06.aux)
+(./glossary.aux) (./bibliography.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 219.
@@ -1841,54 +1845,71 @@ File: ./images/Betaflight_4_5_3_cli_firmware_screenshot_app.png Graphic file (t
 ype png)
 <use ./images/Betaflight_4_5_3_cli_firmware_screenshot_app.png>
 Package pdftex.def Info: ./images/Betaflight_4_5_3_cli_firmware_screenshot_app.
-png  used on input line 396.
+png  used on input line 380.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
- [36 <./images/Betaflight_4_5_3_blackbox_firmware_screenshot_app.png>]
-[37 <./images/Betaflight_4_5_3_cli_firmware_screenshot_app.png>]
-<./images/INAV_Firmware_Flasher.png, id=630, 1927.2pt x 1051.93pt>
+ [36 <./images/Betaflight_4_5_3_blackbox_firmware_screenshot_app.png> <./images
+/Betaflight_4_5_3_cli_firmware_screenshot_app.png>]
+<./images/INAV_Firmware_Flasher.png, id=624, 1927.2pt x 1051.93pt>
 File: ./images/INAV_Firmware_Flasher.png Graphic file (type png)
 <use ./images/INAV_Firmware_Flasher.png>
 Package pdftex.def Info: ./images/INAV_Firmware_Flasher.png  used on input line
- 433.
+ 447.
 (pdftex.def)             Requested size: 418.25368pt x 228.29533pt.
- [38 <./images/INAV_Firmware_Flasher.png>] [39]
-<./images/INAV_Calibration_Tab.png, id=650, 1927.2pt x 1084.05pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37]
+[38 <./images/INAV_Firmware_Flasher.png>] [39]
+Underfull \hbox (badness 1264) in paragraph at lines 586--587
+\T1/lmr/m/n/10 (+20) Among other things, the \T1/lmr/m/sl/10 (+20) Pre-arming
+ []
+
+<./images/INAV_Calibration_Tab.png, id=658, 1927.2pt x 1084.05pt>
 File: ./images/INAV_Calibration_Tab.png Graphic file (type png)
 <use ./images/INAV_Calibration_Tab.png>
 Package pdftex.def Info: ./images/INAV_Calibration_Tab.png  used on input line 
-492.
+615.
 (pdftex.def)             Requested size: 418.25368pt x 235.26619pt.
- [40 <./images/INAV_Calibration_Tab.png>]
-[41]
-<./images/INAV_Failsafe_Tab.png, id=674, 1927.2pt x 1051.93pt>
+[40 <./images/INAV_Calibration_Tab.png>] [41]
+<./images/INAV_Failsafe_Tab.png, id=689, 1927.2pt x 1051.93pt>
 File: ./images/INAV_Failsafe_Tab.png Graphic file (type png)
 <use ./images/INAV_Failsafe_Tab.png>
-Package pdftex.def Info: ./images/INAV_Failsafe_Tab.png  used on input line 526
+Package pdftex.def Info: ./images/INAV_Failsafe_Tab.png  used on input line 705
 .
 (pdftex.def)             Requested size: 418.25368pt x 228.29533pt.
 
-Underfull \hbox (badness 2293) in paragraph at lines 540--541
+Underfull \hbox (badness 2293) in paragraph at lines 723--724
 []\T1/lmr/m/n/10 (+20) Im \T1/lmr/m/sl/10 (+20) Receiver-Tab \T1/lmr/m/n/10 (+2
 0) wird Flug-con-trol-ler-
  []
 
 
-Underfull \hbox (badness 2197) in paragraph at lines 540--541
+Underfull \hbox (badness 2197) in paragraph at lines 723--724
 \T1/lmr/m/n/10 (+20) sei-tig die Ver-bin-dung zur Fern-be-die-
  []
 
 [42 <./images/INAV_Failsafe_Tab.png>]
-<./images/INAV_OSD_Tab.png, id=686, 1927.2pt x 1051.93pt>
+<./images/INAV_OSD_Tab.png, id=706, 1927.2pt x 1051.93pt>
 File: ./images/INAV_OSD_Tab.png Graphic file (type png)
 <use ./images/INAV_OSD_Tab.png>
-Package pdftex.def Info: ./images/INAV_OSD_Tab.png  used on input line 554.
+Package pdftex.def Info: ./images/INAV_OSD_Tab.png  used on input line 781.
 (pdftex.def)             Requested size: 418.25368pt x 228.29533pt.
- [43 <./images/INAV_OSD_Tab.png>])
+ [43 <./images/INAV_OSD_Tab.png>]
 
-[44]
+[44])
+
+[45]
 \openout2 = `chapter03.aux'.
 
  (./chapter03.tex
+
+[46
+
+
+
+
+
+]
 chapter 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1906,19 +1927,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
 
 
-[45
-
-
-
-
-
-]
-<./images/LiIo-Akku-laden.png, id=729, 1647.15375pt x 1326.9575pt>
+[47]
+<./images/LiIo-Akku-laden.png, id=760, 1647.15375pt x 1326.9575pt>
 File: ./images/LiIo-Akku-laden.png Graphic file (type png)
 <use ./images/LiIo-Akku-laden.png>
 Package pdftex.def Info: ./images/LiIo-Akku-laden.png  used on input line 82.
 (pdftex.def)             Requested size: 418.25368pt x 336.94221pt.
- [46] [47 <./images/LiIo-Akku-laden.png>]
+ [48] [49 <./images/LiIo-Akku-laden.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 162--163
 []\T1/lmr/m/n/10 (+20) Der Sen-der ver-fügt über ei-ne USB-
  []
@@ -1950,14 +1965,14 @@ Underfull \hbox (badness 1043) in paragraph at lines 162--163
 \T1/lmr/m/n/10 (+20) ak-ti-ves in-ter-nes oder ex-ter-nes Sen-de-mo-dul
  []
 
-[48])
+[50])
 
-[49]
+[51]
 \openout2 = `chapter04.aux'.
 
  (./chapter04.tex
 
-[50
+[52
 
 
 
@@ -1979,7 +1994,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
-[51]
+[53]
 Overfull \hbox (1.17847pt too wide) in paragraph at lines 78--90
  [][] 
  []
@@ -1989,44 +2004,44 @@ Underfull \hbox (badness 1325) in paragraph at lines 98--99
 []\T1/lmr/m/n/10 (+20) Im Ver-gleich zu den et-wa scheck-kar-ten-
  []
 
-<./images/raspberry_pi_2_wh_front.png, id=778, 1806.75pt x 903.375pt>
+<./images/raspberry_pi_2_wh_front.png, id=809, 1806.75pt x 903.375pt>
 File: ./images/raspberry_pi_2_wh_front.png Graphic file (type png)
 <use ./images/raspberry_pi_2_wh_front.png>
 Package pdftex.def Info: ./images/raspberry_pi_2_wh_front.png  used on input li
 ne 106.
 (pdftex.def)             Requested size: 200.75996pt x 100.3778pt.
-<./images/raspberry_pi_2_wh_back.png, id=779, 1806.75pt x 903.375pt>
+<./images/raspberry_pi_2_wh_back.png, id=810, 1806.75pt x 903.375pt>
 File: ./images/raspberry_pi_2_wh_back.png Graphic file (type png)
 <use ./images/raspberry_pi_2_wh_back.png>
 Package pdftex.def Info: ./images/raspberry_pi_2_wh_back.png  used on input lin
 e 111.
 (pdftex.def)             Requested size: 200.75996pt x 100.3778pt.
-[52] [53 <./images/raspberry_pi_2_wh_front.png> <./images/raspberry_pi_2_wh_bac
+[54] [55 <./images/raspberry_pi_2_wh_front.png> <./images/raspberry_pi_2_wh_bac
 k.png>]
-<./images/Google_Coral_TPU_Accelerator_front.pdf, id=800, 1298.8525pt x 687.568
+<./images/Google_Coral_TPU_Accelerator_front.pdf, id=832, 1298.8525pt x 687.568
 76pt>
 File: ./images/Google_Coral_TPU_Accelerator_front.pdf Graphic file (type pdf)
 <use ./images/Google_Coral_TPU_Accelerator_front.pdf>
 Package pdftex.def Info: ./images/Google_Coral_TPU_Accelerator_front.pdf  used 
 on input line 161.
 (pdftex.def)             Requested size: 200.75996pt x 106.26779pt.
-<./images/Google_Coral_TPU_Accelerator_back.pdf, id=801, 1298.8525pt x 687.5687
+<./images/Google_Coral_TPU_Accelerator_back.pdf, id=833, 1298.8525pt x 687.5687
 6pt>
 File: ./images/Google_Coral_TPU_Accelerator_back.pdf Graphic file (type pdf)
 <use ./images/Google_Coral_TPU_Accelerator_back.pdf>
 Package pdftex.def Info: ./images/Google_Coral_TPU_Accelerator_back.pdf  used o
 n input line 166.
 (pdftex.def)             Requested size: 200.75996pt x 106.26779pt.
- [54 <./images/Google_Coral_TPU_Accelerator_front.pdf> <./images/Google_Coral_T
+ [56 <./images/Google_Coral_TPU_Accelerator_front.pdf> <./images/Google_Coral_T
 PU_Accelerator_back.pdf>]
-<./images/Intel_Neuronal_Compute_Stick2_front.png, id=816, 1405.25pt x 702.625p
+<./images/Intel_Neuronal_Compute_Stick2_front.png, id=847, 1405.25pt x 702.625p
 t>
 File: ./images/Intel_Neuronal_Compute_Stick2_front.png Graphic file (type png)
 <use ./images/Intel_Neuronal_Compute_Stick2_front.png>
 Package pdftex.def Info: ./images/Intel_Neuronal_Compute_Stick2_front.png  used
  on input line 187.
 (pdftex.def)             Requested size: 200.75996pt x 100.37169pt.
-<./images/Intel_Neuronal_Compute_Stick2_back.png, id=817, 1505.625pt x 752.8125
+<./images/Intel_Neuronal_Compute_Stick2_back.png, id=848, 1505.625pt x 752.8125
 pt>
 File: ./images/Intel_Neuronal_Compute_Stick2_back.png Graphic file (type png)
 <use ./images/Intel_Neuronal_Compute_Stick2_back.png>
@@ -2063,14 +2078,14 @@ Underfull \hbox (badness 1337) in paragraph at lines 205--206
 \T1/lmr/m/n/10 (+20) als der an-de-rer Kamera-Module, sie kann
  []
 
-[55 <./images/Intel_Neuronal_Compute_Stick2_front.png> <./images/Intel_Neuronal
+[57 <./images/Intel_Neuronal_Compute_Stick2_front.png> <./images/Intel_Neuronal
 _Compute_Stick2_back.png>]
 Underfull \hbox (badness 2671) in paragraph at lines 262--263
 \T1/lmr/m/n/10 (+20) con-trol-ler ver-fügt nur über sechs UART-
  []
 
-[56]
-<./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf, id=835, 4076.22874pt x 188
+[58]
+<./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf, id=866, 4076.22874pt x 188
 5.0425pt>
 File: ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf Graphic file (type pdf
 )
@@ -2086,16 +2101,16 @@ Overfull \hbox (1.32286pt too wide) in paragraph at lines 325--326
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57 <./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>]
+ [59 <./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>]
 
-[58])
+[60])
 
-[59]
+[61]
 \openout2 = `chapter05.aux'.
 
  (./chapter05.tex
 
-[60
+[62
 
 
 
@@ -2119,12 +2134,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
 )
 
-[61]
+[63]
 \openout2 = `chapter06.aux'.
 
  (./chapter06.tex
 
-[62
+[64
 
 
 
@@ -2148,9 +2163,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
 )
 
-[63]
+[65]
 
-[64
+[66
 
 
 
@@ -2178,15 +2193,15 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 28970 strings out of 469603
- 540200 string characters out of 5473551
- 1181551 words of memory out of 5000000
+ 28997 strings out of 469603
+ 540544 string characters out of 5473551
+ 1181558 words of memory out of 5000000
  56375 multiletter control sequences out of 15000+600000
- 722669 words of font info for 215 fonts, out of 8000000 for 9000
+ 723141 words of font info for 219 fonts, out of 8000000 for 9000
  64 hyphenation exceptions out of 8191
- 108i,20n,122p,11207b,1243s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,122p,11207b,1245s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{section*.151} has been referenced but does not exis
+pdfTeX warning (dest): name{section*.153} has been referenced but does not exis
 t, replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb></usr/sha
@@ -2200,10 +2215,10 @@ ic/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (71 pages, 41971999 bytes).
+Output written on main.pdf (73 pages, 41981435 bytes).
 PDF statistics:
- 1207 PDF objects out of 1440 (max. 8388607)
- 998 compressed objects within 10 object streams
- 292 named destinations out of 1000 (max. 500000)
+ 1244 PDF objects out of 1440 (max. 8388607)
+ 1032 compressed objects within 11 object streams
+ 311 named destinations out of 1000 (max. 500000)
  56450 words of extra memory for PDF output out of 61914 (max. 10000000)
 

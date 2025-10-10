@@ -25,27 +25,27 @@
 \contentsline {chapter}{{\vspace {2pt}2}~Software zum Betrieb von FPV-Drohnen}{25}{chapter.2}%
 \contentsline {section}{{2.1}~Flight Controller Firmware}{25}{section.2.1}%
 \contentsline {subsection}{{2.1.1}~Betaflight}{26}{subsection.2.1.1}%
-\contentsline {subsection}{{2.1.2}~INAV}{36}{subsection.2.1.2}%
+\contentsline {subsection}{{2.1.2}~INAV}{37}{subsection.2.1.2}%
 \contentsline {subsection}{{2.1.3}~ArduPilot}{43}{subsection.2.1.3}%
 \contentsline {section}{{2.2}~Fernbedienung Firmware}{44}{section.2.2}%
 \contentsline {subsection}{{2.2.1}~EdgeTX}{44}{subsection.2.2.1}%
 \contentsline {section}{{2.3}~Sendemodul- und Empfänger-Firmware}{44}{section.2.3}%
-\contentsline {subsection}{{2.3.1}~ExpressLRS}{44}{subsection.2.3.1}%
-\contentsline {chapter}{{\vspace {2pt}3}~Wichtige Punkte vor dem ersten Flug}{45}{chapter.3}%
-\contentsline {section}{{3.1}~Sicherheit beim Flug}{45}{section.3.1}%
-\contentsline {section}{{3.2}~Sicherheit vor dem Flug}{45}{section.3.2}%
-\contentsline {section}{{3.3}~Sichere Verwendung von LiPo-Akkus}{46}{section.3.3}%
-\contentsline {section}{{3.4}~Laden von Akkus}{46}{section.3.4}%
-\contentsline {section}{{3.5}~Sichere Befestigung loser Kabel und sonstiger Komponenten}{46}{section.3.5}%
-\contentsline {section}{{3.6}~Den geeigneten Flugmodus verwenden}{47}{section.3.6}%
-\contentsline {section}{{3.7}~Mit einem Simulator üben}{48}{section.3.7}%
-\contentsline {chapter}{{\vspace {2pt}4}~Objekterkennung}{51}{chapter.4}%
-\contentsline {section}{{4.1}~Objekterkennung mit zusätzlicher Hardware an der Drohne}{52}{section.4.1}%
-\contentsline {subsection}{{4.1.1}~Vergleich von KI-Beschleunigern}{53}{subsection.4.1.1}%
-\contentsline {subsection}{{4.1.2}~Aufbau und Implementierung}{56}{subsection.4.1.2}%
-\contentsline {subsection}{{4.1.3}~Gesamtgewicht und Anschaffungskosten}{57}{subsection.4.1.3}%
-\contentsline {section}{{4.2}~Objekterkennung durch Auswertung des Livebilds am Boden}{58}{section.4.2}%
-\contentsline {subsection}{{4.2.1}~Aufbau und Implementierung}{59}{subsection.4.2.1}%
-\contentsline {subsection}{{4.2.2}~Kosten}{59}{subsection.4.2.2}%
-\contentsline {chapter}{{\vspace {2pt}5}~Autopilot}{61}{chapter.5}%
-\contentsline {chapter}{{\vspace {2pt}6}~Follow-Me-Funktion}{63}{chapter.6}%
+\contentsline {subsection}{{2.3.1}~ExpressLRS}{45}{subsection.2.3.1}%
+\contentsline {chapter}{{\vspace {2pt}3}~Wichtige Punkte vor dem ersten Flug}{47}{chapter.3}%
+\contentsline {section}{{3.1}~Sicherheit beim Flug}{47}{section.3.1}%
+\contentsline {section}{{3.2}~Sicherheit vor dem Flug}{47}{section.3.2}%
+\contentsline {section}{{3.3}~Sichere Verwendung von LiPo-Akkus}{48}{section.3.3}%
+\contentsline {section}{{3.4}~Laden von Akkus}{48}{section.3.4}%
+\contentsline {section}{{3.5}~Sichere Befestigung loser Kabel und sonstiger Komponenten}{48}{section.3.5}%
+\contentsline {section}{{3.6}~Den geeigneten Flugmodus verwenden}{49}{section.3.6}%
+\contentsline {section}{{3.7}~Mit einem Simulator üben}{50}{section.3.7}%
+\contentsline {chapter}{{\vspace {2pt}4}~Objekterkennung}{53}{chapter.4}%
+\contentsline {section}{{4.1}~Objekterkennung mit zusätzlicher Hardware an der Drohne}{54}{section.4.1}%
+\contentsline {subsection}{{4.1.1}~Vergleich von KI-Beschleunigern}{55}{subsection.4.1.1}%
+\contentsline {subsection}{{4.1.2}~Aufbau und Implementierung}{58}{subsection.4.1.2}%
+\contentsline {subsection}{{4.1.3}~Gesamtgewicht und Anschaffungskosten}{59}{subsection.4.1.3}%
+\contentsline {section}{{4.2}~Objekterkennung durch Auswertung des Livebilds am Boden}{60}{section.4.2}%
+\contentsline {subsection}{{4.2.1}~Aufbau und Implementierung}{61}{subsection.4.2.1}%
+\contentsline {subsection}{{4.2.2}~Kosten}{61}{subsection.4.2.2}%
+\contentsline {chapter}{{\vspace {2pt}5}~Autopilot}{63}{chapter.5}%
+\contentsline {chapter}{{\vspace {2pt}6}~Follow-Me-Funktion}{65}{chapter.6}%
