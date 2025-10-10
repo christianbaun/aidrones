@@ -451,7 +451,7 @@ Die Installation erfolgt über den \textsl{INAV Configurator}.Der Aufbau dieses 
 
 \colstart
 
-If the flight controller is not being flashed for the first time, it is good practice to create a backup of the configuration, as some upgrades reset it or to be save in case of a failure. This is done via the \textsl{CLI} tab. The command \texttt{diff all} outputs the corresponding parameters. These can then be saved to a text file using the \textsl{Save to File} button. The flashing process itself consists of the following steps:
+If the flight controller is not being flashed for the first time, it is good practice to create a backup of the configuration, as some upgrades reset it, or to be safe in case of a failure. This is done via the \textsl{CLI} tab. The command \texttt{diff all} outputs the corresponding parameters. These can then be saved to a text file using the \textsl{Save to File} button. The flashing process itself consists of the following steps:
 
 \colger
 
@@ -509,8 +509,8 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 	\item INAV offers three options that can be set for flashing:
 	\begin{itemize}
 		\item \textsl{No reboot sequence} - Only required if the boot pins are bridged or the boot button remains pressed during the flashing process (depending on the model).
-		\item \textsl{Full chip erase} - Deletes all configuration options (backup available?). This should always be set if other software was previously installed.
-		\item \textsl{Manual baud rate} - Set a manual baud rate for Bluetooth or for USB if a model does not support the standard speed.
+		\item \textsl{Full chip erase} - Deletes all configuration options (backup available?). This should always be set if a different software was previously installed.
+		\item \textsl{Manual baud rate} - Set a fixed baud rate for Bluetooth or USB if the model in question does not support the standard speed.
 	\end{itemize}
 \end{enumerate}
 
@@ -523,7 +523,7 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 	\begin{itemize}
 		\item \textsl{No reboot sequence} - Wird nur benötigt, wenn die Bootpins überbrückt sind oder der Bootbutton während des Flashens gedrückt wird (modellabhängig).
 		\item \textsl{Full chip erase} - Löscht alle Konfigurationsoptionen (Backup Vorhanden?). Sollte immer gesetzt werden, wenn vorher eine andere Software installiert war.
-		\item \textsl{Manual baud rate} - Festlegen der Baudrate für Bluetooth oder falls ein Modell die Standardgeschwindigkeit nicht unterstützt.
+		\item \textsl{Manual baud rate} - Festlegen der Baudrate für Bluetooth oder falls das zu flashende Modell die Standardgeschwindigkeit nicht unterstützt.
 	\end{itemize}
 \end{enumerate}
 
@@ -532,7 +532,7 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 \begin{enumerate}
 	\setcounter{enumi}{4}
 
-	\item The flashing process consists of two steps: First, the firmware is loaded (online or file), then software is flashed onto the board via a separate button. The actual flashing should not be interrupted, as this will brick the device. However, the bootloader required for the flashing itself is stored in ROM and \textsl{cannot be bricked}. This means the device can always be reflashed.
+	\item The flashing process consists of two steps: First, the firmware is loaded (online or file), then the software is flashed onto the board via a separate button. The actual flashing should not be interrupted, as this will brick the device. However, the bootloader required for the flashing itself is stored in ROM and \textsl{cannot be bricked}. This means the device can always be reflashed.
 \end{enumerate}
 
 \colger
@@ -630,7 +630,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{2}
 
-	\item Der \textsl{Mixer-Tab} konfiguriert zusammen mit dem Outputs-Tab die Motoren der Drohne. Hier ist entscheidend, dass der richtige  \textsl{Platform type} und das richtige \textsl{Mixer preset} (\texttt{Multirotor} und \texttt{QUAD X} für einen Quadcopter) entsprechend des Typs der verwendeten Drohne konfiguriert sind. Sollten die Motoren nicht in die richtige Richtung drehen, kann die diese über die \textsl{Motor direction} angepasst werden und die Zuordnung über den \textsl{Motor Mixer Wizard}.
+	\item Der \textsl{Mixer-Tab} konfiguriert zusammen mit dem Outputs-Tab die Motoren der Drohne. Hier ist entscheidend, dass der richtige  \textsl{Platform type} und das richtige \textsl{Mixer preset} (\texttt{Multirotor} und \texttt{QUAD X} für einen Quadcopter) entsprechend des verwendeten Drohnen-Typs konfiguriert sind. Sollten die Motoren nicht in die richtige Richtung drehen, kann die diese über die \textsl{Motor direction} angepasst werden und die Zuordnung über den \textsl{Motor Mixer Wizard}.
 \end{enumerate}
 
 \coleng
@@ -654,7 +654,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{4}
 
-	\item In the \textsl{Ports tab}, the peripheral devices are configured, unless this was done in the pop-up menu at the beginning. This looks very similar to the Ports tab of the Betaflight Configurator, with the difference that \textsl{USB VCP} is hidden instead of partially grayed out (Figure \ref{AbbildungBetaflightAppPorts}).  How these are configured depends on the connected devices and the flight controller chip. In most cases, the configuration options for Betaflight (usually found in the respective device manuals) are transferrable to INAV.
+	\item In the \textsl{Ports tab}, the peripheral devices are configured, unless this was done in the pop-up menu at the beginning. This looks very similar to the Ports tab of the Betaflight Configurator, with the difference that \textsl{USB VCP} is hidden instead of partially grayed out (Figure \ref{AbbildungBetaflightAppPorts}).  How these are configured depends on the connected devices and the flight controller chip. In most cases, the configuration options for Betaflight (usually found in the respective device manuals) are transferable to INAV.
 \end{enumerate}
 
 \colger
@@ -662,7 +662,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{4}
 
-	\item Im \textsl{Ports-Tab} werden die Peripheriegeräte konfiguriert, insofern dies nicht im Pop-Up-Menü am Anfang gemacht wurde. Dieser sieht dem Ports-Tab des Betaflight-Configurators sehr ähnlich, mit dem Unterschied, dass \textsl{USB VCP} ausgeblendet statt teilweise ausgegraut ist (Abbildung \ref{AbbildungBetaflightAppPorts}).  Wie diese konfiguriert werden, hängt von den angeschlossenen Geräten und vom Flugcontrollerchip ab. Meist kann die Konfiguration für Betaflight aus den jeweiligen Handbüchern entnommen und übertragen werden.
+	\item Im \textsl{Ports-Tab} werden die Peripheriegeräte konfiguriert, insofern dies nicht im Pop-Up-Menü am Anfang gemacht wurde. Dieser sieht dem Ports-Tab des Betaflight-Configurators sehr ähnlich mit dem Unterschied, dass \textsl{USB VCP} ausgeblendet statt teilweise ausgegraut ist (Abbildung \ref{AbbildungBetaflightAppPorts}).  Wie diese konfiguriert werden, hängt von den angeschlossenen Geräten und vom Flugcontrollerchip ab. Meist kann die Konfiguration für Betaflight aus den jeweiligen Handbüchern entnommen und übertragen werden.
 \end{enumerate}
 
 \coleng
@@ -745,7 +745,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{9}
 
-	\item In the \textsl{Modes tab}, which is also very similar to the Betaflight version (Figure \ref{AbbildungBetaflightAppModes}), only \texttt{ARM} needs to be configured (CH5 recommended). In addition, it is also worth configuring \texttt{ANGLE}, especially for beginner pilots as it limits the maximum amount of pitch and roll, allowing for a smoother flight experience. \texttt{FAILSAFE} should also be configured, so it can be activated in case the drone behaves unexpectedly. Modes for autopilot functions can be configured at a later stage.
+	\item In the \textsl{Modes tab}, which is also very similar to the Betaflight version (Figure \ref{AbbildungBetaflightAppModes}), only \texttt{ARM} needs to be configured (CH5 recommended). In addition, it is also worth configuring \texttt{ANGLE}, especially for beginner pilots, as it limits the maximum amount of pitch and roll, allowing for a smoother flight experience. \texttt{FAILSAFE} should also be configured, so it can be activated in case the drone behaves unexpectedly. Modes for autopilot functions can be configured at a later stage.
 \end{enumerate}
 
 \colger
@@ -753,7 +753,9 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{9}
 
-	\item Im \textsl{Modes-Tab}, welcher der Betaflight-Version ebenfalls sehr ähnlich ist (Abbildung \ref{AbbildungBetaflightAppModes}) muss grundsätzlich nur \texttt{ARM} konfiguriert werden (CH5 empfohlen). Darüber hinaus lohnt es sich auch \texttt{ANGLE} zu konfigurieren. Dies ist vor allem für Fluganfänger interessant, da Pitch und Roll limitiert werden, was das Fliegen vereinfacht. \texttt{FAILSAFE} ist auch zu empfehlen, um reagieren zu können, sollte die Drohne unerwartet verhalten. Modi für Autopilotfunktionalitäten können zu einem späteren Zeitpunkt konfiguriert werden. 
+	Im \textsl{Modes-Tab}, der der Betaflight-Version sehr ähnlich ist (siehe Abbildung \ref{AbbildungBetaflightAppModes}), muss grundsätzlich nur \texttt{ARM} konfiguriert werden. Dafür wird Kanal 5 empfohlen.  
+	Es lohnt sich außerdem, \texttt{ANGLE} einzustellen. Das ist besonders für Fluganfänger wichtig, weil dadurch die Neigung in Pitch und Roll begrenzt wird. Das macht das Fliegen einfacher.  
+	Auch \texttt{FAILSAFE} sollte aktiviert werden. So kann man reagieren, falls sich die Drohne unerwartet verhält. Modi für Autopilotfunktionalitäten können zu einem späteren Zeitpunkt konfiguriert werden. 
 \end{enumerate}
 
 \coleng
@@ -769,7 +771,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{10}
 
-	\item Das \textsl{on-screen display (OSD)} kann so konfiguriert werden, wie es vom Piloten bevorzugt wird. Nützliche Elemente, welche nicht standardmäßig eingeblendet werden sind zum Beispiel \textsl{Remaining Flight Time} und \textsl{Battery Remaining Percentage}. Je nach VTX-Modell muss in diesem Tab auch das \textsl{Video Format} konfiguriert werden.
+	\item Das \textsl{on-screen display (OSD)} kann so konfiguriert werden, wie es vom Piloten bevorzugt wird. Nützliche Elemente, welche nicht standardmäßig eingeblendet werden sind zum Beispiel \textsl{Remaining Flight Time} und \textsl{Battery Remaining Percentage}. Je nach VTX-Modell muss in diesem Tab auch das \textsl{Video Format} konfiguriert werden. Relevante Informationen dazu können in der Regel im Handbuch des VTX gefunden werden.
 \end{enumerate}
 
 \colende
