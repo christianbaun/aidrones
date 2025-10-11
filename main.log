@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.10.8)  10 OCT 2025 23:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.10.8)  11 OCT 2025 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1878,13 +1878,13 @@ Package pdftex.def Info: ./images/INAV_Failsafe_Tab.png  used on input line 705
 .
 (pdftex.def)             Requested size: 418.25368pt x 228.29533pt.
 
-Underfull \hbox (badness 2293) in paragraph at lines 723--724
+Underfull \hbox (badness 2293) in paragraph at lines 721--722
 []\T1/lmr/m/n/10 (+20) Im \T1/lmr/m/sl/10 (+20) Receiver-Tab \T1/lmr/m/n/10 (+2
 0) wird Flug-con-trol-ler-
  []
 
 
-Underfull \hbox (badness 2197) in paragraph at lines 723--724
+Underfull \hbox (badness 2197) in paragraph at lines 721--722
 \T1/lmr/m/n/10 (+20) sei-tig die Ver-bin-dung zur Fern-be-die-
  []
 
@@ -1892,7 +1892,7 @@ Underfull \hbox (badness 2197) in paragraph at lines 723--724
 <./images/INAV_OSD_Tab.png, id=706, 1927.2pt x 1051.93pt>
 File: ./images/INAV_OSD_Tab.png Graphic file (type png)
 <use ./images/INAV_OSD_Tab.png>
-Package pdftex.def Info: ./images/INAV_OSD_Tab.png  used on input line 781.
+Package pdftex.def Info: ./images/INAV_OSD_Tab.png  used on input line 773.
 (pdftex.def)             Requested size: 418.25368pt x 228.29533pt.
  [43 <./images/INAV_OSD_Tab.png>]
 
@@ -2215,7 +2215,7 @@ ic/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (73 pages, 41981435 bytes).
+Output written on main.pdf (73 pages, 41981466 bytes).
 PDF statistics:
  1244 PDF objects out of 1440 (max. 8388607)
  1032 compressed objects within 11 object streams
