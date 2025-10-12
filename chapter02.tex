@@ -823,93 +823,225 @@ TBD
 
 \colende
 
-\renewcommand{\deutschertitel}{Fernbedienung Firmware}
-\renewcommand{\englischertitel}{Remote Control Firmware}
+\renewcommand{\deutschertitel}{Fernbedienung Firmware: EdgeTX}
+\renewcommand{\englischertitel}{Remote Control Firmware: EdgeTX}
 \makroabschnitt
-\label{AbschnittFirmwareRemoteControl}
-
-TBD
-
-\colger
-
-TBD
-
-\colende
-
-\renewcommand{\deutschertitel}{EdgeTX}
-\renewcommand{\englischertitel}{EdgeTX}
-\makrounterabschnitt
 \label{AbschnittEdgeTX}
 
-TBD
+EdgeTX is an operating system for radio transmitters used in model aircraft and drones. It is open-source software and runs on transmitters from many well-known manufacturers. EdgeTX generates the control signals, which are then transmitted by the ExpressLRS firmware (see Section~\ref{AbschnittExpressLRS}) running on the transmitter module.
 
 \colger
 
-TBD
+EdgeTX ist ein Betriebssystem für Fernsteuerungen im Modellbau. Es handelt sich um freie Software, die auf Fernbedienungen vieler bekannter Hersteller läuft. EdgeTX erzeugt die Steuersignale, welche anschließend von der Firmware ExpressLRS (siehe Abschnitt~\ref{AbschnittExpressLRS}) des Sendemoduls übertragen werden.
 
-\colende
+\coleng
 
-\renewcommand{\deutschertitel}{Installation}
-\renewcommand{\englischertitel}{Installation}
-\makrounterunterabschnitt
-\label{AbschnittInstallationEdgeTX}
-
-TBD
+Installation is performed via the web application \url{buddy.edgetx.org}. This section describes the installation process on a Radiomaster Boxer using a PC.
 
 \colger
 
-TBD
+Die Installation erfolgt über die Webanwendung \url{buddy.edgetx.org}. Dieser Abschnitt beschreibt die Installation auf einer Radiomaster Boxer mithilfe eines PCs.
+
+\coleng
+
+With the transmitter turned off, connect it to the PC using one of its two USB-C ports. In the web application, select the desired version and the correct device (see Figure~\ref{AbbildungEdgeTXInstallation1}). Clicking the \textsl{Flash via USB} button starts the next step.
+
+\colger
+
+Die Fernbedienung wird im ausgeschalteten Zustand über eine der beiden USB-C-Schnittstellen mit dem PC verbunden. In der Webanwendung wird die gewünschte Version sowie das passende Gerät ausgewählt (siehe Abbildung~\ref{AbbildungEdgeTXInstallation1}). Die Schaltfläche \textsl{Flash via USB} führt zum nächsten Schritt.
 
 \colende
 
-\renewcommand{\deutschertitel}{Sendemodul- und Empfänger-Firmware}
-\renewcommand{\englischertitel}{Transmitter and Receiver Firmware}
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{edgetx_installation_1.png}
+	\caption{EdgeTX Installation Step 1}
+	\label{AbbildungEdgeTXInstallation1}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{edgetx_installation_2.png}
+	\caption{EdgeTX Installation Step 2}
+	\label{AbbildungEdgeTXInstallation2}
+\end{figure}
+
+\colstart
+
+In the second step, the correct device must be selected. It appears under the name STM32 BOOTLOADER (see Figures~\ref{AbbildungEdgeTXInstallation2} and~\ref{AbbildungEdgeTXInstallation3}).
+
+\colger
+
+Im zweiten Schritt wird das korrekte Gerät ausgewählt. Dieses erscheint unter dem Namen STM32 BOOTLOADER (siehe Abbildung~\ref{AbbildungEdgeTXInstallation2} und Abbildung~\ref{AbbildungEdgeTXInstallation3}).
+
+\coleng
+
+The final step is to start the installation by clicking the \textsl{Start flashing} button (see Figure~\ref{AbbildungEdgeTXInstallation4}).
+
+\colger
+
+Der letzte Schritt ist der Start der Installation über die Schaltfläche \textsl{Start flashing} (siehe Abbildung~\ref{AbbildungEdgeTXInstallation4}).
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{edgetx_installation_3.png}
+	\caption{EdgeTX Installation Step 3}
+	\label{AbbildungEdgeTXInstallation3}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{edgetx_installation_4.png}
+	\caption{EdgeTX Installation Step 4}
+	\label{AbbildungEdgeTXInstallation4}
+\end{figure}
+
+\renewcommand{\deutschertitel}{Sendemodul- und Empfänger-Firmware: ExpressLRS}
+\renewcommand{\englischertitel}{Transmitter and Receiver Firmware: ExpressLRS}
 \makroabschnitt
-\label{AbschnittFirmwareReceiverTransmitter}
-
-TBD
-
-\colger
-
-TBD
-
-\colende
-
-\renewcommand{\deutschertitel}{ExpressLRS}
-\renewcommand{\englischertitel}{ExpressLRS}
-\makrounterabschnitt
 \label{AbschnittExpressLRS}
 
-TBD
+The firmware of the transmitter module in the remote control and the receiver in the drone must both use compatible firmware versions. Ideally, the firmware versions of the transmitter and receiver are identical. This section focuses exclusively on the ExpressLRS firmware, including its installation and configuration.
 
 \colger
 
-TBD
+Die Firmware des Sendemoduls in der Fernbedienung und des Empfängers in der Drohne müssen beide mit kompatibler Firmware ausgestattet sein. Idealerweise sind bei Sender und Empfänger die Versionen identisch. Dieser Abschnitt befasst sich ausschließlich mit der Firmware ExpressLRS sowie deren Installation und Konfiguration.
 
-\colende
+\coleng
 
-\renewcommand{\deutschertitel}{Installation}
-\renewcommand{\englischertitel}{Installation}
-\makrounterunterabschnitt
-\label{AbschnittInstallationExpressLRS}
-
-TBD
+Installation is performed using the locally installed application ExpressLRS Configurator. Installation packages and the source code can be found here:
 
 \colger
 
-TBD
+Die Installation erfolgt über die lokal installierte Anwendung ExpressLRS Configurator. Installationspakete und der Quellcode befinden sich hier:
 
 \colende
+
+\smallskip
+\url{https://github.com/ExpressLRS/ExpressLRS-Configurator/releases}
+\smallskip
+
+\colstart
+
+In the ExpressLRS Configurator, the desired version, device type, connection method (EdgeTX Passthrough, UART, or Wi-Fi), frequency band usage permissions (Listen Before Talk), and the binding phrase are defined. The binding phrase must match the one later used on the receiver (see Figure~\ref{AbbildungExpressLRS1}).
+
+\colger
+
+Im ExpressLRS Configurator werden die gewünschte Version, das Gerät, die Zugriffsart (EdgeTX Passthrough, UART oder Wi-Fi), die erlaubte Nutzung des Frequenzbands (Listen Before Talk) sowie die Binding Phrase festgelegt. Diese muss mit der später beim Empfänger verwendeten Binding Phrase übereinstimmen (siehe Abbildung~\ref{AbbildungExpressLRS1}).
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Installation_1.png}
+	\caption{ExpressLRS Installation on Sender: Step 1}
+	\label{AbbildungExpressLRS1}
+\end{figure}
+
+\colstart
+
+
+The default Wi-Fi parameters can also be adjusted here, although this option will not be discussed further in this section. The firmware file is created by clicking the \textsl{BUILD} button (see Figure~\ref{AbbildungExpressLRS2}).
+
+\colger
+
+Auch die standardmäßig verwendeten WLAN-Parameter können hier angepasst werden, auf diese Option wird an dieser Stelle jedoch nicht weiter eingegangen. Die Erstellung der Firmware-Datei erfolgt über die Schaltfläche \textsl{BUILD} (siehe Abbildung~\ref{AbbildungExpressLRS2}).
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Installation_2.png}
+	\caption{ExpressLRS Installation on Sender: Step 2}
+	\label{AbbildungExpressLRS2}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Installation_3.png}
+	\caption{ExpressLRS Installation on Sender: Step 3}
+	\label{AbbildungExpressLRS3}
+\end{figure}
+
+\colstart
+
+Figure~\ref{AbbildungExpressLRS3} shows that the firmware file has been successfully created. Typically, a file manager window opens at this point, displaying the directory where the firmware file is located.
+
+\colger
+
+Abbildung~\ref{AbbildungExpressLRS3} zeigt, dass die Firmware-Datei erstellt wurde. Üblicherweise öffnet sich an dieser Stelle ein Dateimanager-Fenster, das den Pfad anzeigt, in dem sich die Firmware-Datei befindet. 
+
+\coleng
+
+In the next step, the firmware file must be uploaded to the transmitter module of the remote control. One option is installation via the transmitter’s Wi-Fi module. This is activated through SYS→Tools→ExpressLRS→Wi-Fi Connectivity→Enable Wi-Fi. Once the network \verb!ExpressLRS TX! (password: \verb!expresslrs!) becomes available, the PC must be connected to it. The transmitter module uses the IP address \verb!10.0.0.1!. When this address is opened in a web browser, a simple interface allows, among other things, firmware updates (see Figure~\ref{AbbildungExpressLRS4}).
+
+\colger
+
+Im nächsten Schritt muss die Firmware-Datei auf das Sendemodul der Fernbedienung aufgespielt werden. Eine Möglichkeit hierzu ist die Installation über das WLAN-Modul des Senders. Dieses wird über SYS→Tools→ExpressLRS→Wi-Fi Connectivity→Enable Wi-Fi aktiviert. Sobald das Funknetz \verb!ExpressLRS TX! (Passwort: \verb!expresslrs!) verfügbar ist, muss der PC damit verbunden werden. Das Sendemodul hat die IP-Adresse \verb!10.0.0.1!. Wird diese Adresse über einen Browser aufgerufen, kann über eine einfache Webseite unter anderem die Firmware aktualisiert werden (siehe Abbildung~\ref{AbbildungExpressLRS4}).
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Installation_4.png}
+	\caption{ExpressLRS Installation on Sender: Step 4}
+	\label{AbbildungExpressLRS4}
+\end{figure}
+
+\colstart
+
+The installation of ExpressLRS on the receiver is almost identical. Here, too, a firmware file matching the receiver is created using the ExpressLRS Configurator (see Figures~\ref{AbbildungExpressLRSReceiver1} and~\ref{AbbildungExpressLRSReceiver2}).
+
+\colger
+
+Die Installation von ExpressLRS auf dem Empfänger erfolgt nahezu identisch. Auch hier wird mit dem ExpressLRS Configurator eine zur Empfängerhardware passende Firmware-Datei erstellt (siehe Abbildung~\ref{AbbildungExpressLRSReceiver1} und Abbildung~\ref{AbbildungExpressLRSReceiver2}).
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Installation_RX_1.png}
+	\caption{ExpressLRS Installation on Receiver: Step 1}
+	\label{AbbildungExpressLRSReceiver1}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Installation_RX_2.png}
+	\caption{ExpressLRS Installation on Receiver: Step 2}
+	\label{AbbildungExpressLRSReceiver2}
+\end{figure}
+
+\colstart
+
+Receivers from Radiomaster provide a Wi-Fi network named \verb!ExpressLRS RX! (password: \verb!expresslrs!) after approximately 30 seconds without a connection to a transmitter. The PC must be connected to this network. The receiver module uses the IP address \verb!10.0.0.1!. When this address is opened in a web browser, a simple interface allows, among other things, firmware updates (see Figure~\ref{AbbildungExpressLRSReceiver3}).
+
+\colger
+
+Empfänger von Radiomaster stellen nach etwa 30 Sekunden ohne Verbindung zu einer Fernbedienung ein Funknetz mit dem Namen \verb!ExpressLRS RX! (Passwort: \verb!expresslrs!) bereit. Der PC muss mit diesem Netzwerk verbunden werden. Das Empfangsmodul hat die IP-Adresse \verb!10.0.0.1!. Wird diese Adresse über einen Browser aufgerufen, kann über eine einfache Webseite unter anderem die Firmware aktualisiert werden (siehe Abbildung~\ref{AbbildungExpressLRSReceiver3}).
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Installation_RX_3.png}
+	\caption{ExpressLRS Installation on Receiver: Step 3}
+	\label{AbbildungExpressLRSReceiver3}
+\end{figure}
 
 \renewcommand{\deutschertitel}{Kopplung}
-\renewcommand{\englischertitel}{Coupling/Pairing}
+\renewcommand{\englischertitel}{Pairing}
 \makrounterunterabschnitt
 \label{AbschnittInstallationExpressLRS}
 
-TBD
+\coleng
+
+To speed up the pairing process between transmitter and receiver and to prevent accidental pairing with other devices, a binding phrase can be defined in the ExpressLRS firmware. This phrase must be identical on both communication partners and cannot be changed without reinstalling (flashing) the firmware.
 
 \colger
 
-TBD
+Um die Kopplung zwischen Sender und Empfänger zu beschleunigen und ein versehentliches Koppeln mit anderen Geräten zu verhindern, kann in der ExpressLRS-Firmware eine Binding Phrase definiert werden. Diese muss bei beiden Kommunikationspartnern identisch sein und kann nur durch eine Neuinstallation (Flashen) der Firmware geändert werden.
 
 \colende
