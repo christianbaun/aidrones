@@ -919,7 +919,7 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Cost}{67}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.1}Total Weight and Purchase Cost}{67}{subsection.4.2.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
