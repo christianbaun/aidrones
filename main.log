@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.10.8)  13 OCT 2025 19:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.10.8)  18 OCT 2025 16:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -903,6 +903,34 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 )
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count362
+\lst@gtempboxa=\box79
+\lst@token=\toks39
+\lst@length=\count363
+\lst@currlwidth=\dimen278
+\lst@column=\count364
+\lst@pos=\count365
+\lst@lostspace=\dimen279
+\lst@width=\dimen280
+\lst@newlines=\count366
+\lst@lineno=\count367
+\lst@maxwidth=\dimen281
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count368
+\lst@skipnumbers=\count369
+\lst@framebox=\box80
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 
@@ -925,40 +953,12 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (./out.sty
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
 Package: rotating 2025/01/14 v2.16e rotated objects in LaTeX
-\c@r@tfl@t=\count362
+\c@r@tfl@t=\count370
 \rotFPtop=\skip138
 \rotFPbot=\skip139
-\rot@float@box=\box79
-\rot@mess@toks=\toks39
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count363
-\lst@gtempboxa=\box80
-\lst@token=\toks40
-\lst@length=\count364
-\lst@currlwidth=\dimen278
-\lst@column=\count365
-\lst@pos=\count366
-\lst@lostspace=\dimen279
-\lst@width=\dimen280
-\lst@newlines=\count367
-\lst@lineno=\count368
-\lst@maxwidth=\dimen281
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstpatch.sty
-File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count369
-\lst@skipnumbers=\count370
-\lst@framebox=\box81
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2024/09/23 1.10c listings configuration
+\rot@float@box=\box81
+\rot@mess@toks=\toks40
 ))
-Package: listings 2024/09/23 1.10c (Carsten Heinz)
-)
 (/usr/share/texlive/texmf-dist/tex/latex/imakeidx/imakeidx.sty
 Package: imakeidx 2016/10/15 v1.3e Package for typesetting indices in a synchro
 nous mode
@@ -2207,21 +2207,41 @@ Overfull \hbox (1.32286pt too wide) in paragraph at lines 325--326
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [65 <./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>]
+ [65 <./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>] [66]
+<./images/Videobrille_mit_Videograbber.jpg, id=992, 4111.36pt x 3083.52pt>
+File: ./images/Videobrille_mit_Videograbber.jpg Graphic file (type jpg)
+<use ./images/Videobrille_mit_Videograbber.jpg>
+Package pdftex.def Info: ./images/Videobrille_mit_Videograbber.jpg  used on inp
+ut line 353.
+(pdftex.def)             Requested size: 418.25368pt x 313.68678pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 392.
 
-[66]
-Overfull \hbox (1.32286pt too wide) in paragraph at lines 389--390
+
+[67 <./images/Videobrille_mit_Videograbber.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 426--427
+[]\T1/lmr/m/n/10 (+20) Das Kom-man-do [][]\T1/lmtt/m/n/10 v4l2-ctl []\T1/lmr/m/
+n/10 (+20) un-ter-stützt
+ []
+
+
+Underfull \hbox (badness 5847) in paragraph at lines 426--427
+\T1/lmr/m/n/10 (+20) beim Auf-fin-den des ge-wünsch-ten Ge-räts
+ []
+
+[68]
+Overfull \hbox (1.32286pt too wide) in paragraph at lines 521--522
  [][] 
  []
 
 )
 
-[67]
+[69]
 \openout2 = `chapter05.aux'.
 
  (./chapter05.tex
 
-[68
+[70
 
 
 
@@ -2245,12 +2265,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
 )
 
-[69]
+[71]
 \openout2 = `chapter06.aux'.
 
  (./chapter06.tex
 
-[70
+[72
 
 
 
@@ -2274,9 +2294,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
 )
 
-[71]
+[73]
 
-[72
+[74
 
 
 
@@ -2304,32 +2324,34 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 29126 strings out of 469603
- 545599 string characters out of 5473551
- 1182456 words of memory out of 5000000
- 56491 multiletter control sequences out of 15000+600000
- 723336 words of font info for 222 fonts, out of 8000000 for 9000
+ 29469 strings out of 469603
+ 549036 string characters out of 5473551
+ 1215523 words of memory out of 5000000
+ 56791 multiletter control sequences out of 15000+600000
+ 731016 words of font info for 233 fonts, out of 8000000 for 9000
  64 hyphenation exceptions out of 8191
- 108i,20n,122p,11207b,1245s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,21n,122p,11207b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{section*.156} has been referenced but does not exis
+pdfTeX warning (dest): name{section*.157} has been referenced but does not exis
 t, replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
-12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (79 pages, 43886395 bytes).
+xmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
+10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/font
+s/type1/public/lm/lmr5.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></u
+sr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/
+lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+sy9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmtt9.pfb>
+Output written on main.pdf (81 pages, 47486662 bytes).
 PDF statistics:
- 1321 PDF objects out of 1440 (max. 8388607)
- 1080 compressed objects within 11 object streams
- 318 named destinations out of 1000 (max. 500000)
- 56494 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1382 PDF objects out of 1440 (max. 8388607)
+ 1131 compressed objects within 12 object streams
+ 348 named destinations out of 1000 (max. 500000)
+ 61107 words of extra memory for PDF output out of 61914 (max. 10000000)
 

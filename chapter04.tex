@@ -340,11 +340,143 @@ Die in Tabelle~\ref{TabelleDrohne35GoogleCoral} aufgeführten Komponenten betref
 \makroabschnitt
 \label{AbschnittObjekterkennungVideoGrabber}
 
-An easy way to access the live video feed is by using the AV interface that some FPV goggles (see Table~\ref{TabelleVideobrillen}) provide. The video signal can be digitized with a video grabber and transmitted to a computer for further processing.
+An easy way to access a live video feed is to use the AV interface provided by some FPV goggles (see Table~\ref{TabelleVideobrillen}). The analog signal can then be digitized with a video grabber device and transmitted to a computer or another device (e.g., a smartphone) for further processing. Figure~\ref{AbbildungVideobrillemitVideograbber} shows the connection of a video grabber to a pair of FPV goggles.
 
 \colger
 
-Eine einfache Möglichkeit, auf das Livebild zuzugreifen, bietet die gegebenenfalls vorhandene AV-Schnittstelle der Videobrille (siehe Tabelle~\ref{TabelleVideobrillen}). Das Videosignal kann mithilfe eines Videograbbers digitalisiert und zur Verarbeitung an einen Computer weitergeleitet werden.
+Eine einfache Möglichkeit, auf das Livebild zuzugreifen, bietet die gegebenenfalls vorhandene AV-Schnittstelle der Videobrille (siehe Tabelle~\ref{TabelleVideobrillen}). Das Videosignal kann mithilfe eines Videograbbers digitalisiert und zur Verarbeitung an einen Computer oder an ein anderes Gerät (z.B. ein Smartphone) weitergeleitet werden. Abbildung~\ref{AbbildungVideobrillemitVideograbber} zeit den Anschluss eines Videograbbers an eine Videobrille.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Videobrille_mit_Videograbber.jpg}
+  \caption{Video Grabber Device connected to the A/V Port of an FPV Goggle}
+  \label{AbbildungVideobrillemitVideograbber}
+\end{figure}
+
+
+\colstart
+
+There are various tools and commands for accessing video and audio streams. This section presents a selection of useful Linux tools and commands.
+
+\colger
+
+Zum Zugriff auf den Video- und Audiostrom existieren verschiedene Programme und hilfreiche Kommandos. Dieser Abschnitt stellt einige nützliche Programme und Kommandos unter Linux vor.
+
+\coleng
+
+Information from the operating system kernel about the video grabber can be obtained, among other things, using the command \verb!dmesg!.
+
+\colger
+
+Informationen des Betriebssystemkerns zum Videograbber liefert unter anderem das Kommando \verb!dmesg!.
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+$ sudo dmesg -w
+[17896.642801] usb 2-2: USB disconnect, device number 91
+[17897.851011] usb 2-2: new high-speed USB device number 92 using xhci_hcd
+[17897.991360] usb 2-2: New USB device found, idVendor=534d, idProduct=0021, bcdDevice=21.01
+[17897.991376] usb 2-2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[17897.991383] usb 2-2: Product: USB Video
+[17897.991389] usb 2-2: Manufacturer: MACROSILICON
+[17897.991395] usb 2-2: SerialNumber: 20200909
+[17898.055173] usb 2-2: Found UVC 1.00 device USB Video (534d:0021)
+[17898.063678] hid-generic 0003:534D:0021.004E: hiddev4,hidraw6: USB HID v1.10 Device [MACROSILICON USB Video] on usb-0000:06:00.3-2/input4
+\end{lstlisting}
+
+\colstart
+
+The command \verb!lsusb! provides information about the connected USB devices.
+
+\colger
+
+Das Kommando \verb!lsusb! liefert Informationen zu den angeschlossenen USB-Geräten.
+
+\colende
+
+\begin{lstlisting}[style=shell]
+$ lsusb
+Bus 002 Device 090: ID 534d:0021 MacroSilicon MS210x Video Grabber [EasierCAP]
+
+\end{lstlisting}
+
+\colstart
+
+The command \verb!v4l2-ctl! helps in identifying the desired device \verb!/dev/videoX!.
+
+\colger
+
+Das Kommando \verb!v4l2-ctl! unterstützt beim Auffinden des gewünschten Geräts \verb!/dev/videoX!.
+
+\colende
+
+\begin{lstlisting}[style=shell]
+$ v4l2-ctl --list-devices
+USB Video: USB Video (usb-0000:06:00.3-2):
+	/dev/video6
+	/dev/video7
+	/dev/media3
+\end{lstlisting}
+
+\colstart
+
+The video stream can be viewed in a window using tools such as \verb!cheese!, \verb!gst-launch-1.0! (GStreamer), \verb!guvcview!, \verb!ffplay!, \verb!mpv!, and \verb!vlc! (VideoLAN Client).
+
+\colger
+
+Den Videostrom in einem Fenster anzeigen kann man unter anderem mit den Werkzeugen \verb!cheese!, \verb!gst-launch-1.0! (GStreamer), \verb!guvcview!, \verb!ffplay!, \verb!mpv! und \verb!vlc! (VideoLAN Client).
+
+\colende
+
+\begin{lstlisting}[style=shell]
+$ cheese
+$ gst-launch-1.0 v4l2src device=/dev/video6 ! videoconvert ! autovideosink
+$ guvcview -d /dev/video6
+$ ffplay -f v4l2 -i /dev/video6
+$ mpv /dev/video6
+$ vlc v4l2:///dev/video6
+\end{lstlisting}
+
+\colstart
+
+Most of the mentioned tools can also redirect (save) video and audio streams to local files and convert them into various file formats.
+
+\colger
+
+Die meisten der genannten Werkzeuge können auch Video- und Audioströme in lokale Dateien umleiten (speichern) und in verschiedene Dateiformate konvertieren.
+
+\coleng
+
+There are also apps for the Android operating system that can display a video stream provided through the USB interface. One example is USB Camera (Pro).
+
+\colger
+
+Auch für das Betriebssystem Android gibt es Apps, die einen über die USB-Schnittstelle bereitgestellten Videostrom anzeigen können. Ein Beispiel ist USB Camera (Pro). 
+
+\coleng
+
+If the video stream is to be used from within program source code, the Python library \verb!cv2! is recommended.
+
+\colger
+
+Soll der Videostrom aus einem Programmquellcode heraus verwendet werden, bietet sich unter Python die Bibliothek \verb!cv2! an.
 
 \colende
 
