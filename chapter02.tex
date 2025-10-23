@@ -6,702 +6,678 @@
 \label{KapitelSoftware}
 
 \begin{paracol}{2}[]
-	
-	{\raggedright\huge\bfseries\sffamily \englischertitel \par\ } \\[1.8ex]
-	
-	\switchcolumn
-	
-	{\raggedright\huge\bfseries\sffamily \deutschertitel \par\ } \\[1.8ex]
-	
-	\coleng
-	
-	This chapter introduces the essential software components required for operating FPV drones. Similar to Chapter~\ref{KapitelHardware}, it does not aim to provide a complete overview of all available software. Instead, it presents a selection of popular firmware options for flight controllers, transmitters, and receivers, as well as several useful tools. The chapter provides an overview of their core functionalities and suitable use cases, offering guidance for installation and initial configuration.
-	
-	\colger
-	
-	Dieses Kapitel stellt die wichtigsten Software-Komponenten zum Betrieb von FPV-Drohnen vor. Genau wie Kapitel~\ref{KapitelHardware} hat auch dieses Kapitel nicht den Anspruch, einen vollständigen Überblick über die verfügbare Software zu geben. Vorgestellt werden eine Auswahl populärer Firmwares für Flugcontroller, Sender und Empfänger sowie einige nützliche Werkzeuge. Das Kapitel soll einen Überblick über den grundlegenden Funktionsumfang und sinnvolle Einsatzbereiche geben und bei den ersten Schritten der Installation und Administration unterstützen.
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Flight Controller Firmware}
-	\renewcommand{\englischertitel}{Flight Controller Firmware}
-	\makroabschnitt
-	\label{AbschnittFirmwareFC}
-	
-	Every flight controller requires an operating system that primarily processes sensor data (including gyroscope, accelerometer, GPS, and magnetic compass) and user control inputs into motor commands. In addition, flight controller operating systems implement various flight modes (e.g., Acro, Angle, Horizon), route video data from the camera to the video transmitter, provide an on-screen display (OSD), generate and store flight logs (Blackbox logs) for post-flight analysis, allow fine-tuning of flight behavior using filters and mixers, and offer multiple interfaces for communication and configuration.
-	
-	\colger
-	
-	Jeder Flugcontroller benötigt ein Betriebssystem, das in erster Linie die Sensordaten (u. a. Gyroskop, Beschleunigungssensor, GPS, magnetischer Kompass) und die Steuerbefehle des Benutzers in Motorbefehle umsetzt. Darüber hinaus implementieren die Betriebssysteme der Flugcontroller verschiedene Flugmodi (z. B. Acro, Angle, Horizon), leiten Videodaten der Kamera an den Videosender weiter, bieten ein On-Screen-Display (OSD), erzeugen und speichern Log-Daten (Blackbox-Logs) zur nachträglichen Analyse des Flugverhaltens, ermöglichen die Feineinstellung des Flugverhaltens mithilfe von Filtern und Mixern und stellen verschiedene Schnittstellen zur Kommunikation und Konfiguration bereit.
-	
-	\coleng
-	
-	The operating system of the flight controller is implemented as firmware stored in the flash memory. Since all common flight controller firmwares are open-source projects, it occasionally happens that developer groups split off and create forks that, through new features and more active development, may eventually surpass the original project. Likewise, projects may become obsolete over time due to developer inactivity or shifting priorities.
-	
-	\colger
-	
-	Das Betriebssystem des Flugcontrollers wird als Firmware implementiert, die im Flash-Speicher abgelegt ist. Da alle gängigen Flugcontroller-Firmwares Open-Source-Projekte sind, kommt es immer wieder vor, dass sich Entwicklergruppen abspalten und Forks gründen, die durch neue Funktionen und aktivere Weiterentwicklung mittelfristig das ursprüngliche Projekt verdrängen. Ebenso kann es passieren, dass Projekte aufgrund fehlender Entwickleraktivität oder veränderter Lebensumstände nicht weiterentwickelt werden und mit der Zeit obsolet werden.
-	
-	\coleng
-	
-	This document introduces the flight controller firmwares Betaflight, INAV, and ArduPilot.
-	
-	\colger
-	
-	Dieses Dokument stellt die Flugcontroller-Firmwares Betaflight, INAV und ArduPilot vor.
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Betaflight}
-	\renewcommand{\englischertitel}{Betaflight}
-	\makrounterabschnitt
-	\label{AbschnittBetaflight}
-	
-	Betaflight is a firmware for flight controllers used in FPV drones. Its focus lies on supporting manual flight modes such as freestyle and racing. The main goals of Betaflight are fast response to user input and extensive configuration options for optimizing flight behavior (tuning).
-	
-	\colger
-	
-	Betaflight ist eine Firmware für Flugcontroller von FPV-Drohnen. Der Fokus von Betaflight liegt auf der Unterstützung des manuellen Fliegens (Freestyle, Racing usw.). Ziele von Betaflight sind eine schnelle Reaktion auf Benutzereingaben und umfangreiche Einstellungsmöglichkeiten zur Optimierung des Flugverhaltens (Tuning).
-	
-	\coleng
-	
-	Unlike alternative firmwares such as INAV or ArduPilot, Betaflight provides almost no support for autonomous flight. The only exceptions are the \textsl{Rescue Mode}, which allows the drone to return automatically in case of connection loss using GPS, and an experimental mode for maintaining altitude and position automatically.
-	
-	\colger
-	
-	Im Gegensatz zu alternativen Firmwares wie INAV oder ArduPilot unterstützt Betaflight kaum autonomes Fliegen. Ausnahmen sind der \textsl{Rescue Mode}, der die Drohne bei Verbindungsproblemen mithilfe eines GPS-Moduls automatisch zurückkehren lässt, sowie ein experimenteller Modus zum automatischen Halten von Höhe und Position.
-	
-	\coleng
-	
-	Betaflight is compatible with almost all flight controllers and receivers available on the market and provides an intuitive graphical user interface.
-	
-	\colger
-	
-	Betaflight ist mit nahezu allen am Markt verfügbaren Flugcontrollern und Empfängern kompatibel und bietet eine intuitive grafische Benutzeroberfläche.
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Installation und Konfiguration}
-	\renewcommand{\englischertitel}{Installation and Configuration}
-	\makrounterunterabschnitt
-	\label{AbschnittInstallationBetaflight}
-	
-	The installation and configuration of the firmware are carried out using the locally installed Betaflight Configurator or the web application available at \url{app.betaflight.com}. Figure~\ref{AbbildungBetaflighInstallation} shows the option for installing Betaflight via the web application. The model of the flight controller is usually detected automatically. This page can be accessed via the \textsl{Update Firmware} button at the top of the website. Existing configuration backups can also be restored to the flight controller on this page. A backup of the current settings is automatically created when a new version is installed.
-	
-	\colger
-	
-	Die Installation und Konfiguration der Firmware erfolgt entweder mit der lokal installierten Software Betaflight Configurator oder über die Webanwendung \url{app.betaflight.com}. Abbildung~\ref{AbbildungBetaflighInstallation} zeigt die Möglichkeit, Betaflight über die Webanwendung zu installieren. Das Modell des Flugcontrollers wird in der Regel automatisch erkannt. Diese Seite erreicht man über den Button \textsl{Update Firmware} am oberen Rand der Webseite. Ein vorhandenes Backup von Einstellungen kann auf dieser Seite ebenfalls in den Flugcontroller eingespielt werden. Ein Backup der aktuellen Einstellungen wird bei der Installation einer neuen Version automatisch angelegt.
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_installation_update_backup_firmware_screenshot_app.png}
-		\caption{Installation of Betaflight and Option to Backup / Restore of Configuration Settings}
-		\label{AbbildungBetaflighInstallation}
-	\end{figure}
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_hauptseite_firmware_screenshot_app.png}
-		\caption{Main Page of Betaflight}
-		\label{AbbildungBetaflightAppHauptseite}
-	\end{figure}
-	
-	\colstart
-	
-	Figure~\ref{AbbildungBetaflightAppHauptseite} shows the main page (\textsl{Setup}) of Betaflight when accessed through the web application. On the main page, the accelerometer and magnetic compass can be calibrated. It also provides general information about the drone’s current status and its components. The main page is a valuable tool for verifying the correct orientation configuration of the flight controller within the frame. Especially in flight controller stacks and small drones, it often happens that the flight controller is mounted rotated or upside down. The main page displays the drone’s position as a live 3D model corresponding to the orientation configuration set on the \textsl{Configuration} page.
-	
-	\colger
-	
-	Abbildung~\ref{AbbildungBetaflightAppHauptseite} zeigt die Startseite (\textsl{Setup}) von Betaflight beim Zugriff über die Webanwendung. Auf der Startseite können der Beschleunigungssensor und der magnetische Kompass kalibriert werden. Sie enthält zudem allgemeine Informationen über den Zustand der Drohne und ihrer Komponenten. Ein wertvolles Werkzeug ist die Startseite bei der Kontrolle der korrekten Konfiguration der Ausrichtung des Flugcontrollers im Rahmen. Besonders bei Flight-Controller-Stacks und kleineren Drohnen kommt es häufig vor, dass der Flugcontroller gedreht oder auf dem Kopf stehend verbaut ist. Die Startseite zeigt die Position der Drohne als Live-Bild entsprechend der in der Seite \textsl{Configuration} eingestellten Ausrichtung des Flugcontrollers.
-	
-	\coleng
-	
-	Figure~\ref{AbbildungBetaflightAppPorts} shows the \textsl{Ports} page, where the available UART interfaces are configured. Correctly setting up the UART functions is essential for using many components connected to the drone, such as the video transmitter (in Figure~\ref{AbbildungBetaflightAppPorts} on UART3), GPS module (on UART5), and receiver (on UART6).
-	
-	\colger
-	
-	Abbildung~\ref{AbbildungBetaflightAppPorts} zeigt die Seite \textsl{Ports}. Hier wird die Konfiguration der verfügbaren UART-Schnittstellen vorgenommen. Die korrekte Einstellung der Funktionsweise der UARTs ist Voraussetzung für die Nutzung vieler an die Drohne angeschlossener Komponenten, wie beispielsweise des Videosenders (in Abbildung~\ref{AbbildungBetaflightAppPorts} an UART3), des GPS-Moduls (an UART5) und des Empfängers (an UART6).
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_ports_firmware_screenshot_app.png}
-		\caption{Ports Page of Betaflight}
-		\label{AbbildungBetaflightAppPorts}
-	\end{figure}
-	
-	\colstart
-	
-	On the \textsl{Configuration} page (see Figures~\ref{AbbildungBetaflightAppConfiguration1} and~\ref{AbbildungBetaflightAppConfiguration2}), settings are made for, among other things, the orientation of the flight controller and the gyro, which is essential for every drone as it serves as the core instrument for attitude determination.
-	
-	\colger
-	
-	Auf der Seite \textsl{Configuration} (siehe Abbildungen~\ref{AbbildungBetaflightAppConfiguration1} und~\ref{AbbildungBetaflightAppConfiguration2}) werden unter anderem Einstellungen zur Ausrichtung des Flugcontrollers und des für jede Drohne unverzichtbaren Gyroskops (Kreiselinstrument zur Lagebestimmung) vorgenommen.
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_configuration1_firmware_screenshot_app.png}
-		\caption{Configuration Page of Betaflight (Part 1/2)}
-		\label{AbbildungBetaflightAppConfiguration1}
-	\end{figure}
-	
-	\colstart
-	
-	Safety-relevant settings, such as the maximum tilt angle of the drone at which arming (activating the motors to prepare for flight) is allowed, are also configured on the \textsl{Configuration} page. If an on-screen display (OSD) is to be shown in the FPV live video by the flight controller, it must be enabled here. The \textsl{Airmode} option, shown as active in Figure~\ref{AbbildungBetaflightAppConfiguration2}, ensures that the motors continue to spin slightly even at zero throttle, which improves both the stability and controllability of the drone.
-	
-	\colger
-	
-	Auch sicherheitsrelevante Einstellungen, wie der maximale Neigungswinkel der Drohne, bei dem das Arming (das Aktivieren der Motoren zur Flugvorbereitung) überhaupt möglich ist, werden auf der Seite \textsl{Configuration} festgelegt. Soll im Livebild der FPV-Drohne durch den Flugcontroller ein On-Screen-Display (OSD) eingeblendet werden, muss es hier grundsätzlich aktiviert werden. Die in Abbildung~\ref{AbbildungBetaflightAppConfiguration2} aktivierte Einstellung \textsl{Airmode} sorgt dafür, dass die Motoren auch bei null Throttle leicht weiterlaufen, was die Stabilität und Kontrollierbarkeit der Drohne verbessert.
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_configuration2_firmware_screenshot_app.png}
-		\caption{Configuration Page of Betaflight (Part 2/2)}
-		\label{AbbildungBetaflightAppConfiguration2}
-	\end{figure}
-	
-	\colstart
-	
-	The \textsl{Power \& Battery} page allows you to define the voltage levels at which the battery is considered fully charged or discharged, as well as the thresholds at which the flight controller should issue warnings.
-	
-	\colger
-	
-	Die Seite \textsl{Power \& Battery} ermöglicht es, die Spannungswerte zu definieren, bei denen der Akku als vollständig geladen oder entladen gilt, sowie die Schwellen, bei denen der Flugcontroller entsprechende Warnungen ausgeben soll.
-	
-	\coleng
-	
-	On the \textsl{Failsafe} page, you can specify in great detail how the flight controller should respond if the pilot triggers a failsafe condition or if signal loss occurs. Useful settings include having the drone perform a controlled landing or, alternatively, return to its starting point using GPS.
-	
-	\colger
-	
-	Auf der Seite \textsl{Failsafe} kann sehr detailliert festgelegt werden, wie der Flugcontroller reagieren soll, wenn der Pilot ein Problem meldet oder ein Signalverlust auftritt. Sinnvolle Einstellungen sind beispielsweise, dass die Drohne kontrolliert landen oder mithilfe des GPS-Moduls selbstständig zum Startpunkt zurückkehren soll.
-	
-	\coleng
-	
-	The \textsl{Presets} page allows you to save and restore your own Betaflight configuration. It also provides access to a public database of shared configurations, which can be searched and applied based on various parameters.
-	
-	\colger
-	
-	Die Seite \textsl{Presets} ermöglicht es, die eigene Betaflight-Konfiguration zu speichern und wiederherzustellen. Zudem bietet sie Zugriff auf eine öffentliche Datenbank veröffentlichter Konfigurationen, die nach verschiedenen Parametern durchsucht und angewendet werden können.
-	
-	\coleng
-	
-	On the \textsl{PID Tuning} (Proportional-Integral-Derivative) page, fine adjustments to the motor control can be made through the flight controller. The goal is typically to achieve more precise flight behavior and to counteract undesirable drone reactions such as oscillations or overly slow or aggressive responses to control inputs.
-	
-	\colger
-	
-	Auf der Seite \textsl{PID Tuning} (Proportional-Integral-Derivative) können Feineinstellungen in der Motorsteuerung durch den Flugcontroller vorgenommen werden. Ziel ist es meist, ein präziseres Flugverhalten zu erreichen und unerwünschte Reaktionen der Drohne -- etwa Zittern oder ein zu langsames bzw. zu aggressives Reagieren auf Steuerbefehle -- zu vermeiden.
-	
-	\coleng
-	
-	The correct operation of the receiver can be verified on the \textsl{Receiver} page (see Figure~\ref{AbbildungBetaflightAppReceiver}). Movements of the transmitter controls are displayed here when received by the receiver. The connection type and communication protocol are also defined on this page. For the receiver to operate correctly, it must be assigned to the correct UART on the \textsl{Ports} page.
-	
-	\colger
-	
-	Die korrekte Funktionsweise des Empfängers kann auf der Seite \textsl{Receiver} (siehe Abbildung~\ref{AbbildungBetaflightAppReceiver}) überprüft werden. Bewegungen an den Bedienelementen des Senders werden, sobald sie vom Empfänger empfangen werden, hier angezeigt. Auch die Anschlussart des Empfängers und das verwendete Protokoll sind auf dieser Seite definiert. Damit der Empfängers korrekt funktioniert, muss er auf der Seite \textsl{Ports} dem richtigen UART zugewiesen sein.
-	
-	\coleng
-	
-	If telemetry data is to be transmitted from the receiver to the transmitter, the corresponding option must be enabled on the \textsl{Receiver} page. Telemetry data typically include information such as battery voltage, current consumption, signal quality, GPS data (latitude, longitude, speed, number of satellites), altitude, and temperature.
-	
-	\colger
-	
-	Soll der Empfänger Telemetriedaten an den Sender übertragen, muss die entsprechende Option auf der Seite \textsl{Receiver} aktiviert werden. Zu den Telemetriedaten gehören in der Regel Informationen wie Akkuspannung, Stromverbrauch, Signalqualität, GPS-Daten (Breitengrad, Längengrad, Geschwindigkeit, Anzahl der Satelliten), Höhe und Temperatur.
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_receiver_firmware_screenshot_app.png}
-		\caption{Receiver Page of Betaflight}
-		\label{AbbildungBetaflightAppReceiver}
-	\end{figure}
-	
-	\colstart
-	
-	The assignment of important drone functions to individual switches on the transmitter is configured on the \textsl{Modes} page (see Figure~\ref{AbbildungBetaflightAppModes}). The most important function here is arming the motors to prepare them for flight. Other functions that are sensibly assigned to transmitter switches include flight modes (Angle, Horizon, and Acro), the beeper (buzzer) for locating a crashed drone more easily, and the automatic return-to-home (GPS Rescue) function.
-	
-	\colger
-	
-	Die Verknüpfung wichtiger Funktionen der Drohne mit einzelnen Schaltern des Senders erfolgt auf der Seite \textsl{Modes} (siehe Abbildung~\ref{AbbildungBetaflightAppModes}). Die wichtigste Funktion ist hier das Anlaufen (\glqq scharf schalten\grqq) der Motoren, um sie für den Flug vorzubereiten. Weitere Funktionen, die sinnvollerweise Schaltern des Senders zugeordnet werden, sind unter anderem die Flugmodi (Angle, Horizon und Acro), der Pieper (Buzzer) zum leichteren Wiederfinden abgestürzter Drohnen sowie die automatische Rückkehr (GPS Rescue) zum Startpunkt.
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_modes_firmware_screenshot_app.png}
-		\caption{Modes Page of Betaflight}
-		\label{AbbildungBetaflightAppModes}
-	\end{figure}
-	
-	\colstart
-	
-	The SA switch (AUX1) is very often assigned to the arming function. However, using only one switch increases the risk of accidental arming, which can lead to injuries, such as to hands or fingers. To improve safety when holding the drone, it is therefore recommended to link the arming process to two switches -- for example, SA (AUX1) + SB (AUX4) -- that are not located next to each other. This exact configuration is shown in Figure~\ref{AbbildungBetaflightAppModes}.
-	
-	\colger
-	
-	Sehr häufig wird der Schalter SA (AUX1) mit dem Arming belegt. Da bei nur einem Schalter auch ein versehentliches Arming vorkommen kann, treten Verletzungen, z. B. an Händen und Fingern, häufiger auf. Zur Verbesserung der Sicherheit beim Halten der Drohne empfiehlt es sich daher, das Arming mit zwei Schaltern -- z. B. SA (AUX1) + SB (AUX4) -- zu verknüpfen, die nicht direkt nebeneinander liegen. Genau diese Einstellung ist auch in Abbildung~\ref{AbbildungBetaflightAppModes} zu sehen.
-	
-	\coleng
-	
-	Another common configuration is to assign a three-position switch for selecting the flight mode. As shown in Figure~\ref{AbbildungBetaflightAppModes}, the SB switch (AUX2) can be configured so that the lower position activates the Angle mode, the middle position activates Horizon mode, and the upper position activates Acro mode.
-	
-	\colger
-	
-	Eine weitere etablierte Konfiguration ist die Belegung eines Schalters mit drei möglichen Positionen, über den der Flugmodus eingestellt wird. So kann beispielsweise, wie in Abbildung~\ref{AbbildungBetaflightAppModes} dargestellt, der Schalter SB (AUX2) so konfiguriert werden, dass bei der unteren Position der Flugmodus Angle, bei der mittleren Position Horizon und bei der oberen Position Acro verwendet wird.
-	
-	\coleng
-	
-	On the \textsl{Adjustments} page, it is possible to define which drone parameters can be adjusted live during flight using specific channels (switches) or potentiometers (dials). This feature allows advanced pilots to fine-tune flight behavior in real time.
-	
-	\colger
-	
-	Auf der Seite \textsl{Adjustments} ist es möglich zu definieren, welche Parameter der Drohne im Flug mit bestimmten Kanälen (Schaltern) oder Potentiometern (Drehreglern) live angepasst werden können. Diese Seite eröffnet Möglichkeiten zur Feineinstellung für fortgeschrittene Drohnenpiloten während des Fluges.
-	
-	\coleng
-	
-	The \textsl{Servos} page defines control options for servo motors. Here, transmitter channels (switches) are assigned to individual servos, and fine adjustments such as midpoint (neutral position) and endpoints (Min/Max) can be set. Typical applications include camera gimbal control or building a gripping mechanism for delivering or collecting small objects.
-	
-	\colger
-	
-	Die Definition von Steuermöglichkeiten für Servomotoren erfolgt auf der Seite \textsl{Servos}. Hier werden Kanäle (Schalter des Senders) einzelnen Servomotoren zugeordnet und nötige Feineinstellungen wie Mittelstellung (Null-Position) und Endpunkte (Min/Max) vorgenommen. Anwendungsszenarien sind zum Beispiel eine Gimbal-Steuerung der Kamera oder der Bau eines Greifmechanismus, um Objekte mit einer Drohne auszuliefern oder aufzusammeln.
-	
-	\coleng
-	
-	If a GPS module is connected to the drone's flight controller, configuration and monitoring of the GPS functionality can be performed on the \textsl{GPS} page. For the GPS module to operate correctly, it must be assigned to the correct UART on the \textsl{Ports} page. When a sufficient number of satellites are visible, this page displays the current coordinates (latitude and longitude), speed, direction of movement, and altitude. The distance from the home position is also shown here. During flight, this information is useful when it is transmitted to the transmitter via telemetry data.
-	
-	\colger
-	
-	Wenn an den Flugcontroller der Drohne ein GPS-Modul angeschlossen ist, können Kontrolle und Konfiguration der GPS-Funktionalität auf der Seite \textsl{GPS} erfolgen. Damit das GPS-Modul korrekt funktioniert, muss es auf der Seite \textsl{Ports} dem richtigen UART zugewiesen sein. Besteht Sichtkontakt zu ausreichend vielen Satelliten, können hier unter anderem die aktuellen Koordinaten (Breiten- und Längengrad), Geschwindigkeit, Bewegungsrichtung und Höhe kontrolliert werden. Auch die Entfernung zum Startplatz ist hier sichtbar. Während des Fluges sind diese Informationen hilfreich, wenn sie über die Telemetriedaten an den Sender übertragen werden.
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_motos_firmware_screenshot_app.png}
-		\caption{Motors Page of Betaflight}
-		\label{AbbildungBetaflightAppMotors}
-	\end{figure}
-	
-	\colstart
-	
-	All motor-related settings and the testing of motor function, mapping, and rotation direction are performed on the \textsl{Motors} page. These tests must always be carried out without propellers, as otherwise damage or even injury can easily occur.
-	
-	\colger
-	
-	Alle Einstellungen bezüglich der Motoren sowie das Testen der korrekten Funktion, Zuordnung und Drehrichtung der einzelnen Motoren erfolgen auf der Seite \textsl{Motors}. Diese Tests müssen immer ohne Propeller durchgeführt werden, da es sonst leicht zu Beschädigungen oder gar Verletzungen kommen kann.
-	
-	\coleng
-	
-	The precise configuration of the on-screen display (OSD) is done on the \textsl{OSD} page. Here, the positions and layout of the desired display elements can be freely arranged, and multiple configurations can be saved as profiles--for example, for racing, freestyle, or long-range flying. For OSD configuration to be possible at all, the flight controller must include an OSD chip. If it does not, an analog video transmitter cannot provide an OSD. Digital video transmitters (e.g., from DJI, HDZero, and Walksnail) implement their own OSD systems.
-	
-	\colger
-	
-	Die präzise Konfiguration des On-Screen-Displays erfolgt auf der Seite \textsl{OSD}. Hier können die Positionen und das Layout der gewünschten Anzeigen frei platziert und mehrere Konfigurationen als Profile -- zum Beispiel für Racing, Freestyle oder Longrange -- gespeichert werden. Damit die Konfiguration des OSD überhaupt möglich ist, muss der Flugcontroller über einen OSD-Chip verfügen. Ist das nicht der Fall, kann mit einem analogen Videosender kein OSD realisiert werden. Digitale Videosender (z.~B. von DJI, HDZero und Walksnail) implementieren ein eigenes OSD.
-	
-	\coleng
-	
-	Settings for the video transmitter, such as the selected frequency (see Table~\ref{TabelleFrequenzenVTX}) and transmission power, can be configured on the \textsl{Video Transmitter} page (see Figure~\ref{AbbildungBetaflightAppVTX}). For the video transmitter to function correctly, it must be assigned to the appropriate UART on the \textsl{Ports} page.
-	
-	\colger
-	
-	Einstellungen zum Videosender, wie zum Beispiel die verwendete Frequenz (siehe Tabelle~\ref{TabelleFrequenzenVTX}) und die Sendeleistung, können auf der Seite \textsl{Video Transmitter} (siehe Abbildung~\ref{AbbildungBetaflightAppVTX}) vorgenommen werden. Damit der Videosender korrekt funktioniert, muss er auf der Seite \textsl{Ports} dem korrekten UART zugewiesen sein. 
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_video_transmitter_firmware_screenshot_app.png}
-		\caption{Video Transmitter Page of Betaflight}
-		\label{AbbildungBetaflightAppVTX}
-	\end{figure}
-	
-	\colstart
-	
-	The \textsl{Sensors} page (see Figure~\ref{AbbildungBetaflightAppSensors}) displays the sensor data both graphically and numerically -- for example, values from the gyroscope, accelerometer, barometer, and magnetometer. This allows users to verify that all sensors are working correctly and delivering plausible data. The page is particularly useful for troubleshooting sensor orientation or calibration issues.
-	
-	\colger
-	
-	Die Seite \textsl{Sensors} (siehe Abbildung~\ref{AbbildungBetaflightAppSensors}) zeigt Sensorwerte sowohl grafisch als auch numerisch an -- zum Beispiel Werte des Gyroskops, Beschleunigungssensors, Höhenmessers (Barometer) und magnetischen Kompasses. Dadurch lässt sich überprüfen, ob alle Sensoren korrekt funktionieren und plausible Werte liefern. Die Seite ist insbesondere hilfreich zur Fehlersuche bei Problemen mit der Sensororientierung oder Kalibrierung.
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_sensors_firmware_screenshot_app.png}
-		\caption{Sensors Page of Betaflight}
-		\label{AbbildungBetaflightAppSensors}
-	\end{figure}
-	
-	\colstart
-	
-	The live recording of sensor data (e.g. gyroscope, motor values, GPS data, altitude) while the flight controller is connected to a computer is available on the \textsl{Tethered Logging} page. In contrast to classic Blackbox logging, where data is stored locally on the flight controller, flash memory, or an SD card, Tethered Logging allows real-time data transmission and monitoring on the computer. It only works as long as a connection (e.g. via USB) between the flight controller and the computer is active. If the connection is lost, the live recording stops immediately.
-	
-	\colger
-	
-	Die Live-Aufzeichnung von Sensordaten (z.\,B. Gyroskop, Motorwerte, GPS-Daten, Höhenmeter) während der Verbindung mit dem Computer ist auf der Seite \textsl{Tethered Logging} möglich. Im Gegensatz zum klassischen Blackbox-Logging, bei dem die Daten lokal im Flugcontroller, auf Flash oder SD-Karte gespeichert werden, erlaubt Tethered Logging die Übertragung und Überwachung der Daten in Echtzeit auf dem Computer. Das Tethered Logging funktioniert nur, solange eine Verbindung (z.\,B. via USB) zwischen Flugcontroller und Computer besteht. Wenn die Verbindung abreißt, bricht auch die Live-Aufzeichnung ab.
-	
-	\coleng
-	
-	The flight data recorder for logging various sensor data is configured on the \textsl{Blackbox} page (see Figure~\ref{AbbildungBetaflightAppBlackbox}). The collected data is recorded during flight and analyzed afterwards. The resulting insights can be used to analyze flight behavior, optimize filters, and diagnose issues. Recording typically starts automatically when arming and stops when disarming. Modern flight controllers store Blackbox data on an onboard flash chip or a microSD card. This page allows the selection of which sensors to log, the storage device to use, and the log rate, which defines how frequently data points are captured. The page also offers options to export or erase Blackbox data.
-	
-	\colger
-	
-	Der Flugdatenschreiber zur Aufzeichnung verschiedenster Sensordaten wird auf der Seite \textsl{Blackbox} (siehe Abbildung~\ref{AbbildungBetaflightAppBlackbox}) konfiguriert. Die Aufzeichnung der gesammelten Daten geschieht während des Flugs und wird nachträglich ausgewertet. Mit den gewonnenen Erkenntnissen können das Flugverhalten analysiert, Filter optimiert und Probleme diagnostiziert werden. Die Aufzeichnung beginnt üblicherweise automatisch beim Arming und stoppt beim Disarming. Moderne Flugcontroller speichern die Blackbox-Daten auf einem Onboard-Flashchip oder einer microSD-Karte. Die Seite erlaubt neben der Auswahl der zu erfassenden Sensordaten auch die Auswahl des Speichergeräts und die Einstellung der Log-Rate, die definiert, wie häufig Datenpunkte aufgezeichnet werden sollen. Auch der Export der Blackbox und das Löschen des Speichers sind auf dieser Seite möglich.
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_blackbox_firmware_screenshot_app.png}
-		\caption{Blackbox Page of Betaflight}
-		\label{AbbildungBetaflightAppBlackbox}
-	\end{figure}
-	
-	\colstart
-	
-	The \textsl{CLI} page in Betaflight (see Figure~\ref{AbbildungBetaflightAppCLI}) provides access to the integrated command-line interface of the flight controller. This interface allows users to inspect and configure the controller directly. Individual parameters can be displayed and changed using the commands \verb!get! and \verb!set!. The \verb!save! command saves all changes and restarts the flight controller.
-	
-	\colger
-	
-	Betaflight bietet auf der Seite \textsl{CLI} (siehe Abbildung~\ref{AbbildungBetaflightAppCLI}) Zugriff auf die integrierte Kommandozeilenumgebung des Flugcontrollers. Hierüber kann der Flugcontroller direkt untersucht und konfiguriert werden. Einzelne Parameter können mit den Kommandos \verb!get! und \verb!set! angezeigt und geändert werden. Das Kommando \verb!save! speichert alle Änderungen und startet den Flugcontroller neu.
-	
-	\coleng
-	
-	The current configuration of the flight controller can be displayed completely with the command \verb!dump!. Only the differences from the default configuration are shown using the command \verb!diff!. These outputs can be copied into text files and re-imported later using copy and paste. This makes it easy to create backups of all settings and restore them when needed.
-	
-	\colger
-	
-	Die aktuelle Konfiguration des Flugcontrollers kann vollständig mit dem Kommando \verb!dump! ausgegeben werden. Nur die Unterschiede zur Standardkonfiguration zeigt das Kommando \verb!diff!. Diese Ausgaben können in Textdateien gespeichert und bei Bedarf per Copy-and-Paste wieder importiert werden. So lassen sich einfach Backups der Einstellungen erstellen und wiederherstellen.
-	
-	\coleng
-	
-	Information about the flight controller and the installed firmware version can be retrieved with the command \verb!version!. The \verb!status! command provides current sensor readings and information about sensor configuration. The command \verb!tasks! lists all currently running processes on the flight controller, and \verb!resource! displays the pin and UART assignments.
-	
-	\colger
-	
-	Informationen zum Flugcontroller und zur installierten Firmwareversion liefert das Kommando \verb!version!. Das Kommando \verb!status! zeigt aktuelle Sensordaten und Informationen zur Konfiguration der Sensoren. Das Kommando \verb!tasks! listet alle aktuell laufenden Prozesse des Flugcontrollers auf, und \verb!resource! zeigt die Belegung der Pins und UART-Schnittstellen.
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{Betaflight_4_5_3_cli_firmware_screenshot_app.png}
-		\caption{CLI Page of Betaflight}
-		\label{AbbildungBetaflightAppCLI}
-	\end{figure}
-	
-	\renewcommand{\deutschertitel}{INAV}
-	\renewcommand{\englischertitel}{INAV}
-	\makrounterabschnitt
-	\label{AbschnittINAV}
-	
-	TBD
-	
-	\colger
-	
-	INAV basiert auf einer früheren Cleanflight-Version und ist ebenfalls eng verwandt mit Betaflight. Im Gegensatz zu Betaflight und INAV wird Cleanflight allerdings nicht mehr weiterentwickelt. INAV besteht aus zwei Hauptkomponenten: Die Firmware, welche auf dem Flugcontroller läuft und dem Konfigurationstool, welches für die Installation und Administration genutzt werden kann. Es gibt keine Web-App, wie bei aktuellen Betaflight-Versionen.
-	
-	Neben der Return-To-Home- (RTH) bzw. Rescuefunktionalität bietet INAV weitere Autopilotenfunktionalitäten, wie Wegpunktmissionen, \textsl{Position halten}, \textsl{Flughöhe halten} und mehr. Diese können auch ohne Kompass genutzt werden (seit Version 7.1), jedoch mit geringerer Genauigkeit.
-	
-	Die Software erhält jedes Jahr einen großen Release und kleinere Support-Updates, wie sie benötigt werden. Die aktuelle Version 8 unterstützt die folgenden STM-Flugcontrollerchips: F405, F722, F745, F765 und H743. Außerdem werden AT-F435 Chips unterstützt. Die Kompatibilität mit einem jeweiligen Board sollte jedoch im Einzelfall immer vor dem Kauf geprüft werden.
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Installation}
-	\renewcommand{\englischertitel}{Installation}
-	\makrounterunterabschnitt
-	\label{AbschnittInstallationINAV}
-	
-	TBD
-	
-	\colger
-	
-	Die Installation erfolgt über den \textsl{INAV Configurator}. Hier ist die Verwandtschaft zu Betaflight sehr deutlich sichtbar, da der Aufbau sehr ähnlich zum Betaflight Configurator ist, welcher für die Versionen bis 4.5 genutzt wird (Abbildung \ref{AbbildungINAVFirmwareFlasher}). Dieser Guide geht davon aus, dass der Flugcontroller via USB an den Computer angeschlossen ist, mit welchem das Flashen durchgeführt wird.
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{INAV_Firmware_Flasher.png}
-		\caption{Firmware Flasher tab in the INAV Configurator}
-		\label{AbbildungINAVFirmwareFlasher}
-	\end{figure}
-	
-	\colstart
-	
-	TBD
-	
-	\colger
-	
-	Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollte ein Backup der Konfiguration gemacht werden, da manche Upgrades die Konfiguration zurücksetzen. Dies geschieht über den \textsl{CLI}-Tab. Der Befehl \texttt{diff all} gibt die entsprechenden Parameter aus. Mit dem Button \textsl{Save to File} können diese dann in eine Textdatei gespeichert werden. Danach besteht der Prozess aus den folgenden Schritten:
-	
-	\begin{enumerate}
-		\item \textsl{Device Firmware Upgrade (DFU)-Modus} aktivieren ist der erste notwendige Schritt. Dies kann in der Regel über einen Button am Flugcontrollerboard realisiert werden oder mit dem Befehl \texttt{dfu} im \textsl{CLI}-Tab.
-		
-		\item Befindet sich das Board im DFU-Modus, so muss der \textsl{Firmware Flasher} Tab im INAV Configurator aufgerufen werden. In diesem muss zunächst das Target ausgewählt werden, sollte  \textsl{Auto-select Target} nicht funktionieren, muss der Modellname händisch in der Liste gesucht werden.
-		
-		\item Im Ausklappmenü unter dem Board werden dann die verfügbaren (stable) Releases angezeigt. Mit der Option \textsl{Show unstable releases} können noch aktuellere Versionen gewählt werden. Diese funktionieren aber unter Umständen nicht wie erwartet.
-		
-		\item INAV bietet drei Optionen die für das Flashen gesetzt werden können:
-		\begin{itemize}
-			\item \textsl{No reboot sequence} - Wird nur benötigt, wenn die Bootpins überbrückt sind oder der Bootbutton gedrückt wird (modellabhängig).
-			\item \textsl{Full chip erase} - Löscht alle Konfigurationsoptionen (Backup Vorhanden?). Sollte immer gesetzt werden, wenn vorher eine andere Software installiert war.
-			\item \textsl{Manual baud rate} - Festlegen der Baudrate für Bluetooth oder falls ein Modell die Standardgeschwindigkeit nicht unterstützt.
-		\end{itemize}
-		
-		\item Der Prozess des Flashens besteht aus zwei Schritten: Zunächst wird die Firmware geladen (online oder über ein File), dann wird das eigentliche Flashen über einen separaten Button gestartet. Das eigentliche Flashen sollte nicht unterbrochen werden.
-		
-		\item Gegebenenfalls kann nun das Backup über den \textsl{CLI}-Tab wieder eingespielt werden. Dies geschieht über den Button \textsl{Load from File}. Damit kann die entsprechende Textdatei herausgesucht werden, um sie mit dem \textsl{Execute}-Button auszuführen.
-		
-	\end{enumerate}
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Administration}
-	\renewcommand{\englischertitel}{Administration}
-	\makrounterunterabschnitt
-	\label{AbschnittAdministrationINAV}
-	
-	TBD
-	
-	\colger
-	Die Administration von INAV erfolgt ebenfalls über den \textsl{INAV Configurator}. Wenn die Software das erste Mal installiert wurde, müssen einige Punkte konfiguriert werden, um das Fliegen initial zu ermöglichen.
-	
-	Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheinen Fenster zum Setzen der \textsl{Default-Values} (Presets). Hier gilt es das Preset auszuwählen, was am nächsten an dem gebauten Modell dran ist. Danach können die UART-Ports (für GPS, VTX, etc.) konfiguriert werden. Dies kann allerdings auch über den Ports-Tab durchgeführt werden. Die weiteren Konfigurationsschritte gestalten sich wie folgt:
-	
-	\begin{enumerate}
-		
-		\item Der \textsl{Status-Tab} stellt einen Überblick zur Verfügung. Unter anderem ist in der Übersicht \textsl{Pre-arming checks} zu sehen, ob die Drohne abheben kann. Eventuell muss hier vorher die Boardorientierung angepasst werden. Dazu wird die Drohne aufrecht mit Kamera Richtung Bildschirm des konfigurierenden Computers gestellt, um dann den \textsl{Reset Z axis} Button zu drücken.
-		
-		\item Im \textsl{Calibration-Tab} (Abbildung \ref{AbbildungINAVCalibrationTab}) werden der Beschleunigungsmesser und der Kompass kalibriert. Dazu muss die Drohne jeweils in unterschiedliche Posen gebracht werden.
-		
-	\end{enumerate}
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{INAV_Calibration_Tab.png}
-		\caption{INAV Calibration Tab for Board Orientation, Compass and Flow Sensor }
-		\label{AbbildungINAVCalibrationTab}
-	\end{figure}
-	
-	\colstart
-	
-	TBD
-	
-	\colger
-	
-	\begin{enumerate}
-		\setcounter{enumi}{2} 
-		
-		\item Der \textsl{Status-Tab} stellt einen Überblick zur Verfügung. Unter anderem ist in der Übersicht \textsl{Pre-arming checks} zu sehen, ob die Drohne abheben kann. Eventuell muss hier vorher die Boardorientierung angepasst werden. Dazu wird die Drohne aufrecht mit Kamera Richtung Bildschirm des konfigurierenden Computers gestellt, um dann den \textsl{Reset Z axis} Button zu drücken.
-		
-		\item Im \textsl{Calibration-Tab} werden der Beschleunigungsmesser und der Kompass kalibriert. Dazu muss die Drohne jeweils in unterschiedliche Posen gebracht werden.
-		
-		\item Der \textsl{Mixer-Tab} konfiguriert zusammen mit dem Outputs-Tab die Motoren der Drohne. Hier ist entscheidend, dass der richtige  \textsl{Platform type} und das richtige \textsl{Mixer preset} entsprechend des Typs der verwendeten Drohne konfiguriert sind. Sollten die Motoren nicht in die richtige Richtung drehen, kann die diese über die \textsl{Motor direction} angepasst werden und die Zuordnung über den \textsl{Motor Mixer Wizard}.
-		
-		\item Im \textsl{Outputs-Tab} werden die Motoren aktiviert mit der Option \textsl{Enable motor and servo output}. Außerdem sollte sichergestellt werden, dass  \texttt{DSHOT300} als \textsl{ESC protocol} verwendet wird. Außerdem kann die \textsl{Motors IDLE power} auf 5\% gesetzt werden, wenn eine Multirotor-Drohne verwendet wird.
-		
-		\item Im \textsl{Ports-Tab} werden die Peripheriegeräte konfiguriert, insofern dies nicht im Pop-Up-Menü am Anfang gemacht wurde. Dieser sieht dem Ports-Tab des Betaflight-Configurators sehr ähnlich, mit dem Unterschied, dass \textsl{USB VCP} ausgeblendet statt ausgegraut ist (Abbildung \ref{AbbildungBetaflightAppPorts}).  Wie diese konfiguriert werden, hängt von den angeschlossenen Geräten und vom Flugcontrollerchip ab. Meist kann die Konfiguration für Betaflight aus den jeweiligen Handbüchern entnommen und übertragen werden.
-		
-		\item Im \textsl{Configuration-Tab} können die Sensoren aktiviert werden, insofern dies nicht nach Konfiguration der Ports automatisch geschehen ist. Wenn möglich, sollte hier der \textsl{I2C Speed} auf \texttt{800KHZ} gestellt werden.
-		
-		\item Der \textsl{Failsafe-Tab} (Abbildung \ref{AbbildungINAVFailsafeTab}) ist sehr wichtig, da in diesem das Verhalten definiert ist, sollte das Fernsteuerungssignal abreißen. Hier sollte sichergestellt werden, dass entweder textsl{Drop}, \textsl{Land} oder \textsl{Return-to-Home (RTH)} konfiguriert sind, damit die Drohne nicht unkontrolliert weiterfliegt.
-		
-	\end{enumerate}
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{INAV_Failsafe_Tab.png}
-		\caption{INAV Failsafe Tab}
-		\label{AbbildungINAVFailsafeTab}
-	\end{figure}
-	
-	\colstart
-	
-	TBD
-	
-	\colger
-	
-	\begin{enumerate}
-		\setcounter{enumi}{9} 
-		
-		\item Im \textsl{Receiver-Tab} wird Flugcontrollerseitig die Verbindung zur Fernbedienung konfiguriert. Wird eine ExpressLRS-Fernbedienung verwendet, muss \texttt{SERIAL} als \textsl{Receiver type} und \texttt{CRSF} als \textsl{Serial Receiver Provider} konfiguriert werden. Darüber hinaus kann kontrolliert werden, ob die Channel-Mappings korrekt sind. Dieser Tab ist sehr ähnlich zum Receiver-Tab im Betaflight Configurator (Abbildung\ref{AbbildungBetaflightAppReceiver})
-		
-		\item Im \textsl{GPS-Tab} muss die Option \textsl{GPS for navigation and telemetry} aktiviert werden, um das GPS nutzen zu können. Die Option \textsl{Protocol} ist entsprechend der Spezifikation des verwendeten Modells zu setzen.
-		
-		\item Im \textsl{Modes-Tab}, welcher der Betaflight-Version ebenfalls sehr ähnlich ist (Abbildung \ref{AbbildungBetaflightAppModes}) muss grundsätzlich nur \texttt{ARM} konfiguriert werden (CH5 empfohlen). Darüber hinaus lohnt es sich auch \texttt{ANGLE} zu konfigurieren (vor allem für Fluganfänger) und \texttt{FAILSAFE} sollte sich die Drohne mal unerwartet verhalten. Modi für Autopilotfunktionalitäten können zu einem späteren Zeitpunkt konfiguriert werden. 
-		
-		\item Das \textsl{on-screen display (OSD)} kann so konfiguriert werden, wie es vom Piloten bevorzugt wird. Nützliche Elemente, welche nicht standardmäßig eingeblendet werden sind zum Beispiel \textsl{Remaining Flight Time} und \textsl{Battery Remaining Percentage}. Je nach VTX-Modell muss in diesem Tab auch das \textsl{Video Format} konfiguriert werden.
-		
-	\end{enumerate}
-	
-	\colende
-	
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=\linewidth]{INAV_OSD_Tab.png}
-		\caption{INAV OSD Tab}
-		\label{AbbildungINAVOSDTab}
-	\end{figure}
-	
-	
-	\renewcommand{\deutschertitel}{ArduPilot}
-	\renewcommand{\englischertitel}{ArduPilot}
-	\makrounterabschnitt
-	\label{AbschnittArduPilot}
-	
-	ArduPilot is a firmware for flight controllers that supports fully autonomous operation of drones and other unmanned vehicles. It enables functions such as waypoint-based mission planning, automatic takeoff and landing, obstacle avoidance, Follow-Me modes, and geofencing. Configuration and mission planning are performed through external tools with graphical user interfaces. The firmware supports a wide range of sensors, including GPS, magnetometers, barometers, LiDAR, and cameras, to allow for precise navigation and environmental interaction.
-	
-	\colger
-	
-	ArduPilot ist eine Firmware für Flugcontroller, die den vollständig autonomen Betrieb von Drohnen und anderen unbemannten Fahrzeugen unterstützt. Sie ermöglicht Funktionen wie missionsbasierte Flugplanung mit Wegpunkten, automatischen Start und automatische Landung, Hindernisvermeidung, Follow-Me-Modi und Geofencing. Die Konfiguration und Missionsplanung erfolgen über externe Tools mit grafischen Benutzeroberflächen. Die Firmware unterstützt eine Vielzahl von Sensoren, darunter GPS, Magnetometer, Barometer, LiDAR und Kameras, um eine präzise Navigation und Umgebungswahrnehmung zu ermöglichen.
-	
-	\coleng
-	
-	Of the flight controller firmwares presented in this document, ArduPilot requires the most memory. Ideally, 2\,MB of flash memory is available for running ArduPilot. This is only provided by flight controllers with an H743 microcontroller. With 1\,MB of flash memory (F405 and F745 microcontrollers), it is possible to operate ArduPilot with a reduced feature set. With only 512\,kB (F411 and F722 microcontrollers), ArduPilot cannot be used at all.
-	
-	\colger
-	
-	Von den in diesem Dokument vorgestellten Flugcontroller-Firmwares braucht ArduPilot am meisten Speicher. Idealerweise sind zum Betrieb von ArduPilot 2\,MB Flash-Speicher verfügbar. Das bieten nur Flugcontroller mit einem H743 Mikrocontroller. Mit 1\,MB Flash-Speicher (F405 und F745 Mikrocontroller) ist der Betrieb mit einem reduzierten Funktionsumfang möglich. Mit nur 512\,kB (F411 und F722 Mikrocontroller) kann ArduPilot gar nicht verwendet werden.
-	
-	\coleng
-	
-	Due to the firmware comparatively high memory and hardware requirements, it is necessary to evaluate and confirm the suitability of a specific flight controller in advance to ensure stable and complete functionality.
-	
-	\colger
-	
-	Aufgrund der vergleichsweise hohen Anforderungen an Speicher und Hardware ist es erforderlich, die Eignung eines bestimmten Flugcontrollers im Vorfeld zu prüfen, um einen stabilen und vollständigen Betrieb sicherzustellen.
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Installation}
-	\renewcommand{\englischertitel}{Installation}
-	\makrounterunterabschnitt
-	\label{AbschnittInstallationArduPilot}
-	
-	Typically, FPV flight controllers are delivered with Betaflight pre-installed. If ArduPilot is not already present on the device, installing it involves three main steps: (1) installing the necessary drivers and flashing tool, (2) downloading the appropriate ArduPilot firmware, and (3) flashing the firmware to the flight controller.
-	
-	\colger
-	
-	TBD
-	
-	\coleng
-	
-	To install ArduPilot on a compatible flight controller, the required drivers and tools must first be installed. The STM32CubeProgrammer, developed by STMicroelectronics, provides the necessary DFU drivers. This software is available for Windows, Linux, and macOS.
-	
-	\colger
-	
-	TBD
-	
-	\coleng
-	
-	TBD
-	
-	\colger
-	
-	TBD
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Mandatory Configurations}
-	\renewcommand{\englischertitel}{Mandatory Configurations}
-	\makrounterunterabschnitt
-	\label{AbschnittAdministrationArduPilot}
-	
-	TBD
-	
-	\colger
-	
-	TBD
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Fernbedienung Firmware}
-	\renewcommand{\englischertitel}{Remote Control Firmware}
-	\makroabschnitt
-	\label{AbschnittFirmwareRemoteControl}
-	
-	TBD
-	
-	\colger
-	
-	TBD
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{EdgeTX}
-	\renewcommand{\englischertitel}{EdgeTX}
-	\makrounterabschnitt
-	\label{AbschnittEdgeTX}
-	
-	TBD
-	
-	\colger
-	
-	TBD
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Installation}
-	\renewcommand{\englischertitel}{Installation}
-	\makrounterunterabschnitt
-	\label{AbschnittInstallationEdgeTX}
-	
-	TBD
-	
-	\colger
-	
-	TBD
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Sendemodul- und Empfänger-Firmware}
-	\renewcommand{\englischertitel}{Transmitter and Receiver Firmware}
-	\makroabschnitt
-	\label{AbschnittFirmwareReceiverTransmitter}
-	
-	TBD
-	
-	\colger
-	
-	TBD
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{ExpressLRS}
-	\renewcommand{\englischertitel}{ExpressLRS}
-	\makrounterabschnitt
-	\label{AbschnittExpressLRS}
-	
-	TBD
-	
-	\colger
-	
-	TBD
-	
-	\colende
-	
-	\renewcommand{\deutschertitel}{Installation}
-	\renewcommand{\englischertitel}{Installation}
-	\makrounterunterabschnitt
-	\label{AbschnittInstallationExpressLRS}
-	
-	TBD
-	
-	\colger
-	
-	TBD
-	
-	\colende
+
+{\raggedright\huge\bfseries\sffamily \englischertitel \par\ } \\[1.8ex]
+
+\switchcolumn
+
+{\raggedright\huge\bfseries\sffamily \deutschertitel \par\ } \\[1.8ex]
+
+\coleng
+
+This chapter introduces the essential software components required for operating FPV drones. Similar to Chapter~\ref{KapitelHardware}, it does not aim to provide a complete overview of all available software. Instead, it presents a selection of popular firmware options for flight controllers, transmitters, and receivers, as well as several useful tools. The chapter provides an overview of their core functionalities and suitable use cases, offering guidance for installation and initial configuration.
+
+\colger
+
+Dieses Kapitel stellt die wichtigsten Software-Komponenten zum Betrieb von FPV-Drohnen vor. Genau wie Kapitel~\ref{KapitelHardware} hat auch dieses Kapitel nicht den Anspruch, einen vollständigen Überblick über die verfügbare Software zu geben. Vorgestellt werden eine Auswahl populärer Firmwares für Flugcontroller, Sender und Empfänger sowie einige nützliche Werkzeuge. Das Kapitel soll einen Überblick über den grundlegenden Funktionsumfang und sinnvolle Einsatzbereiche geben und bei den ersten Schritten der Installation und Administration unterstützen.
+
+\colende
+
+\renewcommand{\deutschertitel}{Flight Controller Firmware}
+\renewcommand{\englischertitel}{Flight Controller Firmware}
+\makroabschnitt
+\label{AbschnittFirmwareFC}
+
+Every flight controller requires an operating system that primarily processes sensor data (including gyroscope, accelerometer, GPS, and magnetic compass) and user control inputs into motor commands. In addition, flight controller operating systems implement various flight modes (e.g., Acro, Angle, Horizon), route video data from the camera to the video transmitter, provide an on-screen display (OSD), generate and store flight logs (Blackbox logs) for post-flight analysis, allow fine-tuning of flight behavior using filters and mixers, and offer multiple interfaces for communication and configuration.
+
+\colger
+
+Jeder Flugcontroller benötigt ein Betriebssystem, das in erster Linie die Sensordaten (u. a. Gyroskop, Beschleunigungssensor, GPS, magnetischer Kompass) und die Steuerbefehle des Benutzers in Motorbefehle umsetzt. Darüber hinaus implementieren die Betriebssysteme der Flugcontroller verschiedene Flugmodi (z. B. Acro, Angle, Horizon), leiten Videodaten der Kamera an den Videosender weiter, bieten ein On-Screen-Display (OSD), erzeugen und speichern Log-Daten (Blackbox-Logs) zur nachträglichen Analyse des Flugverhaltens, ermöglichen die Feineinstellung des Flugverhaltens mithilfe von Filtern und Mixern und stellen verschiedene Schnittstellen zur Kommunikation und Konfiguration bereit.
+
+\coleng
+
+The operating system of the flight controller is implemented as firmware stored in the flash memory. Since all common flight controller firmwares are open-source projects, it occasionally happens that developer groups split off and create forks that, through new features and more active development, may eventually surpass the original project. Likewise, projects may become obsolete over time due to developer inactivity or shifting priorities.
+
+\colger
+
+Das Betriebssystem des Flugcontrollers wird als Firmware implementiert, die im Flash-Speicher abgelegt ist. Da alle gängigen Flugcontroller-Firmwares Open-Source-Projekte sind, kommt es immer wieder vor, dass sich Entwicklergruppen abspalten und Forks gründen, die durch neue Funktionen und aktivere Weiterentwicklung mittelfristig das ursprüngliche Projekt verdrängen. Ebenso kann es passieren, dass Projekte aufgrund fehlender Entwickleraktivität oder veränderter Lebensumstände nicht weiterentwickelt werden und mit der Zeit obsolet werden.
+
+\coleng
+
+This document introduces the flight controller firmwares Betaflight, INAV, and ArduPilot.
+
+\colger
+
+Dieses Dokument stellt die Flugcontroller-Firmwares Betaflight, INAV und ArduPilot vor.
+
+\colende
+
+\renewcommand{\deutschertitel}{Betaflight}
+\renewcommand{\englischertitel}{Betaflight}
+\makrounterabschnitt
+\label{AbschnittBetaflight}
+
+Betaflight is a firmware for flight controllers used in FPV drones. Its focus lies on supporting manual flight modes such as freestyle and racing. The main goals of Betaflight are fast response to user input and extensive configuration options for optimizing flight behavior (tuning).
+
+\colger
+
+Betaflight ist eine Firmware für Flugcontroller von FPV-Drohnen. Der Fokus von Betaflight liegt auf der Unterstützung des manuellen Fliegens (Freestyle, Racing usw.). Ziele von Betaflight sind eine schnelle Reaktion auf Benutzereingaben und umfangreiche Einstellungsmöglichkeiten zur Optimierung des Flugverhaltens (Tuning).
+
+\coleng
+
+Unlike alternative firmwares such as INAV or ArduPilot, Betaflight provides almost no support for autonomous flight. The only exceptions are the \textsl{Rescue Mode}, which allows the drone to return automatically in case of connection loss using GPS, and an experimental mode for maintaining altitude and position automatically.
+
+\colger
+
+Im Gegensatz zu alternativen Firmwares wie INAV oder ArduPilot unterstützt Betaflight kaum autonomes Fliegen. Ausnahmen sind der \textsl{Rescue Mode}, der die Drohne bei Verbindungsproblemen mithilfe eines GPS-Moduls automatisch zurückkehren lässt, sowie ein experimenteller Modus zum automatischen Halten von Höhe und Position.
+ 
+\coleng
+
+Betaflight is compatible with almost all flight controllers and receivers available on the market and provides an intuitive graphical user interface.
+
+\colger
+
+Betaflight ist mit nahezu allen am Markt verfügbaren Flugcontrollern und Empfängern kompatibel und bietet eine intuitive grafische Benutzeroberfläche.
+
+\colende
+
+\renewcommand{\deutschertitel}{Installation und Konfiguration}
+\renewcommand{\englischertitel}{Installation and Configuration}
+\makrounterunterabschnitt
+\label{AbschnittInstallationBetaflight}
+
+The installation and configuration of the firmware are carried out using the locally installed Betaflight Configurator or the web application available at \url{app.betaflight.com}. Figure~\ref{AbbildungBetaflighInstallation} shows the option for installing Betaflight via the web application. The model of the flight controller is usually detected automatically. This page can be accessed via the \textsl{Update Firmware} button at the top of the website. Existing configuration backups can also be restored to the flight controller on this page. A backup of the current settings is automatically created when a new version is installed.
+
+\colger
+
+Die Installation und Konfiguration der Firmware erfolgt entweder mit der lokal installierten Software Betaflight Configurator oder über die Webanwendung \url{app.betaflight.com}. Abbildung~\ref{AbbildungBetaflighInstallation} zeigt die Möglichkeit, Betaflight über die Webanwendung zu installieren. Das Modell des Flugcontrollers wird in der Regel automatisch erkannt. Diese Seite erreicht man über den Button \textsl{Update Firmware} am oberen Rand der Webseite. Ein vorhandenes Backup von Einstellungen kann auf dieser Seite ebenfalls in den Flugcontroller eingespielt werden. Ein Backup der aktuellen Einstellungen wird bei der Installation einer neuen Version automatisch angelegt.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_installation_update_backup_firmware_screenshot_app.png}
+  \caption{Installation of Betaflight and Option to Backup / Restore of Configuration Settings}
+  \label{AbbildungBetaflighInstallation}
+\end{figure}
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_hauptseite_firmware_screenshot_app.png}
+  \caption{Main Page of Betaflight}
+  \label{AbbildungBetaflightAppHauptseite}
+\end{figure}
+
+\colstart
+
+Figure~\ref{AbbildungBetaflightAppHauptseite} shows the main page (\textsl{Setup}) of Betaflight when accessed through the web application. On the main page, the accelerometer and magnetic compass can be calibrated. It also provides general information about the drone’s current status and its components. The main page is a valuable tool for verifying the correct orientation configuration of the flight controller within the frame. Especially in flight controller stacks and small drones, it often happens that the flight controller is mounted rotated or upside down. The main page displays the drone’s position as a live 3D model corresponding to the orientation configuration set on the \textsl{Configuration} page.
+
+\colger
+
+Abbildung~\ref{AbbildungBetaflightAppHauptseite} zeigt die Startseite (\textsl{Setup}) von Betaflight beim Zugriff über die Webanwendung. Auf der Startseite können der Beschleunigungssensor und der magnetische Kompass kalibriert werden. Sie enthält zudem allgemeine Informationen über den Zustand der Drohne und ihrer Komponenten. Ein wertvolles Werkzeug ist die Startseite bei der Kontrolle der korrekten Konfiguration der Ausrichtung des Flugcontrollers im Rahmen. Besonders bei Flight-Controller-Stacks und kleineren Drohnen kommt es häufig vor, dass der Flugcontroller gedreht oder auf dem Kopf stehend verbaut ist. Die Startseite zeigt die Position der Drohne als Live-Bild entsprechend der in der Seite \textsl{Configuration} eingestellten Ausrichtung des Flugcontrollers.
+
+\coleng
+
+Figure~\ref{AbbildungBetaflightAppPorts} shows the \textsl{Ports} page, where the available UART interfaces are configured. Correctly setting up the UART functions is essential for using many components connected to the drone, such as the video transmitter (in Figure~\ref{AbbildungBetaflightAppPorts} on UART3), GPS module (on UART5), and receiver (on UART6).
+
+\colger
+
+Abbildung~\ref{AbbildungBetaflightAppPorts} zeigt die Seite \textsl{Ports}. Hier wird die Konfiguration der verfügbaren UART-Schnittstellen vorgenommen. Die korrekte Einstellung der Funktionsweise der UARTs ist Voraussetzung für die Nutzung vieler an die Drohne angeschlossener Komponenten, wie beispielsweise des Videosenders (in Abbildung~\ref{AbbildungBetaflightAppPorts} an UART3), des GPS-Moduls (an UART5) und des Empfängers (an UART6).
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_ports_firmware_screenshot_app.png}
+  \caption{Ports Page of Betaflight}
+  \label{AbbildungBetaflightAppPorts}
+\end{figure}
+
+\colstart
+
+On the \textsl{Configuration} page (see Figures~\ref{AbbildungBetaflightAppConfiguration1} and~\ref{AbbildungBetaflightAppConfiguration2}), settings are made for, among other things, the orientation of the flight controller and the gyro, which is essential for every drone as it serves as the core instrument for attitude determination.
+
+\colger
+
+Auf der Seite \textsl{Configuration} (siehe Abbildungen~\ref{AbbildungBetaflightAppConfiguration1} und~\ref{AbbildungBetaflightAppConfiguration2}) werden unter anderem Einstellungen zur Ausrichtung des Flugcontrollers und des für jede Drohne unverzichtbaren Gyroskops (Kreiselinstrument zur Lagebestimmung) vorgenommen.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_configuration1_firmware_screenshot_app.png}
+  \caption{Configuration Page of Betaflight (Part 1/2)}
+  \label{AbbildungBetaflightAppConfiguration1}
+\end{figure}
+
+\colstart
+
+Safety-relevant settings, such as the maximum tilt angle of the drone at which arming (activating the motors to prepare for flight) is allowed, are also configured on the \textsl{Configuration} page. If an on-screen display (OSD) is to be shown in the FPV live video by the flight controller, it must be enabled here. The \textsl{Airmode} option, shown as active in Figure~\ref{AbbildungBetaflightAppConfiguration2}, ensures that the motors continue to spin slightly even at zero throttle, which improves both the stability and controllability of the drone.
+
+\colger
+
+Auch sicherheitsrelevante Einstellungen, wie der maximale Neigungswinkel der Drohne, bei dem das Arming (das Aktivieren der Motoren zur Flugvorbereitung) überhaupt möglich ist, werden auf der Seite \textsl{Configuration} festgelegt. Soll im Livebild der FPV-Drohne durch den Flugcontroller ein On-Screen-Display (OSD) eingeblendet werden, muss es hier grundsätzlich aktiviert werden. Die in Abbildung~\ref{AbbildungBetaflightAppConfiguration2} aktivierte Einstellung \textsl{Airmode} sorgt dafür, dass die Motoren auch bei null Throttle leicht weiterlaufen, was die Stabilität und Kontrollierbarkeit der Drohne verbessert.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_configuration2_firmware_screenshot_app.png}
+  \caption{Configuration Page of Betaflight (Part 2/2)}
+  \label{AbbildungBetaflightAppConfiguration2}
+\end{figure}
+
+\colstart
+
+The \textsl{Power \& Battery} page allows you to define the voltage levels at which the battery is considered fully charged or discharged, as well as the thresholds at which the flight controller should issue warnings.
+
+\colger
+
+Die Seite \textsl{Power \& Battery} ermöglicht es, die Spannungswerte zu definieren, bei denen der Akku als vollständig geladen oder entladen gilt, sowie die Schwellen, bei denen der Flugcontroller entsprechende Warnungen ausgeben soll.
+
+\coleng
+
+On the \textsl{Failsafe} page, you can specify in great detail how the flight controller should respond if the pilot triggers a failsafe condition or if signal loss occurs. Useful settings include having the drone perform a controlled landing or, alternatively, return to its starting point using GPS.
+
+\colger
+
+Auf der Seite \textsl{Failsafe} kann sehr detailliert festgelegt werden, wie der Flugcontroller reagieren soll, wenn der Pilot ein Problem meldet oder ein Signalverlust auftritt. Sinnvolle Einstellungen sind beispielsweise, dass die Drohne kontrolliert landen oder mithilfe des GPS-Moduls selbstständig zum Startpunkt zurückkehren soll.
+
+\coleng
+
+The \textsl{Presets} page allows you to save and restore your own Betaflight configuration. It also provides access to a public database of shared configurations, which can be searched and applied based on various parameters.
+
+\colger
+
+Die Seite \textsl{Presets} ermöglicht es, die eigene Betaflight-Konfiguration zu speichern und wiederherzustellen. Zudem bietet sie Zugriff auf eine öffentliche Datenbank veröffentlichter Konfigurationen, die nach verschiedenen Parametern durchsucht und angewendet werden können.
+
+\coleng
+
+On the \textsl{PID Tuning} (Proportional-Integral-Derivative) page, fine adjustments to the motor control can be made through the flight controller. The goal is typically to achieve more precise flight behavior and to counteract undesirable drone reactions such as oscillations or overly slow or aggressive responses to control inputs.
+
+\colger
+
+Auf der Seite \textsl{PID Tuning} (Proportional-Integral-Derivative) können Feineinstellungen in der Motorsteuerung durch den Flugcontroller vorgenommen werden. Ziel ist es meist, ein präziseres Flugverhalten zu erreichen und unerwünschte Reaktionen der Drohne -- etwa Zittern oder ein zu langsames bzw. zu aggressives Reagieren auf Steuerbefehle -- zu vermeiden.
+
+\coleng
+
+The correct operation of the receiver can be verified on the \textsl{Receiver} page (see Figure~\ref{AbbildungBetaflightAppReceiver}). Movements of the transmitter controls are displayed here when received by the receiver. The connection type and communication protocol are also defined on this page. For the receiver to operate correctly, it must be assigned to the correct UART on the \textsl{Ports} page.
+
+\colger
+
+Die korrekte Funktionsweise des Empfängers kann auf der Seite \textsl{Receiver} (siehe Abbildung~\ref{AbbildungBetaflightAppReceiver}) überprüft werden. Bewegungen an den Bedienelementen des Senders werden, sobald sie vom Empfänger empfangen werden, hier angezeigt. Auch die Anschlussart des Empfängers und das verwendete Protokoll sind auf dieser Seite definiert. Damit der Empfängers korrekt funktioniert, muss er auf der Seite \textsl{Ports} dem richtigen UART zugewiesen sein.
+
+\coleng
+
+If telemetry data is to be transmitted from the receiver to the transmitter, the corresponding option must be enabled on the \textsl{Receiver} page. Telemetry data typically include information such as battery voltage, current consumption, signal quality, GPS data (latitude, longitude, speed, number of satellites), altitude, and temperature.
+
+\colger
+
+Soll der Empfänger Telemetriedaten an den Sender übertragen, muss die entsprechende Option auf der Seite \textsl{Receiver} aktiviert werden. Zu den Telemetriedaten gehören in der Regel Informationen wie Akkuspannung, Stromverbrauch, Signalqualität, GPS-Daten (Breitengrad, Längengrad, Geschwindigkeit, Anzahl der Satelliten), Höhe und Temperatur.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_receiver_firmware_screenshot_app.png}
+  \caption{Receiver Page of Betaflight}
+  \label{AbbildungBetaflightAppReceiver}
+\end{figure}
+
+\colstart
+
+The assignment of important drone functions to individual switches on the transmitter is configured on the \textsl{Modes} page (see Figure~\ref{AbbildungBetaflightAppModes}). The most important function here is arming the motors to prepare them for flight. Other functions that are sensibly assigned to transmitter switches include flight modes (Angle, Horizon, and Acro), the beeper (buzzer) for locating a crashed drone more easily, and the automatic return-to-home (GPS Rescue) function.
+
+\colger
+
+Die Verknüpfung wichtiger Funktionen der Drohne mit einzelnen Schaltern des Senders erfolgt auf der Seite \textsl{Modes} (siehe Abbildung~\ref{AbbildungBetaflightAppModes}). Die wichtigste Funktion ist hier das Anlaufen (\glqq scharf schalten\grqq) der Motoren, um sie für den Flug vorzubereiten. Weitere Funktionen, die sinnvollerweise Schaltern des Senders zugeordnet werden, sind unter anderem die Flugmodi (Angle, Horizon und Acro), der Pieper (Buzzer) zum leichteren Wiederfinden abgestürzter Drohnen sowie die automatische Rückkehr (GPS Rescue) zum Startpunkt.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_modes_firmware_screenshot_app.png}
+  \caption{Modes Page of Betaflight}
+  \label{AbbildungBetaflightAppModes}
+\end{figure}
+
+\colstart
+
+The SA switch (AUX1) is very often assigned to the arming function. However, using only one switch increases the risk of accidental arming, which can lead to injuries, such as to hands or fingers. To improve safety when holding the drone, it is therefore recommended to link the arming process to two switches -- for example, SA (AUX1) + SB (AUX4) -- that are not located next to each other. This exact configuration is shown in Figure~\ref{AbbildungBetaflightAppModes}.
+
+\colger
+
+Sehr häufig wird der Schalter SA (AUX1) mit dem Arming belegt. Da bei nur einem Schalter auch ein versehentliches Arming vorkommen kann, treten Verletzungen, z. B. an Händen und Fingern, häufiger auf. Zur Verbesserung der Sicherheit beim Halten der Drohne empfiehlt es sich daher, das Arming mit zwei Schaltern -- z. B. SA (AUX1) + SB (AUX4) -- zu verknüpfen, die nicht direkt nebeneinander liegen. Genau diese Einstellung ist auch in Abbildung~\ref{AbbildungBetaflightAppModes} zu sehen.
+
+\coleng
+
+Another common configuration is to assign a three-position switch for selecting the flight mode. As shown in Figure~\ref{AbbildungBetaflightAppModes}, the SB switch (AUX2) can be configured so that the lower position activates the Angle mode, the middle position activates Horizon mode, and the upper position activates Acro mode.
+
+\colger
+
+Eine weitere etablierte Konfiguration ist die Belegung eines Schalters mit drei möglichen Positionen, über den der Flugmodus eingestellt wird. So kann beispielsweise, wie in Abbildung~\ref{AbbildungBetaflightAppModes} dargestellt, der Schalter SB (AUX2) so konfiguriert werden, dass bei der unteren Position der Flugmodus Angle, bei der mittleren Position Horizon und bei der oberen Position Acro verwendet wird.
+
+\coleng
+
+On the \textsl{Adjustments} page, it is possible to define which drone parameters can be adjusted live during flight using specific channels (switches) or potentiometers (dials). This feature allows advanced pilots to fine-tune flight behavior in real time.
+
+\colger
+
+Auf der Seite \textsl{Adjustments} ist es möglich zu definieren, welche Parameter der Drohne im Flug mit bestimmten Kanälen (Schaltern) oder Potentiometern (Drehreglern) live angepasst werden können. Diese Seite eröffnet Möglichkeiten zur Feineinstellung für fortgeschrittene Drohnenpiloten während des Fluges.
+
+\coleng
+
+The \textsl{Servos} page defines control options for servo motors. Here, transmitter channels (switches) are assigned to individual servos, and fine adjustments such as midpoint (neutral position) and endpoints (Min/Max) can be set. Typical applications include camera gimbal control or building a gripping mechanism for delivering or collecting small objects.
+
+\colger
+
+Die Definition von Steuermöglichkeiten für Servomotoren erfolgt auf der Seite \textsl{Servos}. Hier werden Kanäle (Schalter des Senders) einzelnen Servomotoren zugeordnet und nötige Feineinstellungen wie Mittelstellung (Null-Position) und Endpunkte (Min/Max) vorgenommen. Anwendungsszenarien sind zum Beispiel eine Gimbal-Steuerung der Kamera oder der Bau eines Greifmechanismus, um Objekte mit einer Drohne auszuliefern oder aufzusammeln.
+
+\coleng
+
+If a GPS module is connected to the drone's flight controller, configuration and monitoring of the GPS functionality can be performed on the \textsl{GPS} page. For the GPS module to operate correctly, it must be assigned to the correct UART on the \textsl{Ports} page. When a sufficient number of satellites are visible, this page displays the current coordinates (latitude and longitude), speed, direction of movement, and altitude. The distance from the home position is also shown here. During flight, this information is useful when it is transmitted to the transmitter via telemetry data.
+
+\colger
+
+Wenn an den Flugcontroller der Drohne ein GPS-Modul angeschlossen ist, können Kontrolle und Konfiguration der GPS-Funktionalität auf der Seite \textsl{GPS} erfolgen. Damit das GPS-Modul korrekt funktioniert, muss es auf der Seite \textsl{Ports} dem richtigen UART zugewiesen sein. Besteht Sichtkontakt zu ausreichend vielen Satelliten, können hier unter anderem die aktuellen Koordinaten (Breiten- und Längengrad), Geschwindigkeit, Bewegungsrichtung und Höhe kontrolliert werden. Auch die Entfernung zum Startplatz ist hier sichtbar. Während des Fluges sind diese Informationen hilfreich, wenn sie über die Telemetriedaten an den Sender übertragen werden.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_motos_firmware_screenshot_app.png}
+  \caption{Motors Page of Betaflight}
+  \label{AbbildungBetaflightAppMotors}
+\end{figure}
+
+\colstart
+
+All motor-related settings and the testing of motor function, mapping, and rotation direction are performed on the \textsl{Motors} page. These tests must always be carried out without propellers, as otherwise damage or even injury can easily occur.
+
+\colger
+
+Alle Einstellungen bezüglich der Motoren sowie das Testen der korrekten Funktion, Zuordnung und Drehrichtung der einzelnen Motoren erfolgen auf der Seite \textsl{Motors}. Diese Tests müssen immer ohne Propeller durchgeführt werden, da es sonst leicht zu Beschädigungen oder gar Verletzungen kommen kann.
+
+\coleng
+
+The precise configuration of the on-screen display (OSD) is done on the \textsl{OSD} page. Here, the positions and layout of the desired display elements can be freely arranged, and multiple configurations can be saved as profiles--for example, for racing, freestyle, or long-range flying. For OSD configuration to be possible at all, the flight controller must include an OSD chip. If it does not, an analog video transmitter cannot provide an OSD. Digital video transmitters (e.g., from DJI, HDZero, and Walksnail) implement their own OSD systems.
+
+\colger
+
+Die präzise Konfiguration des On-Screen-Displays erfolgt auf der Seite \textsl{OSD}. Hier können die Positionen und das Layout der gewünschten Anzeigen frei platziert und mehrere Konfigurationen als Profile -- zum Beispiel für Racing, Freestyle oder Longrange -- gespeichert werden. Damit die Konfiguration des OSD überhaupt möglich ist, muss der Flugcontroller über einen OSD-Chip verfügen. Ist das nicht der Fall, kann mit einem analogen Videosender kein OSD realisiert werden. Digitale Videosender (z.~B. von DJI, HDZero und Walksnail) implementieren ein eigenes OSD.
+
+\coleng
+
+Settings for the video transmitter, such as the selected frequency (see Table~\ref{TabelleFrequenzenVTX}) and transmission power, can be configured on the \textsl{Video Transmitter} page (see Figure~\ref{AbbildungBetaflightAppVTX}). For the video transmitter to function correctly, it must be assigned to the appropriate UART on the \textsl{Ports} page.
+
+\colger
+
+Einstellungen zum Videosender, wie zum Beispiel die verwendete Frequenz (siehe Tabelle~\ref{TabelleFrequenzenVTX}) und die Sendeleistung, können auf der Seite \textsl{Video Transmitter} (siehe Abbildung~\ref{AbbildungBetaflightAppVTX}) vorgenommen werden. Damit der Videosender korrekt funktioniert, muss er auf der Seite \textsl{Ports} dem korrekten UART zugewiesen sein. 
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_video_transmitter_firmware_screenshot_app.png}
+  \caption{Video Transmitter Page of Betaflight}
+  \label{AbbildungBetaflightAppVTX}
+\end{figure}
+
+\colstart
+
+The \textsl{Sensors} page (see Figure~\ref{AbbildungBetaflightAppSensors}) displays the sensor data both graphically and numerically -- for example, values from the gyroscope, accelerometer, barometer, and magnetometer. This allows users to verify that all sensors are working correctly and delivering plausible data. The page is particularly useful for troubleshooting sensor orientation or calibration issues.
+
+\colger
+
+Die Seite \textsl{Sensors} (siehe Abbildung~\ref{AbbildungBetaflightAppSensors}) zeigt Sensorwerte sowohl grafisch als auch numerisch an -- zum Beispiel Werte des Gyroskops, Beschleunigungssensors, Höhenmessers (Barometer) und magnetischen Kompasses. Dadurch lässt sich überprüfen, ob alle Sensoren korrekt funktionieren und plausible Werte liefern. Die Seite ist insbesondere hilfreich zur Fehlersuche bei Problemen mit der Sensororientierung oder Kalibrierung.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_sensors_firmware_screenshot_app.png}
+  \caption{Sensors Page of Betaflight}
+  \label{AbbildungBetaflightAppSensors}
+\end{figure}
+
+\colstart
+
+The live recording of sensor data (e.g. gyroscope, motor values, GPS data, altitude) while the flight controller is connected to a computer is available on the \textsl{Tethered Logging} page. In contrast to classic Blackbox logging, where data is stored locally on the flight controller, flash memory, or an SD card, Tethered Logging allows real-time data transmission and monitoring on the computer. It only works as long as a connection (e.g. via USB) between the flight controller and the computer is active. If the connection is lost, the live recording stops immediately.
+
+\colger
+
+Die Live-Aufzeichnung von Sensordaten (z.\,B. Gyroskop, Motorwerte, GPS-Daten, Höhenmeter) während der Verbindung mit dem Computer ist auf der Seite \textsl{Tethered Logging} möglich. Im Gegensatz zum klassischen Blackbox-Logging, bei dem die Daten lokal im Flugcontroller, auf Flash oder SD-Karte gespeichert werden, erlaubt Tethered Logging die Übertragung und Überwachung der Daten in Echtzeit auf dem Computer. Das Tethered Logging funktioniert nur, solange eine Verbindung (z.\,B. via USB) zwischen Flugcontroller und Computer besteht. Wenn die Verbindung abreißt, bricht auch die Live-Aufzeichnung ab.
+
+\coleng
+
+The flight data recorder for logging various sensor data is configured on the \textsl{Blackbox} page (see Figure~\ref{AbbildungBetaflightAppBlackbox}). The collected data is recorded during flight and analyzed afterwards. The resulting insights can be used to analyze flight behavior, optimize filters, and diagnose issues. Recording typically starts automatically when arming and stops when disarming. Modern flight controllers store Blackbox data on an onboard flash chip or a microSD card. This page allows the selection of which sensors to log, the storage device to use, and the log rate, which defines how frequently data points are captured. The page also offers options to export or erase Blackbox data.
+
+\colger
+
+Der Flugdatenschreiber zur Aufzeichnung verschiedenster Sensordaten wird auf der Seite \textsl{Blackbox} (siehe Abbildung~\ref{AbbildungBetaflightAppBlackbox}) konfiguriert. Die Aufzeichnung der gesammelten Daten geschieht während des Flugs und wird nachträglich ausgewertet. Mit den gewonnenen Erkenntnissen können das Flugverhalten analysiert, Filter optimiert und Probleme diagnostiziert werden. Die Aufzeichnung beginnt üblicherweise automatisch beim Arming und stoppt beim Disarming. Moderne Flugcontroller speichern die Blackbox-Daten auf einem Onboard-Flashchip oder einer microSD-Karte. Die Seite erlaubt neben der Auswahl der zu erfassenden Sensordaten auch die Auswahl des Speichergeräts und die Einstellung der Log-Rate, die definiert, wie häufig Datenpunkte aufgezeichnet werden sollen. Auch der Export der Blackbox und das Löschen des Speichers sind auf dieser Seite möglich.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_blackbox_firmware_screenshot_app.png}
+  \caption{Blackbox Page of Betaflight}
+  \label{AbbildungBetaflightAppBlackbox}
+\end{figure}
+
+\colstart
+
+The \textsl{CLI} page in Betaflight (see Figure~\ref{AbbildungBetaflightAppCLI}) provides access to the integrated command-line interface of the flight controller. This interface allows users to inspect and configure the controller directly. Individual parameters can be displayed and changed using the commands \verb!get! and \verb!set!. The \verb!save! command saves all changes and restarts the flight controller.
+
+\colger
+
+Betaflight bietet auf der Seite \textsl{CLI} (siehe Abbildung~\ref{AbbildungBetaflightAppCLI}) Zugriff auf die integrierte Kommandozeilenumgebung des Flugcontrollers. Hierüber kann der Flugcontroller direkt untersucht und konfiguriert werden. Einzelne Parameter können mit den Kommandos \verb!get! und \verb!set! angezeigt und geändert werden. Das Kommando \verb!save! speichert alle Änderungen und startet den Flugcontroller neu.
+
+\coleng
+
+The current configuration of the flight controller can be displayed completely with the command \verb!dump!. Only the differences from the default configuration are shown using the command \verb!diff!. These outputs can be copied into text files and re-imported later using copy and paste. This makes it easy to create backups of all settings and restore them when needed.
+
+\colger
+
+Die aktuelle Konfiguration des Flugcontrollers kann vollständig mit dem Kommando \verb!dump! ausgegeben werden. Nur die Unterschiede zur Standardkonfiguration zeigt das Kommando \verb!diff!. Diese Ausgaben können in Textdateien gespeichert und bei Bedarf per Copy-and-Paste wieder importiert werden. So lassen sich einfach Backups der Einstellungen erstellen und wiederherstellen.
+
+\coleng
+
+Information about the flight controller and the installed firmware version can be retrieved with the command \verb!version!. The \verb!status! command provides current sensor readings and information about sensor configuration. The command \verb!tasks! lists all currently running processes on the flight controller, and \verb!resource! displays the pin and UART assignments.
+
+\colger
+
+Informationen zum Flugcontroller und zur installierten Firmwareversion liefert das Kommando \verb!version!. Das Kommando \verb!status! zeigt aktuelle Sensordaten und Informationen zur Konfiguration der Sensoren. Das Kommando \verb!tasks! listet alle aktuell laufenden Prozesse des Flugcontrollers auf, und \verb!resource! zeigt die Belegung der Pins und UART-Schnittstellen.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_4_5_3_cli_firmware_screenshot_app.png}
+  \caption{CLI Page of Betaflight}
+  \label{AbbildungBetaflightAppCLI}
+\end{figure}
+
+\renewcommand{\deutschertitel}{INAV}
+\renewcommand{\englischertitel}{INAV}
+\makrounterabschnitt
+\label{AbschnittINAV}
+
+TBD
+
+\colger
+
+INAV basiert auf einer früheren Cleanflight-Version und ist ebenfalls eng verwandt mit Betaflight. Im Gegensatz zu Betaflight und INAV wird Cleanflight allerdings nicht mehr weiterentwickelt. INAV besteht aus zwei Hauptkomponenten: Die Firmware, welche auf dem Flugcontroller läuft und dem Konfigurationstool, welches für die Installation und Administration genutzt werden kann. Es gibt keine Web-App, wie bei aktuellen Betaflight-Versionen.
+
+Neben der Return-To-Home- (RTH) bzw. Rescuefunktionalität bietet INAV weitere Autopilotenfunktionalitäten, wie Wegpunktmissionen, \textsl{Position halten}, \textsl{Flughöhe halten} und mehr. Diese können auch ohne Kompass genutzt werden (seit Version 7.1), jedoch mit geringerer Genauigkeit.
+
+Die Software erhält jedes Jahr einen großen Release und kleinere Support-Updates, wie sie benötigt werden. Die aktuelle Version 8 unterstützt die folgenden STM-Flugcontrollerchips: F405, F722, F745, F765 und H743. Außerdem werden AT-F435 Chips unterstützt. Die Kompatibilität mit einem jeweiligen Board sollte jedoch im Einzelfall immer vor dem Kauf geprüft werden.
+
+\colende
+
+\renewcommand{\deutschertitel}{Installation}
+\renewcommand{\englischertitel}{Installation}
+\makrounterunterabschnitt
+\label{AbschnittInstallationINAV}
+
+TBD
+
+\colger
+
+Die Installation erfolgt über den \textsl{INAV Configurator}. Hier ist die Verwandtschaft zu Betaflight sehr deutlich sichtbar, da der Aufbau sehr ähnlich zum Betaflight Configurator ist, welcher für die Versionen bis 4.5 genutzt wird (Abbildung \ref{AbbildungINAVFirmwareFlasher}). Dieser Guide geht davon aus, dass der Flugcontroller via USB an den Computer angeschlossen ist, mit welchem das Flashen durchgeführt wird.
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Firmware_Flasher.png}
+	\caption{Firmware Flasher tab in the INAV Configurator}
+	\label{AbbildungINAVFirmwareFlasher}
+\end{figure}
+
+\colstart
+
+TBD
+
+\colger
+
+Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollte ein Backup der Konfiguration gemacht werden, da manche Upgrades die Konfiguration zurücksetzen. Dies geschieht über den \textsl{CLI}-Tab. Der Befehl \texttt{diff all} gibt die entsprechenden Parameter aus. Mit dem Button \textsl{Save to File} können diese dann in eine Textdatei gespeichert werden. Danach besteht der Prozess aus den folgenden Schritten:
+
+\begin{enumerate}
+	\item \textsl{Device Firmware Upgrade (DFU)-Modus} aktivieren ist der erste notwendige Schritt. Dies kann in der Regel über einen Button am Flugcontrollerboard realisiert werden oder mit dem Befehl \texttt{dfu} im \textsl{CLI}-Tab.
+
+	\item Befindet sich das Board im DFU-Modus, so muss der \textsl{Firmware Flasher} Tab im INAV Configurator aufgerufen werden. In diesem muss zunächst das Target ausgewählt werden, sollte  \textsl{Auto-select Target} nicht funktionieren, muss der Modellname händisch in der Liste gesucht werden.
+
+	\item Im Ausklappmenü unter dem Board werden dann die verfügbaren (stable) Releases angezeigt. Mit der Option \textsl{Show unstable releases} können noch aktuellere Versionen gewählt werden. Diese funktionieren aber unter Umständen nicht wie erwartet.
+
+	\item INAV bietet drei Optionen die für das Flashen gesetzt werden können:
+	\begin{itemize}
+		\item \textsl{No reboot sequence} - Wird nur benötigt, wenn die Bootpins überbrückt sind oder der Bootbutton gedrückt wird (modellabhängig).
+		\item \textsl{Full chip erase} - Löscht alle Konfigurationsoptionen (Backup Vorhanden?). Sollte immer gesetzt werden, wenn vorher eine andere Software installiert war.
+		\item \textsl{Manual baud rate} - Festlegen der Baudrate für Bluetooth oder falls ein Modell die Standardgeschwindigkeit nicht unterstützt.
+	\end{itemize}
+
+	\item Der Prozess des Flashens besteht aus zwei Schritten: Zunächst wird die Firmware geladen (online oder über ein File), dann wird das eigentliche Flashen über einen separaten Button gestartet. Das eigentliche Flashen sollte nicht unterbrochen werden.
+
+	\item Gegebenenfalls kann nun das Backup über den \textsl{CLI}-Tab wieder eingespielt werden. Dies geschieht über den Button \textsl{Load from File}. Damit kann die entsprechende Textdatei herausgesucht werden, um sie mit dem \textsl{Execute}-Button auszuführen.
+
+\end{enumerate}
+
+\colende
+
+\renewcommand{\deutschertitel}{Administration}
+\renewcommand{\englischertitel}{Administration}
+\makrounterunterabschnitt
+\label{AbschnittAdministrationINAV}
+
+TBD
+
+\colger
+Die Administration von INAV erfolgt ebenfalls über den \textsl{INAV Configurator}. Wenn die Software das erste Mal installiert wurde, müssen einige Punkte konfiguriert werden, um das Fliegen initial zu ermöglichen.
+
+Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheinen Fenster zum Setzen der \textsl{Default-Values} (Presets). Hier gilt es das Preset auszuwählen, was am nächsten an dem gebauten Modell dran ist. Danach können die UART-Ports (für GPS, VTX, etc.) konfiguriert werden. Dies kann allerdings auch über den Ports-Tab durchgeführt werden. Die weiteren Konfigurationsschritte gestalten sich wie folgt:
+
+\begin{enumerate}
+	
+	\item Der \textsl{Status-Tab} stellt einen Überblick zur Verfügung. Unter anderem ist in der Übersicht \textsl{Pre-arming checks} zu sehen, ob die Drohne abheben kann. Eventuell muss hier vorher die Boardorientierung angepasst werden. Dazu wird die Drohne aufrecht mit Kamera Richtung Bildschirm des konfigurierenden Computers gestellt, um dann den \textsl{Reset Z axis} Button zu drücken.
+	
+	\item Im \textsl{Calibration-Tab} (Abbildung \ref{AbbildungINAVCalibrationTab}) werden der Beschleunigungsmesser und der Kompass kalibriert. Dazu muss die Drohne jeweils in unterschiedliche Posen gebracht werden.
+	
+\end{enumerate}
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Calibration_Tab.png}
+	\caption{INAV Calibration Tab for Board Orientation, Compass and Flow Sensor }
+	\label{AbbildungINAVCalibrationTab}
+\end{figure}
+
+\colstart
+
+TBD
+
+\colger
+
+\begin{enumerate}
+	\setcounter{enumi}{2} 
+
+	\item Der \textsl{Status-Tab} stellt einen Überblick zur Verfügung. Unter anderem ist in der Übersicht \textsl{Pre-arming checks} zu sehen, ob die Drohne abheben kann. Eventuell muss hier vorher die Boardorientierung angepasst werden. Dazu wird die Drohne aufrecht mit Kamera Richtung Bildschirm des konfigurierenden Computers gestellt, um dann den \textsl{Reset Z axis} Button zu drücken.
+
+	\item Im \textsl{Calibration-Tab} werden der Beschleunigungsmesser und der Kompass kalibriert. Dazu muss die Drohne jeweils in unterschiedliche Posen gebracht werden.
+
+	\item Der \textsl{Mixer-Tab} konfiguriert zusammen mit dem Outputs-Tab die Motoren der Drohne. Hier ist entscheidend, dass der richtige  \textsl{Platform type} und das richtige \textsl{Mixer preset} entsprechend des Typs der verwendeten Drohne konfiguriert sind. Sollten die Motoren nicht in die richtige Richtung drehen, kann die diese über die \textsl{Motor direction} angepasst werden und die Zuordnung über den \textsl{Motor Mixer Wizard}.
+
+	\item Im \textsl{Outputs-Tab} werden die Motoren aktiviert mit der Option \textsl{Enable motor and servo output}. Außerdem sollte sichergestellt werden, dass  \texttt{DSHOT300} als \textsl{ESC protocol} verwendet wird. Außerdem kann die \textsl{Motors IDLE power} auf 5\% gesetzt werden, wenn eine Multirotor-Drohne verwendet wird.
+
+	\item Im \textsl{Ports-Tab} werden die Peripheriegeräte konfiguriert, insofern dies nicht im Pop-Up-Menü am Anfang gemacht wurde. Dieser sieht dem Ports-Tab des Betaflight-Configurators sehr ähnlich, mit dem Unterschied, dass \textsl{USB VCP} ausgeblendet statt ausgegraut ist (Abbildung \ref{AbbildungBetaflightAppPorts}).  Wie diese konfiguriert werden, hängt von den angeschlossenen Geräten und vom Flugcontrollerchip ab. Meist kann die Konfiguration für Betaflight aus den jeweiligen Handbüchern entnommen und übertragen werden.
+	
+	\item Im \textsl{Configuration-Tab} können die Sensoren aktiviert werden, insofern dies nicht nach Konfiguration der Ports automatisch geschehen ist. Wenn möglich, sollte hier der \textsl{I2C Speed} auf \texttt{800KHZ} gestellt werden.
+
+	\item Der \textsl{Failsafe-Tab} (Abbildung \ref{AbbildungINAVFailsafeTab}) ist sehr wichtig, da in diesem das Verhalten definiert ist, sollte das Fernsteuerungssignal abreißen. Hier sollte sichergestellt werden, dass entweder textsl{Drop}, \textsl{Land} oder \textsl{Return-to-Home (RTH)} konfiguriert sind, damit die Drohne nicht unkontrolliert weiterfliegt.
+
+\end{enumerate}
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Failsafe_Tab.png}
+	\caption{INAV Failsafe Tab}
+	\label{AbbildungINAVFailsafeTab}
+\end{figure}
+
+\colstart
+
+TBD
+
+\colger
+
+\begin{enumerate}
+	\setcounter{enumi}{9} 
+	
+	\item Im \textsl{Receiver-Tab} wird Flugcontrollerseitig die Verbindung zur Fernbedienung konfiguriert. Wird eine ExpressLRS-Fernbedienung verwendet, muss \texttt{SERIAL} als \textsl{Receiver type} und \texttt{CRSF} als \textsl{Serial Receiver Provider} konfiguriert werden. Darüber hinaus kann kontrolliert werden, ob die Channel-Mappings korrekt sind. Dieser Tab ist sehr ähnlich zum Receiver-Tab im Betaflight Configurator (Abbildung\ref{AbbildungBetaflightAppReceiver})
+
+	\item Im \textsl{GPS-Tab} muss die Option \textsl{GPS for navigation and telemetry} aktiviert werden, um das GPS nutzen zu können. Die Option \textsl{Protocol} ist entsprechend der Spezifikation des verwendeten Modells zu setzen.
+
+	\item Im \textsl{Modes-Tab}, welcher der Betaflight-Version ebenfalls sehr ähnlich ist (Abbildung \ref{AbbildungBetaflightAppModes}) muss grundsätzlich nur \texttt{ARM} konfiguriert werden (CH5 empfohlen). Darüber hinaus lohnt es sich auch \texttt{ANGLE} zu konfigurieren (vor allem für Fluganfänger) und \texttt{FAILSAFE} sollte sich die Drohne mal unerwartet verhalten. Modi für Autopilotfunktionalitäten können zu einem späteren Zeitpunkt konfiguriert werden. 
+
+	\item Das \textsl{on-screen display (OSD)} kann so konfiguriert werden, wie es vom Piloten bevorzugt wird. Nützliche Elemente, welche nicht standardmäßig eingeblendet werden sind zum Beispiel \textsl{Remaining Flight Time} und \textsl{Battery Remaining Percentage}. Je nach VTX-Modell muss in diesem Tab auch das \textsl{Video Format} konfiguriert werden.
+	
+\end{enumerate}
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_OSD_Tab.png}
+	\caption{INAV OSD Tab}
+	\label{AbbildungINAVOSDTab}
+\end{figure}
+
+
+\renewcommand{\deutschertitel}{ArduPilot}
+\renewcommand{\englischertitel}{ArduPilot}
+\makrounterabschnitt
+\label{AbschnittArduPilot}
+
+TBD
+
+\colger
+
+ArduPilot legt als Flugcontroller-Firmware den Fokus auf vollautonomen Flug und komplexe Missionsprofile. Es ermöglicht Missionsplanung mit Wegpunkten, automatische Starts und automatisches Landen, Hindernisvermeidung, Follow-Me, etc. Hierfür nutzt ArduPilot nicht nur die üblichen Sensoren wie GPS, magnetischer Kompass, Geschwindigkeit, sondern kann auch Lidar-Sensoren zur Entfernungen und Kameras einbeziehen.
+
+\coleng
+
+TBD
+
+\colger
+
+Von den in diesem Dokument vorgestellten Flugcontroller-Firmwares braucht ArduPilot am meisten Speicher. Idealerweise sind zum Betrieb von ArduPilot 2\,MB Flash-Speicher verfügbar. Das bieten nur Flugcontroller mit einem H743 Mikrocontroller. Mit 1\,MB Flash-Speicher (F405 und F745 Mikrocontroller) ist der Betrieb mit einem reduzierten Funktionsumfang möglich. Mit nur 512\,kB (F411 und F722 Mikrocontroller) kann ArduPilot gar nicht verwendet werden.
+
+\colende
+
+\renewcommand{\deutschertitel}{Installation}
+\renewcommand{\englischertitel}{Installation}
+\makrounterunterabschnitt
+\label{AbschnittInstallationArduPilot}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Administration}
+\renewcommand{\englischertitel}{Administration}
+\makrounterunterabschnitt
+\label{AbschnittAdministrationArduPilot}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Fernbedienung Firmware}
+\renewcommand{\englischertitel}{Remote Control Firmware}
+\makroabschnitt
+\label{AbschnittFirmwareRemoteControl}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{EdgeTX}
+\renewcommand{\englischertitel}{EdgeTX}
+\makrounterabschnitt
+\label{AbschnittEdgeTX}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Installation}
+\renewcommand{\englischertitel}{Installation}
+\makrounterunterabschnitt
+\label{AbschnittInstallationEdgeTX}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Sendemodul- und Empfänger-Firmware}
+\renewcommand{\englischertitel}{Transmitter and Receiver Firmware}
+\makroabschnitt
+\label{AbschnittFirmwareReceiverTransmitter}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{ExpressLRS}
+\renewcommand{\englischertitel}{ExpressLRS}
+\makrounterabschnitt
+\label{AbschnittExpressLRS}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Installation}
+\renewcommand{\englischertitel}{Installation}
+\makrounterunterabschnitt
+\label{AbschnittInstallationExpressLRS}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
