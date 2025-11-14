@@ -782,6 +782,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \label{AbschnittArduPilot}
 
 As a flight controller firmware, ArduPilot focuses on fully autonomous flight and complex mission profiles. It enables mission planning with waypoints, automatic takeoff and landing, obstacle avoidance, follow-me functionality, and more. To achieve this, ArduPilot uses not only standard sensors such as GPS, magnetic compass, and velocity sensors but can also integrate LiDAR sensors for distance measurement and cameras for visual processing.
+ArduPilot, as a flight controller firmware, focuses on fully autonomous flight and complex mission profiles. It enables mission planning with waypoints, automatic takeoff and landing, obstacle avoidance, follow-me mode, etc. For this purpose, ArduPilot uses not only the usual sensors such as GPS, magnetic compass, and speed sensors, but can also incorporate lidar sensors for distance measurement and cameras.
 
 \colger
 
@@ -789,7 +790,7 @@ ArduPilot legt als Flugcontroller-Firmware den Schwerpunkt auf vollautonome Flü
 
 \coleng
 
-Of the flight controller firmware options presented in this document, ArduPilot requires the most memory. Ideally, 2\,MB of flash memory should be available for proper operation. This is provided only by flight controllers equipped with an H743 microcontroller. With 1\,MB of flash memory (as found in F405 and F745 microcontrollers), operation is possible but with a reduced feature set. With only 512 kB (F411 and F722 microcontrollers), ArduPilot cannot be used at all.
+TBD
 
 \colger
 
@@ -802,7 +803,408 @@ Von den in diesem Dokument vorgestellten Flugcontroller-Firmwares benötigt Ardu
 \makrounterunterabschnitt
 \label{AbschnittInstallationArduPilot}
 
+Typically, FPV flight controllers are delivered with Betaflight pre-installed. If ArduPilot is not already present on the device, installing it involves three main steps: (1) installing the necessary drivers and flashing tool, (2) downloading the appropriate ArduPilot firmware, and (3) flashing the firmware to the flight controller.
+
+\colger
+
 TBD
+
+\coleng
+
+To install ArduPilot on a compatible flight controller, the required drivers and tools must first be installed. The STM32CubeProgrammer, developed by STMicroelectronics, provides the necessary DFU drivers. This software is available for Windows, Linux, and macOS.
+
+\colger
+
+TBD
+
+\coleng
+
+To download the ArduCopter firmware, visit the official ArduPilot firmware server at \url{firmware.ardupilot.org/Copter/stable/}.
+From the list of available flight controller boards, select the folder that matches your hardware (for example, FlywooF745, Pixhawk1, or MatekH743). 
+Inside that folder, download the file ending with \_with\_bl.hex, which includes the bootloader. 
+If your board supports the ArduCopter firmware, it should be listed in this directory, and the corresponding firmware file should be available there.
+It is recommended to use the latest stable release to ensure optimal reliability and compatibility with current mission planning tools.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{STM32CubeProgrammerConnect.png}
+	\caption{Flashing Ardupilot Frimware using STM32CubeProgrammer (Part 1/3)}
+	\label{FlashingArdupilotFirmware}
+\end{figure}
+
+\colstart
+
+	Before starting the firmware installation process, activate DFU (Device Firmware Upgrade) mode on your flight controller.
+	This mode allows the board to accept new firmware via USB. Typically, DFU mode is enabled by holding down the
+	boot button (or bridging the BOOT pads) while connecting the board to your computer using a USB cable.
+	In STM32CubeProgrammer, select the connection method: USB (see Figure~\ref{FlashingArdupilotFirmware}), then click Connect to establish communication with the flight controller.
+	If your computer does not recognize the board, verify that the STM32 drivers are correctly installed and that the USB cable supports data transfer.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{STM32CubeProgrammerFullChipErase.png}
+	\caption{Flashing Ardupilot Frimware using STM32CubeProgrammer (Part 1/3)}
+	\label{ErasingBoardUsingSTM32}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{STM32CubeProgrammerFirmwareFlashing.png}
+	\caption{Flashing Ardupilot Frimware using STM32CubeProgrammer (Part 3/3)}
+	\label{PrgrammingUsingSTM32}
+\end{figure}
+
+\colstart
+
+	After successfully connecting, choose Erase Full Chip (see Figure~\ref{ErasingBoardUsingSTM32}) to remove any existing firmware and prepare the board for a clean installation.
+	Then click Browse and locate the downloaded firmware file ending in \_with\_bl.hex. Finally, press Start Programming to begin flashing the ArduPilot firmware to your flight controller,
+	(as illustrated in Figure~\ref{PrgrammingUsingSTM32}). Wait for the programming process to finish, then disconnect and power-cycle the board to complete the installation.
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Mandatory Configuration}
+\renewcommand{\englischertitel}{Mandatory Configuration}
+\makrounterunterabschnitt
+\label{AbschnittKonfigurationArduPilot}
+
+	After the ArduPilot firmware has been flashed onto the flight controller, it is essential to perform a series of mandatory 
+	hardware configuration steps using the Mission Planner ground control software. These configurations align the firmware 
+	with the physical characteristics of the aircraft — such as its frame type, motor orientation, and sensor calibrations 
+	— ensuring that the autopilot interprets sensor data correctly and controls the motors appropriately. Completing these 
+	steps is a prerequisite for safe and stable and flight performance.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_connect_screenshot.png}
+	\caption{Main Page of Mission Planner}
+	\label{MissionPlannerConnect}
+\end{figure}
+
+\colstart
+
+	Typically you can connect your drone with the Mission Planner software by selecting auto in the port as describe in figure \ref{MissionPlannerConnect}.
+	Once connection is established, the page will show general data from the sensors of the drone. 
+	The steps bellow covers the “mandatory” hardware configuration steps for a copter using ArduPilot.
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_frame_setup_screenshot.png}
+	\caption{Mission Planner: Frame type configuration}
+	\label{MissionPlannerFrameTypeSetup}
+\end{figure}
+
+\colstart
+
+	Figure \ref{MissionPlannerFrameTypeSetup} shows the \textsl{Setup} page of Mission Planner, where selecting a configuration 
+	option writes the setting directly to the flight controller hardware. No additional save action is required, as the change is applied automatically.
+
+\colger
+
+TBD
+
+\coleng
+
+In the \textsl{Frame type section} choose the appropriate frame class from the top (e.g., for Quad, Hexa, heli etc) and
+also select tye type of the drone. (e.g., select X for x shaped frame, V type for frame if your frame has shorter 
+front arm and longer rare arm).
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_board_orientation_screenshot.png}
+	\caption{Mission Planner: Board orientation}
+	\label{MissionPlannerBoardOrient}
+\end{figure}
+
+
+\colstart
+
+Before performing the accelerometer calibration, it is essential to ensure that the flight controller \(FC\) board is mounted with the correct orientation. An incorrect board orientation can lead to severe flight instability or even crashes. As illustrated in Figure \ref{MissionPlannerBoardOrient}, the orientation of the flight controller can be configured in Mission Planner by navigating to:
+Config tab → Full Parameter List → AHRS\_ORIENTATION.
+
+After selecting the appropriate orientation, click the Write Params button to save the setting to the flight controller.
+
+To verify that the orientation has been configured correctly, open the DATA tab from the top menu in Mission Planner. Then, gently move the drone in all directions (pitch, roll, and yaw) and observe the artificial horizon or attitude indicator. If the display accurately reflects the movement of the drone, the board orientation has been set correctly.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_Serial_Ports_screenshot.png}
+	\caption{Mission Planner: Serial Port Configuration}
+	\label{MissionPlannerSerialPortConfig}
+\end{figure}
+
+\colstart
+
+Figure~\ref{MissionPlannerSerialPortConfig} shows the Serial Ports page under the Mandatory Hardware section in Mission 
+Planner, where the available UART interfaces (UART1, UART2, ...) must be configured according to the peripherals connected 
+to the flight controller. This configuration defines how external devices—such as the GPS module, receiver, telemetry 
+units, or video transmitter—communicate. For example, in the Figure~\ref{MissionPlannerSerialPortConfig}, 
+UART2 is assigned the RCIN protocol for the radio receiver, UART3 is configured with the IRC Tramp protocol for VTX 
+control, and UART6 is set to the GPS protocol for the connected GPS module.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_board_accelerometer_calibration_screenshot.png}
+	\caption{Mission Planner: Accelerometer calibration}
+	\label{MissionPlannerAccelerometerCalibration}
+\end{figure}
+
+\colstart
+
+The Accelerometer Calibration page, accessible from the Setup tab in Mission Planner, provides the interface for calibrating the onboard accelerometer (see Figure~\ref{MissionPlannerAccelerometerCalibration}). To begin the process, click Calibrate Accel and follow the on-screen instructions to rotate the vehicle slowly around all three axes—yaw, pitch, and roll. This procedure allows the flight controller to record reference data for each orientation and compute the necessary offsets.
+
+After completing the calibration, restart the drone by reconnecting the flight controller. Once reconnected, place the drone on a level surface and select Calibrate Level to define the horizontal reference plane. The resulting calibration parameters enable the flight controller to maintain stability during flight, particularly in Stabilize mode.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_board_compass_calibration_screenshot.png}
+	\caption{Mission Planner: Compass calibration}
+	\label{MissionPlannerCompassCalibration}
+\end{figure}
+
+\colstart
+
+The Compass Calibration page in Mission Planner provides the interface for calibrating the onboard magnetometer, which is responsible for providing accurate heading information essential for directional navigation and yaw control.
+
+Before beginning the calibration, ensure that the compass sensor is mounted in its final position and located away from strong magnetic sources such as motors, ESCs, or power wiring. In Mission Planner, navigate to the compass calibration page under the Setup tab and click Start (see Figure~\ref{MissionPlannerCompassCalibration}). During the calibration process, slowly rotate the vehicle around all three axes—yaw, pitch, and roll—as instructed on screen, ensuring smooth and complete movements.
+
+If the calibration fails, repeat the process several times until a successful calibration is achieved. Persistent failure to calibrate may indicate that the magnetometer is experiencing magnetic interference. In such cases, the compass should be repositioned farther from high-current components or wiring to minimize magnetic disturbances.
+
+Once calibration is successfully completed, Mission Planner will indicate an acceptable calibration result. Finally, save the configuration and reboot the flight controller to apply the updated compass offsets.
+
+\colger
+
+TBD
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_Radio_Calibration_screenshot.png}
+	\caption{Mission Planner: Radio Calibration}
+	\label{MissionPlannerRadioCalibration}
+\end{figure}
+
+\colstart
+
+Figure \ref{MissionPlannerRadioCalibration} shows the Radio Calibration page in Mission Planner. With the RC 
+transmitter bound and connected to the drone, select Calibrate Radio and move all control sticks (gimbals) and all 
+relevant switches through their full range while observing the bar indicators. Here, one can ensure that every 
+channel—whether it's a stick or a switch—is correctly detected and mapped by the flight controller.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_Motor_Test_with_Direction_Reference_screenshot.png}
+	\caption{Mission Planner: Motor Test}
+	\label{MissionPlannerMotorTest}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_Servo_Output_screenshot.png}
+	\caption{Mission Planner: Servo Output}
+	\label{MissionPlannerServoOutput}
+\end{figure}
+
+\colstart
+
+Figure \ref{MissionPlannerMotorTest} shows the Motor Test page in Mission Planner, which is used to confirm that each 
+motor on a quadcopter is correctly assigned and rotating in the proper direction. With the battery connected and the 
+propellers removed, you can test motors A, B, C, and D individually and verify that they match the Quad-X layout shown 
+in the figure and spin in their required CW/CCW directions. If a motor responds incorrectly or rotates the wrong way, 
+the Servo Output page (Figure \ref{MissionPlannerServoOutput}) allows you to re-map motor outputs or reverse a motor 
+direction when needed. While this documentation focuses on quadcopters, users working with other frame types should 
+refer to the ArduPilot motor connection guide for additional configurations: 
+\url{https://ardupilot.org/copter/docs/connect-escs-and-motors.html}.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_ESC_Calibration_screenshot.png}
+	\caption{Mission Planner: ESC Calibration}
+	\label{MissionPlannerESCCalibration}
+\end{figure}
+
+\colstart
+
+Figure~\ref{MissionPlannerESCCalibration} shows the ESC Calibration page in Mission Planner, which is used to 
+standardize the throttle range of analog ESCs so that all motors respond uniformly. This page also provides 
+configuration options for ESC-related parameters, such as the ESC Type (e.g., DShot300 or DShot600) and various Spin 
+settings that control motor behavior at idle and across the throttle range. It is important to note that digital 
+4-in-1 ESCs using DShot protocols do not require calibration, as their throttle interpretation is digital rather than 
+PWM-based. For most modern flight controllers and ESCs, selecting the appropriate DShot protocol in the ESC Type field 
+is sufficient to ensure correct operation.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_Flight_modes_screenshot.png}
+	\caption{Mission Planner: Flight Modes}
+	\label{MissionPlannerFlightMode}
+\end{figure}
+
+\colstart
+
+Figure~\ref{MissionPlannerFlightMode} shows the Flight Modes page in Mission Planner, where the user assigns the drone's 
+primary operating modes such as Stabilize, AltHold, or Loiter. Normaly these modes are controlled by a multi-position 
+switch on the radio transmitter, and each switch position corresponds to a specific PWM range sent from the RC 
+receiver. Mission Planner detects these PWM ranges and lets the user map each one to a desired flight mode. If a 
+different RC channel needs to be used for flight-mode selection, the user can go Config tab → FullParameter List and 
+search FLTMODE\_CH to set the appropriate channel parameter (e.g., Channel7 or another chosen channel)
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_failsafe_screenshot.png}
+	\caption{Mission Planner: Failsafe}
+	\label{MissionPlannerFailsafe}
+\end{figure}
+
+\colstart
+
+On the Failsafe page (Figure~\ref{MissionPlannerFailsafe}), the user can configure how the flight controller should 
+respond to critical conditions such as battery too low or loss of RC signal. This page allows detailed control over 
+the drone’s behavior during such events, including options like executing a controlled landing or returning to the 
+launch point using GPS. For most applications, it is recommended to select Return-to-Launch (RTL) as the primary 
+failsafe action, as this provides a safe and predictable response by guiding the drone back to its takeoff position.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_Initial_Tupe_Param_screenshot.png}
+	\caption{Mission Planner: Initial tune parameter}
+	\label{MissionPlannerIniTialTune}
+\end{figure}
+
+\colstart
+
+Figure~\ref{MissionPlannerIniTialTune} shows the Initial Tune Parameters page in Mission Planner, which provides 
+automatically generated starting values for the drone’s PID tuning based on its basic physical characteristics. 
+Correctly establishing these initial parameters is essential for achieving stable flight before performing any manual 
+adjustments. To use this tool, the user must enter key information such as the propeller size 
+(Airscrew size in inch), the battery cell count, and the battery chemistry (e.g., Li-ion). Accurate input is 
+important, as these values directly affect the tuning parameters calculated by Mission Planner.
+
+\colger
+
+TBD
+
+\colende
+
+\colstart
+
+The Onboard OSD page (\ref{MissionPlannerOnboardOSD}), accessible from Config Tab → 
+Onboard OSD. From this interface, various telemetry elements—such as battery voltage, current, flight mode, GPS status, 
+or altitude—can be enabled, repositioned, and arranged on the OSD screen. These settings are written directly to the 
+OSD chip on the flight controller, ensuring that essential in-flight data is clearly visible during FPV operations.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_OSD_Settings_screenshot.png}
+	\caption{Mission Planner: Onboard OSD}
+	\label{MissionPlannerOnboardOSD}
+\end{figure}
+
+\renewcommand{\deutschertitel}{Vor dem ersten Flug}
+\renewcommand{\englischertitel}{Before First Flight}
+\makrounterunterabschnitt
+\label{BeforeFirstFlight}
+
+Note for Betaflight users: If you are transitioning from Betaflight, be aware that the Pitch axis of the RC input is 
+typically reversed in ArduPilot compared to Betaflight's default. You may need to set the RC2\_REVERSED parameter to 1 
+in the Full Parameter List of Config tab to correct this, ensuring your pitch stick inputs correspond to the drone's 
+expected pitch movements.
+
+\colger
+
+TBD
+
+\coleng
+
+It is recommended to configure an arming switch before your first flight. To do this, open the Config → Full Parameter 
+List and search for RC<channel number>\_OPTION (for example, RC5\_OPTION). Set its value to 153, which designates 
+that channel as the arming channel.
 
 \colger
 
