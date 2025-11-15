@@ -48,3 +48,7 @@
 \contentsline {subsection}{{4.2.1}~Gesamtgewicht und Anschaffungskosten}{82}{subsection.4.2.1}%
 \contentsline {chapter}{{\vspace {2pt}5}~Autopilot}{85}{chapter.5}%
 \contentsline {chapter}{{\vspace {2pt}6}~Follow-Me-Funktion}{87}{chapter.6}%
+\contentsline {chapter}{{\vspace {2pt}7}~Drop-Mechanismen für FPV-Drohnen}{89}{chapter.7}%
+\contentsline {section}{{7.1}~Servo-basierte Abwurfmechanismen}{89}{section.7.1}%
+\contentsline {section}{{7.2}~Elektromagnetische Mechanismen}{90}{section.7.2}%
+\contentsline {section}{{7.3}~Ansteuerung und Integration}{90}{section.7.3}%

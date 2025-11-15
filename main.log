@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.10.8)  15 NOV 2025 19:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.10.8)  15 NOV 2025 20:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1151,7 +1151,7 @@ Package babel Info: 'ngerman' activates 'ngerman' shorthands.
 LaTeX Warning: Label `AbbildungLiPoAkku' multiply defined.
 
 ) (./chapter02.aux) (./chapter03.aux) (./chapter04.aux) (./chapter05.aux)
-(./chapter06.aux) (./glossary.aux) (./bibliography.aux))
+(./chapter06.aux) (./chapter07.aux) (./glossary.aux) (./bibliography.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 219.
@@ -1423,7 +1423,7 @@ Underfull \hbox (badness 1748) in paragraph at lines 43--44
 []\T1/lmr/m/n/10 (+20) Die ty-pi-schen Kom-po-nen-ten ei-ner FPV-
  []
 
-<./images/Komponenten_einer_FPV_Drohne_ohne_KI_v1_en.pdf, id=204, 2873.73625pt 
+<./images/Komponenten_einer_FPV_Drohne_ohne_KI_v1_en.pdf, id=216, 2873.73625pt 
 x 1885.0425pt>
 File: ./images/Komponenten_einer_FPV_Drohne_ohne_KI_v1_en.pdf Graphic file (typ
 e pdf)
@@ -1453,7 +1453,7 @@ Underfull \hbox (badness 1509) in paragraph at lines 220--221
 
 
 [4]
-<./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg, id=269, 1003.75p
+<./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg, id=281, 1003.75p
 t x 1003.75pt>
 File: ./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg Graphic file
  (type jpg)
@@ -1461,7 +1461,7 @@ File: ./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg Graphic file
 Package pdftex.def Info: ./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_cr
 op.jpg  used on input line 261.
 (pdftex.def)             Requested size: 200.75996pt x 200.76175pt.
-<./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg, id=270, 1003.75pt
+<./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg, id=282, 1003.75pt
  x 1003.75pt>
 File: ./images/SpeedyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg Graphic file 
 (type jpg)
@@ -1474,13 +1474,13 @@ Underfull \hbox (badness 5667) in paragraph at lines 279--280
 []\T1/lmr/m/n/10 (+20) Abbildung []1.2[] zeigt einen AIO-Flight-
  []
 
-<./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg, id=277, 2007.5pt x 1003.75pt>
+<./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg, id=289, 2007.5pt x 1003.75pt>
 File: ./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg Graphic file (type jpg)
 <use ./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg>
 Package pdftex.def Info: ./images/SpeedyBee_F405_Mini_BLS_35A_front.jpg  used o
 n input line 285.
 (pdftex.def)             Requested size: 418.25368pt x 209.12428pt.
-<./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg, id=278, 2007.5pt x 1003.75pt>
+<./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg, id=290, 2007.5pt x 1003.75pt>
 File: ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg Graphic file (type jpg)
 <use ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg>
 Package pdftex.def Info: ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg  used on
@@ -1489,7 +1489,7 @@ Package pdftex.def Info: ./images/SpeedyBee_F405_Mini_BLS_35A_back.jpg  used on
 [5 <./images/SpeedyBee_F405_AIO_40A_Bluejay_vorderseite_crop.jpg> <./images/Spe
 edyBee_F405_AIO_40A_Bluejay_rueckseite_crop.jpg>] [6 <./images/SpeedyBee_F405_M
 ini_BLS_35A_front.jpg>]
-<./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_front.jpg, id=303, 1003.75pt x 1003.7
+<./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_front.jpg, id=315, 1003.75pt x 1003.7
 5pt>
 File: ./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_front.jpg Graphic file (type jpg
 )
@@ -1497,7 +1497,7 @@ File: ./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_front.jpg Graphic file (type jpg
 Package pdftex.def Info: ./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_front.jpg  us
 ed on input line 327.
 (pdftex.def)             Requested size: 200.75996pt x 200.76175pt.
-<./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_back.jpg, id=304, 1003.75pt x 1003.75
+<./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_back.jpg, id=316, 1003.75pt x 1003.75
 pt>
 File: ./images/FLYWOO_GOKU_GN745_45A_AIO_V3_FC_back.jpg Graphic file (type jpg)
 
@@ -1542,7 +1542,7 @@ Underfull \hbox (badness 1259) in paragraph at lines 666--667
 []\T1/lmr/m/n/10 (+20) Ein 1500 mAh LiPo-Akku (sie-he Ab-bil-
  []
 
-<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg, id=370, 3468.96pt x 2312.64
+<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg, id=382, 3468.96pt x 2312.64
 pt>
 File: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg Graphic file (type jpg)
 
@@ -1550,7 +1550,7 @@ File: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_front.jpg  use
 d on input line 674.
 (pdftex.def)             Requested size: 200.75996pt x 133.81209pt.
-<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg, id=371, 3468.96pt x 2312.64p
+<./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg, id=383, 3468.96pt x 2312.64p
 t>
 File: ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg Graphic file (type jpg)
 <use ./images/CNHL_1500mAh_100C_4S_XT60_Lipo_back.jpg>
@@ -1568,13 +1568,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
 [15] [16]
-<./images/HGLRS_GPS_M100_PRO_front.jpg, id=410, 702.625pt x 702.625pt>
+<./images/HGLRS_GPS_M100_PRO_front.jpg, id=422, 702.625pt x 702.625pt>
 File: ./images/HGLRS_GPS_M100_PRO_front.jpg Graphic file (type jpg)
 <use ./images/HGLRS_GPS_M100_PRO_front.jpg>
 Package pdftex.def Info: ./images/HGLRS_GPS_M100_PRO_front.jpg  used on input l
 ine 855.
 (pdftex.def)             Requested size: 200.75996pt x 200.75409pt.
-<./images/HGLRS_GPS_M100_PRO_back.jpg, id=411, 752.8125pt x 752.8125pt>
+<./images/HGLRS_GPS_M100_PRO_back.jpg, id=423, 752.8125pt x 752.8125pt>
 File: ./images/HGLRS_GPS_M100_PRO_back.jpg Graphic file (type jpg)
 <use ./images/HGLRS_GPS_M100_PRO_back.jpg>
 Package pdftex.def Info: ./images/HGLRS_GPS_M100_PRO_back.jpg  used on input li
@@ -1582,28 +1582,28 @@ ne 860.
 (pdftex.def)             Requested size: 200.75996pt x 200.75792pt.
  [17 <./images/HGLRS_GPS_M100_PRO_front.jpg> <./images/HGLRS_GPS_M100_PRO_back.
 jpg>]
-<./images/RadioMaster_RP2_Receiver_ELRS_front.jpg, id=422, 352.31625pt x 439.64
+<./images/RadioMaster_RP2_Receiver_ELRS_front.jpg, id=434, 352.31625pt x 439.64
 25pt>
 File: ./images/RadioMaster_RP2_Receiver_ELRS_front.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP2_Receiver_ELRS_front.jpg>
 Package pdftex.def Info: ./images/RadioMaster_RP2_Receiver_ELRS_front.jpg  used
  on input line 908.
 (pdftex.def)             Requested size: 100.37997pt x 125.25916pt.
-<./images/RadioMaster_RP2_Receiver_ELRS_back.jpg, id=423, 351.3125pt x 439.6425
+<./images/RadioMaster_RP2_Receiver_ELRS_back.jpg, id=435, 351.3125pt x 439.6425
 pt>
 File: ./images/RadioMaster_RP2_Receiver_ELRS_back.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP2_Receiver_ELRS_back.jpg>
 Package pdftex.def Info: ./images/RadioMaster_RP2_Receiver_ELRS_back.jpg  used 
 on input line 913.
 (pdftex.def)             Requested size: 100.37997pt x 125.6147pt.
-<./images/RadioMaster_RP1_Receiver_ELRS_front.jpg, id=424, 351.3125pt x 439.642
+<./images/RadioMaster_RP1_Receiver_ELRS_front.jpg, id=436, 351.3125pt x 439.642
 5pt>
 File: ./images/RadioMaster_RP1_Receiver_ELRS_front.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP1_Receiver_ELRS_front.jpg>
 Package pdftex.def Info: ./images/RadioMaster_RP1_Receiver_ELRS_front.jpg  used
  on input line 924.
 (pdftex.def)             Requested size: 100.37997pt x 125.6147pt.
-<./images/RadioMaster_RP1_Receiver_ELRS_back.jpg, id=425, 351.3125pt x 439.6425
+<./images/RadioMaster_RP1_Receiver_ELRS_back.jpg, id=437, 351.3125pt x 439.6425
 pt>
 File: ./images/RadioMaster_RP1_Receiver_ELRS_back.jpg Graphic file (type jpg)
 <use ./images/RadioMaster_RP1_Receiver_ELRS_back.jpg>
@@ -1612,7 +1612,7 @@ on input line 929.
 (pdftex.def)             Requested size: 100.37997pt x 125.6147pt.
  [18 <./images/RadioMaster_RP2_Receiver_ELRS_front.jpg> <./images/RadioMaster_R
 P2_Receiver_ELRS_back.jpg>]
-<./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg, id=437, 853.1875pt x 85
+<./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg, id=449, 853.1875pt x 85
 3.1875pt>
 File: ./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg Graphic file (type 
 jpg)
@@ -1620,7 +1620,7 @@ jpg)
 Package pdftex.def Info: ./images/SpeedyBee_TX800_FPV_VTX_vorderseite_crop.jpg 
  used on input line 974.
 (pdftex.def)             Requested size: 200.75996pt x 200.75946pt.
-<./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg, id=438, 853.1875pt x 853
+<./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg, id=450, 853.1875pt x 853
 .1875pt>
 File: ./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg Graphic file (type j
 pg)
@@ -1641,7 +1641,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1023--1024
 [19 <./images/RadioMaster_RP1_Receiver_ELRS_front.jpg> <./images/RadioMaster_RP
 1_Receiver_ELRS_back.jpg>] [20 <./images/SpeedyBee_TX800_FPV_VTX_vorderseite_cr
 op.jpg> <./images/SpeedyBee_TX800_FPV_VTX_rueckseite_crop.jpg>] [21]
-<./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_top.jpg, id=465, 552.0625pt x 552.
+<./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_top.jpg, id=477, 552.0625pt x 552.
 0625pt>
 File: ./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_top.jpg Graphic file (type jp
 g)
@@ -1649,7 +1649,7 @@ g)
 Package pdftex.def Info: ./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_top.jpg  u
 sed on input line 1158.
 (pdftex.def)             Requested size: 100.37997pt x 100.3778pt.
-<./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_back.jpg, id=466, 552.0625pt x 552
+<./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_back.jpg, id=478, 552.0625pt x 552
 .0625pt>
 File: ./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_back.jpg Graphic file (type j
 pg)
@@ -1657,7 +1657,7 @@ pg)
 Package pdftex.def Info: ./images/Caddx_ANT_Nano_1200TVL_14mm_165FOV_back.jpg  
 used on input line 1163.
 (pdftex.def)             Requested size: 100.37997pt x 100.3778pt.
-<./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_top.jpg, id=467, 752.8125pt x 75
+<./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_top.jpg, id=479, 752.8125pt x 75
 2.8125pt>
 File: ./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_top.jpg Graphic file (type 
 jpg)
@@ -1665,7 +1665,7 @@ jpg)
 Package pdftex.def Info: ./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_top.jpg 
  used on input line 1174.
 (pdftex.def)             Requested size: 100.37997pt x 100.37321pt.
-<./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_back.jpg, id=468, 752.8125pt x 7
+<./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_back.jpg, id=480, 752.8125pt x 7
 52.8125pt>
 File: ./images/RunCam_Phoenix_2_1000TVL_19mm_155FOV_back.jpg Graphic file (type
  jpg)
@@ -1734,7 +1734,7 @@ Underfull \hbox (badness 2126) in paragraph at lines 89--90
 
 [26]
 <./images/Betaflight_4_5_3_installation_update_backup_firmware_screenshot_app.p
-ng, id=510, 878.21773pt x 490.89056pt>
+ng, id=522, 878.21773pt x 490.89056pt>
 File: ./images/Betaflight_4_5_3_installation_update_backup_firmware_screenshot_
 app.png Graphic file (type png)
 <use ./images/Betaflight_4_5_3_installation_update_backup_firmware_screenshot_a
@@ -1742,7 +1742,7 @@ pp.png>
 Package pdftex.def Info: ./images/Betaflight_4_5_3_installation_update_backup_f
 irmware_screenshot_app.png  used on input line 99.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
-<./images/Betaflight_4_5_3_hauptseite_firmware_screenshot_app.png, id=512, 878.
+<./images/Betaflight_4_5_3_hauptseite_firmware_screenshot_app.png, id=524, 878.
 21773pt x 490.89056pt>
 File: ./images/Betaflight_4_5_3_hauptseite_firmware_screenshot_app.png Graphic 
 file (type png)
@@ -1752,7 +1752,7 @@ ot_app.png  used on input line 106.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
  [27 <./images/Betaflight_4_5_3_installation_update_backup_firmware_screenshot_
 app.png> <./images/Betaflight_4_5_3_hauptseite_firmware_screenshot_app.png>]
-<./images/Betaflight_4_5_3_ports_firmware_screenshot_app.png, id=526, 878.21773
+<./images/Betaflight_4_5_3_ports_firmware_screenshot_app.png, id=539, 878.21773
 pt x 490.89056pt>
 File: ./images/Betaflight_4_5_3_ports_firmware_screenshot_app.png Graphic file 
 (type png)
@@ -1760,7 +1760,7 @@ File: ./images/Betaflight_4_5_3_ports_firmware_screenshot_app.png Graphic file
 Package pdftex.def Info: ./images/Betaflight_4_5_3_ports_firmware_screenshot_ap
 p.png  used on input line 131.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
-<./images/Betaflight_4_5_3_configuration1_firmware_screenshot_app.png, id=531, 
+<./images/Betaflight_4_5_3_configuration1_firmware_screenshot_app.png, id=544, 
 878.21773pt x 490.89056pt>
 File: ./images/Betaflight_4_5_3_configuration1_firmware_screenshot_app.png Grap
 hic file (type png)
@@ -1772,7 +1772,7 @@ enshot_app.png  used on input line 148.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28 <./images/Betaflight_4_5_3_ports_firmware_screenshot_app.png>]
-<./images/Betaflight_4_5_3_configuration2_firmware_screenshot_app.png, id=543, 
+<./images/Betaflight_4_5_3_configuration2_firmware_screenshot_app.png, id=555, 
 878.21773pt x 490.89056pt>
 File: ./images/Betaflight_4_5_3_configuration2_firmware_screenshot_app.png Grap
 hic file (type png)
@@ -1782,7 +1782,7 @@ enshot_app.png  used on input line 165.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
  [29 <./images/Betaflight_4_5_3_configuration1_firmware_screenshot_app.png>] [3
 0 <./images/Betaflight_4_5_3_configuration2_firmware_screenshot_app.png>]
-<./images/Betaflight_4_5_3_receiver_firmware_screenshot_app.png, id=558, 878.21
+<./images/Betaflight_4_5_3_receiver_firmware_screenshot_app.png, id=570, 878.21
 773pt x 490.89056pt>
 File: ./images/Betaflight_4_5_3_receiver_firmware_screenshot_app.png Graphic fi
 le (type png)
@@ -1790,7 +1790,7 @@ le (type png)
 Package pdftex.def Info: ./images/Betaflight_4_5_3_receiver_firmware_screenshot
 _app.png  used on input line 222.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
-<./images/Betaflight_4_5_3_modes_firmware_screenshot_app.png, id=561, 878.21773
+<./images/Betaflight_4_5_3_modes_firmware_screenshot_app.png, id=573, 878.21773
 pt x 490.89056pt>
 File: ./images/Betaflight_4_5_3_modes_firmware_screenshot_app.png Graphic file 
 (type png)
@@ -1800,7 +1800,7 @@ p.png  used on input line 239.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
  [31 <./images/Betaflight_4_5_3_receiver_firmware_screenshot_app.png>] [32 <./i
 mages/Betaflight_4_5_3_modes_firmware_screenshot_app.png>]
-<./images/Betaflight_4_5_3_motos_firmware_screenshot_app.png, id=577, 878.21773
+<./images/Betaflight_4_5_3_motos_firmware_screenshot_app.png, id=589, 878.21773
 pt x 490.89056pt>
 File: ./images/Betaflight_4_5_3_motos_firmware_screenshot_app.png Graphic file 
 (type png)
@@ -1809,15 +1809,15 @@ Package pdftex.def Info: ./images/Betaflight_4_5_3_motos_firmware_screenshot_ap
 p.png  used on input line 288.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
  [33 <./images/Betaflight_4_5_3_motos_firmware_screenshot_app.png>]
-<./images/Betaflight_4_5_3_video_transmitter_firmware_screenshot_app.png, id=58
-8, 1445.4pt x 813.0375pt>
+<./images/Betaflight_4_5_3_video_transmitter_firmware_screenshot_app.png, id=60
+0, 1445.4pt x 813.0375pt>
 File: ./images/Betaflight_4_5_3_video_transmitter_firmware_screenshot_app.png G
 raphic file (type png)
 <use ./images/Betaflight_4_5_3_video_transmitter_firmware_screenshot_app.png>
 Package pdftex.def Info: ./images/Betaflight_4_5_3_video_transmitter_firmware_s
 creenshot_app.png  used on input line 321.
 (pdftex.def)             Requested size: 418.25368pt x 235.26619pt.
-<./images/Betaflight_4_5_3_sensors_firmware_screenshot_app.png, id=591, 878.217
+<./images/Betaflight_4_5_3_sensors_firmware_screenshot_app.png, id=603, 878.217
 73pt x 490.89056pt>
 File: ./images/Betaflight_4_5_3_sensors_firmware_screenshot_app.png Graphic fil
 e (type png)
@@ -1826,7 +1826,7 @@ Package pdftex.def Info: ./images/Betaflight_4_5_3_sensors_firmware_screenshot_
 app.png  used on input line 338.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
  [34 <./images/Betaflight_4_5_3_video_transmitter_firmware_screenshot_app.png>]
-<./images/Betaflight_4_5_3_blackbox_firmware_screenshot_app.png, id=601, 878.21
+<./images/Betaflight_4_5_3_blackbox_firmware_screenshot_app.png, id=613, 878.21
 773pt x 490.89056pt>
 File: ./images/Betaflight_4_5_3_blackbox_firmware_screenshot_app.png Graphic fi
 le (type png)
@@ -1835,7 +1835,7 @@ Package pdftex.def Info: ./images/Betaflight_4_5_3_blackbox_firmware_screenshot
 _app.png  used on input line 363.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
  [35 <./images/Betaflight_4_5_3_sensors_firmware_screenshot_app.png>]
-<./images/Betaflight_4_5_3_cli_firmware_screenshot_app.png, id=611, 878.21773pt
+<./images/Betaflight_4_5_3_cli_firmware_screenshot_app.png, id=623, 878.21773pt
  x 490.89056pt>
 File: ./images/Betaflight_4_5_3_cli_firmware_screenshot_app.png Graphic file (t
 ype png)
@@ -1845,7 +1845,7 @@ png  used on input line 380.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
  [36 <./images/Betaflight_4_5_3_blackbox_firmware_screenshot_app.png> <./images
 /Betaflight_4_5_3_cli_firmware_screenshot_app.png>]
-<./images/INAV_Firmware_Flasher.png, id=621, 1927.2pt x 1051.93pt>
+<./images/INAV_Firmware_Flasher.png, id=633, 1927.2pt x 1051.93pt>
 File: ./images/INAV_Firmware_Flasher.png Graphic file (type png)
 <use ./images/INAV_Firmware_Flasher.png>
 Package pdftex.def Info: ./images/INAV_Firmware_Flasher.png  used on input line
@@ -1860,14 +1860,14 @@ Underfull \hbox (badness 1264) in paragraph at lines 586--587
 \T1/lmr/m/n/10 (+20) Among other things, the \T1/lmr/m/sl/10 (+20) Pre-arming
  []
 
-<./images/INAV_Calibration_Tab.png, id=655, 1927.2pt x 1084.05pt>
+<./images/INAV_Calibration_Tab.png, id=668, 1927.2pt x 1084.05pt>
 File: ./images/INAV_Calibration_Tab.png Graphic file (type png)
 <use ./images/INAV_Calibration_Tab.png>
 Package pdftex.def Info: ./images/INAV_Calibration_Tab.png  used on input line 
 615.
 (pdftex.def)             Requested size: 418.25368pt x 235.26619pt.
 [40 <./images/INAV_Calibration_Tab.png>] [41]
-<./images/INAV_Failsafe_Tab.png, id=686, 1927.2pt x 1051.93pt>
+<./images/INAV_Failsafe_Tab.png, id=698, 1927.2pt x 1051.93pt>
 File: ./images/INAV_Failsafe_Tab.png Graphic file (type png)
 <use ./images/INAV_Failsafe_Tab.png>
 Package pdftex.def Info: ./images/INAV_Failsafe_Tab.png  used on input line 705
@@ -1885,7 +1885,7 @@ Underfull \hbox (badness 2197) in paragraph at lines 721--722
  []
 
 [42 <./images/INAV_Failsafe_Tab.png>]
-<./images/INAV_OSD_Tab.png, id=703, 1927.2pt x 1051.93pt>
+<./images/INAV_OSD_Tab.png, id=715, 1927.2pt x 1051.93pt>
 File: ./images/INAV_OSD_Tab.png Graphic file (type png)
 <use ./images/INAV_OSD_Tab.png>
 Package pdftex.def Info: ./images/INAV_OSD_Tab.png  used on input line 773.
@@ -1916,21 +1916,21 @@ Underfull \hbox (badness 5681) in paragraph at lines 825--826
 \T1/lmr/m/n/10 (+20) wird emp-foh-len, um Kom-pa-ti-bi-li-tät und
  []
 
-<./images/STM32CubeProgrammerConnect.png, id=715, 1445.4pt x 818.05624pt>
+<./images/STM32CubeProgrammerConnect.png, id=727, 1445.4pt x 818.05624pt>
 File: ./images/STM32CubeProgrammerConnect.png Graphic file (type png)
 <use ./images/STM32CubeProgrammerConnect.png>
 Package pdftex.def Info: ./images/STM32CubeProgrammerConnect.png  used on input
  line 831.
 (pdftex.def)             Requested size: 418.25368pt x 236.71844pt.
 [44]
-<./images/STM32CubeProgrammerFullChipErase.png, id=726, 1445.4pt x 818.05624pt>
+<./images/STM32CubeProgrammerFullChipErase.png, id=738, 1445.4pt x 818.05624pt>
 
 File: ./images/STM32CubeProgrammerFullChipErase.png Graphic file (type png)
 <use ./images/STM32CubeProgrammerFullChipErase.png>
 Package pdftex.def Info: ./images/STM32CubeProgrammerFullChipErase.png  used on
  input line 848.
 (pdftex.def)             Requested size: 418.25368pt x 236.71844pt.
-<./images/STM32CubeProgrammerFirmwareFlashing.png, id=727, 1445.4pt x 818.05624
+<./images/STM32CubeProgrammerFirmwareFlashing.png, id=739, 1445.4pt x 818.05624
 pt>
 File: ./images/STM32CubeProgrammerFirmwareFlashing.png Graphic file (type png)
 <use ./images/STM32CubeProgrammerFirmwareFlashing.png>
@@ -1939,7 +1939,7 @@ Package pdftex.def Info: ./images/STM32CubeProgrammerFirmwareFlashing.png  used
 (pdftex.def)             Requested size: 418.25368pt x 236.71844pt.
  [45 <./images/STM32CubeProgrammerConnect.png>] [46 <./images/STM32CubeProgramm
 erFullChipErase.png> <./images/STM32CubeProgrammerFirmwareFlashing.png>]
-<./images/Mission_Planneer_1.3.83_connect_screenshot.png, id=748, 1154.51324pt 
+<./images/Mission_Planneer_1.3.83_connect_screenshot.png, id=760, 1154.51324pt 
 x 612.48825pt>
 File: ./images/Mission_Planneer_1.3.83_connect_screenshot.png Graphic file (typ
 e png)
@@ -1952,7 +1952,7 @@ Underfull \hbox (badness 1077) in paragraph at lines 891--892
 \T1/lmr/m/n/10 (+20) for the com-mu-ni-ca-tion port, as shown in
  []
 
-<./images/Mission_Planneer_1.3.83_frame_setup_screenshot.png, id=751, 1444.6471
+<./images/Mission_Planneer_1.3.83_frame_setup_screenshot.png, id=763, 1444.6471
 9pt x 777.65532pt>
 File: ./images/Mission_Planneer_1.3.83_frame_setup_screenshot.png Graphic file 
 (type png)
@@ -1961,7 +1961,7 @@ Package pdftex.def Info: ./images/Mission_Planneer_1.3.83_frame_setup_screensho
 t.png  used on input line 901.
 (pdftex.def)             Requested size: 418.25368pt x 225.14642pt.
 [47 <./images/Mission_Planneer_1.3.83_connect_screenshot.png>]
-<./images/Mission_Planneer_1.3.83_board_orientation_screenshot.png, id=761, 115
+<./images/Mission_Planneer_1.3.83_board_orientation_screenshot.png, id=773, 115
 5.1155pt x 611.886pt>
 File: ./images/Mission_Planneer_1.3.83_board_orientation_screenshot.png Graphic
  file (type png)
@@ -1971,7 +1971,7 @@ eenshot.png  used on input line 925.
 (pdftex.def)             Requested size: 418.25368pt x 221.55789pt.
  [48 <./images/Mission_Planneer_1.3.83_frame_setup_screenshot.png> <./images/Mi
 ssion_Planneer_1.3.83_board_orientation_screenshot.png>]
-<./images/Mission_Planneer_1.3.83_Serial_Ports_screenshot.png, id=772, 1015.544
+<./images/Mission_Planneer_1.3.83_Serial_Ports_screenshot.png, id=784, 1015.544
 07pt x 428.35031pt>
 File: ./images/Mission_Planneer_1.3.83_Serial_Ports_screenshot.png Graphic file
  (type png)
@@ -1981,7 +1981,7 @@ ot.png  used on input line 957.
 (pdftex.def)             Requested size: 418.25368pt x 176.41562pt.
  [49 <./images/Mission_Planneer_1.3.83_Serial_Ports_screenshot.png>]
 <./images/Mission_Planneer_1.3.83_board_accelerometer_calibration_screenshot.pn
-g, id=783, 1444.64719pt x 438.13687pt>
+g, id=796, 1444.64719pt x 438.13687pt>
 File: ./images/Mission_Planneer_1.3.83_board_accelerometer_calibration_screensh
 ot.png Graphic file (type png)
 <use ./images/Mission_Planneer_1.3.83_board_accelerometer_calibration_screensho
@@ -1990,7 +1990,7 @@ Package pdftex.def Info: ./images/Mission_Planneer_1.3.83_board_accelerometer_c
 alibration_screenshot.png  used on input line 975.
 (pdftex.def)             Requested size: 418.25368pt x 126.84918pt.
 <./images/Mission_Planneer_1.3.83_board_compass_calibration_screenshot.png, id=
-786, 823.57687pt x 397.485pt>
+799, 823.57687pt x 397.485pt>
 File: ./images/Mission_Planneer_1.3.83_board_compass_calibration_screenshot.png
  Graphic file (type png)
 <use ./images/Mission_Planneer_1.3.83_board_compass_calibration_screenshot.png>
@@ -2000,7 +2000,7 @@ tion_screenshot.png  used on input line 1000.
 (pdftex.def)             Requested size: 418.25368pt x 201.86554pt.
  [50 <./images/Mission_Planneer_1.3.83_board_accelerometer_calibration_screensh
 ot.png>]
-<./images/Mission_Planneer_1.3.83_Radio_Calibration_screenshot.png, id=795, 101
+<./images/Mission_Planneer_1.3.83_Radio_Calibration_screenshot.png, id=808, 101
 7.04968pt x 468.24937pt>
 File: ./images/Mission_Planneer_1.3.83_Radio_Calibration_screenshot.png Graphic
  file (type png)
@@ -2011,7 +2011,7 @@ eenshot.png  used on input line 1041.
  [51 <./images/Mission_Planneer_1.3.83_board_compass_calibration_screenshot.png
 >]
 <./images/Mission_Planneer_1.3.83_Motor_Test_with_Direction_Reference_screensho
-t.png, id=806, 1016.29688pt x 563.85657pt>
+t.png, id=818, 1016.29688pt x 563.85657pt>
 File: ./images/Mission_Planneer_1.3.83_Motor_Test_with_Direction_Reference_scre
 enshot.png Graphic file (type png)
 <use ./images/Mission_Planneer_1.3.83_Motor_Test_with_Direction_Reference_scree
@@ -2019,7 +2019,7 @@ nshot.png>
 Package pdftex.def Info: ./images/Mission_Planneer_1.3.83_Motor_Test_with_Direc
 tion_Reference_screenshot.png  used on input line 1058.
 (pdftex.def)             Requested size: 418.25368pt x 232.05167pt.
-<./images/Mission_Planneer_1.3.83_Servo_Output_screenshot.png, id=807, 1015.544
+<./images/Mission_Planneer_1.3.83_Servo_Output_screenshot.png, id=819, 1015.544
 07pt x 447.92343pt>
 File: ./images/Mission_Planneer_1.3.83_Servo_Output_screenshot.png Graphic file
  (type png)
@@ -2035,7 +2035,7 @@ Underfull \hbox (badness 5388) in paragraph at lines 1075--1076
 er / docs /
  []
 
-<./images/Mission_Planneer_1.3.83_ESC_Calibration_screenshot.png, id=820, 1444.
+<./images/Mission_Planneer_1.3.83_ESC_Calibration_screenshot.png, id=832, 1444.
 64719pt x 428.35031pt>
 File: ./images/Mission_Planneer_1.3.83_ESC_Calibration_screenshot.png Graphic f
 ile (type png)
@@ -2079,7 +2079,7 @@ Underfull \hbox (badness 1342) in paragraph at lines 1092--1093
  []
 
 [53 <./images/Mission_Planneer_1.3.83_Servo_Output_screenshot.png>]
-<./images/Mission_Planneer_1.3.83_Flight_modes_screenshot.png, id=832, 1444.647
+<./images/Mission_Planneer_1.3.83_Flight_modes_screenshot.png, id=844, 1444.647
 19pt x 426.84468pt>
 File: ./images/Mission_Planneer_1.3.83_Flight_modes_screenshot.png Graphic file
  (type png)
@@ -2089,7 +2089,7 @@ ot.png  used on input line 1098.
 (pdftex.def)             Requested size: 418.25368pt x 123.57988pt.
  [54 <./images/Mission_Planneer_1.3.83_ESC_Calibration_screenshot.png> <./image
 s/Mission_Planneer_1.3.83_Flight_modes_screenshot.png>]
-<./images/Mission_Planneer_1.3.83_failsafe_screenshot.png, id=843, 1142.46825pt
+<./images/Mission_Planneer_1.3.83_failsafe_screenshot.png, id=855, 1142.46825pt
  x 501.072pt>
 File: ./images/Mission_Planneer_1.3.83_failsafe_screenshot.png Graphic file (ty
 pe png)
@@ -2097,7 +2097,7 @@ pe png)
 Package pdftex.def Info: ./images/Mission_Planneer_1.3.83_failsafe_screenshot.p
 ng  used on input line 1115.
 (pdftex.def)             Requested size: 418.25368pt x 183.44408pt.
-<./images/Mission_Planneer_1.3.83_Initial_Tupe_Param_screenshot.png, id=846, 11
+<./images/Mission_Planneer_1.3.83_Initial_Tupe_Param_screenshot.png, id=858, 11
 55.1155pt x 603.4545pt>
 File: ./images/Mission_Planneer_1.3.83_Initial_Tupe_Param_screenshot.png Graphi
 c file (type png)
@@ -2106,7 +2106,7 @@ Package pdftex.def Info: ./images/Mission_Planneer_1.3.83_Initial_Tupe_Param_sc
 reenshot.png  used on input line 1131.
 (pdftex.def)             Requested size: 418.25368pt x 218.50494pt.
  [55 <./images/Mission_Planneer_1.3.83_failsafe_screenshot.png>]
-<./images/Mission_Planneer_1.3.83_OSD_Settings_screenshot.png, id=858, 1444.647
+<./images/Mission_Planneer_1.3.83_OSD_Settings_screenshot.png, id=870, 1444.647
 19pt x 773.13844pt>
 File: ./images/Mission_Planneer_1.3.83_OSD_Settings_screenshot.png Graphic file
  (type png)
@@ -2116,13 +2116,13 @@ ot.png  used on input line 1156.
 (pdftex.def)             Requested size: 418.25368pt x 223.8387pt.
  [56 <./images/Mission_Planneer_1.3.83_Initial_Tupe_Param_screenshot.png>] [57 
 <./images/Mission_Planneer_1.3.83_OSD_Settings_screenshot.png>]
-<./images/edgetx_installation_1.png, id=882, 878.21773pt x 490.89056pt>
+<./images/edgetx_installation_1.png, id=894, 878.21773pt x 490.89056pt>
 File: ./images/edgetx_installation_1.png Graphic file (type png)
 <use ./images/edgetx_installation_1.png>
 Package pdftex.def Info: ./images/edgetx_installation_1.png  used on input line
  1213.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
-<./images/edgetx_installation_2.png, id=883, 878.21773pt x 490.89056pt>
+<./images/edgetx_installation_2.png, id=895, 878.21773pt x 490.89056pt>
 File: ./images/edgetx_installation_2.png Graphic file (type png)
 <use ./images/edgetx_installation_2.png>
 Package pdftex.def Info: ./images/edgetx_installation_2.png  used on input line
@@ -2135,13 +2135,13 @@ Underfull \vbox (badness 1383) has occurred while \output is active []
 Underfull \vbox (badness 1383) has occurred while \output is active []
 
  [58 <./images/edgetx_installation_1.png> <./images/edgetx_installation_2.png>]
-<./images/edgetx_installation_3.png, id=898, 878.21773pt x 490.89056pt>
+<./images/edgetx_installation_3.png, id=910, 878.21773pt x 490.89056pt>
 File: ./images/edgetx_installation_3.png Graphic file (type png)
 <use ./images/edgetx_installation_3.png>
 Package pdftex.def Info: ./images/edgetx_installation_3.png  used on input line
  1245.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
-<./images/edgetx_installation_4.png, id=899, 878.21773pt x 490.89056pt>
+<./images/edgetx_installation_4.png, id=911, 878.21773pt x 490.89056pt>
 File: ./images/edgetx_installation_4.png Graphic file (type png)
 <use ./images/edgetx_installation_4.png>
 Package pdftex.def Info: ./images/edgetx_installation_4.png  used on input line
@@ -2150,7 +2150,7 @@ Package pdftex.def Info: ./images/edgetx_installation_4.png  used on input line
 
 
 [59 <./images/edgetx_installation_3.png> <./images/edgetx_installation_4.png>]
-<./images/ExpressLRS_Installation_1.png, id=910, 878.21773pt x 490.89056pt>
+<./images/ExpressLRS_Installation_1.png, id=922, 878.21773pt x 490.89056pt>
 File: ./images/ExpressLRS_Installation_1.png Graphic file (type png)
 <use ./images/ExpressLRS_Installation_1.png>
 Package pdftex.def Info: ./images/ExpressLRS_Installation_1.png  used on input 
@@ -2166,13 +2166,13 @@ Underfull \hbox (badness 1087) in paragraph at lines 1305--1306
 \T1/lmr/m/n/10 (+20) die-se Op-ti-on wird an die-ser Stel-le je-doch
  []
 
-<./images/ExpressLRS_Installation_2.png, id=921, 878.21773pt x 490.89056pt>
+<./images/ExpressLRS_Installation_2.png, id=933, 878.21773pt x 490.89056pt>
 File: ./images/ExpressLRS_Installation_2.png Graphic file (type png)
 <use ./images/ExpressLRS_Installation_2.png>
 Package pdftex.def Info: ./images/ExpressLRS_Installation_2.png  used on input 
 line 1311.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
-<./images/ExpressLRS_Installation_3.png, id=922, 878.21773pt x 490.89056pt>
+<./images/ExpressLRS_Installation_3.png, id=934, 878.21773pt x 490.89056pt>
 File: ./images/ExpressLRS_Installation_3.png Graphic file (type png)
 <use ./images/ExpressLRS_Installation_3.png>
 Package pdftex.def Info: ./images/ExpressLRS_Installation_3.png  used on input 
@@ -2193,20 +2193,20 @@ Underfull \hbox (badness 2941) in paragraph at lines 1337--1338
 \T1/lmr/m/n/10 (+20) keit hier-zu ist die In-stal-la-ti-on über das
  []
 
-<./images/ExpressLRS_Installation_4.png, id=927, 878.21773pt x 490.89056pt>
+<./images/ExpressLRS_Installation_4.png, id=939, 878.21773pt x 490.89056pt>
 File: ./images/ExpressLRS_Installation_4.png Graphic file (type png)
 <use ./images/ExpressLRS_Installation_4.png>
 Package pdftex.def Info: ./images/ExpressLRS_Installation_4.png  used on input 
 line 1343.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
 [61 <./images/ExpressLRS_Installation_2.png>]
-<./images/ExpressLRS_Installation_RX_1.png, id=940, 878.21773pt x 490.89056pt>
+<./images/ExpressLRS_Installation_RX_1.png, id=953, 878.21773pt x 490.89056pt>
 File: ./images/ExpressLRS_Installation_RX_1.png Graphic file (type png)
 <use ./images/ExpressLRS_Installation_RX_1.png>
 Package pdftex.def Info: ./images/ExpressLRS_Installation_RX_1.png  used on inp
 ut line 1360.
 (pdftex.def)             Requested size: 418.25368pt x 233.78964pt.
-<./images/ExpressLRS_Installation_RX_2.png, id=941, 878.21773pt x 490.89056pt>
+<./images/ExpressLRS_Installation_RX_2.png, id=954, 878.21773pt x 490.89056pt>
 File: ./images/ExpressLRS_Installation_RX_2.png Graphic file (type png)
 <use ./images/ExpressLRS_Installation_RX_2.png>
 Package pdftex.def Info: ./images/ExpressLRS_Installation_RX_2.png  used on inp
@@ -2221,7 +2221,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [63 <./images/ExpressLRS_Installation_RX_1.png> <./images/ExpressLRS_Installat
 ion_RX_2.png>]
-<./images/ExpressLRS_Installation_RX_3.png, id=960, 878.21773pt x 490.89056pt>
+<./images/ExpressLRS_Installation_RX_3.png, id=972, 878.21773pt x 490.89056pt>
 File: ./images/ExpressLRS_Installation_RX_3.png Graphic file (type png)
 <use ./images/ExpressLRS_Installation_RX_3.png>
 Package pdftex.def Info: ./images/ExpressLRS_Installation_RX_3.png  used on inp
@@ -2257,14 +2257,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
 
 ]
-<./images/LiIo-Akku-laden.png, id=980, 1647.15375pt x 1326.9575pt>
+<./images/LiIo-Akku-laden.png, id=992, 1647.15375pt x 1326.9575pt>
 File: ./images/LiIo-Akku-laden.png Graphic file (type png)
 <use ./images/LiIo-Akku-laden.png>
 Package pdftex.def Info: ./images/LiIo-Akku-laden.png  used on input line 82.
 (pdftex.def)             Requested size: 418.25368pt x 336.94221pt.
  [66]
-<./images/LiPo_Akku_Schaden_durch_Propeller_crop.png, id=995, 274.1442pt x 104.
-7915pt>
+<./images/LiPo_Akku_Schaden_durch_Propeller_crop.png, id=1007, 274.1442pt x 104
+.7915pt>
 File: ./images/LiPo_Akku_Schaden_durch_Propeller_crop.png Graphic file (type pn
 g)
 <use ./images/LiPo_Akku_Schaden_durch_Propeller_crop.png>
@@ -2275,36 +2275,36 @@ sed on input line 102.
 
 [68 <./images/LiPo_Akku_Schaden_durch_Propeller_crop.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 189.
+(Font)              <9> on input line 188.
  [69]
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
 []\T1/lmr/m/n/10 (+20) Der Sen-der ver-fügt über ei-ne USB-
  []
 
 
-Underfull \hbox (badness 5431) in paragraph at lines 336--337
+Underfull \hbox (badness 5431) in paragraph at lines 335--336
 \T1/lmr/m/n/10 (+20) Schnittstelle und soll-te als Ein-ga-be-ge-rät
  []
 
 
-Underfull \hbox (badness 2409) in paragraph at lines 336--337
+Underfull \hbox (badness 2409) in paragraph at lines 335--336
 \T1/lmr/m/n/10 (+20) muss \T1/lmr/m/sl/10 (+20) Joy-stick \T1/lmr/m/n/10 (+20) 
 aus-ge-wählt wer-den. Es ist
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 336--337
+Underfull \hbox (badness 2181) in paragraph at lines 335--336
 \T1/lmr/m/n/10 (+20) an-zu-le-gen, bei-spiels-wei-se mit dem Na-men
  []
 
 
-Underfull \hbox (badness 1789) in paragraph at lines 336--337
+Underfull \hbox (badness 1789) in paragraph at lines 335--336
 \T1/lmr/m/sl/10 (+20) Si-mu-la-tor\T1/lmr/m/n/10 (+20) . Die-ses Mo-dell soll-t
 e über kein
  []
 
 
-Underfull \hbox (badness 1043) in paragraph at lines 336--337
+Underfull \hbox (badness 1043) in paragraph at lines 335--336
 \T1/lmr/m/n/10 (+20) ak-ti-ves in-ter-nes oder ex-ter-nes Sen-de-mo-dul
  []
 
@@ -2347,13 +2347,13 @@ Underfull \hbox (badness 1325) in paragraph at lines 98--99
 []\T1/lmr/m/n/10 (+20) Im Ver-gleich zu den et-wa scheck-kar-ten-
  []
 
-<./images/raspberry_pi_2_wh_front.png, id=1064, 1806.75pt x 903.375pt>
+<./images/raspberry_pi_2_wh_front.png, id=1076, 1806.75pt x 903.375pt>
 File: ./images/raspberry_pi_2_wh_front.png Graphic file (type png)
 <use ./images/raspberry_pi_2_wh_front.png>
 Package pdftex.def Info: ./images/raspberry_pi_2_wh_front.png  used on input li
 ne 106.
 (pdftex.def)             Requested size: 200.75996pt x 100.3778pt.
-<./images/raspberry_pi_2_wh_back.png, id=1065, 1806.75pt x 903.375pt>
+<./images/raspberry_pi_2_wh_back.png, id=1077, 1806.75pt x 903.375pt>
 File: ./images/raspberry_pi_2_wh_back.png Graphic file (type png)
 <use ./images/raspberry_pi_2_wh_back.png>
 Package pdftex.def Info: ./images/raspberry_pi_2_wh_back.png  used on input lin
@@ -2361,14 +2361,14 @@ e 111.
 (pdftex.def)             Requested size: 200.75996pt x 100.3778pt.
 [74] [75 <./images/raspberry_pi_2_wh_front.png> <./images/raspberry_pi_2_wh_bac
 k.png>]
-<./images/Google_Coral_TPU_Accelerator_front.pdf, id=1086, 1298.8525pt x 687.56
+<./images/Google_Coral_TPU_Accelerator_front.pdf, id=1098, 1298.8525pt x 687.56
 876pt>
 File: ./images/Google_Coral_TPU_Accelerator_front.pdf Graphic file (type pdf)
 <use ./images/Google_Coral_TPU_Accelerator_front.pdf>
 Package pdftex.def Info: ./images/Google_Coral_TPU_Accelerator_front.pdf  used 
 on input line 161.
 (pdftex.def)             Requested size: 200.75996pt x 106.26779pt.
-<./images/Google_Coral_TPU_Accelerator_back.pdf, id=1087, 1298.8525pt x 687.568
+<./images/Google_Coral_TPU_Accelerator_back.pdf, id=1099, 1298.8525pt x 687.568
 76pt>
 File: ./images/Google_Coral_TPU_Accelerator_back.pdf Graphic file (type pdf)
 <use ./images/Google_Coral_TPU_Accelerator_back.pdf>
@@ -2377,14 +2377,14 @@ n input line 166.
 (pdftex.def)             Requested size: 200.75996pt x 106.26779pt.
  [76 <./images/Google_Coral_TPU_Accelerator_front.pdf> <./images/Google_Coral_T
 PU_Accelerator_back.pdf>]
-<./images/Intel_Neuronal_Compute_Stick2_front.png, id=1101, 1405.25pt x 702.625
+<./images/Intel_Neuronal_Compute_Stick2_front.png, id=1113, 1405.25pt x 702.625
 pt>
 File: ./images/Intel_Neuronal_Compute_Stick2_front.png Graphic file (type png)
 <use ./images/Intel_Neuronal_Compute_Stick2_front.png>
 Package pdftex.def Info: ./images/Intel_Neuronal_Compute_Stick2_front.png  used
  on input line 187.
 (pdftex.def)             Requested size: 200.75996pt x 100.37169pt.
-<./images/Intel_Neuronal_Compute_Stick2_back.png, id=1102, 1505.625pt x 752.812
+<./images/Intel_Neuronal_Compute_Stick2_back.png, id=1114, 1505.625pt x 752.812
 5pt>
 File: ./images/Intel_Neuronal_Compute_Stick2_back.png Graphic file (type png)
 <use ./images/Intel_Neuronal_Compute_Stick2_back.png>
@@ -2428,7 +2428,7 @@ Underfull \hbox (badness 2671) in paragraph at lines 262--263
  []
 
 [78]
-<./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf, id=1121, 4076.22874pt x 18
+<./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf, id=1133, 4076.22874pt x 18
 85.0425pt>
 File: ./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf Graphic file (type pdf
 )
@@ -2445,7 +2445,7 @@ Overfull \hbox (1.32286pt too wide) in paragraph at lines 325--326
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [79 <./images/Komponenten_der_Drohne_Diagramm_v1_en.pdf>] [80]
-<./images/Videobrille_mit_Videograbber.jpg, id=1168, 4111.36pt x 3083.52pt>
+<./images/Videobrille_mit_Videograbber.jpg, id=1180, 4111.36pt x 3083.52pt>
 File: ./images/Videobrille_mit_Videograbber.jpg Graphic file (type jpg)
 <use ./images/Videobrille_mit_Videograbber.jpg>
 Package pdftex.def Info: ./images/Videobrille_mit_Videograbber.jpg  used on inp
@@ -2530,13 +2530,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 )
 
 [87]
+\openout2 = `chapter07.aux'.
+
+ (./chapter07.tex
 
 [88
 
 
 
 
+
 ]
+chapter 7.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 3.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+
+
+[89]
+Underfull \hbox (badness 1062) in paragraph at lines 69--70
+\T1/lmr/m/n/10 (+20) der Fern-be-die-nung. In Be-taf-light wird der
+ []
+
+)
+
+[90]
 \openout2 = `glossary.aux'.
 
 
@@ -2548,7 +2577,7 @@ runsystem(makeindex main.idx)...executed safely (allowed).
 
 (./main.ind) (./main.aux (./chapter00.aux) (./chapter01.aux) (./chapter02.aux)
 (./chapter03.aux) (./chapter04.aux) (./chapter05.aux) (./chapter06.aux)
-(./glossary.aux) (./bibliography.aux))
+(./chapter07.aux) (./glossary.aux) (./bibliography.aux))
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
@@ -2559,15 +2588,15 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 29698 strings out of 469603
- 560343 string characters out of 5473551
- 1216855 words of memory out of 5000000
- 56965 multiletter control sequences out of 15000+600000
+ 29743 strings out of 469603
+ 561197 string characters out of 5473551
+ 1217899 words of memory out of 5000000
+ 56991 multiletter control sequences out of 15000+600000
  731235 words of font info for 235 fonts, out of 8000000 for 9000
  64 hyphenation exceptions out of 8191
  108i,21n,122p,11207b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{section*.178} has been referenced but does not exis
+pdfTeX warning (dest): name{section*.184} has been referenced but does not exis
 t, replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb></usr/sha
@@ -2583,10 +2612,10 @@ lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/te
 xmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 sy9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmtt9.pfb>
-Output written on main.pdf (95 pages, 51842444 bytes).
+Output written on main.pdf (97 pages, 51848694 bytes).
 PDF statistics:
- 1571 PDF objects out of 1728 (max. 8388607)
- 1272 compressed objects within 13 object streams
- 399 named destinations out of 1000 (max. 500000)
- 61200 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1613 PDF objects out of 1728 (max. 8388607)
+ 1311 compressed objects within 14 object streams
+ 411 named destinations out of 1000 (max. 500000)
+ 61232 words of extra memory for PDF output out of 61914 (max. 10000000)
 
