@@ -65,19 +65,22 @@ Die Konfiguration erfolgt über den Betaflight Configurator oder über die Betaf
 \makroabschnitt
 \label{AbschnittAutopilotINAV}
 
-The iNAV firmware (see Section~\ref{AbschnittINAV}) implements full GPS-assisted flight and is designed for navigation, position hold, altitude hold, return-to-home, and limited waypoint missions. 
+The iNAV firmware (see Section~\ref{AbschnittINAV}) implements full GPS-assisted flight and is designed for navigation, position hold, altitude hold, return-to-home, and basic autnomous waypoint missions.
 
 \colger
 
-Die Firmware iNAV (siehe Abschnitt~\ref{AbschnittINAV}) implementiert eine vollständige GPS-unterstützte Flugsteuerung bereit und eignet sich für Navigation, Position Hold, Altitude Hold, Return-to-Home und eingeschränkte Wegpunktmissionen.
+Die Firmware iNAV (siehe Abschnitt~\ref{AbschnittINAV}) implementiert eine vollständige GPS-unterstützte Flugsteuerung bereit und eignet sich für Navigation, Position Hold, Altitude Hold, Return-to-Home und grundlegende autonome Wegpunktmissionen.
 
 \coleng
 
-Supported hardware includes flight controllers with gyroscope, accelerometer, barometer, magnetic compass, and a GPS module. Also airspeed sensors are supported by iNAV. 
+Supported hardware includes flight controllers with gyroscope, accelerometer, barometer, magnetic compass, and a GPS module. Also airspeed sensors are supported by iNAV.
 
 \colger
 
-Unterstützte Hardware umfasst einen Flugcontroller mit Gyroskop, Beschleunigungssensor, Barometer, magnetischem Kompass sowie ein GPS-Modul. Auch Fluggeschwindigkeitssensoren werden von iNAV unterstützt. 
+Hierfür ist es erforderlich, dass der Beschleunigungssensor und das GPS konfiguriert sind.
+Außerdem muss ein Barometer für die Höhenmessung vorhanden sein. Ein Kompass (Magnetometer) ist nicht zwingend erforderlich ab INAV-Version 7.1, jedoch dringend empfohlen für bessere Performance.
+
+Insofern ein Kompass vorhanden ist, sollte dieser korrekt ausgerichtet und kalibriert werden, sowie idealerweise mindestens 10cm von den Motoren und anderen elektrischen Komponenten entfernt sein. Auch Fluggeschwindigkeitssensoren werden von iNAV unterstützt.
  
 \coleng
 
@@ -85,7 +88,23 @@ The iNAV Configurator is used to configure sensors, calibrate the magnetic compa
 
 \colger
 
-Die Konfiguration erfolgt über den iNAV Configurator, in dem Sensoren kalibriert, der magnetische Kompass eingerichtet, Mixer-Einstellungen definiert und Flugmodi zugewiesen werden. iNAV ermöglicht grundlegende autonome Missionen, bietet jedoch weniger Funktionen als ArduPilot oder PX4.
+Im INAV-Konfigurator werden die autonomen Modi konfiguriert. Nicht alle dieser Modi sind eigenständig. Einige verändern lediglich Eigenschaften des Flugverhaltens und müssen in Kombination mit anderen Modi verwendet werden. Zu diesen modi gehören die folgenden:
+
+\begin{description}
+	\item[NAV ALTHOLD] ist ein solcher Modus. Dieser setzt lediglich die Flughöhe fest und muss in Kombination mit einem manuellen Flugmodus verwendet werden. Hierbei ist ANGLE empflohlen, da ALTHOLD nicht für Überkopf-Maneuver geeignet ist.
+
+	\item[NAV GCS] ist ein weiterer uneigenständiger Modus. Dieser erlaubt es einer verbundenen Ground-Control-Station (GCS) die Position der Drohne zu kontrollieren. Dies kann für die Follow-Me-Funktion verwendet werden.
+\end{description}
+
+\begin{description}
+	\item[NAV POSHOLD] description
+	\item[NAV COURSE HOLD] description
+	\item[NAV CRUISE] description
+	\item[NAV RTH] description % What about HOME RESET Mode
+
+\end{description}
+
+% Do own subsection for NAV WP, WP PLANNER, MISSION CHANGE
 
 \colende
 
