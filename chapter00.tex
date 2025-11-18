@@ -25,11 +25,11 @@ Dieses Dokument bietet einen Einstieg in das komplexe Thema Drohnen mit künstli
 
 \coleng
 
-The insights presented in this document stem from the research project \textsl{AI-Assisted Drone Platform}, funded by the Connectom Networking and Innovation Fund of hessian.AI, and from the course \textsl{Drones with Artificial Intelligence} at the Frankfurt University of Applied Sciences.
+The insights presented in this document stem from the research project \textsl{AI-Assisted Drone Platform}, funded by the Connectom Networking and Innovation Fund of hessian.AI, as well as from the course \textsl{Drones with Artificial Intelligence} at the Frankfurt University of Applied Sciences.
 
 \colger
 
-Beim Schreiben dieses Dokuments flossen Erkenntnisse aus dem vom Connectom Vernetzungs- und Innovationsfonds des hessian.AI geförderten Forschungsprojekt \textsl{KI-gestützte Drohnenplattform} sowie aus der Lehrveranstaltung \textsl{Drohnen mit Künstlicher Intelligenz} an der Frankfurt University of Applied Sciences ein.
+Die in diesem Dokument dargestellten Erkenntnisse stammen aus dem vom Connectom Vernetzungs- und Innovationsfonds des hessian.AI geförderten Forschungsprojekt \textsl{KI-gestützte Drohnenplattform} sowie aus der Lehrveranstaltung \textsl{Drohnen mit Künstlicher Intelligenz} an der Frankfurt University of Applied Sciences.
 
 \coleng
 
@@ -37,39 +37,39 @@ Key criteria for selecting the components presented in this document include ada
 
 \colger
 
-Maßgebliche Kriterien bei der Auswahl der in diesem Dokument vorgestellten Komponenten sind unter anderem die Anpassbarkeit an unterschiedliche Einsatzszenarien, der Anschaffungspreis, die Robustheit, die langfristige Marktverfügbarkeit sowie die Qualität der Dokumentation und des Herstellersupports.
+Maßgebliche Kriterien bei der Auswahl der in diesem Dokument vorgestellten Komponenten sind unter anderem die Anpassbarkeit an unterschiedliche Einsatzszenarien, die Anschaffungskosten, die Robustheit, die langfristige Marktverfügbarkeit sowie die Qualität der Dokumentation und des Herstellersupports.
 
 \coleng
 
-The goal of this document is not to provide an exhaustive treatment of drones and AI, but rather to focus on the technologies and solutions that were current during its creation and with which practical experience was gained in the Computer Science program of Faculty~2 (Computer Science and Engineering) at the Frankfurt University of Applied Sciences.
+The goal of this document is not to provide an exhaustive treatment of drones and AI, but rather to focus on technologies and solutions that were current during its creation and with which practical experience was gained in the Computer Science program of Faculty~2 (Computer Science and Engineering) at the Frankfurt University of Applied Sciences.
 
 \colger
 
-Die vollständige Abhandlung zu den Themen Drohnen und KI ist nicht Ziel dieses Dokuments. Der Fokus liegt auf den Technologien und Lösungen, die während der Erstellung aktuell waren und mit denen im Studienfeld Informatik des Fachbereichs~2 (Informatik und Ingenieurwissenschaften) der Frankfurt University of Applied Sciences praktische Erfahrungen gesammelt wurden.
+Eine vollständige Abhandlung der Themen Drohnen und KI ist nicht Ziel dieses Dokuments. Der Fokus liegt auf den Technologien und Lösungen, die zum Zeitpunkt der Erstellung aktuell waren und mit denen im Studienfeld Informatik des Fachbereichs~2 (Informatik und Ingenieurwissenschaften) der Frankfurt University of Applied Sciences praktische Erfahrungen gesammelt wurden.
 
 \coleng
 
-Chapters~1 and 2 provide a concise overview of the hardware and software components required for building and operating FPV drones. For the AI projects presented here, drones primarily serve as tools and/or transport platforms. Chapter~3 contains helpful information for before and after the first flight.
+Chapters~1 and 2 provide a concise overview of the hardware and software components required for building and operating FPV drones. For the AI projects presented here, drones primarily serve as tools and transport platforms. Chapter~3 contains helpful information for before and after the first flight.
 
 \colger
 
-Kapitel~1 und 2 stellen knapp die Hard- und Softwarekomponenten vor, die zum Bau und Betrieb von FPV-Drohnen nötig sind. Diese dienen zur Realisierung der hier vorgestellten KI-Projekte in erster Linie als Werkzeug und/oder Transportvehikel. Kapitel~3 enthält hilfreiche Hinweise vor dem ersten Flug und danach.
+Kapitel~1 und 2 geben einen kompakten Überblick über die Hard- und Softwarekomponenten, die für den Bau und den Betrieb von FPV-Drohnen erforderlich sind. In den hier vorgestellten KI-Projekten dienen die Drohnen in erster Linie als Werkzeug und als Transportplattform. Kapitel~3 enthält hilfreiche Hinweise vor und nach dem ersten Flug.
 
 \coleng
 
-From Chapter~4 onward, various AI applications are described that use FPV drones for data collection and/or as transport platforms. The chapter presents applications developed, implemented, and evaluated in research projects, courses, and theses within the Computer Science unit at the Frankfurt University of Applied Sciences. Each project description includes the required additional hardware and software components, implementation steps, and associated costs.
+From Chapter~4 onward, various AI applications are described that use FPV drones for data collection and as transport platforms. The chapter presents applications developed, implemented, and evaluated in research projects, courses, and theses within the Computer Science unit at the Frankfurt University of Applied Sciences. Each project description includes the required additional hardware and software components, implementation steps, and associated costs.
 
 \colger
 
-Ab Kapitel~4 folgen Beschreibungen verschiedener KI-Anwendungen, die FPV-Drohnen zur Datenerfassung und/oder als Transportvehikel nutzen. Vorgestellt werden Anwendungen, die in Forschungsprojekten, Lehrveranstaltungen und Abschlussarbeiten in der Lehreinheit Informatik der Frankfurt University of Applied Sciences entwickelt, implementiert und evaluiert wurden. Das Kapitel beschreibt zu jeder dieser KI-Anwendungen die benötigten zusätzlichen Hard- und Softwarekomponenten, die Umsetzungsschritte und die Kosten.
+Ab Kapitel~4 werden verschiedene Anwendungen künstlicher Intelligenz vorgestellt, die FPV-Drohnen zur Datenerfassung oder als Transportplattform nutzen. Vorgestellt werden Anwendungen aus Forschungsprojekten, Lehrveranstaltungen und Abschlussarbeiten der Lehreinheit Informatik der Frankfurt University of Applied Sciences. Jede Projektbeschreibung enthält Angaben zu den zusätzlich benötigten Hard- und Softwarekomponenten, zu den Umsetzungsschritten und zu den entstehenden Kosten.
 
 \coleng
 
-The components typically used to build FPV drones are not capable of providing AI functionality on their own. Flight controllers lack the necessary computing and memory resources to run AI applications locally. Additional hardware and software are therefore required. These additional components can either be integrated into the drone or remain on the ground to control the drone and/or process data received from it. The respective chapters discuss different implementation options, their advantages and disadvantages, and associated costs.
+The components typically used to build FPV drones are not capable of providing AI functionality on their own. Flight controllers lack the computing and memory resources required to run AI applications locally. Additional hardware and software are therefore necessary. These components may be integrated into the drone or remain on the ground to enable data processing and control. The respective chapters discuss different implementation approaches, their advantages and disadvantages, and the associated costs.
 
 \colger
 
-Die üblicherweise zum Bau von FPV-Drohnen verwendeten Komponenten sind nicht in der Lage, KI-Funktionalität bereitzustellen. Die Flugcontroller verfügen nicht über die notwendigen Rechen- und Speicherressourcen, um KI-Anwendungen lokal auszuführen. Zusätzliche Hard- und Software ist daher erforderlich. Diese kann entweder in die Drohne integriert werden und mitfliegen oder am Boden verbleiben, um die Drohne zu steuern und/oder Daten zu empfangen und dort die KI-Funktionalität zu realisieren. In den jeweiligen Kapiteln werden verschiedene Realisierungsmöglichkeiten, deren Vor- und Nachteile sowie die Anschaffungskosten beschrieben.
+Die üblicherweise zum Bau von FPV-Drohnen verwendeten Komponenten können keine Funktionalität im Bereich künstlicher Intelligenz bereitstellen. Flugcontroller verfügen nicht über die erforderlichen Rechen- und Speicherressourcen, um Anwendungen künstlicher Intelligenz lokal auszuführen. Zusätzliche Hard- und Software ist daher notwendig. Diese kann entweder in die Drohne integriert werden oder am Boden verbleiben, um Daten zu verarbeiten und die Drohne zu steuern. In den folgenden Kapiteln werden verschiedene Möglichkeiten der Realisierung mit ihren Vorteilen, Nachteilen und Kosten beschrieben.
 
 \coleng
 

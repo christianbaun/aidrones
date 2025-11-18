@@ -1,0 +1,72 @@
+\renewcommand{\deutschertitel}{Drop-Mechanismen für FPV-Drohnen}
+\renewcommand{\englischertitel}{Drop Mechanisms for FPV Drones}
+\chapter[\protect{\vspace{2pt}\englischertitel}]{}
+\kapitel{\deutschertitel}
+
+\label{KapitelDropMechanismen}
+
+\begin{paracol}{2}[]
+
+{\raggedright\huge\bfseries\sffamily \englischertitel \par\ } \\[1.8ex]
+
+\switchcolumn
+
+{\raggedright\huge\bfseries\sffamily \deutschertitel \par\ } \\[1.8ex]
+
+\coleng
+
+Drop mechanisms enable an FPV drone to release a small payload on command. They are used in research projects, training environments, competition scenarios, and lightweight delivery tasks. The primary purpose of such mechanisms is to hold a payload securely and release it in a controlled manner based on a command from the flight controller. 
+
+\colger
+
+Drop-Mechanismen ermöglichen es einer FPV-Drohne, eine kleine Nutzlast auf Kommando kontrolliert abzuwerfen. Sie kommen in Forschungsprojekten, Trainingsumgebungen, Wettbewerbsdisziplinen sowie bei leichten Transportaufgaben zum Einsatz. Die zentrale Funktion solcher Mechanismen besteht darin, eine Nutzlast zuverlässig zu halten und sie anhand eines Steuersignals des Flugcontrollers kontrolliert freizugeben. 
+
+\coleng
+
+The most common systems include servo-based and electromagnetic mechanisms. Spring-loaded mechanisms and clamp-based grippers are used less frequently in practice and are therefore not discussed further in this document. Regardless of the underlying mechanism, activation is typically carried out via an AUX channel on the radio transmitter and mapped to an appropriate output on the flight controller.
+
+\colger
+
+Zu den am häufigsten eingesetzten Lösungen zählen servo-basierte und elektromagnetische Systeme. Federbasierte Mechanismen sowie klammerbasierte Greifer werden in der Praxis deutlich seltener verwendet und daher in diesem Dokument nicht weiter betrachtet. Unabhängig vom zugrunde liegenden Mechanismus erfolgt die Aktivierung in der Regel über einen AUX-Kanal der Fernbedienung, der einem geeigneten Ausgang des Flugcontrollers zugeordnet wird.
+
+\colende
+
+\renewcommand{\deutschertitel}{Servo-basierte Abwurfmechanismen}
+\renewcommand{\englischertitel}{Servo-based release mechanisms}
+\makroabschnitt
+\label{AbschnittDropServo}
+
+Servo-based release mechanisms are one of the most commonly used solutions on FPV drones. A micro servo actuates a lever, pin, or hook that secures the payload. When triggered by a signal from the flight controller, the servo moves and releases the payload. This method is simple to implement, cost-effective, and offers precise control.
+
+\colger
+
+Servo-basierte Abwurfmechanismen sind eine häufig eingesetzte Lösung bei FPV-Drohnen. Ein Micro-Servo bewegt hierbei einen Hebel, Stab oder Haken, der die Nutzlast hält. Durch ein Signal des Flugcontrollers wird der Servo bewegt und gibt die Nutzlast frei. Diese Methode ist einfach umzusetzen, kostengünstig und präzise steuerbar.
+
+\colende
+
+\renewcommand{\deutschertitel}{Elektromagnetische Mechanismen}
+\renewcommand{\englischertitel}{Electromagnetic mechanisms}
+\makroabschnitt
+\label{AbschnittDropElektromagnet}
+
+In electromagnetic mechanisms, a small electromagnet holds a metallic loop or plate. When the current is interrupted, the payload is released. Advantages include the minimal number of moving parts and high operational reliability. A disadvantage is the comparatively higher power consumption.
+
+\colger
+
+Bei elektromagnetischen Mechanismen hält ein kleiner Elektromagnet eine metallische Öse oder Platte. Wird der Stromfluss abgeschaltet, fällt die Nutzlast ab. Vorteile sind die geringe Zahl beweglicher Teile und die hohe Zuverlässigkeit. Ein Nachteil ist der im Vergleich zu anderen Lösungen höhere Strombedarf.
+
+\colende
+
+\renewcommand{\deutschertitel}{Ansteuerung und Integration}
+\renewcommand{\englischertitel}{Control and Integration}
+\makroabschnitt
+\label{AbschnittDropControlIntegration}
+
+The activation of a drop mechanism is typically performed through an AUX channel on the radio transmitter. In Betaflight, the AUX channel is assigned to a servo or user channel (USER1/2) and controlled through a PWM-capable output. In ArduPilot, dedicated functions such as \verb!GRIPPER! or \verb!SERVOx_FUNCTION! are available, allowing both manual operation and fully autonomous release actions during mission execution.
+
+\colger
+
+Die Steuerung eines Drop-Mechanismus erfolgt in der Regel über einen AUX-Kanal der Fernbedienung. In Betaflight wird der AUX-Kanal einem Servo- oder Nutzerkanal (USER1/2) zugeordnet und über einen PWM-fähigen Ausgang angesteuert. In ArduPilot stehen dedizierte Funktionen wie \verb!GRIPPER! oder \verb!SERVOx_FUNCTION! zur Verfügung, die auch autonome Abwürfe im Rahmen von Missionen ermöglichen.
+
+\colende
+

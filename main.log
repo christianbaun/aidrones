@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.10.8)  16 NOV 2025 21:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.10.8)  18 NOV 2025 09:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1304,47 +1304,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
 
-
-Underfull \hbox (badness 3646) in paragraph at lines 32--33
-[]\T1/lmr/m/n/10 (+20) Beim Schrei-ben die-ses Do-ku-ments flos-
- []
-
-
-Underfull \hbox (badness 3942) in paragraph at lines 32--33
-\T1/lmr/m/n/10 (+20) si-an.AI ge-för-der-ten For-schungs-pro-jekt \T1/lmr/m/sl/
-10 (+20) KI-
- []
-
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 6
-5.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5
+8.
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 6
-5.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
+8.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-65.
+58.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-65.
+58.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 65.
+(Font)              <10> on input line 58.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 65.
+(Font)              <7> on input line 58.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 65.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+(Font)              <5> on input line 58.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1353,7 +1342,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -2620,7 +2609,7 @@ Here is how much of TeX's memory you used:
  57007 multiletter control sequences out of 15000+600000
  731235 words of font info for 235 fonts, out of 8000000 for 9000
  64 hyphenation exceptions out of 8191
- 108i,21n,122p,11207b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,21n,125p,11207b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{section*.200} has been referenced but does not exis
 t, replaced by a fixed one
@@ -2638,7 +2627,7 @@ lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/te
 xmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 sy9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmtt9.pfb>
-Output written on main.pdf (101 pages, 51866571 bytes).
+Output written on main.pdf (101 pages, 51866564 bytes).
 PDF statistics:
  1709 PDF objects out of 1728 (max. 8388607)
  1402 compressed objects within 15 object streams
