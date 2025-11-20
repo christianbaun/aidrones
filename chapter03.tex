@@ -28,8 +28,6 @@ Dieses Kapitel enthält hilfreiche Hinweise für die Vorbereitung vor dem ersten
 \makroabschnitt
 \label{AbschnittSicherheitBeimFlug}
 
-\coleng
-
 Always keep as much distance as possible from other people during flight. Do not fly over other people's buildings or private property without prior permission.
 
 \colger
@@ -341,8 +339,6 @@ Der Sender verfügt über eine USB-Schnittstelle und sollte als Eingabegerät zu
 \makroabschnitt
 \label{AbschnittBindingPhrase1}
 
-\coleng
-
 To speed up the pairing process between transmitter and receiver and to prevent accidental pairing with other devices, a binding phrase can be defined in the ExpressLRS firmware (see Section~\ref{AbschnittExpressLRS}). This phrase must be identical on both communication partners and cannot be changed without reinstalling (flashing) the firmware.
 
 \colger
@@ -350,3 +346,26 @@ To speed up the pairing process between transmitter and receiver and to prevent 
 Um die Kopplung zwischen Sender und Empfänger zu beschleunigen und ein versehentliches Koppeln mit anderen Geräten zu verhindern, kann in der ExpressLRS-Firmware eine Binding Phrase definiert werden (siehe Abschnitt~\ref{AbschnittExpressLRS}). Diese muss bei beiden Kommunikationspartnern identisch sein und kann nur durch eine Neuinstallation (Flashen) der Firmware geändert werden.
 
 \colende
+
+
+\renewcommand{\deutschertitel}{Überwachung der Telemetriedaten mit geeigneten Werkzeugen}
+\renewcommand{\englischertitel}{Monitoring telemetry data with suitable tools}
+\makroabschnitt
+\label{AbschnittTelemetriedatenFM2MToolBox}
+
+For convenient real time monitoring of telemetry data various tools are available. One example is the FM2M ToolBox (Fly Me 2 the Moon) by Robert Janiszewski which can be installed on radio transmitters running EdgeTX. The software aggregates sensor data that is relevant for flight preparation and for monitoring the aircraft during flight. This includes flight mode GPS position satellite count speed altitude battery voltage current draw signal quality and additional sensor data such as barometer and magnetic compass readings. Real time monitoring of telemetry data increases flight safety and enables error detection and analysis.
+
+\colger
+
+Zur komfortablen Überwachung der Telemetriedaten in Echtzeit existieren verschiedene Werkzeuge. Ein Beispiel ist die FM2M ToolBox (Fly Me 2 the Moon) von Robert Janiszewski die auf Fernbedienungen mit EdgeTX installiert werden kann. Die Software ermöglicht die Aggregation der Sensordaten die für die Flugvorbereitung und die Überwachung während des Fluges relevant sind. Dazu gehören Flugmodus GPS Position Anzahl der Satelliten Geschwindigkeit Höhe Batteriespannung Stromaufnahme Signalqualität sowie zusätzliche Sensordaten wie Barometer und magnetischer Kompass. Die Echtzeitüberwachung der Telemetriedaten erhöht die Flugsicherheit und ermöglicht Fehlererkennung und Fehleranalyse.
+
+\coleng
+
+To use FM2M or similar scripts the flight controller must provide telemetry data via serial interfaces such as UART and must run compatible firmware. FM2M supports the Betaflight and iNAV firmwares and is available for radio transmitters with color or monochrome displays.
+
+\colger
+
+Voraussetzung für die Nutzung von FM2M oder vergleichbarer Skripte ist dass der Flugcontroller Telemetriedaten über serielle Schnittstellen wie UART bereitstellt und kompatible Firmware verwendet. FM2M unterstützt die Firmwares Betaflight und iNAV und ist für Fernbedienungen mit Farb und Schwarz Weiß Display erhältlich.
+
+\colende
+

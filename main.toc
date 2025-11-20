@@ -878,8 +878,6 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {3.2}Security before Flight}{65}{section.3.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
@@ -964,6 +962,13 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {3.10}Monitoring telemetry data with suitable tools}{71}{section.3.10}%
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {4}{\vspace {2pt}Object Detection}}{73}{chapter.4}%
