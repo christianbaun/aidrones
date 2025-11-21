@@ -60,9 +60,7 @@ make
 
 ## Lizenz \| License
 
-Das komplette Werk ist unter der Creative-Commons-Lizenz mit den Einschränkungen **Namensnennung** und **Weitergabe unter gleichen Bedingungen** in der Version 4.0 (CC-BY-SA-4.0) lizenziert.
-
-[CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+Das komplette Werk ist unter der Creative-Commons-Lizenz mit den Einschränkungen **Namensnennung** und **Weitergabe unter gleichen Bedingungen** in der Version 4.0 ([CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)) lizenziert.
 
 ## Kontakt \| Contact
 
