@@ -1,4 +1,3 @@
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![docs](https://img.shields.io/badge/docs-in_progress-yellow)
 ![bilingual](https://img.shields.io/badge/DE%2FEN-bilingual-orange)
 ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)
