@@ -51,7 +51,7 @@ We greatly appreciate your comments and suggestions for improvement.
     ├── AI_Drones.pdf       # Kompilierte Dokumentausgabe (PDF) zum Teilen
     └── README.md           # Diese Datei / This file
 
-## Nutzung / Build Instructions
+## Nutzung \| Build Instructions
 
 ``` bash
 git clone https://github.com/christianbaun/aidrones.git
@@ -60,9 +60,13 @@ make
 
 ## Lizenz \| License
 
-MIT License
+Das komplette Werk ist unter der Creative Commons-Lizenz mit den Einschränkungen **Namensnennung** und **Weitergabe unter gleichen Bedingungen** in der Version 3.0 (CC-BY-SA-3.0) für Deutschland lizenziert.
+
+[CC-BY-SA-3.0](https://creativecommons.org/licenses/by-sa/3.0/de/)
 
 ## Kontakt \| Contact
+
+Über Ihre Kommentare und Verbesserungsvorschläge freuen wir uns sehr.
 
 [Christian Baun](https://www.christianbaun.de/), 
 [Matthias Deegener](https://www.frankfurt-university.de/de/erweiterungen/ansprechpartner/detail/matthias-deegener/), 
