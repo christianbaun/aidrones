@@ -1,3 +1,4 @@
+![cc-by-sa-shield](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
 ![docs](https://img.shields.io/badge/docs-in_progress-yellow)
 ![bilingual](https://img.shields.io/badge/DE%2FEN-bilingual-orange)
 ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)
@@ -59,9 +60,9 @@ make
 
 ## Lizenz \| License
 
-Das komplette Werk ist unter der Creative Commons-Lizenz mit den Einschränkungen **Namensnennung** und **Weitergabe unter gleichen Bedingungen** in der Version 3.0 (CC-BY-SA-3.0) für Deutschland lizenziert.
+Das komplette Werk ist unter der Creative-Commons-Lizenz mit den Einschränkungen **Namensnennung** und **Weitergabe unter gleichen Bedingungen** in der Version 4.0 (CC-BY-SA-4.0) lizenziert.
 
-[CC-BY-SA-3.0](https://creativecommons.org/licenses/by-sa/3.0/de/)
+[CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ## Kontakt \| Contact
 
