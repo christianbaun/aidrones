@@ -11,7 +11,7 @@ $(DATEINAME).pdf: $(wildcard *.tex) $(DATEINAME).tex
 	$(PDFLATEX) -interaction=nonstopmode $(DATEINAME).tex
 
 clean:
-	rm -f *.idx *.ilg *.ind *.log *.toc *.dvi *.aux *.out
+	rm -f *.idx *.ilg *.ind *.log *toc *.dvi *.aux *.out
 
 distclean: clean
 	rm -f $(DATEINAME).pdf AI_Drones.pdf

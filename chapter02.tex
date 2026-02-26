@@ -744,7 +744,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 
 \begin{enumerate}
 \setcounter{enumi}{7}
-	\item Im \textsl{Receiver-Tab} wird Flugcontrollerseitig die Verbindung zur Fernbedienung konfiguriert. Wird eine ExpressLRS-Fernbedienung verwendet, muss \texttt{SERIAL} als \textsl{Receiver type} und \texttt{CRSF} als \textsl{Serial Receiver Provider} konfiguriert werden. Darüber hinaus kann kontrolliert werden, ob die Channel-Mappings korrekt sind. Dieser Tab ist sehr ähnlich zum Receiver-Tab im Betaflight Configurator (Abbildung~\ref{AbbildungBetaflightAppReceiver}).
+	\item Im \textsl{Receiver-Tab} wird Flugcontrollerseitig die Verbindung zur Fernsteuerung konfiguriert. Wird eine ExpressLRS-Fernsteuerung verwendet, muss \texttt{SERIAL} als \textsl{Receiver type} und \texttt{CRSF} als \textsl{Serial Receiver Provider} konfiguriert werden. Darüber hinaus kann kontrolliert werden, ob die Channel-Mappings korrekt sind. Dieser Tab ist sehr ähnlich zum Receiver-Tab im Betaflight Configurator (Abbildung~\ref{AbbildungBetaflightAppReceiver}).
 \end{enumerate}
 
 %8.
@@ -1265,7 +1265,7 @@ Durch das modulare Design lassen sich einzelne Subsysteme erweitern oder austaus
 
 \colende
 
-\renewcommand{\deutschertitel}{Fernbedienung Firmware: EdgeTX}
+\renewcommand{\deutschertitel}{Fernsteuerung Firmware: EdgeTX}
 \renewcommand{\englischertitel}{Remote Control Firmware: EdgeTX}
 \makroabschnitt
 \label{AbschnittEdgeTX}
@@ -1274,7 +1274,7 @@ EdgeTX is an operating system for radio transmitters used in model aircraft and 
 
 \colger
 
-EdgeTX ist ein Betriebssystem für Fernsteuerungen im Modellbau. Es handelt sich um freie Software, die auf Fernbedienungen vieler bekannter Hersteller läuft. EdgeTX erzeugt die Steuersignale, welche anschließend von der Firmware ExpressLRS (siehe Abschnitt~\ref{AbschnittExpressLRS}) des Sendemoduls übertragen werden.
+EdgeTX ist ein Betriebssystem für Fernsteuerungen im Modellbau. Es handelt sich um freie Software, die auf Fernsteuerungen vieler bekannter Hersteller läuft. EdgeTX erzeugt die Steuersignale, welche anschließend von der Firmware ExpressLRS (siehe Abschnitt~\ref{AbschnittExpressLRS}) des Sendemoduls übertragen werden.
 
 \coleng
 
@@ -1290,7 +1290,7 @@ With the transmitter turned off, connect it to the PC using its USB-C port on th
 
 \colger
 
-Die Fernbedienung wird im ausgeschalteten Zustand über die obere USB-C-Schnittstelle mit dem PC verbunden. In der Webanwendung wird die gewünschte Version sowie das passende Gerät ausgewählt (siehe Abbildung~\ref{AbbildungEdgeTXInstallation1}). Die Schaltfläche \textsl{Flash via USB} führt zum nächsten Schritt.
+Die Fernsteuerung wird im ausgeschalteten Zustand über die obere USB-C-Schnittstelle mit dem PC verbunden. In der Webanwendung wird die gewünschte Version sowie das passende Gerät ausgewählt (siehe Abbildung~\ref{AbbildungEdgeTXInstallation1}). Die Schaltfläche \textsl{Flash via USB} führt zum nächsten Schritt.
 
 \colende
 
@@ -1353,7 +1353,7 @@ The firmware of the transmitter module in the remote control and the receiver in
 
 \colger
 
-Die Firmware des Sendemoduls in der Fernbedienung und des Empfängers in der Drohne müssen beide mit kompatibler Firmware ausgestattet sein. Idealerweise sind bei Sender und Empfänger die Versionen identisch. Dieser Abschnitt befasst sich ausschließlich mit der Firmware ExpressLRS sowie deren Installation und Konfiguration.
+Die Firmware des Sendemoduls in der Fernsteuerung und des Empfängers in der Drohne müssen beide mit kompatibler Firmware ausgestattet sein. Idealerweise sind bei Sender und Empfänger die Versionen identisch. Dieser Abschnitt befasst sich ausschließlich mit der Firmware ExpressLRS sowie deren Installation und Konfiguration.
 
 \coleng
 
@@ -1427,7 +1427,7 @@ In the next step, the firmware file must be uploaded to the transmitter module o
 
 \colger
 
-Im nächsten Schritt muss die Firmware-Datei auf das Sendemodul der Fernbedienung aufgespielt werden. Eine Möglichkeit hierzu ist die Installation über das WLAN-Modul des Senders. Dieses wird über SYS→Tools→ExpressLRS→Wi-Fi Connectivity→Enable Wi-Fi aktiviert. Sobald das Funknetz \verb!ExpressLRS TX! (Passwort: \verb!expresslrs!) verfügbar ist, muss der PC damit verbunden werden. Das Sendemodul hat die IP-Adresse \verb!10.0.0.1!. Wird diese Adresse über einen Browser aufgerufen, kann über eine einfache Webseite unter anderem die Firmware aktualisiert werden (siehe Abbildung~\ref{AbbildungExpressLRS4}).
+Im nächsten Schritt muss die Firmware-Datei auf das Sendemodul der Fernsteuerung aufgespielt werden. Eine Möglichkeit hierzu ist die Installation über das WLAN-Modul des Senders. Dieses wird über SYS→Tools→ExpressLRS→Wi-Fi Connectivity→Enable Wi-Fi aktiviert. Sobald das Funknetz \verb!ExpressLRS TX! (Passwort: \verb!expresslrs!) verfügbar ist, muss der PC damit verbunden werden. Das Sendemodul hat die IP-Adresse \verb!10.0.0.1!. Wird diese Adresse über einen Browser aufgerufen, kann über eine einfache Webseite unter anderem die Firmware aktualisiert werden (siehe Abbildung~\ref{AbbildungExpressLRS4}).
 
 \colende
 
@@ -1471,7 +1471,7 @@ Receivers from Radiomaster provide a Wi-Fi network named \verb!ExpressLRS RX! (p
 
 \colger
 
-Empfänger von Radiomaster stellen nach etwa 30 Sekunden ohne Verbindung zu einer Fernbedienung ein Funknetz mit dem Namen \verb!ExpressLRS RX! (Passwort: \verb!expresslrs!) bereit. Der PC muss mit diesem Netzwerk verbunden werden. Das Empfangsmodul hat die IP-Adresse \verb!10.0.0.1!. Wird diese Adresse über einen Browser aufgerufen, kann über eine einfache Webseite unter anderem die Firmware aktualisiert werden (siehe Abbildung~\ref{AbbildungExpressLRSReceiver3}).
+Empfänger von Radiomaster stellen nach etwa 30 Sekunden ohne Verbindung zu einer Fernsteuerung ein Funknetz mit dem Namen \verb!ExpressLRS RX! (Passwort: \verb!expresslrs!) bereit. Der PC muss mit diesem Netzwerk verbunden werden. Das Empfangsmodul hat die IP-Adresse \verb!10.0.0.1!. Wird diese Adresse über einen Browser aufgerufen, kann über eine einfache Webseite unter anderem die Firmware aktualisiert werden (siehe Abbildung~\ref{AbbildungExpressLRSReceiver3}).
 
 \colende
 
