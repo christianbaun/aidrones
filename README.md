@@ -19,7 +19,7 @@ Die in diesem [Dokument](https://github.com/christianbaun/aidrones/releases/late
 
 Maßgebliche Kriterien bei der Auswahl der in diesem [Dokument](https://github.com/christianbaun/aidrones/releases/latest/download/AI_Drones.pdf) vorgestellten Komponenten sind unter anderem die Anpassbarkeit an unterschiedliche Einsatzszenarien, die Anschaffungskosten, die Robustheit, die langfristige Marktverfügbarkeit sowie die Qualität der Dokumentation und des Hersteller-Supports.
 
-Eine vollständige Abhandlung über Drohnen und KI ist nicht das Ziel dieses [Dokument](https://github.com/christianbaun/aidrones/releases/latest/download/AI_Drones.pdf). Der Fokus liegt auf den Technologien und Lösungen, die zum Zeitpunkt der Erstellung aktuell waren und mit denen im Studienfeld Informatik des Fachbereichs 2 (Informatik und Ingenieurwissenschaften) der Frankfurt University of Applied Sciences praktische Erfahrungen gesammelt wurden.
+Eine vollständige Abhandlung über Drohnen und KI ist nicht das Ziel dieses [Dokuments](https://github.com/christianbaun/aidrones/releases/latest/download/AI_Drones.pdf). Der Fokus liegt auf den Technologien und Lösungen, die zum Zeitpunkt der Erstellung aktuell waren und mit denen im Studienfeld Informatik des Fachbereichs 2 (Informatik und Ingenieurwissenschaften) der Frankfurt University of Applied Sciences praktische Erfahrungen gesammelt wurden.
 
 Über Ihre Kommentare und Verbesserungsvorschläge freuen wir uns sehr.
 
