@@ -58,10 +58,19 @@ We greatly appreciate your comments and suggestions for improvement.
 git clone https://github.com/christianbaun/aidrones.git
 make
 ```
-
 ## Lizenz \| License
 
 Das komplette Werk ist unter der Creative-Commons-Lizenz mit den Einschränkungen **Namensnennung** und **Weitergabe unter gleichen Bedingungen** in der Version 4.0 ([CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)) lizenziert.
+
+## Presse & Medien | Press & Media
+
+- **Heise Online:** [Frankfurter Universität veröffentlicht Handbuch mit KI-Drohnen-Bauanleitungen](https://www.heise.de/news/Frankfurter-Universitaet-veroeffentlicht-Handbuch-mit-KI-Drohnen-Bauanleitungen-11182234.html)
+- **Deutsche Gesellschaft für Luft- und Raumfahrt:** [Handbuch mit Bauanleitungen für KI-fähige Drohnen veröffentlicht](https://www.dglr.de/nc/informieren/meldungen/newsmeldung-einzel/article/handbuch-mit-bauanleitungen-fuer-ki-faehige-drohnen-veroeffentlicht/)
+- **Frankfurt UAS Presse:** [Handbuch mit Bauanleitungen für KI-fähige Drohnen veröffentlicht
+](https://www.frankfurt-university.de/de/news/n-pressemitteilungen/handbuch-mit-bauanleitungen-fuer-ki-fahige-drohnen-veroffentlicht/)
+- **idw-Nachrichten:** [Bauanleitungen für günstige und KI-fähige Drohnen](https://nachrichten.idw-online.de/2025/07/02/bauanleitungen-fuer-guenstige-und-ki-faehige-drohnen)
+- **Frankfurt UAS Presse:** [Bauanleitungen für günstige und KI-fähige Drohnen](https://www.frankfurt-university.de/de/news/n-pressemitteilungen/bauanleitungen-fuer-guenstige-und-ki-fahige-drohnen-1/)
+- **Instagram Reel:** [Projektvorstellung als Kurzvideo](https://www.instagram.com/reel/DMzzJG9N52W/)
 
 ## Kontakt \| Contact
 
