@@ -1249,13 +1249,34 @@ PX4 ist eine Open-Source-Autopilot-Firmware, die häufig in Forschung, Industrie
 
 \coleng
 
-PX4 supports a broad range of flight controller boards, including the Pixhawk series and STM32-based systems. The firmware offers extensive functionality such as mission planning, position and altitude hold, obstacle avoidance (when paired with appropriate sensors), geofencing, and fully autonomous waypoint navigation. Configuration and calibration are performed using the ground control software QGroundControl, which provides tools for sensor calibration, flight mode configuration, and monitoring of telemetry data. PX4 communicates using the MAVLink protocol, enabling seamless integration with ground stations, companion computers, and external tools. 
+PX4 supports a broad range of flight controller boards, including the Pixhawk series (see Figure~\ref{AbbildungPixhawkOrangeCubeFC}) and STM32-based systems. The firmware offers extensive functionality such as mission planning, position and altitude hold, obstacle avoidance (when paired with appropriate sensors), geofencing, and fully autonomous waypoint navigation. Configuration and calibration are performed using the ground control software QGroundControl, which provides tools for sensor calibration, flight mode configuration, and monitoring of telemetry data. PX4 communicates using the MAVLink protocol, enabling seamless integration with ground stations, companion computers, and external tools. 
 
 \colger
 
-PX4 unterstützt eine große Bandbreite an Flugcontroller-Platinen, darunter die Pixhawk-Serie sowie andere STM32-basierte Systeme. Die Firmware stellt umfangreiche Funktionen bereit, darunter Missionsplanung, Position- und Höhenhaltung, Hinderniserkennung (mit geeigneter Sensorik), Geofencing und vollständig autonome Wegpunktnavigation. Die Konfiguration und Kalibrierung erfolgt über die Bodenstationssoftware QGroundControl, die Werkzeuge zur Sensorkalibrierung, Flugmoduskonfiguration und Überwachung von Telemetriedaten bietet. PX4 nutzt das MAVLink-Protokoll und ermöglicht damit eine nahtlose Anbindung an Bodenstationen, Companion-Computer und externe Werkzeuge. 
+PX4 unterstützt eine große Bandbreite an Flugcontroller-Platinen, darunter die Pixhawk-Serie (siehe Abbildung~\ref{AbbildungPixhawkOrangeCubeFC}) sowie andere STM32-basierte Systeme. Die Firmware stellt umfangreiche Funktionen bereit, darunter Missionsplanung, Position- und Höhenhaltung, Hinderniserkennung (mit geeigneter Sensorik), Geofencing und vollständig autonome Wegpunktnavigation. Die Konfiguration und Kalibrierung erfolgt über die Bodenstationssoftware QGroundControl, die Werkzeuge zur Sensorkalibrierung, Flugmoduskonfiguration und Überwachung von Telemetriedaten bietet. PX4 nutzt das MAVLink-Protokoll und ermöglicht damit eine nahtlose Anbindung an Bodenstationen, Companion-Computer und externe Werkzeuge. 
 
-\coleng
+\colende
+
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{CubePilot_Orange_Cube_Vorderseite.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{CubePilot_Orange_Cube_Seitenansicht.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Pixhawk Orange+ Cube Flight Controller with STM32H757 CPU (Front and Side)}
+  \label{AbbildungPixhawkOrangeCubeFC}
+\end{figure}
+\FloatBarrier
+
+
+\colstart
 
 Its modular design allows developers to extend or replace subsystems, making PX4 particularly suitable for research projects and complex multi-sensor setups. Compared to the other systems discussed in this chapter, PX4 offers the highest flexibility and scalability but requires more powerful hardware and a more extensive setup effort. It is therefore best suited for applications requiring autonomy, sensor fusion, or advanced mission capabilities rather than purely manual FPV flight.
 
