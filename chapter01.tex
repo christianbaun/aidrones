@@ -585,11 +585,11 @@ Die Propeller wandeln die Drehbewegung des Motors in Schub (Lift) und Steuerkrä
 \makrounterabschnitt
 \label{AbschnittPropellerDurchmesser}
 
-The propeller size determines, in simple terms, how much air is moved. The specified propeller size always refers to the diameter in inches. The propellers must fit the frame used (see Section~\ref{AbschnittFrames}).
+The propeller size (see Figure~\ref{AbbildungPropellersSize}) determines, in simple terms, how much air is moved. The specified propeller size always refers to the diameter in inches. The propellers must fit the frame used (see Section~\ref{AbschnittFrames}).
 
 \colger
 
-Die Propellergröße bestimmt vereinfacht gesagt, wie viel Luft bewegt wird. Die angegebene Propellergröße entspricht immer dem Durchmesser in Zoll. Die Propeller müssen zum verwendeten Rahmen passen (siehe Abschnitt~\ref{AbschnittFrames}).
+Die Propellergröße (siehe Abbildung~\ref{AbbildungPropellersSize}) bestimmt vereinfacht gesagt, wie viel Luft bewegt wird. Die angegebene Propellergröße entspricht immer dem Durchmesser in Zoll. Die Propeller müssen zum verwendeten Rahmen passen (siehe Abschnitt~\ref{AbschnittFrames}).
 
 \coleng
 
@@ -607,7 +607,33 @@ Larger propellers generate more thrust and are more efficient. They also provide
 
 Größere Propeller erzeugen mehr Schub und arbeiten effizienter. Sie sorgen zudem für ein ruhigeres Flugverhalten, allerdings auf Kosten der Agilität. Mit zunehmender Propellergröße steigt auch die Belastung für die Motoren und die Motorsteuerung (ESC), da die größere Blattfläche einen höheren Luftwiderstand erzeugt. Außerdem haben größere Propeller ein höheres Eigengewicht.
 
+
 \colende
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{GEMFAN_51MM-4_2020_Ducted_Whisky_PC_2_Pitch_2_Inch.png}
+    \vspace{0pt}
+    GEMFAN 2020-4, 2 Inch Propeller Size, 2 Inch Pitch
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{HQProp_DT90MMX5_GR_PC_Cinewhoop_Grey_3_Pitch_3_5_Inch.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung   
+    HQProp DT90MMX5, 3.5 Inch Propeller Size, 3 Inch Pitch 
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{GEMFAN_Freestyle_4S_129m_Mango_Yellow_3_6_Pitch_5_1_Inch.png}
+    \vspace{0pt}
+    GEMFAN Freestyle 4S, 5.1 Inch Propeller Size, 3.6 Inch Pitch
+  \end{minipage}
+  \caption{Three Propellers of different Size}
+  \label{AbbildungPropellersSize}
+\end{figure}
+\FloatBarrier
 
 \renewcommand{\deutschertitel}{Anzahl der Blätter}
 \renewcommand{\englischertitel}{Number of Blades}
@@ -622,13 +648,22 @@ Es gibt Propeller mit zwei bis acht Blättern. Je weniger Blätter ein Propeller
 
 \coleng
 
-For long-range applications where efficiency is the top priority, two-blade propellers are typically used. Racing and freestyle drones often use three-blade propellers. CineWhoops commonly use propellers with five or more blades, as these provide maximum flight stability and precise control.
+For long-range applications where efficiency is the top priority, two-blade propellers are typically used (see Figure~\ref{AbbildungTwoBladesPropeller}). Racing and freestyle drones often use three-blade propellers. CineWhoops commonly use propellers with five or more blades, as these provide maximum flight stability and precise control.
 
 \colger
 
-Für Long-Range-Anwendungen, bei denen Effizienz oberste Priorität hat, werden in der Regel Zweiblattpropeller verwendet. Racing- und Freestyle-Drohnen sind häufig mit Dreiblattpropellern ausgestattet. CineWhoops nutzen oft Propeller mit fünf oder mehr Blättern, da sie ein besonders stabiles Flugverhalten und präzise Steuerung ermöglichen.
+Für Long-Range-Anwendungen, bei denen Effizienz oberste Priorität hat, werden in der Regel Zweiblattpropeller verwendet (siehe Abbildung~\ref{AbbildungTwoBladesPropeller}). Racing- und Freestyle-Drohnen sind häufig mit Dreiblattpropellern ausgestattet. CineWhoops nutzen oft Propeller mit fünf oder mehr Blättern, da sie ein besonders stabiles Flugverhalten und präzise Steuerung ermöglichen.
 
 \colende
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=.5\linewidth]{GEMFAN_Hurricane_3018-2_Clear_1_8_Pitch_3_Inch.png}
+  \caption{GEMFAN Hurricane 3018-2, 3 Inch Propeller Size 1.8 Inch Pitch}
+  \label{AbbildungTwoBladesPropeller}
+\end{figure}
+\FloatBarrier
+
 
 \renewcommand{\deutschertitel}{Steigung (Pitch)} 
 \renewcommand{\englischertitel}{Pitch}
@@ -643,11 +678,11 @@ Neben der Anzahl der Blätter beeinflusst auch die Steigung (Pitch) der Propelle
 
 \coleng
 
-The pitch is specified in inches and describes the theoretical distance the propeller would move forward during one full rotation if there were no slippage.
+The pitch is specified in inches and describes the theoretical distance the propeller would move forward during one full rotation if there were no slippage (see Figure~\ref{AbbildungPropellersPitch}).
 
 \colger
 
-Der Pitch wird in Zoll angegeben und beschreibt den theoretischen Vortrieb pro Umdrehung, also wie weit sich der Propeller bei einer vollständigen Umdrehung durch die Luft schrauben würde, wenn es keine Schlupfverluste gäbe.
+Der Pitch wird in Zoll angegeben und beschreibt den theoretischen Vortrieb pro Umdrehung, also wie weit sich der Propeller bei einer vollständigen Umdrehung durch die Luft schrauben würde, wenn es keine Schlupfverluste gäbe (siehe Abbildung~\ref{AbbildungPropellersPitch}).
 
 \coleng
 
@@ -666,6 +701,32 @@ In practice, these theoretical values are reduced by about 20--30\% due to slipp
 In der Praxis werden diese theoretischen Werte durch Schlupfverluste um etwa 20--30\% verringert. Der Grund dafür ist, dass Luft kein festes, sondern ein bewegliches Medium ist. Durch das Ausweichen und Verwirbeln \textsl{rutscht} immer ein Teil der Luft weg, wodurch der Propeller in der Realität weniger Vortrieb erzeugt als in der Theorie.
 
 \colende
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{GEMFAN_63MM-5_Clear_Yellow_PC_1_65_Pitch_2_5_Inch.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung   
+    GEMFAN D63-5, 2.5 Inch Propeller Size, 1.65 Inch Pitch 
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{GEMFAN_Hurricane_2520-3_Whisky_2_Pitch_2_5_Inch.png}
+    \vspace{0pt}
+    GEMFAN 2520-3, 2.5 Inch Propeller Size, 2 Inch Pitch
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{GEMFAN_63MM-3_Purple_PC_3_Pitch_2_5_Inch.png}
+    \vspace{0pt}
+    GEMFAN D63-3, 2.5 Inch Propeller Size, 3 Inch Pitch
+  \end{minipage}
+  \caption{Three Different Propellers of the same Size, but with different Pitch}
+  \label{AbbildungPropellersPitch}
+\end{figure}
+\FloatBarrier
+
 
 \renewcommand{\deutschertitel}{Akkus}
 \renewcommand{\englischertitel}{Batteries}
