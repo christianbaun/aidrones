@@ -1057,43 +1057,43 @@ Gängige GPS-Module (siehe Abbildung~\ref{AbbildungGPSModuleM1005883}) mit integ
 \makroabschnitt
 \label{AbschnittOpticalFlow}
 
-In autonomous aviation, Optical Flow (OF) sensors are frequently integrated with distance-sensing transducers, such as Ultrasonic (Sonar) or Light Detection and Ranging (LiDAR) altimeters. While an OF sensor is not a prerequisite for basic flight stability, it is critical for Position Hold and navigation in GNSS-denied environments, such as indoor or subterranean spaces. Theoretically, the OF sensor estimates the horizontal displacement velocity of the Unmanned Aerial Vehicle (UAV) by analyzing image feature drift relative to the terrain, while the rangefinder provides the necessary altitude data to scale these visual measurements into absolute metric units.
+In autonomous aerial systems, Optical Flow (OF) sensors are often used together with distance sensors such as ultrasonic (sonar) or Light Detection and Ranging (LiDAR) altimeters. Although an OF sensor is not required for basic flight stabilization, it is important for Position Hold and navigation in GNSS-denied environments, such as indoor or underground spaces. In principle, the OF sensor estimates the horizontal velocity of the unmanned aerial vehicle (UAV) by analyzing the movement of visual features in the camera image relative to the ground. The rangefinder provides the corresponding altitude information, which allows these visual measurements to be converted into absolute metric values.
 
 \colger
 
-TBD
+In autonomen Luftfahrtsystemen werden Optical-Flow-(OF)-Sensoren häufig in Kombination mit Abstandssensoren wie Ultraschall- (Sonar) oder LiDAR-Höhenmessern eingesetzt. Obwohl ein OF-Sensor für die grundlegende Flugstabilisierung nicht erforderlich ist, spielt er eine wichtige Rolle für Position-Hold-Funktionen und die Navigation in GNSS-losen Umgebungen, etwa in Innenräumen oder unterirdischen Bereichen. Grundsätzlich schätzt der OF-Sensor die horizontale Geschwindigkeit des unbemannten Luftfahrzeugs (UAV), indem er die Bewegung von Bildmerkmalen im Kamerabild relativ zum Boden analysiert. Der Entfernungssensor liefert die dazugehörige Höheninformation, wodurch diese visuellen Messungen in absolute metrische Werte umgerechnet werden können.
 
 \coleng
 
-The integration of these sensors is governed by various serial communication protocols, primarily MSP (Multiwii Serial Protocol), MAVLink, and DroneCAN. The adoption of these protocols is highly dependent on the underlying flight control firmware:
+The integration of these sensors is handled through various serial communication protocols, most notably MSP (MultiWii Serial Protocol), MAVLink, and DroneCAN. Which protocol is used depends largely on the flight control firmware that is running on the system:
 
 \colger
 
-TBD
+Die Integration dieser Sensoren erfolgt über verschiedene serielle Kommunikationsprotokolle, insbesondere MSP (MultiWii Serial Protocol), MAVLink und DroneCAN. Welches Protokoll zum Einsatz kommt, hängt dabei maßgeblich von der verwendeten Firmware des Flugcontrollers ab:
 
 \coleng
 
 \begin{itemize}
-  \item \textsl{Betaflight} - Historically optimized for high-performance manual flight, Betaflight lacked native OF support in legacy iterations. Only with the release of v4.6 (2025.12) has the ecosystem begun providing limited support for integrated positioning.
-  \item \textsl{iNav} - While more navigation-oriented than Betaflight, iNav maintains a prioritized compatibility list, primarily favoring MSP-based peripherals such as the MicoAir MTF-01 or Matek 3901-L0X.
-  \item \textsl{ArduPilot} - This firmware represents the most robust platform for sensor fusion, offering extensive libraries for MSP, MAVLink, and the industrial-grade DroneCAN standard, making it the preferred choice for complex autonomous research.
+\item \textsl{Betaflight}: Historically optimized for high-performance manual flight, Betaflight did not provide native optical flow support in earlier versions. Only with the release of version 4.6 has limited support for integrated positioning sensors been introduced.
+\item \textsl{INAV}: Compared to Betaflight, INAV is more navigation-oriented and supports a wider range of positioning sensors. However, compatibility is still largely limited to selected peripherals, primarily MSP-based devices such as the MicoAir MTF-01 or the Matek 3901-L0X.
+\item \textsl{ArduPilot}: This firmware provides the most extensive support for sensor fusion. It offers broad support for protocols such as MSP, MAVLink, and the industrial-grade DroneCAN standard, which makes it a common choice for complex autonomous systems and research platforms.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-  \item \textsl{Betaflight} - TBD
-  \item \textsl{iNav} - TBD
-  \item \textsl{ArduPilot} - TBD
+\item \textsl{Betaflight}: Betaflight wurde ursprünglich für leistungsorientierten manuellen Flug entwickelt und bot in früheren Versionen keine native Unterstützung für Optical-Flow-Sensoren. Erst mit Version 4.6 wurde eine begrenzte Unterstützung für integrierte Positionssensoren eingeführt.
+\item \textsl{INAV}: Im Vergleich zu Betaflight ist INAV stärker auf Navigation ausgelegt und unterstützt eine größere Bandbreite an Positionssensoren. Die Kompatibilität beschränkt sich jedoch weiterhin auf ausgewählte Peripheriegeräte, insbesondere MSP-basierte Sensoren wie den MicoAir MTF-01 oder den Matek 3901-L0X.
+\item \textsl{ArduPilot}: Diese Firmware bietet die umfassendste Unterstützung für Sensorfusion. Sie unterstützt verschiedene Protokolle wie MSP, MAVLink und den industriellen Standard DroneCAN und wird daher häufig für komplexe autonome Systeme und Forschungsplattformen eingesetzt.
 \end{itemize}
 
 \coleng
 
-Standard hardware implementation utilizes a Universal Asynchronous Receiver-Transmitter (UART) interface. The sensor’s TX (Transmit) and RX (Receive) pins must be cross-connected to the flight controller’s corresponding RX and TX ports, complemented by a common ground (GND) and a regulated voltage source (VCC) to ensure signal integrity and power stability.
+Standard hardware implementations typically use a Universal Asynchronous Receiver–Transmitter (UART) interface. The sensor’s TX (transmit) and RX (receive) pins must be cross-connected to the corresponding RX and TX ports of the flight controller. In addition, a common ground (GND) and a suitable regulated voltage supply (VCC) are required to ensure reliable signal transmission and stable power delivery.
 
 \colger
 
-TBD
+Standardimplementierungen der Hardware verwenden in der Regel eine UART-Schnittstelle (Universal Asynchronous Receiver–Transmitter). Die TX- (Sende-) und RX- (Empfangs-) Pins des Sensors müssen dabei über Kreuz mit den entsprechenden RX- und TX-Pins des Flugcontrollers verbunden werden. Zusätzlich sind eine gemeinsame Masseleitung (GND) sowie eine geeignete geregelte Spannungsversorgung (VCC) erforderlich, um eine zuverlässige Signalübertragung und eine stabile Stromversorgung sicherzustellen.
 
 \colende
 
@@ -1101,17 +1101,18 @@ TBD
   \centering
   \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=.5\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P.png}
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P.png}
     \vspace{0pt} % sorgt für Top-Ausrichtung
   \end{minipage}\hfill
   \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=.5\linewidth]{Matek_3901_L0X_Optical_Flow_and_Lidar.png}
+    \includegraphics[width=\linewidth]{Matek_3901_L0X_Optical_Flow_and_Lidar.png}
     \vspace{0pt}
   \end{minipage}
   \caption{MicoAir MTF-01P and Matek 3901-L0X Optical Flow and Lidar Sensor}
   \label{MicoAirAndMatekOFSensor}
 \end{figure}
+\FloatBarrier
 
 \renewcommand{\deutschertitel}{Empfänger}
 \renewcommand{\englischertitel}{Receiver}
