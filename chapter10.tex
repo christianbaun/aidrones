@@ -16,7 +16,7 @@
 
 \coleng
 
-For a drone to fly without a pilot’s constant input, it must perform position estimation. This is essentially the drone’s ability to calculate its own location and direction at every split second.
+For a UAV to operate autonomously, it must maintain a state estimate—a real-time calculation of its position, velocity, and orientation. To estimate the position and movement of the vehicle, the flight controller fuses data from several specialized sensors. Science sensor can generate noisy data, the Flight Controller takes data from multiple sensors and blends them to find "optimal estimate". Most common sensors used for position estimation are:
 
 \colger
 
@@ -24,11 +24,47 @@ For a drone to fly without a pilot’s constant input, it must perform position 
 
 \coleng
 
-TBD
+\begin{itemize}
+  \item \textsl{IMU (Inertial Measurement Unit)} - Tracks high-speed changes in acceleration and rotation in six directions to maintain basic flight attitude and stability.
+  \item \textsl{GNSS (GPS)} - Establishes absolute global coordinates (latitude and longitude) for long-range navigation and geofencing.
+  \item \textsl{Optical Flow} - Measures horizontal displacement by analyzing ground texture movement, enabling Position Hold in GNSS-denied (indoor) environments.
+  \item \textsl{Barometer} - Measures air pressure to estimate relative altitude. While less precise than LiDAR at low altitudes, it is essential for maintaining height at scales beyond the rangefinder's limit.
+  \item \textsl{LiDAR (Rangefinder)} - Provides high-precision at low-altitude distance measurements via laser pulses, critical for terrain following and Precision Landing.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+  \item \textsl{IMU (Inertial Measurement Unit)} - TBD
+  \item \textsl{GNSS (GPS)} - TBD
+  \item \textsl{Optical Flow} - TBD
+  \item \textsl{Barometer} - TBD
+  \item \textsl{LiDAR (Rangefinder)} - TBD
+\end{itemize}
+
+\coleng
+
+With the accurate estimation of the drone’s state, the flight controller can move beyond manual flight into autonomous modes. In these modes, the system continuously monitors the drone’s position and automatically corrects any drift using sensor feedback:
 
 \colger
 
 TBD
+
+\coleng
+
+\begin{itemize}
+  \item \textsl{Altitude Hold (Z-axis)} - The drone maintains a constant height by using a LiDAR sensor at low altitude and a barometer at higher altitude, allowing the pilot to release the throttle while the drone keeps hovering at the same height. As most moderns flight controller comes with barometer in it, Betflight, iNav and Arudpilot can activate this mode without any extra sensors.
+  \item \textsl{Position Hold (X, Y axes)} - The drone keeps its horizontal position by using optical flow or GNSS (GPS) to detect movement. If wind or another force pushes the drone, the flight controller tilts the drone slightly to move it back to the same spot.
+  \item \textsl{Return to Home (RTH / RTL)} - A common safety feature where the drone automatically flies back to its recorded home location using GNSS coordinates if the radio connection is lost or the battery becomes low.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+  \item \textsl{Altitude Hold (Z-axis)} - TBD
+  \item \textsl{Position Hold (X, Y axes)} - TBD
+  \item \textsl{Return to Home (RTH / RTL)} - TBD
+\end{itemize}
 
 \colende
 
