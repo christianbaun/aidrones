@@ -73,7 +73,7 @@ TBD
 \makroabschnitt
 \label{GpsBasedPosition}
 
-Drones primarily find their way using Global Navigation Satellite Systems (GNSS), which is the broad term for satellite networks like GPS. These satellites act as a "map in the sky" that allows the drone to pinpoint its exact location on Earth (its latitude, longitude, and height). Once the drone knows exactly where it is on the map, it can perform smart tasks automatically: Position Hold, Waypoints, Return to Home
+The main method used for high-level autonomous navigation in drones is Global Navigation Satellite Systems (GNSS). GNSS is a general term that includes several satellite systems such as Global Positioning System (GPS) from the United States, GLONASS from Russia, and Galileo from the European Union. These satellite systems provide the unmanned aerial vehicle (UAV) with a global reference for positioning. Using these signals, the flight controller can estimate the drone’s absolute position in terms of latitude, longitude, and altitude.
 
 \colger
 
@@ -81,7 +81,7 @@ TBD
 
 \coleng
 
-TBD
+Modern GNSS receivers (see Section~\ref{AbschnittReceiver}) used in drones and flight controllers such as ArduPilot, Betflight, iNav and px4 can use signals from multiple satellite navigation systems at the same time (i.e GPS + Galileo or GPS + GLONASS + Galileo). Using several systems together increases the number of visible satellites, which improves positioning accuracy and makes navigation more reliable, especially in challenging environments.
 
 \colger
 
