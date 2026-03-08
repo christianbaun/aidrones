@@ -53,9 +53,9 @@ TBD
 \coleng
 
 \begin{itemize}
-  \item \textsl{Altitude Hold (Z-axis)} - The drone maintains a constant height by using a LiDAR sensor at low altitude and a barometer at higher altitude, allowing the pilot to release the throttle while the drone keeps hovering at the same height. As most moderns flight controller comes with barometer in it, Betflight, iNav and Arudpilot can activate this mode without any extra sensors.
+  \item \textsl{Altitude Hold (Z-axis)} - The drone maintains a fixed height by using a LiDAR sensor at low altitude and a barometer at a higher altitude. This allows the operator to release the throttle while the drone keeps hovering at the same height. As this mode can be used with a barometer only and most modern flight controller comes with barometer preinstalled, Betflight, iNav and Arudpilot can activate this mode without requireing extra sensor.
   \item \textsl{Position Hold (X, Y axes)} - The drone keeps its horizontal position by using optical flow or GNSS (GPS) to detect movement. If wind or another force pushes the drone, the flight controller tilts the drone slightly to move it back to the same spot.
-  \item \textsl{Return to Home (RTH / RTL)} - A common safety feature where the drone automatically flies back to its recorded home location using GNSS coordinates if the radio connection is lost or the battery becomes low.
+  \item \textsl{Return to Home (RTH / RTL)} - This is one of the most common safety features in modern drones, where the drone automatically flies back to its recorded home location using GNSS coordinates if the radio connection is lost or the battery becomes low.
 \end{itemize}
 
 \colger
@@ -81,13 +81,66 @@ TBD
 
 \coleng
 
-Modern GNSS receivers (see Section~\ref{AbschnittReceiver}) used in drones and flight controllers such as ArduPilot, Betflight, iNav and px4 can use signals from multiple satellite navigation systems at the same time (i.e GPS + Galileo or GPS + GLONASS + Galileo). Using several systems together increases the number of visible satellites, which improves positioning accuracy and makes navigation more reliable, especially in challenging environments.
+Modern GNSS receivers (see Section~\ref{AbschnittReceiver}) used in drones and flight controllers such as ArduPilot, Betflight, iNav and px4 can use signals from multiple satellite navigation systems at the same time (i.e., GPS + Galileo or GPS + GLONASS + Galileo). Using several systems together increases the number of visible satellites, which improves positioning accuracy and makes navigation more reliable, especially in challenging environments.
 
 \colger
 
 TBD
 
 \colende
+
+\begin{table}[htb!]
+\centering
+\caption{Firmware Configuration: From Hardware Setup to Mode Activation}
+\label{TableFirmwareConfigForGPS}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.4}
+\scriptsize
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+Firmware & Hardware Configuration (Enabling GPS) & Mode Activation (AltHold \& PosHold) \\
+\midrule
+
+Betaflight &
+\begin{enumerate}
+  \item Ports Tab: Set the specific UART to Sensor Input: GPS (see Figure~\ref{AbbildungBetaflightAppPorts}).
+  \item GPS Tab(Configuration Tab in older betaflight app): Enable GPS and select the protocol (Most modern GPS module support UBLOX).
+\end{enumerate}
+&
+\begin{enumerate} 
+  \item Modes Tab: Assign a switch to ALTHOLD, POS HOLD and GPS RESCUE (see Figure~\ref{AbbildungBetaflightAppModes}).
+  \item Failsafe Tab: Here GPS RESCUE mode can be set but other parameters of GPS RESCUE mode must be set carefully.
+\end{enumerate} \\
+
+\midrule
+
+iNav &
+\begin{enumerate} 
+  \item Ports Tab: Enable GPS on the assigned UART.
+  \item Configuration Tab: Enable GPS and Magnetometer.
+  \item Perform a 3D compass calibration for navigation.
+\end{enumerate}
+&
+\begin{enumerate} 
+  \item Modes Tab: Assign switches to NAV ALTHOLD, NAV POSHOLD and NAV RTH.
+\end{enumerate}  \\
+
+\midrule
+
+ArduPilot &
+\begin{enumerate} 
+  \item Setup Menu: The GPS is usually auto-detected on the GPS port and if not auto-detected set SERIALx\_PROTOCOL to 5 (here x is the serial number in the Flight controller board) (see Figure~\ref{MissionPlannerSerialPortConfig}) 
+\end{enumerate}
+&
+\begin{enumerate} 
+  \item Flight Modes: First assign a transmitter channel by using FLTMODE\_CH from full parameter list and  and from Setup tab → flight mode page, set AltHold, LOITER and RTL (see Figure~\ref{MissionPlannerFlightMode}).
+\end{enumerate}
+\\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
 
 \renewcommand{\deutschertitel}{Positionsbestimmung ohne GPS (Optischer Fluss und Entfernungsmesser)}
 \renewcommand{\englischertitel}{GPS-Denied Position Estimation (Optical Flow and Lidar sensor)}
