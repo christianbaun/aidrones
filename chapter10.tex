@@ -147,10 +147,22 @@ ArduPilot &
 \makroabschnitt
 \label{GpsDeniedPositionEstimation}
 
-Methods for estimating position when satellite signals are unavailable or unreliable, typically using onboard sensors and environmental references.
+In environments such as indoor spaces where Global Navigation Satellite Systems (GNSS) signals are not available, drones can use optical flow and LiDAR sensors for state estimation. These sensors provide local measurements that help the flight controller determine the drone’s motion and altitude without using satellite signals. Flight control firmware such as Betaflight, iNav, and ArduPilot can use this sensor data to support automated flight modes such as Position Hold and Altitude Hold.
 
 \colger
 
 TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Optischer Fluss und Entfernungsmesser (Betaflight)}
+\renewcommand{\englischertitel}{Opticalflow and LiDAR sensor Configuration (Betaflight)}
+\makrounterabschnitt
+
+To configure Optical flow and lider senstor latest version of Betaflight must be installed
+
+\colger
+
+Zur Konfiguration von Optical Flow und Lider Sensor muss die neueste Version von Betaflight installiert sein.
 
 \colende
