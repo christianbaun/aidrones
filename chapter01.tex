@@ -1052,8 +1052,8 @@ Gängige GPS-Module (siehe Abbildung~\ref{AbbildungGPSModuleM1005883}) mit integ
 \end{figure}
 \FloatBarrier
 
-\renewcommand{\deutschertitel}{Optischer Fluss und Entfernungsmesser}
-\renewcommand{\englischertitel}{Optical Flow and Lidar sensor}
+\renewcommand{\deutschertitel}{Optischer Fluss und LiDAR-Laserentfernungsmesser}
+\renewcommand{\englischertitel}{Optical Flow and LiDAR sensor}
 \makroabschnitt
 \label{AbschnittOpticalFlow}
 
@@ -1075,15 +1075,37 @@ Die Integration dieser Sensoren erfolgt über verschiedene serielle Kommunikatio
 
 \begin{itemize}
 \item \textsl{Betaflight}: Historically optimized for high-performance manual flight, Betaflight did not provide native optical flow support in earlier versions. Only with the release of version 4.6 has limited support for integrated positioning sensors been introduced.
-\item \textsl{INAV}: Compared to Betaflight, INAV is more navigation-oriented and supports a wider range of positioning sensors. However, compatibility is still largely limited to selected peripherals, primarily MSP-based devices such as the MicoAir MTF-01 or the Matek 3901-L0X.
-\item \textsl{ArduPilot}: This firmware provides the most extensive support for sensor fusion. It offers broad support for protocols such as MSP, MAVLink, and the industrial-grade DroneCAN standard, which makes it a common choice for complex autonomous systems and research platforms.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
 \item \textsl{Betaflight}: Betaflight wurde ursprünglich für leistungsorientierten manuellen Flug entwickelt und bot in früheren Versionen keine native Unterstützung für Optical-Flow-Sensoren. Erst mit Version 4.6 wurde eine begrenzte Unterstützung für integrierte Positionssensoren eingeführt.
-\item \textsl{INAV}: Im Vergleich zu Betaflight ist INAV stärker auf Navigation ausgelegt und unterstützt eine größere Bandbreite an Positionssensoren. Die Kompatibilität beschränkt sich jedoch weiterhin auf ausgewählte Peripheriegeräte, insbesondere MSP-basierte Sensoren wie den MicoAir MTF-01 oder den Matek 3901-L0X.
+\end{itemize}
+
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INAV}: Compared to Betaflight, INAV is more navigation-oriented and supports a wider range of positioning sensors. However, compatibility is still largely limited to selected peripherals, primarily MSP-based devices such as the MicoAir MTF-01/MTF-01P (see Figure~\ref{AbbildungMicoAirMFT01P}) or the Matek 3901-L0X (see Figure~\ref{AbbildungMatek3901L0X}).
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{INAV}: Im Vergleich zu Betaflight ist INAV stärker auf Navigation ausgelegt und unterstützt eine größere Bandbreite an Positionssensoren. Die Kompatibilität beschränkt sich jedoch weiterhin auf ausgewählte Peripheriegeräte, insbesondere MSP-basierte Sensoren wie den MicoAir MTF-01/MTF-01P (see Figure~\ref{AbbildungMicoAirMFT01P}) oder den Matek 3901-L0X (siehe Abbildung~\ref{AbbildungMatek3901L0X}).
+\end{itemize}
+
+
+\coleng
+
+\begin{itemize}
+\item \textsl{ArduPilot}: This firmware provides the most extensive support for sensor fusion. It offers broad support for protocols such as MSP, MAVLink, and the industrial-grade DroneCAN standard, which makes it a common choice for complex autonomous systems and research platforms.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
 \item \textsl{ArduPilot}: Diese Firmware bietet die umfassendste Unterstützung für Sensorfusion. Sie unterstützt verschiedene Protokolle wie MSP, MAVLink und den industriellen Standard DroneCAN und wird daher häufig für komplexe autonome Systeme und Forschungsplattformen eingesetzt.
 \end{itemize}
 
@@ -1095,22 +1117,48 @@ Standard hardware implementations typically use a Universal Asynchronous Receive
 
 Standardimplementierungen der Hardware verwenden in der Regel eine UART-Schnittstelle (Universal Asynchronous Receiver–Transmitter). Die TX- (Sende-) und RX- (Empfangs-) Pins des Sensors müssen dabei über Kreuz mit den entsprechenden RX- und TX-Pins des Flugcontrollers verbunden werden. Zusätzlich sind eine gemeinsame Masseleitung (GND) sowie eine geeignete geregelte Spannungsversorgung (VCC) erforderlich, um eine zuverlässige Signalübertragung und eine stabile Stromversorgung sicherzustellen.
 
+\coleng
+
+LiDAR laser rangefinders and optical flow sensors available on the market differ in several aspects, including their field of view, required ambient illumination, minimum and maximum operating height, and the maximum velocity at which reliable optical flow measurements can still be obtained. The sensor MicoAir MTF-01P shown in Figure~\ref{AbbildungMicoAirMFT01P}, for example, has a field of view of 42 degrees. For reliable operation, a minimum ambient illumination of 60~lux is required. Optical flow measurements begin at a height of approximately 8~cm and remain reliable at speeds of up to about 7~m/s at an altitude of one meter. The integrated laser rangefinder operates within a measurement range from 2~cm to 12~m. The Matek 3901-L0X shown in Figure~\ref{AbbildungMatek3901L0X} has similar characteristics, but its measurement range is limited to a maximum of approximately 2~m.
+
+\colger
+
+Die am Markt verfügbaren LiDAR-Laserentfernungsmesser und optischen Flusssensoren unterscheiden sich unter anderem hinsichtlich ihres Blickfelds, der erforderlichen Umgebungshelligkeit, der minimalen und maximalen Einsatzhöhe sowie der maximalen Geschwindigkeit, bei der eine zuverlässige Flussmessung noch möglich ist. Der in Abbildung~\ref{AbbildungMicoAirMFT01P} gezeigte Sensor MicoAir MTF-01P besitzt beispielsweise ein Blickfeld von 42 Grad. Für einen zuverlässigen Betrieb werden mindestens 60~Lux Umgebungshelligkeit benötigt. Die Messung des optischen Flusses beginnt ab einer Höhe von etwa 8~cm und funktioniert bei einer Höhe von einem Meter bis zu einer maximalen Geschwindigkeit von etwa 7~m/s. Der integrierte Laserentfernungsmesser arbeitet in einem Messbereich von 2~cm bis 12~m. Der in Abbildung~\ref{AbbildungMatek3901L0X} gezeigte Matek 3901-L0X weist vergleichbare Eigenschaften auf, allerdings ist sein Messbereich auf maximal etwa 2~m begrenzt.
+
 \colende
 
 \begin{figure}[htbp]
   \centering
   \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P.png}
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P_front.jpg}
     \vspace{0pt} % sorgt für Top-Ausrichtung
   \end{minipage}\hfill
   \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{Matek_3901_L0X_Optical_Flow_and_Lidar.png}
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P_side.png}
     \vspace{0pt}
   \end{minipage}
-  \caption{MicoAir MTF-01P and Matek 3901-L0X Optical Flow and Lidar Sensor}
-  \label{MicoAirAndMatekOFSensor}
+  \caption{MicoAir MTF-01P Optical Flow and Lidar Sensor (33x21x17mm)}
+  \label{AbbildungMicoAirMFT01P}
+\end{figure}
+\FloatBarrier
+
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Matek_3901_L0X_Optical_Flow_and_Lidar_Front.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Matek_3901_L0X_Optical_Flow_and_Lidar_Back.jpg}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Matek 3901-L0X Optical Flow and Lidar Sensor}
+  \label{AbbildungMatek3901L0X}
 \end{figure}
 \FloatBarrier
 
