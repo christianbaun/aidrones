@@ -179,11 +179,50 @@ TBD
 \renewcommand{\englischertitel}{Opticalflow and LiDAR sensor Configuration (ArduPilot)}
 \makrounterabschnitt
 
-For reliable use of optical flow and rangefinder sensors, the drone must be capable of stable flight with minimal vibration. Excessive vibrations can significantly affect the accuracy of optical flow measurements and rangefinder readings, leading to unreliable sensor data and very bad flight.
+For reliable use of optical flow and rangefinder sensors, the drone must be capable of stable flight with minimal vibration. Excessive vibrations can significantly affect the accuracy of optical flow measurements and rangefinder readings, leading to unreliable sensor data and very bad flight (See how vibration can be reduced in ArduPilot~\ref{ArdupilotVibrationReduction}).
 
 \colger
 
 TBD
 
+\coleng
+
+Although ArduPilot supports installing optical flow and rangefinder sensors in different orientations, this section focuses only on the downward-facing configuration, since the installation and configuration procedures for other orientations are similar. It is recommended to mount the sensor close to the center of the drone and ensure that its forward direction is correctly aligned (see Figure~\ref{DroenWithMicoAirMFT01}). If this placement is not possible, the sensor position can be compensated through configuration parameters
+
 \colende
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{minipage}[t]{0.48\textwidth}
+%     \centering
+%     \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01_in_flying_drone.jpg}
+%     \vspace{0pt} % sorgt für Top-Ausrichtung
+%   \end{minipage}\hfill
+%   \begin{minipage}[t]{0.48\textwidth}
+%     \centering
+%     \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01_in_flying_drone.jpeg}
+%     \vspace{0pt}
+%   \end{minipage}
+%   \caption{Drone installed with MicoAir MTF-01 Optical Flow and Lidar Sensor}
+%   \label{DroenFlyingWithMicoAirMFT01}
+% \end{figure}
+% \FloatBarrier
+
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01_in_flying_drone.jpeg}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01_in_drone.jpeg}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Drone installed with MicoAir MTF-01 Optical Flow and Lidar Sensor}
+  \label{DroenWithMicoAirMFT01}
+\end{figure}
+\FloatBarrier
 
