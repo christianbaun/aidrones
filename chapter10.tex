@@ -159,10 +159,31 @@ TBD
 \renewcommand{\englischertitel}{Opticalflow and LiDAR sensor Configuration (Betaflight)}
 \makrounterabschnitt
 
-To configure Optical flow and lider senstor latest version of Betaflight must be installed
+Betaflight (as of version 4.6) is currently integrating support, primarily focusing on sensor data acquisition as a foundation for future autonomous features. To configure these sensors, the appropriate UART port must first be assigned to the corresponding peripheral in the Ports tab (see Figure~\ref{AbbildungBetaflightAppPorts}). Subsequently, the correct rangefinder and optical flow sensor types must be selected in the Configuration tab to enable their operation (see Figure~\ref{ImageLevelBetaflightAppLiderConfig}).
 
 \colger
 
-Zur Konfiguration von Optical Flow und Lider Sensor muss die neueste Version von Betaflight installiert sein.
+TBD
 
 \colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_2025.12.2_sensor_configuration.png}
+  \caption{Configuration Page of Betaflight}
+  \label{ImageLevelBetaflightAppLiderConfig}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{Optischer Fluss und Entfernungsmesser (ArduPilot)}
+\renewcommand{\englischertitel}{Opticalflow and LiDAR sensor Configuration (ArduPilot)}
+\makrounterabschnitt
+
+For reliable use of optical flow and rangefinder sensors, the drone must be capable of stable flight with minimal vibration. Excessive vibrations can significantly affect the accuracy of optical flow measurements and rangefinder readings, leading to unreliable sensor data and very bad flight.
+
+\colger
+
+TBD
+
+\colende
+
