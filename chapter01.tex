@@ -1075,15 +1075,37 @@ Die Integration dieser Sensoren erfolgt über verschiedene serielle Kommunikatio
 
 \begin{itemize}
 \item \textsl{Betaflight}: Historically optimized for high-performance manual flight, Betaflight did not provide native optical flow support in earlier versions. Only with the release of version 4.6 has limited support for integrated positioning sensors been introduced.
-\item \textsl{INAV}: Compared to Betaflight, INAV is more navigation-oriented and supports a wider range of positioning sensors. However, compatibility is still largely limited to selected peripherals, primarily MSP-based devices such as the MicoAir MTF-01 or the Matek 3901-L0X.
-\item \textsl{ArduPilot}: This firmware provides the most extensive support for sensor fusion. It offers broad support for protocols such as MSP, MAVLink, and the industrial-grade DroneCAN standard, which makes it a common choice for complex autonomous systems and research platforms.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
 \item \textsl{Betaflight}: Betaflight wurde ursprünglich für leistungsorientierten manuellen Flug entwickelt und bot in früheren Versionen keine native Unterstützung für Optical-Flow-Sensoren. Erst mit Version 4.6 wurde eine begrenzte Unterstützung für integrierte Positionssensoren eingeführt.
-\item \textsl{INAV}: Im Vergleich zu Betaflight ist INAV stärker auf Navigation ausgelegt und unterstützt eine größere Bandbreite an Positionssensoren. Die Kompatibilität beschränkt sich jedoch weiterhin auf ausgewählte Peripheriegeräte, insbesondere MSP-basierte Sensoren wie den MicoAir MTF-01 oder den Matek 3901-L0X.
+\end{itemize}
+
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INAV}: Compared to Betaflight, INAV is more navigation-oriented and supports a wider range of positioning sensors. However, compatibility is still largely limited to selected peripherals, primarily MSP-based devices such as the MicoAir MTF-01/MTF-01P (see Figure~\ref{AbbildungMicoAirMFT01P}) or the Matek 3901-L0X (see Figure~\ref{AbbildungMatek3901L0X}).
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{INAV}: Im Vergleich zu Betaflight ist INAV stärker auf Navigation ausgelegt und unterstützt eine größere Bandbreite an Positionssensoren. Die Kompatibilität beschränkt sich jedoch weiterhin auf ausgewählte Peripheriegeräte, insbesondere MSP-basierte Sensoren wie den MicoAir MTF-01/MTF-01P (see Figure~\ref{AbbildungMicoAirMFT01P}) oder den Matek 3901-L0X (siehe Abbildung~\ref{AbbildungMatek3901L0X}).
+\end{itemize}
+
+
+\coleng
+
+\begin{itemize}
+\item \textsl{ArduPilot}: This firmware provides the most extensive support for sensor fusion. It offers broad support for protocols such as MSP, MAVLink, and the industrial-grade DroneCAN standard, which makes it a common choice for complex autonomous systems and research platforms.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
 \item \textsl{ArduPilot}: Diese Firmware bietet die umfassendste Unterstützung für Sensorfusion. Sie unterstützt verschiedene Protokolle wie MSP, MAVLink und den industriellen Standard DroneCAN und wird daher häufig für komplexe autonome Systeme und Forschungsplattformen eingesetzt.
 \end{itemize}
 
@@ -1101,16 +1123,34 @@ Standardimplementierungen der Hardware verwenden in der Regel eine UART-Schnitts
   \centering
   \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P.png}
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P_front.jpg}
     \vspace{0pt} % sorgt für Top-Ausrichtung
   \end{minipage}\hfill
   \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{Matek_3901_L0X_Optical_Flow_and_Lidar.png}
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P_side.png}
     \vspace{0pt}
   \end{minipage}
-  \caption{MicoAir MTF-01P and Matek 3901-L0X Optical Flow and Lidar Sensor}
-  \label{MicoAirAndMatekOFSensor}
+  \caption{MicoAir MTF-01P Optical Flow and Lidar Sensor}
+  \label{AbbildungMicoAirMFT01P}
+\end{figure}
+\FloatBarrier
+
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Matek_3901_L0X_Optical_Flow_and_Lidar_Front.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Matek_3901_L0X_Optical_Flow_and_Lidar_Back.jpg}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Matek 3901-L0X Optical Flow and Lidar Sensor}
+  \label{AbbildungMatek3901L0X}
 \end{figure}
 \FloatBarrier
 
