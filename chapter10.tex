@@ -189,24 +189,11 @@ TBD
 
 Although ArduPilot supports installing optical flow and rangefinder sensors in different orientations, this section focuses only on the downward-facing configuration, since the installation and configuration procedures for other orientations are similar. It is recommended to mount the sensor close to the center of the drone and ensure that its forward direction is correctly aligned (see Figure~\ref{DroenWithMicoAirMFT01}). If this placement is not possible, the sensor position can be compensated through configuration parameters
 
-\colende
+\colger
 
-% \begin{figure}[htbp]
-%   \centering
-%   \begin{minipage}[t]{0.48\textwidth}
-%     \centering
-%     \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01_in_flying_drone.jpg}
-%     \vspace{0pt} % sorgt für Top-Ausrichtung
-%   \end{minipage}\hfill
-%   \begin{minipage}[t]{0.48\textwidth}
-%     \centering
-%     \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01_in_flying_drone.jpeg}
-%     \vspace{0pt}
-%   \end{minipage}
-%   \caption{Drone installed with MicoAir MTF-01 Optical Flow and Lidar Sensor}
-%   \label{DroenFlyingWithMicoAirMFT01}
-% \end{figure}
-% \FloatBarrier
+TBD
+
+\colende
 
 
 \begin{figure}[htbp]
@@ -226,3 +213,82 @@ Although ArduPilot supports installing optical flow and rangefinder sensors in d
 \end{figure}
 \FloatBarrier
 
+\renewcommand{\deutschertitel}{Konfigurationsschritt: A}
+\renewcommand{\englischertitel}{Configuration Step: A}
+\makrounterunterabschnitt
+
+For the configuration of the optical flow sensor, this guideline uses Mission Planner as the ground control software. After the sensor has been properly installed, the next step is to configure it in the ArduPilot firmware so that the flight controller can read and utilize the optical flow and rangefinder data.
+
+\colger
+
+TBD
+
+\coleng
+
+First, the serial port to which the sensor is connected must be specified in SETUP → Serial Ports (see Figure~\ref{AbbildungBetaflightAppPorts}). In this section, the corresponding SERIALx / UARTx port (where x represents the hardware port number used for the sensor connection) must be configured with the correct baud rate and communication protocol.
+
+\colger
+
+TBD
+
+\coleng
+
+For high-speed sensors such as optical flow modules and GNSS receivers, a baud rate of 115200 is commonly used. However, it is recommended to verify the correct baud rate from the sensor manufacturer’s documentation. Optical flow sensors may use different communication protocols, and some devices—such as the MTF-01—support multiple protocols. Therefore, the sensor protocol should first be configured according to the manufacturer’s instructions. Once the supported protocol is confirmed, the same protocol must be selected for the corresponding serial port in the flight controller configuration.
+
+\colger
+
+TBD
+
+\coleng
+
+For ArduCopter version 4.7 and earlier, sensors that communicate using the MAVLink protocol require additional configuration of the serial port settings. In this case, the Set Bitmask option of the corresponding serial port must be selected. From the dialog window that appears, the “Don’t forward” option should be enabled for that serial port (see Figure~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_6}). This setting ensures that MAVLink messages from sources other than the autopilot are not forwarded to the selected serial port.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_MAV_OPTIONScopter4.6_screenshot_1.png}
+  \caption{Configuration Page of Betaflight}
+  \label{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_6}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+In ArduCopter firmware versions later than 4.7, the protocol configuration has been decoupled from specific serial ports and moved to the MAVn\_OPTIONS parameter. The correct numbe can be found by the MAV index (n) and the physical serial port identifier. The index "n" represents the specific MAVLink instance assigned to the peripheral device rather than its hardware port number. Consequently, the appropriate value for "n" must be derived from the MAVLink instance mapping of the integrated sensors and their corresponding serial interfaces. Once done save the changes (see Figure~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_7}).
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_MAV_OPTIONScopter4.7_screenshot_1.png}
+  \caption{Configuration Page of Betaflight}
+  \label{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_7}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Summary step A:
+
+% \begin{enumerate}
+%   \item \textbf{Set SERIALx\_Speed} - From Setup tab → flight mode page
+%   \item \textbf{Set SERIALx\_PROTOCOL} - From Setup tab → flight mode page
+%   \item \textbf{Select Don’t forward from / to option } - From Setup tab → flight mode page for copter verson 4.7 Or Config tab → Full Parameter → List  MAVn\_options for newer versions
+% \end{enumerate}
+
+\begin{enumerate} 
+  \item \textbf{Set SERIALx\_Speed} - From Setup tab → flight mode page.
+  \item \textbf{Set SERIALx\_PROTOCOL} - From Setup tab → flight mode page.
+  \item \textbf{Select Don’t forward from / to option } → From Setup tab → flight mode page for copter verson 4.7 Or Config tab → Full Parameter → List  MAVn\_options for newer versions.
+\end{enumerate} 
+
+\colende
