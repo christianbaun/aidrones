@@ -277,7 +277,7 @@ TBD
 
 \colstart
 
-\textbf{Summary step A (UART and protocol)}:
+\textbf{Summary step A} (UART and protocol):
 
 \begin{enumerate} 
   \item Set \textbf{SERIALx\_Speed} - From Setup tab → flight mode page.
@@ -330,7 +330,7 @@ TBD
 
 \coleng
 
-\textbf{Summary step A (UART and protocol):} all are from Config tab → Full Parameter List
+\textbf{Summary step B} (sensor): all are from Config tab → Full Parameter List
 
 \begin{enumerate} 
   \item Set \textbf{FLOW\_TYPE} - 7 (MSP) or 10 (MAVLink) or other.
@@ -344,4 +344,68 @@ TBD
 
 TBD
 
+\coleng
+
+At this stage, the readings from the optical flow and rangefinder sensors should be visible on the Status page in Mission Planner (see Figure X).
+% TODO: add figure here and refer the figure
+
+\colger
+
+TBD
+
 \colende
+
+\renewcommand{\deutschertitel}{Konfigurationsschritt: C (EK3)}
+\renewcommand{\englischertitel}{Configuration Step: C (EK3)}
+\makrounterunterabschnitt
+
+ArduPilot uses a state estimation algorithm called the Extended Kalman Filter (EKF) to determine the vehicle’s position, velocity, and orientation. The EKF combines measurements from multiple onboard sensors—such as gyroscopes, accelerometers, magnetometers, GPS receivers, and barometers—to produce a consistent estimate of the drone’s state. In recent versions of ArduCopter, including the stable version 4.6 and the development version 4.7, EKF3 serves as the primary estimator for navigation and position estimation. Because EKF3 can integrate data from additional sensors, it can also use optical flow sensors and rangefinders to assist navigation. In GNSS-denied environments, these sensors can provide the primary measurements required for estimating the drone’s motion relative to the ground.
+
+\colger
+
+TBD
+
+\coleng
+
+ArduPilot supports multiple sensor sources for the EKF3 estimator. A UAV can therefore be configured for indoor operation, where optical flow and rangefinder sensors act as the primary sources, or for outdoor use with GNSS. If both are available, a switch can be assigned to change between the sources during flight. By default, Source 1 is active and is typically configured to use GNSS-based measurements.
+
+\colger
+
+TBD
+
+\coleng
+
+It is recommended to assign an auxiliary switch to change the EKF3 source during flight. To configure that way from mission planner software go to Config tab → Full Parameter List and search and set
+\begin{enumerate} 
+  \item Set \textbf{AHRS\_EKF\_TYPE} = 3 (default)
+  \item Set \textbf{EK3\_SRC2\_POSXY} = 0 (None, as we do not want to use GPS)
+  \item Set \textbf{EK3\_SRC2\_POSZ} = 2 (Rangefinder)
+  \item Set \textbf{EK3\_SRC2\_VELXY} = 5 (Opticalflow)
+  \item Set \textbf{EK3\_SRC2\_VELZ } = 0 (None - will disable GPS here) 
+  \item Set \textbf{EK3\_SRC2\_YAW} = 1 (compass)
+  \item set \textbf{RCn\_OPTION} = 90 (here n is the number of auxiliary channel in RC and 90 is for the EK3 source)
+\end{enumerate} 
+
+\colger
+
+TBD
+
+\coleng
+
+If the drone is intended to operate exclusively in GNSS-denied environments, it should be configured as follows:
+\begin{enumerate} 
+  \item Set \textbf{AHRS\_EKF\_TYPE} = 3 (default)
+  \item Set \textbf{EK3\_SRC1\_POSXY} = 0 (None as we do not want to use GPS)
+  \item Set \textbf{EK3\_SRC1\_POSZ} = 2 (Rangefinder)
+  \item Set \textbf{EK3\_SRC1\_VELXY} = 5 (Opticalflow)
+  \item Set \textbf{EK3\_SRC1\_VELZ } = 0 (None - will disable default GPS use here) 
+  \item Set \textbf{EK3\_SRC1\_YAW} = 1 (compass)
+\end{enumerate}
+
+\colger
+
+TBD
+
+\colende
+
+% TODO: Mesion when modifying parameters in the Full Parameter List, always remember to click the “Save”
