@@ -213,8 +213,8 @@ TBD
 \end{figure}
 \FloatBarrier
 
-\renewcommand{\deutschertitel}{Konfigurationsschritt: A}
-\renewcommand{\englischertitel}{Configuration Step: A}
+\renewcommand{\deutschertitel}{Konfigurationsschritt: A (UART und Protokoll)}
+\renewcommand{\englischertitel}{Configuration Step: A (UART and protocol)}
 \makrounterunterabschnitt
 
 For the configuration of the optical flow sensor, this guideline uses Mission Planner as the ground control software. After the sensor has been properly installed, the next step is to configure it in the ArduPilot firmware so that the flight controller can read and utilize the optical flow and rangefinder data.
@@ -241,7 +241,7 @@ TBD
 
 \coleng
 
-For ArduCopter version 4.7 and earlier, sensors that communicate using the MAVLink protocol require additional configuration of the serial port settings. In this case, the Set Bitmask option of the corresponding serial port must be selected. From the dialog window that appears, the “Don’t forward” option should be enabled for that serial port (see Figure~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_6}). This setting ensures that MAVLink messages from sources other than the autopilot are not forwarded to the selected serial port.
+For ArduCopter version earlier than 4.7, sensors that communicate using the MAVLink protocol require additional configuration of the serial port settings. In this case, the Set Bitmask option of the corresponding serial port must be selected. From the dialog window that appears, the “Don’t forward” option should be enabled for that serial port (see Figure~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_6}). This setting ensures that MAVLink messages from sources other than the autopilot are not forwarded to the selected serial port.
 
 \colger
 
@@ -259,7 +259,7 @@ TBD
 
 \colstart
 
-In ArduCopter firmware versions later than 4.7, the protocol configuration has been decoupled from specific serial ports and moved to the MAVn\_OPTIONS parameter. The correct numbe can be found by the MAV index (n) and the physical serial port identifier. The index "n" represents the specific MAVLink instance assigned to the peripheral device rather than its hardware port number. Consequently, the appropriate value for "n" must be derived from the MAVLink instance mapping of the integrated sensors and their corresponding serial interfaces. Once done save the changes (see Figure~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_7}).
+In ArduCopter firmware versions 4.7 and later, the protocol configuration has been decoupled from specific serial ports and moved to the MAVn\_OPTIONS parameter. The correct numbe can be found by the MAV index (n) and the physical serial port identifier. The index "n" represents the specific MAVLink instance assigned to the peripheral device rather than its hardware port number. Consequently, the appropriate value for "n" must be derived from the MAVLink instance mapping of the integrated sensors and their corresponding serial interfaces. Once done save the changes (see Figure~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_7}).
 
 \colger
 
@@ -277,18 +277,71 @@ TBD
 
 \colstart
 
-Summary step A:
-
-% \begin{enumerate}
-%   \item \textbf{Set SERIALx\_Speed} - From Setup tab → flight mode page
-%   \item \textbf{Set SERIALx\_PROTOCOL} - From Setup tab → flight mode page
-%   \item \textbf{Select Don’t forward from / to option } - From Setup tab → flight mode page for copter verson 4.7 Or Config tab → Full Parameter → List  MAVn\_options for newer versions
-% \end{enumerate}
+\textbf{Summary step A (UART and protocol)}:
 
 \begin{enumerate} 
-  \item \textbf{Set SERIALx\_Speed} - From Setup tab → flight mode page.
-  \item \textbf{Set SERIALx\_PROTOCOL} - From Setup tab → flight mode page.
-  \item \textbf{Select Don’t forward from / to option } → From Setup tab → flight mode page for copter verson 4.7 Or Config tab → Full Parameter → List  MAVn\_options for newer versions.
+  \item Set \textbf{SERIALx\_Speed} - From Setup tab → flight mode page.
+  \item Set \textbf{SERIALx\_PROTOCOL} - From Setup tab → flight mode page.
+  \item Select \textbf{Don’t forward from / to option } → From Setup tab → flight mode page for copter verson 4.7 Or Config tab → Full Parameter List →  MAVn\_options for newer versions.
 \end{enumerate} 
+
+\colger
+
+
+Zusammenfassung Schritt A (UART und Protokoll):
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Konfigurationsschritt: B (Sensor)}
+\renewcommand{\englischertitel}{Configuration Step: B (sensor)}
+\makrounterunterabschnitt
+
+ArduPilot needs to know the type of Optical flow and Rangefinder connected to the flight controller. This configuration can be performed in Mission Planner by navigating to \textbf{Config → Full Parameter List} and search for the parameter \textbf{FLOW\_TYPE} and set it according to the sensor. For example, 7 (MSP) or 10 (MAVLink) may be selected depending on the communication protocol supported by the sensor. Similarly, search for \textbf{RNGFND1\_TYPE} and set the appropriate value corresponding to the connected rangefinder.
+
+\colger
+
+TBD
+
+\coleng
+
+Next, the measurement limits of the rangefinder must be defined. For ArduCopter versions earlier than 4.7, the parameters \textbf{RNGFND1\_MAX\_CM and RNGFND1\_MIN\_CM} are used to specify the maximum and minimum measurable distances in centimeters. For ArduCopter versions 4.7 and later, the parameters \textbf{RNGFND1\_MAX and RNGFND1\_MIN} are used, where the values are defined in meters.
+
+\colger
+
+TBD
+
+\coleng
+
+For example, the MTF-01 rangefinder supports a maximum measurement distance of 8 meters (800 cm). Therefore, the maximum parameter should be set accordingly, while the minimum value should be defined based on the sensor’s supported lower measurement range.
+
+\colger
+
+TBD
+
+\coleng
+
+Finally, the orientation of the rangefinder must be configured. For a downward-facing sensor, the parameter \textbf{RNGFND1\_ORIENT} should be set to 25, which corresponds to a downward orientation of the sensor.
+
+\colger
+
+TBD
+
+\coleng
+
+\textbf{Summary step A (UART and protocol):} all are from Config tab → Full Parameter List
+
+\begin{enumerate} 
+  \item Set \textbf{FLOW\_TYPE} - 7 (MSP) or 10 (MAVLink) or other.
+  \item Set \textbf{RNGFND1\_TYPE} - 7 (MSP) or 10 (MAVLink) or other.
+  \item \textbf{RNGFND1\_MAX\_CM} (version < 4.7) / \textbf{RNGFND1\_MAX} (version > 4.6) → set maximum supported range for range finder in centimeters or meters.
+  \item \textbf{RNGFND1\_MIN\_CM} (version < 4.7) / \textbf{RNGFND1\_MIN} (version > 4.6) → set minimum supported range for range finder in centimeters or meters.
+  \item \textbf{RNGFND1\_ORIENT} - 25 for downward orientation.
+\end{enumerate} 
+
+\colger
+
+TBD
 
 \colende
