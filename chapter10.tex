@@ -251,8 +251,8 @@ TBD
 
 \begin{figure}[htb!]
   \centering
-    \includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_MAV_OPTIONScopter4.6_screenshot_1.png}
-  \caption{Configuration Page of Betaflight}
+    \includegraphics[width=\linewidth]{Mission_Planner_1.3.83_MAV_OPTIONS_copter4.6_screenshot_1.png}
+  \caption{Missaion Planner page to disable forword MAVLink to/from (copter version 4.6)}
   \label{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_6}
 \end{figure}
 \FloatBarrier
@@ -269,8 +269,8 @@ TBD
 
 \begin{figure}[htb!]
   \centering
-    \includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_MAV_OPTIONScopter4.7_screenshot_1.png}
-  \caption{Configuration Page of Betaflight}
+    \includegraphics[width=\linewidth]{Mission_Planner_1.3.83_MAV_OPTIONS_copter4.7_screenshot_1.png}
+  \caption{Missaion Planner page to disable forword MAVLink to/from (copter version 4.7)}
   \label{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_7}
 \end{figure}
 \FloatBarrier
@@ -330,7 +330,7 @@ TBD
 
 \coleng
 
-\textbf{Summary step B} (sensor): all are from Config tab → Full Parameter List
+\textbf{Summary step B} (sensor): all are from Config tab → Full Parameter List: (when modifying parameters in the Full Parameter List, always remember to click the “Save” after changes)
 
 \begin{enumerate} 
   \item Set \textbf{FLOW\_TYPE} - 7 (MSP) or 10 (MAVLink) or other.
@@ -346,14 +346,21 @@ TBD
 
 \coleng
 
-At this stage, the readings from the optical flow and rangefinder sensors should be visible on the Status page in Mission Planner (see Figure X).
-% TODO: add figure here and refer the figure
+At this stage, the readings from the optical flow and rangefinder sensors should be visible on the Status page in Mission Planner (see Figure~\ref{ImageLevelMissionPlannerOpticalFlowData}).
 
 \colger
 
 TBD
 
 \colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Mission_Planner_1.3.83_OF_data_screenshot_1.png}
+  \caption{Mission planner page to observe Opticalflow and rangefinder readings}
+  \label{ImageLevelMissionPlannerOpticalFlowData}
+\end{figure}
+\FloatBarrier
 
 \renewcommand{\deutschertitel}{Konfigurationsschritt: C (EK3)}
 \renewcommand{\englischertitel}{Configuration Step: C (EK3)}
@@ -375,7 +382,7 @@ TBD
 
 \coleng
 
-It is recommended to assign an auxiliary switch to change the EKF3 source during flight. To configure that way from mission planner software go to Config tab → Full Parameter List and search and set
+It is recommended to assign an auxiliary switch to change the EKF3 source during flight. To configure that way from mission planner software go to Config tab → Full Parameter List and search and set and save changes: (With \textbf{Summary step C})
 \begin{enumerate} 
   \item Set \textbf{AHRS\_EKF\_TYPE} = 3 (default)
   \item Set \textbf{EK3\_SRC2\_POSXY} = 0 (None, as we do not want to use GPS)
@@ -408,4 +415,37 @@ TBD
 
 \colende
 
-% TODO: Mesion when modifying parameters in the Full Parameter List, always remember to click the “Save”
+\renewcommand{\deutschertitel}{Konfigurationsschritt: C (körperliche Position)}
+\renewcommand{\englischertitel}{Configuration Step: D (physical position)}
+\makrounterunterabschnitt
+
+To obtain accurate measurements, the position of the sensors should be configured relative to the center of gravity (or IMU) of the Drone. If the sensors are mounted at or near the center (within about 15 cm), this step may not be necessary. Otherwise, measure the sensor’s offset from the center in the forward/backward, left/right, and downward directions and set the corresponding parameters to match the measured offsets: (With \textbf{Summary step D})
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{enumerate} 
+  \item Set \textbf{FLOW\_POS\_X}: positive value if the sensor is in front of the center, and a negative value if it is behind it
+  \item Set \textbf{FLOW\_POS\_Y}: Positive values are towards the right, negative for left.
+  \item Set \textbf{FLOW\_POS\_Z}: Positive values indicate that the sensor is located below the center and should be positive, since the sensor is mounted underneath the drone.
+  \item Set \textbf{RNGFND1\_POS\_X}
+  \item Set \textbf{RNGFND1\_POS\_Y}
+  \item Set \textbf{RNGFND1\_POS\_Z}
+\end{enumerate}
+
+\colger
+
+TBD
+
+\coleng
+
+Once these configurations are completed, the drone should be able to use optical flow and rangefinder data to enable automatic flight modes such as Loiter. If the system does not perform as expected, possible causes include excessive vibration, high processing load on the flight controller, or the need for sensor calibration. Detailed instructions for optical flow calibration and testing are available in the ArduPilot documentation: \url{https://ardupilot.org/copter/docs/common-optical-flow-sensor-setup.html#optical-flow-sensor-testing-and-setup} 
+
+\colger
+
+TBD
+
+\colende
