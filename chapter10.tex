@@ -26,10 +26,10 @@ For a UAV to operate autonomously, it must maintain a state estimate—a real-ti
 
 \begin{itemize}
   \item \textsl{IMU (Inertial Measurement Unit)} - Tracks high-speed changes in acceleration and rotation in six directions to maintain basic flight attitude and stability.
-  \item \textsl{GNSS (GPS)} - Establishes absolute global coordinates (latitude and longitude) for long-range navigation and geofencing.
-  \item \textsl{Optical Flow} - Measures horizontal displacement by analyzing ground texture movement, enabling Position Hold in GNSS-denied (indoor) environments.
+  \item \textsl{GNSS (GPS)} - Finds the exact location on Earth using latitude and longitude with the help of satellites, helping devices know where they are for navigation.
+  \item \textsl{Optical Flow} - Measures horizontal movement by tracking the ground surface movement beneath it, allowing the device to hold its position even when GNSS/GPS signals are unavailable (such as indoors).
   \item \textsl{Barometer} - Measures air pressure to estimate relative altitude. While less precise than LiDAR at low altitudes, it is essential for maintaining height at scales beyond the rangefinder's limit.
-  \item \textsl{LiDAR (Rangefinder)} - Provides high-precision at low-altitude distance measurements via laser pulses, critical for terrain following and Precision Landing.
+  \item \textsl{LiDAR (Rangefinder)} - Compared to the barometer, it provides better accuracy at low altitudes using laser pulses to measure the distance to the ground. It helps the UAV stay at the right height over the ground and land accurately.
 \end{itemize}
 
 \colger
@@ -53,9 +53,9 @@ TBD
 \coleng
 
 \begin{itemize}
-  \item \textsl{Altitude Hold (Z-axis)} - The drone maintains a fixed height by using a LiDAR sensor at low altitude and a barometer at a higher altitude. This allows the operator to release the throttle while the drone keeps hovering at the same height. As this mode can be used with a barometer only and most modern flight controller comes with barometer preinstalled, Betflight, iNav and Arudpilot can activate this mode without requireing extra sensor.
-  \item \textsl{Position Hold (X, Y axes)} - The drone keeps its horizontal position by using optical flow or GNSS (GPS) to detect movement. If wind or another force pushes the drone, the flight controller tilts the drone slightly to move it back to the same spot.
-  \item \textsl{Return to Home (RTH / RTL)} - This is one of the most common safety features in modern drones, where the drone automatically flies back to its recorded home location using GNSS coordinates if the radio connection is lost or the battery becomes low.
+  \item \textsl{Altitude Hold (Z-axis)} - The drone maintains a fixed height by using a rangefinder sensor at low altitude and a barometer at a higher altitude. This allows the operator to release the throttle while the drone keeps hovering at the same height. As this mode can be used with a barometer only and most modern flight controller comes with barometer preinstalled, Betflight, iNav and Arudpilot can activate this mode without requireing extra sensor.
+  \item \textsl{Position Hold (X, Y axis)} - The drone keeps its horizontal position by using optical flow or GNSS (GPS) to detect movement. If wind or external forces push the drone, the flight controller corrects the displacement by moving it back to its original position.
+  \item \textsl{Return to Home (RTH / RTL)} - This is one of the most common safety features in commercial drones. RTH is triggered automatically by failsafe mode, for example, if the battery is too low or the RC signal is lost, or manually by the user. When activated, the drone automatically flies back to its recorded home location using GNSS coordinates.
 \end{itemize}
 
 \colger
@@ -73,7 +73,7 @@ TBD
 \makroabschnitt
 \label{GpsBasedPosition}
 
-The main method used for high-level autonomous navigation in drones is Global Navigation Satellite Systems (GNSS). GNSS is a general term that includes several satellite systems such as Global Positioning System (GPS) from the United States, GLONASS from Russia, and Galileo from the European Union. These satellite systems provide the unmanned aerial vehicle (UAV) with a global reference for positioning. Using these signals, the flight controller can estimate the drone’s absolute position in terms of latitude, longitude, and altitude.
+The main method used for high-level autonomous navigation in drones is Global Navigation Satellite Systems (GNSS). GNSS is a general term that includes several satellite systems such as Global Positioning System (GPS) from the United States, GLONASS from Russia, and Galileo from the European Union. These satellite systems provide the drone with a global reference and help the flight controller to estimate the vehicles exect position in terms of latitude, longitude, and altitude.
 
 \colger
 
@@ -91,7 +91,7 @@ TBD
 
 \begin{table}[htb!]
 \centering
-\caption{Firmware Configuration: From Hardware Setup to Mode Activation}
+\caption{Firmware Configuration: From Hardware Configuration to Mode Activation}
 \label{TableFirmwareConfigForGPS}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.4}
@@ -104,7 +104,7 @@ Firmware & Hardware Configuration (Enabling GPS) & Mode Activation (AltHold \& P
 Betaflight &
 \begin{enumerate}
   \item Ports Tab: Set the specific UART to Sensor Input: GPS (see Figure~\ref{AbbildungBetaflightAppPorts}).
-  \item GPS Tab(Configuration Tab in older betaflight app): Enable GPS and select the protocol (Most modern GPS module support UBLOX).
+  \item GPS Tab (Configuration Tab in older betaflight app): Enable GPS and select the protocol (Most modern GPS module support UBLOX).
 \end{enumerate}
 &
 \begin{enumerate} 
@@ -143,11 +143,11 @@ ArduPilot &
 
 
 \renewcommand{\deutschertitel}{Positionsbestimmung ohne GPS (Optischer Fluss und Entfernungsmesser)}
-\renewcommand{\englischertitel}{GPS-Denied Position Estimation (Optical Flow and Lidar sensor)}
+\renewcommand{\englischertitel}{GPS-Denied Position Estimation (Optical Flow and rangefinder sensor)}
 \makroabschnitt
 \label{GpsDeniedPositionEstimation}
 
-In environments such as indoor spaces where Global Navigation Satellite Systems (GNSS) signals are not available, drones can use optical flow and LiDAR sensors for state estimation. These sensors provide local measurements that help the flight controller determine the drone’s motion and altitude without using satellite signals. Flight control firmware such as Betaflight, iNav, and ArduPilot can use this sensor data to support automated flight modes such as Position Hold and Altitude Hold.
+In environments such as indoor spaces where Global Navigation Satellite Systems (GNSS) signals are not available, drones can use optical flow and rangefinder sensors for state estimation. These sensors provide local measurements that help the flight controller determine the drone’s motion and altitude without using satellite signals. Flight control firmware such as iNav, and ArduPilot can use this sensor data to support automated flight modes such as Position Hold and Altitude Hold.
 
 \colger
 
@@ -187,7 +187,7 @@ TBD
 
 \coleng
 
-Although ArduPilot supports installing optical flow and rangefinder sensors in different orientations, this section focuses only on the downward-facing configuration, since the installation and configuration procedures for other orientations are similar. It is recommended to mount the sensor close to the center of the drone and ensure that its forward direction is correctly aligned (see Figure~\ref{DroenWithMicoAirMFT01}). If this placement is not possible, the sensor position can be compensated through configuration parameters
+Although ArduPilot supports installing optical flow and rangefinder sensors in different orientations, this section focuses only on the downward-facing configuration, since the installation and configuration procedures for other orientations are similar. It is recommended to mount the sensor close to the center of the drone and ensure that its forward direction is correctly aligned with the drone's forword direction(see Figure~\ref{DroenWithMicoAirMFT01}). If the sensor cannot be placed in the ideal position, its location can be adjusted using configuration settings (explained later in this documentation).
 
 \colger
 
@@ -217,7 +217,7 @@ TBD
 \renewcommand{\englischertitel}{Configuration Step: A (UART and protocol)}
 \makrounterunterabschnitt
 
-For the configuration of the optical flow sensor, this guideline uses Mission Planner as the ground control software. After the sensor has been properly installed, the next step is to configure it in the ArduPilot firmware so that the flight controller can read and utilize the optical flow and rangefinder data.
+For configuring the optical flow sensor, this guide uses Mission Planner as the ground control software. After the sensor is properly installed, it should be set up in the drone through the ground station and this will allow the flight controller to read and use data from the optical flow sensor and rangefinder.
 
 \colger
 
@@ -225,7 +225,7 @@ TBD
 
 \coleng
 
-First, the serial port to which the sensor is connected must be specified in SETUP → Serial Ports (see Figure~\ref{AbbildungBetaflightAppPorts}). In this section, the corresponding SERIALx / UARTx port (where x represents the hardware port number used for the sensor connection) must be configured with the correct baud rate and communication protocol.
+First, the serial port to which the sensor is connected must be specified in SETUP → Serial Ports page (see Figure~\ref{AbbildungBetaflightAppPorts}). In this section, the corresponding SERIALx / UARTx port (where x represents the hardware port number used for the sensor connection) must be configured with the correct baud rate and communication protocol.
 
 \colger
 
@@ -241,7 +241,14 @@ TBD
 
 \coleng
 
-For ArduCopter version earlier than 4.7, sensors that communicate using the MAVLink protocol require additional configuration of the serial port settings. In this case, the Set Bitmask option of the corresponding serial port must be selected. From the dialog window that appears, the “Don’t forward” option should be enabled for that serial port (see Figure~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_6}). This setting ensures that MAVLink messages from sources other than the autopilot are not forwarded to the selected serial port.
+\textbf{Applicable only for MAVLink-based sensors}: If the optical flow sensor and rangefinder use MAVLink as the communication protocol, the “Don’t forward MAVLink to/from” option needs to be enabled. This setting ensures that MAVLink messages from sources other than the autopilot are not forwarded to the selected serial port. The configuration method differs depending on the ArduCopter version (before 4.7 or 4.7 and later).
+\colger
+
+TBD
+
+\coleng
+
+\textbf{Copter verson earlier than 4.7 - MAVLink}: On the Serial Port page, select the Set Bitmask option for the corresponding serial port. A dialog window will open, where the “Don’t forward” option should be enabled for that serial port (see Figure~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_6}).
 
 \colger
 
@@ -259,7 +266,7 @@ TBD
 
 \colstart
 
-In ArduCopter firmware versions 4.7 and later, the protocol configuration has been decoupled from specific serial ports and moved to the MAVn\_OPTIONS parameter. The correct numbe can be found by the MAV index (n) and the physical serial port identifier. The index "n" represents the specific MAVLink instance assigned to the peripheral device rather than its hardware port number. Consequently, the appropriate value for "n" must be derived from the MAVLink instance mapping of the integrated sensors and their corresponding serial interfaces. Once done save the changes (see Figure~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_7}).
+\textbf{Copter 4.7 and later - MAVLink}: The protocol configuration is no longer tied directly to specific serial ports. Instead, it is controlled through the MAVn\_OPTIONS parameter. The correct value depends on the MAVLink index (n) associated with the physical serial port used by the sensor.  The index "n" represents the specific MAVLink instance assigned to the peripheral device rather than its hardware port number. Therefore, it does not need to match the serial port number exactly, unlike how n is determined in the MAVn\_OPTIONS parameter. Once the correct n is determined, go to \textbf{Config → Full Parameter List}, search for \textbf{MAVn\_OPTIONS}, enable the “Don’t forward MAVLink to/from” bitmask option, and save the changes.
 
 \colger
 
@@ -282,7 +289,7 @@ TBD
 \begin{enumerate} 
   \item Set \textbf{SERIALx\_Speed} - From Setup tab → flight mode page.
   \item Set \textbf{SERIALx\_PROTOCOL} - From Setup tab → flight mode page.
-  \item Select \textbf{Don’t forward from / to option } → From Setup tab → flight mode page for copter verson 4.7 Or Config tab → Full Parameter List →  MAVn\_options for newer versions.
+  \item Select \textbf{Don’t forward from / to option } (Not needed if the sensor protocol is not MAVLink) → From Setup tab → flight mode page for copter verson 4.7 Or Config tab → Full Parameter List →  MAVn\_options for newer versions.
 \end{enumerate} 
 
 \colger
@@ -306,7 +313,7 @@ TBD
 
 \coleng
 
-Next, the measurement limits of the rangefinder must be defined. For ArduCopter versions earlier than 4.7, the parameters \textbf{RNGFND1\_MAX\_CM and RNGFND1\_MIN\_CM} are used to specify the maximum and minimum measurable distances in centimeters. For ArduCopter versions 4.7 and later, the parameters \textbf{RNGFND1\_MAX and RNGFND1\_MIN} are used, where the values are defined in meters.
+Next, the measurement limits of the rangefinder must be defined. For ArduCopter versions earlier than 4.7, the parameters \textbf{RNGFND1\_MAX\_CM and RNGFND1\_MIN\_CM} are used to specify the maximum and minimum measurable distances (centimeters) by the rangefinder. For ArduCopter versions 4.7 and later, the parameters \textbf{RNGFND1\_MAX and RNGFND1\_MIN} are used, where the values are defined in meters.
 
 \colger
 
@@ -314,7 +321,7 @@ TBD
 
 \coleng
 
-For example, the MTF-01 rangefinder supports a maximum measurement distance of 8 meters (800 cm). Therefore, the maximum parameter should be set accordingly, while the minimum value should be defined based on the sensor’s supported lower measurement range.
+For example, the MTF-01 rangefinder supports a maximum measurement distance of 8 meters (800 cm). Therefore, the maximum and minimum parameters should be set accordingly.
 
 \colger
 
@@ -322,7 +329,7 @@ TBD
 
 \coleng
 
-Finally, the orientation of the rangefinder must be configured. For a downward-facing sensor, the parameter \textbf{RNGFND1\_ORIENT} should be set to 25, which corresponds to a downward orientation of the sensor.
+Finally, to set the orientation of the downward-facing rangefinder, the parameter \textbf{RNGFND1\_ORIENT} should be set to 25.
 
 \colger
 
@@ -330,7 +337,7 @@ TBD
 
 \coleng
 
-\textbf{Summary step B} (sensor): all are from Config tab → Full Parameter List: (when modifying parameters in the Full Parameter List, always remember to click the “Save” after changes)
+\textbf{Summary step B} (sensor): All these parameters can be found in the Config tab → Full Parameter List. \textbf{Note:} After modifying any parameters in the Full Parameter List, always click “Save” to apply the changes.
 
 \begin{enumerate} 
   \item Set \textbf{FLOW\_TYPE} - 7 (MSP) or 10 (MAVLink) or other.
@@ -366,7 +373,7 @@ TBD
 \renewcommand{\englischertitel}{Configuration Step: C (EK3)}
 \makrounterunterabschnitt
 
-ArduPilot uses a state estimation algorithm called the Extended Kalman Filter (EKF) to determine the vehicle’s position, velocity, and orientation. The EKF combines measurements from multiple onboard sensors—such as gyroscopes, accelerometers, magnetometers, GPS receivers, and barometers—to produce a consistent estimate of the drone’s state. In recent versions of ArduCopter, including the stable version 4.6 and the development version 4.7, EKF3 serves as the primary estimator for navigation and position estimation. Because EKF3 can integrate data from additional sensors, it can also use optical flow sensors and rangefinders to assist navigation. In GNSS-denied environments, these sensors can provide the primary measurements required for estimating the drone’s motion relative to the ground.
+ArduPilot uses a state estimation algorithm called the Extended Kalman Filter (EKF) to determine the vehicle’s position, velocity, and orientation. The EKF combines measurements from multiple onboard sensors—such as gyroscopes, accelerometers, magnetometers, GPS receivers, and barometers—to generate a consistent estimate of the drone’s state. In recent versions of ArduCopter, including the stable version 4.6 and the development version 4.7, EKF3 serves as the primary estimator for navigation and position estimation. Because EKF3 can integrate data from additional sensors, it can also use optical flow sensors and rangefinders to assist position estimation. In GNSS-denied environments, these sensors can become the primary source of measurements required for estimating the drone’s motion relative to the ground.
 
 \colger
 
@@ -374,7 +381,7 @@ TBD
 
 \coleng
 
-ArduPilot supports multiple sensor sources for the EKF3 estimator. A UAV can therefore be configured for indoor operation, where optical flow and rangefinder sensors act as the primary sources, or for outdoor use with GNSS. If both are available, a switch can be assigned to change between the sources during flight. By default, Source 1 is active and is typically configured to use GNSS-based measurements.
+ArduPilot supports multiple sensor sources for the EKF3 estimator. A UAV can therefore be configured for indoor operation, where optical flow and rangefinder sensors act as the primary sources, or for outdoor use with GNSS. If both are available, a switch can be assigned to change between the sources during flight. By default, EK3 Source 1 is active and is typically configured to use GNSS-based measurements.
 
 \colger
 
@@ -382,7 +389,7 @@ TBD
 
 \coleng
 
-It is recommended to assign an auxiliary switch to change the EKF3 source during flight. To configure that way from mission planner software go to Config tab → Full Parameter List and search and set and save changes: (With \textbf{Summary step C})
+It is recommended to assign an auxiliary switch to change the EKF3 source during flight. This switch can be used to switch the primary EK3 source between GPS and the Optical Flow with Rangefinder. To configure that way from mission planner software go to Config tab → Full Parameter List and search and set and save changes: (With \textbf{Summary step C})
 \begin{enumerate} 
   \item Set \textbf{AHRS\_EKF\_TYPE} = 3 (default)
   \item Set \textbf{EK3\_SRC2\_POSXY} = 0 (None, as we do not want to use GPS)
@@ -399,7 +406,7 @@ TBD
 
 \coleng
 
-If the drone is intended to operate exclusively in GNSS-denied environments, it should be configured as follows:
+If the drone is intended to operate exclusively in GNSS-denied environments, it should be configured as follows (always use Opticalflow and Rangefinder as primary EK3 source):
 \begin{enumerate} 
   \item Set \textbf{AHRS\_EKF\_TYPE} = 3 (default)
   \item Set \textbf{EK3\_SRC1\_POSXY} = 0 (None as we do not want to use GPS)
