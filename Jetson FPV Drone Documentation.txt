@@ -1,0 +1,106 @@
+##### PHASE ONE: 7" FPV DRONE MVP ##### by Abdallah Issa
+Parts: 
+	Frame: GEPRC MOZ7
+	Stack: SpeedyBee F405 V4 60A Stack
+	GPS: Matek M10Q-6883
+	VTX: SpeedyBee TX800 ModelNumber:
+		Foxeer Antenna
+	Batteries: Tattu R-Line 1400mAh 6S
+	FPV Camera: Caddx Ratel 2 ModelNumber: MN01-2000B
+	Motors: SpeedyBee 2807 1050KV x4
+	Props: GEMFAN X Street League 7043 Racing
+	Radio RX: SpeedyBee Nano ELRS Receiver
+
+Process: I have assembeled the drone at my home and with some soldering help from Prof. Baun we managed to finalize it, once everything was assembeled i have flashed the ELRS software on the RX and Betaflight.
+	Ther is also a default setup (Profile) for the Transmitter (My personal) that had to be done like every other new drone. 
+	Sadly the First test flights at the University has not worked because for some reason, there was one singular setting off in betaflight that confused the Motors and prevented the a normal flight.
+	Once i identified the problem (the one setting in betaflight) it was an easy fix.
+	At the next Test flight at the University, the flight went perfectly and we also took some picture for a Blog on the University website: https://www.frankfurt-university.de/de/news/n-pressemitteilungen/bauanleitungen-fuer-guenstige-und-ki-fahige-drohnen-1/
+	Sadly During the test flight the Matek M10Q-5883 GPS Connector has disconnected from the board and needs to be re-soldered or replaced (as a temporary solution i have used the connector of the other side).
+
+	The Drone MVP is now completed, we have a working default flying drone, the next steps will be to set up the Nvidia Jetson and Connect the drone and the Jetson Board. Betaflight is also not the final "OS" for the the drone, Betaflight was only used for testing and settings up the drone, the traget OS will either be Ardupilot or INAV or maybe some custom solution if there are better options.
+
+##### PHASE TWO: Nvidia Jetson Orin Nano MVP #####
+Parts: 
+	ReComputer J401 Carrier Board for Nvidia Jetson's
+	The Nvidia Jetson Orin Nano 8GB P/N: 175-0877-000
+	Crucial E100 480Gb Gen4 PCIe NVME M.2 SSD 
+	12V 7.5A External PSU
+
+	Later added as upgrades:
+	Aluminium Heatsink Cooler with an External Fan
+	Intel AX200NGW WiFi Card
+
+Process: 
+	I have watched a couple youtube videos on to the flashing process works for the jetson. 
+	The First thing i have done was build a jumper cable that connects to the Jetson Pins (FC REC and GND) to force it into Recovery Mode so i can flash the OS on it.
+	I have then seen that i need Linux to flash it, but the linux has to be native (no-VM), so i had to flash a USB drive for dual boot on my laptop. 
+	I have then set up the Ubuntu-Linux USB and attempted to flash it manually via CLI from this documentation: https://wiki.seeedstudio.com/reComputer_J4012_Flash_Jetpack/
+	I have tried to flash it via the Seeed Documentation and it has no worked no matter what i tried, i kept getting error etc.
+	Then i have tried another approach using the Official Jetson Flasher from Nvidia (NVIDIA_SDK_FLASHER).
+	It Looked promising at first, so i have installed it on the USB Ubuntu, it did some progress but also got stuck at some point.
+	Then i tried Flashing it with the Jetpack Flasher (SDK_MANAGER) on Windows (my Desktop PC), same problem here, it progressed and at some point it got stuck.
+	I kept trying with the SDK_MANAGER and it worked eventually, which was a real challenge.
+	### On the Nvdidia Jetson ###
+	I have then run the command: uname -r output: 5.15.148-tegra
+	I have seen upgraded the board with the heatsink and got a USB wifi anda laptop wifi card.
+	Sadly the wifi wasnt plug-n-play (which hasnt worked)
+	I have tried to fix it the Wifi issue by investigating using these commands: nmcli radio, restarted the network manager, sudo modprobe iwlwifi, i have seen noticed that it only works with an internet connection  (because it needed the drivers)
+	I have then moved on by using LAN to update everything and properly set up the Jetson which worked with no problem.
+	I have also got the new Intel AX200NGW Wifi Card which i directly installed (it fit perfectly)!
+	Then i ran: sudo apt update Output included: “311 packages can be upgraded…” NVIDIA repo hits for r36.4; So the repository package index does contain the proper Jetson packages.
+	I searched the available Jetson packages using: apt-cache search nvidia-l4t, and verified packages like nvidia-l4t-kernel, nvidia-l4t-kernel-dtbs, nvidia-l4t-kernel-headers, and nvidia-l4t-firmware exist.
+	I attempted to reinstall Jetson kernel and firmware packages, but during the upgrade I hit a dpkg conflict involving firmware files: linux-firmware-nvidia-tegra tried to overwrite /lib/firmware/display-t234-dce.bin, which already exists in nvidia-l4t-firmware, and this caused an installation error and later a crash-report popup on reboot.
+	I ran sudo apt --fix-broken install to repair the broken installation, which completed successfully and finalized the pending NVIDIA L4T package setups.
+	After reboot, I still confirmed the driver was missing by running: modinfo iwlwifi, which returned: Module iwlwifi not found.
+	I listed the wireless drivers directory using: ls /lib/modules/$(uname -r)/kernel/drivers/net/wireless/, and it only contained: ath, broadcom, marvell, ti, and rndis_wlan.ko (no intel folder).
+	This confirmed that the current Jetson kernel build (5.15.148-tegra) does not include the Intel iwlwifi module, so the AX200 cannot work on this image without changing the kernel/modules or using an alternative WiFi solution.
+	Therefore, I decided to keep using LAN for now, since it is stable and allows me to continue setting up the Jetson software environment.
+	I eventually decided to forcefully inject the missing iwlwifi kernel drivers myself.
+	I ran the command: sudo apt install -y iwlwifi-modules backport-iwlwifi-dkms.
+	After a reboot, the drivers loaded, but the Wi-Fi option was still completely missing from the GUI.
+	I investigated the kernel logs using the commands: rfkill list all, lsmod | grep iwlwifi, and sudo dmesg | grep iwlwifi.
+	I discovered that the kernel successfully woke up the WiFi card but assigned it a custom hardware name (wlp1p1s0 instead of wlan0).
+	Ubuntus Network Manager was ignoring the card, so I forcefully handed over control using: sudo nmcli device set wlp1p1s0 managed yes.
+	I restarted the NetworkManager, and the WiFi finally connected perfectly.
+	I installed the core YOLO AI framework using the command: pip install ultralytics.
+	This command automatically downloaded all necessary Python dependencies, including PyTorch.
+	To verify the installation and ensure Python recognized the Jetson GPU, I ran the command: yolo checks.
+	The output confirmed Ultralytics, Python 3.10, PyTorch, and the CUDA GPU were properly detected.
+	I ran a baseline test with the raw Nano model using: yolo predict model=yolo11n.pt source=test_video.mp4.
+	The test ran at around ~28ms inference time (time to analyse one frame), this translates to around 1000ms/28ms=35ms which is not great.
+	The test also had too many false positives (misidentifying things too often) since i was running the n-model (nano) which has 3mil parameters
+	I upgraded to the Small model and ran a new test using: yolo predict model=yolo11s.pt source=test_video.mp4.
+	The terminal showed the raw PyTorch yolo11s model had an inference speed of about 35.1ms per frame.
+	To increase performance, I attempted to compile a TensorRT engine using: yolo export model=yolo11s.pt format=engine half=true.
+	I used half=true to compress the math to FP16, allowing it to run natively on the Jetsons Tensor Cores.
+	TensorRT is optimized for each GPU idividually, which means i cant download a .engine file from the internet and expect it to run perfectly, each device needs to compile it themselves.
+	The export process crashed with a ModuleNotFoundError stating: No module named 'onnx'.
+	The logs showed the YOLO script tried to automatically install the onnxruntime-gpu package.
+	This failed because standard Python package servers do not have a pre-compiled GPU version for the Jetsons ARM64 architecture.
+	To bypass this auto-installer crash, I manually installed the standard CPU translation packages.
+	I ran the command: pip install onnx onnxslim onnxruntime.
+	This successfully installed the missing protobuf, flatbuffers, and ONNX translation dictionaries.
+	With the Python dependencies finally fixed, I re-ran the export command: yolo export model=yolo11s.pt format=engine half=true.
+	The terminal spent about 9 minutes profiling the GPU and successfully generated the yolo11s.engine file.
+	I ran a final benchmark using the compiled engine: yolo predict model=yolo11s.engine source=test_video.mp4.
+	The inference time dropped massively from 35.1ms down to 18.9ms per frame (sub 20ms on average) which translates to around 55fps on average for the bigger "S" model which has 9 million parameters.
+	To push the hardware further, I checked the power settings in the top right menu of the desktop.
+	Since the Jetson Orin Nano is 8GB and non NX, and was already set to its maximum 15W power profile, the NX versions can go up to 25W and a mode thats called MAXN (im not sure how high the wattage is in that mode).
+	Because the OS still uses a power saving governor that scales clock speeds down, I wanted to lock it to max performance.
+		I ran the command: sudo jetson_clocks.
+	This forcefully disabled the governor and locked the CPU, GPU, and memory to their absolute maximum physical clock speeds (resets at reboot).
+
+
+#### The next steps are to install Deepstream (will see if we need it now) or directly jump to the hardware part where i connect the jetson with the Drone, i might need to install ArduPilot or INAV now but im not sure, i little help by ai was used to write this documentation since i reached out to ai tools for help when i got stuck and they have the chat history saved ####
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
