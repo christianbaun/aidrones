@@ -394,11 +394,11 @@ Um die Kopplung zwischen Sender und Empfänger zu beschleunigen und ein versehen
 \makroabschnitt
 \label{AbschnittTelemetriedatenFM2MToolBox}
 
-For convenient real time monitoring of telemetry data various tools are available. One example is the FM2M ToolBox (Fly Me 2 the Moon) by Robert Janiszewski which can be installed on radio transmitters running EdgeTX. The software aggregates sensor data that is relevant for flight preparation and for monitoring the aircraft during flight. This includes flight mode GPS position satellite count speed altitude battery voltage current draw signal quality and additional sensor data such as barometer and magnetic compass readings. Real time monitoring of telemetry data increases flight safety and enables error detection and analysis.
+For convenient real time monitoring of telemetry data various tools are available. One example is the FM2M ToolBox (Fly Me 2 the Moon) by Robert Janiszewski which can be installed on radio transmitters running EdgeTX. The software aggregates sensor data that is relevant for flight preparation and for monitoring the aircraft during flight. This includes flight mode GPS position satellite count speed altitude battery voltage current draw signal quality and additional sensor data such as barometer and magnetic compass readings (see Figure~\ref{AbbildungDJIO4AirUnit}). Real time monitoring of telemetry data increases flight safety and enables error detection and analysis.
 
 \colger
 
-Zur komfortablen Überwachung der Telemetriedaten in Echtzeit existieren verschiedene Werkzeuge. Ein Beispiel ist die FM2M ToolBox (Fly Me 2 the Moon) von Robert Janiszewski die auf Fernsteuerungen mit EdgeTX installiert werden kann. Die Software ermöglicht die Aggregation der Sensordaten die für die Flugvorbereitung und die Überwachung während des Fluges relevant sind. Dazu gehören Flugmodus GPS Position Anzahl der Satelliten Geschwindigkeit Höhe Batteriespannung Stromaufnahme Signalqualität sowie zusätzliche Sensordaten wie Barometer und magnetischer Kompass. Die Echtzeitüberwachung der Telemetriedaten erhöht die Flugsicherheit und ermöglicht Fehlererkennung und Fehleranalyse.
+Zur komfortablen Überwachung der Telemetriedaten in Echtzeit existieren verschiedene Werkzeuge. Ein Beispiel ist die FM2M ToolBox (Fly Me 2 the Moon) von Robert Janiszewski die auf Fernsteuerungen mit EdgeTX installiert werden kann. Die Software ermöglicht die Aggregation der Sensordaten die für die Flugvorbereitung und die Überwachung während des Fluges relevant sind. Dazu gehören Flugmodus GPS Position Anzahl der Satelliten Geschwindigkeit Höhe Batteriespannung Stromaufnahme Signalqualität sowie zusätzliche Sensordaten wie Barometer und magnetischer Kompass (siehe Abbildung~\ref{AbbildungFM2MScreenshots}). Die Echtzeitüberwachung der Telemetriedaten erhöht die Flugsicherheit und ermöglicht Fehlererkennung und Fehleranalyse.
 
 \coleng
 
@@ -409,4 +409,21 @@ To use FM2M or similar scripts the flight controller must provide telemetry data
 Voraussetzung für die Nutzung von FM2M oder vergleichbarer Skripte ist dass der Flugcontroller Telemetriedaten über serielle Schnittstellen wie UART bereitstellt und kompatible Firmware verwendet. FM2M unterstützt die Firmwares Betaflight und iNAV und ist für Fernsteuerungen mit Farb und Schwarz Weiß Display erhältlich.
 
 \colende
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{FM2M_ToolBox_091_screenshot2.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{FM2M_ToolBox_091_screenshot1.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{FM2M ToolBox: An EdgeTX Script that aggregates Drone Sensor Data}
+  \label{AbbildungFM2MScreenshots}
+\end{figure}
+\FloatBarrier
 
