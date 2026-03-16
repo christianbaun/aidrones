@@ -34,7 +34,7 @@
 % muss german beziehungsweise ngerman an der letzten Stelle stehen. 
 % Alternativ zu Beginn des Dokumentes die Sprache auf deutsch umstellen:
 % \begin{document}\selectlanguage{german}
-\usepackage[ngerman,english]{babel} 
+\usepackage[main=english,ngerman]{babel}
 % \RequirePackage{english}
 \usepackage[T1]{fontenc}
 % \usepackage[latin1]{inputenc}
@@ -84,7 +84,7 @@
 \usepackage{calc}%
 % \RequirePackage[bottom]{footmisc}
 \usepackage{ragged2e}%
-\usepackage{caption}
+\usepackage[compatibility=false]{caption}
 \captionsetup{
   format=plain,
   labelfont=bf,
@@ -107,9 +107,12 @@
 \usepackage{rotating} % Für \begin{sideways} ... 
 \usepackage{spreadtab,booktabs,numprint}  % Für spreadtab Tabellen
 \npthousandsep{,}\npdecimalsign{.} % Zahlenformat
-
 %Das ist wichtig für die Synchronisierung der Seitennummern mit dem PDF-Viewer
-\usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks=true,
+            linkcolor=black,
+            citecolor=black,
+            urlcolor=blue]{hyperref}
+\usepackage{bookmark}   % Using bookmark together with hyperref is recommended 
 
 % \setlength{\textwidth}{10.8cm}
 % \setlength{\textheight}{15.7cm}

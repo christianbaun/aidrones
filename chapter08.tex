@@ -261,6 +261,7 @@ except KeyboardInterrupt:
 	\caption{Test Listing}
 	\label{ListingTakingCalibrationPictures}
 \end{figure}
+\FloatBarrier
 
 \colstart
 
@@ -337,6 +338,7 @@ def charuco_calibration(images_glob : str, cam : int):
 	\caption{ChArUco Board Corner Detection}
 	\label{ListingCornerDetection}
 \end{figure}
+\FloatBarrier
 
 \colstart
 
@@ -359,6 +361,7 @@ new_mtx_one, roi_one = cv2.getOptimalNewCameraMatrix(mtx_one, dist_one, (w_one,h
 	\caption{Single Camera Calibration \& Optimal Camera Matrix}
 	\label{ListingCameraCalibration}
 \end{figure}
+\FloatBarrier
 
 \colstart
 
@@ -407,6 +410,7 @@ retS, new_mtx_zero, dist_zero, new_mtx_one, dist_one, Rot, Trns, Emat, Fmat = cv
 	\caption{Single Camera calibration}
 	\label{ListingStereoCalibration}
 \end{figure}
+\FloatBarrier
 
 \colstart
 
@@ -512,6 +516,7 @@ cv_file.release()
 	\caption{Initializing the stereo mapping function}
 	\label{ListingInitUndistortRectifyMap}
 \end{figure}
+\FloatBarrier
 
 \renewcommand{\deutschertitel}{Tiefenerkennung}
 \renewcommand{\englischertitel}{Depth Estimation}

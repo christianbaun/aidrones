@@ -43,15 +43,43 @@ Servo-based release mechanisms are one of the most commonly used solutions on FP
 
 Servo-basierte Abwurfmechanismen sind eine häufig eingesetzte Lösung bei FPV-Drohnen. Ein Micro-Servo (siehe Abbildung~\ref{AbbildungServo}) bewegt hierbei einen Hebel, Stab oder Haken, der die Nutzlast hält. Durch ein Signal des Flugcontrollers wird der Servo bewegt und gibt die Nutzlast frei. Diese Methode ist einfach umzusetzen, kostengünstig und präzise steuerbar.
 
+\coleng
+
+A simple drop mechanism (see Figure~\ref{AbbildungDropMechanismus}) for a drone can be designed and manufactured using a 3D printer as a small housing that accommodates a standard micro servo (e.g., in the 9-g form factor). The printed component typically includes a fitting servo mount, screw mounting points, and a small movable latch or hook that is actuated via the servo horn. In the closed position, the hook holds a loop or pin to which the payload is attached. When the servo is activated via the flight controller or a free receiver channel, the servo horn rotates and releases the holding mechanism, allowing the payload to be dropped. Lightweight materials such as PLA are suitable for printing. The design should be as compact and lightweight as possible in order to minimize its impact on the drone’s weight and center of gravity. It is also important to provide sufficient space for the servo cables as well as stable mounting points for attaching the mechanism to the drone frame.
+
+\colger
+
+Ein einfacher Drop-Mechanismus (siehe Abbildung~\ref{AbbildungDropMechanismus}) für eine Drohne kann mit einem 3D-Drucker als kleines Gehäuse konstruiert werden, das einen handelsüblichen Micro-Servo (z. B. im 9-g-Format) aufnimmt. Das gedruckte Bauteil enthält typischerweise eine Servoaussparung, Befestigungspunkte für Schrauben sowie eine kleine bewegliche Klappe oder einen Haken, der über das Servo-Horn betätigt wird. In der geschlossenen Position hält der Haken eine Schlaufe oder einen Stift, an dem die Nutzlast befestigt ist. Wird das Servo über den Flugcontroller oder einen freien Empfängerkanal angesteuert, dreht sich das Servo-Horn und gibt die Haltevorrichtung frei, sodass die Last abgeworfen wird. Für den Druck eignen sich leichte Materialien wie z.B. PLA. Die Konstruktion sollte möglichst kompakt und leicht sein, um Gewicht und Schwerpunkt der Drohne nur minimal zu beeinflussen. Wichtig ist außerdem, genügend Platz für die Servokabel sowie stabile Befestigungspunkte zur Montage am Drohnenrahmen vorzusehen.
+
 \colende
 
 \begin{figure}[htb]
   \centering
     \includegraphics[width=\linewidth]{Servomotor_IMG_5092.jpg}
-  \caption{Micro-Servo)}
+  \caption{Micro-Servo}
   \label{AbbildungServo}
 \end{figure}
 \FloatBarrier
+
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Drop_Mechanismus_Einzeldrop_WS2526.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Drop_Mechanismus_Multidrop_WS2526.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Two simple drop mechanisms created using a 3D printer. The left image shows a mechanism for releasing a single object, while the right image shows a mechanism designed to release multiple objects}
+  \label{AbbildungDropMechanismus}
+\end{figure}
+\FloatBarrier
+
+
 
 \renewcommand{\deutschertitel}{Elektromagnetische Mechanismen}
 \renewcommand{\englischertitel}{Electromagnetic mechanisms}

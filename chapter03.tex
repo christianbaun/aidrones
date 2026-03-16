@@ -29,11 +29,11 @@ Dieses Kapitel enthält hilfreiche Hinweise für die Vorbereitung vor dem ersten
 \makroabschnitt
 \label{AbschnittSicherheitBeimFlug}
 
-Always keep as much distance as possible from other people during flight. Do not fly over other people's buildings or private property without prior permission.
+During flight, a sufficiently large distance from other persons must always be maintained. Buildings belonging to others and private property must not be overflown without prior permission. In any case, be sure to observe the applicable local regulatory and legal requirements (see Chapter~\ref{KapitelRegulatorischeGrundlagen}).
 
 \colger
 
-Während des Fluges ist stets ein möglichst großer Abstand zu anderen Personen einzuhalten. Fremde Gebäude und private Grundstücke dürfen nicht ohne vorherige Zustimmung überflogen werden.
+Während des Fluges ist stets ein möglichst großer Abstand zu anderen Personen einzuhalten. Fremde Gebäude und private Grundstücke dürfen nicht ohne vorherige Zustimmung überflogen werden. Beachten Sie auf jeden Fall die lokalen regulatorischen und gesetzlichen Grundlagen (siehe Kapitel~\ref{KapitelRegulatorischeGrundlagen}).
 
 \colende
 
@@ -81,6 +81,45 @@ Akkus (LiPo oder Li-Ion) mit mehr als einer Zelle müssen immer unter Verwendung
     \includegraphics[width=\linewidth]{LiIo-Akku-laden.png}
   \caption{Balanced Loading of a Li-Ion Battery}
   \label{AbbildungLiIonAkkuLaden}
+\end{figure}
+\FloatBarrier
+
+
+\renewcommand{\deutschertitel}{Schutz der Komponenten beim ersten Anschluss des Akkus mit einem Smoke Stopper}
+\renewcommand{\englischertitel}{Protection of the Components during the first Battery Connection using a Smoke Stopper}
+\makroabschnitt
+\label{AbschnittSmokeStopper}
+
+A smoke stopper (see Figure~\ref{AbbildungSmokeStopper}) is a simple protection device that is placed between the battery and the drone when the drone is connected to the battery for the first time. It typically contains a resettable fuse (PTC) or a small light bulb that limits the current flow if a short circuit or wiring error is present. This prevents very high currents from flowing immediately after the battery is connected.
+
+\colger
+
+Ein Smoke Stopper (siehe Abbildung~\ref{AbbildungSmokeStopper}) ist ein einfaches Schutzgerät, das beim ersten Anschluss einer Drohne an den Akku zwischen Akku und Drohne geschaltet wird. Er enthält eine selbstrückstellende Sicherung, die den Stromfluss begrenzt, wenn ein Kurzschluss oder eine fehlerhafte Verdrahtung vorliegt. Dadurch wird verhindert, dass unmittelbar nach dem Anschluss des Akkus sehr hohe Ströme fließen.
+
+\coleng
+
+The use of a smoke stopper is strongly recommended after assembling the drone or after making changes to its electronics. During soldering or wiring, unintended short circuits can easily occur, for example due to solder bridges, damaged cable insulation, or incorrectly connected wires. Without current limiting, such faults can destroy the flight controller, ESCs, or other electronic components within seconds. A smoke stopper limits the current so that such problems can be detected without damaging the hardware. Only after it has been verified that the drone operates correctly should it be connected directly to the battery.
+
+\colger
+
+Der Einsatz eines Smoke Stoppers ist besonders nach dem Zusammenbau oder nach Änderungen an der Elektronik der Drohne dringend zu empfehlen. Beim Löten oder Verdrahten können leicht unbeabsichtigte Kurzschlüsse entstehen, etwa durch Lötbrücken, beschädigte Kabelisolierungen oder falsch angeschlossene Leitungen. Ohne Strombegrenzung kann ein solcher Fehler innerhalb von Sekunden Flugcontroller, ESCs oder andere elektronische Komponenten dauerhaft beschädigen. Der Smoke Stopper begrenzt in diesem Fall den Strom so weit, dass der Fehler erkannt werden kann, ohne dass Bauteile zerstört werden. Erst wenn sichergestellt ist, dass die Drohne korrekt funktioniert, sollte sie direkt mit dem Akku betrieben werden.
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/VIFLY_ShortSaver2_front_small.jpg}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/VIFLY_ShortSaver2_back_small.jpg}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{VIFLY ShortSaver 2 Smoke Stopper (Front and Back)}
+  \label{AbbildungSmokeStopper}
 \end{figure}
 \FloatBarrier
 
