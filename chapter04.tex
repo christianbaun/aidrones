@@ -444,6 +444,7 @@ $ sudo dmesg -w
 [17898.055173] usb 2-2: Found UVC 1.00 device USB Video (534d:0021)
 [17898.063678] hid-generic 0003:534D:0021.004E: hiddev4,hidraw6: USB HID v1.10 Device [MACROSILICON USB Video] on usb-0000:06:00.3-2/input4
 \end{lstlisting}
+\FloatBarrier
 
 \colstart
 
@@ -458,8 +459,8 @@ Das Kommando \verb!lsusb! liefert Informationen zu den angeschlossenen USB-Gerä
 \begin{lstlisting}[style=shell]
 $ lsusb
 Bus 002 Device 090: ID 534d:0021 MacroSilicon MS210x Video Grabber [EasierCAP]
-
 \end{lstlisting}
+\FloatBarrier
 
 \colstart
 
@@ -478,6 +479,7 @@ USB Video: USB Video (usb-0000:06:00.3-2):
 	/dev/video7
 	/dev/media3
 \end{lstlisting}
+\FloatBarrier
 
 \colstart
 
@@ -497,6 +499,7 @@ $ ffplay -f v4l2 -i /dev/video6
 $ mpv /dev/video6
 $ vlc v4l2:///dev/video6
 \end{lstlisting}
+\FloatBarrier
 
 \colstart
 
@@ -517,24 +520,24 @@ Auch für das Betriebssystem Android gibt es Apps, die einen über die USB-Schni
 \colende
 
 \begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{Object_Detection_using_USB_video_grabber.png}
-	\caption{Object Detection using a USB Video Grabber connected to a FPV Goggles}
-	\label{ObjectDetectionDashboardUsingUSBVideoGrabber}
+\centering
+\includegraphics[width=\linewidth]{Object_Detection_using_USB_video_grabber.png}
+\caption{Object Detection using a USB Video Grabber connected to a FPV Goggles}
+\label{ObjectDetectionDashboardUsingUSBVideoGrabber}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-Once the live analog video signal from the FPV goggles is digitized using a USB video grabber and transmitted to a ground-based computing system, a wide range of real-time video processing techniques can be applied. A practical and widely adopted solution for this purpose is the OpenCV (Open Source Computer Vision) library, which provides efficient tools for real-time image acquisition, processing, and analysis using Python.
+Once the live analog video signal from the FPV goggles has been digitized using a USB video grabber and transmitted to a ground-based computing system, a wide range of real-time video processing techniques can be applied. A practical and widely used solution for this purpose is the OpenCV (Open Source Computer Vision) library, which provides efficient tools for real-time image acquisition, processing, and analysis using Python.
 
 \colger
 
-Sobald das analoge Live-Videosignal der FPV-Brille mithilfe eines USB-Videograbbers digitalisiert und an ein bodengebundenes Rechensystem übertragen wurde, können vielfältige Verfahren zur Echtzeit-Bildverarbeitung angewendet werden. Eine praxisnahe und weit verbreitete Lösung stellt die Bibliothek OpenCV (Open Source Computer Vision) dar, die effiziente Werkzeuge zur Echtzeit-Bildaufnahme, -verarbeitung und -analyse unter Python bereitstellt.
+Sobald das analoge Live-Videosignal der FPV-Brille mithilfe eines USB-Videograbbers digitalisiert und an ein bodengebundenes Rechensystem übertragen wurde, können vielfältige Verfahren zur Echtzeit-Bildverarbeitung angewendet werden. Eine praxisnahe und weit verbreitete Lösung stellt die Bibliothek OpenCV (Open Source Computer Vision) dar, die effiziente Werkzeuge zur Echtzeit-Bildaufnahme, -verarbeitung und -analyse mit Python bereitstellt.
 
 \coleng
 
-The digitized video feed is treated as a standard camera input by the operating system, allowing OpenCV to capture frames in real time. This approach makes the system platform-independent and suitable for Linux, macOS, and Windows environments.
+The digitized video stream is treated by the operating system as a standard camera input, allowing OpenCV to capture frames in real time. This approach makes the system platform-independent and suitable for Linux, macOS, and Windows environments.
 
 \colger
 
@@ -551,24 +554,54 @@ Nachdem die Live-Videobilder erfasst wurden, können verschiedene Verfahren der 
 \coleng
 
 \begin{itemize}
-  \item Region or area-based detection
-  \item Detection of other drones or aerial objects in the sky
-  \item Obstacle detection and tracking
-  \item Motion analysis and situational awareness
+\item Region- or area-based detection
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-  \item regions- oder flächenbasierte Erkennung
-  \item Erkennung anderer Drohnen oder fliegender Objekte im Luftraum
-  \item Hinderniserkennung und -verfolgung
-  \item Bewegungsanalyse und Situationsbewertung
+\item Regionen- oder flächenbasierte Erkennung
 \end{itemize}
 
 \coleng
 
-In addition to visual information, FPV video streams can contain embedded telemetry data such as altitude, speed, GPS position, battery voltage, and the current flight mode. This telemetry data can be extracted and synchronized with visual detections. This enables advanced applications such as geo-referenced object detection, situation assessment, and flight-state-aware decision making.
+\begin{itemize}
+\item Detection of other drones or aerial objects in the sky
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item Erkennung anderer Drohnen oder fliegender Objekte im Luftraum
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item Obstacle detection and tracking
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item Hinderniserkennung und -verfolgung
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item Motion analysis and situational awareness
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item Bewegungsanalyse und Situationsbewertung
+\end{itemize}
+
+\coleng
+
+In addition to visual information, FPV video streams may contain embedded telemetry data such as altitude, speed, GPS position, battery voltage, and the current flight mode. This telemetry data can be extracted and synchronized with visual detections. This enables advanced applications such as geo-referenced object detection, situational assessment, and flight-state-aware decision-making.
 
 \colger
 
@@ -578,15 +611,16 @@ Zusätzlich zu den visuellen Informationen können FPV-Videostreams eingebettete
 
 
 \begin{figure}
-	\begin{lstlisting}[style=shell]
+\begin{lstlisting}[style=shell]
   camera = cv2.VideoCapture(CAMERA_INDEX)  # Linux and macOS
   camera = cv2.VideoCapture(CAMERA_INDEX, cv2.CAP_DSHOW)  # Windows
 
   success, frame = camera.read()
-	\end{lstlisting}
-	\caption{Reading Video Stream from a Video Grabber using OpenCV in Python}
-	\label{ReadingUSBVideoStreamMitOpenCV}
+\end{lstlisting}
+\caption{Reading Video Stream from a Video Grabber using OpenCV in Python}
+\label{ReadingUSBVideoStreamMitOpenCV}
 \end{figure}
+\FloatBarrier
 
 \colstart
 
@@ -596,10 +630,18 @@ Figure~\ref{ReadingUSBVideoStreamMitOpenCV} shows an example of how a video stre
 
 Abbildung~\ref{ReadingUSBVideoStreamMitOpenCV} zeigt ein Beispiel für den Zugriff auf einen Videostream eines USB-Videograbbers mit OpenCV in Python. Der Geräteindex gibt dabei die vom Betriebssystem erkannte Kameraquelle an. In vielen Fällen wird der Index 0 verwendet, sofern keine weiteren Kamerageräte angeschlossen sind. Bei Systemen mit mehreren Videoquellen kann ein anderer Index erforderlich sein. Unter Windows wird empfohlen, explizit das DirectShow-Backend mit \verb!cv2.CAP_DSHOW! zu verwenden, um einen stabilen Zugriff auf USB-Videograbber sicherzustellen.
 
+\coleng
+
+Figure~\ref{DroneDetectionUSBVideoGrab} shows a minimal example that demonstrates real-time drone detection using a USB video grabber and OpenCV. In this example, a pretrained YOLO model is used that is capable of detecting drones in aerial scenes. The model was trained on a dedicated drone detection dataset and is publicly available at \url{https://www.kaggle.com/code/zlatan599/drone-detection/output}. After the live video frames are captured with OpenCV, they are passed to the YOLO model for inference. Detected objects are then visualized using bounding boxes and associated confidence scores.
+
+\colger
+
+Abbildung~\ref{DroneDetectionUSBVideoGrab} zeigt ein minimales Beispiel zur Echtzeit-Erkennung von Drohnen mithilfe eines USB-Videograbbers und OpenCV. In diesem Beispiel wird ein vortrainiertes YOLO-Modell eingesetzt, das für die Erkennung von Drohnen in Luftaufnahmen geeignet ist. Das Modell wurde mit einem speziellen Datensatz zur Drohnenerkennung trainiert und ist öffentlich unter \url{https://www.kaggle.com/code/zlatan599/drone-detection/output} verfügbar. Nachdem die Live-Videoframes mit OpenCV erfasst wurden, werden sie zur Inferenz an das YOLO-Modell übergeben. Erkannte Objekte werden anschließend durch Begrenzungsrahmen und zugehörige Konfidenzwerte visualisiert.
+
 \colende
 
 \begin{figure}
-	\begin{lstlisting}[style=shell]
+\begin{lstlisting}[style=shell]
   import cv2
   from ultralytics import YOLO
 
@@ -651,22 +693,11 @@ Abbildung~\ref{ReadingUSBVideoStreamMitOpenCV} zeigt ein Beispiel für den Zugri
 
   camera.release()
   cv2.destroyAllWindows()
-
-	\end{lstlisting}
-	\caption{Real-time drone detection using a USB video grabber on the ground system}
-	\label{DroneDetectionUSBVideoGrabber}
+\end{lstlisting}
+\caption{Real-time drone detection using a USB video grabber on the ground system}
+\label{DroneDetectionUSBVideoGrab}
 \end{figure}
-
-\colstart
-
-Figure~\ref{DroneDetectionUSBVideoGrabber} shows a minimal example that demonstrates real-time drone detection using a USB video grabber and OpenCV. In this example, a pretrained YOLO model is used that is capable of detecting drones in aerial scenes. The model was trained on a dedicated drone detection dataset and is publicly available at \url{https://www.kaggle.com/code/zlatan599/drone-detection/output}. After the live video frames are captured with OpenCV, they are passed to the YOLO model for inference. Detected objects are then visualized using bounding boxes and associated confidence scores.
-
-\colger
-
-Abbildung~\ref{DroneDetectionUSBVideoGrabber} zeigt ein minimales Beispiel zur Echtzeit-Erkennung von Drohnen mithilfe eines USB-Videograbbers und OpenCV. In diesem Beispiel wird ein vortrainiertes YOLO-Modell eingesetzt, das für die Erkennung von Drohnen in Luftaufnahmen geeignet ist. Das Modell wurde mit einem speziellen Datensatz zur Drohnenerkennung trainiert und ist öffentlich unter \url{https://www.kaggle.com/code/zlatan599/drone-detection/output} verfügbar. Nachdem die Live-Videoframes mit OpenCV erfasst wurden, werden sie zur Inferenz an das YOLO-Modell übergeben. Erkannte Objekte werden anschließend durch Begrenzungsrahmen und zugehörige Konfidenzwerte visualisiert.
-
-\colende
-
+\FloatBarrier
 
 \renewcommand{\deutschertitel}{Gesamtgewicht und Anschaffungskosten}
 \renewcommand{\englischertitel}{Total Weight and Purchase Cost}
