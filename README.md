@@ -48,6 +48,7 @@ We greatly appreciate your comments and suggestions for improvement.
     ├── chapter07.tex       # Drop-Mechanismen 
     ├── chapter08.tex       # Stereokameras
     ├── chapter09.tex       # Gesetzliche Grundlagen
+    ├── chapter10.tex       # Positionsbestimmung
     ├── main.tex            # Haupt-LaTeX-Datei (zweisprachig)
     ├── Makefile            # Skript zur Erstellung des Handbuchs
     └── README.md           # Diese Datei / This file
