@@ -84,9 +84,47 @@ Akkus (LiPo oder Li-Ion) mit mehr als einer Zelle müssen immer unter Verwendung
 \end{figure}
 \FloatBarrier
 
+\renewcommand{\deutschertitel}{Spezifikation der Anschlüsse beachten}
+\renewcommand{\englischertitel}{Observing Electrical Interface Specifications}
+\makroabschnitt
+\label{AbschnittHerstellerspezifischeAnschluesse}
 
-\renewcommand{\deutschertitel}{Schutz der Komponenten beim ersten Anschluss des Akkus mit einem Smoke Stopper}
-\renewcommand{\englischertitel}{Protection of the Components during the first Battery Connection using a Smoke Stopper}
+\coleng
+
+Although modern flight controllers often provide plug connectors that simplify the integration of external components, a basic understanding of electrical properties such as voltage, current, and polarity remains essential. In particular during the initial phase of the project, insufficient experience in this area repeatedly resulted in incorrect connections and consequently damaged components.
+
+\colger
+
+Moderne Flugcontroller verfügen zwar häufig über Steckverbindungen, die den Anschluss externer Komponenten erleichtern. Dennoch ist ein grundlegendes Verständnis elektrischer Eigenschaften wie Spannung, Stromstärke und Polarität unerlässlich. Insbesondere in der Anfangsphase führte fehlende Erfahrung in diesem Bereich wiederholt zu fehlerhaften Verbindungen und in der Folge zu beschädigten Bauteilen.
+
+\coleng
+
+A typical example is the connection of analog video transmitters. Operating a common analog video transmitter generally requires four connections: a power supply line, ground, a video signal line, and a control line used for configuration. However, flight controllers differ in the voltage levels they provide via their connector ports (see Figure~\ref{AbbildungVTXConnectors} presenting three different flight controllers) or solder pads. At the same time, the permissible operating voltages of video transmitters vary considerably between different models. Connecting components without carefully verifying their electrical specifications can therefore quickly lead to irreversible hardware damage.
+
+\colger
+
+Ein typisches Beispiel ist der Anschluss analoger Videosender. Für den Betrieb eines gängigen Videosenders werden in der Regel vier Leitungen benötigt: eine Spannungsversorgung, eine Masseleitung, das Videosignal sowie eine Steuerleitung zur Konfiguration. Flugcontroller unterscheiden sich jedoch darin, welche Spannungen sie über entsprechende Steckverbindungen oder über Lötpads bereitstellen. Gleichzeitig variieren die zulässigen Betriebsspannungen der Videosender je nach Modell erheblich. Werden Komponenten ohne sorgfältige Prüfung ihrer elektrischen Spezifikationen miteinander verbunden, kann dies schnell zu irreparablen Hardwareschäden führen.
+
+\coleng
+
+Figure~\ref{AbbildungVTXConnectors} shows the video transmitter connectors on three different flight controllers. While the left and the middle flight controller supply the video transmitter directly with the voltage of the connected battery (typically between 12.0,V and 22.2,V -- see Table~\ref{TabelleAkkus}), the right flight controller provides a regulated voltage of 9,V. Directly connecting the video transmitter shown in Figure~\ref{AbbildungSpeedyBeeTX800FPVVTX} to any of these three flight controllers would damage the device. In such a case, an intermediate BEC (Battery Eliminator Circuit) is required to step down the battery voltage to 5,V. By contrast, directly connecting the video transmitter shown in Figure~\ref{AbbildungFoxeerReaperV2VTX} to any of the three flight controllers would not pose a problem.
+
+\colger
+
+Abbildung~\ref{AbbildungVTXConnectors} zeigt die Anschlüsse für den Videosender bei drei verschiedenen Flugcontrollern. Während der linke und der mittlere Flugcontroller den Videosender direkt mit der Spannung des angeschlossenen Akkus versorgen (typischerweise zwischen 12.0,V und 22.2,V -- siehe Tabelle~\ref{TabelleAkkus}), stellt der rechte Flugcontroller eine Spannung von 9,V bereit. Ein direkter Anschluss des in Abbildung~\ref{AbbildungSpeedyBeeTX800FPVVTX} dargestellten Videosenders an einen der drei Flugcontroller würde den Videosender beschädigen. In einem solchen Fall ist ein zwischengeschalteter BEC (Battery Eliminator Circuit) erforderlich, der die Akkuspannung auf 5,V herunterregelt. Ein direkter Anschluss des in Abbildung~\ref{AbbildungFoxeerReaperV2VTX} dargestellten Videosenders an einen der drei Flugcontroller wäre hingegen problemlos möglich.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Anschluss_VTX_Herausforderung_2026_v2.pdf}
+  \caption{Improper Connection of a Video Transmitter to a Flight Controller without verifying the permitted Voltage can lead to Hardware Damage}
+  \label{AbbildungVTXConnectors}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{Schutz der Komponenten durch einem Smoke Stopper}
+\renewcommand{\englischertitel}{Protection of the Components using a Smoke Stopper}
 \makroabschnitt
 \label{AbschnittSmokeStopper}
 
