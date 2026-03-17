@@ -1228,11 +1228,54 @@ Es wird empfohlen, vor dem ersten Flug einen separaten Arming-Schalter zu konfig
 \makrounterabschnitt
 \label{ArdupilotLogging}
 
+While platforms such as Betaflight are optimized for high-performance manual flight using primarily internal Inertial Measurement Units (IMUs)—including accelerometers and gyroscopes, and most of the time works well with the default tuning, ArduPilot functions as a sophisticated autonomous flight system.
+
+\colger
+
 TBD
 
 \colger
 
 TBD
+
+\coleng
+
+Although ArduPilot provides automated tuning features (AutoTune) to assist with parameter adjustment, these tools are often not sufficient to achieve optimal flight performance in all situations. As a result, manual analysis and tuning are frequently required. Furthermore, the ability to manually refine system performance through log analysis is an essential skill for any UAV operator. Flight logs record detailed information about the vehicle’s sensors and system performance during flight. By analyzing this data, users can identify issues, evaluate system performance, and make informed parameter adjustments.
+\colger
+
+TBD
+
+\coleng
+
+This section of the documentation introduces the fundamental concepts of log analysis, such as:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+\item \textsl{Log Generation} - Configuring the firmware to capture sensor data during test flights and extract the data.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{Log Generation} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{Analysis Toolkits} - An overview of analysis tools—such as Mission Planner, UAV Log Viewer, and ArduPilot Filter Review Tool—used to visualize and interpret flight data.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{Analysis Toolkits} - TBD
+\end{itemize}
 
 \colende
 
@@ -1258,11 +1301,11 @@ PX4 is an open-source autopilot firmware widely used in research, industry, and 
 
 \colger
 
-PX4 ist eine Open-Source-Autopilot-Firmware, die häufig in Forschung, Industrie und Robotik eingesetzt wird. Im Gegensatz zu Betaflight und iNAV, die primär auf FPV- und Hobbyanwendungen ausgerichtet sind, bietet PX4 eine erweiterbare und modulare Architektur für hochgradig autonome Flugoperationen. Typische Einsatzgebiete sind Kartierung, Inspektionen, Multi-Roboter-Kooperation und die Integration von Companion-Computern wie dem Raspberry Pi oder NVIDIA Jetson. 
+TBD
 
 \coleng
 
-PX4 supports a broad range of flight controller boards, including the Pixhawk series (see Figure~\ref{AbbildungPixhawkOrangeCubeFC}) and STM32-based systems. The firmware offers extensive functionality such as mission planning, position and altitude hold, obstacle avoidance (when paired with appropriate sensors), geofencing, and fully autonomous waypoint navigation. Configuration and calibration are performed using the ground control software QGroundControl, which provides tools for sensor calibration, flight mode configuration, and monitoring of telemetry data. PX4 communicates using the MAVLink protocol, enabling seamless integration with ground stations, companion computers, and external tools. 
+This section of the documentation introduces the fundamental concepts of log analysis, such as:
 
 \colger
 
