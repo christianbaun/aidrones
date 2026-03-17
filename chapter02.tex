@@ -1,10 +1,10 @@
-\renewcommand{\deutschertitel}{Software zum Betrieb von FPV-Drohnen}
-\renewcommand{\englischertitel}{Software for Using FPV Drones}
+\renewcommand{\deutschertitel}{Software (Firmwares) für Flugcontroller}
+\renewcommand{\englischertitel}{Software (Firmwares) for Flight Controllers}
 \chapter[\texorpdfstring{\protect{\vspace{2pt}\englischertitel}}{\englischertitel}]{}
 \kapitel{\deutschertitel}
 \thispagestyle{empty}
 
-\label{KapitelSoftware}
+\label{KapitelSoftwareFlugcontroller}
 
 \begin{paracol}{2}[]
 
@@ -16,24 +16,11 @@
 
 \coleng
 
-This chapter introduces the essential software components required for operating FPV drones. Similar to Chapter~\ref{KapitelHardware}, it does not aim to provide a complete overview of all available software. Instead, it presents a selection of popular firmware options for flight controllers, transmitters, and receivers, as well as several useful tools. The chapter provides an overview of their core functionalities and suitable use cases, offering guidance for installation and initial configuration.
+This chapter introduces the essential software component required for operating FPV drones. Every flight controller requires an operating system that primarily processes sensor data (including gyroscope, accelerometer, GPS, and magnetic compass) and user control inputs into motor commands. In addition, flight controller operating systems implement various flight modes (e.g., Acro, Angle, Horizon), route video data from the camera to the video transmitter, provide an on-screen display (OSD), generate and store flight logs (Blackbox logs) for post-flight analysis, allow fine-tuning of flight behavior using filters and mixers, and offer multiple interfaces for communication and configuration.
 
 \colger
 
-Dieses Kapitel stellt die wichtigsten Software-Komponenten zum Betrieb von FPV-Drohnen vor. Genau wie Kapitel~\ref{KapitelHardware} hat auch dieses Kapitel nicht den Anspruch, einen vollständigen Überblick über die verfügbare Software zu geben. Vorgestellt werden eine Auswahl populärer Firmwares für Flugcontroller, Sender und Empfänger sowie einige nützliche Werkzeuge. Das Kapitel soll einen Überblick über den grundlegenden Funktionsumfang und sinnvolle Einsatzbereiche geben und bei den ersten Schritten der Installation und Administration unterstützen.
-
-\colende
-
-\renewcommand{\deutschertitel}{Flight Controller Firmware}
-\renewcommand{\englischertitel}{Flight Controller Firmware}
-\makroabschnitt
-\label{AbschnittFirmwareFC}
-
-Every flight controller requires an operating system that primarily processes sensor data (including gyroscope, accelerometer, GPS, and magnetic compass) and user control inputs into motor commands. In addition, flight controller operating systems implement various flight modes (e.g., Acro, Angle, Horizon), route video data from the camera to the video transmitter, provide an on-screen display (OSD), generate and store flight logs (Blackbox logs) for post-flight analysis, allow fine-tuning of flight behavior using filters and mixers, and offer multiple interfaces for communication and configuration.
-
-\colger
-
-Jeder Flugcontroller benötigt ein Betriebssystem, das in erster Linie die Sensordaten (u. a. Gyroskop, Beschleunigungssensor, GPS, magnetischer Kompass) und die Steuerbefehle des Benutzers in Motorbefehle umsetzt. Darüber hinaus implementieren die Betriebssysteme der Flugcontroller verschiedene Flugmodi (z. B. Acro, Angle, Horizon), leiten Videodaten der Kamera an den Videosender weiter, bieten ein On-Screen-Display (OSD), erzeugen und speichern Log-Daten (Blackbox-Logs) zur nachträglichen Analyse des Flugverhaltens, ermöglichen die Feineinstellung des Flugverhaltens mithilfe von Filtern und Mixern und stellen verschiedene Schnittstellen zur Kommunikation und Konfiguration bereit.
+Dieses Kapitel stellt die wichtigsten Software-Komponente zum Betrieb von FPV-Drohnen vor. Jeder Flugcontroller benötigt ein Betriebssystem, das in erster Linie die Sensordaten (u. a. Gyroskop, Beschleunigungssensor, GPS, magnetischer Kompass) und die Steuerbefehle des Benutzers in Motorbefehle umsetzt. Darüber hinaus implementieren die Betriebssysteme der Flugcontroller verschiedene Flugmodi (z. B. Acro, Angle, Horizon), leiten Videodaten der Kamera an den Videosender weiter, bieten ein On-Screen-Display (OSD), erzeugen und speichern Log-Daten (Blackbox-Logs) zur nachträglichen Analyse des Flugverhaltens, ermöglichen die Feineinstellung des Flugverhaltens mithilfe von Filtern und Mixern und stellen verschiedene Schnittstellen zur Kommunikation und Konfiguration bereit.
 
 \coleng
 
@@ -55,7 +42,7 @@ Dieses Dokument stellt die Flugcontroller-Firmwares Betaflight, INAV, ArduPilot 
 
 \renewcommand{\deutschertitel}{Betaflight}
 \renewcommand{\englischertitel}{Betaflight}
-\makrounterabschnitt
+\makroabschnitt
 \label{AbschnittBetaflight}
 
 Betaflight is a firmware for flight controllers used in FPV drones. Its focus lies on supporting manual flight modes such as freestyle and racing. The main goals of Betaflight are fast response to user input and extensive configuration options for optimizing flight behavior (tuning).
@@ -84,7 +71,7 @@ Betaflight ist mit nahezu allen am Markt verfügbaren Flugcontrollern und Empfä
 
 \renewcommand{\deutschertitel}{Installation und Konfiguration}
 \renewcommand{\englischertitel}{Installation and Configuration}
-\makrounterunterabschnitt
+\makrounterabschnitt
 \label{AbschnittInstallationBetaflight}
 
 The installation and configuration of the firmware are carried out using the locally installed Betaflight Configurator or the web application available at \url{app.betaflight.com}. Figure~\ref{AbbildungBetaflighInstallation} shows the option for installing Betaflight via the web application. The model of the flight controller is usually detected automatically. This page can be accessed via the \textsl{Update Firmware} button at the top of the website. Existing configuration backups can also be restored to the flight controller on this page. A backup of the current settings is automatically created when a new version is installed.
@@ -415,7 +402,7 @@ Informationen zum Flugcontroller und zur installierten Firmwareversion liefert d
 
 \renewcommand{\deutschertitel}{INAV}
 \renewcommand{\englischertitel}{INAV}
-\makrounterabschnitt
+\makroabschnitt
 \label{AbschnittINAV}
 
 INAV consists of two main components: the firmware that runs on the flight controller and the configuration tool that is used for installation and administration. There is no web app, as is the case with current Betaflight versions.
@@ -444,7 +431,7 @@ Die Software erhält jedes Jahr einen großen Release und kleinere Support-Updat
 
 \renewcommand{\deutschertitel}{Installation}
 \renewcommand{\englischertitel}{Installation}
-\makrounterunterabschnitt
+\makrounterabschnitt
 \label{AbschnittInstallationINAV}
 
 The installation of INAV is done using the \textsl{INAV Configurator}. A certain similarity to Betaflight is very apparent here, as the structure is quite similar to the Betaflight Configurator, which is used for versions up to 4.5 (Figure~\ref{AbbildungINAVFirmwareFlasher}). This guide assumes that the flight controller is connected via USB to the computer used for flashing.
@@ -577,7 +564,7 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 
 \renewcommand{\deutschertitel}{Administration}
 \renewcommand{\englischertitel}{Administration}
-\makrounterunterabschnitt
+\makrounterabschnitt
 \label{AbschnittAdministrationINAV}
 
 The administration of INAV also occurs in the \textsl{INAV Configurator}. When the software is installed for the first time, a few things need to be configured to enable initial flight. These are described in this section.
@@ -805,7 +792,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 
 \renewcommand{\deutschertitel}{ArduPilot}
 \renewcommand{\englischertitel}{ArduPilot}
-\makrounterabschnitt
+\makroabschnitt
 \label{AbschnittArduPilot}
 
 As a flight controller firmware, ArduPilot focuses on fully autonomous flight and complex mission profiles. It enables mission planning with waypoints, automatic takeoff and landing, obstacle avoidance, follow-me functionality, and more. To achieve this, ArduPilot uses not only standard sensors such as GPS, magnetic compass, and velocity sensors but can also integrate LiDAR sensors for distance measurement and cameras for visual processing.
@@ -826,7 +813,7 @@ Von den in diesem Dokument vorgestellten Flugcontroller-Firmwares benötigt Ardu
 
 \renewcommand{\deutschertitel}{Installation}
 \renewcommand{\englischertitel}{Installation}
-\makrounterunterabschnitt
+\makrounterabschnitt
 \label{AbschnittInstallationArduPilot}
 
 Typically, FPV flight controllers are delivered with Betaflight pre-installed. If ArduPilot is not present on the device, the installation process consists of three steps: (1) installing the required drivers and flashing tools, (2) downloading the appropriate ArduPilot firmware, and (3) flashing the firmware to the flight controller.
@@ -899,7 +886,7 @@ Nach erfolgreicher Herstellung der Verbindung muss die Option Erase Full Chip au
 
 \renewcommand{\deutschertitel}{Obligatorische Konfiguration}
 \renewcommand{\englischertitel}{Mandatory Configuration}
-\makrounterunterabschnitt
+\makrounterabschnitt
 \label{AbschnittKonfigurationArduPilot}
 
 After the ArduPilot firmware has been flashed onto the flight controller, it is essential to perform a series of mandatory hardware configuration steps using the Mission Planner ground control software. These configurations align the firmware with the physical characteristics of the aircraft -- such as its frame type, motor orientation, and sensor calibrations -- ensuring that the autopilot interprets sensor data correctly and controls the motors appropriately. Completing these steps is a prerequisite for safe and stable flight performance.
@@ -1217,7 +1204,7 @@ Die Seite Onboard OSD (Abbildung~\ref{MissionPlannerOnboardOSD}), erreichbar üb
 
 \renewcommand{\deutschertitel}{Vor dem ersten Flug}
 \renewcommand{\englischertitel}{Before First Flight}
-\makrounterunterabschnitt
+\makrounterabschnitt
 \label{BeforeFirstFlight}
 
 Note for Betaflight users: If you are transitioning from Betaflight, be aware that the Pitch axis of the RC input is typically reversed in ArduPilot compared to Betaflight's default. You may need to set the \verb!RC2_REVERSED! parameter to 1 in the Full Parameter List of Config tab to correct this, ensuring your pitch stick inputs correspond to the drone's expected pitch movements.
@@ -1238,7 +1225,7 @@ Es wird empfohlen, vor dem ersten Flug einen separaten Arming-Schalter zu konfig
 
 \renewcommand{\deutschertitel}{LogAnalyse}
 \renewcommand{\englischertitel}{Log Analysis}
-\makrounterunterabschnitt
+\makrounterabschnitt
 \label{ArdupilotLogging}
 
 TBD
@@ -1251,7 +1238,7 @@ TBD
 
 \renewcommand{\deutschertitel}{Fluglogbasierte Vibrationsreduktion}
 \renewcommand{\englischertitel}{Flight Log–Based Vibration Reduction}
-\makrounterunterabschnitt
+\makrounterabschnitt
 \label{ArdupilotVibrationReduction}
 
 TBD
@@ -1264,7 +1251,7 @@ TBD
 
 \renewcommand{\deutschertitel}{PX4}
 \renewcommand{\englischertitel}{PX4}
-\makrounterabschnitt
+\makroabschnitt
 \label{AbschnittPX4}
 
 PX4 is an open-source autopilot firmware widely used in research, industry, and robotics. Unlike Betaflight and iNAV, which primarily focus on FPV and hobbyist use cases, PX4 provides an advanced and modular architecture designed for highly autonomous flight operations. Typical application domains include mapping, inspection, multi-robot cooperation, and integration with companion computers such as the Raspberry Pi or NVIDIA Jetson platforms. 
@@ -1311,222 +1298,3 @@ Its modular design allows developers to extend or replace subsystems, making PX4
 Durch das modulare Design lassen sich einzelne Subsysteme erweitern oder austauschen, was PX4 besonders für Forschungsprojekte und komplexe Multisensorsysteme geeignet macht. Im Vergleich zu den anderen in diesem Kapitel beschriebenen Systemen bietet PX4 die größte Flexibilität und Skalierbarkeit, erfordert jedoch leistungsfähigere Hardware und mehr Konfigurationsaufwand. Es eignet sich daher insbesondere für Anwendungen, die Autonomie, Sensorfusion oder erweiterte Missionsfähigkeiten benötigen und weniger für rein manuell geflogene FPV-Drohnen.
 
 \colende
-
-\renewcommand{\deutschertitel}{Fernsteuerung Firmware: EdgeTX}
-\renewcommand{\englischertitel}{Remote Control Firmware: EdgeTX}
-\makroabschnitt
-\label{AbschnittEdgeTX}
-
-EdgeTX is an operating system for radio transmitters used in model aircraft and drones. It is open-source software and runs on transmitters from many well-known manufacturers. EdgeTX generates the control signals, which are then transmitted by the ExpressLRS firmware (see Section~\ref{AbschnittExpressLRS}) running on the transmitter module.
-
-\colger
-
-EdgeTX ist ein Betriebssystem für Fernsteuerungen im Modellbau. Es handelt sich um freie Software, die auf Fernsteuerungen vieler bekannter Hersteller läuft. EdgeTX erzeugt die Steuersignale, welche anschließend von der Firmware ExpressLRS (siehe Abschnitt~\ref{AbschnittExpressLRS}) des Sendemoduls übertragen werden.
-
-\coleng
-
-Installation is performed via the web application \url{buddy.edgetx.org}. This section describes the installation process on a Radiomaster Boxer using a PC.
-
-\colger
-
-Die Installation erfolgt über die Webanwendung \url{buddy.edgetx.org}. Dieser Abschnitt beschreibt die Installation auf einer Radiomaster Boxer mithilfe eines PCs.
-
-\coleng
-
-With the transmitter turned off, connect it to the PC using its USB-C port on the top. In the web application, select the desired version and the correct device (see Figure~\ref{AbbildungEdgeTXInstallation1}). Clicking the \textsl{Flash via USB} button starts the next step.
-
-\colger
-
-Die Fernsteuerung wird im ausgeschalteten Zustand über die obere USB-C-Schnittstelle mit dem PC verbunden. In der Webanwendung wird die gewünschte Version sowie das passende Gerät ausgewählt (siehe Abbildung~\ref{AbbildungEdgeTXInstallation1}). Die Schaltfläche \textsl{Flash via USB} führt zum nächsten Schritt.
-
-\colende
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{edgetx_installation_1.png}
-	\caption{EdgeTX Installation Step 1}
-	\label{AbbildungEdgeTXInstallation1}
-\end{figure}
-\FloatBarrier
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{edgetx_installation_2.png}
-	\caption{EdgeTX Installation Step 2}
-	\label{AbbildungEdgeTXInstallation2}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-In the second step, the correct device must be selected. It appears under the name STM32 BOOTLOADER (see Figures~\ref{AbbildungEdgeTXInstallation2} and~\ref{AbbildungEdgeTXInstallation3}). If the entry STM32 BOOTLOADER is not present and debugging with command-line tools such as \verb!lsusb! does not help, it is likely that the USB-C cable does not transfer data, since many USB-C cables can only be used for battery charging.
-
-\colger
-
-Im zweiten Schritt wird das korrekte Gerät ausgewählt. Dieses erscheint unter dem Namen STM32 BOOTLOADER (siehe Abbildung~\ref{AbbildungEdgeTXInstallation2} und Abbildung~\ref{AbbildungEdgeTXInstallation3}). Wenn der Eintrag STM32 BOOTLOADER nicht erscheint und auch die Fehlersuche mit Kommandozeilenwerkzeugen wie \verb!lsusb! nicht weiterhilft, ist es wahrscheinlich, dass das USB-C-Kabel keine Daten überträgt, da viele USB-C-Kabel nur zum Laden eines Akkus verwendet werden können.
-
-\coleng
-
-The final step is to start the installation by clicking the \textsl{Start flashing} button (see Figure~\ref{AbbildungEdgeTXInstallation4}).
-
-\colger
-
-Der letzte Schritt ist der Start der Installation über die Schaltfläche \textsl{Start flashing} (siehe Abbildung~\ref{AbbildungEdgeTXInstallation4}).
-
-\colende
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{edgetx_installation_3.png}
-	\caption{EdgeTX Installation Step 3}
-	\label{AbbildungEdgeTXInstallation3}
-\end{figure}
-\FloatBarrier
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{edgetx_installation_4.png}
-	\caption{EdgeTX Installation Step 4}
-	\label{AbbildungEdgeTXInstallation4}
-\end{figure}
-\FloatBarrier
-
-\renewcommand{\deutschertitel}{Sendemodul- und Empfänger-Firmware: ExpressLRS}
-\renewcommand{\englischertitel}{Transmitter and Receiver Firmware: ExpressLRS}
-\makroabschnitt
-\label{AbschnittExpressLRS}
-
-The firmware of the transmitter module in the remote control and the receiver in the drone must both use compatible firmware versions. Ideally, the firmware versions of the transmitter and receiver are identical. This section focuses exclusively on the ExpressLRS firmware, including its installation and configuration.
-
-\colger
-
-Die Firmware des Sendemoduls in der Fernsteuerung und des Empfängers in der Drohne müssen beide mit kompatibler Firmware ausgestattet sein. Idealerweise sind bei Sender und Empfänger die Versionen identisch. Dieser Abschnitt befasst sich ausschließlich mit der Firmware ExpressLRS sowie deren Installation und Konfiguration.
-
-\coleng
-
-Installation is performed using the locally installed application ExpressLRS Configurator. Installation packages and the source code can be found here:
-
-\colger
-
-Die Installation erfolgt über die lokal installierte Anwendung ExpressLRS Configurator. Installationspakete und der Quellcode befinden sich hier:
-
-\colende
-
-\smallskip
-\url{https://github.com/ExpressLRS/ExpressLRS-Configurator/releases}
-\smallskip
-
-\colstart
-
-In the ExpressLRS Configurator, the desired version, device type, connection method (EdgeTX Passthrough, UART, or Wi-Fi), frequency band usage permissions (Listen Before Talk), and the binding phrase are defined. The binding phrase must match the one later used on the receiver (see Figure~\ref{AbbildungExpressLRS1}).
-
-\colger
-
-Im ExpressLRS Configurator werden die gewünschte Version, das Gerät, die Zugriffsart (EdgeTX Passthrough, UART oder Wi-Fi), die erlaubte Nutzung des Frequenzbands (Listen Before Talk) sowie die Binding Phrase festgelegt. Diese muss mit der später beim Empfänger verwendeten Binding Phrase übereinstimmen (siehe Abbildung~\ref{AbbildungExpressLRS1}).
-
-\colende
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{ExpressLRS_Installation_1.png}
-	\caption{ExpressLRS Installation on Sender: Step 1}
-	\label{AbbildungExpressLRS1}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-The default Wi-Fi parameters can also be adjusted here, although this option will not be discussed further in this section. The firmware file is created by clicking the \textsl{BUILD} button (see Figure~\ref{AbbildungExpressLRS2}).
-
-\colger
-
-Auch die standardmäßig verwendeten WLAN-Parameter können hier angepasst werden, auf diese Option wird an dieser Stelle jedoch nicht weiter eingegangen. Die Erstellung der Firmware-Datei erfolgt über die Schaltfläche \textsl{BUILD} (siehe Abbildung~\ref{AbbildungExpressLRS2}).
-
-\colende
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{ExpressLRS_Installation_2.png}
-	\caption{ExpressLRS Installation on Sender: Step 2}
-	\label{AbbildungExpressLRS2}
-\end{figure}
-\FloatBarrier
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{ExpressLRS_Installation_3.png}
-	\caption{ExpressLRS Installation on Sender: Step 3}
-	\label{AbbildungExpressLRS3}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-Figure~\ref{AbbildungExpressLRS3} shows that the firmware file has been successfully created. Typically, a file manager window opens at this point, displaying the directory where the firmware file is located.
-
-\colger
-
-Abbildung~\ref{AbbildungExpressLRS3} zeigt, dass die Firmware-Datei erstellt wurde. Üblicherweise öffnet sich an dieser Stelle ein Dateimanager-Fenster, das den Pfad anzeigt, in dem sich die Firmware-Datei befindet. 
-
-\coleng
-
-In the next step, the firmware file must be uploaded to the transmitter module of the remote control. One option is installation via the transmitter’s Wi-Fi module. This is activated through SYS→Tools→ExpressLRS→Wi-Fi Connectivity→Enable Wi-Fi. Once the network \verb!ExpressLRS TX! (password: \verb!expresslrs!) becomes available, the PC must be connected to it. The transmitter module uses the IP address \verb!10.0.0.1!. When this address is opened in a web browser, a simple interface allows, among other things, firmware updates (see Figure~\ref{AbbildungExpressLRS4}).
-
-\colger
-
-Im nächsten Schritt muss die Firmware-Datei auf das Sendemodul der Fernsteuerung aufgespielt werden. Eine Möglichkeit hierzu ist die Installation über das WLAN-Modul des Senders. Dieses wird über SYS→Tools→ExpressLRS→Wi-Fi Connectivity→Enable Wi-Fi aktiviert. Sobald das Funknetz \verb!ExpressLRS TX! (Passwort: \verb!expresslrs!) verfügbar ist, muss der PC damit verbunden werden. Das Sendemodul hat die IP-Adresse \verb!10.0.0.1!. Wird diese Adresse über einen Browser aufgerufen, kann über eine einfache Webseite unter anderem die Firmware aktualisiert werden (siehe Abbildung~\ref{AbbildungExpressLRS4}).
-
-\colende
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{ExpressLRS_Installation_4.png}
-	\caption{ExpressLRS Installation on Sender: Step 4}
-	\label{AbbildungExpressLRS4}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-The installation of ExpressLRS on the receiver is almost identical. Here, too, a firmware file matching the receiver is created using the ExpressLRS Configurator (see Figures~\ref{AbbildungExpressLRSReceiver1} and~\ref{AbbildungExpressLRSReceiver2}).
-
-\colger
-
-Die Installation von ExpressLRS auf dem Empfänger erfolgt nahezu identisch. Auch hier wird mit dem ExpressLRS Configurator eine zur Empfängerhardware passende Firmware-Datei erstellt (siehe Abbildung~\ref{AbbildungExpressLRSReceiver1} und Abbildung~\ref{AbbildungExpressLRSReceiver2}).
-
-\colende
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{ExpressLRS_Installation_RX_1.png}
-	\caption{ExpressLRS Installation on Receiver: Step 1}
-	\label{AbbildungExpressLRSReceiver1}
-\end{figure}
-\FloatBarrier
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{ExpressLRS_Installation_RX_2.png}
-	\caption{ExpressLRS Installation on Receiver: Step 2}
-	\label{AbbildungExpressLRSReceiver2}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-Receivers from Radiomaster provide a Wi-Fi network named \verb!ExpressLRS RX! (password: \verb!expresslrs!) after approximately 30 seconds without a connection to a transmitter. The PC must be connected to this network. The receiver module uses the IP address \verb!10.0.0.1!. When this address is opened in a web browser, a simple interface allows, among other things, firmware updates (see Figure~\ref{AbbildungExpressLRSReceiver3}).
-
-\colger
-
-Empfänger von Radiomaster stellen nach etwa 30 Sekunden ohne Verbindung zu einer Fernsteuerung ein Funknetz mit dem Namen \verb!ExpressLRS RX! (Passwort: \verb!expresslrs!) bereit. Der PC muss mit diesem Netzwerk verbunden werden. Das Empfangsmodul hat die IP-Adresse \verb!10.0.0.1!. Wird diese Adresse über einen Browser aufgerufen, kann über eine einfache Webseite unter anderem die Firmware aktualisiert werden (siehe Abbildung~\ref{AbbildungExpressLRSReceiver3}).
-
-\colende
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{ExpressLRS_Installation_RX_3.png}
-	\caption{ExpressLRS Installation on Receiver: Step 3}
-	\label{AbbildungExpressLRSReceiver3}
-\end{figure}
-\FloatBarrier
-

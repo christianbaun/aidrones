@@ -1,10 +1,10 @@
-\renewcommand{\deutschertitel}{Objekterkennung}
-\renewcommand{\englischertitel}{Object Detection}
+\renewcommand{\deutschertitel}{Wichtige Punkte vor dem ersten Flug}
+\renewcommand{\englischertitel}{Important Things before the first Flight}
 \chapter[\texorpdfstring{\protect{\vspace{2pt}\englischertitel}}{\englischertitel}]{}
 \kapitel{\deutschertitel}
 \thispagestyle{empty}
 
-\label{KapitelObjekterkennung}
+\label{KapitelWichtigePunkte}
 
 \begin{paracol}{2}[]
 
@@ -16,405 +16,235 @@
 
 \coleng
 
-Object detection is one of the most well-known applications of artificial intelligence. Among the best-known open-source solutions enabling object detection are the TensorFlow (Lite) machine learning framework combined with the OpenCV (\textsl{Open Computer Vision}) library for image processing and object recognition. An alternative approach is the object detection framework \textsl{You Only Look Once} (YOLO).
+This chapter provides useful advice for both the preparations before the first flight and the checks afterwards.
 
 \colger
 
-Objekterkennung ist eine der bekanntesten KI-Anwendungen. Zu den bekanntesten quelloffenen Softwarelösungen, die Objekterkennung ermöglichen, gehören das Framework TensorFlow (Lite) für maschinelles Lernen in Zusammenarbeit mit der Bibliothek OpenCV (\textsl{Open Computer Vision}) zur Bildverarbeitung und Objekterkennung. Eine alternative Lösung ist das Objekterkennungs-Framework \textsl{You Only Look Once} (YOLO).
-
-\coleng
-
-Object detection with FPV drones can be implemented in two basic ways. Both design concepts have advantages and disadvantages depending on factors such as available budget, hardware, the distance between drone and operator, the number of drones, and personal preferences.
-
-\colger
-
-Objekterkennung mit FPV-Drohnen kann auf zwei grundsätzliche Arten implementiert werden. Beide Realisierungskonzepte haben Vor- und Nachteile, deren Gewichtung unter anderem von den finanziellen Möglichkeiten, den verfügbaren Hardwarekomponenten, der Entfernung zwischen Drohne und Benutzer, der Anzahl der Drohnen und nicht zuletzt den persönlichen Präferenzen abhängt.
-
-\coleng
-
-\begin{itemize}
-\item \textbf{Edge Node Concept:} The AI functionality is performed by a computer that flies with the drone. This approach is described in Section~\ref{AbschnittObjekterkennungHuckepack}. The additional hardware increases cost, weight, and power consumption, which reduces flight time. Using a higher-capacity battery to compensate further increases the total weight. However, this design offers excellent scalability because the sensor data is processed directly on the drone. Only the results (aggregated data) need to be transmitted during or after the flight, drastically reducing the data volume. This approach follows the edge computing paradigm, which is especially advantageous in multi-drone scenarios where simultaneous data collection would otherwise overload communication channels.
-\end{itemize}
-
-\colger
-
-\begin{itemize}
-\item \textbf{Realisierungskonzept Edge-Knoten:} Die KI-Funktionalität wird von einem Computer übernommen, der mit der Drohne mitfliegt. Diese Alternative beschreibt Abschnitt~\ref{AbschnittObjekterkennungHuckepack}. Die Anschaffung zusätzlicher Hardware verursacht Kosten und erhöht das Gewicht der Drohne. Zudem benötigt die zusätzliche Hardware Strom, was die Flugzeit reduziert. Wird ein Akku mit höherer Kapazität eingesetzt, steigt das Gewicht weiter. Vorteile dieses Konzepts sind die sehr gute Skalierbarkeit, da die Verarbeitung der Sensordaten direkt auf der Drohne erfolgt. Nur die Ergebnisse (aggregierten Daten) müssen während des Flugs oder danach übertragen werden, wodurch die Datenmenge drastisch reduziert wird. Es handelt sich somit um eine Variante des Edge-Computing. Besonders wichtig ist diese Datenreduktion in Szenarien mit mehreren Drohnen, die gleichzeitig fliegen und Daten erfassen.
-\end{itemize}
-
-\coleng
-
-\begin{itemize}
-\item \textbf{Full Data Transmission Concept:} The AI processing is performed by a ground-based computer that receives the drone’s live video feed. This approach is described in Section~\ref{AbschnittObjekterkennungVideoGrabber}. A simple implementation uses FPV goggles with an AV output and a video capture device. Advantages include the low additional cost (a video grabber costs about 15--20 €) and the fact that the drone’s weight remains unchanged. No extra data transmission capacity is required since the drone already transmits its live video feed. However, in multi-drone scenarios, the central AI processing can demand significant computational resources, potentially requiring additional ground-based AI hardware.
-\end{itemize}
-
-\colger
-
-\begin{itemize}
-\item \textbf{Realisierungskonzept Übertragung aller Live-Daten:} Die KI-Funktionalität wird von einem Computer am Boden übernommen, der Zugriff auf das Livebild der Drohne hat. Diese Alternative beschreibt Abschnitt~\ref{AbschnittObjekterkennungVideoGrabber}. Eine einfache Implementierungsmöglichkeit bietet eine Videobrille mit AV-Ausgang und ein Videograbber. Vorteile dieses Konzepts sind die geringen zusätzlichen Anschaffungskosten (ein Videograbber kostet etwa 15--20 €) und das unveränderte Gewicht der Drohne. Zusätzliche Übertragungskapazitäten sind nicht erforderlich, da das Livebild ohnehin übertragen wird. In Szenarien mit mehreren Drohnen kann der zentrale Rechenaufwand der Objekterkennung jedoch stark ansteigen und zusätzliche KI-Hardware am Boden erforderlich machen.
-\end{itemize}
+Dieses Kapitel enthält hilfreiche Hinweise für die Vorbereitung vor dem ersten Flug sowie für die Überprüfungen danach.
 
 \colende
 
-\renewcommand{\deutschertitel}{Objekterkennung mit zusätzlicher Hardware an der Drohne}
-\renewcommand{\englischertitel}{Object Detection by additional Hardware on the Drone}
+\renewcommand{\deutschertitel}{Sicherheit beim Flug}
+\renewcommand{\englischertitel}{Security during Flight}
 \makroabschnitt
-\label{AbschnittObjekterkennungHuckepack}
+\label{AbschnittSicherheitBeimFlug}
 
-
-It is possible to integrate the hardware and software required for object detection as additional components directly into the drone, allowing them to fly onboard. Ideally, these components consist of a compact and energy-efficient single-board computer. Table~\ref{TabelleRaspberryPiUnterschiede} shows the different sizes and power requirements of various generations of the Raspberry Pi single-board computer.
+During flight, a sufficiently large distance from other persons must always be maintained. Buildings belonging to others and private property must not be overflown without prior permission. In any case, be sure to observe the applicable local regulatory and legal requirements (see Chapter~\ref{KapitelRegulatorischeGrundlagen}).
 
 \colger
 
-Es ist möglich, die zur Objekterkennung nötige Hard- und Software als zusätzliche Komponenten in die Drohne zu integrieren und diese Komponenten mitfliegen zu lassen. Sinnvollerweise handelt es sich dabei um einen platz- und stromsparenden Einplatinencomputer. Tabelle~\ref{TabelleRaspberryPiUnterschiede} zeigt die unterschiedlichen Dimensionen und Strombedarfe verschiedener Generationen des Einplatinencomputers Raspberry Pi.
+Während des Fluges ist stets ein möglichst großer Abstand zu anderen Personen einzuhalten. Fremde Gebäude und private Grundstücke dürfen nicht ohne vorherige Zustimmung überflogen werden. Beachten Sie auf jeden Fall die lokalen regulatorischen und gesetzlichen Grundlagen (siehe Kapitel~\ref{KapitelRegulatorischeGrundlagen}).
 
 \colende
 
-\begin{table}[htb!]
-\centering
-\captionabove{Generations of the Raspberry\,Pi Single-Board Computer}
-\label{TabelleRaspberryPiUnterschiede}
-\setlength{\tabcolsep}{5pt} % Default value: 6pt
-\renewcommand{\arraystretch}{1.0} % Default
-\begin{tabular}{lcrlrrr}
-\toprule
-Generation   & CPU Cores   & \multicolumn{1}{c}{RAM}       & \multicolumn{1}{c}{Size}    &  \multicolumn{1}{c}{Weight}  & \multicolumn{1}{c}{Current Draw} & \multicolumn{1}{c}{Current Draw} \\
-                       &               &     &      &      & \multicolumn{1}{c}{(idle)} &  \multicolumn{1}{c}{(peak)} \\
-\midrule
-Pi Zero W    & 1\,\(@\)\,1000\,MHz  & 512\,MB  & 65x30x5\,mm   & \(\sim 9\)\,g  & \(\sim\)\,120\,mA & \(\sim\)\,350\,mA \\
-Pi Zero 2 W  & 4\,\(@\)\,1000\,MHz  & 512\,MB  & 65x30x5\,mm   & \(\sim 10\)\,g & \(\sim\)\,140\,mA & \(\sim\)\,600\,mA \\
-Pi 3 B+      & 4\,\(@\)\,1200\,MHz  & 1\,GB    & 85x56x16\,mm  & \(\sim 50\)\,g & \(\sim\)\,500\,mA & \(\sim\)\,1400\,mA \\
-Pi 4 B       & 4\,\(@\)\,1500\,MHz  & 1-8\,GB  & 85x56x16\,mm  & \(\sim 50\)\,g & \(\sim\)\,600\,mA & \(\sim\)\,1500\,mA \\
-Pi 5         & 4\,\(@\)\,2400\,MHz  & 2-16\,GB & 85x56x16\,mm  & \(\sim 70\)\,g & \(\sim\)\,700\,mA & \(\sim\)\,2500\,mA \\
-\bottomrule
-\end{tabular}
-\end{table}
-\FloatBarrier
+\renewcommand{\deutschertitel}{Sicherheit vor dem Flug}
+\renewcommand{\englischertitel}{Security before Flight}
+\makroabschnitt
+\label{AbschnittSicherheitVorFlug}
 
-\colstart
-
-Compared to the approximately credit card--sized Raspberry Pi models, the Raspberry Pi Zero series is significantly smaller, lighter, and consumes less power. The processing performance of the Raspberry Pi 2 W is sufficient to run common AI frameworks alongside the operating system. Figure~\ref{AbbildungRaspberryPiZero2WH} shows a Raspberry Pi 2 WH.
+Before each flight, the arming procedure takes place. This means activating the motors in preparation for flight. Although the motors run at a relatively low speed during this process, even at this speed injuries to arms or hands can easily occur. To prevent accidental arming, it is advisable to configure the flight controller so that two switches—ideally not positioned directly next to each other—must be activated simultaneously. A configuration in Betaflight that ensures exactly this is shown in Figure~\ref{AbbildungBetaflightAppModes}.
 
 \colger
 
-Im Vergleich zu den etwa scheckkartengroßen Modellreihen sind die Raspberry Pi Zero-Modelle deutlich kleiner, leichter und benötigen weniger Strom. Die Prozessorleistung des Raspberry Pi 2 W ist ausreichend, um gängige KI-Frameworks neben dem Betriebssystem zu betreiben. Abbildung~\ref{AbbildungRaspberryPiZero2WH} zeigt einen Raspberry Pi 2 WH.
+Vor dem Flug findet das Arming statt. Dabei handelt es sich um das Aktivieren der Motoren zur Flugvorbereitung. Die Motoren laufen dabei zwar nur mit relativ niedriger Geschwindigkeit, aber selbst bei dieser Drehzahl kann es leicht zu Verletzungen, beispielsweise an Armen und Händen, kommen. Um ein unbeabsichtigtes Arming zu vermeiden, ist es ratsam, den Flugcontroller so zu konfigurieren, dass zum Arming zwei Schalter betätigt werden müssen, die idealerweise nicht direkt nebeneinander liegen. Eine Konfiguration in Betaflight, die genau dies sicherstellt, zeigt Abbildung~\ref{AbbildungBetaflightAppModes}.
 
 \colende
 
-\begin{figure}[htb]
-  \centering
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{raspberry_pi_2_wh_front.png}
-    \vspace{0pt} % sorgt für Top-Ausrichtung
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{raspberry_pi_2_wh_back.png}
-    \vspace{0pt}
-  \end{minipage}
-  \caption{Raspberry Pi\,2\,WH (Front and Back)}
-  \label{AbbildungRaspberryPiZero2WH}
-\end{figure}
-\FloatBarrier
+\renewcommand{\deutschertitel}{Sichere Verwendung von LiPo-Akkus}
+\renewcommand{\englischertitel}{Secure use of LiPo Batteries}
+\makroabschnitt
+\label{AbschnittSicherheitLiPoAkkus}
 
-\colstart
-
-Since it is not possible to forward the live FPV camera feed from the flight controller or VTX to the Raspberry Pi, the drone must carry an additional camera that is compatible with the single-board computer. A simple and cost-effective solution is to use the Raspberry Pi Camera Modules v1, v2, or v3, which primarily differ in resolution. All of them weigh only about 3-4 g and have similar dimensions (approximately 25\(\times\)24\(\times\)10 mm). Alternatively, the Raspberry Pi AI Camera (see Section~\ref{AbschnittKIBeschleunigerVergleich}) can be used.
+LiPo batteries should never be charged unattended, and they must not be charged while sleeping. Damaged batteries must no longer be used, especially if they have become swollen due to deep discharge, overcharging, or physical damage. Swollen LiPo batteries pose a significant fire hazard. A swollen battery cannot be repaired and must be properly disposed of. Disposal must not be done through household waste but through designated recycling or collection points provided by the local municipality.
 
 \colger
 
-Da es nicht möglich ist, über den Flugcontroller oder über den VTX das Livebild der FPV-Kamera auch an den Raspberry Pi weiterzuleiten, muss die Drohne eine weitere, zum Einplatinencomputer kompatible Kamera transportieren. Eine einfache und kostengünstige Lösung sind die Raspberry Pi Camera Module v1, v2 und v3. Diese unterscheiden sich primär in der Auflösung. Sie wiegen alle nur 3-4 g und sind ähnlich groß (ca. 25\(\times\)24\(\times\)10 mm). Alternativ kann auch die Raspberry Pi AI Camera (siehe Abschnitt~\ref{AbschnittKIBeschleunigerVergleich}) verwendet werden.
-
-\coleng
-
-Since a Raspberry Pi, regardless of model, does not have sufficient processing power to perform real-time object detection on video streams, additional hardware is required to accelerate AI applications. In the solution presented here, a Google Coral TPU Accelerator is used for this purpose. The following section describes this and alternative implementation concepts.
-
-\colger
-
-Da ein Raspberry Pi Einplatinencomputer, egal welcher Baureihe, nicht über die Prozessorleistung verfügt, um Objekterkennung in einem Videostream zu realisieren, ist zusätzliche Hardware zur Beschleunigung der KI-Anwendung nötig. Beim hier vorgestellten Lösungsweg kommt zur Beschleunigung ein Google Coral TPU Accelerator zum Einsatz. Der folgende Abschnitt beschreibt diesen und alternative Implementierungskonzepte.
+LiPo-Akkus dürfen niemals unbeaufsichtigt geladen werden, insbesondere nicht während man schläft. Beschädigte Akkus dürfen nicht weiterverwendet werden, insbesondere wenn sie durch Tiefentladung, Überladung oder physische Einwirkungen aufgebläht sind. Aufgeblähte LiPo-Akkus stellen ein erhebliches Brandrisiko dar. Ein solcher Akku kann nicht repariert werden und muss ordnungsgemäß entsorgt werden. Die Entsorgung darf nicht über den Hausmüll erfolgen, sondern über die entsprechenden Sammelstellen der örtlichen Gemeinde.
 
 \colende
 
-\renewcommand{\deutschertitel}{Vergleich von KI-Beschleunigern}
-\renewcommand{\englischertitel}{Comparison of AI Accelerators}
-\makrounterabschnitt
-\label{AbschnittKIBeschleunigerVergleich}
+\renewcommand{\deutschertitel}{Laden von Akkus}
+\renewcommand{\englischertitel}{Loading of Batteries}
+\makroabschnitt
+\label{AbschnittLadenAkkus}
 
-This section presents the advantages and disadvantages of several AI accelerators: the Google Coral TPU Accelerator, the Intel Neural Compute Stick 2, the Raspberry Pi AI Camera, and the Raspberry Pi AI Hat. Table~\ref{TabelleUnterschiedeCoralAICameraNCS2} summarizes key specifications and performance characteristics.
-
-\colger
-
-Dieser Abschnitt stellt die Vor- und Nachteile der KI-Beschleuniger Google Coral TPU Accelerator, Intel Neural Compute Stick 2, Raspberry Pi AI Camera und Raspberry Pi AI Hat vor. Eine Übersicht relevanter Informationen dazu enthält Tabelle~\ref{TabelleUnterschiedeCoralAICameraNCS2}.
-
-\coleng
-
-Released in 2019, the Google Coral TPU Accelerator (see Figure~\ref{AbbildungGoogleCoralTPUAccelerator}) provides 4 trillion operations per second (Tera-operations per second -- TOPS), consumes approximately 500-900 mA depending on performance mode, and measures only 65\(\times\)30\(\times\)8 mm with a weight of around 20 g. An additional USB cable for connection adds 10-15 g. The retail price is about €80-90. A notable drawback is that Google has invested little effort in maintaining or updating drivers and libraries since 2022, making it increasingly difficult to operate the device on modern and future operating systems.
+Batteries (LiPo or Li-Ion) with more than one cell must always be charged in balance mode using the voltage values read via the balancer connector (see Figure~\ref{AbbildungLiIonAkkuLaden}). This prevents individual cells from being overcharged during the charging process and helps to avoid deep discharge of individual cells during later use. The maximum recommended charge rate (see Section~\ref{AbschnittCWertAkkus}) is typically 1\,C. If this limit is exceeded, the cells will age more quickly, and in the worst case, a fire may occur. For safety reasons, Li-Ion batteries should only be stored in specially designed fireproof containers.
 
 \colger
 
-Der 2019 erschienene Google Coral TPU Accelerator (siehe Abbildung~\ref{AbbildungGoogleCoralTPUAccelerator}) bietet 4 Billionen Operationen pro Sekunde (Tera-operations per second -- TOPS), verbraucht je nach Geschwindigkeitseinstellung ca. 500-900 mA und ist nur 65\(\times\)30\(\times\)8 mm groß. Das Gewicht dieses KI-Beschleunigers beträgt ca. 20 g. Zusätzlich ist ein USB-Kabel zum Anschluss nötig, das weitere 10-15 g wiegt. Der Kaufpreis liegt bei etwa 80-90 €. Ein Nachteil des Google Coral TPU Accelerator ist, dass der Hersteller seit 2022 keine signifikanten Ressourcen in die Weiterentwicklung der Treiber und Bibliotheken investiert hat und die Entwicklung seitdem vollständig zum Stillstand gekommen ist, was den Betrieb auf aktuellen und zukünftigen Betriebssystemen erschwert.
-
-\colende
-
-\begin{figure}[htb]
-  \centering
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Google_Coral_TPU_Accelerator_front.pdf}
-    \vspace{0pt} % sorgt für Top-Ausrichtung
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Google_Coral_TPU_Accelerator_back.pdf}
-    \vspace{0pt}
-  \end{minipage}
-  \caption{Google Coral TPU Accelerator (Front and Back)}
-  \label{AbbildungGoogleCoralTPUAccelerator}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-An alternative AI accelerator that also connects via USB is the Intel Neural Compute Stick 2 (NCS2), released in 2019 (see Figure~\ref{AbbildungIntelNCS2}). It offers 4 TOPS, consumes approximately 200-500 mA depending on performance mode, and measures 73\(\times\)28\(\times\)14 mm while weighing about 30 g (without an extension cable). The purchase price is around €100. The NCS2 requires the OpenVINO Toolkit framework, which is free software actively developed by Intel. It converts models from frameworks such as TensorFlow (Lite), PyTorch, ONNX, Keras, and Caffe into a format optimized for Intel hardware and manages execution on compatible devices. It also supports integration with various versions of YOLO. However, starting new projects with the NCS2 is not recommended, as Intel discontinued hardware support with OpenVINO 2022.3 and has not invested significant resources in maintaining the necessary software since 2022, making operation on current and future operating systems increasingly difficult.
-
-\colger
-
-Ein alternativer KI-Beschleuniger, der ebenfalls über die USB-Schnittstelle angeschlossen wird, ist der 2019 erschienene Intel Neural Compute Stick 2 -- NCS2 (siehe Abbildung~\ref{AbbildungIntelNCS2}). Dieser bietet ebenfalls 4 TOPS, verbraucht je nach Geschwindigkeitseinstellung ca. 200-500 mA, ist 73\(\times\)28\(\times\)14 mm groß und wiegt (ohne Verlängerungskabel) etwa 30 g. Der Kaufpreis liegt bei rund 100 €. Der NCS2 benötigt das Framework OpenVINO Toolkit, das freie Software ist und von Intel entwickelt wird. Es konvertiert Modelle aus Frameworks wie TensorFlow (Lite), PyTorch, ONNX, Keras und Caffe in ein für Intel-Hardware optimiertes Format und steuert die Ausführung auf kompatibler Hardware. Auch eine Zusammenarbeit mit verschiedenen Versionen von YOLO ist möglich. Neue Projekte mit dem NCS2 zu realisieren ist jedoch nicht empfehlenswert, da Intel die Unterstützung der Hardware mit OpenVINO 2022.3 eingestellt und seit 2022 keine signifikanten Ressourcen mehr in die Weiterentwicklung der zum Betrieb nötigen Software investiert hat, was den Betrieb auf aktuellen und zukünftigen Betriebssystemen erschwert.
-
-\colende
-
-\begin{figure}[htb]
-  \centering
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Intel_Neuronal_Compute_Stick2_front.png}
-    \vspace{0pt} % sorgt für Top-Ausrichtung
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Intel_Neuronal_Compute_Stick2_back.png}
-    \vspace{0pt}
-  \end{minipage}
-  \caption{Intel Neuronal Compute Stick\,2 (Front and Back)}
-  \label{AbbildungIntelNCS2}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-A more modern alternative to connecting an AI accelerator via the USB interface is the Raspberry Pi AI Camera (see Figure~\ref{AbbildungRaspberryPIAICameraModule}), released in 2024. It already includes an integrated AI accelerator whose exact performance in TOPS is not publicly specified, but it is capable of processing up to 30 frames per second for object recognition. The power consumption is approximately 300-600 mA, depending on the operating mode. The purchase price of the Raspberry Pi AI Camera is around €80, which is higher than that of other camera modules. However, it can fully replace an external AI accelerator such as the Google Coral TPU Accelerator. With a weight of only about 6 g, this results in significant weight savings and lower overall system costs.
-
-\colger
-
-Eine modernere Alternative zum Anschluss eines KI-Beschleunigers über die USB-Schnittstelle ist die 2024 erschienene Raspberry Pi AI Camera (siehe Abbildung~\ref{AbbildungRaspberryPIAICameraModule}). Diese enthält bereits einen integrierten KI-Beschleuniger, dessen Leistungsfähigkeit in TOPS nicht bekannt ist, der jedoch bis zu 30 Bilder pro Sekunde zur Objekterkennung verarbeiten kann. Der Stromverbrauch beträgt je nach Betriebsart etwa 300-600 mA. Der Kaufpreis der Raspberry Pi AI Camera liegt mit rund 80 € zwar höher als der anderer Kamera-Module, sie kann jedoch einen externen KI-Beschleuniger wie den Google Coral TPU Accelerator vollständig ersetzen. Bei einem Gewicht von nur etwa 6 g führt dies zu einer deutlichen Gewichtsersparnis und geringeren Gesamtkosten.
-
-\colende
-
-\begin{figure}[htb]
-  \centering
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Raspberry_Pi_AI_Camera_Module_Vorderseite.png}
-    \vspace{0pt} % sorgt für Top-Ausrichtung
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Raspberry_Pi_AI_Camera_Module_Rueckseite.png}
-    \vspace{0pt}
-  \end{minipage}
-  \caption{Raspberry AI Camera (Front and Back)}
-  \label{AbbildungRaspberryPIAICameraModule}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-In addition to the Raspberry Pi AI Camera, which is ideal for use with the Raspberry Pi Zero 2 W single-board computer, the Raspberry Pi Foundation also offers the AI Kit and AI HAT+ in two different performance variants. All three options are HAT (Hardware Attached on Top) expansion boards for the Raspberry Pi 5. The AI Kit can host an M.2 AI accelerator module and comes with a Hailo-8L chip capable of 13 TOPS. The two AI HAT+ variants feature soldered Hailo accelerators with performance levels of 13 TOPS (see Figure~\ref{AbbildungRaspberryPiAIHATPlus13TOPs}) and 26 TOPS, respectively. The newer AI HAT+ 2 features a Hailo-10H accelerator that delivers up to 40 TOPS as an expansion module. These HATs cost around €80-150 and offer high AI performance. However, carrying and powering a Raspberry Pi 5 together with such a HAT is not practical in many drone scenarios.
-
-\colger
-
-Neben der Raspberry Pi AI Camera, die sich ideal für den Einsatz mit dem Raspberry Pi Zero 2 W Einplatinencomputer eignet, bietet die Raspberry Pi Foundation auch die KI-Erweiterungen AI Kit und AI HAT+ in zwei unterschiedlichen Geschwindigkeitsvarianten an. Alle drei Varianten sind Erweiterungsplatinen (sogenannte HATs) für den Raspberry Pi 5. Das AI Kit kann einen KI-Beschleuniger als M.2-Erweiterungsmodul aufnehmen und wird mit einem Hailo-8L-Beschleuniger ausgeliefert, der 13 TOPS erreicht. Die beiden Versionen des AI HAT+ enthalten fest verlötete Hailo-Beschleuniger mit 13 TOPS (siehe Abbildung~\ref{AbbildungRaspberryPiAIHATPlus13TOPs}) bzw. 26 TOPS. Das neuere AI HAT+ 2 verfügt über einen Hailo-10H-Beschleuniger, der 40 TOPS erreicht. Diese HATs kosten etwa 80-150 € und bieten eine starke KI-Leistung. Der Transport und die Stromversorgung eines Raspberry Pi 5 mit einem solchen HAT ist in vielen Anwendungsszenarien jedoch nicht praktikabel.
-
-\colende
-
-\begin{figure}[htb]
-  \centering
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Raspberry_Pi_AI_HAT_Plus_13_TOPS_top_small.png}
-    \vspace{0pt} % sorgt für Top-Ausrichtung
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Raspberry_Pi_AI_HAT_Plus_13_TOPS_top2_small.png}
-    \vspace{0pt}
-  \end{minipage}
-  \caption{Raspberry AI AI HAT+ with 13 TOPS}
-  \label{AbbildungRaspberryPiAIHATPlus13TOPs}
-\end{figure}
-\FloatBarrier
-
-\begin{table}[htb!]
-\centering
-\captionabove{Options for additional Hardware on the Drone that accelerates AI Operations (Edge Computing Scenario)}
-\label{TabelleUnterschiedeCoralAICameraNCS2}
-\setlength{\tabcolsep}{3pt} % Default value: 6pt
-\renewcommand{\arraystretch}{1.0} % Default
-\begin{tabular}{llrrrrl}
-\toprule
-AI Hardware                     & Interface       & TOPS        & Weight           & Size [mm] & Current Draw  & \multicolumn{1}{c}{Support} \\
-\midrule
-Google Coral TPU                & USB 3.0         & 4           & \(\sim\)\,20\,g  & 65x30x8   & 500-900\,mA & Discontinued  \\
-Intel NCS\,2                    & USB 3.0         & 4           & \(\sim\)\,30\,g  & 73x28x14  & 200-500\,mA & Discontinued  \\
-RPi AI Camera                   & CSI             & ?           & \(\sim\)\,6\,g   & 25x24x10  & 300-600\,mA & Active  \\
-RPi AI\,Kit/HAT+ (2)               & HAT (PCIe)      & 13          & \(\sim\)\,40\,g  & 65x57x6   & 400-800\,mA & Active  \\
-\bottomrule
-\end{tabular}
-\end{table}
-\FloatBarrier
-
-\colstart
-
-For various reasons, such as short-term hardware availability, it has not yet been possible to integrate the Raspberry Pi AI Camera into a drone project. Therefore, the implementation approach presented in the next section uses the Google Coral TPU Accelerator.
-
-\colger
-
-Aus verschiedenen Gründen, wie der kurzfristigen Hardwareverfügbarkeit, war es bislang nicht möglich, die Raspberry Pi AI Camera in ein Drohnenprojekt zu integrieren. Aus diesem Grund verwendet der im nächsten Abschnitt vorgestellte Lösungsweg den Google Coral TPU Accelerator.
-
-\colende
-
-\renewcommand{\deutschertitel}{Aufbau und Implementierung}
-\renewcommand{\englischertitel}{Construction and Implementation}
-\makrounterabschnitt
-\label{AbschnittObjekterkennungImplementierungHuckepack}
-
-Figure~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} shows the components of the FPV drone from Figure~\ref{AbbildungKompoentenEinerDrohneOhneKI}, expanded by the components required for onboard image recognition: the Raspberry Pi single-board computer, a Raspberry Pi Camera Module v2, the Google Coral TPU Accelerator, and a BEC (Battery Eliminator Circuit) for converting the battery voltage to 5\,V.
-
-\colger
-
-Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} zeigt die Komponenten der FPV-Drohne aus Abbildung~\ref{AbbildungKompoentenEinerDrohneOhneKI}, erweitert um die für die lokale Bilderkennung erforderlichen Komponenten: den Raspberry Pi Einplatinencomputer, ein Raspberry Pi Camera Module v2, den Google Coral TPU Accelerator sowie einen BEC zur Umwandlung der elektrischen Spannung des Akkus in 5\,V.
-
-\coleng
-
-The SpeedyBee F405 AIO flight controller used here provides only six UART interfaces, leaving little flexibility, as shown in Figure~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral}. The video transmitter (UART3), GPS module (UART5), and receiver (UART6) each require one UART interface. In addition, one UART (UART1) is reserved for administration via Wi-Fi and USB. Of the remaining interfaces, UART2 supports only simplex mode (receive-only). This leaves a single fully functional (bidirectional) UART interface, which is used to connect the Raspberry Pi Zero\,2\,W. This connection allows command exchange between the flight controller and the single-board computer.
-
-\colger
-
-Der verwendete SpeedyBee F405 AIO Flugcontroller verfügt nur über sechs UART-Schnittstellen, was -- wie in Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} gezeigt -- nur wenig Spielraum lässt. Videosender (UART3), GPS-Modul (UART5) und Empfänger (UART6) benötigen jeweils eine UART-Schnittstelle. Zusätzlich wird für die Administration über die WLAN- und USB-Schnittstellen (UART1) eine weitere Schnittstelle belegt. Von den verbleibenden Schnittstellen unterstützt UART2 nur den Simplex-Betrieb (nur Lesen). Damit verbleibt lediglich eine einzige vollwertige (bidirektionale) UART-Schnittstelle, über die der Raspberry Pi Zero\,2\,W angeschlossen wird. Darüber können Kommandos zwischen Flugcontroller und Einplatinencomputer ausgetauscht werden.
-
-\coleng
-
-One disadvantage of the Google Coral TPU Accelerator is that the manufacturer has not invested further resources in driver or library development. The required Python library PyCoral -- an extension of TensorFlow Lite enabling integration with the Coral TPU -- supports Python 3.9 at most. No further updates are expected. Installation on Raspberry Pi OS (32-bit) Bullseye (Debian 11) is recommended, as Coral packages and PyCoral work reliably there. Newer operating systems based on Debian 12 or 13 are difficult to use with this hardware.
-
-\colger
-
-Ein Nachteil des Google Coral TPU Accelerator ist, dass der Hersteller keine weiteren Ressourcen in die Weiterentwicklung der Treiber und Bibliotheken investiert. Die benötigte Python-Bibliothek PyCoral, die TensorFlow Lite um die Unterstützung der Google Coral TPU erweitert, unterstützt maximal Python 3.9. Neue Versionen sind nicht mehr zu erwarten. Die Installation auf Raspberry Pi OS (32-bit) Bullseye (Debian 11) ist empfehlenswert, da dort die Coral-Pakete mit PyCoral zuverlässig funktionieren. Neuere Betriebssysteme auf Basis von Debian 12 oder 13 sind hingegen sehr schwierig zu verwenden.
+Akkus (LiPo oder Li-Ion) mit mehr als einer Zelle müssen immer unter Verwendung der über den Balancerstecker ausgelesenen Spannungswerte im Balancermodus geladen werden (siehe Abbildung~\ref{AbbildungLiIonAkkuLaden}). Dies verhindert eine Überladung einzelner Zellen während des Ladevorgangs und beugt einer Tiefentladung einzelner Zellen im späteren Betrieb vor. Die maximal empfohlene Laderate (siehe Abschnitt~\ref{AbschnittCWertAkkus}) beträgt üblicherweise 1\,C. Wird diese Rate überschritten, altern die Zellen schneller, und es kann im schlimmsten Fall zu einem Brand kommen. Zur Sicherheit sollten Li-Ion-Akkus nur in dafür vorgesehenen, feuerfesten Behältnissen gelagert werden.
 
 \colende
 
 \begin{figure}[htb!]
   \centering
-    \includegraphics[width=\linewidth]{Komponenten_der_Drohne_Diagramm_v1_en.pdf}
-  \caption{Components of a FPV Drone with additional Hardware Components for Object Detection by the Drone itself}
-  \label{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral}
+    \includegraphics[width=\linewidth]{LiIo-Akku-laden.png}
+  \caption{Balanced Loading of a Li-Ion Battery}
+  \label{AbbildungLiIonAkkuLaden}
 \end{figure}
 \FloatBarrier
 
-\renewcommand{\deutschertitel}{Gesamtgewicht und Anschaffungskosten}
-\renewcommand{\englischertitel}{Total Weight and Purchase Cost}
-\makrounterabschnitt
-\label{AbschnittObjekterkennungKostenHuckepack}
-
-For building the drone, a frame size between 3.5 and 5 inches is recommended. If the drone is also intended to be flown indoors, a 3.5-inch CineWhoop frame is advisable. The components used in a research project at Frankfurt University of Applied Sciences are listed in Table~\ref{TabelleDrohne35GoogleCoral}.
-
-\colger
-
-Zum Aufbau der Drohne empfiehlt sich ein Rahmen mit 3,5 bis 5 Zoll. Soll die Drohne auch innerhalb geschlossener Räume geflogen werden können, empfiehlt sich ein 3,5-Zoll-CineWhoop-Rahmen. Die im Rahmen eines Forschungsprojekts an der Frankfurt University of Applied Sciences verwendeten Komponenten sind in Tabelle~\ref{TabelleDrohne35GoogleCoral} aufgeführt.
-
-\colende
-
-\begin{table}[htb!]
-\centering
-\caption{Components of a Drone for Object Detection with a Raspberry Pi Zero\,2\,W and a Google Coral TPU Accelerator}
-\label{TabelleDrohne35GoogleCoral}
-\setlength{\tabcolsep}{6pt}
-\renewcommand{\arraystretch}{1.0}
-
-\begin{spreadtab}{{tabular}{llrr}}
-\toprule
-@Product & @Category & @Weight [g] & @Price [\euro{}] \\
-\midrule
-@SpeedyBee Bee35 PRO 3.5                   & @Frame                  & 130  & 55 \\
-@SpeedyBee F405 AIO 40A 3-6S               & @Flight Controller      & 14   & 70 \\
-@Radiomaster RP1 2,4GHz                    & @Receiver               & 3    & 25 \\
-@Flywoo NIN 1404 V2 3750KV                 & @Motors                 & 40   & 65 \\
-@Gemfan D90-5 3.5 Inch Ducted 5-Blade      & @Propellers             & 4    & 3  \\
-@SpeedyBee TX800 VTX + SMA Adapter         & @Video Transmitter      & 10   & 40 \\
-@Foxeer Lollipop 4 RHCP SMA                & @FPV Antenna            & 5    & 20 \\
-@HGLRC M100-5883                           & @GPS and Compass        & 8    & 20 \\
-@Caddx Ratel Pro                           & @FPV Camera             & 10   & 55 \\
-@Li-Ion 2500mAh 4S1P 14,8V 12C             & @Battery                & 200  & 25 \\
-@Raspberry Pi Zero 2 WH                    & @Single-Board-Computer  & 10   & 20 \\
-@Raspberry Pi Zero case                    & @Case                   & 15   & 5  \\
-@32GB microSD card                         & @Storage                & 1    & 7  \\
-@Raspberry Pi Camera Module 8MP v2         & @Camera                 & 4    & 17 \\
-@Adafruit Camera Module case               & @Case                   & 8    & 5  \\
-@Google Coral TPU                          & @AI Hardware            & 20   & 85 \\
-@USB-C cable for Coral TPU                 & @Cable                  & 10   & 5  \\
-@Additional cables, straps and panels      & @Cables + fixing material                  & 10   & 5  \\
-\bottomrule
-@Sum & & sum(c2:c19) & sum(d2:d19) \\
-\end{spreadtab}
-\end{table}
-\FloatBarrier
-
-\colstart
-
-The components listed in Table~\ref{TabelleDrohne35GoogleCoral} refer exclusively to the essential parts of the drone itself. Additional required equipment such as a remote controller (80-160\,\euro{}), FPV goggles (120-250\,\euro{}), and a charger (50-100\,\euro{}) must already be available or purchased separately. The prices of the individual components depend on personal preferences and financial means.
-
-\colger
-
-Die in Tabelle~\ref{TabelleDrohne35GoogleCoral} aufgeführten Komponenten betreffen ausschließlich die notwendigen Bestandteile der Drohne selbst. Weiteres erforderliches Zubehör wie Fernsteuerung (80-160\,\euro{}), FPV-Brille (120-250\,\euro{}) und Ladegerät (50-100\,\euro{}) muss bereits vorhanden sein oder zusätzlich beschafft werden. Die Preise der einzelnen Komponenten hängen auch von persönlichen Präferenzen und finanziellen Möglichkeiten ab.
-
-\colende
-
-\renewcommand{\deutschertitel}{Objekterkennung durch Auswertung des Livebilds am Boden}
-\renewcommand{\englischertitel}{Object Detection by using the Live Image on the Ground}
+\renewcommand{\deutschertitel}{Spezifikation der Anschlüsse beachten}
+\renewcommand{\englischertitel}{Observing Electrical Interface Specifications}
 \makroabschnitt
-\label{AbschnittObjekterkennungVideoGrabber}
+\label{AbschnittHerstellerspezifischeAnschluesse}
 
-An easy way to access a live video feed is to use the AV interface provided by some FPV goggles (see Table~\ref{TabelleVideobrillen}). The analog signal can then be digitized with a video grabber device and transmitted to a computer or another device (e.g., a smartphone) for further processing. Figure~\ref{AbbildungVideobrillemitVideograbber} shows the connection of a video grabber to a pair of FPV goggles.
+\coleng
+
+Although modern flight controllers often provide plug connectors that simplify the integration of external components, a basic understanding of electrical properties such as voltage, current, and polarity remains essential. In particular during the initial phase of the project, insufficient experience in this area repeatedly resulted in incorrect connections and consequently damaged components.
 
 \colger
 
-Eine einfache Möglichkeit, auf das Livebild zuzugreifen, bietet die gegebenenfalls vorhandene AV-Schnittstelle der Videobrille (siehe Tabelle~\ref{TabelleVideobrillen}). Das Videosignal kann mithilfe eines Videograbbers digitalisiert und zur Verarbeitung an einen Computer oder an ein anderes Gerät (z.B. ein Smartphone) weitergeleitet werden. Abbildung~\ref{AbbildungVideobrillemitVideograbber} zeigt den Anschluss eines Videograbbers an eine Videobrille.
+Moderne Flugcontroller verfügen zwar häufig über Steckverbindungen, die den Anschluss externer Komponenten erleichtern. Dennoch ist ein grundlegendes Verständnis elektrischer Eigenschaften wie Spannung, Stromstärke und Polarität unerlässlich. Insbesondere in der Anfangsphase führte fehlende Erfahrung in diesem Bereich wiederholt zu fehlerhaften Verbindungen und in der Folge zu beschädigten Bauteilen.
+
+\coleng
+
+A typical example is the connection of analog video transmitters. Operating a common analog video transmitter generally requires four connections: a power supply line, ground, a video signal line, and a control line used for configuration. However, flight controllers differ in the voltage levels they provide via their connector ports (see Figure~\ref{AbbildungVTXConnectors} presenting three different flight controllers) or solder pads. At the same time, the permissible operating voltages of video transmitters vary considerably between different models. Connecting components without carefully verifying their electrical specifications can therefore quickly lead to irreversible hardware damage.
+
+\colger
+
+Ein typisches Beispiel ist der Anschluss analoger Videosender. Für den Betrieb eines gängigen Videosenders werden in der Regel vier Leitungen benötigt: eine Spannungsversorgung, eine Masseleitung, das Videosignal sowie eine Steuerleitung zur Konfiguration. Flugcontroller unterscheiden sich jedoch darin, welche Spannungen sie über entsprechende Steckverbindungen oder über Lötpads bereitstellen. Gleichzeitig variieren die zulässigen Betriebsspannungen der Videosender je nach Modell erheblich. Werden Komponenten ohne sorgfältige Prüfung ihrer elektrischen Spezifikationen miteinander verbunden, kann dies schnell zu irreparablen Hardwareschäden führen.
+
+\coleng
+
+Figure~\ref{AbbildungVTXConnectors} shows the video transmitter connectors on three different flight controllers. While the left and the middle flight controller supply the video transmitter directly with the voltage of the connected battery (typically between 12.0,V and 22.2,V -- see Table~\ref{TabelleAkkus}), the right flight controller provides a regulated voltage of 9,V. Directly connecting the video transmitter shown in Figure~\ref{AbbildungSpeedyBeeTX800FPVVTX} to any of these three flight controllers would damage the device. In such a case, an intermediate BEC (Battery Eliminator Circuit) is required to step down the battery voltage to 5,V. By contrast, directly connecting the video transmitter shown in Figure~\ref{AbbildungFoxeerReaperV2VTX} to any of the three flight controllers would not pose a problem.
+
+\colger
+
+Abbildung~\ref{AbbildungVTXConnectors} zeigt die Anschlüsse für den Videosender bei drei verschiedenen Flugcontrollern. Während der linke und der mittlere Flugcontroller den Videosender direkt mit der Spannung des angeschlossenen Akkus versorgen (typischerweise zwischen 12.0,V und 22.2,V -- siehe Tabelle~\ref{TabelleAkkus}), stellt der rechte Flugcontroller eine Spannung von 9,V bereit. Ein direkter Anschluss des in Abbildung~\ref{AbbildungSpeedyBeeTX800FPVVTX} dargestellten Videosenders an einen der drei Flugcontroller würde den Videosender beschädigen. In einem solchen Fall ist ein zwischengeschalteter BEC (Battery Eliminator Circuit) erforderlich, der die Akkuspannung auf 5,V herunterregelt. Ein direkter Anschluss des in Abbildung~\ref{AbbildungFoxeerReaperV2VTX} dargestellten Videosenders an einen der drei Flugcontroller wäre hingegen problemlos möglich.
 
 \colende
 
 \begin{figure}[htb!]
   \centering
-    \includegraphics[width=\linewidth]{Videobrille_mit_Videograbber.jpg}
-  \caption{Video Grabber Device connected to the A/V Port of an FPV Goggle}
-  \label{AbbildungVideobrillemitVideograbber}
+    \includegraphics[width=\linewidth]{Anschluss_VTX_Herausforderung_2026_v2.pdf}
+  \caption{Improper Connection of a Video Transmitter to a Flight Controller without verifying the permitted Voltage can lead to Hardware Damage}
+  \label{AbbildungVTXConnectors}
 \end{figure}
 \FloatBarrier
 
-\colstart
+\renewcommand{\deutschertitel}{Schutz der Komponenten durch einem Smoke Stopper}
+\renewcommand{\englischertitel}{Protection of the Components using a Smoke Stopper}
+\makroabschnitt
+\label{AbschnittSmokeStopper}
 
-There are various tools and commands for accessing video and audio streams. This section presents a selection of useful Linux tools and commands.
+A smoke stopper (see Figure~\ref{AbbildungSmokeStopper}) is a simple protection device that is placed between the battery and the drone when the drone is connected to the battery for the first time. It typically contains a resettable fuse (PTC) or a small light bulb that limits the current flow if a short circuit or wiring error is present. This prevents very high currents from flowing immediately after the battery is connected.
 
 \colger
 
-Zum Zugriff auf den Video- und Audiostrom existieren verschiedene Programme und hilfreiche Kommandos. Dieser Abschnitt stellt einige nützliche Programme und Kommandos unter Linux vor.
+Ein Smoke Stopper (siehe Abbildung~\ref{AbbildungSmokeStopper}) ist ein einfaches Schutzgerät, das beim ersten Anschluss einer Drohne an den Akku zwischen Akku und Drohne geschaltet wird. Er enthält eine selbstrückstellende Sicherung, die den Stromfluss begrenzt, wenn ein Kurzschluss oder eine fehlerhafte Verdrahtung vorliegt. Dadurch wird verhindert, dass unmittelbar nach dem Anschluss des Akkus sehr hohe Ströme fließen.
 
 \coleng
 
-Information from the operating system kernel about the video grabber can be obtained, among other things, using the command \verb!dmesg!.
+The use of a smoke stopper is strongly recommended after assembling the drone or after making changes to its electronics. During soldering or wiring, unintended short circuits can easily occur, for example due to solder bridges, damaged cable insulation, or incorrectly connected wires. Without current limiting, such faults can destroy the flight controller, ESCs, or other electronic components within seconds. A smoke stopper limits the current so that such problems can be detected without damaging the hardware. Only after it has been verified that the drone operates correctly should it be connected directly to the battery.
 
 \colger
 
-Informationen des Betriebssystemkerns zum Videograbber liefert unter anderem das Kommando \verb!dmesg!.
+Der Einsatz eines Smoke Stoppers ist besonders nach dem Zusammenbau oder nach Änderungen an der Elektronik der Drohne dringend zu empfehlen. Beim Löten oder Verdrahten können leicht unbeabsichtigte Kurzschlüsse entstehen, etwa durch Lötbrücken, beschädigte Kabelisolierungen oder falsch angeschlossene Leitungen. Ohne Strombegrenzung kann ein solcher Fehler innerhalb von Sekunden Flugcontroller, ESCs oder andere elektronische Komponenten dauerhaft beschädigen. Der Smoke Stopper begrenzt in diesem Fall den Strom so weit, dass der Fehler erkannt werden kann, ohne dass Bauteile zerstört werden. Erst wenn sichergestellt ist, dass die Drohne korrekt funktioniert, sollte sie direkt mit dem Akku betrieben werden.
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/VIFLY_ShortSaver2_front_small.jpg}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/VIFLY_ShortSaver2_back_small.jpg}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{VIFLY ShortSaver 2 Smoke Stopper (Front and Back)}
+  \label{AbbildungSmokeStopper}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{Sichere Befestigung loser Kabel und sonstiger Komponenten}
+\renewcommand{\englischertitel}{Secure Attachment of loose Cables and other Components}
+\makroabschnitt
+\label{AbschnittBefestigungLoseKabel}
+
+If cables or other drone components are not properly secured and can reach the propellers, they eventually will. This can damage either the loose components or the propellers, potentially leading to a crash or costly damage. A common example of components that frequently and unintentionally come into contact with the propellers are the battery balancer connectors (see Figure~\ref{AbbildungBalancerConnectorDestroyed}) , which are not always easy to replace. Therefore, all components must be securely fastened, and cables must be fixed using screws, cable ties, Velcro straps, or at least electrical tape.
+
+\colger
+
+Wenn Kabel oder andere Bauteile der Drohne nicht zuverlässig befestigt sind und die Rotoren erreichen können, werden sie diese früher oder später tatsächlich erreichen. Dabei werden entweder die losen Komponenten oder die Rotoren beschädigt, was zu einem Absturz oder zu teuren Beschädigungen führen kann. Ein typisches Beispiel für Bauteile, die häufig ungewollt mit den Rotoren in Kontakt kommen, sind die Balancerstecker (siehe Abbildung~\ref{AbbildungBalancerConnectorDestroyed}) der Akkus, deren Austausch nicht immer einfach ist. Daher ist die Befestigung aller Bauteile und die Sicherung aller Kabel mit Schrauben, Kabelbindern, Klettbändern oder zumindest Isolierband zwingend erforderlich.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{LiPo_Akku_Schaden_durch_Propeller_crop.png}
+  \caption{A Balancer Connector got destroyed because it touched a Propeller during Flight}
+  \label{AbbildungBalancerConnectorDestroyed}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{Den geeigneten Flugmodus verwenden}
+\renewcommand{\englischertitel}{Use the Appropriate Flight Mode}
+\makroabschnitt
+\label{AbschnittFlugmodusEinstellen}
+
+There are three flight modes: Angle Mode (stabilized), Horizon Mode (semi-stabilized), and Acro Mode (manual).
+
+\colger
+
+Es gibt die Flugmodi Angle Mode (stabilisiert), Horizon Mode (halb-stabilisiert) und Acro Mode (manuell).
+
+\coleng
+
+In Angle Mode, the drone stabilizes itself and remains level without explicit control input from the pilot. This flight mode is the most beginner-friendly and ideal for indoor flights and smooth, slow cinematic shots. Because the maximum tilt angle is limited, spectacular flight maneuvers such as flips or rolls are not possible.
+
+\colger
+
+Im Angle Mode stabilisiert sich die Drohne selbst und hält sich ohne explizite Steueranweisungen des Piloten automatisch waagrecht. Dieser Flugmodus ist besonders anfängerfreundlich und ideal für Indoor-Flüge sowie für langsame, ruhige Filmaufnahmen. Da die maximale Neigung (Tilt) begrenzt ist, sind spektakuläre Flugmanöver wie Flips oder Rollen nicht möglich.
+ 
+\coleng
+
+In Horizon Mode, flips and rolls are possible, but the drone automatically stabilizes itself when no control input is applied.
+
+\colger
+
+Im Horizon Mode sind Flips und Rollen möglich, jedoch stabilisiert sich die Drohne automatisch, sobald keine Steuerkommandos mehr gegeben werden.
+
+\coleng
+
+In Acro Mode, which is actually the default mode, there is no automatic stabilization. The drone maintains its current rotational speed until the pilot counteracts it. This mode provides full control on all axes and allows spectacular flight maneuvers at any time. It is the least beginner-friendly mode but ideal for freestyle flying and racing.
+
+\colger
+
+Im Acro Mode, der eigentlich der Standardmodus ist, erfolgt keine automatische Stabilisierung. Die Drohne hält stets die aktuelle Drehgeschwindigkeit bei, bis der Pilot aktiv gegensteuert. In diesem Modus hat man die volle Kontrolle über alle Achsen, und spektakuläre Flugmanöver sind jederzeit möglich. Dieser Flugmodus ist am wenigsten anfängerfreundlich und ideal für Freestyle-Flüge und Rennen.
+
+\coleng
+
+Since a drone is set to Acro Mode by default, it is advisable to configure a three-position switch on the transmitter for selecting flight modes so that Angle Mode can be activated automatically when desired. A configuration in Betaflight that enables this is shown in Figure~\ref{AbbildungBetaflightAppModes}.
+
+\colger
+
+Da Drohnen standardmäßig im Acro Mode betrieben werden, ist es sinnvoll, einen Schalter des Senders mit drei möglichen Positionen zur Auswahl des Flugmodus so zu konfigurieren, dass bei Bedarf automatisch der Angle Mode aktiviert werden kann. Eine entsprechende Konfiguration in Betaflight, die dies ermöglicht, zeigt Abbildung~\ref{AbbildungBetaflightAppModes}.
+
+\colende
+
+\renewcommand{\deutschertitel}{Die Leistung des Videosenders reduzieren oder diesen abschalten}
+\renewcommand{\englischertitel}{Reduce the Power of the Video Transmitter or Switch It Off}
+\makroabschnitt
+\label{AbschnittVTXreduzieren}
+
+It is highly recommended to switch off the VTX or significantly reduce its output power during ground or laboratory tests, as it can overheat within a few minutes without the airflow present during flight. Even if it does not overheat, it will still become very hot quickly and draw considerable current from the batteries.
+
+\colger
+
+Es ist sehr empfehlenswert, bei Boden- oder Labortests den VTX abzuschalten oder seine Leistung stark zu reduzieren, da er ohne die Luftkühlung während des Flugs innerhalb weniger Minuten überhitzen kann. Selbst wenn er nicht überhitzt, wird er sehr schnell heiß und zieht viel Strom aus den Akkus.
+
+\coleng
+
+In Betaflight, the VTX can be completely switched off via the CLI:
+
+\colger
+
+In Betaflight kann man den VTX über die CLI komplett ausschalten:
 
 \colende
 
@@ -433,310 +263,205 @@ Informationen des Betriebssystemkerns zum Videograbber liefert unter anderem das
 }
 
 \begin{lstlisting}[style=shell]
-$ sudo dmesg -w
-[17896.642801] usb 2-2: USB disconnect, device number 91
-[17897.851011] usb 2-2: new high-speed USB device number 92 using xhci_hcd
-[17897.991360] usb 2-2: New USB device found, idVendor=534d, idProduct=0021, bcdDevice=21.01
-[17897.991376] usb 2-2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
-[17897.991383] usb 2-2: Product: USB Video
-[17897.991389] usb 2-2: Manufacturer: MACROSILICON
-[17897.991395] usb 2-2: SerialNumber: 20200909
-[17898.055173] usb 2-2: Found UVC 1.00 device USB Video (534d:0021)
-[17898.063678] hid-generic 0003:534D:0021.004E: hiddev4,hidraw6: USB HID v1.10 Device [MACROSILICON USB Video] on usb-0000:06:00.3-2/input4
+vtx_power = 0
+save
 \end{lstlisting}
-\FloatBarrier
 
 \colstart
 
-The command \verb!lsusb! provides information about the connected USB devices.
+These commands switch the VTX to the reduced 25 mW power mode:
 
 \colger
 
-Das Kommando \verb!lsusb! liefert Informationen zu den angeschlossenen USB-Geräten.
+Diese Kommandos schalten den VTX in den reduzierten 25-mW-Leistungsbetrieb:
 
 \colende
 
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
 \begin{lstlisting}[style=shell]
-$ lsusb
-Bus 002 Device 090: ID 534d:0021 MacroSilicon MS210x Video Grabber [EasierCAP]
+vtx_power = 1
+save
 \end{lstlisting}
-\FloatBarrier
 
 \colstart
 
-The command \verb!v4l2-ctl! helps in identifying the desired device \verb!/dev/videoX!.
+Another option is to greatly reduce the VTX’s output power by switching it to so-called PIT mode. PIT mode lowers the transmit power to approximately 0.1\,mW -- just enough to receive the signal on the bench or within the same room, while preventing overheating. The following command switches the VTX to PIT mode:
 
 \colger
 
-Das Kommando \verb!v4l2-ctl! unterstützt beim Auffinden des gewünschten Geräts \verb!/dev/videoX!.
+Eine andere Möglichkeit ist, die Leistung des VTX stark zu reduzieren, indem man ihn in den sogenannten PIT-Mode schaltet. Der PIT-Mode reduziert die Sendeleistung auf ungefähr 0,1\,mW. Das ist gerade genug, um das Signal auf dem Tisch oder im Raum zu sehen und eine Überhitzung auszuschließen. Das folgende Kommando schaltet den VTX in den PIT-Mode:
 
 \colende
 
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
 \begin{lstlisting}[style=shell]
-$ v4l2-ctl --list-devices
-USB Video: USB Video (usb-0000:06:00.3-2):
-	/dev/video6
-	/dev/video7
-	/dev/media3
+set vtx_pit_mode = ON
+save
 \end{lstlisting}
-\FloatBarrier
 
 \colstart
 
-The video stream can be viewed in a window using tools such as \verb!cheese!, \verb!gst-launch-1.0! (GStreamer), \verb!guvcview!, \verb!ffplay!, \verb!mpv!, and \verb!vlc! (VideoLAN Client).
+To deactivate PIT mode again:
 
 \colger
 
-Den Videostrom in einem Fenster anzeigen kann man unter anderem mit den Werkzeugen \verb!cheese!, \verb!gst-launch-1.0! (GStreamer), \verb!guvcview!, \verb!ffplay!, \verb!mpv! und \verb!vlc! (VideoLAN Client).
+Um den PIT-Mode wieder zu deaktivieren:
 
 \colende
 
-\begin{lstlisting}[style=shell]
-$ cheese
-$ gst-launch-1.0 v4l2src device=/dev/video6 ! videoconvert ! autovideosink
-$ guvcview -d /dev/video6
-$ ffplay -f v4l2 -i /dev/video6
-$ mpv /dev/video6
-$ vlc v4l2:///dev/video6
-\end{lstlisting}
-\FloatBarrier
 
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+set vtx_pit_mode = OFF
+save
+\end{lstlisting}
 \colstart
 
-Most of the mentioned tools can also redirect (save) video and audio streams to local files and convert them into various file formats.
+The PIT mode can also be enabled and disabled on the \textsl{Video Transmitter} page in the Betaflight Configurator or via the Betaflight web application. It is useful to assign PIT mode to a switch (AUX channel) on the transmitter. This can be done in the Betaflight Configurator or the Betaflight web application on the \textsl{Modes} page using the \textsl{VTX Pit Mode} entry.
 
 \colger
 
-Die meisten der genannten Werkzeuge können auch Video- und Audioströme in lokale Dateien umleiten (speichern) und in verschiedene Dateiformate konvertieren.
+Der PIT-Mode kann auch auf der Seite \textsl{Video Transmitter} im Betaflight Configurator oder über die Betaflight Webanwendung ein- und ausgeschaltet werden. Sinnvoll ist es, dem PIT-Mode einen Schalter (AUX-Kanal) auf der Fernsteuerung zuzuweisen. Dies ist im Betaflight Configurator oder in der Betaflight Webanwendung auf der Seite \textsl{Modes} über den Eintrag \textsl{VTX Pit Mode} möglich.
 
 \coleng
 
-There are also apps for the Android operating system that can display a video stream provided through the USB interface. One example is USB Camera (Pro).
+Additionally, it is possible to operate the VTX in \textsl{low-power mode} before arming and after disarming -- i.e., during flight preparation and after the flight. The following command defines that the VTX transmission power will only be increased to the configured level after arming. Before arming and after disarming, the transmission power is reduced to the value defined by \verb!vtx_power=1!.
 
 \colger
 
-Auch für das Betriebssystem Android gibt es Apps, die einen über die USB-Schnittstelle bereitgestellten Videostrom anzeigen können. Ein Beispiel ist USB Camera (Pro). 
+Zudem ist es möglich, den VTX vor dem Arming und nach dem Disarming im \textsl{Low-Power-Modus} zu betreiben, also während der Flugvorbereitung und nach dem Flug. Das folgende Kommando definiert, dass die Sendeleistung des VTX erst nach dem Arming auf den eingestellten Wert erhöht wird. Vor dem Arming und nach dem Disarming ist die Sendeleistung auf den Wert von \verb!vtx_power=1! reduziert.
 
 \colende
 
-\begin{figure}[htb!]
-\centering
-\includegraphics[width=\linewidth]{Object_Detection_using_USB_video_grabber.png}
-\caption{Object Detection using a USB Video Grabber connected to a FPV Goggles}
-\label{ObjectDetectionDashboardUsingUSBVideoGrabber}
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+set vtx_low_power_disarm = ON
+save
+\end{lstlisting}
+
+\renewcommand{\deutschertitel}{Mit einem Simulator üben}
+\renewcommand{\englischertitel}{Practice with a Simulator}
+\makroabschnitt
+\label{AbschnittSimulator}
+
+Flying a drone is not easy, and crashes are almost inevitable at the beginning, even in Angle Mode. Therefore, it is highly advisable to practice with a simulator. Suitable simulators are available for all operating systems. Some well-known examples include Liftoff, VelociDrone, Uncrashed, FPV Freerider, Quadsim FPV, and Freerider Lite. 
+
+\colger
+
+Das Fliegen einer Drohne ist nicht einfach, und Abstürze sind insbesondere zu Beginn selbst im Angle Mode kaum zu vermeiden. Daher ist es sehr empfehlenswert, mit einem Simulator zu üben. Geeignete Simulatoren sind für alle Betriebssysteme verfügbar. Einige bekannte Produkte sind Liftoff, VelociDrone, Uncrashed, FPV Freerider, Quadsim FPV und Freerider Lite. 
+
+\coleng
+
+The transmitter has a USB interface and should be used as the input device for training. The USB mode must be set to \textsl{Joystick}. It is recommended to create a new model in OpenTX for this purpose, for example named \textsl{Simulator}. This model should have no active internal or external RF module, since the module consumes a significant amount of power and produces heat. This is unnecessary when using a simulator because no radio signals are transmitted.
+
+\colger
+
+Der Sender verfügt über eine USB-Schnittstelle und sollte als Eingabegerät zum Üben verwendet werden. Als USB-Modus muss \textsl{Joystick} ausgewählt werden. Es ist sinnvoll, hierfür in OpenTX ein neues Modell anzulegen, beispielsweise mit dem Namen \textsl{Simulator}. Dieses Modell sollte über kein aktives internes oder externes Sendemodul verfügen, da das Sendemodul signifikant Strom verbraucht und Wärme erzeugt. Dies ist beim Einsatz mit einem Simulator unnötig, da keine Funksignale gesendet werden.
+
+\colende
+
+\renewcommand{\deutschertitel}{Die Kopplung automatisieren}
+\renewcommand{\englischertitel}{Automate the Pairing}
+\makroabschnitt
+\label{AbschnittBindingPhrase1}
+
+To speed up the pairing process between transmitter and receiver and to prevent accidental pairing with other devices, a binding phrase can be defined in the ExpressLRS firmware (see Section~\ref{AbschnittExpressLRS}). This phrase must be identical on both communication partners and cannot be changed without reinstalling (flashing) the firmware.
+
+\colger
+
+Um die Kopplung zwischen Sender und Empfänger zu beschleunigen und ein versehentliches Koppeln mit anderen Geräten zu verhindern, kann in der ExpressLRS-Firmware eine Binding Phrase definiert werden (siehe Abschnitt~\ref{AbschnittExpressLRS}). Diese muss bei beiden Kommunikationspartnern identisch sein und kann nur durch eine Neuinstallation (Flashen) der Firmware geändert werden.
+
+\colende
+
+\renewcommand{\deutschertitel}{Überwachung der Telemetriedaten mit geeigneten Werkzeugen}
+\renewcommand{\englischertitel}{Monitoring telemetry data with suitable tools}
+\makroabschnitt
+\label{AbschnittTelemetriedatenFM2MToolBox}
+
+For convenient real time monitoring of telemetry data various tools are available. One example is the FM2M ToolBox (Fly Me 2 the Moon) by Robert Janiszewski which can be installed on radio transmitters running EdgeTX. The software aggregates sensor data that is relevant for flight preparation and for monitoring the aircraft during flight. This includes flight mode GPS position satellite count speed altitude battery voltage current draw signal quality and additional sensor data such as barometer and magnetic compass readings (see Figure~\ref{AbbildungDJIO4AirUnit}). Real time monitoring of telemetry data increases flight safety and enables error detection and analysis.
+
+\colger
+
+Zur komfortablen Überwachung der Telemetriedaten in Echtzeit existieren verschiedene Werkzeuge. Ein Beispiel ist die FM2M ToolBox (Fly Me 2 the Moon) von Robert Janiszewski die auf Fernsteuerungen mit EdgeTX installiert werden kann. Die Software ermöglicht die Aggregation der Sensordaten die für die Flugvorbereitung und die Überwachung während des Fluges relevant sind. Dazu gehören Flugmodus GPS Position Anzahl der Satelliten Geschwindigkeit Höhe Batteriespannung Stromaufnahme Signalqualität sowie zusätzliche Sensordaten wie Barometer und magnetischer Kompass (siehe Abbildung~\ref{AbbildungFM2MScreenshots}). Die Echtzeitüberwachung der Telemetriedaten erhöht die Flugsicherheit und ermöglicht Fehlererkennung und Fehleranalyse.
+
+\coleng
+
+To use FM2M or similar scripts the flight controller must provide telemetry data via serial interfaces such as UART and must run compatible firmware. FM2M supports the Betaflight and iNAV firmwares and is available for radio transmitters with color or monochrome displays.
+
+\colger
+
+Voraussetzung für die Nutzung von FM2M oder vergleichbarer Skripte ist dass der Flugcontroller Telemetriedaten über serielle Schnittstellen wie UART bereitstellt und kompatible Firmware verwendet. FM2M unterstützt die Firmwares Betaflight und iNAV und ist für Fernsteuerungen mit Farb und Schwarz Weiß Display erhältlich.
+
+\colende
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{FM2M_ToolBox_091_screenshot2.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{FM2M_ToolBox_091_screenshot1.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{FM2M ToolBox: An EdgeTX Script that aggregates Drone Sensor Data}
+  \label{AbbildungFM2MScreenshots}
 \end{figure}
-\FloatBarrier
-
-\colstart
-
-Once the live analog video signal from the FPV goggles has been digitized using a USB video grabber and transmitted to a ground-based computing system, a wide range of real-time video processing techniques can be applied. A practical and widely used solution for this purpose is the OpenCV (Open Source Computer Vision) library, which provides efficient tools for real-time image acquisition, processing, and analysis using Python.
-
-\colger
-
-Sobald das analoge Live-Videosignal der FPV-Brille mithilfe eines USB-Videograbbers digitalisiert und an ein bodengebundenes Rechensystem übertragen wurde, können vielfältige Verfahren zur Echtzeit-Bildverarbeitung angewendet werden. Eine praxisnahe und weit verbreitete Lösung stellt die Bibliothek OpenCV (Open Source Computer Vision) dar, die effiziente Werkzeuge zur Echtzeit-Bildaufnahme, -verarbeitung und -analyse mit Python bereitstellt.
-
-\coleng
-
-The digitized video stream is treated by the operating system as a standard camera input, allowing OpenCV to capture frames in real time. This approach makes the system platform-independent and suitable for Linux, macOS, and Windows environments.
-
-\colger
-
-Der digitalisierte Videostream wird vom Betriebssystem als gewöhnliche Kameraquelle behandelt, wodurch OpenCV die Einzelbilder in Echtzeit erfassen kann. Dieser Ansatz ist plattformunabhängig und eignet sich für Linux-, macOS- und Windows-Systeme.
-
-\coleng
-
-After acquiring the live video frames, various computer vision and object detection algorithms can be applied, including but not limited to:
-
-\colger
-
-Nachdem die Live-Videobilder erfasst wurden, können verschiedene Verfahren der Bildverarbeitung und Objekterkennung angewendet werden. Dazu zählen unter anderem:
-
-\coleng
-
-\begin{itemize}
-\item Region- or area-based detection
-\end{itemize}
-
-\colger
-
-\begin{itemize}
-\item Regionen- oder flächenbasierte Erkennung
-\end{itemize}
-
-\coleng
-
-\begin{itemize}
-\item Detection of other drones or aerial objects in the sky
-\end{itemize}
-
-\colger
-
-\begin{itemize}
-\item Erkennung anderer Drohnen oder fliegender Objekte im Luftraum
-\end{itemize}
-
-\coleng
-
-\begin{itemize}
-\item Obstacle detection and tracking
-\end{itemize}
-
-\colger
-
-\begin{itemize}
-\item Hinderniserkennung und -verfolgung
-\end{itemize}
-
-\coleng
-
-\begin{itemize}
-\item Motion analysis and situational awareness
-\end{itemize}
-
-\colger
-
-\begin{itemize}
-\item Bewegungsanalyse und Situationsbewertung
-\end{itemize}
-
-\coleng
-
-In addition to visual information, FPV video streams may contain embedded telemetry data such as altitude, speed, GPS position, battery voltage, and the current flight mode. This telemetry data can be extracted and synchronized with visual detections. This enables advanced applications such as geo-referenced object detection, situational assessment, and flight-state-aware decision-making.
-
-\colger
-
-Zusätzlich zu den visuellen Informationen können FPV-Videostreams eingebettete Telemetriedaten enthalten, beispielsweise Höhe, Geschwindigkeit, GPS-Position, Akkuspannung und den aktuellen Flugmodus. Diese Telemetriedaten lassen sich extrahieren und mit visuellen Erkennungen synchronisieren. Dadurch werden weiterführende Anwendungen wie georeferenzierte Objekterkennung, Lagebewertung und flugzustandsabhängige Entscheidungsfindung ermöglicht.
-
-\colende
-
-
-\begin{figure}
-\begin{lstlisting}[style=shell]
-  camera = cv2.VideoCapture(CAMERA_INDEX)  # Linux and macOS
-  camera = cv2.VideoCapture(CAMERA_INDEX, cv2.CAP_DSHOW)  # Windows
-
-  success, frame = camera.read()
-\end{lstlisting}
-\caption{Reading Video Stream from a Video Grabber using OpenCV in Python}
-\label{ReadingUSBVideoStreamMitOpenCV}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-Figure~\ref{ReadingUSBVideoStreamMitOpenCV} shows an example of how a video stream from a USB video grabber can be accessed using OpenCV in Python. The device index specifies the camera input as recognized by the operating system. In many cases, index 0 is used when no additional camera devices are connected. On systems with multiple video sources, a different index may be required. On Windows systems, it is recommended to explicitly use the DirectShow backend by specifying \verb!cv2.CAP_DSHOW! to ensure stable access to USB video grabbers.
-
-\colger
-
-Abbildung~\ref{ReadingUSBVideoStreamMitOpenCV} zeigt ein Beispiel für den Zugriff auf einen Videostream eines USB-Videograbbers mit OpenCV in Python. Der Geräteindex gibt dabei die vom Betriebssystem erkannte Kameraquelle an. In vielen Fällen wird der Index 0 verwendet, sofern keine weiteren Kamerageräte angeschlossen sind. Bei Systemen mit mehreren Videoquellen kann ein anderer Index erforderlich sein. Unter Windows wird empfohlen, explizit das DirectShow-Backend mit \verb!cv2.CAP_DSHOW! zu verwenden, um einen stabilen Zugriff auf USB-Videograbber sicherzustellen.
-
-\coleng
-
-Figure~\ref{DroneDetectionUSBVideoGrab} shows a minimal example that demonstrates real-time drone detection using a USB video grabber and OpenCV. In this example, a pretrained YOLO model is used that is capable of detecting drones in aerial scenes. The model was trained on a dedicated drone detection dataset and is publicly available at \url{https://www.kaggle.com/code/zlatan599/drone-detection/output}. After the live video frames are captured with OpenCV, they are passed to the YOLO model for inference. Detected objects are then visualized using bounding boxes and associated confidence scores.
-
-\colger
-
-Abbildung~\ref{DroneDetectionUSBVideoGrab} zeigt ein minimales Beispiel zur Echtzeit-Erkennung von Drohnen mithilfe eines USB-Videograbbers und OpenCV. In diesem Beispiel wird ein vortrainiertes YOLO-Modell eingesetzt, das für die Erkennung von Drohnen in Luftaufnahmen geeignet ist. Das Modell wurde mit einem speziellen Datensatz zur Drohnenerkennung trainiert und ist öffentlich unter \url{https://www.kaggle.com/code/zlatan599/drone-detection/output} verfügbar. Nachdem die Live-Videoframes mit OpenCV erfasst wurden, werden sie zur Inferenz an das YOLO-Modell übergeben. Erkannte Objekte werden anschließend durch Begrenzungsrahmen und zugehörige Konfidenzwerte visualisiert.
-
-\colende
-
-\begin{figure}
-\begin{lstlisting}[style=shell]
-  import cv2
-  from ultralytics import YOLO
-
-  CAMERA_INDEX = 0         # SET YOUR CAMERA INDEX HERE
-  MODEL_PATH = "models/final_drone_model.pt"
-  IMG_SIZE = (640, 480)
-
-  # Open camera (DirectShow is REQUIRED on Windows)
-  # camera = cv2.VideoCapture(CAMERA_INDEX, cv2.CAP_DSHOW)
-  camera = cv2.VideoCapture(CAMERA_INDEX)
-  if not camera.isOpened():
-      raise RuntimeError("Could not open camera")
-
-  camera.set(cv2.CAP_PROP_FRAME_WIDTH, IMG_SIZE[0])
-  camera.set(cv2.CAP_PROP_FRAME_HEIGHT, IMG_SIZE[1])
-  model = YOLO(MODEL_PATH)
-  class_names = model.names
-
-  print("YOLO loaded. Press CRL + c to exit.")
-  while True:
-      ret, frame = camera.read()
-      if not ret:
-          print("Failed to grab frame")
-          break
-
-      frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-      results = model.predict(frame_rgb, verbose=False)[0]
-
-      if results.boxes is not None:
-          boxes = results.boxes.xyxy.cpu().numpy()
-          scores = results.boxes.conf.cpu().numpy()
-          classes = results.boxes.cls.cpu().numpy().astype(int)
-
-          for box, score, cls in zip(boxes, scores, classes):
-              x1, y1, x2, y2 = map(int, box)
-
-              cv2.rectangle(frame, (x1, y1), (x2, y2),
-                            (0, 255, 0), 2)
-
-              label = f"{class_names[cls]} {score:.2f}"
-              cv2.putText(frame, label,
-                          (x1, max(y1 - 10, 0)),
-                          cv2.FONT_HERSHEY_SIMPLEX,
-                          0.6, (0, 255, 0), 2)
-
-      cv2.imshow("Drone Detection", frame)
-      if cv2.waitKey(1) & 0xFF == 27:
-          break
-
-  camera.release()
-  cv2.destroyAllWindows()
-\end{lstlisting}
-\caption{Real-time drone detection using a USB video grabber on the ground system}
-\label{DroneDetectionUSBVideoGrab}
-\end{figure}
-\FloatBarrier
-
-\renewcommand{\deutschertitel}{Gesamtgewicht und Anschaffungskosten}
-\renewcommand{\englischertitel}{Total Weight and Purchase Cost}
-\makrounterabschnitt
-\label{AbschnittObjekterkennungKostenVideoGrabber}
-
-Table~\ref{TabelleDrohne35Videograbber} lists the components of the drone from Table~\ref{TabelleDrohne35GoogleCoral}, excluding the hardware required for object detection. Specifically, this includes the Raspberry Pi Zero, the camera module, the Google Coral TPU, and the corresponding cables and enclosures. Additional accessories such as the remote control, FPV goggles, and charger must also be available or purchased separately. In addition, a video grabber (15-25 \euro{}) and a computer are required.
-
-\colger
-
-Tabelle~\ref{TabelleDrohne35Videograbber} enthält die Komponenten der Drohne aus Tabelle~\ref{TabelleDrohne35GoogleCoral}, reduziert um die Hardware, die für die Objekterkennung erforderlich ist. Konkret sind das der Raspberry Pi Zero, das Kameramodul, die Google Coral TPU sowie die entsprechenden Kabel und Gehäuse. Weiteres notwendiges Zubehör wie Fernsteuerung, FPV-Brille und Ladegerät muss selbstverständlich ebenfalls bereits vorhanden sein oder zusätzlich beschafft werden. Zusätzlich werden ein Videograbber (15-25 \euro{}) und ein Computer benötigt.
-
-\colende
-
-\begin{table}[htb!]
-\centering
-\caption{Components of a Drone for Object Detection by using the Live Image on the Ground}
-\label{TabelleDrohne35Videograbber}
-\setlength{\tabcolsep}{6pt}
-\renewcommand{\arraystretch}{1.0}
-
-\begin{spreadtab}{{tabular}{llrr}}
-\toprule
-@Product & @Category & @Weight [g] & @Price [\euro{}] \\
-\midrule
-@SpeedyBee Bee35 PRO 3.5                   & @Frame                  & 130  & 55 \\
-@SpeedyBee F405 AIO 40A 3-6S               & @Flight Controller      & 14   & 70 \\
-@Radiomaster RP1 2,4GHz                    & @Receiver               & 3    & 25 \\
-@Flywoo NIN 1404 V2 3750KV                 & @Motors                 & 40   & 65 \\
-@Gemfan D90-5 3.5 Inch Ducted 5-Blade      & @Propellers             & 4    & 3  \\
-@SpeedyBee TX800 VTX + SMA Adapter         & @Video Transmitter      & 10   & 40 \\
-@Foxeer Lollipop 4 RHCP SMA                & @FPV Antenna            & 5    & 20 \\
-@HGLRC M100-5883                           & @GPS and Compass        & 8    & 20 \\
-@Caddx Ratel Pro                           & @FPV Camera             & 10   & 55 \\
-@Li-Ion 2500mAh 4S1P 14,8V 12C             & @Battery                & 200  & 25 \\
-@Additional cables, straps and panels      & @Cables + fixing material & 10   & 5  \\
-\bottomrule
-@Sum & & sum(c2:c11) & sum(d2:d11) \\
-\end{spreadtab}
-\end{table}
 \FloatBarrier
 

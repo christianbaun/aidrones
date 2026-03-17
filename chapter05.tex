@@ -1,10 +1,10 @@
-\renewcommand{\deutschertitel}{Autopilot}
-\renewcommand{\englischertitel}{Autopilot}
+\renewcommand{\deutschertitel}{Objekterkennung}
+\renewcommand{\englischertitel}{Object Detection}
 \chapter[\texorpdfstring{\protect{\vspace{2pt}\englischertitel}}{\englischertitel}]{}
 \kapitel{\deutschertitel}
 \thispagestyle{empty}
 
-\label{KapitelAutopilot}
+\label{KapitelObjekterkennung}
 
 \begin{paracol}{2}[]
 
@@ -16,417 +16,727 @@
 
 \coleng
 
-An autopilot system enables an FPV drone to perform autonomous or semi-autonomous tasks such as position hold, altitude hold, waypoint missions, or return-to-home procedures. These functions rely on a combination of hardware components, sensors, and flight-controller firmware that interprets sensor data and executes control commands. 
+Object detection is one of the most well-known applications of artificial intelligence. Among the best-known open-source solutions enabling object detection are the TensorFlow (Lite) machine learning framework combined with the OpenCV (\textsl{Open Computer Vision}) library for image processing and object recognition. An alternative approach is the object detection framework \textsl{You Only Look Once} (YOLO).
 
 \colger
 
-Ein Autopilot-System ermöglicht es einer FPV-Drohne, autonome oder teilautonome Aufgaben wie das Halten der Position, das Halten der Flughöhe, Wegpunktmissionen oder die Rückkehr zum Startpunkt auszuführen. Diese Funktionen basieren auf einer Kombination aus Hardwarekomponenten, Sensoren und Flugcontroller-Firmware, welche die Sensordaten auswertet und entsprechende Steuerbefehle umsetzt. 
+Objekterkennung ist eine der bekanntesten KI-Anwendungen. Zu den bekanntesten quelloffenen Softwarelösungen, die Objekterkennung ermöglichen, gehören das Framework TensorFlow (Lite) für maschinelles Lernen in Zusammenarbeit mit der Bibliothek OpenCV (\textsl{Open Computer Vision}) zur Bildverarbeitung und Objekterkennung. Eine alternative Lösung ist das Objekterkennungs-Framework \textsl{You Only Look Once} (YOLO).
 
 \coleng
 
-Various firmware platforms provide differing levels of capability and complexity, including Betaflight, iNAV, ArduPilot, and PX4. The following sections outline the requirements, configuration steps, and supported functions for each of these systems.
+Object detection with FPV drones can be implemented in two basic ways. Both design concepts have advantages and disadvantages depending on factors such as available budget, hardware, the distance between drone and operator, the number of drones, and personal preferences.
 
 \colger
 
-Verschiedene Firmware-Plattformen bieten hierfür unterschiedliche Fähigkeiten und Komplexitätsstufen, darunter Betaflight, iNAV, ArduPilot und PX4. Die folgenden Abschnitte beschreiben die Anforderungen, Konfigurationsschritte und unterstützten Funktionen der jeweiligen Systeme.
+Objekterkennung mit FPV-Drohnen kann auf zwei grundsätzliche Arten implementiert werden. Beide Realisierungskonzepte haben Vor- und Nachteile, deren Gewichtung unter anderem von den finanziellen Möglichkeiten, den verfügbaren Hardwarekomponenten, der Entfernung zwischen Drohne und Benutzer, der Anzahl der Drohnen und nicht zuletzt den persönlichen Präferenzen abhängt.
+
+\coleng
+
+\begin{itemize}
+\item \textbf{Edge Node Concept:} The AI functionality is performed by a computer that flies with the drone. This approach is described in Section~\ref{AbschnittObjekterkennungHuckepack}. The additional hardware increases cost, weight, and power consumption, which reduces flight time. Using a higher-capacity battery to compensate further increases the total weight. However, this design offers excellent scalability because the sensor data is processed directly on the drone. Only the results (aggregated data) need to be transmitted during or after the flight, drastically reducing the data volume. This approach follows the edge computing paradigm, which is especially advantageous in multi-drone scenarios where simultaneous data collection would otherwise overload communication channels.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textbf{Realisierungskonzept Edge-Knoten:} Die KI-Funktionalität wird von einem Computer übernommen, der mit der Drohne mitfliegt. Diese Alternative beschreibt Abschnitt~\ref{AbschnittObjekterkennungHuckepack}. Die Anschaffung zusätzlicher Hardware verursacht Kosten und erhöht das Gewicht der Drohne. Zudem benötigt die zusätzliche Hardware Strom, was die Flugzeit reduziert. Wird ein Akku mit höherer Kapazität eingesetzt, steigt das Gewicht weiter. Vorteile dieses Konzepts sind die sehr gute Skalierbarkeit, da die Verarbeitung der Sensordaten direkt auf der Drohne erfolgt. Nur die Ergebnisse (aggregierten Daten) müssen während des Flugs oder danach übertragen werden, wodurch die Datenmenge drastisch reduziert wird. Es handelt sich somit um eine Variante des Edge-Computing. Besonders wichtig ist diese Datenreduktion in Szenarien mit mehreren Drohnen, die gleichzeitig fliegen und Daten erfassen.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textbf{Full Data Transmission Concept:} The AI processing is performed by a ground-based computer that receives the drone’s live video feed. This approach is described in Section~\ref{AbschnittObjekterkennungVideoGrabber}. A simple implementation uses FPV goggles with an AV output and a video capture device. Advantages include the low additional cost (a video grabber costs about 15--20 €) and the fact that the drone’s weight remains unchanged. No extra data transmission capacity is required since the drone already transmits its live video feed. However, in multi-drone scenarios, the central AI processing can demand significant computational resources, potentially requiring additional ground-based AI hardware.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textbf{Realisierungskonzept Übertragung aller Live-Daten:} Die KI-Funktionalität wird von einem Computer am Boden übernommen, der Zugriff auf das Livebild der Drohne hat. Diese Alternative beschreibt Abschnitt~\ref{AbschnittObjekterkennungVideoGrabber}. Eine einfache Implementierungsmöglichkeit bietet eine Videobrille mit AV-Ausgang und ein Videograbber. Vorteile dieses Konzepts sind die geringen zusätzlichen Anschaffungskosten (ein Videograbber kostet etwa 15--20 €) und das unveränderte Gewicht der Drohne. Zusätzliche Übertragungskapazitäten sind nicht erforderlich, da das Livebild ohnehin übertragen wird. In Szenarien mit mehreren Drohnen kann der zentrale Rechenaufwand der Objekterkennung jedoch stark ansteigen und zusätzliche KI-Hardware am Boden erforderlich machen.
+\end{itemize}
 
 \colende
 
-\renewcommand{\deutschertitel}{Autopilot mit Betaflight}
-\renewcommand{\englischertitel}{Autopilot with Betaflight}
+\renewcommand{\deutschertitel}{Objekterkennung mit zusätzlicher Hardware an der Drohne}
+\renewcommand{\englischertitel}{Object Detection by additional Hardware on the Drone}
 \makroabschnitt
-\label{AbschnittAutopilotBetaflight}
+\label{AbschnittObjekterkennungHuckepack}
 
-Betaflight (see Section~\ref{AbschnittBetaflight}) is primarily designed for manual flight (freestyle and racing) and does not provide a full-featured autopilot. However, limited autonomous functions can be implemented, such as angle-stabilized flight, horizon-assisted stabilization, and basic failsafe procedures. 
 
-\colger
-
-Betaflight (siehe Abschnitt~\ref{AbschnittBetaflight}) ist primär für manuelles Fliegen (Freestyle und Rennen) ausgelegt und stellt keinen vollwertigen Autopiloten bereit. Es lassen sich jedoch begrenzte autonome Funktionen realisieren, etwa stabilisierte Flugmodi (Angle, Horizon) oder grundlegende Failsafe-Verfahren. 
-
-\coleng
-
-To achieve these functions, the flight controller requires an accelerometer, a gyroscope, and optionally a barometer. GPS support is available only for basic features such as rescue mode. Betaflight does not support waypoint missions or advanced navigation. 
+It is possible to integrate the hardware and software required for object detection as additional components directly into the drone, allowing them to fly onboard. Ideally, these components consist of a compact and energy-efficient single-board computer. Table~\ref{TabelleRaspberryPiUnterschiede} shows the different sizes and power requirements of various generations of the Raspberry Pi single-board computer.
 
 \colger
 
-Für diese Funktionen werden ein Beschleunigungssensor, ein Gyroskop und optional ein Barometer benötigt. GPS-Unterstützung existiert nur in eingeschränkter Form, beispielsweise für den Rescue Mode. Wegpunktmissionen oder fortgeschrittene Navigationsaufgaben werden nicht unterstützt. 
-
-\coleng
-
-Configuration is performed through the Betaflight Configurator or via the Betaflight web application, where stabilization modes, failsafe behavior, and optional rescue functionality can be assigned to AUX channels.
-
-\colger
-
-Die Konfiguration erfolgt über den Betaflight Configurator oder über die Betaflight Webanwendung, wo Stabilisierung, Failsafe-Verhalten und optional Rettungsfunktionen auf AUX-Kanäle gelegt werden können.
+Es ist möglich, die zur Objekterkennung nötige Hard- und Software als zusätzliche Komponenten in die Drohne zu integrieren und diese Komponenten mitfliegen zu lassen. Sinnvollerweise handelt es sich dabei um einen platz- und stromsparenden Einplatinencomputer. Tabelle~\ref{TabelleRaspberryPiUnterschiede} zeigt die unterschiedlichen Dimensionen und Strombedarfe verschiedener Generationen des Einplatinencomputers Raspberry Pi.
 
 \colende
 
-\renewcommand{\deutschertitel}{Autopilot mit iNAV}
-\renewcommand{\englischertitel}{Autopilot with iNAV}
-\makroabschnitt
-\label{AbschnittAutopilotINAV}
-
-The INAV firmware (see section~\ref{AbschnittINAV}) implements complete GPS-assisted flight control and is suitable for navigation tasks such as position or altitude hold, return-to-home, and basic autonomous waypoint missions.
-
-\colger
-
-Die Firmware iNAV (siehe Abschnitt~\ref{AbschnittINAV}) implementiert eine vollständige GPS-unterstützte Flugsteuerung bereit und eignet sich für Navigation, Position Hold, Altitude Hold, Return-to-Home und grundlegende autonome Wegpunktmissionen.
-
-\coleng
-
-To complete these tasks it is necessary that the acceleration sensor and GPS antenna be configured.
-In addition, a barometer must be available for altitude measurement. A compass (magnetometer) is not mandatory as of INAV version 7.1, but is strongly recommended for better performance.
-
-\colger
-
-Hierfür ist es erforderlich, dass der Beschleunigungssensor und die GPS-Antenne konfiguriert sind.
-Außerdem muss ein Barometer für die Höhenmessung vorhanden sein. Ein Kompass (Magnetometer) ist nicht zwingend erforderlich ab INAV-Version 7.1, jedoch dringend empfohlen für bessere Performance.
-
-\coleng
-
-If a compass is available, it should be correctly aligned and calibrated and, ideally, located at least 10 cm away from the motors and other electrical components. Airspeed sensors are also supported by INAV.
-
-\colger
-
-Insofern ein Kompass vorhanden ist, sollte dieser korrekt ausgerichtet und kalibriert werden sowie idealerweise mindestens 10 cm von den Motoren und anderen elektrischen Komponenten entfernt sein. Auch Fluggeschwindigkeitssensoren werden von INAV unterstützt.
- 
-\coleng
-
-The \textsl{INAV Configurator} is sufficient for configuring the autopilot functions. All flight modes (section~\ref{AbschnittINAVigationModes}) and tuning settings, aswell as the sensor calibration can be made here. Not all of the modes described below are full flight modes. Some merely change flight behavior characteristics and must be used in combination with other modes. 
-
-\colger
-
-Zur Konfiguration der Autopilotfunktionalitäten genügt der \textsl{INAV Configurator}. In diesem können sämtliche Flugmodi (Abschnitt~\ref{AbschnittINAVigationModes}), Tuning-, und Kalibrierungseinstellungen getätigt werden. Nicht alle der folgend erläuterten Modi sind vollwertige Flugmodi. Einige verändern lediglich Eigenschaften des Flugverhaltens und müssen in Kombination mit anderen Modi verwendet werden.
-
-\colende
-
-\renewcommand{\deutschertitel}{Navigationsflugmodi in INAV}
-\renewcommand{\englischertitel}{Navigation Modes in INAV}
-\makrounterabschnitt
-\label{AbschnittINAVigationModes}
-
-\begin{description}
-		\item[NAV ALTHOLD] is one such mode. It only sets the flight altitude and must be used in combination with a manual flight mode. \texttt{ANGLE} is recommended here, as \texttt{ALTHOLD} is not suitable for overhead maneuvers. In the \textsl{Advanced Tuning Tab}, \textsl{Max. Alt-hold climb rate} can be used to configure the range within which the pilot can manually vary the altitude up and down.
-\end{description}
-
-\colger
-
-\begin{description}
-		\item[NAV ALTHOLD] ist ein solcher Modus. Dieser setzt lediglich die Flughöhe fest und muss in Kombination mit einem manuellen Flugmodus verwendet werden. Hierbei ist \texttt{ANGLE} empfohlen, da \texttt{ALTHOLD} nicht für Überkopf-Maneuver geeignet ist. Im \textsl{Advanced-Tuning-Tab} kann mit \textsl{Max. Alt-hold climb rate} der Spielraum konfiguriert werden, mit welchem der Pilot die Höhe manuell nach oben und unten variieren kann.
-\end{description}
-
-\coleng
-
-\begin{description}
-		\item[NAV GCS] is another supporting mode. This allows a connected \textsl{Ground Control Station (GCS)} to control the position of the drone. The GCS can be very useful for the \textsl{Follow Me} function.
-\end{description}
-
-\colger
-
-\begin{description}
-		\item[NAV GCS] ist ein weiterer unterstützender Modus. Dieser erlaubt es einer verbundenen \textsl{Ground-Control-Station (GCS)} die Position der Drohne zu kontrollieren. Dies kann für die \textsl{Follow-Me-Funktion} verwendet werden.
-\end{description}
-
-\coleng
-
-\begin{description}
-	\item[NAV POSHOLD] is a standalone mode that allows the drone to hold its current position. The position can be changed by adjusting the throttle, pitch, and roll sticks. As soon as the respective sticks are returned to their starting position, the drone will hold the new position.
-\end{description}
-
-\colger
-
-\begin{description}
-	\item[NAV POSHOLD] ist ein eigenständiger Modus, welcher die Drohne die Position halten lässt. Durch anpassen der Throttle-, Pitch- und Roll-Sticks kann die Position verändert werden. Sobald die jeweiligen Sticks in die Ausgangsposition versetzt werden, hält die Drohne die neue Position.
-\end{description}
-
-\coleng
-
-\begin{description}
-	\item[MC BRAKING] supports the \texttt{POSHOLD} mode and is used in conjunction with it. The difference lies in the braking behavior during position adjustments. With simple \texttt{POSHOLD}, the drone returns to the location where the sticks were released after completing the braking process. With \texttt{MC BRAKING}, the drone brakes more strongly and holds its position at the location where it comes to a stop.
-\end{description}
-
-\colger
-
-\begin{description}
-	\item[MC BRAKING] unterstützt den \texttt{POSHOLD}-Modus und wird zusammen mit diesem verwendet. Der Unterschied liegt im Bremsverhalten bei Positionsanpassungen. Beim einfachen \texttt{POSHOLD} kehrt die Drohne nach Abschluss des Bremsvorgangs an den Ort zurück, an dem die Sticks losgelassen wurden. Mit \texttt{MC BRAKING} bremst die Drohne stärker und hält die Position an dem Ort an welchem sie zum Stillstand kommt.
-\end{description}
-
-\coleng
-
-\begin{description}
-	\item[NAV COURSE HOLD] describes the drone attempting to maintain its current course. To adjust the speed while in this mode, the pitch stick can be used. The flight controller adjusts the speed proportionally to the position of said pitch stick.
-\end{description}
-
-\colger
-
-\begin{description}
-	\item[NAV COURSE HOLD] versucht die Drohne den derzeitigen Kurs zu halten. Die Geschwindigkeit kann in diesem Modus mithilfe des Pitch-Sticks angepasst werden. Der Flugcontroller passt die Geschwindigkeit proportional zur Stellung des Pitch-Sticks an.
-\end{description}
-
-\coleng
-
-\begin{description}
-	\item[NAV CRUISE] represents a combination of \texttt{COURSE HOLD} and \texttt{ALTHOLD}.
-\end{description}
-
-\colger
-
-\begin{description}
-	\item[NAV CRUISE] entspricht einer Kombination aus \texttt{COURSE HOLD} und \texttt{ALTHOLD}.
-\end{description}
-
-\coleng
-
-\begin{description}
-	\item[NAV RTH] describes a \textsl{Return-To-Home (\texttt{RTH})} action, which can also be configured as a failsafe. However, failsafe should \textbf{not} be activated for a controlled \texttt{RTH}. Under certain circumstances, unexpected behavior may occur. When activating \texttt{RTH}, if the drone is more than 10 meters away from the arming location or the configured safe home, it first climbs to a configured altitude and then flies towards home and lands there as soon as it is within a radius of one meter. In the \textsl{Advanced Tuning Tab}, the \texttt{RTH} behavior can be extensively modified with many settings.	
-\end{description}
-
-\colger
-
-\begin{description}
-	\item[NAV RTH] ist der \textsl{Return-To-Home (\texttt{RTH})}-Modus, welcher auch als Failsafe konfiguriert werden kann. Failsafe sollte jedoch \textbf{nicht} für ein kontrolliertes \texttt{RTH} aktiviert werden. Unter Umständen kann es zu unerwartetem Verhalten kommen. Wird \texttt{RTH} gestartet und die Drohne ist mehr als 10 Meter von der Arming-Location oder dem konfigurierten Safehome entfernt, klettert sie erst auf eine konfigurierte Höhe und fliegt dann in Richtung Home und landet dort, sobald sie dort im Radius von einem Meter ist. Im \textsl{Advanced Tuning Tab} kann das \texttt{RTH}-Verhalten mit vielen Einstellungen weitreichend modifiziert werden.
-\end{description}
-
-\coleng
-
-\begin{description}
-	\item[HOME RESET] is a complementary mode to \texttt{RTH}. This should be assigned to a remote control switch that returns to the original position when pressed. This makes it possible to overwrite the current safe home location during flight. By default, the last arming location is the safe home, but up to eight different safe homes can be configured manually, and the closest one will be flown to if it is within the maximum distance that such a safe home may be away.
-\end{description}
-
-\colger
-
-\begin{description}
-	\item[HOME RESET] ist ein komplementärer Modus zu \texttt{RTH} . Dieser sollte auf einen Fernsteuerungsswitch gelegt werden, welcher nach dem Drücken auf die Ursprungsposition zurückkehrt. Dadurch wird es ermöglicht während des Fluges die aktuelle Safehome-Location zu überschreiben. Standardmäßig ist die letzte Arming-Location das Safehome, jedoch können auch bis zu acht unterschiedliche Safehomes manuell konfiguriert werden, wovon dann jeweils das nächste angeflogen wird, wenn sich dieses innerhalb der maximalen Distanz befindet, die ein solches Safehome entfernt sein darf.
-\end{description}
-
-\coleng
-
-\begin{description}
-	\item[NAV WP] allows the drone to fly autonomously along a predefined sequence of waypoints. These waypoints can either be defined manually before takeoff, for example via the Mission Control tab in the \textsl{INAV Configurator}, or using the \texttt{WP PLANNER} mode during manual flight.
-\end{description}
-
-\colger
-
-\begin{description}
-	\item[NAV WP] erlaubt es der Drohne, autonom an einer vordefinierten Sequenz von Wegpunkten entlangzufliegen. Diese Wegpunkte können entweder manuell vor Ablug definiert werden, beispielsweise über den Mission Control Tab im \textsl{INAV Configurator}  oder mithilfe des Modus \texttt{WP PLANNER} während dem manuellen Flug.
-\end{description}
-
-\coleng
-
-\begin{description}
-	\item[WP PLANNER] is not a standalone flight mode, but is used to define waypoints during manual flight. It is important that the actual \texttt{WP} mode is not activated, otherwise no waypoints can be saved. In addition, the \texttt{MISSION INFO} block must be activated in the OSD. This block displays the information required for the planner. To save a waypoint, the drone must be moved to the desired location and the switch configured for \texttt{PLANNER} must be activated. Once the saving process is complete, a corresponding message will be displayed in the OSD. When saving, please note that the altitude is also saved. This is important because a waypoint that has been saved at ground level will be flown to accordingly. To fly the mission configured in this way, simply deactivate \texttt{PLANNER} and activate \texttt{WP}. Alternatively, the mission can also be saved with \textsl{stick commands} (see section~\ref{INAVLoadStickCmd}).
-\end{description}
-
-\colger
-
-\begin{description}
-	\item[WP PLANNER] ist kein eigenständiger Flugmodus, sondern dient dazu, Wegpunkte während des manuellen Flugs zu definieren. Wichtig ist, dass \texttt{WP} nicht aktiviert sein darf, sonst kann kein Wegpunkt gespeichert werden. Darüber hinaus muss der Block \texttt{MISSION INFO} im OSD aktiviert werden. Dieser Block zeigt die für den Planner notwendigen Informationen an. Um einen Wegpunkt zu speichern, muss die Drohne an den gewünschten Ort bewegt und der Switch, auf dem \texttt{PLANNER} konfiguriert ist, betätigt werden. Sobald der Speichervorgang abgeschlossen ist, wird eine entsprechende Mitteilung im OSD zu sehen sein. Beim Speichern ist zu beachten, dass die Höhe entsprechend mitgespeichert wird. Dies ist wichtig, da ein Wegpunkt, der ebenerdig gespeichert wurde, entsprechend angeflogen wird. Um die so konfigurierte Mission zu fliegen, genügt es \texttt{PLANNER} zu deaktivieren und \texttt{WP} zu aktivieren. Alternativ kann die Mission auch mit \textsl{Stick-Commands} gespeichert werden (siehe Abschnitt~\ref{INAVLoadStickCmd}).
-\end{description}
-
- \colende
-
-\renewcommand{\deutschertitel}{Wegpunktmissionen mit INAV konfigurieren}
-\renewcommand{\englischertitel}{Configure Waypoint Missions with INAV}
-\makrounterabschnitt
-\label{INAVWaypoint}
-
-This subsection serves to describe the preparations for a waypoint mission in more detail. Once the mode has been configured using the appropriate switch, there are still a few options to configure in the \textsl{Advanced Tuning Tab} under the tabs \textsl{Multirotor Navigation Settings}, \textsl{General Navigation Settings}, and \textsl{Waypoint Navigation Settings}. The effects of these options are explained in the tab itself and will not be repeated here.
-
-\colger
-
-Dieses Unterkapitel dient dazu, die Vorbereitungen einer Wegpunktmission umfassender zu beschreiben. Nachdem der Modus auf einen entsprechenden Switch konfiguriert ist, sind noch einige Optionen im \textsl{Advanced Tuning Tab} unter den Reitern \textsl{Multirotor Navigaton Settings}, \textsl{General Navigation Settings} und \textsl{Waypoint Navigation Settings} zu konfigurieren. Was diese Optionen bewirken, wird im Reiter selbst erläutert und hier nicht noch einmal ausgeführt.
-
-\coleng
-
-After configuring the Advanced Tuning tab, you can now set the waypoints. This is done in the \textsl{Mission Control Tab} of the \textsl{INAV Configurator}. The waypoints can be set and strung together by simply clicking on the map. This sequence cannot be adjusted individually at a later stage. To change the flight sequence, the properties of the waypoints must be adjusted, or they waypoints themselves must be completely reset. The former is described in the following paragraphs.
-
-\colger
-
-Nach der Konfiguration des Advanced Tuning Tabs kommt es nun zum eigentlichen Setzen der Wegpunkte. Dies geschieht im \textsl{Mission Control Tab} des \textsl{INAV Configurators}. Die Wegpunkte können durch einfaches Klicken auf der Karte gesetzt und aneinandergereiht werden. Diese Reihenfolge kann nicht nachträglich, einzeln angepasst werden. Um die Flugreihenfolge zu verändern müssen die Eigenschaften der Wegpunkte angepasst werden, oder sie müssen komplett neu gesetzt werden. Ersteres wird im Folgenden beschrieben.
-
-\colende
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{INAV_Mission_Control_Demo_Example.png}
-	\caption{Example of a waypoint mission}
-	\label{INAV_Mission_Control_Demo_Example}
-\end{figure}
+\begin{table}[htb!]
+\centering
+\captionabove{Generations of the Raspberry\,Pi Single-Board Computer}
+\label{TabelleRaspberryPiUnterschiede}
+\setlength{\tabcolsep}{5pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.0} % Default
+\begin{tabular}{lcrlrrr}
+\toprule
+Generation   & CPU Cores   & \multicolumn{1}{c}{RAM}       & \multicolumn{1}{c}{Size}    &  \multicolumn{1}{c}{Weight}  & \multicolumn{1}{c}{Current Draw} & \multicolumn{1}{c}{Current Draw} \\
+                       &               &     &      &      & \multicolumn{1}{c}{(idle)} &  \multicolumn{1}{c}{(peak)} \\
+\midrule
+Pi Zero W    & 1\,\(@\)\,1000\,MHz  & 512\,MB  & 65x30x5\,mm   & \(\sim 9\)\,g  & \(\sim\)\,120\,mA & \(\sim\)\,350\,mA \\
+Pi Zero 2 W  & 4\,\(@\)\,1000\,MHz  & 512\,MB  & 65x30x5\,mm   & \(\sim 10\)\,g & \(\sim\)\,140\,mA & \(\sim\)\,600\,mA \\
+Pi 3 B+      & 4\,\(@\)\,1200\,MHz  & 1\,GB    & 85x56x16\,mm  & \(\sim 50\)\,g & \(\sim\)\,500\,mA & \(\sim\)\,1400\,mA \\
+Pi 4 B       & 4\,\(@\)\,1500\,MHz  & 1-8\,GB  & 85x56x16\,mm  & \(\sim 50\)\,g & \(\sim\)\,600\,mA & \(\sim\)\,1500\,mA \\
+Pi 5         & 4\,\(@\)\,2400\,MHz  & 2-16\,GB & 85x56x16\,mm  & \(\sim 70\)\,g & \(\sim\)\,700\,mA & \(\sim\)\,2500\,mA \\
+\bottomrule
+\end{tabular}
+\end{table}
+\FloatBarrier
 
 \colstart
 
-The editing view of a waypoint is opened by clicking on its symbol on the map. In this view longitude and latitude can be refined using the number field, and it is also possible to configure the \textsl{waypoint types} and define \textsl{actions}.
+Compared to the approximately credit card--sized Raspberry Pi models, the Raspberry Pi Zero series is significantly smaller, lighter, and consumes less power. The processing performance of the Raspberry Pi 2 W is sufficient to run common AI frameworks alongside the operating system. Figure~\ref{AbbildungRaspberryPiZero2WH} shows a Raspberry Pi 2 WH.
 
 \colger
 
-Durch erneutes Klicken auf einen jeweiligen Wegpunkt kann die Editier-Ansicht geöffnet werden. In dieser können Längen- und Breitengrade können über das Nummernfeld verfeinert werden und es ist darüber hinaus möglich, den \textsl{Wegpunkttypen} zu konfigurieren und \textsl{Actions} zu definieren.
-
-\coleng
-
-For waypoint types, you can choose between \textsl{Waypoint}, \textsl{Position-Hold (PH)}, \textsl{Point-of-Interest (POI)} and \textsl{Land}. \textsl{Waypoint} describes a simple waypoint through which the drone flies. 
-
-\colger
-
-Beim Wegpunkttypen besteht die Auswahl zwischen \textsl{Waypoint}, \textsl{Position-Hold (PH)}, \textsl{Point-of-Interest (POI)} und \textsl{Land}. \textsl{Waypoint} beschreibt einen einfachen Wegpunkt, durch den die Drohne hindurch fliegt. 
-
-\coleng
-
- \textsl{PH} describes a waypoint at which the drone stops for a certain amount of time, which is configured in the \textsl{Wait time} field.
-
-\colger
-
-\textsl{PH} beschreibt einen Wegpunkt an dem die Drohne für eine bestimmte Zeit anhält, welche im Feld \textsl{Wait time} konfiguriert wird. 
-
-\coleng
-
-\textsl{POI} is a point in the mission at which the orientation of the drone or camera is oriented during flight. If a waypoint is defined as \textsl{POI}, the camera will orient itself to this point instead of orienting itself to the path while flying to the next waypoint. \textsl{Land} causes the drone to land as soon as the point is reached instead of continuing the mission.
-
-\colger
-
-\textsl{POI} ist ein Punkt in der Mission an dem sich die Ausrichtung der Drohne oder der Kamera im Flug orientiert. Wird ein Wegpunkt als \textsl{POI} definiert, richtet sich die Kamera nach diesem, anstatt sich am Weg auszurichten, während sie zum nächsten Wegpunkt fliegt. \textsl{Land} lässt die Drohne landen, sobald der Punkt erreicht wurde, anstatt die Mission fortzuführen.
-
-\coleng
-
-The available actions are \texttt{JUMP}, \texttt{SET HEAD}, and \texttt{RTH}. \texttt{JUMP} allows you to jump to a waypoint other than the one with the following number. Enter the ID of the waypoint you want to fly to in \texttt{P1} and the number of jump repetitions in \texttt{P2}.
-
-\colger
-
-Bei den Actions hat man \texttt{JUMP}, \texttt{SET HEAD} und \texttt{RTH} zur Verfügung. Mit Jump kann zu einem anderen Wegpunkt gesprungen werden, als dem mit der nächstgrößeren Nummer. In \texttt{P1} wird die ID des anzufliegenden Wegpunkts eingetragen und in \texttt{P2} die Anzahl der Jump-Wiederholungen.
-
-\coleng
-
-\texttt{SET HEAD} can be used to control the alignment of the drone (camera). To do this, enter the corresponding degree value \textsl{between 0 and 359 }in the \texttt{P1} field. As soon as the drone has reached the waypoint, the camera is aligned accordingly for the rest of the flight, unless it is overridden at a later waypoint.
-
-\colger
-
-Mit \texttt{SET HEAD} kann die Ausrichtung der Drohne gesteuert werden. Dazur wird die entsprechende Gradzahl \textsl{zwischen 0 und 359 }in das Feld \texttt{P1} eingetragen. Sobald die Drohne den Wegpunkt erreicht hat wird die Kamera entsprechend ausgerichtet für den weiteren Flug oder bis es an einem später angeflogenen Wegpunkt überschrieben wird.
-
-\coleng
-
-\texttt{RTH} causes the drone to fly back to the configured safe home as soon as it has reached the respective waypoint. This is particularly suitable for the end of missions.
-
-\colger
-
-\texttt{RTH} lässt die Drohne zum konfigurierten Safehome zurückfliegen, sobald sie am jeweiligen Wegpunkt angekommen ist. Dies eignet sich besonders für das Ende von Missionen.
-
-\coleng
-
-Another important point is the \textsl{altitude} at which a waypoint is approached. Here, it must be ensured that the Eurpean Unions legal maximum altitude of 120 meters is not exceeded. In addition, it is also important to ensure that the drone does not fall below the minimum altitude required by the elevation profile of the environment. The \textsl{Sea Level Ref} option can be used for this purpose when configuring the altitude.
-
-\colger
-
-Ein weiterer wichtiger Punkt ist die jeweilige Höhe, an der ein Wegpunkt angeflogen wird. Hier muss sichergestellt sein, dass die in der EU vorgeschriebene Maximalhöhe von 120 Metern nicht überschritten wird. Außerdem ist darauf zu achten, dass die Drohne an jedem Wegpunkt die entsprechende Höhe hat, gemessen am Umgebungsprofil. Dazu kann die Option \textsl{Sea Level Ref} herangezogen werden, wenn die Höhe konfiguriert wird.
-
-\coleng
-
-The \textsl{MP Elevation} button can be used to compare the elevation profile for the entire mission with the surrounding area. This prevents the drone from colliding with the ground during the flight between waypoints. To enable this comparison, a form of \textsl{take-off location} must be available.
-
-\colger
-
-Über den Button \textsl{MP Elevation} am kann das Höhenprofil für die Mission, mit dem der Umgebung verglichen werden. Damit wird vermieden, dass die Drohne während des Fluges zwischen Wegpunkten mit dem Boden kollidiert. Um diesen Vergleich zu ermöglichen, muss eine Form von \textsl{Take-off-Location }vorhanden werden.
+Im Vergleich zu den etwa scheckkartengroßen Modellreihen sind die Raspberry Pi Zero-Modelle deutlich kleiner, leichter und benötigen weniger Strom. Die Prozessorleistung des Raspberry Pi 2 W ist ausreichend, um gängige KI-Frameworks neben dem Betriebssystem zu betreiben. Abbildung~\ref{AbbildungRaspberryPiZero2WH} zeigt einen Raspberry Pi 2 WH.
 
 \colende
 
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{INAV_Mission_Control_Elevation_Profile.png}
-	\caption{Mission Control Example Elevation Profile}
-	\label{INAV_Mission_Control_Elevation_Profile}
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{raspberry_pi_2_wh_front.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{raspberry_pi_2_wh_back.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Raspberry Pi\,2\,WH (Front and Back)}
+  \label{AbbildungRaspberryPiZero2WH}
 \end{figure}
+\FloatBarrier
 
 \colstart
 
-Once the waypoint mission has been configured, there are three options for saving it. The first is to \textsl{save it to a file} on the computer, and the second is to \textsl{save it to the volatile memory} of the flight controller (FC). The latter is only suitable if the mission is to be followed immediately, as it will be lost if the system is restarted. If the mission is to be saved permanently, the third option, \textsl{saving to the EEPROM of the FC}, is suitable.
+Since it is not possible to forward the live FPV camera feed from the flight controller or VTX to the Raspberry Pi, the drone must carry an additional camera that is compatible with the single-board computer. A simple and cost-effective solution is to use the Raspberry Pi Camera Modules v1, v2, or v3, which primarily differ in resolution. All of them weigh only about 3-4 g and have similar dimensions (approximately 25\(\times\)24\(\times\)10 mm). Alternatively, the Raspberry Pi AI Camera (see Section~\ref{AbschnittKIBeschleunigerVergleich}) can be used.
 
 \colger
 
-Ist die Wegpunkt-Mission fertig konfiguriert bestehen insgesamt drei Optionen zum Speichern. Die erste ist das \textsl{Speichern in eine Datei} auf dem Computer und die zweite ist das \textsl{Speichern in den volatilen Speicher} des Flugcontrollers (FC). Letzteres ist nur geeignet, wenn die Mission sofort gefolgen werden soll, da sie bei einem Neustart verloren geht. Soll die Mission dauerhaft gespeichert werden, so eignet sich die dritte Option, das \textsl{Speichern in den EEPROM des FC}.
-
-\colende
-
-\renewcommand{\deutschertitel}{Laden von Missionen und INAV Stickbefehle}
-\renewcommand{\englischertitel}{Loading Missions and INAV Stick Commands}
-\makrounterabschnitt
-\label{INAVLoadStickCmd}
-
-If a mission has been written to the EEPROM, it must be \textsl{loaded into the FC's volatile memory} before it can be flown. This can also be done in the \textsl{Mission Control Tab} using the Load from EEPROM button. If no computer is available, automatic loading of a mission at boot time can be configured in the \textsl{Advanced Tuning Tab} using the \textsl{Load Waypoints on Boot} option.
-
-\colger
-
-Insofern eine Mission in den EEPROM geschrieben wurde, muss sie vor dem Flug \textsl{in den volatilen Speicher des FC} geladen werden. Dies kann ebenfalls im \textsl{Mission Control Tab} erfolgen, über den Button Load from EEPROM. Sollte kein Computer vorhanden sein, kann das automatische Laden einer Mission beim Boot im \textsl{Advanced Tuning Tab} mit der Option \textsl{Load Waypoints on Boot} konfiguriert werden.
+Da es nicht möglich ist, über den Flugcontroller oder über den VTX das Livebild der FPV-Kamera auch an den Raspberry Pi weiterzuleiten, muss die Drohne eine weitere, zum Einplatinencomputer kompatible Kamera transportieren. Eine einfache und kostengünstige Lösung sind die Raspberry Pi Camera Module v1, v2 und v3. Diese unterscheiden sich primär in der Auflösung. Sie wiegen alle nur 3-4 g und sind ähnlich groß (ca. 25\(\times\)24\(\times\)10 mm). Alternativ kann auch die Raspberry Pi AI Camera (siehe Abschnitt~\ref{AbschnittKIBeschleunigerVergleich}) verwendet werden.
 
 \coleng
 
-Alternatively, the mission can also be loaded to the volatile memory with a corresponding \textsl{stick command}. \textsl{Stick commands} are various combinations of the two sticks that are normally used for flying. They can activate a range of different functions, such as the OSD menu. Figure \ref{INAV_Stick_Commands_Image} shows the \textsl{stick commands} available in INAV.	
+Since a Raspberry Pi, regardless of model, does not have sufficient processing power to perform real-time object detection on video streams, additional hardware is required to accelerate AI applications. In the solution presented here, a Google Coral TPU Accelerator is used for this purpose. The following section describes this and alternative implementation concepts.
 
 \colger
 
-Alternativ kann die Mission auch mit einem entsprechenden \textsl{Stick-Command} geladen werden. \textsl{Stick-Commands} sind verschiedene Kombinationen der beiden Sticks, welche normalerweise zum Fliegen benutzt werden. Sie können eine Reihe verschiedener Funktionen aktivieren, wie beispielsweise das OSD-Menü. Abbildung \ref{INAV_Stick_Commands_Image} zeigt die \textsl{Stick-Commands}, welche es in INAV gibt.	
+Da ein Raspberry Pi Einplatinencomputer, egal welcher Baureihe, nicht über die Prozessorleistung verfügt, um Objekterkennung in einem Videostream zu realisieren, ist zusätzliche Hardware zur Beschleunigung der KI-Anwendung nötig. Beim hier vorgestellten Lösungsweg kommt zur Beschleunigung ein Google Coral TPU Accelerator zum Einsatz. Der folgende Abschnitt beschreibt diesen und alternative Implementierungskonzepte.
+
+\colende
+
+\renewcommand{\deutschertitel}{Vergleich von KI-Beschleunigern}
+\renewcommand{\englischertitel}{Comparison of AI Accelerators}
+\makrounterabschnitt
+\label{AbschnittKIBeschleunigerVergleich}
+
+This section presents the advantages and disadvantages of several AI accelerators: the Google Coral TPU Accelerator, the Intel Neural Compute Stick 2, the Raspberry Pi AI Camera, and the Raspberry Pi AI Hat. Table~\ref{TabelleUnterschiedeCoralAICameraNCS2} summarizes key specifications and performance characteristics.
+
+\colger
+
+Dieser Abschnitt stellt die Vor- und Nachteile der KI-Beschleuniger Google Coral TPU Accelerator, Intel Neural Compute Stick 2, Raspberry Pi AI Camera und Raspberry Pi AI Hat vor. Eine Übersicht relevanter Informationen dazu enthält Tabelle~\ref{TabelleUnterschiedeCoralAICameraNCS2}.
+
+\coleng
+
+Released in 2019, the Google Coral TPU Accelerator (see Figure~\ref{AbbildungGoogleCoralTPUAccelerator}) provides 4 trillion operations per second (Tera-operations per second -- TOPS), consumes approximately 500-900 mA depending on performance mode, and measures only 65\(\times\)30\(\times\)8 mm with a weight of around 20 g. An additional USB cable for connection adds 10-15 g. The retail price is about €80-90. A notable drawback is that Google has invested little effort in maintaining or updating drivers and libraries since 2022, making it increasingly difficult to operate the device on modern and future operating systems.
+
+\colger
+
+Der 2019 erschienene Google Coral TPU Accelerator (siehe Abbildung~\ref{AbbildungGoogleCoralTPUAccelerator}) bietet 4 Billionen Operationen pro Sekunde (Tera-operations per second -- TOPS), verbraucht je nach Geschwindigkeitseinstellung ca. 500-900 mA und ist nur 65\(\times\)30\(\times\)8 mm groß. Das Gewicht dieses KI-Beschleunigers beträgt ca. 20 g. Zusätzlich ist ein USB-Kabel zum Anschluss nötig, das weitere 10-15 g wiegt. Der Kaufpreis liegt bei etwa 80-90 €. Ein Nachteil des Google Coral TPU Accelerator ist, dass der Hersteller seit 2022 keine signifikanten Ressourcen in die Weiterentwicklung der Treiber und Bibliotheken investiert hat und die Entwicklung seitdem vollständig zum Stillstand gekommen ist, was den Betrieb auf aktuellen und zukünftigen Betriebssystemen erschwert.
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Google_Coral_TPU_Accelerator_front.pdf}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Google_Coral_TPU_Accelerator_back.pdf}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Google Coral TPU Accelerator (Front and Back)}
+  \label{AbbildungGoogleCoralTPUAccelerator}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+An alternative AI accelerator that also connects via USB is the Intel Neural Compute Stick 2 (NCS2), released in 2019 (see Figure~\ref{AbbildungIntelNCS2}). It offers 4 TOPS, consumes approximately 200-500 mA depending on performance mode, and measures 73\(\times\)28\(\times\)14 mm while weighing about 30 g (without an extension cable). The purchase price is around €100. The NCS2 requires the OpenVINO Toolkit framework, which is free software actively developed by Intel. It converts models from frameworks such as TensorFlow (Lite), PyTorch, ONNX, Keras, and Caffe into a format optimized for Intel hardware and manages execution on compatible devices. It also supports integration with various versions of YOLO. However, starting new projects with the NCS2 is not recommended, as Intel discontinued hardware support with OpenVINO 2022.3 and has not invested significant resources in maintaining the necessary software since 2022, making operation on current and future operating systems increasingly difficult.
+
+\colger
+
+Ein alternativer KI-Beschleuniger, der ebenfalls über die USB-Schnittstelle angeschlossen wird, ist der 2019 erschienene Intel Neural Compute Stick 2 -- NCS2 (siehe Abbildung~\ref{AbbildungIntelNCS2}). Dieser bietet ebenfalls 4 TOPS, verbraucht je nach Geschwindigkeitseinstellung ca. 200-500 mA, ist 73\(\times\)28\(\times\)14 mm groß und wiegt (ohne Verlängerungskabel) etwa 30 g. Der Kaufpreis liegt bei rund 100 €. Der NCS2 benötigt das Framework OpenVINO Toolkit, das freie Software ist und von Intel entwickelt wird. Es konvertiert Modelle aus Frameworks wie TensorFlow (Lite), PyTorch, ONNX, Keras und Caffe in ein für Intel-Hardware optimiertes Format und steuert die Ausführung auf kompatibler Hardware. Auch eine Zusammenarbeit mit verschiedenen Versionen von YOLO ist möglich. Neue Projekte mit dem NCS2 zu realisieren ist jedoch nicht empfehlenswert, da Intel die Unterstützung der Hardware mit OpenVINO 2022.3 eingestellt und seit 2022 keine signifikanten Ressourcen mehr in die Weiterentwicklung der zum Betrieb nötigen Software investiert hat, was den Betrieb auf aktuellen und zukünftigen Betriebssystemen erschwert.
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Intel_Neuronal_Compute_Stick2_front.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Intel_Neuronal_Compute_Stick2_back.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Intel Neuronal Compute Stick\,2 (Front and Back)}
+  \label{AbbildungIntelNCS2}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+A more modern alternative to connecting an AI accelerator via the USB interface is the Raspberry Pi AI Camera (see Figure~\ref{AbbildungRaspberryPIAICameraModule}), released in 2024. It already includes an integrated AI accelerator whose exact performance in TOPS is not publicly specified, but it is capable of processing up to 30 frames per second for object recognition. The power consumption is approximately 300-600 mA, depending on the operating mode. The purchase price of the Raspberry Pi AI Camera is around €80, which is higher than that of other camera modules. However, it can fully replace an external AI accelerator such as the Google Coral TPU Accelerator. With a weight of only about 6 g, this results in significant weight savings and lower overall system costs.
+
+\colger
+
+Eine modernere Alternative zum Anschluss eines KI-Beschleunigers über die USB-Schnittstelle ist die 2024 erschienene Raspberry Pi AI Camera (siehe Abbildung~\ref{AbbildungRaspberryPIAICameraModule}). Diese enthält bereits einen integrierten KI-Beschleuniger, dessen Leistungsfähigkeit in TOPS nicht bekannt ist, der jedoch bis zu 30 Bilder pro Sekunde zur Objekterkennung verarbeiten kann. Der Stromverbrauch beträgt je nach Betriebsart etwa 300-600 mA. Der Kaufpreis der Raspberry Pi AI Camera liegt mit rund 80 € zwar höher als der anderer Kamera-Module, sie kann jedoch einen externen KI-Beschleuniger wie den Google Coral TPU Accelerator vollständig ersetzen. Bei einem Gewicht von nur etwa 6 g führt dies zu einer deutlichen Gewichtsersparnis und geringeren Gesamtkosten.
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Raspberry_Pi_AI_Camera_Module_Vorderseite.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Raspberry_Pi_AI_Camera_Module_Rueckseite.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Raspberry AI Camera (Front and Back)}
+  \label{AbbildungRaspberryPIAICameraModule}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+In addition to the Raspberry Pi AI Camera, which is ideal for use with the Raspberry Pi Zero 2 W single-board computer, the Raspberry Pi Foundation also offers the AI Kit and AI HAT+ in two different performance variants. All three options are HAT (Hardware Attached on Top) expansion boards for the Raspberry Pi 5. The AI Kit can host an M.2 AI accelerator module and comes with a Hailo-8L chip capable of 13 TOPS. The two AI HAT+ variants feature soldered Hailo accelerators with performance levels of 13 TOPS (see Figure~\ref{AbbildungRaspberryPiAIHATPlus13TOPs}) and 26 TOPS, respectively. The newer AI HAT+ 2 features a Hailo-10H accelerator that delivers up to 40 TOPS as an expansion module. These HATs cost around €80-150 and offer high AI performance. However, carrying and powering a Raspberry Pi 5 together with such a HAT is not practical in many drone scenarios.
+
+\colger
+
+Neben der Raspberry Pi AI Camera, die sich ideal für den Einsatz mit dem Raspberry Pi Zero 2 W Einplatinencomputer eignet, bietet die Raspberry Pi Foundation auch die KI-Erweiterungen AI Kit und AI HAT+ in zwei unterschiedlichen Geschwindigkeitsvarianten an. Alle drei Varianten sind Erweiterungsplatinen (sogenannte HATs) für den Raspberry Pi 5. Das AI Kit kann einen KI-Beschleuniger als M.2-Erweiterungsmodul aufnehmen und wird mit einem Hailo-8L-Beschleuniger ausgeliefert, der 13 TOPS erreicht. Die beiden Versionen des AI HAT+ enthalten fest verlötete Hailo-Beschleuniger mit 13 TOPS (siehe Abbildung~\ref{AbbildungRaspberryPiAIHATPlus13TOPs}) bzw. 26 TOPS. Das neuere AI HAT+ 2 verfügt über einen Hailo-10H-Beschleuniger, der 40 TOPS erreicht. Diese HATs kosten etwa 80-150 € und bieten eine starke KI-Leistung. Der Transport und die Stromversorgung eines Raspberry Pi 5 mit einem solchen HAT ist in vielen Anwendungsszenarien jedoch nicht praktikabel.
+
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Raspberry_Pi_AI_HAT_Plus_13_TOPS_top_small.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Raspberry_Pi_AI_HAT_Plus_13_TOPS_top2_small.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Raspberry AI AI HAT+ with 13 TOPS}
+  \label{AbbildungRaspberryPiAIHATPlus13TOPs}
+\end{figure}
+\FloatBarrier
+
+\begin{table}[htb!]
+\centering
+\captionabove{Options for additional Hardware on the Drone that accelerates AI Operations (Edge Computing Scenario)}
+\label{TabelleUnterschiedeCoralAICameraNCS2}
+\setlength{\tabcolsep}{3pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.0} % Default
+\begin{tabular}{llrrrrl}
+\toprule
+AI Hardware                     & Interface       & TOPS        & Weight           & Size [mm] & Current Draw  & \multicolumn{1}{c}{Support} \\
+\midrule
+Google Coral TPU                & USB 3.0         & 4           & \(\sim\)\,20\,g  & 65x30x8   & 500-900\,mA & Discontinued  \\
+Intel NCS\,2                    & USB 3.0         & 4           & \(\sim\)\,30\,g  & 73x28x14  & 200-500\,mA & Discontinued  \\
+RPi AI Camera                   & CSI             & ?           & \(\sim\)\,6\,g   & 25x24x10  & 300-600\,mA & Active  \\
+RPi AI\,Kit/HAT+ (2)               & HAT (PCIe)      & 13          & \(\sim\)\,40\,g  & 65x57x6   & 400-800\,mA & Active  \\
+\bottomrule
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\colstart
+
+For various reasons, such as short-term hardware availability, it has not yet been possible to integrate the Raspberry Pi AI Camera into a drone project. Therefore, the implementation approach presented in the next section uses the Google Coral TPU Accelerator.
+
+\colger
+
+Aus verschiedenen Gründen, wie der kurzfristigen Hardwareverfügbarkeit, war es bislang nicht möglich, die Raspberry Pi AI Camera in ein Drohnenprojekt zu integrieren. Aus diesem Grund verwendet der im nächsten Abschnitt vorgestellte Lösungsweg den Google Coral TPU Accelerator.
+
+\colende
+
+\renewcommand{\deutschertitel}{Aufbau und Implementierung}
+\renewcommand{\englischertitel}{Construction and Implementation}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungImplementierungHuckepack}
+
+Figure~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} shows the components of the FPV drone from Figure~\ref{AbbildungKompoentenEinerDrohneOhneKI}, expanded by the components required for onboard image recognition: the Raspberry Pi single-board computer, a Raspberry Pi Camera Module v2, the Google Coral TPU Accelerator, and a BEC (Battery Eliminator Circuit) for converting the battery voltage to 5\,V.
+
+\colger
+
+Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} zeigt die Komponenten der FPV-Drohne aus Abbildung~\ref{AbbildungKompoentenEinerDrohneOhneKI}, erweitert um die für die lokale Bilderkennung erforderlichen Komponenten: den Raspberry Pi Einplatinencomputer, ein Raspberry Pi Camera Module v2, den Google Coral TPU Accelerator sowie einen BEC zur Umwandlung der elektrischen Spannung des Akkus in 5\,V.
+
+\coleng
+
+The SpeedyBee F405 AIO flight controller used here provides only six UART interfaces, leaving little flexibility, as shown in Figure~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral}. The video transmitter (UART3), GPS module (UART5), and receiver (UART6) each require one UART interface. In addition, one UART (UART1) is reserved for administration via Wi-Fi and USB. Of the remaining interfaces, UART2 supports only simplex mode (receive-only). This leaves a single fully functional (bidirectional) UART interface, which is used to connect the Raspberry Pi Zero\,2\,W. This connection allows command exchange between the flight controller and the single-board computer.
+
+\colger
+
+Der verwendete SpeedyBee F405 AIO Flugcontroller verfügt nur über sechs UART-Schnittstellen, was -- wie in Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} gezeigt -- nur wenig Spielraum lässt. Videosender (UART3), GPS-Modul (UART5) und Empfänger (UART6) benötigen jeweils eine UART-Schnittstelle. Zusätzlich wird für die Administration über die WLAN- und USB-Schnittstellen (UART1) eine weitere Schnittstelle belegt. Von den verbleibenden Schnittstellen unterstützt UART2 nur den Simplex-Betrieb (nur Lesen). Damit verbleibt lediglich eine einzige vollwertige (bidirektionale) UART-Schnittstelle, über die der Raspberry Pi Zero\,2\,W angeschlossen wird. Darüber können Kommandos zwischen Flugcontroller und Einplatinencomputer ausgetauscht werden.
+
+\coleng
+
+One disadvantage of the Google Coral TPU Accelerator is that the manufacturer has not invested further resources in driver or library development. The required Python library PyCoral -- an extension of TensorFlow Lite enabling integration with the Coral TPU -- supports Python 3.9 at most. No further updates are expected. Installation on Raspberry Pi OS (32-bit) Bullseye (Debian 11) is recommended, as Coral packages and PyCoral work reliably there. Newer operating systems based on Debian 12 or 13 are difficult to use with this hardware.
+
+\colger
+
+Ein Nachteil des Google Coral TPU Accelerator ist, dass der Hersteller keine weiteren Ressourcen in die Weiterentwicklung der Treiber und Bibliotheken investiert. Die benötigte Python-Bibliothek PyCoral, die TensorFlow Lite um die Unterstützung der Google Coral TPU erweitert, unterstützt maximal Python 3.9. Neue Versionen sind nicht mehr zu erwarten. Die Installation auf Raspberry Pi OS (32-bit) Bullseye (Debian 11) ist empfehlenswert, da dort die Coral-Pakete mit PyCoral zuverlässig funktionieren. Neuere Betriebssysteme auf Basis von Debian 12 oder 13 sind hingegen sehr schwierig zu verwenden.
 
 \colende
 
 \begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{INAV_Stick_Commands.png}
-	\caption{Stick Commands in INAV [\href{https://raw.githubusercontent.com/iNavFlight/inav/refs/heads/master/docs/assets/images/StickPositions.png}{Quelle: INAV}]}
-	\label{INAV_Stick_Commands_Image}
-	% Source: 
+  \centering
+    \includegraphics[width=\linewidth]{Komponenten_der_Drohne_Diagramm_v1_en.pdf}
+  \caption{Components of a FPV Drone with additional Hardware Components for Object Detection by the Drone itself}
+  \label{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral}
 \end{figure}
+\FloatBarrier
 
-\renewcommand{\deutschertitel}{Autopilot mit ArduPilot}
-\renewcommand{\englischertitel}{Autopilot with ArduPilot}
-\makroabschnitt
-\label{AbschnittAutopilotArduPilot}
+\renewcommand{\deutschertitel}{Gesamtgewicht und Anschaffungskosten}
+\renewcommand{\englischertitel}{Total Weight and Purchase Cost}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungKostenHuckepack}
 
-ArduPilot (see Section~\ref{AbschnittArduPilot}) provides a comprehensive autopilot system for drones. It enables advanced autonomous functions such as waypoint navigation, mission planning, geofencing, object avoidance with additional sensors, automatic takeoff and landing, and precision positioning.
-
-\colger
-
-ArduPilot (siehe Abschnitt~\ref{AbschnittArduPilot}) bietet ein umfassendes Autopilotsystem für Drohnen, Flächenflugzeuge, Hubschrauber und andere Plattformen. Es unterstützt fortgeschrittene autonome Funktionen wie Wegpunktnavigation, Missionsplanung, Geofencing, Hindernisvermeidung mit zusätzlichen Sensoren, automatischen Start und automatische Landung sowie präzise Positionsbestimmung. 
-
-\coleng
-
-Depending on the firmware variant, ArduPilot requires powerful hardware with sufficient flash memory (see Section~\ref{AbschnittFC}) and sensors including barometer, magnetic compass, accelerometer, gyroscope, and GPS. Additional sensors such as optical flow sensors (Light Detection and Ranging -- lidar), or airspeed sensors can be integrated. 
+For building the drone, a frame size between 3.5 and 5 inches is recommended. If the drone is also intended to be flown indoors, a 3.5-inch CineWhoop frame is advisable. The components used in a research project at Frankfurt University of Applied Sciences are listed in Table~\ref{TabelleDrohne35GoogleCoral}.
 
 \colger
 
-Je nach Firmware-Variante benötigt ArduPilot leistungsfähige Hardware mit ausreichend Flash-Speicher (siehe Abschnitt~\ref{AbschnittFC}) sowie Sensoren wie Barometer, magnetischem Kompass, Beschleunigungssensor, Gyroskop und GPS. Zusätzliche Sensoren wie optische Flusssensoren (Light Detection and Ranging -- Lidar) oder Fluggeschwindigkeitssensoren können integriert werden. 
-
-\coleng
-
-The Mission Planner software is used for configuration, calibration, and mission definition.
-
-\colger
-
-Konfiguration, Kalibrierung und Missionsplanung erfolgen über die Software Mission Planner.
+Zum Aufbau der Drohne empfiehlt sich ein Rahmen mit 3,5 bis 5 Zoll. Soll die Drohne auch innerhalb geschlossener Räume geflogen werden können, empfiehlt sich ein 3,5-Zoll-CineWhoop-Rahmen. Die im Rahmen eines Forschungsprojekts an der Frankfurt University of Applied Sciences verwendeten Komponenten sind in Tabelle~\ref{TabelleDrohne35GoogleCoral} aufgeführt.
 
 \colende
 
-\renewcommand{\deutschertitel}{Autopilot mit PX4}
-\renewcommand{\englischertitel}{Autopilot with PX4}
-\makroabschnitt
-\label{AbschnittAutopilotPX4}
+\begin{table}[htb!]
+\centering
+\caption{Components of a Drone for Object Detection with a Raspberry Pi Zero\,2\,W and a Google Coral TPU Accelerator}
+\label{TabelleDrohne35GoogleCoral}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.0}
 
-PX4 is an open-source autopilot platform similar to ArduPilot, designed for research, industry applications, and autonomous robotics. It supports advanced mission planning, companion computers (e.g., Raspberry Pi Compute Module\,4), and complex multi-sensor navigation. 
+\begin{spreadtab}{{tabular}{llrr}}
+\toprule
+@Product & @Category & @Weight [g] & @Price [\euro{}] \\
+\midrule
+@SpeedyBee Bee35 PRO 3.5                   & @Frame                  & 130  & 55 \\
+@SpeedyBee F405 AIO 40A 3-6S               & @Flight Controller      & 14   & 70 \\
+@Radiomaster RP1 2,4GHz                    & @Receiver               & 3    & 25 \\
+@Flywoo NIN 1404 V2 3750KV                 & @Motors                 & 40   & 65 \\
+@Gemfan D90-5 3.5 Inch Ducted 5-Blade      & @Propellers             & 4    & 3  \\
+@SpeedyBee TX800 VTX + SMA Adapter         & @Video Transmitter      & 10   & 40 \\
+@Foxeer Lollipop 4 RHCP SMA                & @FPV Antenna            & 5    & 20 \\
+@HGLRC M100-5883                           & @GPS and Compass        & 8    & 20 \\
+@Caddx Ratel Pro                           & @FPV Camera             & 10   & 55 \\
+@Li-Ion 2500mAh 4S1P 14,8V 12C             & @Battery                & 200  & 25 \\
+@Raspberry Pi Zero 2 WH                    & @Single-Board-Computer  & 10   & 20 \\
+@Raspberry Pi Zero case                    & @Case                   & 15   & 5  \\
+@32GB microSD card                         & @Storage                & 1    & 7  \\
+@Raspberry Pi Camera Module 8MP v2         & @Camera                 & 4    & 17 \\
+@Adafruit Camera Module case               & @Case                   & 8    & 5  \\
+@Google Coral TPU                          & @AI Hardware            & 20   & 85 \\
+@USB-C cable for Coral TPU                 & @Cable                  & 10   & 5  \\
+@Additional cables, straps and panels      & @Cables + fixing material                  & 10   & 5  \\
+\bottomrule
+@Sum & & sum(c2:c19) & sum(d2:d19) \\
+\end{spreadtab}
+\end{table}
+\FloatBarrier
+
+\colstart
+
+The components listed in Table~\ref{TabelleDrohne35GoogleCoral} refer exclusively to the essential parts of the drone itself. Additional required equipment such as a remote controller (80-160\,\euro{}), FPV goggles (120-250\,\euro{}), and a charger (50-100\,\euro{}) must already be available or purchased separately. The prices of the individual components depend on personal preferences and financial means.
 
 \colger
 
-PX4 ist eine Open-Source-Autopilotplattform, die ähnlich wie ArduPilot auf Forschungs-, Industrie- und Robotikanwendungen ausgerichtet ist. Die Firmware unterstützt fortgeschrittene Missionsplanung, Companion-Computer (z.B. Raspberry Pi Compute Module\,4), und komplexe multisensorbasierte Navigation. 
-
-\coleng
-
-PX4 requires hardware such as Pixhawk flight controllers (see Figure~\ref{AbbildungPixhawkOrangeCubeFC}) or compatible boards with powerful processors and extensive sensor capability. Configuration and mission planning are performed using the QGroundControl software. 
-
-\colger
-
-PX4 erfordert Hardware wie Pixhawk-Flugcontroller (siehe Abbildung~\ref{AbbildungPixhawkOrangeCubeFC}) oder kompatible Boards mit leistungsfähigen Prozessoren und umfangreicher Sensorunterstützung. Die Konfiguration und Missionsplanung erfolgt über die Software QGroundControl. 
-
-\coleng
-
-Due to its modular design and focus on extensibility, PX4 is frequently used in industrial environments, although some FPV-specific features are less developed compared to Betaflight or iNAV.
-
-\colger
-
-Aufgrund seiner modularen Architektur und Erweiterbarkeit wird PX4 häufig in industriellen Projekten eingesetzt, auch wenn FPV-spezifische Funktionen teilweise weniger ausgeprägt sind als bei Betaflight oder iNAV.
+Die in Tabelle~\ref{TabelleDrohne35GoogleCoral} aufgeführten Komponenten betreffen ausschließlich die notwendigen Bestandteile der Drohne selbst. Weiteres erforderliches Zubehör wie Fernsteuerung (80-160\,\euro{}), FPV-Brille (120-250\,\euro{}) und Ladegerät (50-100\,\euro{}) muss bereits vorhanden sein oder zusätzlich beschafft werden. Die Preise der einzelnen Komponenten hängen auch von persönlichen Präferenzen und finanziellen Möglichkeiten ab.
 
 \colende
+
+\renewcommand{\deutschertitel}{Objekterkennung durch Auswertung des Livebilds am Boden}
+\renewcommand{\englischertitel}{Object Detection by using the Live Image on the Ground}
+\makroabschnitt
+\label{AbschnittObjekterkennungVideoGrabber}
+
+An easy way to access a live video feed is to use the AV interface provided by some FPV goggles (see Table~\ref{TabelleVideobrillen}). The analog signal can then be digitized with a video grabber device and transmitted to a computer or another device (e.g., a smartphone) for further processing. Figure~\ref{AbbildungVideobrillemitVideograbber} shows the connection of a video grabber to a pair of FPV goggles.
+
+\colger
+
+Eine einfache Möglichkeit, auf das Livebild zuzugreifen, bietet die gegebenenfalls vorhandene AV-Schnittstelle der Videobrille (siehe Tabelle~\ref{TabelleVideobrillen}). Das Videosignal kann mithilfe eines Videograbbers digitalisiert und zur Verarbeitung an einen Computer oder an ein anderes Gerät (z.B. ein Smartphone) weitergeleitet werden. Abbildung~\ref{AbbildungVideobrillemitVideograbber} zeigt den Anschluss eines Videograbbers an eine Videobrille.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Videobrille_mit_Videograbber.jpg}
+  \caption{Video Grabber Device connected to the A/V Port of an FPV Goggle}
+  \label{AbbildungVideobrillemitVideograbber}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+There are various tools and commands for accessing video and audio streams. This section presents a selection of useful Linux tools and commands.
+
+\colger
+
+Zum Zugriff auf den Video- und Audiostrom existieren verschiedene Programme und hilfreiche Kommandos. Dieser Abschnitt stellt einige nützliche Programme und Kommandos unter Linux vor.
+
+\coleng
+
+Information from the operating system kernel about the video grabber can be obtained, among other things, using the command \verb!dmesg!.
+
+\colger
+
+Informationen des Betriebssystemkerns zum Videograbber liefert unter anderem das Kommando \verb!dmesg!.
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+$ sudo dmesg -w
+[17896.642801] usb 2-2: USB disconnect, device number 91
+[17897.851011] usb 2-2: new high-speed USB device number 92 using xhci_hcd
+[17897.991360] usb 2-2: New USB device found, idVendor=534d, idProduct=0021, bcdDevice=21.01
+[17897.991376] usb 2-2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[17897.991383] usb 2-2: Product: USB Video
+[17897.991389] usb 2-2: Manufacturer: MACROSILICON
+[17897.991395] usb 2-2: SerialNumber: 20200909
+[17898.055173] usb 2-2: Found UVC 1.00 device USB Video (534d:0021)
+[17898.063678] hid-generic 0003:534D:0021.004E: hiddev4,hidraw6: USB HID v1.10 Device [MACROSILICON USB Video] on usb-0000:06:00.3-2/input4
+\end{lstlisting}
+\FloatBarrier
+
+\colstart
+
+The command \verb!lsusb! provides information about the connected USB devices.
+
+\colger
+
+Das Kommando \verb!lsusb! liefert Informationen zu den angeschlossenen USB-Geräten.
+
+\colende
+
+\begin{lstlisting}[style=shell]
+$ lsusb
+Bus 002 Device 090: ID 534d:0021 MacroSilicon MS210x Video Grabber [EasierCAP]
+\end{lstlisting}
+\FloatBarrier
+
+\colstart
+
+The command \verb!v4l2-ctl! helps in identifying the desired device \verb!/dev/videoX!.
+
+\colger
+
+Das Kommando \verb!v4l2-ctl! unterstützt beim Auffinden des gewünschten Geräts \verb!/dev/videoX!.
+
+\colende
+
+\begin{lstlisting}[style=shell]
+$ v4l2-ctl --list-devices
+USB Video: USB Video (usb-0000:06:00.3-2):
+	/dev/video6
+	/dev/video7
+	/dev/media3
+\end{lstlisting}
+\FloatBarrier
+
+\colstart
+
+The video stream can be viewed in a window using tools such as \verb!cheese!, \verb!gst-launch-1.0! (GStreamer), \verb!guvcview!, \verb!ffplay!, \verb!mpv!, and \verb!vlc! (VideoLAN Client).
+
+\colger
+
+Den Videostrom in einem Fenster anzeigen kann man unter anderem mit den Werkzeugen \verb!cheese!, \verb!gst-launch-1.0! (GStreamer), \verb!guvcview!, \verb!ffplay!, \verb!mpv! und \verb!vlc! (VideoLAN Client).
+
+\colende
+
+\begin{lstlisting}[style=shell]
+$ cheese
+$ gst-launch-1.0 v4l2src device=/dev/video6 ! videoconvert ! autovideosink
+$ guvcview -d /dev/video6
+$ ffplay -f v4l2 -i /dev/video6
+$ mpv /dev/video6
+$ vlc v4l2:///dev/video6
+\end{lstlisting}
+\FloatBarrier
+
+\colstart
+
+Most of the mentioned tools can also redirect (save) video and audio streams to local files and convert them into various file formats.
+
+\colger
+
+Die meisten der genannten Werkzeuge können auch Video- und Audioströme in lokale Dateien umleiten (speichern) und in verschiedene Dateiformate konvertieren.
+
+\coleng
+
+There are also apps for the Android operating system that can display a video stream provided through the USB interface. One example is USB Camera (Pro).
+
+\colger
+
+Auch für das Betriebssystem Android gibt es Apps, die einen über die USB-Schnittstelle bereitgestellten Videostrom anzeigen können. Ein Beispiel ist USB Camera (Pro). 
+
+\colende
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=\linewidth]{Object_Detection_using_USB_video_grabber.png}
+\caption{Object Detection using a USB Video Grabber connected to a FPV Goggles}
+\label{ObjectDetectionDashboardUsingUSBVideoGrabber}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Once the live analog video signal from the FPV goggles has been digitized using a USB video grabber and transmitted to a ground-based computing system, a wide range of real-time video processing techniques can be applied. A practical and widely used solution for this purpose is the OpenCV (Open Source Computer Vision) library, which provides efficient tools for real-time image acquisition, processing, and analysis using Python.
+
+\colger
+
+Sobald das analoge Live-Videosignal der FPV-Brille mithilfe eines USB-Videograbbers digitalisiert und an ein bodengebundenes Rechensystem übertragen wurde, können vielfältige Verfahren zur Echtzeit-Bildverarbeitung angewendet werden. Eine praxisnahe und weit verbreitete Lösung stellt die Bibliothek OpenCV (Open Source Computer Vision) dar, die effiziente Werkzeuge zur Echtzeit-Bildaufnahme, -verarbeitung und -analyse mit Python bereitstellt.
+
+\coleng
+
+The digitized video stream is treated by the operating system as a standard camera input, allowing OpenCV to capture frames in real time. This approach makes the system platform-independent and suitable for Linux, macOS, and Windows environments.
+
+\colger
+
+Der digitalisierte Videostream wird vom Betriebssystem als gewöhnliche Kameraquelle behandelt, wodurch OpenCV die Einzelbilder in Echtzeit erfassen kann. Dieser Ansatz ist plattformunabhängig und eignet sich für Linux-, macOS- und Windows-Systeme.
+
+\coleng
+
+After acquiring the live video frames, various computer vision and object detection algorithms can be applied, including but not limited to:
+
+\colger
+
+Nachdem die Live-Videobilder erfasst wurden, können verschiedene Verfahren der Bildverarbeitung und Objekterkennung angewendet werden. Dazu zählen unter anderem:
+
+\coleng
+
+\begin{itemize}
+\item Region- or area-based detection
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item Regionen- oder flächenbasierte Erkennung
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item Detection of other drones or aerial objects in the sky
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item Erkennung anderer Drohnen oder fliegender Objekte im Luftraum
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item Obstacle detection and tracking
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item Hinderniserkennung und -verfolgung
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item Motion analysis and situational awareness
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item Bewegungsanalyse und Situationsbewertung
+\end{itemize}
+
+\coleng
+
+In addition to visual information, FPV video streams may contain embedded telemetry data such as altitude, speed, GPS position, battery voltage, and the current flight mode. This telemetry data can be extracted and synchronized with visual detections. This enables advanced applications such as geo-referenced object detection, situational assessment, and flight-state-aware decision-making.
+
+\colger
+
+Zusätzlich zu den visuellen Informationen können FPV-Videostreams eingebettete Telemetriedaten enthalten, beispielsweise Höhe, Geschwindigkeit, GPS-Position, Akkuspannung und den aktuellen Flugmodus. Diese Telemetriedaten lassen sich extrahieren und mit visuellen Erkennungen synchronisieren. Dadurch werden weiterführende Anwendungen wie georeferenzierte Objekterkennung, Lagebewertung und flugzustandsabhängige Entscheidungsfindung ermöglicht.
+
+\colende
+
+
+\begin{figure}
+\begin{lstlisting}[style=shell]
+  camera = cv2.VideoCapture(CAMERA_INDEX)  # Linux and macOS
+  camera = cv2.VideoCapture(CAMERA_INDEX, cv2.CAP_DSHOW)  # Windows
+
+  success, frame = camera.read()
+\end{lstlisting}
+\caption{Reading Video Stream from a Video Grabber using OpenCV in Python}
+\label{ReadingUSBVideoStreamMitOpenCV}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Figure~\ref{ReadingUSBVideoStreamMitOpenCV} shows an example of how a video stream from a USB video grabber can be accessed using OpenCV in Python. The device index specifies the camera input as recognized by the operating system. In many cases, index 0 is used when no additional camera devices are connected. On systems with multiple video sources, a different index may be required. On Windows systems, it is recommended to explicitly use the DirectShow backend by specifying \verb!cv2.CAP_DSHOW! to ensure stable access to USB video grabbers.
+
+\colger
+
+Abbildung~\ref{ReadingUSBVideoStreamMitOpenCV} zeigt ein Beispiel für den Zugriff auf einen Videostream eines USB-Videograbbers mit OpenCV in Python. Der Geräteindex gibt dabei die vom Betriebssystem erkannte Kameraquelle an. In vielen Fällen wird der Index 0 verwendet, sofern keine weiteren Kamerageräte angeschlossen sind. Bei Systemen mit mehreren Videoquellen kann ein anderer Index erforderlich sein. Unter Windows wird empfohlen, explizit das DirectShow-Backend mit \verb!cv2.CAP_DSHOW! zu verwenden, um einen stabilen Zugriff auf USB-Videograbber sicherzustellen.
+
+\coleng
+
+Figure~\ref{DroneDetectionUSBVideoGrab} shows a minimal example that demonstrates real-time drone detection using a USB video grabber and OpenCV. In this example, a pretrained YOLO model is used that is capable of detecting drones in aerial scenes. The model was trained on a dedicated drone detection dataset and is publicly available at \url{https://www.kaggle.com/code/zlatan599/drone-detection/output}. After the live video frames are captured with OpenCV, they are passed to the YOLO model for inference. Detected objects are then visualized using bounding boxes and associated confidence scores.
+
+\colger
+
+Abbildung~\ref{DroneDetectionUSBVideoGrab} zeigt ein minimales Beispiel zur Echtzeit-Erkennung von Drohnen mithilfe eines USB-Videograbbers und OpenCV. In diesem Beispiel wird ein vortrainiertes YOLO-Modell eingesetzt, das für die Erkennung von Drohnen in Luftaufnahmen geeignet ist. Das Modell wurde mit einem speziellen Datensatz zur Drohnenerkennung trainiert und ist öffentlich unter \url{https://www.kaggle.com/code/zlatan599/drone-detection/output} verfügbar. Nachdem die Live-Videoframes mit OpenCV erfasst wurden, werden sie zur Inferenz an das YOLO-Modell übergeben. Erkannte Objekte werden anschließend durch Begrenzungsrahmen und zugehörige Konfidenzwerte visualisiert.
+
+\colende
+
+\begin{figure}
+\begin{lstlisting}[style=shell]
+  import cv2
+  from ultralytics import YOLO
+
+  CAMERA_INDEX = 0         # SET YOUR CAMERA INDEX HERE
+  MODEL_PATH = "models/final_drone_model.pt"
+  IMG_SIZE = (640, 480)
+
+  # Open camera (DirectShow is REQUIRED on Windows)
+  # camera = cv2.VideoCapture(CAMERA_INDEX, cv2.CAP_DSHOW)
+  camera = cv2.VideoCapture(CAMERA_INDEX)
+  if not camera.isOpened():
+      raise RuntimeError("Could not open camera")
+
+  camera.set(cv2.CAP_PROP_FRAME_WIDTH, IMG_SIZE[0])
+  camera.set(cv2.CAP_PROP_FRAME_HEIGHT, IMG_SIZE[1])
+  model = YOLO(MODEL_PATH)
+  class_names = model.names
+
+  print("YOLO loaded. Press CRL + c to exit.")
+  while True:
+      ret, frame = camera.read()
+      if not ret:
+          print("Failed to grab frame")
+          break
+
+      frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+      results = model.predict(frame_rgb, verbose=False)[0]
+
+      if results.boxes is not None:
+          boxes = results.boxes.xyxy.cpu().numpy()
+          scores = results.boxes.conf.cpu().numpy()
+          classes = results.boxes.cls.cpu().numpy().astype(int)
+
+          for box, score, cls in zip(boxes, scores, classes):
+              x1, y1, x2, y2 = map(int, box)
+
+              cv2.rectangle(frame, (x1, y1), (x2, y2),
+                            (0, 255, 0), 2)
+
+              label = f"{class_names[cls]} {score:.2f}"
+              cv2.putText(frame, label,
+                          (x1, max(y1 - 10, 0)),
+                          cv2.FONT_HERSHEY_SIMPLEX,
+                          0.6, (0, 255, 0), 2)
+
+      cv2.imshow("Drone Detection", frame)
+      if cv2.waitKey(1) & 0xFF == 27:
+          break
+
+  camera.release()
+  cv2.destroyAllWindows()
+\end{lstlisting}
+\caption{Real-time drone detection using a USB video grabber on the ground system}
+\label{DroneDetectionUSBVideoGrab}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{Gesamtgewicht und Anschaffungskosten}
+\renewcommand{\englischertitel}{Total Weight and Purchase Cost}
+\makrounterabschnitt
+\label{AbschnittObjekterkennungKostenVideoGrabber}
+
+Table~\ref{TabelleDrohne35Videograbber} lists the components of the drone from Table~\ref{TabelleDrohne35GoogleCoral}, excluding the hardware required for object detection. Specifically, this includes the Raspberry Pi Zero, the camera module, the Google Coral TPU, and the corresponding cables and enclosures. Additional accessories such as the remote control, FPV goggles, and charger must also be available or purchased separately. In addition, a video grabber (15-25 \euro{}) and a computer are required.
+
+\colger
+
+Tabelle~\ref{TabelleDrohne35Videograbber} enthält die Komponenten der Drohne aus Tabelle~\ref{TabelleDrohne35GoogleCoral}, reduziert um die Hardware, die für die Objekterkennung erforderlich ist. Konkret sind das der Raspberry Pi Zero, das Kameramodul, die Google Coral TPU sowie die entsprechenden Kabel und Gehäuse. Weiteres notwendiges Zubehör wie Fernsteuerung, FPV-Brille und Ladegerät muss selbstverständlich ebenfalls bereits vorhanden sein oder zusätzlich beschafft werden. Zusätzlich werden ein Videograbber (15-25 \euro{}) und ein Computer benötigt.
+
+\colende
+
+\begin{table}[htb!]
+\centering
+\caption{Components of a Drone for Object Detection by using the Live Image on the Ground}
+\label{TabelleDrohne35Videograbber}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.0}
+
+\begin{spreadtab}{{tabular}{llrr}}
+\toprule
+@Product & @Category & @Weight [g] & @Price [\euro{}] \\
+\midrule
+@SpeedyBee Bee35 PRO 3.5                   & @Frame                  & 130  & 55 \\
+@SpeedyBee F405 AIO 40A 3-6S               & @Flight Controller      & 14   & 70 \\
+@Radiomaster RP1 2,4GHz                    & @Receiver               & 3    & 25 \\
+@Flywoo NIN 1404 V2 3750KV                 & @Motors                 & 40   & 65 \\
+@Gemfan D90-5 3.5 Inch Ducted 5-Blade      & @Propellers             & 4    & 3  \\
+@SpeedyBee TX800 VTX + SMA Adapter         & @Video Transmitter      & 10   & 40 \\
+@Foxeer Lollipop 4 RHCP SMA                & @FPV Antenna            & 5    & 20 \\
+@HGLRC M100-5883                           & @GPS and Compass        & 8    & 20 \\
+@Caddx Ratel Pro                           & @FPV Camera             & 10   & 55 \\
+@Li-Ion 2500mAh 4S1P 14,8V 12C             & @Battery                & 200  & 25 \\
+@Additional cables, straps and panels      & @Cables + fixing material & 10   & 5  \\
+\bottomrule
+@Sum & & sum(c2:c11) & sum(d2:d11) \\
+\end{spreadtab}
+\end{table}
+\FloatBarrier
+

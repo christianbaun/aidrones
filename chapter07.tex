@@ -1,10 +1,10 @@
-\renewcommand{\deutschertitel}{Drop-Mechanismen für FPV-Drohnen}
-\renewcommand{\englischertitel}{Drop Mechanisms for FPV Drones}
+\renewcommand{\deutschertitel}{Follow-Me-Funktion}
+\renewcommand{\englischertitel}{Follow-Me Function}
 \chapter[\texorpdfstring{\protect{\vspace{2pt}\englischertitel}}{\englischertitel}]{}
 \kapitel{\deutschertitel}
 \thispagestyle{empty}
 
-\label{KapitelDropMechanismen}
+\label{KapitelFollowme}
 
 \begin{paracol}{2}[]
 
@@ -16,94 +16,102 @@
 
 \coleng
 
-Drop mechanisms enable an FPV drone to release a small payload on command. They are used in research projects, training environments, competition scenarios, and lightweight delivery tasks. The primary purpose of such mechanisms is to hold a payload securely and release it in a controlled manner based on a command from the flight controller. 
+The Follow-Me function allows an FPV drone to track and follow a moving target, typically a person carrying a GPS device, a smartphone, or a companion transmitter. This capability is useful for recording moving subjects, supporting inspection tasks, or enabling semi-autonomous flight operations. 
 
 \colger
 
-Drop-Mechanismen ermöglichen es einer FPV-Drohne, eine kleine Nutzlast auf Kommando kontrolliert abzuwerfen. Sie kommen in Forschungsprojekten, Trainingsumgebungen, Wettbewerbsdisziplinen sowie bei leichten Transportaufgaben zum Einsatz. Die zentrale Funktion solcher Mechanismen besteht darin, eine Nutzlast zuverlässig zu halten und sie anhand eines Steuersignals des Flugcontrollers kontrolliert freizugeben. 
+Die Follow-Me-Funktion ermöglicht es einer FPV-Drohne, einem sich bewegenden Ziel zu folgen, typischerweise einer Person, die ein GPS-Gerät, ein Smartphone oder einen zusätzlichen Sender mit sich führt. Diese Fähigkeit wird unter anderem zur Aufnahme bewegter Szenen, zur Unterstützung von Inspektionsaufgaben oder für teilautonome Fluganwendungen genutzt. 
 
 \coleng
 
-The most common systems include servo-based and electromagnetic mechanisms. Spring-loaded mechanisms and clamp-based grippers are used less frequently in practice and are therefore not discussed further in this document. Regardless of the underlying mechanism, activation is typically carried out via an AUX channel on the radio transmitter and mapped to an appropriate output on the flight controller.
+Depending on the firmware, the Follow-Me function may rely on external GPS data, telemetry links, onboard sensors, or a combination of these. The following sections describe how Follow-Me is implemented in Betaflight, iNAV, ArduPilot, and provide an outlook on its implementation in PX4. 
 
 \colger
 
-Zu den am häufigsten eingesetzten Lösungen zählen servo-basierte und elektromagnetische Systeme. Federbasierte Mechanismen sowie klammerbasierte Greifer werden in der Praxis deutlich seltener verwendet und daher in diesem Dokument nicht weiter betrachtet. Unabhängig vom zugrunde liegenden Mechanismus erfolgt die Aktivierung in der Regel über einen AUX-Kanal der Fernsteuerung, der einem geeigneten Ausgang des Flugcontrollers zugeordnet wird.
+Je nach Firmware basiert die Follow-Me-Funktion auf externen GPS-Daten, Telemetrieverbindungen, an Bord befindlichen Sensoren oder einer Kombination dieser Quellen. Die folgenden Abschnitte beschreiben die Umsetzung der Follow-Me-Funktion in Betaflight, iNAV, ArduPilot sowie einen Ausblick auf die Implementierung in PX4. 
 
 \colende
 
-\renewcommand{\deutschertitel}{Servo-basierte Abwurfmechanismen}
-\renewcommand{\englischertitel}{Servo-based release mechanisms}
+\renewcommand{\deutschertitel}{Follow-Me mit Betaflight}
+\renewcommand{\englischertitel}{Follow-Me with Betaflight}
 \makroabschnitt
-\label{AbschnittDropServo}
+\label{AbschnittFollowMeBetaflight}
 
-Servo-based release mechanisms are one of the most commonly used solutions on FPV drones. A micro servo (see Figure~\ref{AbbildungServo}) actuates a lever, pin, or hook that secures the payload. When triggered by a signal from the flight controller, the servo moves and releases the payload. This method is simple to implement, cost-effective, and offers precise control.
+Betaflight does not provide a Follow-Me mode, as the firmware is primarily optimized for manual flight (freestyle and racing). Only basic GPS-assisted functions such as rescue mode are available. Follow-Me operation is not supported because Betaflight lacks autonomous navigation, positional tracking, and target-following logic. Implementing Follow-Me functionality would require a transition to iNAV or ArduPilot.
 
 \colger
 
-Servo-basierte Abwurfmechanismen sind eine häufig eingesetzte Lösung bei FPV-Drohnen. Ein Micro-Servo (siehe Abbildung~\ref{AbbildungServo}) bewegt hierbei einen Hebel, Stab oder Haken, der die Nutzlast hält. Durch ein Signal des Flugcontrollers wird der Servo bewegt und gibt die Nutzlast frei. Diese Methode ist einfach umzusetzen, kostengünstig und präzise steuerbar.
+Betaflight bietet keinen Follow-Me-Modus, da die Firmware primär für für manuelles Fliegen (Freestyle und Rennen) ausgelegt ist. Lediglich grundlegende GPS-gestützte Funktionen wie der Rescue Mode sind verfügbar. Ein Follow-Me-Betrieb wird nicht unterstützt, da Betaflight keine autonome Navigation, keine Positionsverfolgung und keine Zielverfolgungslogik bereitstellt. Für den Einsatz der Follow-Me-Funktion wird daher ein Wechsel zu iNAV oder ArduPilot erforderlich.
+
+\colende
+
+\renewcommand{\deutschertitel}{Follow-Me mit iNAV}
+\renewcommand{\englischertitel}{Follow-Me with iNAV}
+\makroabschnitt
+\label{AbschnittFollowMeINAV}
+
+iNAV provides a dedicated Follow-Me mode that uses the GPS position of an external device, typically the radio transmitter equipped with an external GPS module or a compatible telemetry system. 
+
+\colger
+
+iNAV stellt einen eigenen Follow-Me-Modus bereit, der die GPS-Position eines externen Geräts verwendet, üblicherweise die Fernsteuerung mit einem angeschlossenen GPS-Modul oder einem kompatiblen Telemetriesystem. Für Follow-Me in iNAV werden ein Flugcontroller mit GPS, Barometer, magnetischen Kompass sowie eine stabile GPS-Empfangsqualität benötigt.
 
 \coleng
 
-A simple drop mechanism (see Figure~\ref{AbbildungDropMechanismus}) for a drone can be designed and manufactured using a 3D printer as a small housing that accommodates a standard micro servo (e.g., in the 9-g form factor). The printed component typically includes a fitting servo mount, screw mounting points, and a small movable latch or hook that is actuated via the servo horn. In the closed position, the hook holds a loop or pin to which the payload is attached. When the servo is activated via the flight controller or a free receiver channel, the servo horn rotates and releases the holding mechanism, allowing the payload to be dropped. Lightweight materials such as PLA are suitable for printing. The design should be as compact and lightweight as possible in order to minimize its impact on the drone’s weight and center of gravity. It is also important to provide sufficient space for the servo cables as well as stable mounting points for attaching the mechanism to the drone frame.
+Follow-Me in iNAV requires a flight controller with GPS, barometer, magnetic compass, and stable GPS reception. The external device transmits its position to the flight controller via a telemetry protocol such as MAVLink, MSP, or a proprietary transmitter protocol. 
 
 \colger
 
-Ein einfacher Drop-Mechanismus (siehe Abbildung~\ref{AbbildungDropMechanismus}) für eine Drohne kann mit einem 3D-Drucker als kleines Gehäuse konstruiert werden, das einen handelsüblichen Micro-Servo (z. B. im 9-g-Format) aufnimmt. Das gedruckte Bauteil enthält typischerweise eine Servoaussparung, Befestigungspunkte für Schrauben sowie eine kleine bewegliche Klappe oder einen Haken, der über das Servo-Horn betätigt wird. In der geschlossenen Position hält der Haken eine Schlaufe oder einen Stift, an dem die Nutzlast befestigt ist. Wird das Servo über den Flugcontroller oder einen freien Empfängerkanal angesteuert, dreht sich das Servo-Horn und gibt die Haltevorrichtung frei, sodass die Last abgeworfen wird. Für den Druck eignen sich leichte Materialien wie z.B. PLA. Die Konstruktion sollte möglichst kompakt und leicht sein, um Gewicht und Schwerpunkt der Drohne nur minimal zu beeinflussen. Wichtig ist außerdem, genügend Platz für die Servokabel sowie stabile Befestigungspunkte zur Montage am Drohnenrahmen vorzusehen.
+Das externe Gerät übermittelt seine Position über ein Telemetrieprotokoll wie MAVLink, MSP oder ein proprietäres Fernsteuerungsprotokoll an den Flugcontroller. 
+
+\coleng
+
+Configuration is performed in the iNAV Configurator by enabling the Follow-Me mode, assigning it to an AUX channel, and configuring the GPS update rate and safe distances. iNAV supports various follow patterns, including direct pursuit and offset tracking.
+
+\colger
+
+Die Konfiguration erfolgt im iNAV Configurator durch Aktivieren des Follow-Me-Modus, das Zuweisen eines AUX-Kanals sowie die Einstellung der GPS-Aktualisierungsrate und der Sicherheitsabstände. iNAV unterstützt unterschiedliche Verfolgungsprofile, darunter direkte Verfolgung und seitlich versetztes Tracking.
 
 \colende
 
-\begin{figure}[htb]
-  \centering
-    \includegraphics[width=\linewidth]{Servomotor_IMG_5092.jpg}
-  \caption{Micro-Servo}
-  \label{AbbildungServo}
-\end{figure}
-\FloatBarrier
-
-
-\begin{figure}[htb]
-  \centering
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Drop_Mechanismus_Einzeldrop_WS2526.png}
-    \vspace{0pt} % sorgt für Top-Ausrichtung
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{Drop_Mechanismus_Multidrop_WS2526.png}
-    \vspace{0pt}
-  \end{minipage}
-  \caption{Two simple drop mechanisms created using a 3D printer. The left image shows a mechanism for releasing a single object, while the right image shows a mechanism designed to release multiple objects}
-  \label{AbbildungDropMechanismus}
-\end{figure}
-\FloatBarrier
-
-
-
-\renewcommand{\deutschertitel}{Elektromagnetische Mechanismen}
-\renewcommand{\englischertitel}{Electromagnetic mechanisms}
+\renewcommand{\deutschertitel}{Follow-Me mit ArduPilot}
+\renewcommand{\englischertitel}{Follow-Me with ArduPilot}
 \makroabschnitt
-\label{AbschnittDropElektromagnet}
+\label{AbschnittFollowMeArduPilot}
 
-In electromagnetic mechanisms, a small electromagnet holds a metallic loop or plate. When the current is interrupted, the payload is released. Advantages include the minimal number of moving parts and high operational reliability. A disadvantage is the comparatively higher power consumption.
+ArduPilot provides a comprehensive Follow-Me implementation that supports external GPS devices, companion computers (e.g., Raspberry Pi Zero, Raspberry Pi Compute Module\,4/5, NVidia TX1/TX2), and smartphone applications via MAVLink. Follow-Me requires a GPS-equipped external device. The drone must include a barometer, magnetic compass, accelerometer, gyroscope, and GPS module. 
 
 \colger
 
-Bei elektromagnetischen Mechanismen hält ein kleiner Elektromagnet eine metallische Öse oder Platte. Wird der Stromfluss abgeschaltet, fällt die Nutzlast ab. Vorteile sind die geringe Zahl beweglicher Teile und die hohe Zuverlässigkeit. Ein Nachteil ist der im Vergleich zu anderen Lösungen höhere Strombedarf.
+ArduPilot bietet eine umfassende Follow-Me-Implementierung, die externe GPS-Geräte, Companion-Computer (z.B. Raspberry Pi Zero, Raspberry Pi Compute Module\,4/5, NVidia TX1/TX2) und Smartphone-Anwendungen über MAVLink unterstützt. Für Follow-Me wird ein externes GPS-Gerät benötigt. Die Drohne muss über Barometer, magnetischen Kompass, Beschleunigungssensor, Gyroskop und ein GPS-Modul verfügen. 
+
+\coleng
+
+Follow-Me is enabled in Mission Planner by selecting the Follow-Me feature and configuring parameters such as follow distance, altitude offset, and update frequency. 
+
+\colger
+
+Die Aktivierung erfolgt im Mission Planner über die Follow-Me-Funktion, wobei Parameter wie Verfolgungsabstand, Höhenversatz und Aktualisierungsrate konfiguriert werden. 
+
+\coleng
+
+ArduPilot supports advanced behaviors including smooth pursuit, orbiting around the target, and terrain-following when additional sensors are available. Its implementation is suitable for professional and research applications.
+
+\colger
+
+ArduPilot unterstützt fortgeschrittene Verfolgungsverfahren, darunter sanfte Annäherung, Umkreisung des Ziels und Geländefolgeflug bei Verwendung zusätzlicher Sensoren. Die Umsetzung eignet sich für professionelle und forschungsorientierte Anwendungen.
 
 \colende
 
-\renewcommand{\deutschertitel}{Ansteuerung und Integration}
-\renewcommand{\englischertitel}{Control and Integration}
+\renewcommand{\deutschertitel}{Follow-Me mit PX4}
+\renewcommand{\englischertitel}{Follow-Me with PX4}
 \makroabschnitt
-\label{AbschnittDropControlIntegration}
+\label{AbschnittFollowMePX4}
 
-The activation of a drop mechanism is typically performed through an AUX channel on the radio transmitter. In Betaflight, the AUX channel is assigned to a servo or user channel (USER1/2) and controlled through a PWM-capable output. In ArduPilot, dedicated functions such as \verb!GRIPPER! or \verb!SERVOx_FUNCTION! are available, allowing both manual operation and fully autonomous release actions during mission execution.
+PX4 provides a Follow-Me feature primarily through the software QGroundControl and companion-computer applications. The function relies on the transmission of position data from a smartphone or companion system (e.g., Raspberry Pi Compute Module\,4) using MAVLink. PX4 requires a GPS-equipped flight controller with barometer, and magnetic compass. 
 
 \colger
 
-Die Steuerung eines Drop-Mechanismus erfolgt in der Regel über einen AUX-Kanal der Fernsteuerung. In Betaflight wird der AUX-Kanal einem Servo- oder Nutzerkanal (USER1/2) zugeordnet und über einen PWM-fähigen Ausgang angesteuert. In ArduPilot stehen dedizierte Funktionen wie \verb!GRIPPER! oder \verb!SERVOx_FUNCTION! zur Verfügung, die auch autonome Abwürfe im Rahmen von Missionen ermöglichen.
+PX4 stellt eine Follow-Me-Funktion bereit, die hauptsächlich über die Software QGroundControl und Companion-Computer-Anwendungen implementiert wird. Die Funktion basiert auf der Übertragung von Positionsdaten eines Smartphones oder eines Companion-Systems (z.B. Raspberry Pi Compute Module\,4) über MAVLink. Für den Follow-Me-Betrieb benötigt PX4 einen GPS-fähigen Flugcontroller mit Barometer und magnetischen Kompass.
 
 \colende
-

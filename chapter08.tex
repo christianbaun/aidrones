@@ -1,10 +1,10 @@
-\renewcommand{\deutschertitel}{Stereokameras mit einem Raspberry Pi\,5}
-\renewcommand{\englischertitel}{Stereo Camera Setup with a Raspberry Pi\,5}
+\renewcommand{\deutschertitel}{Drop-Mechanismen für FPV-Drohnen}
+\renewcommand{\englischertitel}{Drop Mechanisms for FPV Drones}
 \chapter[\texorpdfstring{\protect{\vspace{2pt}\englischertitel}}{\englischertitel}]{}
 \kapitel{\deutschertitel}
 \thispagestyle{empty}
 
-\label{KapitelStereoVision}
+\label{KapitelDropMechanismen}
 
 \begin{paracol}{2}[]
 
@@ -16,586 +16,94 @@
 
 \coleng
 
-Stereo cameras are a well established tool for depth perception. The main advantage compared to a simple camera setup is that no model needs to be trained to enable depth perception.
+Drop mechanisms enable an FPV drone to release a small payload on command. They are used in research projects, training environments, competition scenarios, and lightweight delivery tasks. The primary purpose of such mechanisms is to hold a payload securely and release it in a controlled manner based on a command from the flight controller. 
 
 \colger
 
-Stereokameras sind ein etabliertes Werkzeug zur Durchführung von Tiefenerkennung. Der Vorteil gegenüber einem einfachen Kamerasetup besteht darin, dass kein Modell trainiert werden muss, um die Tiefenerkennung zu realisieren.
+Drop-Mechanismen ermöglichen es einer FPV-Drohne, eine kleine Nutzlast auf Kommando kontrolliert abzuwerfen. Sie kommen in Forschungsprojekten, Trainingsumgebungen, Wettbewerbsdisziplinen sowie bei leichten Transportaufgaben zum Einsatz. Die zentrale Funktion solcher Mechanismen besteht darin, eine Nutzlast zuverlässig zu halten und sie anhand eines Steuersignals des Flugcontrollers kontrolliert freizugeben. 
 
 \coleng
 
-All that is required are two identical cameras and a computer that performs the necessary computations using OpenCV. Alternatively a stereo camera module can be used that is specifically designed for such use cases. These modules are usually more compact and easier to mount and connect. However they incur additional costs.
+The most common systems include servo-based and electromagnetic mechanisms. Spring-loaded mechanisms and clamp-based grippers are used less frequently in practice and are therefore not discussed further in this document. Regardless of the underlying mechanism, activation is typically carried out via an AUX channel on the radio transmitter and mapped to an appropriate output on the flight controller.
 
 \colger
 
-Alles was dafür benötigt wird sind zwei baugleiche Kameras und ein Computer der die notwendigen Berechnungen mithilfe von OpenCV durchführt. Alternativ kann auch ein Stereokameramodul verwendet werden das speziell für solche Anwendungsfälle konzipiert ist. Diese Module sind in der Regel platzsparender und einfacher zu montieren und anzuschließen. Allerdings verursachen sie zusätzliche Kosten.
-
-\coleng
-
-The following guide is based on a Raspberry Pi\,5 with 8 GB of RAM and two camera modules of the model RB-CAMERA-JT-V2-120. This choice was made because only the Raspberry Pi\,5 supports the parallel operation of two camera modules. Previous models would require an adapter that does not allow parallel operation of both cameras.
-
-\colger
-
-Die folgende Anleitung basiert auf einem Raspberry Pi\,5 mit 8 GB Arbeitsspeicher und zwei Kameramodulen des Modells RB-CAMERA-JT-V2-120. Diese Wahl wurde getroffen weil nur der Raspberry Pi\,5 die parallele Nutzung von zwei Kameramodulen unterstützt. Vorangegangene Modelle würden einen Adapter benötigen der keine parallele Nutzung beider Kameras zulässt.
+Zu den am häufigsten eingesetzten Lösungen zählen servo-basierte und elektromagnetische Systeme. Federbasierte Mechanismen sowie klammerbasierte Greifer werden in der Praxis deutlich seltener verwendet und daher in diesem Dokument nicht weiter betrachtet. Unabhängig vom zugrunde liegenden Mechanismus erfolgt die Aktivierung in der Regel über einen AUX-Kanal der Fernsteuerung, der einem geeigneten Ausgang des Flugcontrollers zugeordnet wird.
 
 \colende
 
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{StereoVision_Contraption.jpg}
-	\caption{Stereo Vision Contraption}
-	\label{StereoVisionContraption}
-\end{figure}
-
-\colstart
-
-The cameras are mounted next to each other and connected using two ribbon cables. The cameras should be mounted as parallel as possible. Since perfect alignment is not feasible it is corrected later by software.
-
-\colger
-
-Die Kameras werden nebeneinander montiert und mit zwei Minikabeln angeschlossen. Die Kameras sollten möglichst parallel ausgerichtet werden. Da eine perfekte Ausrichtung jedoch nicht möglich ist wird diese später softwareseitig korrigiert.
-
-\coleng
-
-Such a setup is only suitable for larger drones that can carry batteries with high capacity. On smaller drones the Raspberry Pi\,5 would significantly reduce the flight time. For smaller drones a simple camera setup combined with a model should be used.
-
-\colger
-
-Ein solches Setup ist jedoch nur für größere Drohnen geeignet die Batterien mit hoher Kapazität tragen können. Bei kleineren Drohnen würde das Raspberry Pi\,5 die Flugzeit sehr stark reduzieren. Für kleinere Drohnen sollte daher mit einem einfachen Kamerasetup in Kombination mit einem Modell gearbeitet werden.
-
-\colende
-
-\renewcommand{\deutschertitel}{Kamerakalibrierung}
-\renewcommand{\englischertitel}{Camera Calibration}
+\renewcommand{\deutschertitel}{Servo-basierte Abwurfmechanismen}
+\renewcommand{\englischertitel}{Servo-based release mechanisms}
 \makroabschnitt
-\label{AbschnittStereoVisionKalibrierung}
+\label{AbschnittDropServo}
 
-The need for camera calibration arises from the construction shown in Figure~\ref{StereoVisionContraption} because the two cameras are not mounted perfectly parallel. In theory it would be possible to iteratively adjust the construction until this condition is met. However it is highly unlikely that the lenses of both cameras are exactly identical.
+Servo-based release mechanisms are one of the most commonly used solutions on FPV drones. A micro servo (see Figure~\ref{AbbildungServo}) actuates a lever, pin, or hook that secures the payload. When triggered by a signal from the flight controller, the servo moves and releases the payload. This method is simple to implement, cost-effective, and offers precise control.
 
 \colger
 
-Die Notwendigkeit der Kamerakalibrierung ergibt sich aus der Konstruktion in Abbildung~\ref{StereoVisionContraption}, da die beiden Kameras nicht exakt parallel montiert sind. Theoretisch wäre es möglich, diese Konstruktion iterativ anzupassen, bis dies der Fall ist. Allerdings ist es äußerst unwahrscheinlich, dass die Linsen der beiden Kameras exakt identisch sind.
+Servo-basierte Abwurfmechanismen sind eine häufig eingesetzte Lösung bei FPV-Drohnen. Ein Micro-Servo (siehe Abbildung~\ref{AbbildungServo}) bewegt hierbei einen Hebel, Stab oder Haken, der die Nutzlast hält. Durch ein Signal des Flugcontrollers wird der Servo bewegt und gibt die Nutzlast frei. Diese Methode ist einfach umzusetzen, kostengünstig und präzise steuerbar.
 
 \coleng
 
-This is particularly relevant for Raspberry Pi cameras because they are so called pinhole cameras. Such cameras often exhibit pronounced radial distortion which causes straight lines to appear curved. Another relevant type of distortion is tangential distortion. It occurs when the camera lens is not perfectly parallel to the observed surface which is especially difficult to achieve when using two cameras.
+A simple drop mechanism (see Figure~\ref{AbbildungDropMechanismus}) for a drone can be designed and manufactured using a 3D printer as a small housing that accommodates a standard micro servo (e.g., in the 9-g form factor). The printed component typically includes a fitting servo mount, screw mounting points, and a small movable latch or hook that is actuated via the servo horn. In the closed position, the hook holds a loop or pin to which the payload is attached. When the servo is activated via the flight controller or a free receiver channel, the servo horn rotates and releases the holding mechanism, allowing the payload to be dropped. Lightweight materials such as PLA are suitable for printing. The design should be as compact and lightweight as possible in order to minimize its impact on the drone’s weight and center of gravity. It is also important to provide sufficient space for the servo cables as well as stable mounting points for attaching the mechanism to the drone frame.
 
 \colger
 
-Dies ist insbesondere für Raspberry Pi Kameras relevant, da es sich hierbei um sogenannte Pinhole Kameras handelt. Solche Kameras weisen häufig eine ausgeprägte radiale Verzerrung auf, wodurch gerade Linien gekrümmt erscheinen. Eine weitere relevante Verzerrungsform ist die Tangentialverzerrung. Sie entsteht wenn die Kameralinse nicht vollständig parallel zur aufgenommenen Oberfläche ausgerichtet ist was insbesondere bei der Verwendung von zwei Kameras sehr schwierig zu realisieren ist.
-
-\coleng
-
-This means that calibration is required regardless of the camera modules used including stereo camera modules. First both cameras are calibrated individually and are then jointly subjected to stereo calibration.
-
-\colger
-
-Das bedeutet, dass unabhängig von den verwendeten Kameramodulen einschließlich Stereomodulen eine Kalibrierung erforderlich ist. Dabei werden zunächst beide Kameras einzeln kalibriert und anschließend gemeinsam einer Stereokalibrierung unterzogen.
-
-\coleng
-
-During calibration the so called distortion coefficients are determined. These are denoted by $k_1$ $k_2$ and $k_3$ for radial distortion and by $p_1$ and $p_2$ for tangential distortion.
-
-\colger
-
-Bei der Kalibrierung werden die sogenannten Verzerrungskoeffizienten bestimmt. Diese werden mit $k_1$ $k_2$ und $k_3$ für die radiale Verzerrung sowie mit $p_1$ und $p_2$ für die tangentiale Verzerrung bezeichnet.
+Ein einfacher Drop-Mechanismus (siehe Abbildung~\ref{AbbildungDropMechanismus}) für eine Drohne kann mit einem 3D-Drucker als kleines Gehäuse konstruiert werden, das einen handelsüblichen Micro-Servo (z. B. im 9-g-Format) aufnimmt. Das gedruckte Bauteil enthält typischerweise eine Servoaussparung, Befestigungspunkte für Schrauben sowie eine kleine bewegliche Klappe oder einen Haken, der über das Servo-Horn betätigt wird. In der geschlossenen Position hält der Haken eine Schlaufe oder einen Stift, an dem die Nutzlast befestigt ist. Wird das Servo über den Flugcontroller oder einen freien Empfängerkanal angesteuert, dreht sich das Servo-Horn und gibt die Haltevorrichtung frei, sodass die Last abgeworfen wird. Für den Druck eignen sich leichte Materialien wie z.B. PLA. Die Konstruktion sollte möglichst kompakt und leicht sein, um Gewicht und Schwerpunkt der Drohne nur minimal zu beeinflussen. Wichtig ist außerdem, genügend Platz für die Servokabel sowie stabile Befestigungspunkte zur Montage am Drohnenrahmen vorzusehen.
 
 \colende
 
-$$ dist = (k_1, k_2, k_3, p_1, p_2) $$
-
-\colstart
-
-In addition intrinsic and extrinsic camera parameters are computed. The intrinsic parameters describe the internal camera settings represented by the matrix $K$. These parameters are independent of the observed scene and can be reused after the initial computation as long as the same settings are used. The parameters include the focal lengths $(f_x, f_y)$ and the optical center $(c_x, c_y)$ each expressed in pixel units.
-
-\colger
-
-Darüber hinaus werden intrinsische und extrinsische Kameraparameter berechnet. Die intrinsischen Parameter beschreiben die internen Kameraeinstellungen und werden durch die Matrix $K$ repräsentiert. Sie sind unabhängig von der betrachteten Szenerie und können nach der erstmaligen Berechnung wiederverwendet werden solange mit denselben Einstellungen gearbeitet wird. Zu diesen Parametern gehören die Brennweiten $(f_x, f_y)$ sowie das optische Zentrum $(c_x, c_y)$ jeweils als Pixelwerte.
-
-\colende
-
-$$ K = \begin{bmatrix}
-	f_x & 0 & c_x \\
-	0 & f_y & c_y \\
-	0 & 0 & 1
-\end{bmatrix}$$
-
-\colstart
-
-The extrinsic parameters consist of the 3x3 rotation matrix and the three dimensional translation vector denoted by $R$ and $t$ which describe the orientation and position of the camera in the environment. These parameters can be combined into a homogeneous transformation that maps a point in the real world coordinate system ($P_w$) to a point in the camera coordinate system ($P_c$).
-
-\colger
-
-Bei den extrinsischen Parametern handelt es sich um die 3x3 Rotationsmatrix und den dreidimensionalen Translationsvektor bezeichnet durch $R$ und $t$, die die Orientierung und Position der Kamera in der Umwelt beschreiben. Diese Parameter können zu einer homogenen Transformation kombiniert werden, die die Abbildung eines Punktes aus dem Koordinatensystem der realen Welt ($P_w$) in das Koordinatensystem der Kamera ($P_c$) beschreibt.
-
-\colende
-
-$$ P_c = \begin{bmatrix}
-	R & t \\
-	0 & 1
-\end{bmatrix} P_w $$
-
-\colstart
-
-To describe where the point is located in the image ($P_i$) and not only in the camera coordinate system ($P_c$) it must also be multiplied by the intrinsic camera matrix $K$.
-
-\colger
-
-Um zu beschreiben wo der Punkt im Bild ($P_i$) liegt und nicht nur im Koordinatensystem der Kamera ($P_c$) muss er zusätzlich mit der intrinsischen Kameramatrix $K$ multipliziert werden.
-
-\colende
-
-$$ P_i = K \times P_c $$
-
-\colstart
-
-Using these parameters it is possible to undistort an image that was captured with a calibrated camera. It is important that the image is captured with the same resolution that was used during camera calibration. If the image is scaled the intrinsic camera parameters must at least be scaled by the same factor.
-
-\colger
-
-Mithilfe dieser Parameter ist es möglich, ein Bild zu entzerren, das mit einer kalibrierten Kamera aufgenommen wurde. Wichtig ist dabei, dass das Bild mit derselben Auflösung aufgenommen wird, mit der die Kamera kalibriert wurde. Wird das Bild skaliert, müssen zumindest die intrinsischen Kameraparameter um denselben Faktor skaliert werden.
-
-\coleng
-
-Calibration is performed using a calibration pattern. The available options include a chessboard pattern a circle grid and a so called ChArUco board as shown in Figure~\ref{ImageStereoVisionCharucoBoard}. The latter is a chessboard pattern that is augmented with ArUco markers.
-
-\colger
-
-Die Kalibrierung erfolgt mithilfe eines Kalibrierungsmusters. Zur Auswahl stehen ein \textsl{Schachbrettmuster} ein \textsl{Raster aus Kreisen} sowie ein sogenanntes \textsl{ChArUco Board} wie in Abbildung~\ref{ImageStereoVisionCharucoBoard} dargestellt. Letzteres ist ein Schachbrettmuster, das mit ArUco Markierungen ergänzt wurde.
-
-\colende
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{Stereo_Vision_Charuco.png}
-	\caption{ChArUco Board Example [\href{https://docs.opencv.org/4.x/df/d4a/tutorial_charuco_detection.html}{Quelle: OpenCV}]}
-	\label{ImageStereoVisionCharucoBoard}
-	% Source: https://docs.opencv.org/4.x/df/d4a/tutorial_charuco_detection.html
-\end{figure}
-
-\colstart
-
-The advantage of the ChArUco pattern is that the ArUco markers are unique and can be individually identified. This makes it possible to capture calibration images that are partially occluded or in which not all chessboard corners are visible. This usually results in higher accuracy and should therefore be preferred over a plain chessboard pattern whenever possible.
-
-\colger
-
-Der Vorteil dieses ChArUco Patterns besteht darin, dass die ArUco Markierungen eindeutig sind und individuell zugeordnet werden können. Dadurch ist es möglich, Kalibrierungsbilder aufzunehmen, die teilweise verdeckt sind oder auf denen nicht alle Ecken des Schachbretts sichtbar sind. Dies führt in der Regel zu einer höheren Genauigkeit und sollte daher wenn möglich einem reinen Schachbrettmuster vorgezogen werden.
-
-\coleng
-
-For the other two patterns all corners or circles must be visible in the image. This makes it particularly difficult to cover the border areas of the pattern which are often critical for achieving good accuracy. In addition a larger number of images is required. The exact number of required images should be evaluated for each individual case. Ten images are generally a good starting point because at least this number is required for calibration using a chessboard pattern. The other patterns may require fewer images.
-
-\colger
-
-Bei den beiden anderen Mustern müssen alle Ecken beziehungsweise alle Kreise im Bild sichtbar sein. Dies macht es besonders schwierig Randbereiche der Aufnahmen abzudecken die häufig kritisch für eine gute Genauigkeit sind. Darüber hinaus werden mehr Bilder benötigt. Wie viele Bilder konkret erforderlich sind sollte im Einzelfall getestet werden. Zehn Bilder sind grundsätzlich ein guter Startpunkt, da diese mindestens für die Kalibrierung mit einem Schachbrettmuster benötigt werden. Die anderen Muster können unter Umständen auch mit weniger Bildern auskommen.
-
-\colende
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{Stereo_Vision_Detected_ChArUco.jpg}
-	\caption{ChArUco Board Detections}
-	\label{ImageStereoVisionCharucoDetections}
-\end{figure}
-
-\colstart
-
-Regardless of the chosen calibration pattern the calibration should be performed approximately at the distance at which the camera will later be used. In addition the pattern should cover at least half of the image. It should also be displayed on a flat surface and have a high resolution. Using a screen is recommended for this purpose.
-
-\colger
-
-Unabhängig vom gewählten Kalibrierungsmuster sollte die Kalibrierung ungefähr in der Entfernung durchgeführt werden in der die Kamera später eingesetzt wird. Darüber hinaus sollte das Muster mindestens die Hälfte des Bildes bedecken. Außerdem sollte es auf einer flachen Oberfläche abgebildet werden und hochauflösend sein. Es empfiehlt sich hierfür einen Bildschirm zu verwenden.
-
-\coleng
-
-The images should also be captured from different angles and with varying inclinations. Good illumination should be ensured because uneven lighting can cause not all points to be detected in every image.
-
-\colger
-
-Die Bilder sollten zudem aus unterschiedlichen Winkeln und mit unterschiedlichen Neigungen aufgenommen werden. Auf eine gute Belichtung sollte ebenfalls geachtet werden, da eine ungleichmäßige Ausleuchtung dazu führen kann, dass nicht alle Punkte auf jedem Bild erkannt werden.
-
-\coleng
-
-For capturing images in a dual camera setup it is recommended to synchronize the shutter release. In the case of Python this can be achieved using \texttt{threading.Barrier()} as shown in Figure~\ref{ListingTakingCalibrationPictures}.
-
-\colger
-
-Für das Aufnehmen der Bilder in einem Dual Camera Setup empfiehlt es sich den Auslöser zu synchronisieren. Im Falle von Python kann hierfür \texttt{threading.Barrier()} verwendet werden wie in Abbildung~\ref{ListingTakingCalibrationPictures} gezeigt.
-
-\colende
-
-\begin{figure}
-	\begin{lstlisting}[style=shell]
-from picamera2 import Picamera2
-from time import sleep
-import threading
-
-cam_zero = Picamera2(0)
-cam_one = Picamera2(1)
-barrier = threading.Barrier(2)
-
-def capture_zero(index):
-	barrier.wait()
-	cam_zero.capture_file(f"/path/to/images_0/{index}.jpg")
-
-def capture_one(index):
-	barrier.wait()
-	cam_one.capture_file(f"/path/to/images_1/{index}.jpg")
-
-try:
-	while True:
-		print(counter)
-		pic_zero = threading.Thread(target=capture_zero, args=(counter,))
-		pic_one = threading.Thread(target=capture_one, args=(counter,))
-		pic_zero.start()
-		pic_one.start()
-		pic_zero.join()
-		pic_one.join()
-		counter += 1
-		sleep(3)
-
-except KeyboardInterrupt:
-	cam_zero.close()
-	cam_one.close()
-	\end{lstlisting}
-	\caption{Test Listing}
-	\label{ListingTakingCalibrationPictures}
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=\linewidth]{Servomotor_IMG_5092.jpg}
+  \caption{Micro-Servo}
+  \label{AbbildungServo}
 \end{figure}
 \FloatBarrier
 
-\colstart
 
-As the final step before calibration the images from both cameras must be evaluated. This is done using \texttt{cv2.aruco.CharucoDetector(board)} as shown in Figure~\ref{ImageStereoVisionCharucoDetections}. The detector is used to identify the chessboard corners and the corresponding ArUco markers and to represent them as numerical values. These values are then used as input for \texttt{cv2.calibrateCamera()} as shown in Figure~\ref{ListingCornerDetection}.
-
-\colger
-
-Als letzter Schritt vor der Kalibrierung müssen die Bilder der beiden Kameras ausgewertet werden. Dies geschieht mithilfe von \texttt{cv2.aruco.CharucoDetector(board)} wie in Abbildung~\ref{ImageStereoVisionCharucoDetections} dargestellt. Dieser wird verwendet, um die Ecken des Schachbretts und die entsprechenden ArUco Markierungen zu erkennen und als Zahlenwerte zu beschreiben. Diese Zahlenwerte werden anschließend als Input für \texttt{cv2.calibrateCamera()} verwendet wie in Abbildung~\ref{ListingCornerDetection} gezeigt.
-
-\coleng
-
-The output of this function includes the intrinsic and extrinsic camera parameters the distortion coefficients the rotation matrix and the translation vector as well as the mean squared reprojection error for evaluating the calibration. Ideally this error should be smaller than one. However this alone does not guarantee a good result. If the error is smaller than one but the images cannot be undistorted it is recommended to inspect the reprojection error of the individual images.
-
-\colger
-
-Der Output dieser Funktion umfasst die intrinsischen und extrinsischen Kameraparameter die Verzerrungskoeffizienten die Rotationsmatrix und den Translationsvektor sowie die mittlere quadratische Abweichung zur Bewertung der Kalibrierung. Diese sollte idealerweise kleiner als eins sein. Dies ist jedoch noch keine Garantie für ein gutes Ergebnis. Ist die Abweichung kleiner als eins und lassen sich die Bilder dennoch nicht entzerren empfiehlt es sich die Abweichung der einzelnen Bilder separat zu prüfen.
-
-\coleng
-
-The detector does not always identify all relevant points even under good lighting conditions. By removing unsuitable images the result can be further improved. For this purpose the markers detected with \texttt{detector.detectBoard(image)} can be visualized using \texttt{cv2.aruco.drawDetectedCornersCharuco()} and then written to disk using \texttt{cv2.imwrite()}.
-
-\colger
-
-Nicht immer erkennt der Detector alle relevanten Punkte selbst bei guten Lichtverhältnissen. Durch das Löschen ungeeigneter Bilder kann das Ergebnis weiter verbessert werden. Zu diesem Zweck können die mit \texttt{detector.detectBoard(image)} erkannten Marker mithilfe von \texttt{cv2.aruco.drawDetectedCornersCharuco()} visualisiert und anschließend mit \texttt{cv2.imwrite()} ausgegeben werden.
-
-\coleng
-
-Visual inspection makes it easier to identify problems with the calibration images. This is particularly relevant for chessboard patterns because it is not guaranteed that the corners are always detected in the same order.
-
-\colger
-
-Durch visuelles Inspizieren lassen sich Probleme mit den Kalibrierungsbildern einfacher erkennen. Dies ist insbesondere bei Schachbrettmustern relevant, da nicht garantiert ist, dass die Ecken immer in derselben Reihenfolge erkannt werden.
-
-\colende
-
-\begin{figure}
-	\begin{lstlisting}[style=shell]
-import cv2
-import numpy as np
-import os
-from glob import glob
-
-def charuco_calibration(images_glob : str, cam : int):
-	dictionary = cv2.aruco.getPredefinedDictionary(ARUCO_DICT)
-	board = cv2.aruco.CharucoBoard((SQUARES_VERTICALLY, SQUARES_HORIZONTALLY), SQUARE_LENGTH, MARKER_LENGTH, dictionary)
-	params = cv2.aruco.DetectorParameters()
-	detector = cv2.aruco.CharucoDetector(board)
-	image_paths = glob(images_glob)
-	all_charuco_corners = []
-	all_charuco_ids = []
-	all_image_pts = []
-	all_object_pts = []
-	counter = 1
-
-	for image_path in image_paths:
-		image = cv2.imread(image_path)
-		grayscaled = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-		charuco_corners, charuco_ids, marker_corners, marker_ids = detector.detectBoard(image)
-
-
-		if charuco_corners is not None:   
-			image = cv2.aruco.drawDetectedCornersCharuco(image, charuco_corners, charuco_ids)
-			object_points, image_points = board.matchImagePoints(charuco_corners, charuco_ids)
-			all_object_pts.append(object_points)
-			all_image_pts.append(image_points)
-			all_charuco_corners.append(charuco_corners)
-			all_charuco_ids.append(charuco_ids)
-			counter += 1
-
-	image_height, image_width = image.shape[:2]
-	retval, camera_matrix, dist_coeffs, rvecs, tvecs = cv2.calibrateCamera(all_object_pts, all_image_pts, (image_height, image_width), None, None)
-	return all_object_pts, all_image_pts, retval, camera_matrix, dist_coeffs, rvecs, tvecs, image_height, image_width
-	\end{lstlisting}
-	\caption{ChArUco Board Corner Detection}
-	\label{ListingCornerDetection}
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Drop_Mechanismus_Einzeldrop_WS2526.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Drop_Mechanismus_Multidrop_WS2526.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Two simple drop mechanisms created using a 3D printer. The left image shows a mechanism for releasing a single object, while the right image shows a mechanism designed to release multiple objects}
+  \label{AbbildungDropMechanismus}
 \end{figure}
 \FloatBarrier
 
-\colstart
 
-After calibration the intrinsic camera matrix can be refined using \texttt{cv2.getOptimalCameraMatrix()} as shown in Figure~\ref{ListingCameraCalibration}. The scaling factor $\alpha = [0, 1]$ determines how many unwanted pixels remain in the image. If $\alpha = 1$ all pixels of the original image are retained which results in areas with black pixels. If $\alpha = 0$ these areas are minimized which may lead to a loss of parts of the original image information.
 
-\colger
-
-Nach der Kalibrierung kann die intrinsische Kameramatrix mit \texttt{cv2.getOptimalCameraMatrix()} verfeinert werden wie in Abbildung~\ref{ListingCameraCalibration} gezeigt. Der dabei verwendete Skalierungsfaktor $\alpha = [0, 1]$ bestimmt wie viele unerwünschte Pixel im Bild verbleiben. Wird $\alpha = 1$ gewählt werden alle Pixel des ursprünglichen Bildes beibehalten wodurch Bereiche mit schwarzen Pixeln entstehen. Wird $\alpha = 0$ gewählt werden diese Bereiche minimiert wodurch unter Umständen nicht die vollständige Information des ursprünglichen Bildes erhalten bleibt.
-
-\colende
-
-\begin{figure}
-	\begin{lstlisting}[style=shell]
-obj_pts_zero, img_pts_zero, ret_zero, mtx_zero, dist_zero, rvecs_zero, tvecs_zero, h_zero, w_zero = charuco_calibration(images_glob=images_zero, cam=0)
-new_mtx_zero, roi_zero = cv2.getOptimalNewCameraMatrix(mtx_zero, dist_zero, (w_zero,h_zero), 0, (w_zero,h_zero))
-
-obj_pts_one, img_pts_one, ret_one, mtx_one, dist_one, rvecs_one, tvecs_one, h_one, w_one = charuco_calibration(images_one, 1)
-new_mtx_one, roi_one = cv2.getOptimalNewCameraMatrix(mtx_one, dist_one, (w_one,h_one), 0, (w_one,h_one))
-	\end{lstlisting}
-	\caption{Single Camera Calibration \& Optimal Camera Matrix}
-	\label{ListingCameraCalibration}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-For testing purposes the function \texttt{cv2.undistort()} can be used. The resulting image can then be written using \texttt{cv2.imwrite()}. If too many black pixels remain and $\alpha = 0$ is used the image can additionally be cropped to the region of interest ROI.
-
-\colger
-
-Zum Testen kann die Funktion \texttt{cv2.undistort()} verwendet werden. Mit \texttt{cv2.imwrite()} kann das Bild anschließend ausgegeben werden. Sollten bei der Wahl von $\alpha = 0$ zu viele schwarze Pixel vorhanden sein, kann das Bild zusätzlich auf die \textsl{Region of Interest ROI} zugeschnitten werden.
-
-\colende
-
-\renewcommand{\deutschertitel}{Stereo-Kalibrierung}
-\renewcommand{\englischertitel}{Stereo Calibration}
+\renewcommand{\deutschertitel}{Elektromagnetische Mechanismen}
+\renewcommand{\englischertitel}{Electromagnetic mechanisms}
 \makroabschnitt
-\label{AbschnittStereoKalibrierung}
+\label{AbschnittDropElektromagnet}
 
-After successful calibration of the individual cameras it is possible to project a 3D point onto a 2D image and to undistort it. In order to reconstruct the three dimensional information it is necessary to determine the relative pose of the two cameras.
-
-\colger
-
-Nach einer erfolgreichen Kalibrierung der einzelnen Kameras ist es jeweils möglich einen 3D Punkt auf ein 2D Bild zu projizieren und dieses zu entzerren. Um die dreidimensionale Information wiederherzustellen, muss berechnet werden wie die beiden Kameras zueinander ausgerichtet sind.
-
-\coleng
-
-For this purpose the function \texttt{cv2.stereoCalibrate} is used as shown in Figure~\ref{ListingStereoCalibration}. The variable \texttt{criteria\_stereo} allows the computation to be refined. The flag \texttt{cv2.CALIB\_FIX\_INTRINSIC\_GUESS} ensures that the intrinsic matrices obtained from single camera calibration are not modified during this process.
+In electromagnetic mechanisms, a small electromagnet holds a metallic loop or plate. When the current is interrupted, the payload is released. Advantages include the minimal number of moving parts and high operational reliability. A disadvantage is the comparatively higher power consumption.
 
 \colger
 
-Hierfür wird die Funktion \texttt{cv2.stereoCalibrate} verwendet, wie in Abbildung~\ref{ListingStereoCalibration} gezeigt. Die Variable \texttt{criteria\_stereo} ermöglicht es, die Berechnung zu verfeinern. Die Flagge \texttt{cv2.CALIB\_FIX\_INTRINSIC\_GUESS} stellt sicher, dass die intrinsischen Matrizen aus der Einzelkalibrierung während dieses Prozesses nicht verändert werden.
-
-\coleng
-
-It is important that the calibration images are synchronized. This is ensured by the code shown in Figure~\ref{ListingTakingCalibrationPictures}. If required a second set of calibration images can be created. In this case the points must be detected again.
-
-\colger
-
-Wichtig ist dabei, dass die Kalibrierungsbilder synchronisiert sind. Dies wird durch den Code in Abbildung~\ref{ListingTakingCalibrationPictures} sichergestellt. Bei Bedarf kann jedoch auch ein zweiter Satz Kalibrierungsbilder erstellt werden. In diesem Fall müssen die Punkte erneut erkannt werden.
+Bei elektromagnetischen Mechanismen hält ein kleiner Elektromagnet eine metallische Öse oder Platte. Wird der Stromfluss abgeschaltet, fällt die Nutzlast ab. Vorteile sind die geringe Zahl beweglicher Teile und die hohe Zuverlässigkeit. Ein Nachteil ist der im Vergleich zu anderen Lösungen höhere Strombedarf.
 
 \colende
 
-\begin{figure}
-	\begin{lstlisting}[style=shell]
-criteria_stereo = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.0001)
-retS, new_mtx_zero, dist_zero, new_mtx_one, dist_one, Rot, Trns, Emat, Fmat = cv2.stereoCalibrate(obj_pts_one, img_pts_zero, img_pts_one, mtx_zero, dist_zero, mtx_one, dist_one, (w_zero,h_zero), criteria_stereo, cv2.CALIB_FIX_INTRINSIC_GUESS)
-	\end{lstlisting}
-	\caption{Single Camera calibration}
-	\label{ListingStereoCalibration}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-The result of stereo calibration consists of the rotation and translation vectors $R$ and $t$ between the two cameras as well as the essential matrix $E$ and the fundamental matrix $F$. The rotation matrix describes the three dimensional rotation from camera one to camera two. The translation vector describes the displacement of the coordinate system of the first camera relative to the second camera. In addition the mean squared reprojection error is returned which should ideally be smaller than three.
-
-\colger
-
-Das Ergebnis der Stereokalibrierung sind die Rotations und Translationsvektoren $R$ und $t$ zwischen den beiden Kameras sowie die essentielle Matrix $E$ und die fundamentale Matrix $F$. Die Rotationsmatrix beschreibt die dreidimensionale Rotation von Kamera eins zu Kamera zwei. Der Translationsvektor beschreibt die Verschiebung des Koordinatensystems der ersten Kamera relativ zur zweiten Kamera. Darüber hinaus wird die mittlere quadratische Abweichung zurückgegeben welche idealerweise ebenfalls kleiner als drei sein sollte.
-
-\coleng
-
-The essential matrix is derived from the two previously mentioned vectors according to $E = [t] \times R$. Using this matrix it is possible to determine where a point in the coordinate system of camera one is located in the coordinate system of camera two. The line connecting these corresponding points is referred to as the epipolar line.
-
-\colger
-
-Die essentielle Matrix ergibt sich aus den beiden zuvor genannten Vektoren nach $E = [t] \times R$. Mithilfe dieser Matrix lässt sich bestimmen wo ein Punkt im Koordinatensystem von Kamera eins im Koordinatensystem von Kamera zwei liegt. Die Verbindungslinie zwischen diesen beiden Punkten wird als epipolare Linie bezeichnet.
-
-\coleng
-
-The fundamental matrix serves the same purpose but operates on pixel coordinates instead of normalized coordinates. It is computed using the essential matrix and the intrinsic matrices of both cameras.
-
-\colger
-
-Die fundamentale Matrix erfüllt den gleichen Zweck arbeitet jedoch mit Pixelkoordinaten anstelle von normalisierten Koordinaten. Sie wird mithilfe der essentiellen Matrix und der intrinsischen Matrizen beider Kameras berechnet.
-
-\colende
-
-$$ F = K'^{-\top} E K^{-1} $$ 
-
-\colstart
-
-Using these matrices the function \texttt{cv2.stereoRectify()} can be applied to make the epipolar lines horizontal as shown in Figure~\ref{ListingStereoRectification}. As a result both images share the same Y coordinates even if they are not mounted perfectly horizontally. This significantly improves the robustness of depth estimation because corresponding points in image one can also be found in image two. The results of the rectification include the rectification and projection matrices as well as the matrix $Q$ and the respective regions of interest of both images.
-
-\colger
-
-Mithilfe dieser Matrizen kann die Funktion \texttt{cv2.stereoRectify()} angewendet werden, um die epipolaren Linien horizontal auszurichten wie in Abbildung~\ref{ListingStereoRectification} dargestellt. Dadurch besitzen beide Bilder die gleichen Y Koordinaten, auch wenn sie nicht perfekt horizontal montiert sind. Dies macht die Tiefenerkennung deutlich robuster, da alle Punkte in Bild eins auch in Bild zwei gefunden werden können. Die Resultate der Korrektur umfassen die Korrektur und Projektionsmatrizen sowie die Matrix $Q$ und die jeweilige ROI der beiden Bilder.
-
-\coleng
-
-In this context the ROI describes an area within the image in which all pixels are valid. The rectification matrices describe how the respective images must be adjusted to obtain horizontal epipolar lines. The projection matrices ($P_0, P_1$) describe the required transformation to project a three dimensional point into the respective two dimensional coordinate system independently of the scene. They can be interpreted as an extension of the intrinsic camera matrix $K$.
-
-\colger
-
-In diesem Zusammenhang beschreibt die ROI einen Bereich im Bild in dem alle Pixel valide sind. Die Korrekturmatrizen beschreiben wie die jeweiligen Bilder angepasst werden müssen, um horizontale Epipolarlinien zu erhalten. Die Projektionsmatrizen ($P_0, P_1$) beschreiben die notwendige Transformation, um einen dreidimensionalen Punkt in das jeweilige zweidimensionale Koordinatensystem zu projizieren, unabhängig von der Szenerie. Sie können als Erweiterung der intrinsischen Kameramatrix $K$ interpretiert werden.
-
-\colende
-
-$$ P_0, P_1 = \begin{bmatrix}
-	f_x & 0 & c_x & t_x \\
-	0 & f_y & c_y & 0 \\
-	0 & 0 & 1 & 0
-\end{bmatrix}· $$
-
-\colstart
-
-The added value $t_x$ describes the horizontal offset between the two images expressed in pixel units. The parameters $f$ and $c$ continue to represent the focal length and the optical center. After applying \texttt{cv2.stereoRectify()} it should normally hold that $f_x = f_y$.
-
-\colger
-
-Der hinzugefügte Wert $t_x$ beschreibt den horizontalen Versatz zwischen den beiden Bildern als Pixelwert. $f$ und $c$ beschreiben weiterhin die Brennweite und das optische Zentrum. Nach der Verwendung von \texttt{cv2.stereoRectify()} sollte in der Regel $f_x = f_y$ gelten.
-
-\coleng
-
-The matrix $Q$ represents a reprojection matrix. Its usage is explained in Section~\ref{AbschnittStereoVisionTiefenerkennung}.
-
-\colger
-
-Die Matrix $Q$ beschreibt eine \textsl{Reprojektionsmatrix}. Wie diese verwendet werden kann wird in Abschnitt~\ref{AbschnittStereoVisionTiefenerkennung} erläutert.
-
-\colende
-
-\begin{figure}
-	\begin{lstlisting}[style=shell]
-rectify_scale = 0
-rect_zero, rect_one, proj_mat_zero, proj_mat_one, Q, roi_zero, roi_one = cv2.stereoRectify(new_mtx_zero, dist_zero, new_mtx_one, dist_one, (w_zero,h_zero), Rot, Trns, rectify_scale,(0,0))
-	\end{lstlisting}
-	\caption{Stereo Rectification}
-	\label{ListingStereoRectification}
-\end{figure}
-
-\colstart
-
-Since the two cameras are mounted statically it is sufficient to compute rectification once and then store the result. This saves a significant amount of computation time and improves overall performance. For this purpose the function \texttt{cv2.initUndistortRectifyMap()} can be used as shown in Figure~\ref{ListingInitUndistortRectifyMap}. It creates a mapping function between the cameras that can be reused repeatedly.
-
-\colger
-
-Da die beiden Kameras statisch montiert sind genügt es die Rectification einmal zu berechnen und anschließend zu speichern. Dadurch kann viel Rechenzeit eingespart werden was die Performance verbessert. Hierfür kann die Funktion \texttt{cv2.initUndistortRectifyMap()} verwendet werden wie in Abbildung~\ref{ListingInitUndistortRectifyMap} gezeigt. Diese erstellt eine Mapping Funktion zwischen den Kameras die wiederholt verwendet werden kann.
-
-\colende
-
-\begin{figure}
-	\begin{lstlisting}[style=shell]
-Stereo_Map_Zero = cv2.initUndistortRectifyMap(new_mtx_zero, dist_zero, rect_zero, proj_mat_zero, (w_zero,h_zero), cv2.CV_16SC2)
-Stereo_Map_One = cv2.initUndistortRectifyMap(new_mtx_one, dist_one, rect_one, proj_mat_one, (w_zero,h_zero), cv2.CV_16SC2)
-
-cv_file = cv2.FileStorage("/path/to/stereo_maps.xml", cv2.FILE_STORAGE_WRITE)
-cv_file.write("Stereo_Map_Zero_x",Stereo_Map_Zero[0])
-cv_file.write("Stereo_Map_Zero_y",Stereo_Map_Zero[1])
-cv_file.write("Stereo_Map_One_x",Stereo_Map_One[0])
-cv_file.write("Stereo_Map_One_y",Stereo_Map_One[1])
-cv_file.release()
-	\end{lstlisting}
-	\caption{Initializing the stereo mapping function}
-	\label{ListingInitUndistortRectifyMap}
-\end{figure}
-\FloatBarrier
-
-\renewcommand{\deutschertitel}{Tiefenerkennung}
-\renewcommand{\englischertitel}{Depth Estimation}
+\renewcommand{\deutschertitel}{Ansteuerung und Integration}
+\renewcommand{\englischertitel}{Control and Integration}
 \makroabschnitt
-\label{AbschnittStereoVisionTiefenerkennung}
+\label{AbschnittDropControlIntegration}
 
-After the images have been aligned along the Y axis the differences between the captured images must be computed. For this purpose the block matching algorithm is used. It divides the image into smaller blocks such as 5x5 pixels and searches for corresponding blocks along the epipolar line in the reference image.
-
-\colger
-
-Nun, da die Bilder entlang einer gemeinsamen Y Achse ausgerichtet sind, gilt es, die Unterschiede zwischen den aufgenommenen Bildern zu berechnen. Hierzu wird der Block Matching Algorithmus verwendet. Dieser teilt das Bild in kleinere Blöcke wie beispielsweise 5x5 Pixel auf und sucht entlang der epipolaren Linie im Referenzbild nach korrespondierenden Blöcken.
-
-\coleng
-
-Using configurable metrics such as the sum of absolute differences the sum of squared differences or normalized cross correlation the blocks are compared sequentially and a so called disparity map is generated.
+The activation of a drop mechanism is typically performed through an AUX channel on the radio transmitter. In Betaflight, the AUX channel is assigned to a servo or user channel (USER1/2) and controlled through a PWM-capable output. In ArduPilot, dedicated functions such as \verb!GRIPPER! or \verb!SERVOx_FUNCTION! are available, allowing both manual operation and fully autonomous release actions during mission execution.
 
 \colger
 
-Anhand unterschiedlicher konfigurierbarer Metriken wie der Summe der absoluten Differenzen der Summe der quadrierten Differenzen oder der normalisierten Kreuzkorrelation werden die Blöcke nacheinander verglichen und eine sogenannte Disparity Map erstellt.
-
-\coleng
-
-This disparity map represents the displacement between the two images within the respective blocks for example encoded as grayscale values. OpenCV provides the class \texttt{cv2.StereoBM} which can be used to compute such a disparity map.
-
-\colger
-
-Diese Disparity Map repräsentiert die Verschiebung zwischen den beiden Bildern innerhalb der jeweiligen Blöcke beispielsweise als Grauwert. OpenCV stellt hierfür die Klasse \texttt{cv2.StereoBM} bereit mit der eine solche Disparity Map berechnet werden kann.
-
-\coleng
-
-Alternatively semi global block matching can be used to compute the disparity map. OpenCV also provides a corresponding class named \texttt{cv2.StereoSGBM}. SGBM enables sub pixel computations which can result in sharper textures.
-
-\colger
-
-Alternativ kann auch Semi Global Block Matching verwendet werden, um die Disparity Map zu berechnen. Hierfür existiert ebenfalls eine OpenCV Klasse mit dem Namen \texttt{cv2.StereoSGBM}. SGBM ermöglicht Subpixel Berechnungen wodurch Texturen schärfer dargestellt werden können.
-
-\coleng
-
-Both BM and SGBM can be refined using a wide range of parameters. This includes for example the block size that is evaluated or whether a pre filter should be applied to enhance image textures. The method \texttt{compute(img\_l, img\_r)} which performs the actual disparity computation returns values that are scaled by a factor of sixteen. To obtain the actual disparity values the result must be divided by sixteen.
-
-\colger
-
-Sowohl BM als auch SGBM können mithilfe einer Vielzahl von Parametern verfeinert werden. Dazu zählen beispielsweise die zu prüfende Blockgröße oder die Verwendung eines Pre Filters, um Texturen im Bild besser hervorzuheben. Die Methode \texttt{compute(img\_l, img\_r)} welche die eigentliche Disparity Berechnung durchführt liefert Werte zurück die mit dem Faktor sechzehn skaliert sind. Um die tatsächlichen Disparity Werte zu erhalten muss das Ergebnis durch sechzehn geteilt werden.
-
-\coleng
-
-From these disparity values $D$ the depth values $Z$ can be computed. This requires the focal length $f$ and the baseline $B$. These values are not taken from the original calibration but from the results of \texttt{cv2.stereoCalibrate()} and \texttt{cv2.stereoRectify()}. The baseline corresponds to the first component of the translation vector obtained during calibration and the focal length can be extracted from the projection matrix of camera one because after rectification it typically holds that $f_x = f_y$. To compute the depth value for a given point the following calculation must be performed.
-
-\colger
-
-Aus diesen Disparity Werten $D$ können die Tiefenwerte $Z$ berechnet werden. Hierfür werden zusätzlich die Brennweite $f$ und die Grundlinie $B$ benötigt. Diese Werte werden nicht aus der ursprünglichen Kalibrierung entnommen, sondern aus den Ergebnissen von \texttt{cv2.stereoCalibrate()} und \texttt{cv2.stereoRectify()}. Die Grundlinie entspricht der ersten Komponente des Übersetzungsvektors aus der Kalibrierung und die Brennweite kann aus der Projektionsmatrix von Kamera eins entnommen werden, da nach der Korrektur in der Regel $f_x = f_y$ gilt. Um einen Tiefenwert für einen gegebenen Punkt zu berechnen muss folgende Berechnung durchgeführt werden.
-
-\colende
-
-$$ Z = \frac{Bf}{D} $$
-
-\colstart
-
-This computation does not necessarily have to be performed explicitly. The matrix $Q$ returned by \texttt{cv2.stereoRectify()} can be used in combination with the method \texttt{reprojectImageTo3D} to obtain the depth values. These are stored in \texttt{im3d(x, y, ch)} and contain the three dimensional coordinates for the respective point $(x, y)$.
-
-\colger
-
-Diese Berechnung muss jedoch nicht explizit durchgeführt werden. Die Matrix $Q$ die von \texttt{cv2.stereoRectify()} zurückgegeben wird kann in Verbindung mit der Methode \texttt{reprojectImageTo3D} verwendet werden, um die Tiefenwerte zu bestimmen. Diese werden in \texttt{im3d(x, y, ch)} ausgegeben und enthalten die dreidimensionalen Koordinaten für den jeweiligen Punkt $(x, y)$.
-
-\coleng
-
-If the computation is nevertheless performed explicitly it is recommended to normalize the disparity values. Furthermore it must be ensured that $D > 0$ for each point in the image because otherwise incorrect depth values are computed. This can cause the resulting depth values to appear distorted.
-
-\colger
-
-Sollte die Berechnung dennoch explizit durchgeführt werden, empfiehlt es sich, die Disparity zu normalisieren. Darüber hinaus muss darauf geachtet werden, dass $D > 0$ für jeden Punkt im Bild gilt, da andernfalls falsche Tiefenwerte berechnet werden. Dies kann dazu führen, dass die resultierenden Tiefenwerte verzerrt wirken.
-
-\coleng
-
-A potential benefit of this explicit computation is that it is not necessary to calculate depth values for all pixels but only for regions of interest. This can be combined with object detection and is particularly relevant for higher resolutions. In general the limitations of the Raspberry Pi must be considered. At a resolution of 640x480 the Raspberry Pi is capable of computing the disparity at a usable frame rate. Higher resolutions must be evaluated on a case by case basis.
-
-\colger
-
-Ein möglicher Vorteil dieser expliziten Berechnung besteht darin, dass nicht alle Tiefenwerte berechnet werden müssen, sondern nur für relevante Regionen. Dies lässt sich in Verbindung mit einer Objekterkennung realisieren und ist insbesondere für höhere Auflösungen interessant. Grundsätzlich sind dabei die Limitierungen des Raspberry Pi zu berücksichtigen. Bei einer Auflösung von 640x480 ist das Raspberry Pi in der Lage, die Disparity mit einer nutzbaren Framerate zu berechnen. Höhere Auflösungen müssen im Einzelfall geprüft werden.
+Die Steuerung eines Drop-Mechanismus erfolgt in der Regel über einen AUX-Kanal der Fernsteuerung. In Betaflight wird der AUX-Kanal einem Servo- oder Nutzerkanal (USER1/2) zugeordnet und über einen PWM-fähigen Ausgang angesteuert. In ArduPilot stehen dedizierte Funktionen wie \verb!GRIPPER! oder \verb!SERVOx_FUNCTION! zur Verfügung, die auch autonome Abwürfe im Rahmen von Missionen ermöglichen.
 
 \colende
 

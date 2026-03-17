@@ -1,10 +1,10 @@
-\renewcommand{\deutschertitel}{Follow-Me-Funktion}
-\renewcommand{\englischertitel}{Follow-Me Function}
+\renewcommand{\deutschertitel}{Autopilot}
+\renewcommand{\englischertitel}{Autopilot}
 \chapter[\texorpdfstring{\protect{\vspace{2pt}\englischertitel}}{\englischertitel}]{}
 \kapitel{\deutschertitel}
 \thispagestyle{empty}
 
-\label{KapitelFollowme}
+\label{KapitelAutopilot}
 
 \begin{paracol}{2}[]
 
@@ -16,102 +16,417 @@
 
 \coleng
 
-The Follow-Me function allows an FPV drone to track and follow a moving target, typically a person carrying a GPS device, a smartphone, or a companion transmitter. This capability is useful for recording moving subjects, supporting inspection tasks, or enabling semi-autonomous flight operations. 
+An autopilot system enables an FPV drone to perform autonomous or semi-autonomous tasks such as position hold, altitude hold, waypoint missions, or return-to-home procedures. These functions rely on a combination of hardware components, sensors, and flight-controller firmware that interprets sensor data and executes control commands. 
 
 \colger
 
-Die Follow-Me-Funktion ermöglicht es einer FPV-Drohne, einem sich bewegenden Ziel zu folgen, typischerweise einer Person, die ein GPS-Gerät, ein Smartphone oder einen zusätzlichen Sender mit sich führt. Diese Fähigkeit wird unter anderem zur Aufnahme bewegter Szenen, zur Unterstützung von Inspektionsaufgaben oder für teilautonome Fluganwendungen genutzt. 
+Ein Autopilot-System ermöglicht es einer FPV-Drohne, autonome oder teilautonome Aufgaben wie das Halten der Position, das Halten der Flughöhe, Wegpunktmissionen oder die Rückkehr zum Startpunkt auszuführen. Diese Funktionen basieren auf einer Kombination aus Hardwarekomponenten, Sensoren und Flugcontroller-Firmware, welche die Sensordaten auswertet und entsprechende Steuerbefehle umsetzt. 
 
 \coleng
 
-Depending on the firmware, the Follow-Me function may rely on external GPS data, telemetry links, onboard sensors, or a combination of these. The following sections describe how Follow-Me is implemented in Betaflight, iNAV, ArduPilot, and provide an outlook on its implementation in PX4. 
+Various firmware platforms provide differing levels of capability and complexity, including Betaflight, iNAV, ArduPilot, and PX4. The following sections outline the requirements, configuration steps, and supported functions for each of these systems.
 
 \colger
 
-Je nach Firmware basiert die Follow-Me-Funktion auf externen GPS-Daten, Telemetrieverbindungen, an Bord befindlichen Sensoren oder einer Kombination dieser Quellen. Die folgenden Abschnitte beschreiben die Umsetzung der Follow-Me-Funktion in Betaflight, iNAV, ArduPilot sowie einen Ausblick auf die Implementierung in PX4. 
+Verschiedene Firmware-Plattformen bieten hierfür unterschiedliche Fähigkeiten und Komplexitätsstufen, darunter Betaflight, iNAV, ArduPilot und PX4. Die folgenden Abschnitte beschreiben die Anforderungen, Konfigurationsschritte und unterstützten Funktionen der jeweiligen Systeme.
 
 \colende
 
-\renewcommand{\deutschertitel}{Follow-Me mit Betaflight}
-\renewcommand{\englischertitel}{Follow-Me with Betaflight}
+\renewcommand{\deutschertitel}{Autopilot mit Betaflight}
+\renewcommand{\englischertitel}{Autopilot with Betaflight}
 \makroabschnitt
-\label{AbschnittFollowMeBetaflight}
+\label{AbschnittAutopilotBetaflight}
 
-Betaflight does not provide a Follow-Me mode, as the firmware is primarily optimized for manual flight (freestyle and racing). Only basic GPS-assisted functions such as rescue mode are available. Follow-Me operation is not supported because Betaflight lacks autonomous navigation, positional tracking, and target-following logic. Implementing Follow-Me functionality would require a transition to iNAV or ArduPilot.
+Betaflight (see Section~\ref{AbschnittBetaflight}) is primarily designed for manual flight (freestyle and racing) and does not provide a full-featured autopilot. However, limited autonomous functions can be implemented, such as angle-stabilized flight, horizon-assisted stabilization, and basic failsafe procedures. 
 
 \colger
 
-Betaflight bietet keinen Follow-Me-Modus, da die Firmware primär für für manuelles Fliegen (Freestyle und Rennen) ausgelegt ist. Lediglich grundlegende GPS-gestützte Funktionen wie der Rescue Mode sind verfügbar. Ein Follow-Me-Betrieb wird nicht unterstützt, da Betaflight keine autonome Navigation, keine Positionsverfolgung und keine Zielverfolgungslogik bereitstellt. Für den Einsatz der Follow-Me-Funktion wird daher ein Wechsel zu iNAV oder ArduPilot erforderlich.
+Betaflight (siehe Abschnitt~\ref{AbschnittBetaflight}) ist primär für manuelles Fliegen (Freestyle und Rennen) ausgelegt und stellt keinen vollwertigen Autopiloten bereit. Es lassen sich jedoch begrenzte autonome Funktionen realisieren, etwa stabilisierte Flugmodi (Angle, Horizon) oder grundlegende Failsafe-Verfahren. 
+
+\coleng
+
+To achieve these functions, the flight controller requires an accelerometer, a gyroscope, and optionally a barometer. GPS support is available only for basic features such as rescue mode. Betaflight does not support waypoint missions or advanced navigation. 
+
+\colger
+
+Für diese Funktionen werden ein Beschleunigungssensor, ein Gyroskop und optional ein Barometer benötigt. GPS-Unterstützung existiert nur in eingeschränkter Form, beispielsweise für den Rescue Mode. Wegpunktmissionen oder fortgeschrittene Navigationsaufgaben werden nicht unterstützt. 
+
+\coleng
+
+Configuration is performed through the Betaflight Configurator or via the Betaflight web application, where stabilization modes, failsafe behavior, and optional rescue functionality can be assigned to AUX channels.
+
+\colger
+
+Die Konfiguration erfolgt über den Betaflight Configurator oder über die Betaflight Webanwendung, wo Stabilisierung, Failsafe-Verhalten und optional Rettungsfunktionen auf AUX-Kanäle gelegt werden können.
 
 \colende
 
-\renewcommand{\deutschertitel}{Follow-Me mit iNAV}
-\renewcommand{\englischertitel}{Follow-Me with iNAV}
+\renewcommand{\deutschertitel}{Autopilot mit iNAV}
+\renewcommand{\englischertitel}{Autopilot with iNAV}
 \makroabschnitt
-\label{AbschnittFollowMeINAV}
+\label{AbschnittAutopilotINAV}
 
-iNAV provides a dedicated Follow-Me mode that uses the GPS position of an external device, typically the radio transmitter equipped with an external GPS module or a compatible telemetry system. 
+The INAV firmware (see section~\ref{AbschnittINAV}) implements complete GPS-assisted flight control and is suitable for navigation tasks such as position or altitude hold, return-to-home, and basic autonomous waypoint missions.
 
 \colger
 
-iNAV stellt einen eigenen Follow-Me-Modus bereit, der die GPS-Position eines externen Geräts verwendet, üblicherweise die Fernsteuerung mit einem angeschlossenen GPS-Modul oder einem kompatiblen Telemetriesystem. Für Follow-Me in iNAV werden ein Flugcontroller mit GPS, Barometer, magnetischen Kompass sowie eine stabile GPS-Empfangsqualität benötigt.
+Die Firmware iNAV (siehe Abschnitt~\ref{AbschnittINAV}) implementiert eine vollständige GPS-unterstützte Flugsteuerung bereit und eignet sich für Navigation, Position Hold, Altitude Hold, Return-to-Home und grundlegende autonome Wegpunktmissionen.
 
 \coleng
 
-Follow-Me in iNAV requires a flight controller with GPS, barometer, magnetic compass, and stable GPS reception. The external device transmits its position to the flight controller via a telemetry protocol such as MAVLink, MSP, or a proprietary transmitter protocol. 
+To complete these tasks it is necessary that the acceleration sensor and GPS antenna be configured.
+In addition, a barometer must be available for altitude measurement. A compass (magnetometer) is not mandatory as of INAV version 7.1, but is strongly recommended for better performance.
 
 \colger
 
-Das externe Gerät übermittelt seine Position über ein Telemetrieprotokoll wie MAVLink, MSP oder ein proprietäres Fernsteuerungsprotokoll an den Flugcontroller. 
+Hierfür ist es erforderlich, dass der Beschleunigungssensor und die GPS-Antenne konfiguriert sind.
+Außerdem muss ein Barometer für die Höhenmessung vorhanden sein. Ein Kompass (Magnetometer) ist nicht zwingend erforderlich ab INAV-Version 7.1, jedoch dringend empfohlen für bessere Performance.
 
 \coleng
 
-Configuration is performed in the iNAV Configurator by enabling the Follow-Me mode, assigning it to an AUX channel, and configuring the GPS update rate and safe distances. iNAV supports various follow patterns, including direct pursuit and offset tracking.
+If a compass is available, it should be correctly aligned and calibrated and, ideally, located at least 10 cm away from the motors and other electrical components. Airspeed sensors are also supported by INAV.
 
 \colger
 
-Die Konfiguration erfolgt im iNAV Configurator durch Aktivieren des Follow-Me-Modus, das Zuweisen eines AUX-Kanals sowie die Einstellung der GPS-Aktualisierungsrate und der Sicherheitsabstände. iNAV unterstützt unterschiedliche Verfolgungsprofile, darunter direkte Verfolgung und seitlich versetztes Tracking.
+Insofern ein Kompass vorhanden ist, sollte dieser korrekt ausgerichtet und kalibriert werden sowie idealerweise mindestens 10 cm von den Motoren und anderen elektrischen Komponenten entfernt sein. Auch Fluggeschwindigkeitssensoren werden von INAV unterstützt.
+ 
+\coleng
+
+The \textsl{INAV Configurator} is sufficient for configuring the autopilot functions. All flight modes (section~\ref{AbschnittINAVigationModes}) and tuning settings, aswell as the sensor calibration can be made here. Not all of the modes described below are full flight modes. Some merely change flight behavior characteristics and must be used in combination with other modes. 
+
+\colger
+
+Zur Konfiguration der Autopilotfunktionalitäten genügt der \textsl{INAV Configurator}. In diesem können sämtliche Flugmodi (Abschnitt~\ref{AbschnittINAVigationModes}), Tuning-, und Kalibrierungseinstellungen getätigt werden. Nicht alle der folgend erläuterten Modi sind vollwertige Flugmodi. Einige verändern lediglich Eigenschaften des Flugverhaltens und müssen in Kombination mit anderen Modi verwendet werden.
 
 \colende
 
-\renewcommand{\deutschertitel}{Follow-Me mit ArduPilot}
-\renewcommand{\englischertitel}{Follow-Me with ArduPilot}
-\makroabschnitt
-\label{AbschnittFollowMeArduPilot}
+\renewcommand{\deutschertitel}{Navigationsflugmodi in INAV}
+\renewcommand{\englischertitel}{Navigation Modes in INAV}
+\makrounterabschnitt
+\label{AbschnittINAVigationModes}
 
-ArduPilot provides a comprehensive Follow-Me implementation that supports external GPS devices, companion computers (e.g., Raspberry Pi Zero, Raspberry Pi Compute Module\,4/5, NVidia TX1/TX2), and smartphone applications via MAVLink. Follow-Me requires a GPS-equipped external device. The drone must include a barometer, magnetic compass, accelerometer, gyroscope, and GPS module. 
+\begin{description}
+		\item[NAV ALTHOLD] is one such mode. It only sets the flight altitude and must be used in combination with a manual flight mode. \texttt{ANGLE} is recommended here, as \texttt{ALTHOLD} is not suitable for overhead maneuvers. In the \textsl{Advanced Tuning Tab}, \textsl{Max. Alt-hold climb rate} can be used to configure the range within which the pilot can manually vary the altitude up and down.
+\end{description}
 
 \colger
 
-ArduPilot bietet eine umfassende Follow-Me-Implementierung, die externe GPS-Geräte, Companion-Computer (z.B. Raspberry Pi Zero, Raspberry Pi Compute Module\,4/5, NVidia TX1/TX2) und Smartphone-Anwendungen über MAVLink unterstützt. Für Follow-Me wird ein externes GPS-Gerät benötigt. Die Drohne muss über Barometer, magnetischen Kompass, Beschleunigungssensor, Gyroskop und ein GPS-Modul verfügen. 
+\begin{description}
+		\item[NAV ALTHOLD] ist ein solcher Modus. Dieser setzt lediglich die Flughöhe fest und muss in Kombination mit einem manuellen Flugmodus verwendet werden. Hierbei ist \texttt{ANGLE} empfohlen, da \texttt{ALTHOLD} nicht für Überkopf-Maneuver geeignet ist. Im \textsl{Advanced-Tuning-Tab} kann mit \textsl{Max. Alt-hold climb rate} der Spielraum konfiguriert werden, mit welchem der Pilot die Höhe manuell nach oben und unten variieren kann.
+\end{description}
 
 \coleng
 
-Follow-Me is enabled in Mission Planner by selecting the Follow-Me feature and configuring parameters such as follow distance, altitude offset, and update frequency. 
+\begin{description}
+		\item[NAV GCS] is another supporting mode. This allows a connected \textsl{Ground Control Station (GCS)} to control the position of the drone. The GCS can be very useful for the \textsl{Follow Me} function.
+\end{description}
 
 \colger
 
-Die Aktivierung erfolgt im Mission Planner über die Follow-Me-Funktion, wobei Parameter wie Verfolgungsabstand, Höhenversatz und Aktualisierungsrate konfiguriert werden. 
+\begin{description}
+		\item[NAV GCS] ist ein weiterer unterstützender Modus. Dieser erlaubt es einer verbundenen \textsl{Ground-Control-Station (GCS)} die Position der Drohne zu kontrollieren. Dies kann für die \textsl{Follow-Me-Funktion} verwendet werden.
+\end{description}
 
 \coleng
 
-ArduPilot supports advanced behaviors including smooth pursuit, orbiting around the target, and terrain-following when additional sensors are available. Its implementation is suitable for professional and research applications.
+\begin{description}
+	\item[NAV POSHOLD] is a standalone mode that allows the drone to hold its current position. The position can be changed by adjusting the throttle, pitch, and roll sticks. As soon as the respective sticks are returned to their starting position, the drone will hold the new position.
+\end{description}
 
 \colger
 
-ArduPilot unterstützt fortgeschrittene Verfolgungsverfahren, darunter sanfte Annäherung, Umkreisung des Ziels und Geländefolgeflug bei Verwendung zusätzlicher Sensoren. Die Umsetzung eignet sich für professionelle und forschungsorientierte Anwendungen.
+\begin{description}
+	\item[NAV POSHOLD] ist ein eigenständiger Modus, welcher die Drohne die Position halten lässt. Durch anpassen der Throttle-, Pitch- und Roll-Sticks kann die Position verändert werden. Sobald die jeweiligen Sticks in die Ausgangsposition versetzt werden, hält die Drohne die neue Position.
+\end{description}
+
+\coleng
+
+\begin{description}
+	\item[MC BRAKING] supports the \texttt{POSHOLD} mode and is used in conjunction with it. The difference lies in the braking behavior during position adjustments. With simple \texttt{POSHOLD}, the drone returns to the location where the sticks were released after completing the braking process. With \texttt{MC BRAKING}, the drone brakes more strongly and holds its position at the location where it comes to a stop.
+\end{description}
+
+\colger
+
+\begin{description}
+	\item[MC BRAKING] unterstützt den \texttt{POSHOLD}-Modus und wird zusammen mit diesem verwendet. Der Unterschied liegt im Bremsverhalten bei Positionsanpassungen. Beim einfachen \texttt{POSHOLD} kehrt die Drohne nach Abschluss des Bremsvorgangs an den Ort zurück, an dem die Sticks losgelassen wurden. Mit \texttt{MC BRAKING} bremst die Drohne stärker und hält die Position an dem Ort an welchem sie zum Stillstand kommt.
+\end{description}
+
+\coleng
+
+\begin{description}
+	\item[NAV COURSE HOLD] describes the drone attempting to maintain its current course. To adjust the speed while in this mode, the pitch stick can be used. The flight controller adjusts the speed proportionally to the position of said pitch stick.
+\end{description}
+
+\colger
+
+\begin{description}
+	\item[NAV COURSE HOLD] versucht die Drohne den derzeitigen Kurs zu halten. Die Geschwindigkeit kann in diesem Modus mithilfe des Pitch-Sticks angepasst werden. Der Flugcontroller passt die Geschwindigkeit proportional zur Stellung des Pitch-Sticks an.
+\end{description}
+
+\coleng
+
+\begin{description}
+	\item[NAV CRUISE] represents a combination of \texttt{COURSE HOLD} and \texttt{ALTHOLD}.
+\end{description}
+
+\colger
+
+\begin{description}
+	\item[NAV CRUISE] entspricht einer Kombination aus \texttt{COURSE HOLD} und \texttt{ALTHOLD}.
+\end{description}
+
+\coleng
+
+\begin{description}
+	\item[NAV RTH] describes a \textsl{Return-To-Home (\texttt{RTH})} action, which can also be configured as a failsafe. However, failsafe should \textbf{not} be activated for a controlled \texttt{RTH}. Under certain circumstances, unexpected behavior may occur. When activating \texttt{RTH}, if the drone is more than 10 meters away from the arming location or the configured safe home, it first climbs to a configured altitude and then flies towards home and lands there as soon as it is within a radius of one meter. In the \textsl{Advanced Tuning Tab}, the \texttt{RTH} behavior can be extensively modified with many settings.	
+\end{description}
+
+\colger
+
+\begin{description}
+	\item[NAV RTH] ist der \textsl{Return-To-Home (\texttt{RTH})}-Modus, welcher auch als Failsafe konfiguriert werden kann. Failsafe sollte jedoch \textbf{nicht} für ein kontrolliertes \texttt{RTH} aktiviert werden. Unter Umständen kann es zu unerwartetem Verhalten kommen. Wird \texttt{RTH} gestartet und die Drohne ist mehr als 10 Meter von der Arming-Location oder dem konfigurierten Safehome entfernt, klettert sie erst auf eine konfigurierte Höhe und fliegt dann in Richtung Home und landet dort, sobald sie dort im Radius von einem Meter ist. Im \textsl{Advanced Tuning Tab} kann das \texttt{RTH}-Verhalten mit vielen Einstellungen weitreichend modifiziert werden.
+\end{description}
+
+\coleng
+
+\begin{description}
+	\item[HOME RESET] is a complementary mode to \texttt{RTH}. This should be assigned to a remote control switch that returns to the original position when pressed. This makes it possible to overwrite the current safe home location during flight. By default, the last arming location is the safe home, but up to eight different safe homes can be configured manually, and the closest one will be flown to if it is within the maximum distance that such a safe home may be away.
+\end{description}
+
+\colger
+
+\begin{description}
+	\item[HOME RESET] ist ein komplementärer Modus zu \texttt{RTH} . Dieser sollte auf einen Fernsteuerungsswitch gelegt werden, welcher nach dem Drücken auf die Ursprungsposition zurückkehrt. Dadurch wird es ermöglicht während des Fluges die aktuelle Safehome-Location zu überschreiben. Standardmäßig ist die letzte Arming-Location das Safehome, jedoch können auch bis zu acht unterschiedliche Safehomes manuell konfiguriert werden, wovon dann jeweils das nächste angeflogen wird, wenn sich dieses innerhalb der maximalen Distanz befindet, die ein solches Safehome entfernt sein darf.
+\end{description}
+
+\coleng
+
+\begin{description}
+	\item[NAV WP] allows the drone to fly autonomously along a predefined sequence of waypoints. These waypoints can either be defined manually before takeoff, for example via the Mission Control tab in the \textsl{INAV Configurator}, or using the \texttt{WP PLANNER} mode during manual flight.
+\end{description}
+
+\colger
+
+\begin{description}
+	\item[NAV WP] erlaubt es der Drohne, autonom an einer vordefinierten Sequenz von Wegpunkten entlangzufliegen. Diese Wegpunkte können entweder manuell vor Ablug definiert werden, beispielsweise über den Mission Control Tab im \textsl{INAV Configurator}  oder mithilfe des Modus \texttt{WP PLANNER} während dem manuellen Flug.
+\end{description}
+
+\coleng
+
+\begin{description}
+	\item[WP PLANNER] is not a standalone flight mode, but is used to define waypoints during manual flight. It is important that the actual \texttt{WP} mode is not activated, otherwise no waypoints can be saved. In addition, the \texttt{MISSION INFO} block must be activated in the OSD. This block displays the information required for the planner. To save a waypoint, the drone must be moved to the desired location and the switch configured for \texttt{PLANNER} must be activated. Once the saving process is complete, a corresponding message will be displayed in the OSD. When saving, please note that the altitude is also saved. This is important because a waypoint that has been saved at ground level will be flown to accordingly. To fly the mission configured in this way, simply deactivate \texttt{PLANNER} and activate \texttt{WP}. Alternatively, the mission can also be saved with \textsl{stick commands} (see section~\ref{INAVLoadStickCmd}).
+\end{description}
+
+\colger
+
+\begin{description}
+	\item[WP PLANNER] ist kein eigenständiger Flugmodus, sondern dient dazu, Wegpunkte während des manuellen Flugs zu definieren. Wichtig ist, dass \texttt{WP} nicht aktiviert sein darf, sonst kann kein Wegpunkt gespeichert werden. Darüber hinaus muss der Block \texttt{MISSION INFO} im OSD aktiviert werden. Dieser Block zeigt die für den Planner notwendigen Informationen an. Um einen Wegpunkt zu speichern, muss die Drohne an den gewünschten Ort bewegt und der Switch, auf dem \texttt{PLANNER} konfiguriert ist, betätigt werden. Sobald der Speichervorgang abgeschlossen ist, wird eine entsprechende Mitteilung im OSD zu sehen sein. Beim Speichern ist zu beachten, dass die Höhe entsprechend mitgespeichert wird. Dies ist wichtig, da ein Wegpunkt, der ebenerdig gespeichert wurde, entsprechend angeflogen wird. Um die so konfigurierte Mission zu fliegen, genügt es \texttt{PLANNER} zu deaktivieren und \texttt{WP} zu aktivieren. Alternativ kann die Mission auch mit \textsl{Stick-Commands} gespeichert werden (siehe Abschnitt~\ref{INAVLoadStickCmd}).
+\end{description}
+
+ \colende
+
+\renewcommand{\deutschertitel}{Wegpunktmissionen mit INAV konfigurieren}
+\renewcommand{\englischertitel}{Configure Waypoint Missions with INAV}
+\makrounterabschnitt
+\label{INAVWaypoint}
+
+This subsection serves to describe the preparations for a waypoint mission in more detail. Once the mode has been configured using the appropriate switch, there are still a few options to configure in the \textsl{Advanced Tuning Tab} under the tabs \textsl{Multirotor Navigation Settings}, \textsl{General Navigation Settings}, and \textsl{Waypoint Navigation Settings}. The effects of these options are explained in the tab itself and will not be repeated here.
+
+\colger
+
+Dieses Unterkapitel dient dazu, die Vorbereitungen einer Wegpunktmission umfassender zu beschreiben. Nachdem der Modus auf einen entsprechenden Switch konfiguriert ist, sind noch einige Optionen im \textsl{Advanced Tuning Tab} unter den Reitern \textsl{Multirotor Navigaton Settings}, \textsl{General Navigation Settings} und \textsl{Waypoint Navigation Settings} zu konfigurieren. Was diese Optionen bewirken, wird im Reiter selbst erläutert und hier nicht noch einmal ausgeführt.
+
+\coleng
+
+After configuring the Advanced Tuning tab, you can now set the waypoints. This is done in the \textsl{Mission Control Tab} of the \textsl{INAV Configurator}. The waypoints can be set and strung together by simply clicking on the map. This sequence cannot be adjusted individually at a later stage. To change the flight sequence, the properties of the waypoints must be adjusted, or they waypoints themselves must be completely reset. The former is described in the following paragraphs.
+
+\colger
+
+Nach der Konfiguration des Advanced Tuning Tabs kommt es nun zum eigentlichen Setzen der Wegpunkte. Dies geschieht im \textsl{Mission Control Tab} des \textsl{INAV Configurators}. Die Wegpunkte können durch einfaches Klicken auf der Karte gesetzt und aneinandergereiht werden. Diese Reihenfolge kann nicht nachträglich, einzeln angepasst werden. Um die Flugreihenfolge zu verändern müssen die Eigenschaften der Wegpunkte angepasst werden, oder sie müssen komplett neu gesetzt werden. Ersteres wird im Folgenden beschrieben.
 
 \colende
 
-\renewcommand{\deutschertitel}{Follow-Me mit PX4}
-\renewcommand{\englischertitel}{Follow-Me with PX4}
-\makroabschnitt
-\label{AbschnittFollowMePX4}
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Mission_Control_Demo_Example.png}
+	\caption{Example of a waypoint mission}
+	\label{INAV_Mission_Control_Demo_Example}
+\end{figure}
 
-PX4 provides a Follow-Me feature primarily through the software QGroundControl and companion-computer applications. The function relies on the transmission of position data from a smartphone or companion system (e.g., Raspberry Pi Compute Module\,4) using MAVLink. PX4 requires a GPS-equipped flight controller with barometer, and magnetic compass. 
+\colstart
+
+The editing view of a waypoint is opened by clicking on its symbol on the map. In this view longitude and latitude can be refined using the number field, and it is also possible to configure the \textsl{waypoint types} and define \textsl{actions}.
 
 \colger
 
-PX4 stellt eine Follow-Me-Funktion bereit, die hauptsächlich über die Software QGroundControl und Companion-Computer-Anwendungen implementiert wird. Die Funktion basiert auf der Übertragung von Positionsdaten eines Smartphones oder eines Companion-Systems (z.B. Raspberry Pi Compute Module\,4) über MAVLink. Für den Follow-Me-Betrieb benötigt PX4 einen GPS-fähigen Flugcontroller mit Barometer und magnetischen Kompass.
+Durch erneutes Klicken auf einen jeweiligen Wegpunkt kann die Editier-Ansicht geöffnet werden. In dieser können Längen- und Breitengrade können über das Nummernfeld verfeinert werden und es ist darüber hinaus möglich, den \textsl{Wegpunkttypen} zu konfigurieren und \textsl{Actions} zu definieren.
+
+\coleng
+
+For waypoint types, you can choose between \textsl{Waypoint}, \textsl{Position-Hold (PH)}, \textsl{Point-of-Interest (POI)} and \textsl{Land}. \textsl{Waypoint} describes a simple waypoint through which the drone flies. 
+
+\colger
+
+Beim Wegpunkttypen besteht die Auswahl zwischen \textsl{Waypoint}, \textsl{Position-Hold (PH)}, \textsl{Point-of-Interest (POI)} und \textsl{Land}. \textsl{Waypoint} beschreibt einen einfachen Wegpunkt, durch den die Drohne hindurch fliegt. 
+
+\coleng
+
+ \textsl{PH} describes a waypoint at which the drone stops for a certain amount of time, which is configured in the \textsl{Wait time} field.
+
+\colger
+
+\textsl{PH} beschreibt einen Wegpunkt an dem die Drohne für eine bestimmte Zeit anhält, welche im Feld \textsl{Wait time} konfiguriert wird. 
+
+\coleng
+
+\textsl{POI} is a point in the mission at which the orientation of the drone or camera is oriented during flight. If a waypoint is defined as \textsl{POI}, the camera will orient itself to this point instead of orienting itself to the path while flying to the next waypoint. \textsl{Land} causes the drone to land as soon as the point is reached instead of continuing the mission.
+
+\colger
+
+\textsl{POI} ist ein Punkt in der Mission an dem sich die Ausrichtung der Drohne oder der Kamera im Flug orientiert. Wird ein Wegpunkt als \textsl{POI} definiert, richtet sich die Kamera nach diesem, anstatt sich am Weg auszurichten, während sie zum nächsten Wegpunkt fliegt. \textsl{Land} lässt die Drohne landen, sobald der Punkt erreicht wurde, anstatt die Mission fortzuführen.
+
+\coleng
+
+The available actions are \texttt{JUMP}, \texttt{SET HEAD}, and \texttt{RTH}. \texttt{JUMP} allows you to jump to a waypoint other than the one with the following number. Enter the ID of the waypoint you want to fly to in \texttt{P1} and the number of jump repetitions in \texttt{P2}.
+
+\colger
+
+Bei den Actions hat man \texttt{JUMP}, \texttt{SET HEAD} und \texttt{RTH} zur Verfügung. Mit Jump kann zu einem anderen Wegpunkt gesprungen werden, als dem mit der nächstgrößeren Nummer. In \texttt{P1} wird die ID des anzufliegenden Wegpunkts eingetragen und in \texttt{P2} die Anzahl der Jump-Wiederholungen.
+
+\coleng
+
+\texttt{SET HEAD} can be used to control the alignment of the drone (camera). To do this, enter the corresponding degree value \textsl{between 0 and 359 }in the \texttt{P1} field. As soon as the drone has reached the waypoint, the camera is aligned accordingly for the rest of the flight, unless it is overridden at a later waypoint.
+
+\colger
+
+Mit \texttt{SET HEAD} kann die Ausrichtung der Drohne gesteuert werden. Dazur wird die entsprechende Gradzahl \textsl{zwischen 0 und 359 }in das Feld \texttt{P1} eingetragen. Sobald die Drohne den Wegpunkt erreicht hat wird die Kamera entsprechend ausgerichtet für den weiteren Flug oder bis es an einem später angeflogenen Wegpunkt überschrieben wird.
+
+\coleng
+
+\texttt{RTH} causes the drone to fly back to the configured safe home as soon as it has reached the respective waypoint. This is particularly suitable for the end of missions.
+
+\colger
+
+\texttt{RTH} lässt die Drohne zum konfigurierten Safehome zurückfliegen, sobald sie am jeweiligen Wegpunkt angekommen ist. Dies eignet sich besonders für das Ende von Missionen.
+
+\coleng
+
+Another important point is the \textsl{altitude} at which a waypoint is approached. Here, it must be ensured that the Eurpean Unions legal maximum altitude of 120 meters is not exceeded. In addition, it is also important to ensure that the drone does not fall below the minimum altitude required by the elevation profile of the environment. The \textsl{Sea Level Ref} option can be used for this purpose when configuring the altitude.
+
+\colger
+
+Ein weiterer wichtiger Punkt ist die jeweilige Höhe, an der ein Wegpunkt angeflogen wird. Hier muss sichergestellt sein, dass die in der EU vorgeschriebene Maximalhöhe von 120 Metern nicht überschritten wird. Außerdem ist darauf zu achten, dass die Drohne an jedem Wegpunkt die entsprechende Höhe hat, gemessen am Umgebungsprofil. Dazu kann die Option \textsl{Sea Level Ref} herangezogen werden, wenn die Höhe konfiguriert wird.
+
+\coleng
+
+The \textsl{MP Elevation} button can be used to compare the elevation profile for the entire mission with the surrounding area. This prevents the drone from colliding with the ground during the flight between waypoints. To enable this comparison, a form of \textsl{take-off location} must be available.
+
+\colger
+
+Über den Button \textsl{MP Elevation} am kann das Höhenprofil für die Mission, mit dem der Umgebung verglichen werden. Damit wird vermieden, dass die Drohne während des Fluges zwischen Wegpunkten mit dem Boden kollidiert. Um diesen Vergleich zu ermöglichen, muss eine Form von \textsl{Take-off-Location }vorhanden werden.
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Mission_Control_Elevation_Profile.png}
+	\caption{Mission Control Example Elevation Profile}
+	\label{INAV_Mission_Control_Elevation_Profile}
+\end{figure}
+
+\colstart
+
+Once the waypoint mission has been configured, there are three options for saving it. The first is to \textsl{save it to a file} on the computer, and the second is to \textsl{save it to the volatile memory} of the flight controller (FC). The latter is only suitable if the mission is to be followed immediately, as it will be lost if the system is restarted. If the mission is to be saved permanently, the third option, \textsl{saving to the EEPROM of the FC}, is suitable.
+
+\colger
+
+Ist die Wegpunkt-Mission fertig konfiguriert bestehen insgesamt drei Optionen zum Speichern. Die erste ist das \textsl{Speichern in eine Datei} auf dem Computer und die zweite ist das \textsl{Speichern in den volatilen Speicher} des Flugcontrollers (FC). Letzteres ist nur geeignet, wenn die Mission sofort gefolgen werden soll, da sie bei einem Neustart verloren geht. Soll die Mission dauerhaft gespeichert werden, so eignet sich die dritte Option, das \textsl{Speichern in den EEPROM des FC}.
+
+\colende
+
+\renewcommand{\deutschertitel}{Laden von Missionen und INAV Stickbefehle}
+\renewcommand{\englischertitel}{Loading Missions and INAV Stick Commands}
+\makrounterabschnitt
+\label{INAVLoadStickCmd}
+
+If a mission has been written to the EEPROM, it must be \textsl{loaded into the FC's volatile memory} before it can be flown. This can also be done in the \textsl{Mission Control Tab} using the Load from EEPROM button. If no computer is available, automatic loading of a mission at boot time can be configured in the \textsl{Advanced Tuning Tab} using the \textsl{Load Waypoints on Boot} option.
+
+\colger
+
+Insofern eine Mission in den EEPROM geschrieben wurde, muss sie vor dem Flug \textsl{in den volatilen Speicher des FC} geladen werden. Dies kann ebenfalls im \textsl{Mission Control Tab} erfolgen, über den Button Load from EEPROM. Sollte kein Computer vorhanden sein, kann das automatische Laden einer Mission beim Boot im \textsl{Advanced Tuning Tab} mit der Option \textsl{Load Waypoints on Boot} konfiguriert werden.
+
+\coleng
+
+Alternatively, the mission can also be loaded to the volatile memory with a corresponding \textsl{stick command}. \textsl{Stick commands} are various combinations of the two sticks that are normally used for flying. They can activate a range of different functions, such as the OSD menu. Figure \ref{INAV_Stick_Commands_Image} shows the \textsl{stick commands} available in INAV.	
+
+\colger
+
+Alternativ kann die Mission auch mit einem entsprechenden \textsl{Stick-Command} geladen werden. \textsl{Stick-Commands} sind verschiedene Kombinationen der beiden Sticks, welche normalerweise zum Fliegen benutzt werden. Sie können eine Reihe verschiedener Funktionen aktivieren, wie beispielsweise das OSD-Menü. Abbildung \ref{INAV_Stick_Commands_Image} zeigt die \textsl{Stick-Commands}, welche es in INAV gibt.	
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Stick_Commands.png}
+	\caption{Stick Commands in INAV [\href{https://raw.githubusercontent.com/iNavFlight/inav/refs/heads/master/docs/assets/images/StickPositions.png}{Quelle: INAV}]}
+	\label{INAV_Stick_Commands_Image}
+	% Source: 
+\end{figure}
+
+\renewcommand{\deutschertitel}{Autopilot mit ArduPilot}
+\renewcommand{\englischertitel}{Autopilot with ArduPilot}
+\makroabschnitt
+\label{AbschnittAutopilotArduPilot}
+
+ArduPilot (see Section~\ref{AbschnittArduPilot}) provides a comprehensive autopilot system for drones. It enables advanced autonomous functions such as waypoint navigation, mission planning, geofencing, object avoidance with additional sensors, automatic takeoff and landing, and precision positioning.
+
+\colger
+
+ArduPilot (siehe Abschnitt~\ref{AbschnittArduPilot}) bietet ein umfassendes Autopilotsystem für Drohnen, Flächenflugzeuge, Hubschrauber und andere Plattformen. Es unterstützt fortgeschrittene autonome Funktionen wie Wegpunktnavigation, Missionsplanung, Geofencing, Hindernisvermeidung mit zusätzlichen Sensoren, automatischen Start und automatische Landung sowie präzise Positionsbestimmung. 
+
+\coleng
+
+Depending on the firmware variant, ArduPilot requires powerful hardware with sufficient flash memory (see Section~\ref{AbschnittFC}) and sensors including barometer, magnetic compass, accelerometer, gyroscope, and GPS. Additional sensors such as optical flow sensors (Light Detection and Ranging -- lidar), or airspeed sensors can be integrated. 
+
+\colger
+
+Je nach Firmware-Variante benötigt ArduPilot leistungsfähige Hardware mit ausreichend Flash-Speicher (siehe Abschnitt~\ref{AbschnittFC}) sowie Sensoren wie Barometer, magnetischem Kompass, Beschleunigungssensor, Gyroskop und GPS. Zusätzliche Sensoren wie optische Flusssensoren (Light Detection and Ranging -- Lidar) oder Fluggeschwindigkeitssensoren können integriert werden. 
+
+\coleng
+
+The Mission Planner software is used for configuration, calibration, and mission definition.
+
+\colger
+
+Konfiguration, Kalibrierung und Missionsplanung erfolgen über die Software Mission Planner.
+
+\colende
+
+\renewcommand{\deutschertitel}{Autopilot mit PX4}
+\renewcommand{\englischertitel}{Autopilot with PX4}
+\makroabschnitt
+\label{AbschnittAutopilotPX4}
+
+PX4 is an open-source autopilot platform similar to ArduPilot, designed for research, industry applications, and autonomous robotics. It supports advanced mission planning, companion computers (e.g., Raspberry Pi Compute Module\,4), and complex multi-sensor navigation. 
+
+\colger
+
+PX4 ist eine Open-Source-Autopilotplattform, die ähnlich wie ArduPilot auf Forschungs-, Industrie- und Robotikanwendungen ausgerichtet ist. Die Firmware unterstützt fortgeschrittene Missionsplanung, Companion-Computer (z.B. Raspberry Pi Compute Module\,4), und komplexe multisensorbasierte Navigation. 
+
+\coleng
+
+PX4 requires hardware such as Pixhawk flight controllers (see Figure~\ref{AbbildungPixhawkOrangeCubeFC}) or compatible boards with powerful processors and extensive sensor capability. Configuration and mission planning are performed using the QGroundControl software. 
+
+\colger
+
+PX4 erfordert Hardware wie Pixhawk-Flugcontroller (siehe Abbildung~\ref{AbbildungPixhawkOrangeCubeFC}) oder kompatible Boards mit leistungsfähigen Prozessoren und umfangreicher Sensorunterstützung. Die Konfiguration und Missionsplanung erfolgt über die Software QGroundControl. 
+
+\coleng
+
+Due to its modular design and focus on extensibility, PX4 is frequently used in industrial environments, although some FPV-specific features are less developed compared to Betaflight or iNAV.
+
+\colger
+
+Aufgrund seiner modularen Architektur und Erweiterbarkeit wird PX4 häufig in industriellen Projekten eingesetzt, auch wenn FPV-spezifische Funktionen teilweise weniger ausgeprägt sind als bei Betaflight oder iNAV.
 
 \colende

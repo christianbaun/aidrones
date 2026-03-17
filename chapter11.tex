@@ -1,0 +1,816 @@
+\renewcommand{\deutschertitel}{Methoden zur Positionsbestimmung}
+\renewcommand{\englischertitel}{Position Estimation Methods}
+\chapter[\texorpdfstring{\protect{\vspace{2pt}\englischertitel}}{\englischertitel}]{}
+\kapitel{\deutschertitel}
+\thispagestyle{empty}
+
+\label{PositionEstimationMethods}
+
+\begin{paracol}{2}[]
+
+{\raggedright\huge\bfseries\sffamily \englischertitel \par\ } \\[1.8ex]
+
+\switchcolumn
+
+{\raggedright\huge\bfseries\sffamily \deutschertitel \par\ } \\[1.8ex]
+
+\coleng
+
+For a UAV to operate autonomously, it must maintain a state estimate—a real-time calculation of its position, velocity, and orientation. To estimate the position and movement of the vehicle, the flight controller fuses data from several specialized sensors. Since sensor measurements can be noisy, the flight controller combines data from multiple sensors to compute an optimal estimate. The most common sensors used for position estimation are:
+
+\colger
+
+Damit eine UAV autonom arbeiten kann, muss sie eine sogenannte Zustandsabschätzung (State Estimate) berechnen. Dabei handelt es sich um eine kontinuierliche Bestimmung von Position, Geschwindigkeit und Orientierung des Fluggeräts. Zur Schätzung von Position und Bewegung kombiniert der Flugcontroller Daten mehrerer spezialisierter Sensoren. Da Sensordaten oft verrauscht oder ungenau sein können, werden die Messwerte verschiedener Sensoren miteinander fusioniert, um eine möglichst genaue Schätzung zu erhalten. Zu den am häufigsten verwendeten Sensoren zur Positionsbestimmung gehören:
+
+\coleng
+
+\begin{itemize}
+\item \textsl{IMU (Inertial Measurement Unit)} - Tracks rapid changes in acceleration and rotation along multiple axes and is essential for maintaining the drone’s attitude and basic flight stability.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{IMU (Inertial Measurement Unit)} - Erfasst schnelle Änderungen von Beschleunigung und Drehbewegung entlang mehrerer Achsen und ist die zentrale Grundlage für die Stabilisierung der Fluglage sowie für die grundlegende Flugregelung.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{GNSS (GPS)} - Determines the geographic position of the drone using satellite signals and provides absolute coordinates such as latitude and longitude, which are essential for navigation and autonomous flight.
+\end{itemize}
+
+
+\colger
+
+\begin{itemize}
+\item \textsl{GNSS (GPS)} - Bestimmt mithilfe von Satellitensignalen die geografische Position der Drohne und liefert absolute Koordinaten wie Breiten- und Längengrad, die für Navigation und autonome Flugfunktionen erforderlich sind.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{Optical Flow} - Measures horizontal motion by tracking the movement of surface features on the ground beneath the drone. This allows the drone to maintain its position even when GNSS signals are unavailable, for example indoors.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{Optical Flow} - Misst horizontale Bewegungen, indem Strukturen auf der Bodenoberfläche unter der Drohne verfolgt werden. Dadurch kann die Drohne ihre Position auch dann halten, wenn keine GNSS-Signale verfügbar sind, beispielsweise in Innenräumen.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{Barometer} - Measures air pressure to estimate relative altitude. Although it is less precise than LiDAR at low altitudes, it is essential for maintaining altitude beyond the measurement range of optical or laser-based sensors.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{Barometer} - Misst den Luftdruck, um die relative Flughöhe zu bestimmen. Obwohl die Genauigkeit in geringer Höhe geringer ist als bei LiDAR-Sensoren, ist ein Barometer wichtig, um die Flughöhe auch außerhalb des Messbereichs von Entfernungssensoren stabil zu halten.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{LiDAR (Rangefinder)} - Provides highly accurate distance measurements to the ground using laser pulses. Compared to a barometer, it offers significantly higher precision at low altitudes and enables precise altitude control and accurate landing.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{LiDAR (Rangefinder)} - Misst mithilfe von Laserimpulsen sehr präzise den Abstand zum Boden. Im Vergleich zum Barometer liefert dieser Sensor insbesondere in geringer Flughöhe deutlich genauere Höheninformationen und ermöglicht eine präzise Höhenregelung sowie exakte Landungen.
+\end{itemize}
+
+\coleng
+
+With an accurate estimate of the drone’s state, the flight controller can move beyond manual flight and enable autonomous flight modes. In these modes, the system continuously monitors the drone’s position and automatically compensates for drift using sensor feedback:
+
+\colger
+
+Mit einer präzisen Zustandsabschätzung kann der Flugcontroller über den rein manuellen Flug hinausgehen und autonome Flugmodi ermöglichen. In diesen Betriebsarten überwacht das System kontinuierlich die Position der Drohne und korrigiert Abweichungen automatisch anhand der Sensordaten.
+
+\coleng
+
+\begin{itemize}
+\item \textsl{Altitude Hold (Z-axis)} - The drone maintains a constant altitude by using a rangefinder at low altitudes and a barometer at higher altitudes. This allows the operator to release the throttle while the drone continues hovering at the same height. Since most modern flight controllers already include a barometer, this mode can typically be used without additional sensors in firmware such as Betaflight, iNav, or ArduPilot.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{Altitude Hold (Z-Achse)} - Die Drohne hält automatisch eine konstante Flughöhe. In geringer Höhe erfolgt dies häufig mithilfe eines Entfernungssensors, während in größerer Höhe ein Barometer verwendet wird. Dadurch kann der Pilot den Gashebel loslassen, während die Drohne selbstständig auf gleicher Höhe schwebt. Da viele moderne Flugcontroller bereits ein Barometer integriert haben, kann dieser Modus in Firmware wie Betaflight, iNav oder ArduPilot meist ohne zusätzliche Sensoren genutzt werden.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{Position Hold (X, Y axes)} - The drone maintains its horizontal position by using optical flow or GNSS to detect motion relative to the ground. If wind or external forces cause the drone to drift, the flight controller automatically compensates and moves it back to its original position.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{Position Hold (X-, Y-Achsen)} - Die Drohne hält ihre horizontale Position, indem sie mithilfe von Optical-Flow-Sensoren oder GNSS ihre Bewegung relativ zum Boden erkennt. Wird die Drohne beispielsweise durch Wind verdriftet, korrigiert der Flugcontroller die Abweichung automatisch und bewegt sie zurück zur ursprünglichen Position.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{Return to Home (RTH / RTL)} - One of the most common safety features in modern drones. This mode can be triggered automatically by a failsafe condition (for example, when the battery level becomes too low or the radio connection is lost) or manually by the user. When activated, the drone autonomously flies back to its recorded home position using GNSS coordinates.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{Return to Home (RTH / RTL)} - Eine der wichtigsten Sicherheitsfunktionen moderner Drohnen. Dieser Modus kann automatisch durch einen Failsafe-Zustand ausgelöst werden, beispielsweise bei zu niedrigem Akkustand oder bei Verlust der Funkverbindung, oder manuell durch den Benutzer aktiviert werden. Nach der Aktivierung fliegt die Drohne mithilfe der GNSS-Koordinaten selbstständig zu ihrer zuvor gespeicherten Startposition zurück.
+\end{itemize}
+
+\colende
+
+\renewcommand{\deutschertitel}{GPS-basierte Positionsbestimmung}
+\renewcommand{\englischertitel}{GPS-Based Position Estimation}
+\makroabschnitt
+\label{GpsBasedPosition}
+
+The main method used for high-level autonomous navigation in drones is Global Navigation Satellite Systems (GNSS). GNSS is a general term that includes several satellite systems such as the Global Positioning System (GPS) from the United States, GLONASS from Russia, and Galileo from the European Union. These satellite systems provide the drone with a global reference and help the flight controller estimate the vehicle’s exact position in terms of latitude, longitude, and altitude.
+
+\colger
+
+Die wichtigste Methode für autonome Navigation auf höherer Ebene bei Drohnen ist die Nutzung von Global Navigation Satellite Systems (GNSS). GNSS ist ein Oberbegriff für verschiedene satellitengestützte Navigationssysteme wie das Global Positioning System (GPS) aus den USA, GLONASS aus Russland und Galileo aus der Europäischen Union. Diese Satellitensysteme liefern der Drohne eine globale Referenz und ermöglichen es dem Flugcontroller, die genaue Position des Fluggeräts in Form von Breiten-, Längen- und Höhenkoordinaten zu bestimmen.
+
+\coleng
+
+Modern GNSS receivers (see Section~\ref{AbschnittReceiver}) used in drones and flight controllers such as ArduPilot, Betaflight, iNav, and PX4 can process signals from multiple satellite navigation systems simultaneously (e.g., GPS + Galileo or GPS + GLONASS + Galileo). Using several systems together increases the number of visible satellites, which improves positioning accuracy and makes navigation more reliable, especially in challenging environments.
+
+\colger
+
+Moderne GNSS-Empfänger (siehe Abschnitt~\ref{AbschnittReceiver}), die in Drohnen und Flugcontrollern wie ArduPilot, Betaflight, iNav und PX4 eingesetzt werden, können gleichzeitig Signale mehrerer Satellitennavigationssysteme verarbeiten (z.\,B. GPS + Galileo oder GPS + GLONASS + Galileo). Durch die gleichzeitige Nutzung mehrerer Systeme erhöht sich die Anzahl der verfügbaren Satelliten. Dies verbessert die Positionsgenauigkeit und erhöht die Zuverlässigkeit der Navigation, insbesondere in anspruchsvollen Umgebungen.
+
+\colende
+
+\begin{table}[htb!]
+\centering
+\caption{Firmware Configuration Steps: From Hardware Configuration to Mode Activation}
+\label{TableFirmwareConfigForGPS}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.4}
+\scriptsize
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+Firmware & Hardware Configuration (Enabling GPS) & Mode Activation (AltHold \& PosHold) \\
+\midrule
+Betaflight 
+&
+1) Ports Tab: Configure the corresponding UART as \textit{Sensor Input: GPS} (see Figure~\ref{AbbildungBetaflightAppPorts}). \newline
+2) GPS Tab (Configuration Tab in older Betaflight versions): Enable GPS and select the protocol (most modern GPS modules support the UBLOX protocol).
+&
+1) Modes Tab: Assign a switch to \texttt{ALTHOLD}, \texttt{POS HOLD}, and \texttt{GPS RESCUE} (see Figure~\ref{AbbildungBetaflightAppModes}).\newline
+2) Failsafe Tab: The \texttt{GPS RESCUE} mode can be configured here. Additional parameters of the \texttt{GPS RESCUE} mode should be configured carefully.
+\\
+\midrule
+iNav 
+&
+1) Ports Tab: Enable GPS on the corresponding UART.\newline
+2) Configuration Tab: Enable GPS and the magnetometer.\newline
+3) Perform a 3D compass calibration for navigation.
+&
+Modes Tab: Assign switches to \texttt{NAV ALTHOLD}, \texttt{NAV POSHOLD}, and \texttt{NAV RTH}.  
+\\
+\midrule
+ArduPilot 
+&
+Setup Menu: The GPS is usually auto-detected on the dedicated GPS port. If it is not detected automatically, set \texttt{SERIALx\_PROTOCOL} to 5 (where x represents the serial port number on the flight controller board) (see Figure~\ref{MissionPlannerSerialPortConfig}). 
+&
+Flight Modes: First assign a transmitter channel using \texttt{FLTMODE\_CH} in the Full Parameter List. Then, in the Setup Tab (\(\longrightarrow\) Flight Modes page), assign the modes \texttt{AltHold}, \texttt{LOITER}, and \texttt{RTL} (see Figure~\ref{MissionPlannerFlightMode}).
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\renewcommand{\deutschertitel}{Positionsbestimmung ohne GPS (Optischer Fluss und Entfernungsmesser)}
+\renewcommand{\englischertitel}{GPS-Denied Position Estimation (Optical Flow and Rangefinder Sensors)}
+\makroabschnitt
+\label{GpsDeniedPositionEstimation}
+
+In environments such as indoor spaces where Global Navigation Satellite Systems (GNSS) signals are unavailable, drones can use optical flow and rangefinder sensors for state estimation. These sensors provide local measurements that allow the flight controller to estimate the drone’s motion and altitude without relying on satellite signals. Flight control firmware such as iNav and ArduPilot can use this sensor data to support automated flight modes such as Position Hold and Altitude Hold.
+
+\colger
+
+In Umgebungen wie Innenräumen, in denen keine Signale von Global Navigation Satellite Systems (GNSS) verfügbar sind, können Drohnen optische Flusssensoren und Entfernungsmesser zur Zustands- bzw. Positionsschätzung verwenden. Diese Sensoren liefern lokale Messwerte, mit deren Hilfe der Flugcontroller Bewegung und Höhe der Drohne bestimmen kann, ohne auf Satellitensignale angewiesen zu sein. Flugcontroller-Firmware wie iNav oder ArduPilot kann diese Sensordaten nutzen, um automatisierte Flugmodi wie Position Hold oder Altitude Hold zu realisieren.
+
+\colende
+
+\renewcommand{\deutschertitel}{Optischer Fluss und Entfernungsmesser (Betaflight)}
+\renewcommand{\englischertitel}{Optical Flow and LiDAR Sensor Configuration (Betaflight)}
+\makrounterabschnitt
+
+Betaflight (as of version 4.6) has begun integrating support for optical flow and rangefinder sensors, primarily focusing on sensor data acquisition as a foundation for future autonomous features. To configure these sensors, the appropriate UART port must first be assigned to the corresponding peripheral in the Ports tab (see Figure~\ref{AbbildungBetaflightAppPorts}). Subsequently, the correct rangefinder and optical flow sensor types must be selected in the Configuration tab to enable their operation (see Figure~\ref{ImageLevelBetaflightAppLiderConfig}).
+
+\colger
+
+Betaflight (ab Version 4.6) beginnt mit der Integration der Unterstützung für optische Flusssensoren und Entfernungsmesser. Der aktuelle Schwerpunkt liegt dabei zunächst auf der Erfassung und Bereitstellung von Sensordaten als Grundlage für zukünftige autonome Funktionen. Zur Konfiguration dieser Sensoren muss zunächst im Reiter \textit{Ports} der entsprechende UART-Port dem jeweiligen Peripheriegerät zugewiesen werden (siehe Abbildung~\ref{AbbildungBetaflightAppPorts}). Anschließend müssen im Reiter \textit{Configuration} der passende Entfernungsmesser- sowie der optische Flusssensortyp ausgewählt werden, um deren Betrieb zu aktivieren (siehe Abbildung~\ref{ImageLevelBetaflightAppLiderConfig}).
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Betaflight_2025.12.2_sensor_configuration.png}
+  \caption{Configuration Page of Betaflight}
+  \label{ImageLevelBetaflightAppLiderConfig}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{Optischer Fluss und Entfernungsmesser (ArduPilot)}
+\renewcommand{\englischertitel}{Optical Flow and LiDAR Sensor Configuration (ArduPilot)}
+\makrounterabschnitt
+
+For reliable operation of optical flow and rangefinder sensors, the drone must be capable of stable flight with minimal vibration. Excessive vibrations can significantly affect the accuracy of optical flow measurements and rangefinder readings, which may lead to unreliable sensor data and unstable flight behavior (see how vibration can be reduced in ArduPilot~\ref{ArdupilotVibrationReduction}).
+
+\colger
+
+Für einen zuverlässigen Betrieb von optischen Flusssensoren und Entfernungsmessern muss die Drohne zu einem stabilen Flug mit möglichst geringen Vibrationen fähig sein. Starke Vibrationen können die Genauigkeit der Messungen sowohl des optischen Flusssensors als auch des Entfernungsmessers deutlich beeinträchtigen. Dies kann zu unzuverlässigen Sensordaten und instabilem Flugverhalten führen (siehe Möglichkeiten zur Reduzierung von Vibrationen in ArduPilot in Abschnitt~\ref{ArdupilotVibrationReduction}).
+
+\coleng
+
+Although ArduPilot supports installing optical flow and rangefinder sensors in different orientations, this section focuses only on the downward-facing configuration, since the installation and configuration procedures for other orientations are similar. It is recommended to mount the sensor close to the center of the drone and ensure that its forward direction is correctly aligned with the drone's forward direction (see Figure~\ref{DroenWithMicoAirMFT01}). If the sensor cannot be placed in the ideal position, its location can be adjusted using configuration parameters (explained later in this documentation).
+
+\colger
+
+Obwohl ArduPilot die Installation von optischen Flusssensoren und Entfernungsmessern in unterschiedlichen Ausrichtungen unterstützt, konzentriert sich dieser Abschnitt ausschließlich auf eine nach unten gerichtete Konfiguration, da sich Installation und Konfiguration bei anderen Ausrichtungen nur geringfügig unterscheiden. Es wird empfohlen, den Sensor möglichst nahe am Schwerpunkt der Drohne zu montieren und sicherzustellen, dass seine Vorwärtsrichtung korrekt mit der Vorwärtsrichtung der Drohne ausgerichtet ist (siehe Abbildung~\ref{DroenWithMicoAirMFT01}). Falls der Sensor nicht an der idealen Position montiert werden kann, lässt sich seine Lage über entsprechende Konfigurationsparameter anpassen (wie später in dieser Dokumentation beschrieben).
+
+\colende
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01_in_flying_drone.jpeg}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01_in_drone.jpeg}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Drone installed with MicoAir MTF-01 Optical Flow and Lidar Sensor}
+  \label{DroenWithMicoAirMFT01}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{Konfigurationsschritt: A (UART und Protokoll)}
+\renewcommand{\englischertitel}{Configuration Step: A (UART and Protocol)}
+\makrounterunterabschnitt
+
+For configuring the optical flow sensor, this guide uses Mission Planner as the ground control software. After the sensor is properly installed, it must be configured on the drone via the ground station. This allows the flight controller to read and process data from the optical flow sensor and the rangefinder.
+
+\colger
+
+Zur Konfiguration des optischen Flusssensors wird in dieser Anleitung Mission Planner als Bodenstationssoftware verwendet. Nachdem der Sensor korrekt installiert wurde, muss er über die Bodenstation auf der Drohne konfiguriert werden. Dadurch kann der Flugcontroller die Daten des optischen Flusssensors und des Entfernungsmessers auslesen und verarbeiten.
+
+\coleng
+
+First, the serial port to which the sensor is connected must be configured on the \textit{SETUP \(\longrightarrow\) Serial Ports} page (see Figure~\ref{AbbildungBetaflightAppPorts}). In this section, the corresponding \texttt{SERIALx} / \texttt{UARTx} port (where x represents the hardware port number used for the sensor connection) must be configured with the correct baud rate and communication protocol.
+
+\colger
+
+Zunächst muss auf der Seite \textit{SETUP \(\longrightarrow\) Serial Ports} der serielle Port konfiguriert werden, an den der Sensor angeschlossen ist (siehe Abbildung~\ref{AbbildungBetaflightAppPorts}). In diesem Bereich muss der entsprechende \texttt{SERIALx}- bzw. \texttt{UARTx}-Port (wobei x die Hardware-Portnummer der Sensorverbindung darstellt) mit der passenden Baudrate und dem korrekten Kommunikationsprotokoll eingerichtet werden.
+
+\coleng
+
+For high-speed sensors such as optical flow modules and GNSS receivers, a baud rate of 115200 is commonly used. However, it is recommended to verify the correct baud rate in the sensor manufacturer’s documentation. Optical flow sensors may support different communication protocols, and some devices (such as the MTF-01) support multiple protocols. Therefore, the sensor protocol should first be configured according to the manufacturer’s instructions. Once the supported protocol is confirmed, the same protocol must be selected for the corresponding serial port in the flight controller configuration.
+
+\colger
+
+Für Sensoren mit hoher Datenrate, wie optische Flusssensoren oder GNSS-Empfänger, wird häufig eine Baudrate von 115200 verwendet. Dennoch sollte die korrekte Baudrate stets in der Dokumentation des jeweiligen Sensorherstellers überprüft werden. Optische Flusssensoren können unterschiedliche Kommunikationsprotokolle unterstützen, und einige Geräte (wie beispielsweise der MTF-01) bieten mehrere Protokolloptionen. Daher sollte das Sensorprotokoll zunächst gemäß den Herstellerangaben konfiguriert werden. Sobald das unterstützte Protokoll festgelegt ist, muss dasselbe Protokoll auch für den entsprechenden seriellen Port in der Konfiguration des Flugcontrollers ausgewählt werden.
+
+\coleng
+
+\textbf{Applicable only to MAVLink-based sensors}: If the optical flow sensor and the rangefinder use MAVLink as the communication protocol, the option \texttt{Don’t forward MAVLink to/from} must be enabled. This setting ensures that MAVLink messages originating from sources other than the autopilot are not forwarded to the selected serial port. The configuration procedure differs depending on the ArduCopter version (before 4.7 or version 4.7 and later).
+
+\colger
+
+\textbf{Nur für MAVLink-basierte Sensoren relevant}: Wenn der optische Flusssensor und der Entfernungsmesser das MAVLink-Protokoll zur Kommunikation verwenden, muss die Option \texttt{Don’t forward MAVLink to/from} aktiviert werden. Diese Einstellung stellt sicher, dass MAVLink-Nachrichten von anderen Quellen als dem Autopiloten nicht an den ausgewählten seriellen Port weitergeleitet werden. Die Vorgehensweise zur Konfiguration unterscheidet sich je nach verwendeter ArduCopter-Version (vor Version 4.7 oder Version 4.7 und neuer).
+
+\coleng
+
+\textbf{Copter versions earlier than 4.7 with MAVLink}: On the Serial Ports page, select the \textit{Set Bitmask} option for the corresponding serial port. A dialog window will open in which the \texttt{Don’t forward} option must be enabled for that serial port (see Figure~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_6}).
+
+\colger
+
+\textbf{Copter-Versionen vor 4.7 mit MAVLink}: Auf der Seite \textit{Serial Ports} muss für den entsprechenden seriellen Port die Option \textit{Set Bitmask} ausgewählt werden. Daraufhin öffnet sich ein Dialogfenster, in dem die Option \texttt{Don’t forward} für diesen seriellen Port aktiviert werden muss (siehe Abbildung~\ref{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_6}).
+
+\colende
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=\linewidth]{Mission_Planner_1.3.83_MAV_OPTIONS_copter4.6_screenshot_1.png}
+\caption{Mission Planner Configuration Page for disabling the Forwarding of MAVLink Messages to/from the selected Serial Port (ArduCopter 4.6)}
+\label{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_6}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+\textbf{Copter 4.7 and later with MAVLink}: In recent versions of ArduCopter, the configuration of MAVLink message forwarding is no longer directly linked to a specific serial port. Instead, it is controlled through the parameter \texttt{MAVn\_OPTIONS}. The correct value depends on the MAVLink index (n) associated with the serial interface used by the sensor. The index “n” refers to the MAVLink instance assigned to a peripheral device rather than to the physical hardware port number itself. Consequently, the index does not necessarily correspond to the serial port number. After determining the appropriate index value, the parameter \texttt{MAVn\_OPTIONS} can be configured in \textit{Config \(\longrightarrow\) Full Parameter List}. In this parameter, the bitmask option \texttt{Don’t forward MAVLink to/from} must be enabled and the configuration saved.
+
+\colger
+
+\textbf{Copter 4.7 und neuer mit MAVLink}: In neueren Versionen von ArduCopter ist die Konfiguration der Weiterleitung von MAVLink-Nachrichten nicht mehr direkt an einen bestimmten seriellen Port gebunden. Stattdessen erfolgt die Steuerung über den Parameter \texttt{MAVn\_OPTIONS}. Der korrekte Wert hängt vom MAVLink-Index (n) ab, der der seriellen Schnittstelle zugeordnet ist, über die der Sensor angeschlossen ist. Der Index „n“ bezeichnet dabei die dem Peripheriegerät zugewiesene MAVLink-Instanz und nicht unmittelbar die physische Hardware-Portnummer. Daher muss der Index nicht zwingend mit der Nummer des seriellen Ports übereinstimmen. Nachdem der passende Index bestimmt wurde, kann der Parameter \texttt{MAVn\_OPTIONS} im Menü \textit{Config \(\longrightarrow\) Full Parameter List} konfiguriert werden. In diesem Parameter ist die Bitmaskenoption \texttt{Don’t forward MAVLink to/from} zu aktivieren und die Konfiguration anschließend zu speichern.
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Mission_Planner_1.3.83_MAV_OPTIONS_copter4.7_screenshot_1.png}
+\caption{Mission Planner Configuration Page for disabling the Forwarding of MAVLink Messages to/from the selected Serial Port (ArduCopter 4.7)}
+  \label{ImageLevelMissionPlannerMAVnProtocolSelectionCopter4_7}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+\textbf{Summary Step A} (UART and Protocol):
+
+\colger
+
+\textbf{Zusammenfassung Schritt A} (UART und Protokoll):
+
+\coleng
+
+\begin{enumerate} 
+\item Set \texttt{SERIALx\_SPEED} in the \textit{Setup} tab \(\longrightarrow\) \textit{Full Parameter List}.
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\item Setzen Sie den Parameter \texttt{SERIALx\_SPEED} im Menü \textit{Setup} \(\longrightarrow\) \textit{Full Parameter List}.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{1}
+\item Set \texttt{SERIALx\_PROTOCOL} in the \textit{Setup} tab \(\longrightarrow\) \textit{Full Parameter List}.
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Setzen Sie den Parameter \texttt{SERIALx\_PROTOCOL} im Menü \textit{Setup} \(\longrightarrow\) \textit{Full Parameter List}.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{2}
+\item Enable the option \texttt{Don’t forward MAVLink to/from} if the sensor uses the MAVLink protocol. For ArduCopter versions earlier than 4.7, this option can be configured on the \textit{Setup} tab \(\longrightarrow\) \textit{Serial Ports}. For ArduCopter version 4.7 and later, it must be configured via the parameter \texttt{MAVn\_OPTIONS} in the \textit{Config} tab \(\longrightarrow\) \textit{Full Parameter List}.
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Aktivieren Sie die Option \texttt{Don’t forward MAVLink to/from}, wenn der Sensor das MAVLink-Protokoll verwendet. Bei ArduCopter-Versionen vor 4.7 kann diese Option im Menü \textit{Setup} \(\longrightarrow\) \textit{Serial Ports} konfiguriert werden. Bei ArduCopter-Version 4.7 und neuer erfolgt die Konfiguration über den Parameter \texttt{MAVn\_OPTIONS} im Menü \textit{Config} \(\longrightarrow\) \textit{Full Parameter List}.
+\end{enumerate}
+
+\colende
+\renewcommand{\deutschertitel}{Konfigurationsschritt: B (Sensor)}
+\renewcommand{\englischertitel}{Configuration Step: B (Sensor)}
+\makrounterunterabschnitt
+
+ArduPilot must be configured to recognize the type of optical flow sensor and rangefinder connected to the flight controller. This configuration can be performed in Mission Planner by navigating to \textit{Config} \(\longrightarrow\) \textit{Full Parameter List}, searching for the parameter \texttt{FLOW\_TYPE}, and setting it according to the sensor. For example, values such as 7 (MSP) or 10 (MAVLink) may be selected depending on the communication protocol supported by the sensor. Similarly, the parameter \texttt{RNGFND1\_TYPE} must be configured with the value corresponding to the connected rangefinder.
+
+\colger
+
+ArduPilot muss so konfiguriert werden, dass der Typ des angeschlossenen optischen Flusssensors und des Entfernungsmessers erkannt wird. Diese Konfiguration kann in Mission Planner vorgenommen werden, indem im Menü \textit{Config} \(\longrightarrow\) \textit{Full Parameter List} nach dem Parameter \texttt{FLOW\_TYPE} gesucht und dieser entsprechend dem verwendeten Sensor gesetzt wird. Beispielsweise können je nach unterstütztem Kommunikationsprotokoll Werte wie 7 (MSP) oder 10 (MAVLink) gewählt werden. Ebenso muss der Parameter \texttt{RNGFND1\_TYPE} mit dem Wert konfiguriert werden, der dem angeschlossenen Entfernungsmesser entspricht.
+
+\coleng
+
+Next, the measurement limits of the rangefinder must be defined. For ArduCopter versions earlier than 4.7, the parameters \texttt{RNGFND1\_MAX\_CM} and \texttt{RNGFND1\_MIN\_CM} are used to specify the maximum and minimum measurable distances (in centimeters). For ArduCopter version 4.7 and later, the parameters \texttt{RNGFND1\_MAX} and \texttt{RNGFND1\_MIN} are used, where the values are defined in meters.
+
+\colger
+
+Anschließend müssen die Messgrenzen des Entfernungsmessers definiert werden. Bei ArduCopter-Versionen vor 4.7 werden hierfür die Parameter \texttt{RNGFND1\_MAX\_CM} und \texttt{RNGFND1\_MIN\_CM} verwendet, mit denen die maximal und minimal messbaren Entfernungen in Zentimetern festgelegt werden. Ab ArduCopter-Version 4.7 werden stattdessen die Parameter \texttt{RNGFND1\_MAX} und \texttt{RNGFND1\_MIN} verwendet, deren Werte in Metern angegeben werden.
+
+\coleng
+
+For example, the MTF-01 rangefinder supports a maximum measurement distance of 8 meters (800 cm). Therefore, the maximum and minimum parameters should be configured accordingly.
+
+\colger
+
+Beispielsweise unterstützt der Entfernungsmesser MTF-01 eine maximale Messdistanz von 8 Metern (800 cm). Daher sollten die entsprechenden Parameter für die maximale und minimale Messdistanz entsprechend konfiguriert werden.
+
+\coleng
+
+Finally, to configure the orientation of a downward-facing rangefinder, the parameter \texttt{RNGFND1\_ORIENT} must be set to the value 25.
+
+\colger
+
+Abschließend muss zur Festlegung der Ausrichtung eines nach unten gerichteten Entfernungsmessers der Parameter \texttt{RNGFND1\_ORIENT} auf den Wert 25 gesetzt werden.
+
+\coleng
+
+\textbf{Summary Step B} (Sensor): All these parameters can be found in the menu \textit{Config} \(\longrightarrow\) \textit{Full Parameter List}. Note: After modifying any parameter in the Full Parameter List, the \textit{Save} button must be pressed to apply the changes.
+
+\colger
+
+\textbf{Zusammenfassung Schritt B} (Sensor): Alle genannten Parameter befinden sich im Menü \textit{Config} \(\longrightarrow\) \textit{Full Parameter List}. Hinweis: Nachdem ein Parameter in der \textit{Full Parameter List} geändert wurde, muss stets auf \textit{Save} geklickt werden, damit die Änderungen übernommen werden.
+
+\coleng
+
+\begin{enumerate} 
+  \item Set \texttt{FLOW\_TYPE} to value 7 (MSP), 10 (MAVLink), or another value depending on the sensor protocol.
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+  \item Setzen Sie den Parameter \texttt{FLOW\_TYPE} auf den Wert 7 (MSP), 10 (MAVLink) oder einen anderen Wert entsprechend dem verwendeten Sensorprotokoll.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{1}
+\item Set \texttt{RNGFND1\_TYPE} to value 7 (MSP), 10 (MAVLink), or another value depending on the rangefinder type.
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Setzen Sie den Parameter \texttt{RNGFND1\_TYPE} auf den Wert 7 (MSP), 10 (MAVLink) oder einen anderen Wert entsprechend dem verwendeten Entfernungsmesser.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{2}
+\item Configure \texttt{RNGFND1\_MAX\_CM} (version \(<\)4.7) or \texttt{RNGFND1\_MAX} (version \(\geq\)4.7) to define the maximum supported measurement range of the rangefinder in centimeters or meters.
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Konfigurieren Sie \texttt{RNGFND1\_MAX\_CM} (Version \(<\)4.7) bzw. \texttt{RNGFND1\_MAX} (Version \(\geq\)4.7), um die maximal unterstützte Messdistanz des Entfernungsmessers in Zentimetern bzw. Metern festzulegen.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{3}
+\item Configure \texttt{RNGFND1\_MIN\_CM} (version \(<\)4.7) or \texttt{RNGFND1\_MIN} (version \(\geq\)4.7) to define the minimum supported measurement range of the rangefinder in centimeters or meters.
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item Konfigurieren Sie \texttt{RNGFND1\_MIN\_CM} (Version \(<\)4.7) bzw. \texttt{RNGFND1\_MIN} (Version \(\geq\)4.7), um die minimal unterstützte Messdistanz des Entfernungsmessers in Zentimetern bzw. Metern festzulegen.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{4}
+\item Set \texttt{RNGFND1\_ORIENT} to value 25 for downward orientation.
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item Setzen Sie \texttt{RNGFND1\_ORIENT} auf den Wert 25, um eine nach unten gerichtete Sensorausrichtung festzulegen.
+\end{enumerate}
+
+\coleng
+
+At this stage, the readings from the optical flow and rangefinder sensors should be visible on the Status page in Mission Planner (see Figure~\ref{ImageLevelMissionPlannerOpticalFlowData}).
+
+\colger
+
+An dieser Stelle sollten die Messwerte des optischen Flusssensors und des Entfernungsmessers auf der \textit{Status}-Seite in Mission Planner sichtbar sein (siehe Abbildung~\ref{ImageLevelMissionPlannerOpticalFlowData}).
+
+\colende
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=\linewidth]{Mission_Planner_1.3.83_OF_data_screenshot_1.png}
+\caption{Mission Planner Page displaying Optical Flow and Rangefinder Measurements}
+\label{ImageLevelMissionPlannerOpticalFlowData}
+\end{figure}
+\FloatBarrier
+\renewcommand{\deutschertitel}{Konfigurationsschritt: C (EK3)}
+\renewcommand{\englischertitel}{Configuration Step: C (EK3)}
+\makrounterunterabschnitt
+
+ArduPilot uses a state estimation algorithm called the Extended Kalman Filter (EKF) to determine the vehicle’s position, velocity, and orientation. The EKF combines measurements from multiple onboard sensors (such as gyroscopes, accelerometers, magnetometers, GNSS receivers, and barometers) to generate a consistent estimate of the drone’s state. In recent versions of ArduCopter, including the stable version 4.6 and the development version 4.7, EKF3 serves as the primary estimator for navigation and position estimation. Because EKF3 can integrate data from additional sensors, it can also use optical flow sensors and rangefinders to assist with position estimation. In GNSS-denied environments, these sensors can become the primary source of measurements required to estimate the drone’s motion relative to the ground.
+
+\colger
+
+ArduPilot verwendet einen Zustands­schätzungs­algorithmus namens Extended Kalman Filter (EKF), um Position, Geschwindigkeit und Orientierung des Fluggeräts zu bestimmen. Der EKF kombiniert Messungen mehrerer Bord­sensoren (beispielsweise Gyroskope, Beschleunigungs­sensoren, Magnetometer, GNSS-Empfänger und Barometer) um eine konsistente Schätzung des Zustands der Drohne zu berechnen. In neueren Versionen von ArduCopter, einschließlich der stabilen Version 4.6 und der Entwicklungs­version 4.7, dient EKF3 als primärer Schätzer für Navigation und Positionsbestimmung. Da EKF3 auch Daten zusätzlicher Sensoren integrieren kann, lassen sich optische Flusssensoren und Entfernungsmesser zur Unterstützung der Positionsschätzung verwenden. In Umgebungen ohne GNSS-Signal können diese Sensoren sogar zur wichtigsten Messquelle werden, um die Bewegung der Drohne relativ zum Boden zu bestimmen.
+
+\coleng
+
+ArduPilot supports multiple sensor sources for the EKF3 estimator. A UAV can therefore be configured either for indoor operation, where optical flow and rangefinder sensors act as the primary measurement sources, or for outdoor operation using GNSS. If both sources are available, a switch can be assigned to change between them during flight. By default, EK3 Source 1 is active and is typically configured to use GNSS-based measurements.
+
+\colger
+
+ArduPilot unterstützt mehrere Sensordatenquellen für den EKF3-Schätzer. Ein UAV kann daher entweder für den Betrieb in Innenräumen konfiguriert werden, bei dem optische Flusssensoren und Entfernungsmesser als primäre Messquellen dienen, oder für den Außeneinsatz mit GNSS. Wenn beide Quellen verfügbar sind, kann ein Schalter zugewiesen werden, um während des Fluges zwischen ihnen zu wechseln. Standardmäßig ist EK3 Source 1 aktiv und in der Regel für GNSS-basierte Messungen konfiguriert.
+
+\coleng
+
+It is recommended to assign an auxiliary switch that allows the EKF3 source to be changed during flight. This switch can be used to switch the primary EK3 source between GNSS and the optical flow with rangefinder configuration. To configure this behavior in Mission Planner, navigate to the tab \textit{Config} \(\longrightarrow\) \textit{Full Parameter List}, search for the relevant parameters, and set the desired values before saving the changes.
+
+\colger
+
+Es wird empfohlen, einen Aux-Schalter zuzuweisen, mit dem während des Fluges die EKF3-Datenquelle gewechselt werden kann. Mit diesem Schalter kann die primäre EK3-Quelle zwischen GNSS und der Kombination aus optischem Flusssensor und Entfernungsmesser umgeschaltet werden. Um dieses Verhalten in Mission Planner zu konfigurieren, navigieren Sie zum Menü \textit{Config} \(\longrightarrow\) \textit{Full Parameter List}, suchen Sie die entsprechenden Parameter und setzen Sie die gewünschten Werte, bevor Sie die Änderungen speichern.
+
+\coleng
+
+\textbf{Summary Step C} (EK3): 
+
+\colger
+
+\textbf{Zusammenfassung Schritt C} (EK3):
+
+\coleng
+
+\begin{enumerate} 
+\item Set \texttt{AHRS\_EKF\_TYPE} = 3 (default value).
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\item Setzen Sie den Parameter \texttt{AHRS\_EKF\_TYPE} auf den Wert 3 (Standardwert).
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{1}
+\item Set \texttt{EK3\_SRC2\_POSXY} = 0 (None, since GNSS should not be used).
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Setzen Sie \texttt{EK3\_SRC2\_POSXY} auf 0 (None), da kein GNSS verwendet werden soll.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{2}
+\item Set \texttt{EK3\_SRC2\_POSZ} to value 2 (Rangefinder).
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Setzen Sie \texttt{EK3\_SRC2\_POSZ} auf 2 (Rangefinder).
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{3}
+\item Set \texttt{EK3\_SRC2\_VELXY} to value 5 (Optical Flow).
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item Setzen Sie \texttt{EK3\_SRC2\_VELXY} auf 5 (Optical Flow).
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{4}
+\item Set \texttt{EK3\_SRC2\_VELZ} to value 0 (None) for disabling the GNSS usage for the vertical velocity.
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item Setzen Sie \texttt{EK3\_SRC2\_VELZ} auf 0 (None) um die GNSS-Nutzung für die vertikale Geschwindigkeit zu deaktiviert.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{5}
+\item Set \texttt{EK3\_SRC2\_YAW} to value 1 (Compass).
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item Setzen Sie \texttt{EK3\_SRC2\_YAW} auf 1 (Compass).
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{6}
+\item Set \texttt{RCn\_OPTION} to value 90 (where n represents the auxiliary RC channel used to switch the EK3 source).
+\end{enumerate} 
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item Setzen Sie \texttt{RCn\_OPTION} auf 90 (wobei n den verwendeten Aux-Kanal der Fernsteuerung darstellt, mit dem die EK3-Quelle umgeschaltet werden kann).
+\end{enumerate}
+
+\coleng
+
+If the drone is intended to operate exclusively in GNSS-denied environments, it should be configured as follows (always using optical flow and rangefinder as the primary EK3 source):
+
+\colger
+
+Wenn die Drohne ausschließlich in Umgebungen ohne GNSS-Signal betrieben werden soll, sollte sie wie folgt konfiguriert werden (optischer Flusssensor und Entfernungsmesser werden dabei stets als primäre EK3-Quelle verwendet):
+
+\coleng
+
+\begin{enumerate} 
+\item Set \texttt{AHRS\_EKF\_TYPE} to value 3 (default value).
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\item Setzen Sie \texttt{AHRS\_EKF\_TYPE} auf 3 (Standardwert).
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{1}
+\item Set \texttt{EK3\_SRC1\_POSXY} to value 0 (None), since GNSS should not be used.
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Setzen Sie \texttt{EK3\_SRC1\_POSXY} auf 0 (None), da kein GNSS verwendet werden soll.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{2}
+\item Set \texttt{EK3\_SRC1\_VELXY} to value 5 (Optical Flow).
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Setzen Sie \texttt{EK3\_SRC1\_VELXY} auf 5 (Optical Flow).
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{3}
+\item Set \texttt{EK3\_SRC1\_VELZ} to value 0 (None) to disable the default GNSS usage.
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item Setzen Sie \texttt{EK3\_SRC1\_VELZ} auf 0 (None) um die standardmäßige GNSS-Nutzung die deaktivieren.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{4}
+\item Set \texttt{EK3\_SRC1\_YAW} to value 1 (Compass).
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item Setzen Sie \texttt{EK3\_SRC1\_YAW} auf 1 (Compass).
+\end{enumerate}
+
+\colende
+\renewcommand{\deutschertitel}{Konfigurationsschritt: D (physische Position)}
+\renewcommand{\englischertitel}{Configuration Step: D (Physical Position)}
+\makrounterunterabschnitt
+
+To obtain accurate measurements, the sensors should be mounted as close as possible to the center of gravity (or IMU location) of the drone. If the sensors are mounted at or near the center (within approximately 15\,cm), this configuration step may not be necessary. Otherwise, the sensor’s offset from the center must be measured in the forward/backward, left/right, and downward directions. The corresponding parameters should then be configured according to the measured offsets (see \textbf{Summary Step D}).
+
+\colger
+
+Um möglichst genaue Messwerte zu erhalten, sollten die Sensoren möglichst nahe am Schwerpunkt der Drohne (bzw. an der Position der IMU) montiert werden. Befinden sich die Sensoren direkt am Schwerpunkt oder in dessen unmittelbarer Nähe (innerhalb von etwa 15\,cm), ist dieser Konfigurationsschritt in der Regel nicht erforderlich. Andernfalls muss der Versatz des Sensors relativ zum Schwerpunkt in Vorwärts-/Rückwärts-, Links-/Rechts- sowie in vertikaler Richtung gemessen werden. Anschließend müssen die entsprechenden Parameter entsprechend den gemessenen Offsets konfiguriert werden (siehe \textbf{Zusammenfassung Schritt D}).
+
+\coleng
+
+\begin{enumerate} 
+\item Set \texttt{FLOW\_POS\_X}: Use a positive value if the sensor is located in front of the center, and a negative value if it is located behind it.
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\item Setzen Sie \texttt{FLOW\_POS\_X}: Verwenden Sie einen positiven Wert, wenn sich der Sensor vor dem Schwerpunkt befindet, und einen negativen Wert, wenn er sich dahinter befindet.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{1}
+\item Set \texttt{FLOW\_POS\_Y}: Positive values indicate that the sensor is positioned to the right of the center, negative values indicate a position to the left.
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Setzen Sie \texttt{FLOW\_POS\_Y}: Positive Werte bedeuten, dass sich der Sensor rechts vom Schwerpunkt befindet, negative Werte entsprechend links.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{2}
+\item Set \texttt{FLOW\_POS\_Z}: Positive values indicate that the sensor is located below the center. Since the sensor is typically mounted underneath the drone, this value is usually positive.
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Setzen Sie \texttt{FLOW\_POS\_Z}: Positive Werte geben an, dass sich der Sensor unterhalb des Schwerpunkts befindet. Da der Sensor üblicherweise unter der Drohne montiert ist, ist dieser Wert in der Regel positiv.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{3}
+\item Set \texttt{RNGFND1\_POS\_X} according to the forward/backward offset of the rangefinder relative to the center.
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item Setzen Sie \texttt{RNGFND1\_POS\_X} entsprechend dem \mbox{Vorwärts-/}Rückwärtsversatz des Entfernungsmessers relativ zum Schwerpunkt.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{4}
+\item Set \texttt{RNGFND1\_POS\_Y} according to the left/right offset of the rangefinder relative to the center.
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item Setzen Sie \texttt{RNGFND1\_POS\_Y} entsprechend dem Links-/Rechtsversatz des Entfernungsmessers relativ zum Schwerpunkt.
+\end{enumerate}
+
+\coleng
+
+\begin{enumerate} 
+\setcounter{enumi}{5}
+\item Set \texttt{RNGFND1\_POS\_Z} according to the vertical offset of the rangefinder relative to the center.
+\end{enumerate}
+
+\colger
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item Setzen Sie \texttt{RNGFND1\_POS\_Z} entsprechend dem vertikalen Versatz des Entfernungsmessers relativ zum Schwerpunkt.
+\end{enumerate}
+
+\coleng
+
+Once these configurations are completed, the drone should be able to use optical flow and rangefinder data to enable automated flight modes such as \textit{Loiter}. If the system does not perform as expected, possible causes may include excessive vibration, a high processing load on the flight controller, or the need for sensor calibration. Detailed instructions for optical flow calibration and testing are available in the ArduPilot documentation: \href{https://ardupilot.org/copter/docs/common-optical-flow-sensor-setup.html}{https://ardupilot.org/copter/docs/common-optical-flow-sensor-setup.html}  
+
+\colger
+
+Nachdem diese Konfiguration abgeschlossen ist, sollte die Drohne die Daten des optischen Flusssensors und des Entfernungsmessers nutzen können, um automatische Flugmodi wie \textit{Loiter} zu ermöglichen. Falls das System nicht wie erwartet funktioniert, können mögliche Ursachen beispielsweise starke Vibrationen, eine hohe Auslastung des Flugcontrollers oder eine notwendige Sensorkalibrierung sein. Detaillierte Anleitungen zur Kalibrierung und zum Test von optischen Flusssensoren sind in der ArduPilot-Dokumentation verfügbar: \href{https://ardupilot.org/copter/docs/common-optical-flow-sensor-setup.html}{https://ardupilot.org/copter/docs/common-optical-flow-sensor-setup.html}  
+
+\colende
