@@ -40,15 +40,16 @@ We greatly appreciate your comments and suggestions for improvement.
     ├── images/
     ├── chapter00.tex       # Vorwort 
     ├── chapter01.tex       # Hardware
-    ├── chapter02.tex       # Software
-    ├── chapter03.tex       # Wichtige Punkte
-    ├── chapter04.tex       # Objekterkennung 
-    ├── chapter05.tex       # Autopilot
-    ├── chapter06.tex       # Follow-Me
-    ├── chapter07.tex       # Drop-Mechanismen 
-    ├── chapter08.tex       # Stereokameras
-    ├── chapter09.tex       # Gesetzliche Grundlagen
-    ├── chapter10.tex       # Positionsbestimmung
+    ├── chapter02.tex       # Software (Firmwares) für Flugcontroller
+    ├── chapter03.tex       # Software für Sender und Empfänger
+    ├── chapter04.tex       # Wichtige Punkte
+    ├── chapter05.tex       # Objekterkennung
+    ├── chapter06.tex       # Autopilot
+    ├── chapter07.tex       # Follow-Me
+    ├── chapter08.tex       # Drop-Mechanismen 
+    ├── chapter09.tex       # Stereokameras
+    ├── chapter10.tex       # Gesetzliche Regelungen
+    ├── chapter11.tex       # Positionsbestimmung
     ├── main.tex            # Haupt-LaTeX-Datei (zweisprachig)
     ├── Makefile            # Skript zur Erstellung des Handbuchs
     └── README.md           # Diese Datei / This file
