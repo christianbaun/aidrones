@@ -289,13 +289,32 @@ Aus verschiedenen Gründen, wie der kurzfristigen Hardwareverfügbarkeit, war es
 \makrounterabschnitt
 \label{AbschnittObjekterkennungImplementierungHuckepack}
 
-Figure~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} shows the components of the FPV drone from Figure~\ref{AbbildungKompoentenEinerDrohneOhneKI}, expanded by the components required for onboard image recognition: the Raspberry Pi single-board computer, a Raspberry Pi Camera Module v2, the Google Coral TPU Accelerator, and a BEC (Battery Eliminator Circuit) for converting the battery voltage to 5\,V.
+Figure~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} shows the components of the FPV drone from Figure~\ref{AbbildungKompoentenEinerDrohneOhneKI}, expanded by the components required for onboard image recognition: the Raspberry Pi single-board computer, a Raspberry Pi Camera Module v2, the Google Coral TPU Accelerator, and a BEC -- Battery Eliminator Circuit (see Figure~\ref{AbbildungBEC}) for converting the battery voltage to 5\,V.
 
 \colger
 
-Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} zeigt die Komponenten der FPV-Drohne aus Abbildung~\ref{AbbildungKompoentenEinerDrohneOhneKI}, erweitert um die für die lokale Bilderkennung erforderlichen Komponenten: den Raspberry Pi Einplatinencomputer, ein Raspberry Pi Camera Module v2, den Google Coral TPU Accelerator sowie einen BEC zur Umwandlung der elektrischen Spannung des Akkus in 5\,V.
+Abbildung~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral} zeigt die Komponenten der FPV-Drohne aus Abbildung~\ref{AbbildungKompoentenEinerDrohneOhneKI}, erweitert um die für die lokale Bilderkennung erforderlichen Komponenten: den Raspberry Pi Einplatinencomputer, ein Raspberry Pi Camera Module v2, den Google Coral TPU Accelerator sowie einen Abwärtsregler bzw. BEC (siehe Abbildung~\ref{AbbildungBEC}) zur Umwandlung der elektrischen Spannung des Akkus in 5\,V.
 
-\coleng
+\colende
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=.33\linewidth]{BEC_Voltage_Regulator_iFlight_Micro_front.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=.33\linewidth]{BEC_Voltage_Regulator_iFlight_Micro_back.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Battery Eliminator Circuit -- BEC (Front and Back) that Converts Higher Battery Voltage into a stable, lower Voltage to safely power Electronic Components}
+  \label{AbbildungBEC}
+\end{figure}
+\FloatBarrier
+
+\colstart
 
 The SpeedyBee F405 AIO flight controller used here provides only six UART interfaces, leaving little flexibility, as shown in Figure~\ref{AbbildungKompoentenEinerDrohneMitRaspberryPiundCoral}. The video transmitter (UART3), GPS module (UART5), and receiver (UART6) each require one UART interface. In addition, one UART (UART1) is reserved for administration via Wi-Fi and USB. Of the remaining interfaces, UART2 supports only simplex mode (receive-only). This leaves a single fully functional (bidirectional) UART interface, which is used to connect the Raspberry Pi Zero\,2\,W. This connection allows command exchange between the flight controller and the single-board computer.
 
@@ -362,7 +381,7 @@ Zum Aufbau der Drohne empfiehlt sich ein Rahmen mit 3,5 bis 5 Zoll. Soll die Dro
 @Adafruit Camera Module case               & @Case                   & 8    & 5  \\
 @Google Coral TPU                          & @AI Hardware            & 20   & 85 \\
 @USB-C cable for Coral TPU                 & @Cable                  & 10   & 5  \\
-@Additional cables, straps and panels      & @Cables + fixing material                  & 10   & 5  \\
+@Additional cables, straps and panels      & @Cables + fixing material & 10   & 5  \\
 \bottomrule
 @Sum & & sum(c2:c19) & sum(d2:d19) \\
 \end{spreadtab}
