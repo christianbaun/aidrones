@@ -1234,13 +1234,10 @@ While platforms such as Betaflight are optimized for high-performance manual fli
 
 TBD
 
-\colger
-
-TBD
-
 \coleng
 
 Although ArduPilot provides automated tuning features (AutoTune) to assist with parameter adjustment, these tools are often not sufficient to achieve optimal flight performance in all situations. As a result, manual analysis and tuning are frequently required. Furthermore, the ability to manually refine system performance through log analysis is an essential skill for any UAV operator. Flight logs record detailed information about the vehicle’s sensors and system performance during flight. By analyzing this data, users can identify issues, evaluate system performance, and make informed parameter adjustments.
+
 \colger
 
 TBD
@@ -1256,13 +1253,13 @@ TBD
 \coleng
 
 \begin{itemize}
-\item \textsl{Log Generation} - Configuring the firmware to capture sensor data during test flights and extract the data.
+\item \textsl{Log Configuration} - Configuring the firmware to capture sensor data during test flights and extract the data.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{Log Generation} - TBD
+\item \textsl{Log Configuration} - TBD
 \end{itemize}
 
 \coleng
@@ -1277,18 +1274,106 @@ TBD
 \item \textsl{Analysis Toolkits} - TBD
 \end{itemize}
 
+\coleng
+
+\begin{itemize}
+\item \textsl{Vibration Analysis and Reduction} - Using log data (e.g., IMU and FFT data) to analyze vibration frequencies and applying solutions such as notch filtering, harmonic notch configuration and adjusting gyro filtering.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{Vibration Analysis and Reduction} - TBD
+\end{itemize}
+
 \colende
 
-\renewcommand{\deutschertitel}{Fluglogbasierte Vibrationsreduktion}
-\renewcommand{\englischertitel}{Flight Log–Based Vibration Reduction}
+\renewcommand{\deutschertitel}{Log Configuration}
+\renewcommand{\englischertitel}{Log Configuration}
 \makrounterabschnitt
 \label{ArdupilotVibrationReduction}
 
-TBD
+Logging is a resource-intensive process that can impact the Flight Controller’s (FC) real-time performance, particularly on F4-based controllers and, to a lesser extent, on some F7-based controllers.  Since ArduPilot itself requires significant computational resources, it is important to be conservative when adding additional load to the flight controller. This documentation focuses on a minimalist logging strategy, prioritizing high-bandwidth vibration data to preserve memory and processing power.
 
 \colger
 
 TBD
+
+\coleng
+
+For smaller drones (propeller diameters of 10 inches or less), mechanical resonances typically occur at higher frequencies compared to larger drones. Therefore, logging data at lower frequencies does not add significant value in this case. The configuration is thus optimized to avoid low-value data and instead focus on high-resolution analysis. Additionally, it is important to capture both pre-filter and post-filter data to effectively evaluate the impact of filtering.
+
+\colger
+
+TBD
+
+\coleng
+
+The log configuration corresponding to the scenario described above can be applied by navigating to Config → Full Parameter List and setting the following parameters:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_LOG\_BAT\_MASK = 1} - Logs batch IMU data; only IMU1 is recorded
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_LOG\_BAT\_OPT = 4} - Logs both pre and prost filtered data
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_RAW\_LOG\_OPT = 0} - Disables raw IMU logging
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{LOG\_BACKEND\_TYPE = 4} - Enables block-based logging
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{LOG\_BITMASK = 139006} - Enables all required onboard log types
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
 
 \colende
 
