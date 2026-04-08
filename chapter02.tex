@@ -1291,7 +1291,7 @@ TBD
 \renewcommand{\deutschertitel}{Log Configuration}
 \renewcommand{\englischertitel}{Log Configuration}
 \makrounterabschnitt
-\label{ArdupilotVibrationReduction}
+\label{ArdupilotLogConfiguration}
 
 Logging is a resource-intensive process that can impact the Flight Controller’s (FC) real-time performance, particularly on F4-based controllers and, to a lesser extent, on some F7-based controllers.  Since ArduPilot itself requires significant computational resources, it is important to be conservative when adding additional load to the flight controller. This documentation focuses on a minimalist logging strategy, prioritizing high-bandwidth vibration data to preserve memory and processing power.
 
@@ -1354,7 +1354,7 @@ TBD
 \coleng
 
 \begin{itemize}
-\item \textsl{LOG\_BACKEND\_TYPE = 4} - Enables block-based logging
+\item \textsl{LOG\_BACKEND\_TYPE = 4} - Bitmask to define log destinations: 0 = log disabled, 1 (bit 0) = SD card, 2 (bit 1) = MAVLink stream, 4 (bit 2) = onboard dataflash.
 \end{itemize}
 
 \colger
@@ -1366,7 +1366,7 @@ TBD
 \coleng
 
 \begin{itemize}
-\item \textsl{LOG\_BITMASK = 139006} - Enables all required onboard log types
+\item \textsl{LOG\_BITMASK = 139006} - Enables standard onboard log types. Can also be configured via a graphical interface, allowing user to select and adjust which log types (e.g., optical flow, PID) are recorded. (see Figure~\ref{MissionPlannerLogBitmaskDialog}) 
 \end{itemize}
 
 \colger
@@ -1374,6 +1374,134 @@ TBD
 \begin{itemize}
 \item \textsl{TBD} - TBD
 \end{itemize}
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_log_bitmask_screenshot.png}
+  \caption{Mission planner - Log Bitmask dialog}
+  \label{MissionPlannerLogBitmaskDialog}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{Downloading and analyzing logs}
+\renewcommand{\englischertitel}{Downloading and analyzing logs}
+\makrounterabschnitt
+\label{ArdupilotAnalysisToos}
+
+ArduPilot logs contain critical flight-related data that are essential for debugging, performance evaluation, and filter analysis. These logs include sensor readings, Extended Kalman Filter (EKF) data, vibration and filtering metrics, and control inputs and outputs
+
+\colger
+
+TBD
+
+\coleng
+
+ArduPilot utilizes two primary logging formats, distinguished by their storage medium and acquisition method:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+\item \textsl{DataFlash Logs (.bin)} - These are high-speed logs recorded directly onto the flight controller’s onboard storage (typically an SD card or dataflash chip) and can only be accessed and downloaded after the completion of a flight. Due to their high sampling rate, they are particularly important for in-depth system tuning and diagnostics. DataFlash logs can be downloaded post-flight via the same software. For instance, in Mission Planner, DataFlash logs can be accessed through the “DataFlash Logs” tab (see Figure~\ref{MissionPlannerDataFlashLogDownload}), where individual logs may be selected and downloaded. Upon successful download, log files are archived in a directory structure defined by the GCS. For instance, the default directory for Mission Planner is typically: Documents/Mission Planner/logs/QUADROTOR/
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_download_logs_screenshot.png}
+  \caption{Mission planner - DataFlash log Downloading}
+  \label{MissionPlannerDataFlashLogDownload}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+\begin{itemize}
+\item \textsl{Telemetry Logs (.tlog)} - These logs are recorded by the Ground Control Station (GCS), such as Mission Planner, via the MAVLink communication protocol. Telemetry logs are saved in directories determined by the specific ground control software in use.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\textsl{Note}: Due to the finite storage capacity of onboard flight controllers, it is recommended to periodically clear the DataFlash memory after successful data transfer to ensure continuous logging availability for subsequent flights.
+
+\colger
+
+\textsl{Note}: TBD
+
+\coleng
+
+A variety of software tools are available to facilitate the analysis and visualization of ArduPilot log data. Mission Planner is widely utilized for this purpose, as it provides integrated log review functionalities, including graphical plotting and parameter inspection (see Figure~\ref{MissionLogAnalysis}) . In addition, MAVExplorer, a Python-based command-line utility, can be used for advanced log analysis and developing custom data-processing scripts.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_logs_analysis_screenshot.png}
+	\caption{Mission Planner: Log Analysis}
+	\label{MissionLogAnalysis}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Furthermore, web-based solutions such as UAV Log Viewer enable interactive visualization of log data, including time-series plotting and three-dimensional flight trajectory representation, without requiring local software installation (see Figure~\ref{UAVLogViewerLogAnalysis}).
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{UAV_log_viewer_screenshot.png}
+	\caption{UAV Log Viewer: Log Analysis}
+	\label{UAVLogViewerLogAnalysis}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Moreover, a range of online utilities is provided through ArduPilot WebTools ( \url{https://firmware.ardupilot.org/Tools/WebTools/} ) for specialized log analysis tasks. Among these, the Filter Review tool is particularly effective for evaluating the impact of different filtering configurations on system performance.
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Vibration Reduction}
+\renewcommand{\englischertitel}{Vibration Reduction}
+\makrounterabschnitt
+\label{ArdupilotVibrationReduction}
+
+This shows how can vibration data be analyzed and tune it.
+
+\colger
+
+TBD
 
 \colende
 
