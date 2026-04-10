@@ -993,7 +993,7 @@ Zur Überprüfung der korrekten Konfiguration wird im Mission Planner die Regist
 
 \colstart
 
-Figure~\ref{MissionPlannerSerialPortConfig} shows the \textsl{Serial Ports} page within the \textsl{Mandatory Hardware} section in Mission Planner, where the available UART interfaces (\texttt{UART1}, \texttt{UART2}, \dots) must be configured according to the peripherals connected to the flight controller. This configuration defines how external devices—such as the \textsl{GPS}-module, the receiver, telemetry units, or the \textsl{VTX}—communicate with the autopilot. In the example shown in Figure~\ref{MissionPlannerSerialPortConfig}, \texttt{UART2} is assigned the \textsl{RCIN} protocol for the radio receiver, \texttt{UART3} is configured with the \textsl{IRC Tramp} protocol for \textsl{VTX} control, and \texttt{UART6} is set to the \textsl{GPS} protocol for the connected GPS module.
+Figure~\ref{MissionPlannerSerialPortConfig} shows the \textsl{Serial Ports} page within the \textsl{Mandatory Hardware} section in Mission Planner, where the available UART interfaces (\texttt{UART1}, \texttt{UART2}, \dots) must be configured according to the peripherals connected to the flight controller. This configuration defines how external devices, such as the \textsl{GPS}-module, the receiver, telemetry units, or the \textsl{VTX}—communicate with the autopilot. In the example shown in Figure~\ref{MissionPlannerSerialPortConfig}, \texttt{UART2} is assigned the \textsl{RCIN} protocol for the radio receiver, \texttt{UART3} is configured with the \textsl{IRC Tramp} protocol for \textsl{VTX} control, and \texttt{UART6} is set to the \textsl{GPS} protocol for the connected GPS module.
 
 \colger
 
@@ -1265,7 +1265,7 @@ TBD
 \coleng
 
 \begin{itemize}
-\item \textsl{Analysis Toolkits} - An overview of analysis tools—such as Mission Planner, UAV Log Viewer, and ArduPilot Filter Review Tool—used to visualize and interpret flight data.
+\item \textsl{Analysis Toolkits} - An overview of analysis tools, such as Mission Planner, UAV Log Viewer, and ArduPilot Filter Review Tool used to visualize and interpret flight data.
 \end{itemize}
 
 \colger
@@ -1492,18 +1492,186 @@ TBD
 
 \colende
 
-\renewcommand{\deutschertitel}{Vibration Reduction}
-\renewcommand{\englischertitel}{Vibration Reduction}
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{ Vibration Reduction via Notch and Gyro filter }
 \makrounterabschnitt
 \label{ArdupilotVibrationReduction}
 
-This shows how can vibration data be analyzed and tune it.
+Vibration reduction is an important factor for achieving stable flight performance in ArduPilot-based drones. High vibration levels can lead to unstable or even uncontrollable flight and negatively affect position estimation algorithms such as the Extended Kalman Filter (EKF). Left unaddressed, high-frequency vibrations often manifest as erratic flight behavior, increased power consumption due to motor oscillation, and motor overheating, potentially leading to motor damage.
+
+\colger
+
+TBD
+
+\coleng
+
+When vibrations from motors and the frame are reduced, the flight controller receives more reliable motion data. This improves control stability and overall flight performance. Filtering techniques such as gyro filtering and harmonic notch filtering are effective in removing these unwanted frequencies when they are properly configured and tuned.
+
+
+\colger
+
+TBD
+
+\coleng
+
+\textsl{Note:} For drones experiencing severe vibration levels, it is essential to perform an initial parameter tuning before applying advanced filtering techniques. This preliminary tuning step (see Figure~\ref{MissionPlannerIniTialTune}) helps establish a stable baseline configuration, ensuring that subsequent filter tuning, such as gyro and harmonic notch filters can be applied effectively.
+
+\colger
+
+\textsl{Note:} TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{ Enable Bi-directional DShot and motor frequencies }
+\makrounterunterabschnitt
+\label{EnableDshotAndMotorFrequencies}
+
+In a typical setup, the flight controller (FC) sends motor commands to the Electronic Speed Controllers (ESCs) using the DShot protocol, and the ESCs attempt to spin the motors accordingly. However, with Bi-directional DShot, communication becomes two-way, allowing the ESCs to transmit the data back to the FC. This data typically includes motor eRPM information (electrical revolutions per minute).
+
+\colger
+
+TBD
+
+\coleng
+
+The Gyroscope is highly sensitive to motion and is therefore very capable of capturing both vehicle dynamics and high-frequency vibrations. As a result, high-frequency vibrations from motor rotation introduce noise into the gyro signal, degrading overall flight performance. By utilizing Bi-directional DShot, the FC can determine the exact motor rotation frequencies in real time. This enables the system to dynamically filter out motor-introduced noise,  significantly improving signal quality and flight stability.
+
+\colger
+
+TBD
+
+\coleng
+
+Requirements: To use bidirectional DShot, the ESC firmware must support protocols such as BLHeli\_32, AM32, or BlueJay, and DShot300 or DShot600 must be enabled (see Figure~\ref{MissionPlannerESCCalibration} for configuration details).
+
+\colger
+
+TBD
+
+\coleng
+
+Bidirectional DShot can be enabled using the following parameter settings:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+\item \textsl{RPM1\_TYPE = 5} - enables ESC telemetry via bitmask.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{RPM1\_ESC\_MASK = 15} - 15 is for a quadcopter with four motors; adjust accordingly for different motor counts.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{SERVO\_BLH\_BDMASK = 15} - here 15 is also for 4 motors drone; Adjust according to the number of motors.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{SERVO\_BLH\_POLES = total magnates in a motor} - set based on the number of magnets in the motor; typically 12 for small drones (<3") and 14 for medium-sized drones
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{SERVO\_DSHOT\_ESC = 1 or 2} - 1 for BLHeli\_32 / AM32 / KISS; 2 for BlueJay  (Refer to manufacturer specifications to determine the correct value.)
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{ Read motor frequencies from test flight }
+\makrounterunterabschnitt
+\label{MotorFrequenciesReading}
+
+TBD
 
 \colger
 
 TBD
 
 \colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{ Set Harmonic notch and test flight }
+\makrounterunterabschnitt
+\label{SetHarmonicNotch}
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{ Fix harmonic notch with log data }
+\makrounterunterabschnitt
+\label{FixHarmonicNotchByLogReadngs}
+
+The quick brown fox jumps over the lazy downloading
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{ Fix gyro filter and finan test flight }
+\makrounterunterabschnitt
+\label{FixGyroFilterAndFinalTestFlight}
+
+The quick brown fox jumps over the lazy downloading
+
+\colger
+
+TBD
+
+\colende
+
+
 
 \renewcommand{\deutschertitel}{PX4}
 \renewcommand{\englischertitel}{PX4}
