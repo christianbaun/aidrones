@@ -1448,7 +1448,7 @@ TBD
 
 \coleng
 
-A variety of software tools are available to facilitate the analysis and visualization of ArduPilot log data. Mission Planner is widely utilized for this purpose, as it provides integrated log review functionalities, including graphical plotting and parameter inspection (see Figure~\ref{MissionLogAnalysis}) . In addition, MAVExplorer, a Python-based command-line utility, can be used for advanced log analysis and developing custom data-processing scripts.
+A variety of software tools are available to facilitate the analysis and visualization of ArduPilot log data. Mission Planner is widely utilized for this purpose, as it provides integrated log review functionalities, including graphical plotting and parameter inspection (see Figure~\ref{MissionLogAnalysis}). In addition, MAVExplorer, a Python-based command-line utility, can be used for advanced log analysis and developing custom data-processing scripts.
 
 \colger
 
@@ -1459,7 +1459,7 @@ TBD
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_logs_analysis_screenshot.png}
-	\caption{Mission Planner: Log Analysis}
+	\caption{Mission Planner: Log Analysis - Motor RPM plot}
 	\label{MissionLogAnalysis}
 \end{figure}
 \FloatBarrier
@@ -1620,11 +1620,27 @@ TBD
 \colende
 
 \renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ Read motor frequencies from test flight }
+\renewcommand{\englischertitel}{ Validation of Bidirectional DShot and RPM Logging (Optional) }
 \makrounterunterabschnitt
 \label{MotorFrequenciesReading}
 
+After configuring the logging parameters and enabling Bi-directional DShot, a short test flight should be performed to generate the data required for validation. This step is necessary to confirm that the motor feedback mechanism is functioning correctly.
+Mission Planner: Log Analysis
+\colger
+
 TBD
+
+\coleng
+
+Following the test flight, the DataFlash log file (.bin) should be downloaded using the ground control software (see Figure~\ref{MissionPlannerDataFlashLogDownload}). The downloaded log can then be opened using a suitable analysis tool, such as Mission Planner.
+
+\colger
+
+TBD
+
+\coleng
+
+During log analysis, the motor RPM data should be examined. If the configuration is correct, the log will display active time-varying graphs of each motor RPM throughout the flight, as illustrated in Figure~\ref{MissionLogAnalysis}. Conversely, if the RPM data of any motor is absent or appears as a constant (flat) signal, this indicates that the flight controller is not receiving feedback from the ESCs. In such cases, it is necessary to verify the hardware connections and review the configuration parameters before proceeding to further tuning steps.
 
 \colger
 
@@ -1633,24 +1649,37 @@ TBD
 \colende
 
 \renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ Set Harmonic notch and test flight }
-\makrounterunterabschnitt
-\label{SetHarmonicNotch}
-
-TBD
-
-\colger
-
-TBD
-
-\colende
-
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ Fix harmonic notch with log data }
+\renewcommand{\englischertitel}{ Harmonic Notch Filter Configuration Using Log Data }
 \makrounterunterabschnitt
 \label{FixHarmonicNotchByLogReadngs}
 
-The quick brown fox jumps over the lazy downloading
+To properly configure the harmonic notch filter, DataFlash log data (.bin) is required. If a log file has already been obtained from the previous section, it can be used directly. Otherwise, a short test flight—consisting of approximately one minute of hovering—should be performed to collect the necessary data, as described earlier.
+
+\colger
+
+TBD
+
+\coleng
+
+The harmonic notch filter can be tuned using the ArduPilot Filter Review Tool. The log file should be uploaded to the tool (available at: \url{https://firmware.ardupilot.org/Tools/WebTools/FilterReview/}), after which a visualization similar to Figure~\ref{ArduPilotFilterReviewFrequencySpectrumWitoutNotch} will be displayed. This visualization presents the IMU (gyro) frequency spectrum from the flight, illustrating vibration characteristics before and after filtering.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{ArduPilotFilterReview_Frequency_Spectrum_no_notch_screenshot.png}
+  \caption{IMU Frequency Spectrum (Without Harmonic Notch Filtering) – Test Flight}
+  \label{ArduPilotFilterReviewFrequencySpectrumWitoutNotch}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+TBD
 
 \colger
 
@@ -1663,7 +1692,7 @@ TBD
 \makrounterunterabschnitt
 \label{FixGyroFilterAndFinalTestFlight}
 
-The quick brown fox jumps over the lazy downloading
+TBD
 
 \colger
 
