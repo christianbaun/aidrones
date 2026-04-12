@@ -1804,11 +1804,84 @@ TBD
 \colende
 
 \renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ Fix gyro filter and finan test flight }
+\renewcommand{\englischertitel}{ Analysis of Notch-Filtered Data }
 \makrounterunterabschnitt
 \label{FixGyroFilterAndFinalTestFlight}
 
+After applying the harmonic notch filter configuration, an additional test flight should be conducted to validate its effectiveness. Similar to the previous step, this flight should last approximately one minute and may be performed in any stabilized flight mode (e.g., Stabilize, AltHold, or Loiter). The resulting DataFlash log should then be analyzed using the ArduPilot Filter Review Tool.
+
+\colger
+
 TBD
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{ArduPilotFilterReview_Frequency_Spectrum_notch_screenshot.png}
+  \caption{IMU Frequency Spectrum (With Harmonic Notch Filtering)}
+  \label{ArduPilotFilterReviewFrequencySpectrumWiNotch}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Figure~\ref{ArduPilotFilterReviewFrequencySpectrumWiNotch} illustrates the frequency spectrum after the application of harmonic notch filtering. Compared to the unfiltered case (see Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch}), a significant reduction in vibration amplitude can be observed. The dominant vibration peak, previously observed around -30 dB, is substantially attenuated to below -80 dB in the post-filter signal. This demonstrates that the harmonic notch filter is effectively targeting and suppressing the primary motor-induced vibration. Similarly, the second harmonic (430-450 Hz) is also attenuated, confirming the correct harmonic notch configuration.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_notch_screenshot.png}
+  \caption{IMU Spectrum vs time - Pre filter(With Harmonic Notch Filtering)}
+  \label{ArduPilotFilterReviewIMUSpectrumVsTimeWitNotchPreFilter}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_notch_post_filter_screenshot.png}
+  \caption{IMU Spectrum vs time - Post filter (With Harmonic Notch Filtering)}
+  \label{ArduPilotFilterReviewIMUSpectrumVsTimeWithNotchPostFilter}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitNotchPreFilter} IMU-spectrogram of the flight log shows that the harmonic notch filter is exactly aligned with the motor noise peaks, tracking and crushing both the fundamental motor frequency (~220 Hz) and its second harmonic (~440 Hz). The overlaid tracking lines show that the filter is continuously following these vibration bands during the flight. Since each motor can operate at slightly different speeds, the filter tracks them individually, which is why multiple orange (fundamental) and green (harmonic) lines are visible in the spectrogram rather than a single line.
+
+\colger
+
+TBD
+
+\coleng
+
+Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithNotchPostFilter} presents the IMU spectrogram after filtering, where no significant vibration noise is observed. This indicates that the applied filtering is sufficient and that no additional notch filters are required.
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{ Gyro Filter Optimization }
+\makrounterunterabschnitt
+\label{ArdupilotGyroLowPassFilter}
+
+With the harmonic notch filter effectively attenuating motor-induced vibrations, the Gyro low-pass filter cutoff frequency can be increased to further optimize flight performance. A lower cutoff frequency introduces signal delay, which can negatively affect control responsiveness or cause the fly to be unstable. However, setting the cutoff frequency too high may allow unwanted high-frequency noise to pass through.
+
+\colger
+
+TBD
+
+\coleng
+
+Therefore, it is recommended to gradually increase the gyro low-pass filter using the \textsl{INS\_GYRO\_FILTER} parameter. After each adjustment, a short test flight should be conducted to ensure stable flight behavior. The resulting log data should then be analyzed using the ArduPilot Filter Review Tool to verify that no significant noise is present in the post-filter signal (see Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithNotchPostFilter}). This iterative approach ensures an optimal balance between responsiveness and noise suppression.
 
 \colger
 
