@@ -1667,23 +1667,139 @@ The harmonic notch filter can be tuned using the ArduPilot Filter Review Tool. T
 
 TBD
 
+\coleng
+
+In the example shown (Figure~\ref{ArduPilotFilterReviewFrequencySpectrumWitoutNotch}), which corresponds to a 3.5-inch cinewhoop drone with 5 propellers, a noticeable vibration peak is observed in the range of approximately 200–250 Hz across all three axes. This peak represents the fundamental motor and propeller vibration frequency. Additionally, the IMU spectrum Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch} also shows a continuous horizontal band within this frequency range, indicating persistent vibration throughout the flight. Higher-frequency harmonic components can also be observed, typically around 400–500 Hz and above, corresponding to multiples of the fundamental frequency.
+
+\colger
+
+TBD
+
 \colende
 
 \begin{figure}[htb!]
   \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_Frequency_Spectrum_no_notch_screenshot.png}
-  \caption{IMU Frequency Spectrum (Without Harmonic Notch Filtering) – Test Flight}
+  \caption{IMU Frequency Spectrum (Without Harmonic Notch Filtering)}
   \label{ArduPilotFilterReviewFrequencySpectrumWitoutNotch}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[htb!]
+  \centering
+    \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_no_notch_screenshot.png}
+  \caption{IMU Spectrum vs time - Shows how noise changes throughout time (Without Harmonic Notch Filtering)}
+  \label{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-TBD
+Harmonic notch filtering can be used to target these specific vibration frequencies. In this case, two significant peaks are identified (the fundamental frequency and its first harmonic), and therefore, two harmonic notches are sufficient. The remaining higher-frequency noise components appear minimal after filtering and are within acceptable limits; otherwise, additional notches may be required.
 
 \colger
 
 TBD
+
+\coleng
+
+For optimal performance, the notch filter should be configured dynamically, allowing it to track changes in motor frequency during flight. This is particularly important because individual motors may operate at slightly different speeds, particularly when the center of gravity is misaligned or when yaw input is given. Additionally, the notch bandwidth should be kept as narrow as possible to target specific vibration frequencies while minimizing computational load. However, the bandwidth must still be sufficiently wide to effectively attenuate the noise.
+
+\colger
+
+TBD
+
+\coleng
+
+Based on the analysis of the test flight log data, the harmonic notch filter can be configured as follows:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_HNTCH\_ENABLE = 1} - Enables the harmonic notch filter.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_HNTCH\_MODE = 3 } - Uses ESC telemetry for dynamic frequency tracking.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_HNTCH\_FREQ = 220} - Fundamental frequency identified from log analysis (See Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch}); should be adjusted based on actual data.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_HNTCH\_BW = 38} - Bandwidth selected to effectively cover the vibration peak while remaining as narrow as possible.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_HNTCH\_ATT = 40} - Default attenuation value.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_HNTCH\_HMNCS = 3} - Enables harmonic filtering (fundamental and first harmonic at 2× frequency). Adjust it based on the required Total Harmonic Notch filtering.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_HNTCH\_OPTS = 6} - Enables per-motor notch filtering with dynamic updates during flight.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
 
 \colende
 
@@ -1699,8 +1815,6 @@ TBD
 TBD
 
 \colende
-
-
 
 \renewcommand{\deutschertitel}{PX4}
 \renewcommand{\englischertitel}{PX4}
