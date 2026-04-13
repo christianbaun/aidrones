@@ -811,18 +811,10 @@ Von den in diesem Dokument vorgestellten Flugcontroller-Firmwares benötigt Ardu
 
 \colende
 
-\renewcommand{\deutschertitel}{Installation}
-\renewcommand{\englischertitel}{Installation}
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Software and Firmware Requirements}
 \makrounterabschnitt
-\label{AbschnittInstallationArduPilot}
-
-Typically, FPV flight controllers are delivered with Betaflight pre-installed. If ArduPilot is not present on the device, the installation process consists of three steps: (1) installing the required drivers and flashing tools, (2) downloading the appropriate ArduPilot firmware, and (3) flashing the firmware to the flight controller.
-
-\colger
-
-Typischerweise werden FPV-Flugcontroller mit vorinstalliertem Betaflight ausgeliefert. Ist ArduPilot nicht auf dem Gerät vorhanden, besteht der Installationsvorgang aus drei Schritten: (1) Installation der erforderlichen Treiber und Flash-Werkzeuge, (2) Herunterladen der passenden ArduPilot-Firmware und (3) Flashen der Firmware auf den Flugcontroller.
-
-\coleng
+\label{SoftwareFirmwareRequirementsArduPilot}
 
 To install ArduPilot on a compatible flight controller, the necessary drivers and tools must be installed first. The STM32CubeProgrammer, provided by STMicroelectronics, includes the required DFU drivers. The software is available for Windows, Linux, and macOS.
 
@@ -838,6 +830,43 @@ To obtain the ArduCopter firmware, the official ArduPilot firmware server at \ur
 
 Zum Herunterladen der ArduCopter-Firmware wird der offizielle ArduPilot-Firmware-Server unter \url{firmware.ardupilot.org/Copter/stable/} aufgerufen. Aus der Liste der unterstützten Flugcontroller wird das Verzeichnis ausgewählt, das der verwendeten Hardware entspricht (z.\,B. FlywooF745, Pixhawk1 oder MatekH743). In diesem Verzeichnis wird die Datei mit der Endung \verb!_with_bl.hex! heruntergeladen, da diese den Bootloader enthält. Ist ein Flugcontroller mit ArduCopter kompatibel, erscheint er in dieser Liste und die passende Firmwaredatei ist verfügbar. Die Verwendung der aktuellen stabilen Version wird empfohlen, um Kompatibilität und Betriebssicherheit sicherzustellen.
 
+\coleng
+
+In some cases, certain features may not be available in the stable firmware builds for specific flight controllers. For example, a stable release may lack support for features such as optical flow due to firmware size constraints or just to reduce the build size. If such functionality is required, it is possible to build a custom firmware tailored to the specific flight controller, enabling the necessary features as needed \url{https://custom.ardupilot.org/add_build}.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ArduPilotMotorDirection_screenshot.png}
+	\caption{ArduCopter Motor Direction}
+	\label{ArduCopterMotorDirection}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{Installation}
+\renewcommand{\englischertitel}{Motor Direction Verification}
+\makrounterabschnitt
+\label{MotorDirectionVerificationArduPilot}
+
+Proper motor rotation is essential for the correct operation of ArduPilot firmware (see Figure~\ref{ArduCopterMotorDirection}). Achieving the required motor direction configuration directly within ArduPilot can be challenging. Therefore, it is recommended to configure the motors with Betaflight first and verify that the rotation directions match the configuration shown in Figure~\ref{ArduCopterMotorDirection}
+
+\colger
+
+TBD
+
+\coleng
+
+If using Betaflight is not feasible, motor direction can be configured using ESC configuration tools such as BLHeli Configurator.
+
+\colger
+
+TBD
+
 \colende
 
 \begin{figure}[htb!]
@@ -848,7 +877,10 @@ Zum Herunterladen der ArduCopter-Firmware wird der offizielle ArduPilot-Firmware
 \end{figure}
 \FloatBarrier
 
-\colstart
+\renewcommand{\deutschertitel}{Installation}
+\renewcommand{\englischertitel}{Installation}
+\makrounterabschnitt
+\label{AbschnittInstallationArduPilot}
 
 Before starting the firmware installation process, DFU (Device Firmware Upgrade) mode must be activated on the flight controller. This mode enables the board to accept new firmware via USB. DFU mode is typically enabled by holding down the boot button (or bridging the BOOT pads) while the board is connected to a computer using a USB cable. In STM32CubeProgrammer, the connection method USB is selected (see Figure~\ref{FlashingArdupilotFirmware}), after which the Connect function is used to establish communication with the flight controller. If the device is not detected, it should be verified that the STM32 drivers are correctly installed and that the USB cable supports data transfer.
 
@@ -964,6 +996,14 @@ Before performing the accelerometer calibration, it is essential to ensure that 
 \colger
 
 Bevor die Kalibrierung des Beschleunigungssensors durchgeführt wird, muss sichergestellt werden, dass der Flugcontroller korrekt ausgerichtet montiert ist. Eine fehlerhafte Ausrichtung kann zu erheblicher Fluginstabilität oder sogar zum Kontrollverlust führen. Wie in Abbildung~\ref{MissionPlannerBoardOrient} dargestellt, kann die Ausrichtung des Flugcontrollers im Mission Planner über folgenden Pfad konfiguriert werden: Registerkarte Config \(\longrightarrow\) Full Parameter List \(\longrightarrow\) AHRS\_ORIENTATION.
+
+\coleng
+
+If the required orientation is not available in the AHRS\_ORIENTATION parameter, a custom orientation can be defined. This is achieved by setting CUST\_ROT\_ENABLE = 1, followed by saving and refreshing the parameters. This action enables the parameters CUST\_ROT1\_PITCH, CUST\_ROT1\_ROLL, and CUST\_ROT1\_YAW, which can then be configured according to the desired orientation. Once these values are correctly set, the custom configuration can be selected by choosing Custom 1 from the AHRS\_ORIENTATION.
+
+\colger
+
+TBD
 
 \coleng
 
@@ -1087,6 +1127,23 @@ Abbildung \ref{MissionPlannerRadioCalibration} zeigt die Seite zur Funkfernsteue
 
 \colende
 
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_ESC_Calibration_screenshot.png}
+	\caption{Mission Planner: ESC Calibration}
+	\label{MissionPlannerESCCalibration}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Figure~\ref{MissionPlannerESCCalibration} shows the ESC Calibration page in Mission Planner, which is used to standardize the throttle range of analog ESCs so that all motors respond uniformly. This page also provides configuration options for ESC-related parameters, such as the ESC Type (e.g., DShot300 or DShot600) and various Spin settings that control motor behavior at idle and across the throttle range. It is important to note that digital 4-in-1 ESCs using DShot protocols do not require calibration, as their throttle interpretation is digital rather than PWM-based. For most modern flight controllers and ESCs, selecting the appropriate DShot protocol in the ESC Type field is sufficient to ensure correct operation.
+
+\colger
+
+Abbildung~\ref{MissionPlannerESCCalibration} zeigt die ESC-Kalibrierungsseite im Mission Planner, die zur Vereinheitlichung des Gasbereichs analoger ESCs dient, sodass alle Motoren ein einheitliches Ansprechverhalten aufweisen. Auf dieser Seite können außerdem ESC-bezogene Parameter konfiguriert werden, einschließlich des ESC-Typs (z.\,B. DShot300 oder DShot600) sowie verschiedener Spin-Einstellungen, welche das Motorverhalten im Leerlauf und über den gesamten Gasbereich definieren. Es ist zu beachten, dass digitale 4-in-1-ESCs, die DShot-Protokolle verwenden, keine Kalibrierung benötigen, da die Gasinterpretation digital und nicht PWM-basiert erfolgt. Für die meisten modernen Flugcontroller und ESCs genügt es, im Feld ESC Type das passende DShot-Protokoll auszuwählen, um einen korrekten Betrieb sicherzustellen.
+
+\colende
 
 \begin{figure}[htb!]
 	\centering
@@ -1112,23 +1169,13 @@ Figure \ref{MissionPlannerMotorTest} shows the Motor Test page in Mission Planne
 
 Abbildung \ref{MissionPlannerMotorTest} zeigt die Motor-Test-Seite im Mission Planner, die zur Überprüfung dient, ob jeder Motor eines Quadcopters korrekt zugeordnet ist und in die richtige Richtung rotiert. Mit angeschlossener Batterie und entfernten Propellern können die Motoren A, B, C und D einzeln getestet werden. Dabei wird überprüft, ob sie dem in der Abbildung dargestellten Quad-X-Layout entsprechen und jeweils in der erforderlichen Uhrzeiger- bzw. Gegenuhrzeigerrichtung laufen. Reagiert ein Motor nicht wie erwartet oder dreht er in die falsche Richtung, können auf der Seite Servo Output (Abbildung \ref{MissionPlannerServoOutput}) Motorzuordnungen angepasst oder Drehrichtungen geändert werden. Während sich diese Dokumentation auf Quadrokopter konzentriert, sollten Anwender anderer Rahmenkonfigurationen die ArduPilot-Anleitung zu Motoranschlüssen für weitere Konfigurationsoptionen konsultieren: \url{https://ardupilot.org/copter/docs/connect-escs-and-motors.html}.
 
-\colende
+\coleng
 
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_ESC_Calibration_screenshot.png}
-	\caption{Mission Planner: ESC Calibration}
-	\label{MissionPlannerESCCalibration}
-\end{figure}
-\FloatBarrier
-
-\colstart
-
-Figure~\ref{MissionPlannerESCCalibration} shows the ESC Calibration page in Mission Planner, which is used to standardize the throttle range of analog ESCs so that all motors respond uniformly. This page also provides configuration options for ESC-related parameters, such as the ESC Type (e.g., DShot300 or DShot600) and various Spin settings that control motor behavior at idle and across the throttle range. It is important to note that digital 4-in-1 ESCs using DShot protocols do not require calibration, as their throttle interpretation is digital rather than PWM-based. For most modern flight controllers and ESCs, selecting the appropriate DShot protocol in the ESC Type field is sufficient to ensure correct operation.
+Note: If one or more motors do not respond during this stage, ESC calibration may be required. To perform calibration, refer to the ESC calibration section (See Figure~\ref{MissionPlannerESCCalibration}). Ensure that the propellers are removed before proceeding, and follow the instructions provided by the ground control software. After completing the calibration, reconnecting the system should resolve the issue.
 
 \colger
 
-Abbildung~\ref{MissionPlannerESCCalibration} zeigt die ESC-Kalibrierungsseite im Mission Planner, die zur Vereinheitlichung des Gasbereichs analoger ESCs dient, sodass alle Motoren ein einheitliches Ansprechverhalten aufweisen. Auf dieser Seite können außerdem ESC-bezogene Parameter konfiguriert werden, einschließlich des ESC-Typs (z.\,B. DShot300 oder DShot600) sowie verschiedener Spin-Einstellungen, welche das Motorverhalten im Leerlauf und über den gesamten Gasbereich definieren. Es ist zu beachten, dass digitale 4-in-1-ESCs, die DShot-Protokolle verwenden, keine Kalibrierung benötigen, da die Gasinterpretation digital und nicht PWM-basiert erfolgt. Für die meisten modernen Flugcontroller und ESCs genügt es, im Feld ESC Type das passende DShot-Protokoll auszuwählen, um einen korrekten Betrieb sicherzustellen.
+TBD
 
 \colende
 
@@ -1466,7 +1513,7 @@ TBD
 
 \colstart
 
-Furthermore, web-based solutions such as UAV Log Viewer enable interactive visualization of log data, including time-series plotting and three-dimensional flight trajectory representation, without requiring local software installation (see Figure~\ref{UAVLogViewerLogAnalysis}).
+Furthermore, web-based solutions such as UAV Log Viewer ( \url{https://ardupilot.org/copter/docs/common-uavlogviewer.html#common-uavlogviewer/} ) enables interactive visualization of log data, including time-series plotting and three-dimensional flight trajectory representation, without requiring local software installation (see Figure~\ref{UAVLogViewerLogAnalysis}).
 
 \colger
 
@@ -1756,7 +1803,7 @@ TBD
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_BW = 38} - Bandwidth selected to effectively cover the vibration peak while remaining as narrow as possible.
+\item \textsl{INS\_HNTCH\_BW = 38} - Bandwidth selected to effectively cover the vibration peak while remaining as narrow as possible. This value should be adjusted accordingly.
 \end{itemize}
 
 \colger
