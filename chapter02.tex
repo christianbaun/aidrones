@@ -1275,7 +1275,7 @@ Es wird empfohlen, vor dem ersten Flug einen separaten Arming-Schalter zu konfig
 \makrounterabschnitt
 \label{ArdupilotLogging}
 
-While platforms such as Betaflight are optimized for high-performance manual flight using primarily internal Inertial Measurement Units (IMUs)—including accelerometers and gyroscopes, and most of the time works well with the default tuning, ArduPilot functions as a sophisticated autonomous flight system.
+While platforms such as Betaflight are optimized for high-performance manual flight using primarily Inertial Measurement Units (IMUs)—including accelerometers and gyroscopes, and most of the time works well with the default tuning, ArduPilot uses external sensors to fly reliability.
 
 \colger
 
@@ -1283,7 +1283,7 @@ TBD
 
 \coleng
 
-Although ArduPilot provides automated tuning features (AutoTune) to assist with parameter adjustment, these tools are often not sufficient to achieve optimal flight performance in all situations. As a result, manual analysis and tuning are frequently required. Furthermore, the ability to manually refine system performance through log analysis is an essential skill for any UAV operator. Flight logs record detailed information about the vehicle’s sensors and system performance during flight. By analyzing this data, users can identify issues, evaluate system performance, and make informed parameter adjustments.
+Although ArduPilot provides automated tuning features (AutoTune) to assist with parameter adjustment (See Figure~\ref{MissionPlannerIniTialTune}), these tools are often not sufficient to achieve optimal flight performance in all situations. As a result, manual analysis and tuning are frequently required. Furthermore, the ability to manually refine system performance through log analysis is an essential skill for any UAV operator. Flight logs record detailed information about the vehicle’s sensors and system performance during flight. By analyzing this data, users can identify issues, evaluate system performance, and make informed parameter adjustments.
 
 \colger
 
@@ -1401,7 +1401,7 @@ TBD
 \coleng
 
 \begin{itemize}
-\item \textsl{LOG\_BACKEND\_TYPE = 4} - Bitmask to define log destinations: 0 = log disabled, 1 (bit 0) = SD card, 2 (bit 1) = MAVLink stream, 4 (bit 2) = onboard dataflash.
+\item \textsl{LOG\_BACKEND\_TYPE = 4} - Bitmask to define log destinations, 0 = log disabled, 1 (bit 0) = SD card, 2 (bit 1) = MAVLink stream, 4 (bit 2) = onboard dataflash.
 \end{itemize}
 
 \colger
@@ -1495,7 +1495,7 @@ TBD
 
 \coleng
 
-A variety of software tools are available to facilitate the analysis and visualization of ArduPilot log data. Mission Planner is widely utilized for this purpose, as it provides integrated log review functionalities, including graphical plotting and parameter inspection (see Figure~\ref{MissionLogAnalysis}). In addition, MAVExplorer, a Python-based command-line utility, can be used for advanced log analysis and developing custom data-processing scripts.
+A variety of software tools are available to allow the analysis and visualization of ArduPilot log data. Mission Planner is one of them and provides integrated log review functionalities, including graphical plotting and parameter inspection (see Figure~\ref{MissionLogAnalysis}). In addition, MAVExplorer, a Python-based command-line utility, can be used for advanced log analysis and developing custom data-processing scripts.
 
 \colger
 
@@ -1582,7 +1582,7 @@ TBD
 
 \coleng
 
-The Gyroscope is highly sensitive to motion and is therefore very capable of capturing both vehicle dynamics and high-frequency vibrations. As a result, high-frequency vibrations from motor rotation introduce noise into the gyro signal, degrading overall flight performance. By utilizing Bi-directional DShot, the FC can determine the exact motor rotation frequencies in real time. This enables the system to dynamically filter out motor-introduced noise,  significantly improving signal quality and flight stability.
+The Gyroscope is highly sensitive to motion and is therefore very capable of capturing both vehicle dynamics and high-frequency vibrations. As a result, high-frequency vibrations from motor rotation introduce noise into the gyro signal, degrading overall flight performance. By utilizing Bi-directional DShot, the FC can determine the exact motor rotation frequencies in real time. This enables the system to dynamically filter out motor-introduced noise,  significantly improving the flight stability.
 
 \colger
 
@@ -1827,7 +1827,7 @@ TBD
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_HMNCS = 3} - Enables harmonic filtering (fundamental and first harmonic at 2× frequency). Adjust it based on the required Total Harmonic Notch filtering.
+\item \textsl{INS\_HNTCH\_HMNCS = 3} - Required number of notch. This number should be determined based on the log data. In this case, two notches are sufficient: one targeting the fundamental frequency (220 Hz) and the other targeting the first harmonic (2× the fundamental, 440 Hz). This configuration should be adjusted as necessary, depending on the extent of harmonic content observed in the vibration spectrum.
 \end{itemize}
 
 \colger
@@ -1839,7 +1839,7 @@ TBD
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_OPTS = 6} - Enables per-motor notch filtering with dynamic updates during flight.
+\item \textsl{INS\_HNTCH\_OPTS = 6} - Enables per-motor notch filtering with dynamic updates during flight. This configuration allows the system to continuously track each motor individually and apply dedicated notch filters in real time.
 \end{itemize}
 
 \colger
@@ -1899,7 +1899,7 @@ TBD
 
 \colstart
 
-Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitNotchPreFilter} IMU-spectrogram of the flight log shows that the harmonic notch filter is exactly aligned with the motor noise peaks, tracking and crushing both the fundamental motor frequency (~220 Hz) and its second harmonic (~440 Hz). The overlaid tracking lines show that the filter is continuously following these vibration bands during the flight. Since each motor can operate at slightly different speeds, the filter tracks them individually, which is why multiple orange (fundamental) and green (harmonic) lines are visible in the spectrogram rather than a single line.
+Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitNotchPreFilter} IMU-spectrogram of the flight log shows that the harmonic notch filter is exactly aligned with the motor noise peaks, tracking and crushing both the fundamental motor frequency (220 ± 19 Hz) and its second harmonic (2 X 220 ± 19 Hz). The overlaid tracking lines show that the filter is continuously following these vibration bands during the flight. Since each motor can operate at slightly different speeds, the filter tracks them individually, which is why multiple orange (fundamental) and green (harmonic) lines are visible in the spectrogram rather than a single line.
 
 \colger
 
