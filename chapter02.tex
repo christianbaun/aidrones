@@ -562,10 +562,10 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 
 \colende
 
-\renewcommand{\deutschertitel}{Administration}
-\renewcommand{\englischertitel}{Administration}
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Initial Configuration}
 \makrounterabschnitt
-\label{AbschnittAdministrationINAV}
+\label{InitialConfigurationInavFirmware}
 
 The administration of INAV also occurs in the \textsl{INAV Configurator}. When the software is installed for the first time, a few things need to be configured to enable initial flight. These are described in this section.
 
@@ -573,41 +573,136 @@ The administration of INAV also occurs in the \textsl{INAV Configurator}. When t
 
 Die Administration von INAV erfolgt ebenfalls über den \textsl{INAV Configurator}. Wenn die Software das erste Mal installiert wurde, müssen einige Punkte konfiguriert werden, um das Fliegen initial zu ermöglichen.
 
-\coleng
+\colende
 
-When the Configurator is launched for the first time after installation, windows appear for setting the \textsl{Default Values} (presets). Here, you need to select the preset that is closest to the model you have built. After that, you can configure the UART ports (for GPS, VTX, etc.). However, this can also be done via the Ports tab. The further configuration steps are as follows:
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Firmware_Initial_setup_1.png}
+	\caption{INAV Firmware Initial configuration - one}
+	\label{ImageInavInitialSetupOne}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Firmware_Initial_setup_2.png}
+	\caption{INAV Firmware Initial configuration - Two}
+	\label{ImageInavInitialSetupTwo}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Firmware_Initial_setup_3.png}
+	\caption{INAV Firmware Initial configuration - Three}
+	\label{ImageInavInitialSetupThree}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+When the Configurator is launched for the first time after installation, windows appear for setting the \textsl{Default Values} (Figure~\ref{ImageInavInitialSetupOne}, Figure~\ref{ImageInavInitialSetupTwo} and Figure~\ref{ImageInavInitialSetupThree}). Here, you need to select the preset that is closest to the model you have built. After that, you can configure the UART ports (for GPS, VTX, etc.). However, this can also be done via the Ports tab.
 
 \colger
 
-Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheinen Fenster zum Setzen der \textsl{Default-Values} (Presets). Hier gilt es das Preset auszuwählen, was am nächsten an dem gebauten Modell dran ist. Danach können die UART-Ports (für GPS, VTX, etc.) konfiguriert werden. Dies kann allerdings auch über den Ports-Tab durchgeführt werden. Die weiteren Konfigurationsschritte gestalten sich wie folgt:
+Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheinen Fenster zum Setzen der \textsl{Default-Values} (Abbildung~\ref{ImageInavInitialSetupOne}, Abbildung~\ref{ImageInavInitialSetupTwo} and Abbildung~\ref{ImageInavInitialSetupThree}). Hier gilt es das Preset auszuwählen, was am nächsten an dem gebauten Modell dran ist. Danach können die UART-Ports (für GPS, VTX, etc.) konfiguriert werden. Dies kann allerdings auch über den Ports-Tab durchgeführt werden.
 
-\coleng
+\colende
 
-\begin{enumerate}
-	\item The \textsl{Status tab} provides a basic overview. Among other things, the \textsl{Pre-arming checks} overview shows whether the drone is ready for takeoff. It may be necessary to adjust the board orientation beforehand. To do this, place the drone upright with the camera facing the screen of the configuring computer and then press the \textsl{Reset Z axis} button.
-\end{enumerate}
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Firmware_Servo_output.png}
+	\caption{INAV servo output configuration}
+	\label{ImageInavServoOutput}
+\end{figure}
+\FloatBarrier
 
-\colger
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Motor Configuration}
+\makrounterabschnitt
+\label{ConfigurationInavFirmwareMotor}
 
-\begin{enumerate}
-	\item Der \textsl{Status-Tab} stellt einen Überblick zur Verfügung. Unter anderem ist in der Übersicht \textsl{Pre-arming checks} zu sehen, ob die Drohne abheben kann. Eventuell muss hier vorher die Boardorientierung angepasst werden. Dazu wird die Drohne aufrecht mit Kamera Richtung Bildschirm des konfigurierenden Computers gestellt, um dann den \textsl{Reset Z axis} Button zu drücken. 
-\end{enumerate}
-
-\coleng
-
-
-\begin{enumerate}
-\setcounter{enumi}{1}
-	 \item The \textsl{Calibration tab} (Figure~\ref{AbbildungINAVCalibrationTab}) is used to calibrate the accelerometer and compass. To do this, the drone must be placed in different positions.
-\end{enumerate}
+As an initial step in the iNav configuration process, the motor output must be properly configured (See Figure~\ref{ImageInavServoOutput}). Within the Output tab, motor and servo outputs can be enabled, and the appropriate ESC protocol must be selected. Most modern ESCs support the DSHOT300 protocol, which is therefore commonly chosen.
 
 \colger
 
-	
-\begin{enumerate}
-\setcounter{enumi}{1}
-	\item Im \textsl{Calibration-Tab} (Abbildung~\ref{AbbildungINAVCalibrationTab}) werden der Beschleunigungsmesser und der Kompass kalibriert. Dazu muss die Drohne jeweils in unterschiedliche Posen gebracht werden.
-\end{enumerate}
+TBD
+
+\coleng
+
+Additionally, the correct number of motor poles must be specified. This value corresponds to the actual number of magnets present in the motor and should be determined by physically counting them or referring to the manufacturer’s specifications. nce these settings are adjusted, the configuration should be saved to apply the changes.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Firmware_Servo_output_motor_check.png}
+	\caption{INAV Motor configuration}
+	\label{ImageInavServoOutputMotorCheck}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Firmware_motor_mixer.png}
+	\caption{INAV Motor configuration - motor mixer}
+	\label{ImageInavServoOutputMotorMixer}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Verifying the motor order and its correctness is a critical step in the configuration process(see Figure~\ref{ImageInavServoOutputMotorCheck}). Any mismatch in motor order can be corrected in the Mixer tab (see Figure~\ref{ImageInavServoOutputMotorMixer}). However, if the motor directions are incorrect, iNav version 9.0 does not provide a straightforward method to fix this. In such cases, it is recommended to use Betaflight firmware (see Figure~\ref{AbbildungBetaflightAppMotors}) or an ESC configurator tool to adjust the motor direction before proceeding.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Firmware_ports.png}
+	\caption{INAV UARTS configuration}
+	\label{ImageInavUartsConfig}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{UARTS Configuration}
+\makrounterabschnitt
+\label{ConfigurationInavFirmwareUarts}
+
+In the \textsl{Ports tab} (Figure~\ref{ImageInavUartsConfig}), the peripheral devices are configured, unless this was done in the pop-up menu at the beginning. This looks very similar to the Ports tab of the Betaflight Configurator, with the difference that \textsl{USB VCP} is hidden instead of partially grayed out (see Figure~\ref{AbbildungBetaflightAppPorts}).  How these are configured depends on the connected devices and the flight controller chip. In most cases, the configuration options for Betaflight (usually found in the respective device manuals) are transferable to INAV.
+
+\colger
+
+Im \textsl{Ports-Tab} (Abbildung~\ref{ImageInavUartsConfig}) werden die Peripheriegeräte konfiguriert, insofern dies nicht im Pop-Up-Menü am Anfang gemacht wurde. Dieser sieht dem Ports-Tab des Betaflight-Configurators sehr ähnlich mit dem Unterschied, dass \textsl{USB VCP} ausgeblendet statt teilweise ausgegraut ist (Abbildung~\ref{AbbildungBetaflightAppPorts}).  Wie diese konfiguriert werden, hängt von den angeschlossenen Geräten und vom Flugcontrollerchip ab. Meist kann die Konfiguration für Betaflight aus den jeweiligen Handbüchern entnommen und übertragen werden.
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{INAV_Firmware_alignment_tool.png}
+	\caption{INAV Flight controller and Compass alignment }
+	\label{AbbildungINAVCompassFCAlignment}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Accelerometer and Compass Calibration}
+\makrounterabschnitt
+\label{InavAccFCcalibration}
+
+TBD
+
+\colger
+
+TBD
 
 \colende
 
@@ -621,6 +716,14 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 
 \colstart
 
+The \textsl{Calibration tab} (Figure~\ref{AbbildungINAVCalibrationTab}) is used to calibrate the accelerometer and compass. To do this, the drone must be placed in different positions.
+
+\colger
+
+Im \textsl{Calibration-Tab} (Abbildung~\ref{AbbildungINAVCalibrationTab}) werden der Beschleunigungsmesser und der Kompass kalibriert. Dazu muss die Drohne jeweils in unterschiedliche Posen gebracht werden.
+
+\coleng
+
 \begin{enumerate}
 	\setcounter{enumi}{2}
 
@@ -632,7 +735,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{2}
 
-	\item Der \textsl{Mixer-Tab} konfiguriert zusammen mit dem Outputs-Tab die Motoren der Drohne. Hier ist entscheidend, dass der richtige  \textsl{Platform type} und das richtige \textsl{Mixer preset} (\texttt{Multirotor} und \texttt{QUAD X} für einen Quadcopter) entsprechend des verwendeten Drohnen-Typs konfiguriert sind. Sollten die Motoren nicht in die richtige Richtung drehen, kann die diese über die \textsl{Motor direction} angepasst werden und die Zuordnung über den \textsl{Motor Mixer Wizard}.
+	\item TBD
 \end{enumerate}
 
 \coleng
@@ -640,7 +743,7 @@ Wird der Configurator zum ersten Mal nach der Installation aufgerufen, erscheine
 \begin{enumerate}
 	\setcounter{enumi}{3}
 
-	\item In the \textsl{Outputs tab}, the motors are activated with the \textsl{Enable motor and servo output} option (see Figure~\ref{AbbildungINAVOutputsTab}). You should also ensure that \texttt{DSHOT300} is used as the \textsl{ESC protocol}. In addition, the \textsl{Motors IDLE power} can be set to 5\% if a multirotor drone is used.
+	\item TBD
 \end{enumerate}
 
 \colger
