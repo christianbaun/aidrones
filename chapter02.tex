@@ -509,9 +509,9 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 \setcounter{enumi}{3}
 	\item INAV offers three options that can be set for flashing:
 	\begin{itemize}
-		\item \textsl{No reboot sequence} - Only required if the boot pins are bridged or the boot button remains pressed during the flashing process (depending on the model).
-		\item \textsl{Full chip erase} - Deletes all configuration options (backup available?). This should always be set if a different software was previously installed.
-		\item \textsl{Manual baud rate} - Set a fixed baud rate for Bluetooth or USB if the model in question does not support the standard speed.
+		\item \textsl{No reboot sequence}: Only required if the boot pins are bridged or the boot button remains pressed during the flashing process (depending on the model).
+		\item \textsl{Full chip erase}: Deletes all configuration options (backup available?). This should always be set if a different software was previously installed.
+		\item \textsl{Manual baud rate}: Set a fixed baud rate for Bluetooth or USB if the model in question does not support the standard speed.
 	\end{itemize}
 \end{enumerate}
 
@@ -522,9 +522,9 @@ Wird die Software nicht zum ersten Mal auf dem Flugcontroller installiert, sollt
 \setcounter{enumi}{3}
 	\item INAV bietet drei Optionen die für das Flashen gesetzt werden können:
 	\begin{itemize}
-		\item \textsl{No reboot sequence} - Wird nur benötigt, wenn die Bootpins überbrückt sind oder der Bootbutton während des Flashens gedrückt wird (modellabhängig).
-		\item \textsl{Full chip erase} - Löscht alle Konfigurationsoptionen (Backup Vorhanden?). Sollte immer gesetzt werden, wenn vorher eine andere Software installiert war.
-		\item \textsl{Manual baud rate} - Festlegen der Baudrate für Bluetooth oder falls das zu flashende Modell die Standardgeschwindigkeit nicht unterstützt.
+		\item \textsl{No reboot sequence}: Wird nur benötigt, wenn die Bootpins überbrückt sind oder der Bootbutton während des Flashens gedrückt wird (modellabhängig).
+		\item \textsl{Full chip erase}: Löscht alle Konfigurationsoptionen (Backup Vorhanden?). Sollte immer gesetzt werden, wenn vorher eine andere Software installiert war.
+		\item \textsl{Manual baud rate}: Festlegen der Baudrate für Bluetooth oder falls das zu flashende Modell die Standardgeschwindigkeit nicht unterstützt.
 	\end{itemize}
 \end{enumerate}
 
@@ -811,7 +811,7 @@ Von den in diesem Dokument vorgestellten Flugcontroller-Firmwares benötigt Ardu
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{Software- und Firmware-Voraussetzungen}
 \renewcommand{\englischertitel}{Software and Firmware Requirements}
 \makrounterabschnitt
 \label{SoftwareFirmwareRequirementsArduPilot}
@@ -832,40 +832,42 @@ Zum Herunterladen der ArduCopter-Firmware wird der offizielle ArduPilot-Firmware
 
 \coleng
 
-In some cases, certain features may not be available in the stable firmware builds for specific flight controllers. For example, a stable release may lack support for features such as optical flow due to firmware size constraints or just to reduce the build size. If such functionality is required, it is possible to build a custom firmware tailored to the specific flight controller, enabling the necessary features as needed \url{https://custom.ardupilot.org/add_build}.
+In some cases, specific features are not available in the stable firmware builds for certain flight controllers. For example, support for functions such as optical flow may be omitted in a stable release due to firmware size limitations or to reduce the overall build size. If such functionality is required, a custom firmware can be created for the respective flight controller, allowing the necessary features to be included as needed \url{https://custom.ardupilot.org/add_build}.
 
 \colger
 
-TBD
+In einigen Fällen sind bestimmte Funktionen in den stabilen Firmware-Versionen für einzelne Flight Controller nicht verfügbar. Beispielsweise kann die Unterstützung für Funktionen wie Optical Flow in einer stabilen Version aufgrund von Speicherbeschränkungen der Firmware oder zur Reduzierung der Gesamtgröße des Builds weggelassen werden. Falls diese Funktionalität benötigt wird, kann eine angepasste Firmware für den jeweiligen Flight Controller erstellt werden, sodass die erforderlichen Funktionen gezielt eingebunden werden können \url{https://custom.ardupilot.org/add_build}.
 
 \colende
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=\linewidth]{ArduPilotMotorDirection_screenshot.png}
-	\caption{ArduCopter Motor Direction}
+	\caption{ArduCopter Motor Direction [\href{https://ardupilot.org/copter/docs/connect-escs-and-motors.html}{Image Source: ArduPilot}]}
 	\label{ArduCopterMotorDirection}
 \end{figure}
 \FloatBarrier
 
-\renewcommand{\deutschertitel}{Installation}
+\renewcommand{\deutschertitel}{Überprüfung der Motordrehrichtung}
 \renewcommand{\englischertitel}{Motor Direction Verification}
 \makrounterabschnitt
 \label{MotorDirectionVerificationArduPilot}
 
-Proper motor rotation is essential for the correct operation of ArduPilot firmware (see Figure~\ref{ArduCopterMotorDirection}). Achieving the required motor direction configuration directly within ArduPilot can be challenging. Therefore, it is recommended to configure the motors with Betaflight first and verify that the rotation directions match the configuration shown in Figure~\ref{ArduCopterMotorDirection}
+\coleng
+
+Proper motor rotation is essential for the correct operation of the ArduPilot firmware (see Figure~\ref{ArduCopterMotorDirection}). Configuring the required motor directions directly within ArduPilot can be challenging. Therefore, it is recommended to first configure the motors using Betaflight and verify that the rotation directions correspond to the configuration shown in Figure~\ref{ArduCopterMotorDirection}.
 
 \colger
 
-TBD
+Die korrekte Drehrichtung der Motoren ist für den ordnungsgemäßen Betrieb der ArduPilot-Firmware essenziell (siehe Abbildung~\ref{ArduCopterMotorDirection}). Die Konfiguration der erforderlichen Motordrehrichtungen direkt in ArduPilot kann herausfordernd sein. Daher wird empfohlen, die Motoren zunächst mit Betaflight zu konfigurieren und zu überprüfen, ob die Drehrichtungen mit der in Abbildung~\ref{ArduCopterMotorDirection} dargestellten Konfiguration übereinstimmen.
 
 \coleng
 
-If using Betaflight is not feasible, motor direction can be configured using ESC configuration tools such as BLHeli Configurator.
+If using Betaflight is not feasible, the motor direction can also be configured using ESC configuration tools such as BLHeli Configurator.
 
 \colger
 
-TBD
+Falls die Verwendung von Betaflight nicht möglich ist, kann die Motordrehrichtung alternativ auch mit ESC-Konfigurationstools wie dem BLHeli Configurator eingestellt werden.
 
 \colende
 
@@ -991,19 +993,19 @@ Im Abschnitt \textsl{Frame Type} wird zunächst die passende Rahmenklasse ausgew
 
 \colstart
 
-Before performing the accelerometer calibration, it is essential to ensure that the flight controller is mounted with the correct orientation. An incorrect board orientation can lead to significant flight instability or loss of control. As shown in Figure~\ref{MissionPlannerBoardOrient}, the orientation of the flight controller can be configured in Mission Planner by navigating to: Config tab \(\longrightarrow\) Full Parameter List \(\longrightarrow\) AHRS\_ORIENTATION.
+Before performing the accelerometer calibration, it is essential to ensure that the flight controller is mounted with the correct orientation. An incorrect board orientation can lead to significant flight instability or loss of control. As shown in Figure~\ref{MissionPlannerBoardOrient}, the orientation of the flight controller can be configured in Mission Planner by navigating to: Config tab \(\longrightarrow\) Full Parameter List \(\longrightarrow\) \verb!AHRS_ORIENTATION!.
 
 \colger
 
-Bevor die Kalibrierung des Beschleunigungssensors durchgeführt wird, muss sichergestellt werden, dass der Flugcontroller korrekt ausgerichtet montiert ist. Eine fehlerhafte Ausrichtung kann zu erheblicher Fluginstabilität oder sogar zum Kontrollverlust führen. Wie in Abbildung~\ref{MissionPlannerBoardOrient} dargestellt, kann die Ausrichtung des Flugcontrollers im Mission Planner über folgenden Pfad konfiguriert werden: Registerkarte Config \(\longrightarrow\) Full Parameter List \(\longrightarrow\) AHRS\_ORIENTATION.
+Bevor die Kalibrierung des Beschleunigungssensors durchgeführt wird, muss sichergestellt werden, dass der Flugcontroller korrekt ausgerichtet montiert ist. Eine fehlerhafte Ausrichtung kann zu erheblicher Fluginstabilität oder sogar zum Kontrollverlust führen. Wie in Abbildung~\ref{MissionPlannerBoardOrient} dargestellt, kann die Ausrichtung des Flugcontrollers im Mission Planner über folgenden Pfad konfiguriert werden: Registerkarte Config \(\longrightarrow\) Full Parameter List \(\longrightarrow\) \verb!AHRS_ORIENTATION!.
 
 \coleng
 
-If the required orientation is not available in the AHRS\_ORIENTATION parameter, a custom orientation can be defined. This is achieved by setting CUST\_ROT\_ENABLE = 1, followed by saving and refreshing the parameters. This action enables the parameters CUST\_ROT1\_PITCH, CUST\_ROT1\_ROLL, and CUST\_ROT1\_YAW, which can then be configured according to the desired orientation. Once these values are correctly set, the custom configuration can be selected by choosing Custom 1 from the AHRS\_ORIENTATION.
+If the required orientation is not available in the \verb!AHRS_ORIENTATION! parameter, a custom orientation can be defined. This is achieved by setting \verb!CUST_ROT_ENABLE = 1!, followed by saving and refreshing the parameters. This action enables the parameters \verb!CUST_ROT1_PITCH!, \verb!CUST_ROT1_ROLL!, and \verb!CUST_ROT1_YAW!, which can then be configured according to the desired orientation. Once these values are correctly set, the custom configuration can be selected by choosing Custom 1 in the \verb!AHRS_ORIENTATION! parameter.
 
 \colger
 
-TBD
+Falls die erforderliche Ausrichtung im Parameter \verb!AHRS_ORIENTATION! nicht verfügbar ist, kann eine benutzerdefinierte Ausrichtung definiert werden. Dazu wird zunächst \verb!CUST_ROT_ENABLE = 1! gesetzt, anschließend werden die Parameter gespeichert und neu geladen. Dadurch werden die Parameter \verb!CUST_ROT1_PITCH!, \verb!CUST_ROT1_ROLL! und \verb!CUST_ROT1_YAW! aktiviert, die entsprechend der gewünschten Ausrichtung konfiguriert werden können. Sobald diese Werte korrekt gesetzt sind, kann die benutzerdefinierte Konfiguration ausgewählt werden, indem im Parameter \verb!AHRS_ORIENTATION! die Option Custom 1 gewählt wird.
 
 \coleng
 
@@ -1148,7 +1150,7 @@ Abbildung~\ref{MissionPlannerESCCalibration} zeigt die ESC-Kalibrierungsseite im
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_Motor_Test_with_Direction_Reference_screenshot.png}
-	\caption{Mission Planner: Motor Test}
+	\caption{Mission Planner: Motor Test [\href{https://ardupilot.org/copter/docs/connect-escs-and-motors.html}{Image Source of inserted Diagrams: ArduPilot}]}
 	\label{MissionPlannerMotorTest}
 \end{figure}
 \FloatBarrier
@@ -1270,24 +1272,24 @@ Es wird empfohlen, vor dem ersten Flug einen separaten Arming-Schalter zu konfig
 
 \colende
 
-\renewcommand{\deutschertitel}{LogAnalyse}
+\renewcommand{\deutschertitel}{Log-Analyse}
 \renewcommand{\englischertitel}{Log Analysis}
 \makrounterabschnitt
 \label{ArdupilotLogging}
 
-While platforms such as Betaflight are optimized for high-performance manual flight using primarily Inertial Measurement Units (IMUs)—including accelerometers and gyroscopes, and most of the time works well with the default tuning, ArduPilot uses external sensors to fly reliability.
+While platforms such as Betaflight are optimized for high-performance manual flight using primarily Inertial Measurement Units (IMUs), including accelerometers and gyroscopes, and often perform well with the default tuning, ArduPilot relies on additional external sensors to achieve reliable and stable flight performance.
 
 \colger
 
-TBD
+Während Plattformen wie Betaflight für leistungsorientierten manuellen Flug optimiert sind und dabei hauptsächlich Inertial Measurement Units (IMUs) wie Beschleunigungssensoren und Gyroskope verwenden sowie häufig bereits mit der Standardabstimmung gut funktionieren, nutzt ArduPilot zusätzliche externe Sensoren, um einen zuverlässigen und stabilen Flugbetrieb zu gewährleisten.
 
 \coleng
 
-Although ArduPilot provides automated tuning features (AutoTune) to assist with parameter adjustment (See Figure~\ref{MissionPlannerIniTialTune}), these tools are often not sufficient to achieve optimal flight performance in all situations. As a result, manual analysis and tuning are frequently required. Furthermore, the ability to manually refine system performance through log analysis is an essential skill for any UAV operator. Flight logs record detailed information about the vehicle’s sensors and system performance during flight. By analyzing this data, users can identify issues, evaluate system performance, and make informed parameter adjustments.
+Although ArduPilot provides automated tuning features (AutoTune) to assist with parameter adjustment (see Figure~\ref{MissionPlannerIniTialTune}), these tools are often not sufficient to achieve optimal flight performance in all situations. As a result, manual analysis and tuning are frequently required. Furthermore, the ability to manually refine system performance through log analysis is an essential skill for any UAV operator. Flight logs record detailed information about the vehicle’s sensors and system performance during flight. By analyzing this data, users can identify issues, evaluate system performance, and make informed parameter adjustments.
 
 \colger
 
-TBD
+Obwohl ArduPilot automatisierte Abstimmungsfunktionen (AutoTune) zur Unterstützung bei der Parameteranpassung bereitstellt (siehe Abbildung~\ref{MissionPlannerIniTialTune}), reichen diese Werkzeuge häufig nicht aus, um in allen Situationen eine optimale Flugleistung zu erzielen. Daher sind manuelle Analyse und Feinabstimmung oft erforderlich. Darüber hinaus ist die Fähigkeit, die Systemleistung durch Log-Analyse gezielt zu verbessern, eine wesentliche Kompetenz für jeden UAV-Betreiber. Flugprotokolle erfassen detaillierte Informationen über die Sensoren des Fluggeräts sowie über die Systemleistung während des Fluges. Durch die Auswertung dieser Daten können Anwender Probleme identifizieren, die Systemleistung bewerten und fundierte Anpassungen an den Parametern vornehmen.
 
 \coleng
 
@@ -1295,56 +1297,58 @@ This section of the documentation introduces the fundamental concepts of log ana
 
 \colger
 
-TBD
+Dieser Abschnitt der Dokumentation führt in die grundlegenden Konzepte der Log-Analyse ein, beispielsweise:
 
 \coleng
 
 \begin{itemize}
-\item \textsl{Log Configuration} - Configuring the firmware to capture sensor data during test flights and extract the data.
+\item \textsl{Log Configuration}: Configuring the firmware to capture sensor data during test flights and extracting the recorded data for further analysis.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{Log Configuration} - TBD
+\item \textsl{Log-Konfiguration}: Konfiguration der Firmware, um Sensordaten während von Testflügen aufzuzeichnen und die erfassten Daten für die weitere Analyse zu extrahieren.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{Analysis Toolkits} - An overview of analysis tools, such as Mission Planner, UAV Log Viewer, and ArduPilot Filter Review Tool used to visualize and interpret flight data.
+\item \textsl{Analysis Toolkits}: An overview of analysis tools such as Mission Planner, UAV Log Viewer, and the ArduPilot Filter Review Tool used to visualize and interpret flight data.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{Analysis Toolkits} - TBD
+\item \textsl{Analysewerkzeuge}: Ein Überblick über Analysewerkzeuge wie Mission Planner, UAV Log Viewer und das ArduPilot Filter Review Tool, die zur Visualisierung und Interpretation von Flugdaten verwendet werden.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{Vibration Analysis and Reduction} - Using log data (e.g., IMU and FFT data) to analyze vibration frequencies and applying solutions such as notch filtering, harmonic notch configuration and adjusting gyro filtering.
+\item \textsl{Vibration Analysis and Reduction}: Using log data (e.g., IMU and FFT data) to analyze vibration frequencies and applying solutions such as notch filtering, harmonic notch configuration, and adjustment of gyro filtering.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{Vibration Analysis and Reduction} - TBD
+\item \textsl{Analyse und Reduzierung von Vibrationsfrequenzen}: Nutzung von Log-Daten (z.\,B. IMU- und FFT-Daten) zur Analyse von Vibrationsfrequenzen sowie Anwendung von Maßnahmen wie Notch-Filtering, Konfiguration des Harmonic Notch Filters und Anpassung der Gyro-Filterung.
 \end{itemize}
 
 \colende
 
-\renewcommand{\deutschertitel}{Log Configuration}
+\renewcommand{\deutschertitel}{Log-Konfiguration}
 \renewcommand{\englischertitel}{Log Configuration}
 \makrounterabschnitt
 \label{ArdupilotLogConfiguration}
 
-Logging is a resource-intensive process that can impact the Flight Controller’s (FC) real-time performance, particularly on F4-based controllers and, to a lesser extent, on some F7-based controllers.  Since ArduPilot itself requires significant computational resources, it is important to be conservative when adding additional load to the flight controller. This documentation focuses on a minimalist logging strategy, prioritizing high-bandwidth vibration data to preserve memory and processing power.
+\coleng
+
+Logging is a resource-intensive process that can impact the Flight Controller’s (FC) real-time performance, particularly on F4-based controllers and, to a lesser extent, on some F7-based controllers. Since ArduPilot itself already requires significant computational resources, it is important to be conservative when adding additional load to the flight controller. This documentation focuses on a minimalist logging strategy, prioritizing high-bandwidth vibration data in order to preserve memory and processing capacity.
 
 \colger
 
-TBD
+Das Logging ist ein ressourcenintensiver Prozess, der die Echtzeitleistung des Flight Controllers (FC) beeinflussen kann, insbesondere bei F4-basierten Controllern und in geringerem Maße auch bei einigen F7-basierten Controllern. Da ArduPilot selbst bereits erhebliche Rechenressourcen benötigt, ist es wichtig, zusätzliche Belastungen des Flight Controllers möglichst gering zu halten. Diese Dokumentation konzentriert sich daher auf eine minimalistische Logging-Strategie, bei der hochauflösende Vibrationsdaten priorisiert werden, um Speicherplatz und Rechenleistung zu schonen.
 
 \coleng
 
@@ -1352,74 +1356,74 @@ For smaller drones (propeller diameters of 10 inches or less), mechanical resona
 
 \colger
 
-TBD
+Bei kleineren Drohnen (Propellerdurchmesser von 10 Zoll oder weniger) treten mechanische Resonanzen typischerweise bei höheren Frequenzen auf als bei größeren Drohnen. Daher bietet die Aufzeichnung von Daten mit niedrigeren Frequenzen in diesem Fall nur einen geringen Mehrwert. Die Konfiguration wird deshalb so optimiert, dass wenig aussagekräftige Daten vermieden und stattdessen hochauflösende Analysen ermöglicht werden. Zusätzlich ist es wichtig, sowohl Vorfilter- als auch Nachfilterdaten aufzuzeichnen, um die Auswirkungen der Filterung wirksam bewerten zu können.
 
 \coleng
 
-The log configuration corresponding to the scenario described above can be applied by navigating to Config → Full Parameter List and setting the following parameters:
+The log configuration corresponding to the scenario described above can be applied by navigating to Config \(\longrightarrow\) Full Parameter List and setting the following parameters:
 
 \colger
 
-TBD
+Die der oben beschriebenen Situation entsprechende Log-Konfiguration kann angewendet werden, indem zu Config \(\longrightarrow\) Full Parameter List navigiert und die folgenden Parameter gesetzt werden:
 
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_LOG\_BAT\_MASK = 1} - Logs batch IMU data; only IMU1 is recorded
-\end{itemize}
-
-\colger
-
-\begin{itemize}
-\item \textsl{TBD} - TBD
-\end{itemize}
-
-\coleng
-
-\begin{itemize}
-\item \textsl{INS\_LOG\_BAT\_OPT = 4} - Logs both pre and prost filtered data
+\item \texttt{INS\_LOG\_BAT\_MASK = 1}: Logs batch IMU data. Only IMU1 is recorded
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_LOG\_BAT\_MASK = 1}: Zeichnet Batch-IMU-Daten auf. Es wird nur IMU1 protokolliert
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_RAW\_LOG\_OPT = 0} - Disables raw IMU logging
+\item \texttt{INS\_LOG\_BAT\_OPT = 4}: Logs both pre- and post-filtered data
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_LOG\_BAT\_OPT = 4}: Zeichnet sowohl Vorfilter- als auch Nachfilterdaten auf
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{LOG\_BACKEND\_TYPE = 4} (or 1 if the flight controller has an external SD card) - The value should be set according to the available storage on the flight controller. For controllers that use internal DataFlash (blackbox) memory (e.g., Flywoo F745 AIO with 16 MB onboard flash), the value should be set to 4. For controllers equipped with external storage (e.g., MicroAir743-AIO with an SD card), the value should be set to 1.
+\item \texttt{INS\_RAW\_LOG\_OPT = 0}: Disables raw IMU logging
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_RAW\_LOG\_OPT = 0}: Deaktiviert die Aufzeichnung roher IMU-Daten
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{LOG\_BITMASK = 139006} - Enables standard onboard log types. Can also be configured via a graphical interface, allowing user to select and adjust which log types (e.g., optical flow, PID) are recorded. (see Figure~\ref{MissionPlannerLogBitmaskDialog}) 
+\item \texttt{LOG\_BACKEND\_TYPE = 4} (or \texttt{1} if the flight controller has an external SD card): The value should be set according to the available storage on the flight controller. For controllers that use internal DataFlash (blackbox) memory (e.g., Flywoo F745 AIO with 16 MB onboard flash), the value should be set to 4. For controllers equipped with external storage (e.g., MicroAir743-AIO with an SD card), the value should be set to 1.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{LOG\_BACKEND\_TYPE = 4} (oder \texttt{1}, falls der Flight Controller über eine externe SD-Karte verfügt): Der Wert sollte entsprechend dem verfügbaren Speicher des Flight Controllers gesetzt werden. Bei Controllern, die internen DataFlash-(Blackbox-)Speicher verwenden (z.\,B. Flywoo F745 AIO mit 16 MB internem Flash-Speicher), sollte der Wert auf 4 gesetzt werden. Bei Controllern mit externem Speicher (z.\,B. MicroAir743-AIO mit SD-Karte) sollte der Wert auf 1 gesetzt werden.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \texttt{LOG\_BITMASK = 139006}: Enables standard onboard log types. Can also be configured via a graphical interface, allowing user to select and adjust which log types (e.g., optical flow, PID) are recorded. (see Figure~\ref{MissionPlannerLogBitmaskDialog})
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \texttt{LOG\_BITMASK = 139006}: Aktiviert die standardmäßigen Onboard-Logtypen. Dies kann auch über eine grafische Benutzeroberfläche konfiguriert werden, wodurch der Benutzer auswählen und anpassen kann, welche Logtypen (z.\,B. Optical Flow, PID) aufgezeichnet werden. (siehe Abbildung~\ref{MissionPlannerLogBitmaskDialog})
 \end{itemize}
 
 \colende
@@ -1427,21 +1431,21 @@ TBD
 \begin{figure}[htb!]
   \centering
     \includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_log_bitmask_screenshot.png}
-  \caption{Mission planner - Log Bitmask dialog}
+  \caption{Mission planner: Log Bitmask dialog}
   \label{MissionPlannerLogBitmaskDialog}
 \end{figure}
 \FloatBarrier
 
-\renewcommand{\deutschertitel}{Downloading and analyzing logs}
-\renewcommand{\englischertitel}{Downloading and analyzing logs}
+\renewcommand{\deutschertitel}{Herunterladen und Analysieren von Logs}
+\renewcommand{\englischertitel}{Downloading and Analyzing Logs}
 \makrounterabschnitt
 \label{ArdupilotAnalysisToos}
 
-ArduPilot logs contain critical flight-related data that are essential for debugging, performance evaluation, and filter analysis. These logs include sensor readings, Extended Kalman Filter (EKF) data, vibration and filtering metrics, and control inputs and outputs
+ArduPilot logs contain critical flight-related data that are essential for debugging, performance evaluation, and filter analysis. These logs include sensor readings, Extended Kalman Filter (EKF) data, vibration and filtering metrics, and control inputs and outputs.
 
 \colger
 
-TBD
+Die aufgezeichneten Log-Daten können je nach Konfiguration und verwendetem Speichermedium auf unterschiedliche Weise gespeichert und ausgelesen werden. Für die Analyse von Flugverhalten, Vibrationsmustern und der allgemeinen Systemleistung ist es wichtig, die verfügbaren Log-Formate und deren Eigenschaften zu verstehen.
 
 \coleng
 
@@ -1449,18 +1453,18 @@ ArduPilot utilizes two primary logging formats, distinguished by their storage m
 
 \colger
 
-TBD
+ArduPilot verwendet zwei primäre Logging-Formate, die sich durch ihr Speichermedium und die Art der Datenerfassung unterscheiden:
 
 \coleng
 
 \begin{itemize}
-\item \textsl{DataFlash Logs (.bin)} - These are high-speed logs recorded directly onto the flight controller’s onboard storage (typically an SD card or dataflash chip) and can only be accessed and downloaded after the completion of a flight. Due to their high sampling rate, they are particularly important for in-depth system tuning and diagnostics. DataFlash logs can be downloaded post-flight via the same software. For instance, in Mission Planner, DataFlash logs can be accessed through the “DataFlash Logs” tab (see Figure~\ref{MissionPlannerDataFlashLogDownload}), where individual logs may be selected and downloaded. Upon successful download, log files are archived in a directory structure defined by the GCS. For instance, the default directory for Mission Planner is typically: Documents/Mission Planner/logs/QUADROTOR/
+\item \textsl{DataFlash Logs (.bin)}: These are high-speed logs recorded directly onto the flight controller’s onboard storage (typically an SD card or dataflash chip) and can only be accessed and downloaded after the completion of a flight. Due to their high sampling rate, they are particularly important for in-depth system tuning and diagnostics. DataFlash logs can be downloaded post-flight via the same software. For instance, in Mission Planner, DataFlash logs can be accessed through the “DataFlash Logs” tab (see Figure~\ref{MissionPlannerDataFlashLogDownload}), where individual logs may be selected and downloaded. Upon successful download, log files are archived in a directory structure defined by the GCS. For instance, the default directory for Mission Planner is typically: Documents/Mission Planner/logs/QUADROTOR/
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \textsl{DataFlash Logs (.bin)}: Hierbei handelt es sich um hochfrequente Logs, die direkt auf dem internen Speicher des Flight Controllers (typischerweise eine SD-Karte oder ein DataFlash-Chip) aufgezeichnet werden und erst nach Abschluss des Fluges ausgelesen und heruntergeladen werden können. Aufgrund ihrer hohen Abtastrate sind sie besonders wichtig für die detaillierte Systemabstimmung und Diagnose. DataFlash-Logs können nach dem Flug über dieselbe Software heruntergeladen werden. In Mission Planner erfolgt der Zugriff beispielsweise über den Reiter „DataFlash Logs“ (siehe Abbildung~\ref{MissionPlannerDataFlashLogDownload}), in dem einzelne Logs ausgewählt und heruntergeladen werden können. Nach erfolgreichem Download werden die Log-Dateien in einer durch die GCS definierten Verzeichnisstruktur archiviert. Das Standardverzeichnis von Mission Planner ist beispielsweise in der Regel: Documents/Mission Planner/logs/QUADROTOR/
 \end{itemize}
 
 \colende
@@ -1468,21 +1472,20 @@ TBD
 \begin{figure}[htb!]
   \centering
     \includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_download_logs_screenshot.png}
-  \caption{Mission planner - DataFlash log Downloading}
+  \caption{Mission planner: DataFlash Log Downloader}
   \label{MissionPlannerDataFlashLogDownload}
 \end{figure}
 \FloatBarrier
 
 \colstart
-
 \begin{itemize}
-\item \textsl{Telemetry Logs (.tlog)} - These logs are recorded by the Ground Control Station (GCS), such as Mission Planner, via the MAVLink communication protocol. Telemetry logs are saved in directories determined by the specific ground control software in use.
+\item \textsl{Telemetry Logs (.tlog)}: These logs are recorded by the Ground Control Station (GCS), such as Mission Planner, via the MAVLink communication protocol. Telemetry logs are saved in directories determined by the specific ground control software in use.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \textsl{Telemetry Logs (.tlog)}: Diese Logs werden von der Ground Control Station (GCS), beispielsweise Mission Planner, über das MAVLink-Kommunikationsprotokoll aufgezeichnet. Telemetry-Logs werden in Verzeichnissen gespeichert, die von der jeweils verwendeten Bodenstationssoftware festgelegt werden.
 \end{itemize}
 
 \coleng
@@ -1491,7 +1494,7 @@ TBD
 
 \colger
 
-\textsl{Note}: TBD
+\textsl{Hinweis}: Aufgrund der begrenzten Speicherkapazität von Flight Controllern wird empfohlen, den DataFlash-Speicher nach erfolgreicher Datenübertragung regelmäßig zu löschen, um die kontinuierliche Verfügbarkeit der Log-Aufzeichnung für nachfolgende Flüge sicherzustellen.
 
 \coleng
 
@@ -1499,25 +1502,25 @@ A variety of software tools are available to allow the analysis and visualizatio
 
 \colger
 
-TBD
+Zur Analyse und Visualisierung von ArduPilot-Logdaten stehen verschiedene Softwarewerkzeuge zur Verfügung. Mission Planner ist eines davon und bietet integrierte Funktionen zur Log-Auswertung, einschließlich grafischer Darstellung und Parameterinspektion (siehe Abbildung~\ref{MissionLogAnalysis}). Zusätzlich kann MAVExplorer, ein Python-basiertes Kommandozeilenwerkzeug, für erweiterte Log-Analysen sowie zur Entwicklung eigener Datenverarbeitungsskripte verwendet werden.
 
 \colende
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=\linewidth]{Mission_Planneer_1.3.83_logs_analysis_screenshot.png}
-	\caption{Mission Planner: Log Analysis - Motor RPM plot}
+	\caption{Mission Planner: Log Analysis: Motor RPM plot}
 	\label{MissionLogAnalysis}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-Furthermore, web-based solutions such as UAV Log Viewer ( \url{https://ardupilot.org/copter/docs/common-uavlogviewer.html#common-uavlogviewer/} ) enables interactive visualization of log data, including time-series plotting and three-dimensional flight trajectory representation, without requiring local software installation (see Figure~\ref{UAVLogViewerLogAnalysis}).
+Furthermore, web-based solutions such as UAV Log Viewer (\url{https://ardupilot.org/copter/docs/common-uavlogviewer.html#common-uavlogviewer/}) enable interactive visualization of log data, including time-series plotting and three-dimensional flight trajectory representation, without requiring local software installation (see Figure~\ref{UAVLogViewerLogAnalysis}).
 
 \colger
 
-TBD
+Darüber hinaus ermöglichen webbasierte Lösungen wie der UAV Log Viewer (\url{https://ardupilot.org/copter/docs/common-uavlogviewer.html#common-uavlogviewer/}) eine interaktive Visualisierung von Log-Daten, einschließlich Zeitreihendarstellungen und dreidimensionaler Flugbahnvisualisierung, ohne dass eine lokale Softwareinstallation erforderlich ist (siehe Abbildung~\ref{UAVLogViewerLogAnalysis}).
 
 \colende
 
@@ -1531,46 +1534,46 @@ TBD
 
 \colstart
 
-Moreover, a range of online utilities is provided through ArduPilot WebTools ( \url{https://firmware.ardupilot.org/Tools/WebTools/} ) for specialized log analysis tasks. Among these, the Filter Review tool is particularly effective for evaluating the impact of different filtering configurations on system performance.
+Moreover, a range of online utilities is provided through ArduPilot WebTools (\url{https://firmware.ardupilot.org/Tools/WebTools/}) for specialized log analysis tasks. Among these, the Filter Review tool is particularly effective for evaluating the impact of different filtering configurations on system performance.
 
 \colger
 
-TBD
+Darüber hinaus stellt ArduPilot über die WebTools (\url{https://firmware.ardupilot.org/Tools/WebTools/}) eine Reihe von Online-Werkzeugen für spezialisierte Aufgaben der Log-Analyse bereit. Besonders das Filter Review Tool eignet sich zur Bewertung der Auswirkungen unterschiedlicher Filterkonfigurationen auf die Systemleistung.
 
 \colende
-
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ Vibration Reduction via Notch and Gyro filter }
+\renewcommand{\deutschertitel}{Vibrationsreduzierung durch Notch- und Gyro-Filter}
+\renewcommand{\englischertitel}{Vibration Reduction via Notch and Gyro Filter}
 \makrounterabschnitt
 \label{ArdupilotVibrationReduction}
+
+\coleng
 
 Vibration reduction is an important factor for achieving stable flight performance in ArduPilot-based drones. High vibration levels can lead to unstable or even uncontrollable flight and negatively affect position estimation algorithms such as the Extended Kalman Filter (EKF). Left unaddressed, high-frequency vibrations often manifest as erratic flight behavior, increased power consumption due to motor oscillation, and motor overheating, potentially leading to motor damage.
 
 \colger
 
-TBD
+Die Reduzierung von Vibrationen ist ein wichtiger Faktor für eine stabile Flugleistung bei ArduPilot-basierten Drohnen. Hohe Vibrationspegel können zu instabilem oder sogar unkontrollierbarem Flugverhalten führen und Positionsschätzungsalgorithmen wie den Extended Kalman Filter (EKF) negativ beeinflussen. Unbehandelte hochfrequente Vibrationen äußern sich häufig in unruhigem Flugverhalten, erhöhtem Energieverbrauch durch Motoroszillationen sowie einer Überhitzung der Motoren, was im schlimmsten Fall zu Motorschäden führen kann.
 
 \coleng
 
 When vibrations from motors and the frame are reduced, the flight controller receives more reliable motion data. This improves control stability and overall flight performance. Filtering techniques such as gyro filtering and harmonic notch filtering are effective in removing these unwanted frequencies when they are properly configured and tuned.
 
-
 \colger
 
-TBD
+Wenn Vibrationen von Motoren und Rahmen reduziert werden, erhält der Flight Controller zuverlässigere Bewegungsdaten. Dies verbessert die Regelstabilität und die allgemeine Flugleistung. Filtertechniken wie Gyro-Filtering und Harmonic Notch Filtering sind wirksam bei der Entfernung dieser unerwünschten Frequenzen, sofern sie korrekt konfiguriert und abgestimmt werden.
 
 \coleng
 
-\textsl{Note:} For drones experiencing severe vibration levels, it is essential to perform an initial parameter tuning before applying advanced filtering techniques. This preliminary tuning step (see Figure~\ref{MissionPlannerIniTialTune}) helps establish a stable baseline configuration, ensuring that subsequent filter tuning, such as gyro and harmonic notch filters can be applied effectively.
+\textsl{Note:} For drones experiencing severe vibration levels, it is essential to perform an initial parameter tuning before applying advanced filtering techniques. This preliminary tuning step (see Figure~\ref{MissionPlannerIniTialTune}) helps establish a stable baseline configuration, ensuring that subsequent filter tuning, such as gyro and harmonic notch filters, can be applied effectively.
 
 \colger
 
-\textsl{Note:} TBD
+\textsl{Hinweis:} Bei Drohnen mit starken Vibrationsproblemen ist es essenziell, vor der Anwendung fortgeschrittener Filtertechniken zunächst eine grundlegende Parameterabstimmung durchzuführen. Dieser vorbereitende Abstimmungsschritt (siehe Abbildung~\ref{MissionPlannerIniTialTune}) schafft eine stabile Ausgangskonfiguration und stellt sicher, dass die anschließende Feinabstimmung von Filtern wie Gyro- und Harmonic-Notch-Filtern wirksam durchgeführt werden kann.
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ Enable Bi-directional DShot and motor frequencies }
+\renewcommand{\deutschertitel}{Bi-direktionales DShot und Motorfrequenzen aktivieren}
+\renewcommand{\englischertitel}{Enable Bi-directional DShot and Motor Frequencies}
 \makrounterunterabschnitt
 \label{EnableDshotAndMotorFrequencies}
 
@@ -1578,15 +1581,15 @@ In a typical setup, the flight controller (FC) sends motor commands to the Elect
 
 \colger
 
-TBD
+In einer typischen Konfiguration sendet der Flight Controller (FC) Motorbefehle über das DShot-Protokoll an die Electronic Speed Controllers (ESCs), welche versuchen, die Motoren entsprechend anzusteuern. Mit Bi-directional DShot wird die Kommunikation jedoch bidirektional, sodass die ESCs zusätzlich Daten an den FC zurücksenden können. Diese Daten enthalten typischerweise Informationen über die Motor-eRPM (electrical revolutions per minute).
 
 \coleng
 
-The Gyroscope is highly sensitive to motion and is therefore very capable of capturing both vehicle dynamics and high-frequency vibrations. As a result, high-frequency vibrations from motor rotation introduce noise into the gyro signal, degrading overall flight performance. By utilizing Bi-directional DShot, the FC can determine the exact motor rotation frequencies in real time. This enables the system to dynamically filter out motor-introduced noise,  significantly improving the flight stability.
+The Gyroscope is highly sensitive to motion and is therefore very capable of capturing both vehicle dynamics and high-frequency vibrations. As a result, high-frequency vibrations from motor rotation introduce noise into the gyro signal, degrading overall flight performance. By utilizing Bi-directional DShot, the FC can determine the exact motor rotation frequencies in real time. This enables the system to dynamically filter out motor-introduced noise, significantly improving flight stability.
 
 \colger
 
-TBD
+Das Gyroskop ist äußerst empfindlich gegenüber Bewegungen und eignet sich daher sehr gut zur Erfassung sowohl der Fahrzeugdynamik als auch hochfrequenter Vibrationen. Dadurch verursachen hochfrequente Vibrationen durch die Motorrotation Störungen im Gyroskopsignal, was die gesamte Flugleistung verschlechtert. Durch die Nutzung von Bi-directional DShot kann der Flight Controller die exakten Motordrehfrequenzen in Echtzeit bestimmen. Dies ermöglicht es dem System, motorbedingtes Rauschen dynamisch herauszufiltern und dadurch die Flugstabilität deutlich zu verbessern.
 
 \coleng
 
@@ -1594,7 +1597,7 @@ Requirements: To use bidirectional DShot, the ESC firmware must support protocol
 
 \colger
 
-TBD
+Voraussetzungen: Für die Nutzung von bidirektionalem DShot muss die ESC-Firmware Protokolle wie BLHeli\_32, AM32 oder BlueJay unterstützen, und DShot300 oder DShot600 muss aktiviert sein (siehe Abbildung~\ref{MissionPlannerESCCalibration} für Konfigurationsdetails).
 
 \coleng
 
@@ -1602,80 +1605,82 @@ Bidirectional DShot can be enabled using the following parameter settings:
 
 \colger
 
-TBD
+Bidirektionales DShot kann mit den folgenden Parametereinstellungen aktiviert werden:
 
 \coleng
 
 \begin{itemize}
-\item \textsl{RPM1\_TYPE = 5} - enables ESC telemetry via bitmask.
+\item \texttt{RPM1\_TYPE = 5}: enables ESC telemetry via bitmask.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{RPM1\_TYPE = 5}: Aktiviert die ESC-Telemetrie über Bitmask.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{RPM1\_ESC\_MASK = 15} - 15 is for a quadcopter with four motors; adjust accordingly for different motor counts.
+\item \texttt{RPM1\_ESC\_MASK = 15}: 15 is for a quadcopter with four motors; adjust accordingly for different motor counts.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{RPM1\_ESC\_MASK = 15}: Der Wert 15 gilt für einen Quadrokopter mit vier Motoren; für andere Motoranzahlen entsprechend anpassen.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{SERVO\_BLH\_BDMASK = 15} - here 15 is also for 4 motors drone; Adjust according to the number of motors.
+\item \texttt{SERVO\_BLH\_BDMASK = 15}: here 15 is also for a 4-motor drone; adjust according to the number of motors.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{SERVO\_BLH\_BDMASK = 15}: Auch hier gilt der Wert 15 für eine Drohne mit vier Motoren; entsprechend der Motoranzahl anpassen.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{SERVO\_BLH\_POLES = total magnates in a motor} - set based on the number of magnets in the motor; typically 12 for small drones (<3") and 14 for medium-sized drones
+\item \texttt{SERVO\_BLH\_POLES = total magnets in a motor}: set based on the number of magnets in the motor; typically 12 for small drones (<3") and 14 for medium-sized drones
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{SERVO\_BLH\_POLES = Gesamtanzahl der Magnete im Motor}: Wird entsprechend der Anzahl der Magnete im Motor gesetzt; typischerweise 12 für kleine Drohnen (<3") und 14 für mittelgroße Drohnen
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{SERVO\_DSHOT\_ESC = 1 or 2} - 1 for BLHeli\_32 / AM32 / KISS; 2 for BlueJay  (Refer to manufacturer specifications to determine the correct value.)
+\item \texttt{SERVO\_DSHOT\_ESC = 1 or 2}: 1 for BLHeli\_32 / AM32 / KISS; 2 for BlueJay (Refer to manufacturer specifications to determine the correct value.)
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{SERVO\_DSHOT\_ESC = 1 oder 2}: 1 für BLHeli\_32 / AM32 / KISS; 2 für BlueJay (Zur Bestimmung des korrekten Werts sollten die Herstellerspezifikationen herangezogen werden.)
 \end{itemize}
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ Validation of Bidirectional DShot and RPM Logging (Optional) }
+\renewcommand{\deutschertitel}{Validierung von bidirektionalem DShot und RPM-Logging (Optional)}
+\renewcommand{\englischertitel}{Validation of Bidirectional DShot and RPM Logging (Optional)}
 \makrounterunterabschnitt
 \label{MotorFrequenciesReading}
 
 After configuring the logging parameters and enabling Bi-directional DShot, a short test flight should be performed to generate the data required for validation. This step is necessary to confirm that the motor feedback mechanism is functioning correctly.
 Mission Planner: Log Analysis
+
 \colger
 
-TBD
+Nach der Konfiguration der Logging-Parameter und der Aktivierung von Bi-directional DShot sollte ein kurzer Testflug durchgeführt werden, um die für die Validierung erforderlichen Daten zu erzeugen. Dieser Schritt ist notwendig, um zu bestätigen, dass der Motor-Feedback-Mechanismus korrekt funktioniert.
+Mission Planner: Log-Analyse
 
 \coleng
 
@@ -1683,7 +1688,7 @@ Following the test flight, the DataFlash log file (.bin) should be downloaded us
 
 \colger
 
-TBD
+Nach dem Testflug sollte die DataFlash-Logdatei (.bin) mithilfe der Ground Control Software heruntergeladen werden (siehe Abbildung~\ref{MissionPlannerDataFlashLogDownload}). Das heruntergeladene Log kann anschließend mit einem geeigneten Analysewerkzeug wie Mission Planner geöffnet werden.
 
 \coleng
 
@@ -1691,12 +1696,12 @@ During log analysis, the motor RPM data should be examined. If the configuration
 
 \colger
 
-TBD
+Während der Log-Analyse sollten die Motor-RPM-Daten überprüft werden. Wenn die Konfiguration korrekt ist, zeigt das Log aktive, zeitlich veränderliche Graphen der Drehzahl jedes Motors während des gesamten Fluges, wie in Abbildung~\ref{MissionLogAnalysis} dargestellt. Falls jedoch die RPM-Daten eines Motors fehlen oder als konstantes (flaches) Signal erscheinen, deutet dies darauf hin, dass der Flight Controller keine Rückmeldung von den ESCs erhält. In diesem Fall müssen die Hardwareverbindungen überprüft und die Konfigurationsparameter kontrolliert werden, bevor weitere Abstimmungsschritte durchgeführt werden.
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ Harmonic Notch Filter Configuration Using Log Data }
+\renewcommand{\deutschertitel}{Konfiguration des Harmonic-Notch-Filters mithilfe von Log-Daten}
+\renewcommand{\englischertitel}{Harmonic Notch Filter Configuration Using Log Data}
 \makrounterunterabschnitt
 \label{FixHarmonicNotchByLogReadngs}
 
@@ -1704,23 +1709,23 @@ To properly configure the harmonic notch filter, DataFlash log data (.bin) is re
 
 \colger
 
-TBD
+Zur korrekten Konfiguration des Harmonic-Notch-Filters werden DataFlash-Logdaten (.bin) benötigt. Falls bereits eine Logdatei aus dem vorherigen Abschnitt vorliegt, kann diese direkt verwendet werden. Andernfalls sollte ein kurzer Testflug – bestehend aus etwa einer Minute Schweben – durchgeführt werden, um die erforderlichen Daten wie zuvor beschrieben zu erfassen.
 
 \coleng
 
-The harmonic notch filter can be tuned using the ArduPilot Filter Review Tool. The log file should be uploaded to the tool (available at: \url{https://firmware.ardupilot.org/Tools/WebTools/FilterReview/}), after which a visualization similar to Figure~\ref{ArduPilotFilterReviewFrequencySpectrumWitoutNotch} will be displayed. This visualization presents the IMU (gyro) frequency spectrum from the flight, illustrating vibration characteristics before and after filtering.
+The harmonic notch filter can be tuned using the ArduPilot Filter Review Tool. The log file should be uploaded to the tool (available at: \url{https://firmware.ardupilot.org/Tools/WebTools/FilterReview/}), after which a visualization similar to Figure~\ref{ArduPilotFilterReviewFrequencySpectrumWithoutNotch} will be displayed. This visualization presents the IMU (gyro) frequency spectrum from the flight, illustrating vibration characteristics before and after filtering.
 
 \colger
 
-TBD
+Der Harmonic-Notch-Filter kann mit dem ArduPilot Filter Review Tool abgestimmt werden. Die Logdatei sollte dazu in das Tool hochgeladen werden (verfügbar unter: \url{https://firmware.ardupilot.org/Tools/WebTools/FilterReview/}), woraufhin eine Visualisierung ähnlich zu Abbildung~\ref{ArduPilotFilterReviewFrequencySpectrumWithoutNotch} angezeigt wird. Diese Darstellung zeigt das IMU-(Gyro-)Frequenzspektrum des Fluges und veranschaulicht die Vibrationseigenschaften vor und nach der Filterung.
 
 \coleng
 
-In the example shown (Figure~\ref{ArduPilotFilterReviewFrequencySpectrumWitoutNotch}), which corresponds to a 3.5-inch cinewhoop drone with 5 propellers, a noticeable vibration peak is observed in the range of approximately 200–250 Hz across all three axes. This peak represents the fundamental motor and propeller vibration frequency. Additionally, the IMU spectrum Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch} also shows a continuous horizontal band within this frequency range, indicating persistent vibration throughout the flight. Higher-frequency harmonic components can also be observed, typically around 400–500 Hz and above, corresponding to multiples of the fundamental frequency.
+In the example shown (Figure~\ref{ArduPilotFilterReviewFrequencySpectrumWithoutNotch}), which corresponds to a 3.5-inch cinewhoop drone with 5 propellers, a noticeable vibration peak is observed in the range of approximately 200–250 Hz across all three axes. This peak represents the fundamental motor and propeller vibration frequency. Additionally, the IMU spectrum Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithoutNotch} also shows a continuous horizontal band within this frequency range, indicating persistent vibration throughout the flight. Higher-frequency harmonic components can also be observed, typically around 400–500 Hz and above, corresponding to multiples of the fundamental frequency.
 
 \colger
 
-TBD
+Im dargestellten Beispiel (Abbildung~\ref{ArduPilotFilterReviewFrequencySpectrumWithoutNotch}), das einer 3,5-Zoll-Cinewhoop-Drohne mit 5-Zoll-Propellern entspricht, ist auf allen drei Achsen ein deutlicher Vibrationspeak im Bereich von etwa 200–250 Hz zu erkennen. Dieser Peak repräsentiert die grundlegende Vibrationsfrequenz von Motor und Propeller. Zusätzlich zeigt das IMU-Spektrum in Abbildung~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithoutNotch} ein durchgehendes horizontales Band in diesem Frequenzbereich, was auf eine anhaltende Vibration während des gesamten Fluges hinweist. Auch höherfrequente harmonische Komponenten sind sichtbar, typischerweise im Bereich von 400–500 Hz und darüber, die Vielfachen der Grundfrequenz entsprechen.
 
 \colende
 
@@ -1728,7 +1733,7 @@ TBD
   \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_Frequency_Spectrum_no_notch_screenshot.png}
   \caption{IMU Frequency Spectrum (Without Harmonic Notch Filtering)}
-  \label{ArduPilotFilterReviewFrequencySpectrumWitoutNotch}
+  \label{ArduPilotFilterReviewFrequencySpectrumWithoutNotch}
 \end{figure}
 \FloatBarrier
 
@@ -1736,7 +1741,7 @@ TBD
   \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_no_notch_3blade_screenshot.png}
   \caption{IMU Spectrogram Over Time (No Harmonic Notch Filtering) — 3.5inch 3-Blade Cinewhoop}
-  \label{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch3Blade}
+  \label{ArduPilotFilterReviewIMUSpectrumVsTimeWithoutNotch3Blade}
 \end{figure}
 \FloatBarrier
 
@@ -1744,7 +1749,7 @@ TBD
   \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_no_notch_screenshot.png}
   \caption{IMU Spectrogram Over Time (No Harmonic Notch Filtering) — 3.5inch 5-Blade Cinewhoop}
-  \label{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch}
+  \label{ArduPilotFilterReviewIMUSpectrumVsTimeWithoutNotch}
 \end{figure}
 \FloatBarrier
 
@@ -1754,7 +1759,7 @@ Harmonic notch filtering can be used to target these specific vibration frequenc
 
 \colger
 
-TBD
+Harmonic-Notch-Filtering kann verwendet werden, um diese spezifischen Vibrationsfrequenzen gezielt zu unterdrücken. In diesem Fall werden zwei signifikante Peaks identifiziert (die Grundfrequenz und ihre erste Harmonische), weshalb zwei harmonische Notches ausreichend sind. Die verbleibenden höherfrequenten Rauschanteile erscheinen nach der Filterung gering und liegen innerhalb akzeptabler Grenzen; andernfalls könnten zusätzliche Notches erforderlich sein.
 
 \coleng
 
@@ -1762,7 +1767,7 @@ For optimal performance, the notch filter should be configured dynamically, allo
 
 \colger
 
-TBD
+Für eine optimale Leistung sollte der Notch-Filter dynamisch konfiguriert werden, sodass er Änderungen der Motorfrequenz während des Fluges nachverfolgen kann. Dies ist besonders wichtig, da einzelne Motoren mit leicht unterschiedlichen Drehzahlen arbeiten können, insbesondere bei einer verschobenen Schwerpunktlage oder bei Yaw-Eingaben. Zusätzlich sollte die Bandbreite des Notch-Filters möglichst schmal gehalten werden, um gezielt bestimmte Vibrationsfrequenzen zu filtern und gleichzeitig die Rechenlast zu minimieren. Dennoch muss die Bandbreite ausreichend groß sein, um die Störungen wirksam zu dämpfen.
 
 \coleng
 
@@ -1770,108 +1775,108 @@ Based on the analysis of the test flight log data, the harmonic notch filter can
 
 \colger
 
-TBD
-
+Basierend auf der Analyse der Testflug-Logdaten kann der Harmonic-Notch-Filter wie folgt konfiguriert werden:
+ 
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_ENABLE = 1} - Enables the harmonic notch filter.
+\item \texttt{INS\_HNTCH\_ENABLE = 1} Enables the harmonic notch filter.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_HNTCH\_ENABLE = 1}: Aktiviert den Harmonic-Notch-Filter.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_MODE = 3 } - Uses ESC telemetry for dynamic frequency tracking.
+\item \texttt{INS\_HNTCH\_MODE = 3}: Uses ESC telemetry for dynamic frequency tracking.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_HNTCH\_MODE = 3}: Verwendet ESC-Telemetrie zur dynamischen Nachverfolgung der Frequenz.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_FREQ = 220} - Fundamental frequency identified from log analysis (See Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch}); should be adjusted based on actual data.
+\item \texttt{INS\_HNTCH\_FREQ = 220}: Fundamental frequency identified from log analysis (see Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithoutNotch}); should be adjusted based on actual data.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_HNTCH\_FREQ = 220}: Grundfrequenz, die aus der Log-Analyse identifiziert wurde (siehe Abbildung~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithoutNotch}); sollte anhand der tatsächlichen Daten angepasst werden.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_BW = 38} - Bandwidth selected to effectively cover the vibration peak while remaining as narrow as possible. This value should be adjusted accordingly.
+\item \texttt{INS\_HNTCH\_BW = 38}: Bandwidth selected to effectively cover the vibration peak while remaining as narrow as possible. This value should be adjusted accordingly.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_HNTCH\_BW = 38}: Bandbreite, die so gewählt wurde, dass sie den Vibrationspeak wirksam abdeckt und gleichzeitig möglichst schmal bleibt. Dieser Wert sollte entsprechend angepasst werden.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_ATT = 40} - Default attenuation value.
+\item \texttt{INS\_HNTCH\_ATT = 40}: Default attenuation value.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_HNTCH\_ATT = 40}: Standardwert für die Dämpfung.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_HMNCS = 3} - Required number of notch. This number should be determined based on the log data. In this case, two notches are sufficient: one targeting the fundamental frequency (220 Hz) and the other targeting the first harmonic (2× the fundamental, 440 Hz). This configuration should be adjusted as necessary, depending on the extent of harmonic content observed in the vibration spectrum.
+\item \texttt{INS\_HNTCH\_HMNCS = 3}: Required number of notch. This number should be determined based on the log data. In this case, two notches are sufficient: one targeting the fundamental frequency (220 Hz) and the other targeting the first harmonic (2× the fundamental, 440 Hz). This configuration should be adjusted as necessary, depending on the extent of harmonic content observed in the vibration spectrum.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_HNTCH\_HMNCS = 3}: Erforderliche Anzahl der Notches. Diese Anzahl sollte anhand der Log-Daten bestimmt werden. In diesem Fall sind zwei Notches ausreichend: einer für die Grundfrequenz (220 Hz) und einer für die erste Harmonische (2× Grundfrequenz, 440 Hz). Diese Konfiguration sollte je nach Ausprägung der harmonischen Anteile im Vibrationsspektrum entsprechend angepasst werden.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_OPTS = 6} - Enables per-motor notch filtering with dynamic updates during flight. This configuration allows the system to continuously track each motor individually and apply dedicated notch filters in real time.
+\item \texttt{INS\_HNTCH\_OPTS = 6}: Enables per-motor notch filtering with dynamic updates during flight. This configuration allows the system to continuously track each motor individually and apply dedicated notch filters in real time.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_HNTCH\_OPTS = 6}: Aktiviert ein motorindividuelles Notch-Filtering mit dynamischen Aktualisierungen während des Fluges. Diese Konfiguration ermöglicht es dem System, jeden Motor kontinuierlich einzeln zu verfolgen und dedizierte Notch-Filter in Echtzeit anzuwenden.
 \end{itemize}
 
 \coleng
 
 \begin{itemize}
-\item \textsl{INS\_HNTCH\_FM\_RAT = 1.0} - Sets the minimum frequency ratio for the harmonic notch filter. A value of 1.0 is typically recommended for general use. For high-performance tuning or for drones that exhibit excessive vibrations during descents, this value may be reduced (e.g., 0.7) to allow the filter to track lower frequencies more effectively.
+\item \texttt{INS\_HNTCH\_FM\_RAT = 1.0}: Sets the minimum frequency ratio for the harmonic notch filter. A value of 1.0 is typically recommended for general use. For high-performance tuning or for drones that exhibit excessive vibrations during descents, this value may be reduced (e.g., 0.7) to allow the filter to track lower frequencies more effectively.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{TBD} - TBD
+\item \texttt{INS\_HNTCH\_FM\_RAT = 1.0}: Legt das minimale Frequenzverhältnis für den Harmonic-Notch-Filter fest. Ein Wert von 1.0 wird typischerweise für allgemeine Anwendungen empfohlen. Für High-Performance-Tuning oder bei Drohnen, die während Sinkflügen starke Vibrationen aufweisen, kann dieser Wert reduziert werden (z.\,B. auf 0.7), damit der Filter niedrigere Frequenzen effektiver nachverfolgen kann.
 \end{itemize}
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ Analysis of Notch-Filtered Data }
+\renewcommand{\deutschertitel}{Analyse der Notch-gefilterten Daten}
+\renewcommand{\englischertitel}{Analysis of Notch-Filtered Data}
 \makrounterunterabschnitt
 \label{FixGyroFilterAndFinalTestFlight}
 
@@ -1879,14 +1884,14 @@ After applying the harmonic notch filter configuration, an additional test fligh
 
 \colger
 
-TBD
+Nach der Anwendung der Harmonic-Notch-Filter-Konfiguration sollte ein zusätzlicher Testflug durchgeführt werden, um deren Wirksamkeit zu überprüfen. Ähnlich wie im vorherigen Schritt sollte dieser Flug etwa eine Minute dauern und kann in jedem stabilisierten Flugmodus (z.\,B. Stabilize, AltHold oder Loiter) durchgeführt werden. Das resultierende DataFlash-Log sollte anschließend mit dem ArduPilot Filter Review Tool analysiert werden.
 
 \colende
 
 \begin{figure}[htb!]
   \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_Frequency_Spectrum_notch_3blade_screenshot.png}
-  \caption{IMU Frequency Spectrum (With Harmonic Notch Filtering) — 3.5inch 3-Blade Cinewhoop}
+  \caption{IMU Frequency Spectrum (With Harmonic Notch Filtering): 3.5'' 3-Blade Cinewhoop}
   \label{ArduPilotFilterReviewFrequencySpectrumWiNotch3Blade}
 \end{figure}
 \FloatBarrier
@@ -1894,25 +1899,25 @@ TBD
 \begin{figure}[htb!]
   \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_Frequency_Spectrum_notch_screenshot.png}
-  \caption{IMU Frequency Spectrum (With Harmonic Notch Filtering) — 3.5inch 5-Blade Cinewhoop}
+  \caption{IMU Frequency Spectrum (With Harmonic Notch Filtering): 3.5'' 5-Blade Cinewhoop}
   \label{ArduPilotFilterReviewFrequencySpectrumWiNotch}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-Figure~\ref{ArduPilotFilterReviewFrequencySpectrumWiNotch} illustrates the frequency spectrum after the application of harmonic notch filtering. Compared to the unfiltered case (see Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch}), a significant reduction in vibration amplitude can be observed. The dominant vibration peak, previously observed around -30 dB, is substantially attenuated to below -80 dB in the post-filter signal. This demonstrates that the harmonic notch filter is effectively targeting and suppressing the primary motor-induced vibration. Similarly, the second harmonic (430-450 Hz) is also attenuated, confirming the correct harmonic notch configuration.
+Figure~\ref{ArduPilotFilterReviewFrequencySpectrumWiNotch} illustrates the frequency spectrum after the application of harmonic notch filtering. Compared to the unfiltered case (see Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithoutNotch}), a significant reduction in vibration amplitude can be observed. The dominant vibration peak, previously observed around -30 dB, is substantially attenuated to below -80 dB in the post-filter signal. This demonstrates that the harmonic notch filter is effectively targeting and suppressing the primary motor-induced vibration. Similarly, the second harmonic (430--450 Hz) is also attenuated, confirming the correct harmonic notch configuration.
 
 \colger
 
-TBD
+Abbildung~\ref{ArduPilotFilterReviewFrequencySpectrumWiNotch} zeigt das Frequenzspektrum nach der Anwendung des Harmonic-Notch-Filters. Im Vergleich zum ungefilterten Fall (siehe Abbildung~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithoutNotch}) ist eine deutliche Reduzierung der Vibrationsamplitude erkennbar. Der dominante Vibrationspeak, der zuvor bei etwa -30 dB lag, wird im nachgefilterten Signal deutlich auf unter -80 dB abgeschwächt. Dies zeigt, dass der Harmonic-Notch-Filter die primäre motorbedingte Vibration wirksam erkennt und unterdrückt. Ebenso wird auch die zweite Harmonische (430--450 Hz) abgeschwächt, was die korrekte Konfiguration des Harmonic-Notch-Filters bestätigt.
 
 \colende
 
 \begin{figure}[htb!]
   \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_notch_screenshot.png}
-  \caption{IMU Spectrum vs time - Pre filter(With Harmonic Notch Filtering) — 3.5inch 5-Blade Cinewhoop}
+  \caption{IMU Spectrum vs time. Pre filter (With Harmonic Notch Filtering: 3.5'' 5-Blade CineWhoop}
   \label{ArduPilotFilterReviewIMUSpectrumVsTimeWitNotchPreFilter}
 \end{figure}
 \FloatBarrier
@@ -1920,18 +1925,18 @@ TBD
 \begin{figure}[htb!]
   \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_notch_post_filter_screenshot.png}
-  \caption{IMU Spectrum vs time - Post filter (With Harmonic Notch Filtering) — 3.5inch 5-Blade Cinewhoop}
+  \caption{IMU Spectrum vs time. Post filter (With Harmonic Notch Filtering: 3.5'' 5-Blade CineWhoop}
   \label{ArduPilotFilterReviewIMUSpectrumVsTimeWithNotchPostFilter}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitNotchPreFilter} IMU-spectrogram of the flight log shows that the harmonic notch filter is exactly aligned with the motor noise peaks, tracking and crushing both the fundamental motor frequency (220 ± 19 Hz) and its second harmonic (2 X 220 ± 19 Hz). The overlaid tracking lines show that the filter is continuously following these vibration bands during the flight. Since each motor can operate at slightly different speeds, the filter tracks them individually, which is why multiple orange (fundamental) and green (harmonic) lines are visible in the spectrogram rather than a single line.
+Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitNotchPreFilter} IMU spectrogram of the flight log shows that the harmonic notch filter is exactly aligned with the motor noise peaks, tracking and suppressing both the fundamental motor frequency (220 ± 19 Hz) and its second harmonic (2 × 220 ± 19 Hz). The overlaid tracking lines show that the filter continuously follows these vibration bands during the flight. Since each motor can operate at slightly different speeds, the filter tracks them individually, which is why multiple orange (fundamental) and green (harmonic) lines are visible in the spectrogram rather than a single line.
 
 \colger
 
-TBD
+Das IMU-Spektrogramm des Fluglogs in Abbildung~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWitNotchPreFilter} zeigt, dass der Harmonic-Notch-Filter exakt auf die Peaks des Motorrauschens ausgerichtet ist und sowohl die Grundfrequenz des Motors (220 ± 19 Hz) als auch deren zweite Harmonische (2 × 220 ± 19 Hz) nachverfolgt und unterdrückt. Die eingeblendeten Tracking-Linien zeigen, dass der Filter diese Vibrationsbänder während des gesamten Fluges kontinuierlich verfolgt. Da jeder Motor mit leicht unterschiedlichen Drehzahlen arbeiten kann, verfolgt der Filter sie individuell, weshalb im Spektrogramm mehrere orangefarbene (Grundfrequenz) und grüne (Harmonische) Linien anstelle einer einzelnen Linie sichtbar sind.
 
 \coleng
 
@@ -1939,12 +1944,12 @@ Figure~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithNotchPostFilter} presents 
 
 \colger
 
-TBD
+Abbildung~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithNotchPostFilter} zeigt das IMU-Spektrogramm nach der Filterung, in dem kein signifikantes Vibrationsrauschen mehr erkennbar ist. Dies zeigt, dass die angewendete Filterung ausreichend ist und keine zusätzlichen Notch-Filter erforderlich sind.
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ Gyro Filter Optimization }
+\renewcommand{\deutschertitel}{Optimierung des Gyro-Filters}
+\renewcommand{\englischertitel}{Gyro Filter Optimization}
 \makrounterunterabschnitt
 \label{ArdupilotGyroLowPassFilter}
 
@@ -1952,7 +1957,7 @@ With the harmonic notch filter effectively attenuating motor-induced vibrations,
 
 \colger
 
-TBD
+Nachdem der Harmonic-Notch-Filter die motorbedingten Vibrationen wirksam reduziert, kann die Grenzfrequenz des Gyro-Tiefpassfilters erhöht werden, um die Flugleistung weiter zu optimieren. Eine zu niedrige Grenzfrequenz führt zu einer Signalverzögerung, was die Regelreaktion negativ beeinflussen oder zu instabilem Flugverhalten führen kann. Wird die Grenzfrequenz jedoch zu hoch gewählt, können unerwünschte hochfrequente Störungen das System passieren.
 
 \coleng
 
@@ -1960,7 +1965,7 @@ Therefore, it is recommended to gradually increase the gyro low-pass filter usin
 
 \colger
 
-TBD
+Daher wird empfohlen, den Gyro-Tiefpassfilter schrittweise über den Parameter \textsl{INS\_GYRO\_FILTER} zu erhöhen. Nach jeder Anpassung sollte ein kurzer Testflug durchgeführt werden, um ein stabiles Flugverhalten sicherzustellen. Die daraus resultierenden Log-Daten sollten anschließend mit dem ArduPilot Filter Review Tool analysiert werden, um zu überprüfen, dass im nachgefilterten Signal kein signifikantes Rauschen vorhanden ist (siehe Abbildung~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithNotchPostFilter}). Dieser iterative Ansatz gewährleistet ein optimales Gleichgewicht zwischen Reaktionsfähigkeit und Rauschunterdrückung.
 
 \colende
 

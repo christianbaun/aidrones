@@ -37,11 +37,12 @@ EdgeTX ist ein Betriebssystem für Fernsteuerungen im Modellbau. Es handelt sich
 
 \coleng
 
-Installation is performed via the web application \url{buddy.edgetx.org}. This section describes the installation process on a Radiomaster Boxer using a PC.
+Installation is performed via the web application \url{buddy.edgetx.org}. This section describes the installation process on a Radiomaster Boxer using a PC. The same approach also works with the Radiomaster Pocket, TX12, and older versions of the TX16S.
 
 \colger
 
-Die Installation erfolgt über die Webanwendung \url{buddy.edgetx.org}. Dieser Abschnitt beschreibt die Installation auf einer Radiomaster Boxer mithilfe eines PCs.
+Die Installation erfolgt über die Webanwendung \url{buddy.edgetx.org}. Dieser Abschnitt beschreibt die Installation auf einer Radiomaster Boxer mithilfe eines PCs. Auf die gleiche Art und Weise funktioniert es auch bei den Modellen Radiomaster Pocket, TX12, und bei älteren TX16S.
+
 
 \coleng
 
@@ -102,6 +103,39 @@ Der letzte Schritt ist der Start der Installation über die Schaltfläche \texts
 	\label{AbbildungEdgeTXInstallation4}
 \end{figure}
 \FloatBarrier
+
+
+\renewcommand{\deutschertitel}{DFU-Modus bei unterschiedlichen Fernsteuerungen}
+\renewcommand{\englischertitel}{DFU Mode of Different Remote Controls}
+\makrounterabschnitt
+\label{AbschnittAndereFernsteuerungen}
+
+The method for putting individual radio transmitters into DFU (Device Firmware Update) mode, so that they are recognized as an STM32 BOOTLOADER (see Figure~\ref{AbbildungEdgeTXInstallation2}), varies across different manufacturers and their respective models.
+
+\colger
+
+Die Art und Weise, wie einzelne Fernsteuerungen in den DFU-Modus (Device Firmware Update) gebracht werden, um als STM32 BOOTLOADER (siehe Abbildung~\ref{AbbildungEdgeTXInstallation2}) erkannt zu werden, ist bei vielen Herstellern und deren Modellen unterschiedlich umgesetzt.
+
+\coleng
+
+For example, the Radiomaster GX12 has only a single USB port. To put the transmitter into DFU mode in order to install EdgeTX, the following steps must be performed: With the transmitter powered off, it must be connected to the PC using a USB cable. Then, the SG switch and the power button must be pressed simultaneously. From that moment on, the transmitter is recognized as an STM32 BOOTLOADER.
+
+\colger
+
+Eine Radiomaster GX12 verfügt beispielsweise nur über einen USB-Anschluss. Um die Fernsteuerung in den DFU-Modus zu versetzen, um EdgeTX zu installieren, müssen folgende Schritte ausgeführt werden: Im ausgeschalteten Zustand muss die Fernsteuerung mit einem USB-Kabel mit dem PC verbunden werden. Anschließend müssen der Schalter SG und die Einschalttaste gleichzeitig gedrückt werden. Ab diesem Zeitpunkt wird die Fernsteuerung als STM32 BOOTLOADER erkannt.
+
+\coleng
+
+An overview of different radio transmitter manufacturers and their models can be found on the following website:
+
+\colger
+
+Eine Übersicht über verschiedene Hersteller von Fernsteuerungen und deren Modelle bietet die folgende Webseite:
+
+\colende
+
+\href{https://manual.edgetx.org/edgetx-how-to/access-dfu-and-bootloader-mode}{https://manual.edgetx.org/edgetx-how-to/access-dfu-and-bootloader-mode}
+
 
 \renewcommand{\deutschertitel}{Sendemodul- und Empfänger-Firmware: ExpressLRS}
 \renewcommand{\englischertitel}{Transmitter and Receiver Firmware: ExpressLRS}
