@@ -1401,7 +1401,7 @@ TBD
 \coleng
 
 \begin{itemize}
-\item \textsl{LOG\_BACKEND\_TYPE = 4} - Bitmask to define log destinations, 0 = log disabled, 1 (bit 0) = SD card, 2 (bit 1) = MAVLink stream, 4 (bit 2) = onboard dataflash.
+\item \textsl{LOG\_BACKEND\_TYPE = 4} (or 1 if the flight controller has an external SD card) - The value should be set according to the available storage on the flight controller. For controllers that use internal DataFlash (blackbox) memory (e.g., Flywoo F745 AIO with 16 MB onboard flash), the value should be set to 4. For controllers equipped with external storage (e.g., MicroAir743-AIO with an SD card), the value should be set to 1.
 \end{itemize}
 
 \colger
@@ -1734,8 +1734,16 @@ TBD
 
 \begin{figure}[htb!]
   \centering
+    \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_no_notch_3blade_screenshot.png}
+  \caption{IMU Spectrogram Over Time (No Harmonic Notch Filtering) — 3.5inch 3-Blade Cinewhoop}
+  \label{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch3Blade}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[htb!]
+  \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_no_notch_screenshot.png}
-  \caption{IMU Spectrum vs time - Shows how noise changes throughout time (Without Harmonic Notch Filtering)}
+  \caption{IMU Spectrogram Over Time (No Harmonic Notch Filtering) — 3.5inch 5-Blade Cinewhoop}
   \label{ArduPilotFilterReviewIMUSpectrumVsTimeWitoutNotch}
 \end{figure}
 \FloatBarrier
@@ -1848,6 +1856,18 @@ TBD
 \item \textsl{TBD} - TBD
 \end{itemize}
 
+\coleng
+
+\begin{itemize}
+\item \textsl{INS\_HNTCH\_FM\_RAT = 1.0} - Sets the minimum frequency ratio for the harmonic notch filter. A value of 1.0 is typically recommended for general use. For high-performance tuning or for drones that exhibit excessive vibrations during descents, this value may be reduced (e.g., 0.7) to allow the filter to track lower frequencies more effectively.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \textsl{TBD} - TBD
+\end{itemize}
+
 \colende
 
 \renewcommand{\deutschertitel}{TBD}
@@ -1865,8 +1885,16 @@ TBD
 
 \begin{figure}[htb!]
   \centering
+    \includegraphics[width=\linewidth]{ArduPilotFilterReview_Frequency_Spectrum_notch_3blade_screenshot.png}
+  \caption{IMU Frequency Spectrum (With Harmonic Notch Filtering) — 3.5inch 3-Blade Cinewhoop}
+  \label{ArduPilotFilterReviewFrequencySpectrumWiNotch3Blade}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[htb!]
+  \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_Frequency_Spectrum_notch_screenshot.png}
-  \caption{IMU Frequency Spectrum (With Harmonic Notch Filtering)}
+  \caption{IMU Frequency Spectrum (With Harmonic Notch Filtering) — 3.5inch 5-Blade Cinewhoop}
   \label{ArduPilotFilterReviewFrequencySpectrumWiNotch}
 \end{figure}
 \FloatBarrier
@@ -1884,7 +1912,7 @@ TBD
 \begin{figure}[htb!]
   \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_notch_screenshot.png}
-  \caption{IMU Spectrum vs time - Pre filter(With Harmonic Notch Filtering)}
+  \caption{IMU Spectrum vs time - Pre filter(With Harmonic Notch Filtering) — 3.5inch 5-Blade Cinewhoop}
   \label{ArduPilotFilterReviewIMUSpectrumVsTimeWitNotchPreFilter}
 \end{figure}
 \FloatBarrier
@@ -1892,7 +1920,7 @@ TBD
 \begin{figure}[htb!]
   \centering
     \includegraphics[width=\linewidth]{ArduPilotFilterReview_IMU_Spectrum_notch_post_filter_screenshot.png}
-  \caption{IMU Spectrum vs time - Post filter (With Harmonic Notch Filtering)}
+  \caption{IMU Spectrum vs time - Post filter (With Harmonic Notch Filtering) — 3.5inch 5-Blade Cinewhoop}
   \label{ArduPilotFilterReviewIMUSpectrumVsTimeWithNotchPostFilter}
 \end{figure}
 \FloatBarrier
