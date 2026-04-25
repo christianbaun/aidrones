@@ -247,7 +247,7 @@ Obwohl ArduPilot die Installation von optischen Flusssensoren und Entfernungsmes
   \centering
   \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01_in_flying_drone.jpeg}
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P_in_flying_drone.jpeg}
     \vspace{0pt} % sorgt für Top-Ausrichtung
   \end{minipage}\hfill
   \begin{minipage}[t]{0.48\textwidth}
@@ -255,7 +255,7 @@ Obwohl ArduPilot die Installation von optischen Flusssensoren und Entfernungsmes
     \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01_in_drone.jpeg}
     \vspace{0pt}
   \end{minipage}
-  \caption{Drone installed with MicoAir MTF-01 Optical Flow and Lidar Sensor}
+  \caption{Drone installed with MicoAir MTF-01 and MTF-01P Optical Flow and Lidar Sensor (Ardupilot)}
   \label{DroenWithMicoAirMFT01}
 \end{figure}
 \FloatBarrier
@@ -506,6 +506,7 @@ An dieser Stelle sollten die Messwerte des optischen Flusssensors und des Entfer
 \label{ImageLevelMissionPlannerOpticalFlowData}
 \end{figure}
 \FloatBarrier
+
 \renewcommand{\deutschertitel}{Konfigurationsschritt: C (EK3)}
 \renewcommand{\englischertitel}{Configuration Step: C (EK3)}
 \makrounterunterabschnitt
@@ -812,5 +813,100 @@ Once these configurations are completed, the drone should be able to use optical
 \colger
 
 Nachdem diese Konfiguration abgeschlossen ist, sollte die Drohne die Daten des optischen Flusssensors und des Entfernungsmessers nutzen können, um automatische Flugmodi wie \textit{Loiter} zu ermöglichen. Falls das System nicht wie erwartet funktioniert, können mögliche Ursachen beispielsweise starke Vibrationen, eine hohe Auslastung des Flugcontrollers oder eine notwendige Sensorkalibrierung sein. Detaillierte Anleitungen zur Kalibrierung und zum Test von optischen Flusssensoren sind in der ArduPilot-Dokumentation verfügbar: \href{https://ardupilot.org/copter/docs/common-optical-flow-sensor-setup.html}{https://ardupilot.org/copter/docs/common-optical-flow-sensor-setup.html}  
+
+\colende
+
+\renewcommand{\deutschertitel}{Optischer Fluss und Entfernungsmesser (INAV)}
+\renewcommand{\englischertitel}{Optical Flow and LiDAR Sensor Configuration (INAV)}
+\makrounterabschnitt
+
+iNav supports a limited number of protocols for optical flow and rangefinder sensors, with MSP-based devices being the most commonly used in iNav systems. Therefore, this document focuses on achieving stable flight using MSP-based sensors. Examples of such sensors include the Matek 3901-L0X, MicoAir MTF-02, and MicoAir MTF-01, which have optical flow and LiDAR capabilities.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P_in_flying_drone_iNAV.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{MicoAir_Optical_Flow_Lidar_Sensor_MTF_01P_in_drone_iNAV.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Drone installed with MicoAir MTF-01P Optical Flow and Lidar Sensor (INAV)}
+  \label{DroenWithMicoAirMFT01iNAV}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Proper installation orientation is necessary for accurate performance. Ideally, the sensor should be mounted aligned with the drone’s heading; however, if this is not feasible, alignment can be adjusted through the iNav Configurator. Regardless of orientation, the sensor must be mounted parallel to the drone frame (see Figure~\ref{DroenWithMicoAirMFT01iNAV}).
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{Konfigurationsschritt: A (UART und Protokoll)}
+\renewcommand{\englischertitel}{Configuration Step: A (UART and Protocol)}
+\makrounterunterabschnitt
+
+\colende
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=\linewidth]{INAV_Firmware_ports_with_OF.png}
+\caption{iNav Ports tab with MSP enabled on UART5 for optical flow and rangefinder sensors}
+\label{ImageLevelINAVPortsForOFandRangefinder}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=\linewidth]{INAV_Firmware_configuration_with_OF.png}
+\caption{iNav Configuration tab with MSP enabled for optical flow and rangefinder sensors}
+\label{ImageLevelINAVConfigurationForOFandRangefinder}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+First, the serial port must be configured for MSP in the Ports tab. As shown in Figure~\ref{ImageLevelINAVPortsForOFandRangefinder}, the sensor is connected to UART5; therefore, MSP should be enabled on this port. Next, in the Configuration tab, set both the optical flow and rangefinder sensor types to MSP (see Figure~\ref{ImageLevelINAVConfigurationForOFandRangefinder}).
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Configuration Step: B (Optical flow calibration)}
+\makrounterunterabschnitt
+
+\colende
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=\linewidth]{INAV_Firmware_calibration_with_OF.png}
+\caption{iNav Opticalflow sensor calibration}
+\label{ImageLevelINAVOFcalibration}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+ Once communication with the Flight controller is successfully established, the sensor indicators for Sonar and Optical Flow will appear active (highlighted in blue). The sensors must then be calibrated in the Calibration tab. During calibration, position the drone approximately 20-30 cm above the ground and tilt it forward and backward by about 20°, and side-to-side within the same time frame. Perform approximately 8-10 smooth back-and-forth movements in each direction over a period of 30 seconds (see Figure~\ref{ImageLevelINAVOFcalibration}).
+
+\colger
+
+TBD
 
 \colende
