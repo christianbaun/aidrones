@@ -816,7 +816,7 @@ Nachdem diese Konfiguration abgeschlossen ist, sollte die Drohne die Daten des o
 
 \colende
 
-\renewcommand{\deutschertitel}{Optischer Fluss und Entfernungsmesser (INAV)}
+\renewcommand{\deutschertitel}{Optischer Fluss und LiDAR Entfernungsmessung (INAV)}
 \renewcommand{\englischertitel}{Optical Flow and LiDAR Sensor Configuration (INAV)}
 \makrounterabschnitt
 
@@ -824,7 +824,7 @@ INav supports a limited number of protocols for optical flow and rangefinder sen
 
 \colger
 
-TBD
+iNav unterstützt nur eine begrenzte Anzahl von Protokollen für Optical-Flow- und Entfernungsmessersensoren, wobei MSP-basierte Geräte in iNav-Systemen am häufigsten verwendet werden. Daher konzentriert sich dieses Dokument auf die Realisierung eines stabilen Flugverhaltens mit MSP-basierten Sensoren. Beispiele für solche Sensoren sind der Matek 3901-L0X, der MicoAir MTF-02 und der MicoAir MTF-01, die sowohl Optical-Flow- als auch LiDAR-Funktionen bereitstellen.
 
 \colende
 
@@ -864,7 +864,7 @@ TBD
 \begin{figure}[htb!]
 \centering
 \includegraphics[width=\linewidth]{INAV_Firmware_ports_with_OF.png}
-\caption{INAV Ports tab with MSP enabled on UART5 for optical flow and rangefinder sensors}
+\caption{INAV Ports Tab with MSP enabled on UART5 for Optical Flow and Rangefinder Sensors}
 \label{ImageLevelINAVPortsForOFandRangefinder}
 \end{figure}
 \FloatBarrier
@@ -872,70 +872,67 @@ TBD
 \begin{figure}[htb!]
 \centering
 \includegraphics[width=\linewidth]{INAV_Firmware_configuration_with_OF.png}
-\caption{INAV Configuration tab with MSP enabled for optical flow and rangefinder sensors}
+\caption{INAV Configuration Tab with MSP enabled for Optical Flow and Rangefinder Sensors}
 \label{ImageLevelINAVConfigurationForOFandRangefinder}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-First, the serial port must be configured for MSP in the Ports tab. As shown in Figure~\ref{ImageLevelINAVPortsForOFandRangefinder}, the sensor is connected to UART5; therefore, MSP should be enabled on this port. Next, in the Configuration tab, set both the optical flow and rangefinder sensor types to MSP (see Figure~\ref{ImageLevelINAVConfigurationForOFandRangefinder}).
+First, the serial port must be configured for MSP in the Ports tab. As shown in Figure~\ref{ImageLevelINAVPortsForOFandRangefinder}, the sensor is connected to UART5; therefore, MSP should be enabled on this port. Next, in the Configuration tab, both the optical flow and rangefinder sensor types should be set to MSP (see Figure~\ref{ImageLevelINAVConfigurationForOFandRangefinder}).
 
 \colger
 
-TBD
+Zunächst muss der serielle Port im Reiter „Ports“ für MSP konfiguriert werden. Wie in Abbildung~\ref{ImageLevelINAVPortsForOFandRangefinder} dargestellt, ist der Sensor mit UART5 verbunden; daher sollte MSP auf diesem Port aktiviert werden. Anschließend müssen im Reiter „Configuration“ sowohl der Optical-Flow-Sensor als auch der Entfernungsmesser-Sensortyp auf MSP eingestellt werden (siehe Abbildung~\ref{ImageLevelINAVConfigurationForOFandRangefinder}).
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Configuration Step B: Optical flow calibration}
+\renewcommand{\deutschertitel}{Konfigurationsschritt B: Optical-Flow-Kalibrierung}
+\renewcommand{\englischertitel}{Configuration Step B: Optical Flow Calibration}
 \makrounterunterabschnitt
+
+Once the flight controller is connected, the Sonar and Optical Flow indicators will turn blue, indicating that the sensors are active. The sensors must then be calibrated in the Calibration tab.
+
+\colger
+
+Sobald der Flight Controller verbunden ist, werden die Anzeigen für Sonar und Optical Flow blau, was darauf hinweist, dass die Sensoren aktiv sind. Anschließend müssen die Sensoren im Reiter „Calibration“ kalibriert werden.
+
+\coleng
+
+For calibration, hold the drone about 40--60 cm above the ground. Tilt it forward and backward by approximately 20°--40°, then tilt it from side to side. Repeat these movements smoothly 8--10 times in each direction within 30 seconds (see Figure~\ref{ImageLevelINAVOFcalibration}). Once calibration is complete, check the calibration scale value. The optimal range is typically specified by the manufacturer. For example, for MicoAir MTF sensors, the value should be between 4 and 6, while for Matek sensors, it should be in the range of 9 to 10.
+
+\colger
+
+Für die Kalibrierung sollte die Drohne etwa 40--60 cm über dem Boden gehalten werden. Anschließend wird sie um ungefähr 20°--40° nach vorne und hinten sowie seitlich geneigt. Diese Bewegungen sollten innerhalb von 30 Sekunden jeweils 8--10 Mal pro Richtung gleichmäßig wiederholt werden (siehe Abbildung~\ref{ImageLevelINAVOFcalibration}). Nach Abschluss der Kalibrierung sollte der Kalibrierungs-Skalierungswert überprüft werden. Der optimale Bereich wird in der Regel vom Hersteller angegeben. Beispielsweise sollte der Wert bei MicoAir-MTF-Sensoren zwischen 4 und 6 liegen, während er bei Matek-Sensoren im Bereich von 9 bis 10 liegen sollte.
 
 \colende
 
 \begin{figure}[htb!]
 \centering
 \includegraphics[width=\linewidth]{INAV_Firmware_calibration_with_OF.png}
-\caption{INAV Opticalflow sensor calibration}
+\caption{INAV Optical Flow Sensor Calibration}
 \label{ImageLevelINAVOFcalibration}
 \end{figure}
 \FloatBarrier
 
-\colstart
 
-Once the flight controller is connected, the Sonar and Optical Flow indicators will turn blue, showing that the sensors are active. The sensors must then be calibrated in the Calibration tab.
-
-\colger
-
-TBD
-
-\coleng
-
-For calibration, hold the drone about 40-60 cm above the ground. Tilt it forward and backward by about 20°- 40°, then tilt it side to side. Repeat these movements smoothly 8–10 times in each direction within 30 seconds (see Figure~\ref{ImageLevelINAVOFcalibration}). Once calibration is complete, check the calibration scale value. The optimal range is typically specified by the manufacturer. For example, for MicoAir MTF sensors, the value should be between 4 and 6, while for Matek sensors, it should be in the range of 9 to 10.
-
-\colger
-
-TBD
-
-\colende
-
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Configuration Step C: Fixing sensor alignment}
+\renewcommand{\deutschertitel}{Konfigurationsschritt C: Sensorausrichtung korrigieren}
+\renewcommand{\englischertitel}{Configuration Step C: Fixing Sensor Alignment}
 \makrounterunterabschnitt
 
-This step is critical, as any misalignment can lead to poor flight performance in position hold mode with optical flow and LiDAR sensors. To correct the alignment, testing should be conducted on a suitable surface where both sensors can operate reliably. Ideally, use a surface with visible texture and good lighting conditions. Avoid very dark, glossy, or grass-like surfaces, as they can reduce sensor accuracy.
+This step is critical, as any misalignment can lead to poor flight performance in Position Hold mode when using optical flow and LiDAR sensors. To correct the alignment, testing should be conducted on a suitable surface where both sensors can operate reliably. Ideally, a surface with visible texture and good lighting conditions should be used. Very dark, glossy, or grass-like surfaces should be avoided, as they can reduce sensor accuracy.
 
 \colger
 
-TBD
+Dieser Schritt ist kritisch, da jede Fehlausrichtung zu einer schlechten Flugleistung im Position-Hold-Modus bei der Verwendung von Optical-Flow- und LiDAR-Sensoren führen kann. Zur Korrektur der Ausrichtung sollte der Test auf einer geeigneten Oberfläche durchgeführt werden, auf der beide Sensoren zuverlässig arbeiten können. Idealerweise sollte eine Oberfläche mit sichtbarer Struktur und guten Lichtverhältnissen verwendet werden. Sehr dunkle, glänzende oder grasähnliche Oberflächen sollten vermieden werden, da sie die Sensorgenauigkeit verringern können.
 
 \coleng
 
-To carry out the test, the debug mode must be set to \verb!FLOW_RAW!. This can be done in the CLI by entering the command in the Figure~\ref{INAVCliForDebugModeOpticalFlow}
+To carry out the test, the debug mode must be set to \verb!FLOW_RAW!. This can be done in the CLI by entering the command shown in Figure~\ref{INAVCliForDebugModeOpticalFlow}.
 
 \colger
 
-TBD
+Zur Durchführung des Tests muss der Debug-Modus auf \verb!FLOW_RAW! gesetzt werden. Dies kann in der CLI erfolgen, indem der in Abbildung~\ref{INAVCliForDebugModeOpticalFlow} dargestellte Befehl eingegeben wird.
 
 \colende
 
@@ -946,7 +943,7 @@ TBD
   save
 
 \end{lstlisting}
-\caption{INAV CLI command to activate optical flow debug mode}
+\caption{INAV CLI Command to activate Optical Flow Debug Mode}
 \label{INAVCliForDebugModeOpticalFlow}
 \end{figure}
 \FloatBarrier
@@ -954,56 +951,56 @@ TBD
 \begin{figure}[htb!]
 \centering
 \includegraphics[width=\linewidth]{INAV_Firmware_Sensors_tab_for_rangefinder.png}
-\caption{Monitoring rangefinder output within the Sensor tab}
+\caption{Monitoring Rangefinder Output within the Sensor Tab}
 \label{ImageLevelINAVRangefinderMonitoring}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-After saving and rebooting, go to the Sensors tab. Enable the Sonar checkbox and move the drone up and down to verify that the movement is reflected in the waveform (see Figure~\ref{ImageLevelINAVRangefinderMonitoring}).
+After saving and rebooting, go to the Sensors tab. Enable the checkbox \textsl{Sonar} and move the drone up and down to verify that the movement is reflected in the waveform (see Figure~\ref{ImageLevelINAVRangefinderMonitoring}).
 
 \colger
 
-TBD
+Nach dem Speichern und Neustarten sollte zum Reiter „Sensors“ gewechselt werden. Dort ist das Kontrollkästchen \textsl{Sonar} zu aktivieren, und die Drohne sollte auf- und abbewegt werden, um zu überprüfen, ob diese Bewegung im Kurvenverlauf dargestellt wird (siehe Abbildung~\ref{ImageLevelINAVRangefinderMonitoring}).
 
 \colende
 
 \begin{figure}[htb!]
 \centering
 \includegraphics[width=\linewidth]{INAV_Firmware_Sensors_tab_for_OF_debug.png}
-\caption{Aligning Optical Flow and Rangefinder telemetry in the INAV Sensor tab}
+\caption{Aligning Optical Flow and Rangefinder Telemetry in the INAV Sensor Tab}
 \label{ImageLevelINAVOFAlignmentFixing}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-Next, place the drone over a suitable surface as described earlier. Hold it approximately 40-50 cm above the ground and move it forward and backward, then side to side in a similar manner (see Figure~\ref{ImageLevelINAVOFAlignmentFixing}). If the alignment is correct, the waveforms in Debug0 and Debug2 should match, as should Debug1 and Debug3.
+Next, place the drone over a suitable surface as described earlier. Hold it approximately 40--50 cm above the ground and move it forward and backward, then from side to side in a similar manner (see Figure~\ref{ImageLevelINAVOFAlignmentFixing}). If the alignment is correct, the waveforms in Debug0 and Debug2 should match, as should Debug1 and Debug3.
 
 \colger
 
-TBD
+Anschließend wird die Drohne über einer geeigneten Oberfläche positioniert, wie zuvor beschrieben. Sie sollte etwa 40--50 cm über dem Boden gehalten und vor- und zurück sowie anschließend seitlich in ähnlicher Weise bewegt werden (siehe Abbildung~\ref{ImageLevelINAVOFAlignmentFixing}). Wenn die Ausrichtung korrekt ist, sollten die Kurvenverläufe in Debug0 und Debug2 übereinstimmen, ebenso wie Debug1 und Debug3.
 
 \coleng
 
-If the waveforms do not match, the \verb!align_opflow! parameter must be adjusted via the CLI tab. Possible values include CW0FLIP, CW90FLIP, CW180FLIP, and CW270FLIP. If the flight controller is mounted upside down, use CW0, CW90, CW180, or CW270. Test these values iteratively, repeating the procedure until the debug waveforms align correctly. Note that any change to \verb!align_opflow! requires recalibration of the sensors.
+If the waveforms do not match, the \verb!align_opflow! parameter must be adjusted via the CLI tab. Possible values include CW0FLIP, CW90FLIP, CW180FLIP, and CW270FLIP. If the flight controller is mounted upside down, CW0, CW90, CW180, or CW270 should be used instead. These values should be tested iteratively, repeating the procedure until the debug waveforms align correctly. Note that any change to \verb!align_opflow! requires recalibration of the sensors.
 
 \colger
 
-TBD
+Falls die Kurvenverläufe nicht übereinstimmen, muss der Parameter \verb!align_opflow! über den CLI-Reiter angepasst werden. Mögliche Werte sind CW0FLIP, CW90FLIP, CW180FLIP und CW270FLIP. Ist der Flight Controller auf dem Kopf montiert, sollten stattdessen CW0, CW90, CW180 oder CW270 verwendet werden. Diese Werte sollten schrittweise getestet werden, wobei der Vorgang wiederholt wird, bis die Debug-Kurven korrekt übereinstimmen. Es ist zu beachten, dass jede Änderung von \verb!align_opflow! eine erneute Kalibrierung der Sensoren erfordert.
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Configuration Step D: PID settings}
+\renewcommand{\deutschertitel}{Konfigurationsschritt D: PID-Einstellungen}
+\renewcommand{\englischertitel}{Configuration Step D: PID Settings}
 \makrounterunterabschnitt
 
-Manually tuning PID parameters can be challenging; therefore, it is recommended to refer to manufacturer-provided guidelines for INav-specific PID settings. For example, the CLI commands to configure PID values for MicoAir MTF and Mateck sensors are provided in Figure~\ref{INAVCliCommandsMicoAirAndMatek}.
+Manually tuning PID parameters can be challenging; therefore, it is recommended to refer to manufacturer-provided guidelines for iNav-specific PID settings. For example, the CLI commands for configuring PID values for MicoAir MTF and Matek sensors are shown in Figure~\ref{INAVCliCommandsMicoAirAndMatek}.
 
 \colger
 
-TBD
+Die manuelle Abstimmung der PID-Parameter kann herausfordernd sein; daher wird empfohlen, die vom Hersteller bereitgestellten Richtlinien für iNav-spezifische PID-Einstellungen zu verwenden. Beispielsweise sind die CLI-Befehle zur Konfiguration der PID-Werte für MicoAir-MTF- und Matek-Sensoren in Abbildung~\ref{INAVCliCommandsMicoAirAndMatek} dargestellt.
 
 \colende
 
@@ -1020,36 +1017,36 @@ TBD
   save
 
 \end{lstlisting}
-\caption{Example CLI commands for configuring PID parameters for MicoAir MTF and Matek sensors in INav}
+\caption{Example CLI Commands for configuring PID Parameters for MicoAir MTF and Matek Sensors in INAV}
 \label{INAVCliCommandsMicoAirAndMatek}
 \end{figure}
 \FloatBarrier
 
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{Konfigurationsschritt E: Optical Flow und Entfernungsmesser für die Navigation aktivieren}
 \renewcommand{\englischertitel}{Configuration Step E: Enabling Optical Flow and Rangefinder for Navigation}
 \makrounterunterabschnitt
 
-In INAV, unlike ArduPilot, there is no direct option to use optical flow and a rangefinder as a primary navigation system. However, INAV provides a feature to enable navigation behavior even when GPS signals are weak or unavailable. By enabling \verb!inav_allow_dead_reckoning!, the system can estimate position without relying on GPS. This allows navigation modes to function in indoor environments where GPS reception is limited or absent.
+In iNav, unlike ArduPilot, there is no direct option to use optical flow and a rangefinder as a primary navigation system. However, iNav provides a feature that enables navigation behavior even when GPS signals are weak or unavailable. By enabling \verb!inav_allow_dead_reckoning!, the system can estimate its position without relying on GPS. This allows navigation modes to function in indoor environments where GPS reception is limited or absent.
 
 \colger
 
-TBD
+In iNav gibt es im Gegensatz zu ArduPilot keine direkte Möglichkeit, Optical Flow und einen Entfernungsmesser als primäres Navigationssystem zu verwenden. iNav bietet jedoch eine Funktion, mit der Navigationsverhalten auch dann aktiviert werden kann, wenn GPS-Signale schwach oder nicht verfügbar sind. Durch das Aktivieren von \verb!inav_allow_dead_reckoning! kann das System seine Position abschätzen, ohne auf GPS angewiesen zu sein. Dadurch können Navigationsmodi auch in Innenräumen funktionieren, in denen der GPS-Empfang eingeschränkt oder nicht vorhanden ist.
 
 \coleng
 
-Note: Enabling this option may cause unexpected behavior during outdoor flights, where navigation is expected to rely entirely on GPS and compass data.
+\textsl{Note:} Enabling this option may cause unexpected behavior during outdoor flights, where navigation is expected to rely entirely on GPS and compass data.
 
 \colger
 
-TBD
+\textsl{Hinweis:} Das Aktivieren dieser Option kann bei Außenflügen zu unerwartetem Verhalten führen, da dort die Navigation normalerweise vollständig auf GPS- und Kompassdaten basieren sollte.
 
 \coleng
 
-Additionally, it is important to configure the maximum allowed altitude for surface-following mode and the maximum altitude above ground for terrain-following mode. These modes depend on sensor data, and the sensors can only work up to a certain altitude. A safe default is 200 cm (2 meters), as most sensors operate accurately within this range, although this can be increased if the sensor specifications allow. Refer to the manufacturer’s documentation for accurate limits. These settings can be applied using the CLI commands shown in Figure~\ref{INAVCliCommandsToEnableOFAndLider}.
+Additionally, it is important to configure the maximum allowed altitude for Surface-Following mode and the maximum altitude above ground for Terrain-Following mode. These modes depend on sensor data, and the sensors can only operate up to a certain altitude. A safe default value is 200 cm (2 meters), as most sensors work accurately within this range, although this value can be increased if the sensor specifications allow it. For precise limits, the manufacturer’s documentation should be consulted. These settings can be applied using the CLI commands shown in Figure~\ref{INAVCliCommandsToEnableOFAndLider}.
 
 \colger
 
-TBD
+Zusätzlich ist es wichtig, die maximal zulässige Höhe für den Surface-Following-Modus sowie die maximale Höhe über dem Boden für den Terrain-Following-Modus zu konfigurieren. Diese Modi basieren auf Sensordaten, und die Sensoren können nur bis zu einer bestimmten Höhe zuverlässig arbeiten. Ein sicherer Standardwert sind 200 cm (2 Meter), da die meisten Sensoren in diesem Bereich präzise arbeiten, auch wenn dieser Wert erhöht werden kann, sofern die Sensorspezifikationen dies zulassen. Für genaue Grenzwerte sollte die Dokumentation des Herstellers herangezogen werden. Diese Einstellungen können mithilfe der in Abbildung~\ref{INAVCliCommandsToEnableOFAndLider} dargestellten CLI-Befehle vorgenommen werden.
 
 \colende
 
@@ -1061,37 +1058,37 @@ set nav_max_terrain_follow_alt = 200
 set inav_max_surface_altitude = 200
 
 \end{lstlisting}
-\caption{ CLI commands for enabling dead reckoning and configuring altitude limits for optical flow and rangefinder-based navigation modes in INAV.}
+\caption{CLI Commands for enabling dead Reckoning and configuring Altitude Limits for Optical Flow and Rangefinder-based Navigation Modes in INAV}
 \label{INAVCliCommandsToEnableOFAndLider}
 \end{figure}
 \FloatBarrier
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Configuration Step F: RC Mode settings}
+\renewcommand{\deutschertitel}{Konfigurationsschritt F: RC-Modus-Einstellungen}
+\renewcommand{\englischertitel}{Configuration Step F: RC Mode Settings}
 \makrounterunterabschnitt
 
-To use optical flow and a rangefinder for position hold mode, assign an RC switch to activate the required flight modes. This switch should enable ANGLE mode, NAV POSHOLD, HEADING HOLD, and SURFACE mode (see Figure~\ref{AbbildungINAVReceiverModesTabMitOF}).
+To use optical flow and a rangefinder for Position Hold mode, an RC switch must be assigned to activate the required flight modes. This switch should enable ANGLE mode, NAV POSHOLD, HEADING HOLD, and SURFACE mode (see Figure~\ref{AbbildungINAVReceiverModesTabMitOF}).
 
 \colger
 
-TBD
+Um Optical Flow und einen Entfernungsmesser im Position-Hold-Modus zu verwenden, muss ein RC-Schalter zugewiesen werden, der die erforderlichen Flugmodi aktiviert. Dieser Schalter sollte den ANGLE-Modus, NAV POSHOLD, HEADING HOLD und den SURFACE-Modus aktivieren (siehe Abbildung~\ref{AbbildungINAVReceiverModesTabMitOF}).
 
 \colende
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=\linewidth]{INAV_Configurator_9_0_1_batary_rc_modes_config.png}
-	\caption{Example RC switch assignment for enabling ANGLE, NAV POSHOLD, HEADING HOLD, and SURFACE modes for optical flow-based position hold in iNav.}
+	\caption{Example RC Switch Assignment for enabling ANGLE, NAV POSHOLD, HEADING HOLD, and SURFACE Modes for optical flow-based Position hold in INAV}
 	\label{AbbildungINAVReceiverModesTabMitOF}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-Tip: If the drone refuses to arm due to navigation pre-arm checks, set the throttle to zero and move the yaw stick to its maximum position (typically to the right corner). Hold this position while activating the arm switch.
+\textsl{Tip:} If the drone refuses to arm due to navigation pre-arm checks, set the throttle to zero and move the yaw stick to its maximum position (typically to the right corner). Hold this position while activating the arm switch.
 
 \colger
 
-TBD
+\textsl{Tipp:} Falls sich die Drohne aufgrund der navigationsbezogenen Pre-Arm-Prüfungen nicht armen lässt, sollte der Throttle auf null gesetzt und der Yaw-Stick auf seine maximale Position bewegt werden (typischerweise in die rechte Ecke). Diese Position muss gehalten werden, während gleichzeitig der Arm-Schalter aktiviert wird.
 
 \colende
