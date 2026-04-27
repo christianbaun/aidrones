@@ -94,13 +94,13 @@ Mit einer präzisen Zustandsabschätzung kann der Flugcontroller über den rein 
 \coleng
 
 \begin{itemize}
-\item \textsl{Altitude Hold (Z-axis)} - The drone maintains a constant altitude by using a rangefinder at low altitudes and a barometer at higher altitudes. This allows the operator to release the throttle while the drone continues hovering at the same height. Since most modern flight controllers already include a barometer, this mode can typically be used without additional sensors in firmware such as Betaflight, iNav, or ArduPilot.
+\item \textsl{Altitude Hold (Z-axis)} - The drone maintains a constant altitude by using a rangefinder at low altitudes and a barometer at higher altitudes. This allows the operator to release the throttle while the drone continues hovering at the same height. Since most modern flight controllers already include a barometer, this mode can typically be used without additional sensors in firmware such as Betaflight, INAV, or ArduPilot.
 \end{itemize}
 
 \colger
 
 \begin{itemize}
-\item \textsl{Altitude Hold (Z-Achse)} - Die Drohne hält automatisch eine konstante Flughöhe. In geringer Höhe erfolgt dies häufig mithilfe eines Entfernungssensors, während in größerer Höhe ein Barometer verwendet wird. Dadurch kann der Pilot den Gashebel loslassen, während die Drohne selbstständig auf gleicher Höhe schwebt. Da viele moderne Flugcontroller bereits ein Barometer integriert haben, kann dieser Modus in Firmware wie Betaflight, iNav oder ArduPilot meist ohne zusätzliche Sensoren genutzt werden.
+\item \textsl{Altitude Hold (Z-Achse)} - Die Drohne hält automatisch eine konstante Flughöhe. In geringer Höhe erfolgt dies häufig mithilfe eines Entfernungssensors, während in größerer Höhe ein Barometer verwendet wird. Dadurch kann der Pilot den Gashebel loslassen, während die Drohne selbstständig auf gleicher Höhe schwebt. Da viele moderne Flugcontroller bereits ein Barometer integriert haben, kann dieser Modus in Firmware wie Betaflight, INAV oder ArduPilot meist ohne zusätzliche Sensoren genutzt werden.
 \end{itemize}
 
 \coleng
@@ -142,11 +142,11 @@ Die wichtigste Methode für autonome Navigation auf höherer Ebene bei Drohnen i
 
 \coleng
 
-Modern GNSS receivers (see Section~\ref{AbschnittReceiver}) used in drones and flight controllers such as ArduPilot, Betaflight, iNav, and PX4 can process signals from multiple satellite navigation systems simultaneously (e.g., GPS + Galileo or GPS + GLONASS + Galileo). Using several systems together increases the number of visible satellites, which improves positioning accuracy and makes navigation more reliable, especially in challenging environments.
+Modern GNSS receivers (see Section~\ref{AbschnittReceiver}) used in drones and flight controllers such as ArduPilot, Betaflight, INAV, and PX4 can process signals from multiple satellite navigation systems simultaneously (e.g., GPS + Galileo or GPS + GLONASS + Galileo). Using several systems together increases the number of visible satellites, which improves positioning accuracy and makes navigation more reliable, especially in challenging environments.
 
 \colger
 
-Moderne GNSS-Empfänger (siehe Abschnitt~\ref{AbschnittReceiver}), die in Drohnen und Flugcontrollern wie ArduPilot, Betaflight, iNav und PX4 eingesetzt werden, können gleichzeitig Signale mehrerer Satellitennavigationssysteme verarbeiten (z.\,B. GPS + Galileo oder GPS + GLONASS + Galileo). Durch die gleichzeitige Nutzung mehrerer Systeme erhöht sich die Anzahl der verfügbaren Satelliten. Dies verbessert die Positionsgenauigkeit und erhöht die Zuverlässigkeit der Navigation, insbesondere in anspruchsvollen Umgebungen.
+Moderne GNSS-Empfänger (siehe Abschnitt~\ref{AbschnittReceiver}), die in Drohnen und Flugcontrollern wie ArduPilot, Betaflight, INAV und PX4 eingesetzt werden, können gleichzeitig Signale mehrerer Satellitennavigationssysteme verarbeiten (z.\,B. GPS + Galileo oder GPS + GLONASS + Galileo). Durch die gleichzeitige Nutzung mehrerer Systeme erhöht sich die Anzahl der verfügbaren Satelliten. Dies verbessert die Positionsgenauigkeit und erhöht die Zuverlässigkeit der Navigation, insbesondere in anspruchsvollen Umgebungen.
 
 \colende
 
@@ -170,7 +170,7 @@ Betaflight
 2) Failsafe Tab: The \texttt{GPS RESCUE} mode can be configured here. Additional parameters of the \texttt{GPS RESCUE} mode should be configured carefully.
 \\
 \midrule
-iNav 
+INAV 
 &
 1) Ports Tab: Enable GPS on the corresponding UART.\newline
 2) Configuration Tab: Enable GPS and the magnetometer.\newline
@@ -195,11 +195,11 @@ Flight Modes: First assign a transmitter channel using \texttt{FLTMODE\_CH} in t
 \makroabschnitt
 \label{GpsDeniedPositionEstimation}
 
-In environments such as indoor spaces where Global Navigation Satellite Systems (GNSS) signals are unavailable, drones can use optical flow and rangefinder sensors for state estimation. These sensors provide local measurements that allow the flight controller to estimate the drone’s motion and altitude without relying on satellite signals. Flight control firmware such as iNav and ArduPilot can use this sensor data to support automated flight modes such as Position Hold and Altitude Hold.
+In environments such as indoor spaces where Global Navigation Satellite Systems (GNSS) signals are unavailable, drones can use optical flow and rangefinder sensors for state estimation. These sensors provide local measurements that allow the flight controller to estimate the drone’s motion and altitude without relying on satellite signals. Flight control firmware such as INAV and ArduPilot can use this sensor data to support automated flight modes such as Position Hold and Altitude Hold.
 
 \colger
 
-In Umgebungen wie Innenräumen, in denen keine Signale von Global Navigation Satellite Systems (GNSS) verfügbar sind, können Drohnen optische Flusssensoren und Entfernungsmesser zur Zustands- bzw. Positionsschätzung verwenden. Diese Sensoren liefern lokale Messwerte, mit deren Hilfe der Flugcontroller Bewegung und Höhe der Drohne bestimmen kann, ohne auf Satellitensignale angewiesen zu sein. Flugcontroller-Firmware wie iNav oder ArduPilot kann diese Sensordaten nutzen, um automatisierte Flugmodi wie Position Hold oder Altitude Hold zu realisieren.
+In Umgebungen wie Innenräumen, in denen keine Signale von Global Navigation Satellite Systems (GNSS) verfügbar sind, können Drohnen optische Flusssensoren und Entfernungsmesser zur Zustands- bzw. Positionsschätzung verwenden. Diese Sensoren liefern lokale Messwerte, mit deren Hilfe der Flugcontroller Bewegung und Höhe der Drohne bestimmen kann, ohne auf Satellitensignale angewiesen zu sein. Flugcontroller-Firmware wie INAV oder ArduPilot kann diese Sensordaten nutzen, um automatisierte Flugmodi wie Position Hold oder Altitude Hold zu realisieren.
 
 \colende
 
@@ -211,7 +211,7 @@ Betaflight (as of version 4.6) has begun integrating support for optical flow an
 
 \colger
 
-Betaflight (ab Version 4.6) beginnt mit der Integration der Unterstützung für optische Flusssensoren und Entfernungsmesser. Der aktuelle Schwerpunkt liegt dabei zunächst auf der Erfassung und Bereitstellung von Sensordaten als Grundlage für zukünftige autonome Funktionen. Zur Konfiguration dieser Sensoren muss zunächst im Reiter \textit{Ports} der entsprechende UART-Port dem jeweiligen Peripheriegerät zugewiesen werden (siehe Abbildung~\ref{AbbildungBetaflightAppPorts}). Anschließend müssen im Reiter \textit{Configuration} der passende Entfernungsmesser- sowie der optische Flusssensortyp ausgewählt werden, um deren Betrieb zu aktivieren (siehe Abbildung~\ref{ImageLevelBetaflightAppLiderConfig}).
+Betaflight (ab Version 4.6) beginnt mit der Integration der Unterstützung für optische Flusssensoren und Entfernungsmesser. Der aktuelle Schwerpunkt liegt dabei zunächst auf der Erfassung und Bereitstellung von Sensordaten als Grundlage für zukünftige autonome Funktionen. Zur Konfiguration dieser Sensoren muss zunächst im \textit{Ports}-Tab der entsprechende UART-Port dem jeweiligen Peripheriegerät zugewiesen werden (siehe Abbildung~\ref{AbbildungBetaflightAppPorts}). Anschließend müssen im \textit{Configuration}-Tab der passende Entfernungsmesser- sowie der optische Flusssensortyp ausgewählt werden, um deren Betrieb zu aktivieren (siehe Abbildung~\ref{ImageLevelBetaflightAppLiderConfig}).
 
 \colende
 
@@ -820,11 +820,11 @@ Nachdem diese Konfiguration abgeschlossen ist, sollte die Drohne die Daten des o
 \renewcommand{\englischertitel}{Optical Flow and LiDAR Sensor Configuration (INAV)}
 \makrounterabschnitt
 
-INav supports a limited number of protocols for optical flow and rangefinder sensors, with MSP-based devices being the most commonly used in iNav systems. Therefore, this document focuses on achieving stable flight using MSP-based sensors. Examples of such sensors include the Matek 3901-L0X, MicoAir MTF-02, and MicoAir MTF-01, which have optical flow and LiDAR capabilities.
+INav supports a limited number of protocols for optical flow and rangefinder sensors, with MSP-based devices being the most commonly used in INAV systems. Therefore, this document focuses on achieving stable flight using MSP-based sensors. Examples of such sensors include the Matek 3901-L0X, MicoAir MTF-02, and MicoAir MTF-01, which have optical flow and LiDAR capabilities.
 
 \colger
 
-iNav unterstützt nur eine begrenzte Anzahl von Protokollen für Optical-Flow- und Entfernungsmessersensoren, wobei MSP-basierte Geräte in iNav-Systemen am häufigsten verwendet werden. Daher konzentriert sich dieses Dokument auf die Realisierung eines stabilen Flugverhaltens mit MSP-basierten Sensoren. Beispiele für solche Sensoren sind der Matek 3901-L0X, der MicoAir MTF-02 und der MicoAir MTF-01, die sowohl Optical-Flow- als auch LiDAR-Funktionen bereitstellen.
+INav unterstützt nur eine begrenzte Anzahl von Protokollen für Optical-Flow- und Entfernungsmessersensoren, wobei MSP-basierte Geräte in INAV-Systemen am häufigsten verwendet werden. Daher konzentriert sich dieses Dokument auf die Realisierung eines stabilen Flugverhaltens mit MSP-basierten Sensoren. Beispiele für solche Sensoren sind der Matek 3901-L0X, der MicoAir MTF-02 und der MicoAir MTF-01, die sowohl Optical-Flow- als auch LiDAR-Funktionen bereitstellen.
 
 \colende
 
@@ -847,17 +847,23 @@ iNav unterstützt nur eine begrenzte Anzahl von Protokollen für Optical-Flow- u
 
 \colstart
 
-Proper installation orientation is necessary for accurate performance. Ideally, the sensor should be mounted aligned with the drone’s heading; however, if this is not feasible, alignment can be adjusted through the iNav Configurator. Regardless of orientation, the sensor must be mounted parallel to the drone frame (see Figure~\ref{DroenWithMicoAirMFT01iNAV}).
+Proper installation orientation is necessary for accurate performance. Ideally, the sensor should be mounted aligned with the drone’s heading; however, if this is not feasible, the alignment can be adjusted through the INAV Configurator. Regardless of its orientation, the sensor must be mounted parallel to the drone frame (see Figure~\ref{DroenWithMicoAirMFT01iNAV}).
 
 \colger
 
-TBD
+Eine korrekte Einbauausrichtung ist für eine präzise Funktion erforderlich. Idealerweise sollte der Sensor in Flugrichtung der Drohne montiert werden; ist dies jedoch nicht möglich, kann die Ausrichtung über den INAV Configurator angepasst werden. Unabhängig von der Orientierung muss der Sensor parallel zum Drohnenrahmen montiert werden (siehe Abbildung~\ref{DroenWithMicoAirMFT01iNAV}).
 
 \colende
 
 \renewcommand{\deutschertitel}{Konfigurationsschritt A: UART und Protokoll}
 \renewcommand{\englischertitel}{Configuration Step A: UART and Protocol}
 \makrounterunterabschnitt
+
+First, the serial port must be configured for MSP in the \textsl{Ports} tab. As shown in Figure~\ref{ImageLevelINAVPortsForOFandRangefinder}, the sensor is connected to UART5; therefore, MSP should be enabled on this port. Next, in the \textsl{Calibration} tab, both the optical flow and rangefinder sensor types should be set to MSP (see Figure~\ref{ImageLevelINAVConfigurationForOFandRangefinder}).
+
+\colger
+
+Zunächst muss der serielle Port im \textsl{Ports}-Tab für MSP konfiguriert werden. Wie in Abbildung~\ref{ImageLevelINAVPortsForOFandRangefinder} dargestellt, ist der Sensor mit UART5 verbunden; daher sollte MSP auf diesem Port aktiviert werden. Anschließend müssen im \textsl{Configuration}-Tab  sowohl der Optical-Flow-Sensor als auch der Entfernungsmesser-Sensortyp auf MSP eingestellt werden (siehe Abbildung~\ref{ImageLevelINAVConfigurationForOFandRangefinder}).
 
 \colende
 
@@ -877,25 +883,15 @@ TBD
 \end{figure}
 \FloatBarrier
 
-\colstart
-
-First, the serial port must be configured for MSP in the Ports tab. As shown in Figure~\ref{ImageLevelINAVPortsForOFandRangefinder}, the sensor is connected to UART5; therefore, MSP should be enabled on this port. Next, in the Configuration tab, both the optical flow and rangefinder sensor types should be set to MSP (see Figure~\ref{ImageLevelINAVConfigurationForOFandRangefinder}).
-
-\colger
-
-Zunächst muss der serielle Port im Reiter „Ports“ für MSP konfiguriert werden. Wie in Abbildung~\ref{ImageLevelINAVPortsForOFandRangefinder} dargestellt, ist der Sensor mit UART5 verbunden; daher sollte MSP auf diesem Port aktiviert werden. Anschließend müssen im Reiter „Configuration“ sowohl der Optical-Flow-Sensor als auch der Entfernungsmesser-Sensortyp auf MSP eingestellt werden (siehe Abbildung~\ref{ImageLevelINAVConfigurationForOFandRangefinder}).
-
-\colende
-
 \renewcommand{\deutschertitel}{Konfigurationsschritt B: Optical-Flow-Kalibrierung}
 \renewcommand{\englischertitel}{Configuration Step B: Optical Flow Calibration}
 \makrounterunterabschnitt
 
-Once the flight controller is connected, the Sonar and Optical Flow indicators will turn blue, indicating that the sensors are active. The sensors must then be calibrated in the Calibration tab.
+Once the flight controller is connected, the Sonar and Optical Flow indicators will turn blue, indicating that the sensors are active. The sensors must then be calibrated in the \textsl{Calibration} tab.
 
 \colger
 
-Sobald der Flight Controller verbunden ist, werden die Anzeigen für Sonar und Optical Flow blau, was darauf hinweist, dass die Sensoren aktiv sind. Anschließend müssen die Sensoren im Reiter „Calibration“ kalibriert werden.
+Sobald der Flight Controller verbunden ist, werden die Anzeigen für Sonar und Optical Flow blau, was darauf hinweist, dass die Sensoren aktiv sind. Anschließend müssen die Sensoren im \textsl{Calibration}-Tab kalibriert werden.
 
 \coleng
 
@@ -958,11 +954,11 @@ Zur Durchführung des Tests muss der Debug-Modus auf \verb!FLOW_RAW! gesetzt wer
 
 \colstart
 
-After saving and rebooting, go to the Sensors tab. Enable the checkbox \textsl{Sonar} and move the drone up and down to verify that the movement is reflected in the waveform (see Figure~\ref{ImageLevelINAVRangefinderMonitoring}).
+After saving and rebooting, go to the \textsl{Sensors} tab. Enable the checkbox \textsl{Sonar} and move the drone up and down to verify that the movement is reflected in the waveform (see Figure~\ref{ImageLevelINAVRangefinderMonitoring}).
 
 \colger
 
-Nach dem Speichern und Neustarten sollte zum Reiter „Sensors“ gewechselt werden. Dort ist das Kontrollkästchen \textsl{Sonar} zu aktivieren, und die Drohne sollte auf- und abbewegt werden, um zu überprüfen, ob diese Bewegung im Kurvenverlauf dargestellt wird (siehe Abbildung~\ref{ImageLevelINAVRangefinderMonitoring}).
+Nach dem Speichern und Neustarten sollte zum \textsl{Sensors}-Tab gewechselt werden. Dort ist das Kontrollkästchen \textsl{Sonar} zu aktivieren, und die Drohne sollte auf- und abbewegt werden, um zu überprüfen, ob diese Bewegung im Kurvenverlauf dargestellt wird (siehe Abbildung~\ref{ImageLevelINAVRangefinderMonitoring}).
 
 \colende
 
@@ -984,11 +980,11 @@ Anschließend wird die Drohne über einer geeigneten Oberfläche positioniert, w
 
 \coleng
 
-If the waveforms do not match, the \verb!align_opflow! parameter must be adjusted via the CLI tab. Possible values include CW0FLIP, CW90FLIP, CW180FLIP, and CW270FLIP. If the flight controller is mounted upside down, CW0, CW90, CW180, or CW270 should be used instead. These values should be tested iteratively, repeating the procedure until the debug waveforms align correctly. Note that any change to \verb!align_opflow! requires recalibration of the sensors.
+If the waveforms do not match, the \verb!align_opflow! parameter must be adjusted via the \textsl{CLI} tab. Possible values include CW0FLIP, CW90FLIP, CW180FLIP, and CW270FLIP. If the flight controller is mounted upside down, CW0, CW90, CW180, or CW270 should be used instead. These values should be tested iteratively, repeating the procedure until the debug waveforms align correctly. Note that any change to \verb!align_opflow! requires recalibration of the sensors.
 
 \colger
 
-Falls die Kurvenverläufe nicht übereinstimmen, muss der Parameter \verb!align_opflow! über den CLI-Reiter angepasst werden. Mögliche Werte sind CW0FLIP, CW90FLIP, CW180FLIP und CW270FLIP. Ist der Flight Controller auf dem Kopf montiert, sollten stattdessen CW0, CW90, CW180 oder CW270 verwendet werden. Diese Werte sollten schrittweise getestet werden, wobei der Vorgang wiederholt wird, bis die Debug-Kurven korrekt übereinstimmen. Es ist zu beachten, dass jede Änderung von \verb!align_opflow! eine erneute Kalibrierung der Sensoren erfordert.
+Falls die Kurvenverläufe nicht übereinstimmen, muss der Parameter \verb!align_opflow! über den \textsl{CLI}-Tab angepasst werden. Mögliche Werte sind CW0FLIP, CW90FLIP, CW180FLIP und CW270FLIP. Ist der Flight Controller auf dem Kopf montiert, sollten stattdessen CW0, CW90, CW180 oder CW270 verwendet werden. Diese Werte sollten schrittweise getestet werden, wobei der Vorgang wiederholt wird, bis die Debug-Kurven korrekt übereinstimmen. Es ist zu beachten, dass jede Änderung von \verb!align_opflow! eine erneute Kalibrierung der Sensoren erfordert.
 
 \colende
 
@@ -996,11 +992,11 @@ Falls die Kurvenverläufe nicht übereinstimmen, muss der Parameter \verb!align_
 \renewcommand{\englischertitel}{Configuration Step D: PID Settings}
 \makrounterunterabschnitt
 
-Manually tuning PID parameters can be challenging; therefore, it is recommended to refer to manufacturer-provided guidelines for iNav-specific PID settings. For example, the CLI commands for configuring PID values for MicoAir MTF and Matek sensors are shown in Figure~\ref{INAVCliCommandsMicoAirAndMatek}.
+Manually tuning PID parameters can be challenging; therefore, it is recommended to refer to manufacturer-provided guidelines for INAV-specific PID settings. For example, the CLI commands for configuring PID values for MicoAir MTF and Matek sensors are shown in Figure~\ref{INAVCliCommandsMicoAirAndMatek}.
 
 \colger
 
-Die manuelle Abstimmung der PID-Parameter kann herausfordernd sein; daher wird empfohlen, die vom Hersteller bereitgestellten Richtlinien für iNav-spezifische PID-Einstellungen zu verwenden. Beispielsweise sind die CLI-Befehle zur Konfiguration der PID-Werte für MicoAir-MTF- und Matek-Sensoren in Abbildung~\ref{INAVCliCommandsMicoAirAndMatek} dargestellt.
+Die manuelle Abstimmung der PID-Parameter kann herausfordernd sein; daher wird empfohlen, die vom Hersteller bereitgestellten Richtlinien für INAV-spezifische PID-Einstellungen zu verwenden. Beispielsweise sind die CLI-Befehle zur Konfiguration der PID-Werte für MicoAir-MTF- und Matek-Sensoren in Abbildung~\ref{INAVCliCommandsMicoAirAndMatek} dargestellt.
 
 \colende
 
@@ -1026,11 +1022,11 @@ Die manuelle Abstimmung der PID-Parameter kann herausfordernd sein; daher wird e
 \renewcommand{\englischertitel}{Configuration Step E: Enabling Optical Flow and Rangefinder for Navigation}
 \makrounterunterabschnitt
 
-In iNav, unlike ArduPilot, there is no direct option to use optical flow and a rangefinder as a primary navigation system. However, iNav provides a feature that enables navigation behavior even when GPS signals are weak or unavailable. By enabling \verb!inav_allow_dead_reckoning!, the system can estimate its position without relying on GPS. This allows navigation modes to function in indoor environments where GPS reception is limited or absent.
+In INAV, unlike ArduPilot, there is no direct option to use optical flow and a rangefinder as a primary navigation system. However, INAV provides a feature that enables navigation behavior even when GPS signals are weak or unavailable. By enabling \verb!inav_allow_dead_reckoning!, the system can estimate its position without relying on GPS. This allows navigation modes to function in indoor environments where GPS reception is limited or absent.
 
 \colger
 
-In iNav gibt es im Gegensatz zu ArduPilot keine direkte Möglichkeit, Optical Flow und einen Entfernungsmesser als primäres Navigationssystem zu verwenden. iNav bietet jedoch eine Funktion, mit der Navigationsverhalten auch dann aktiviert werden kann, wenn GPS-Signale schwach oder nicht verfügbar sind. Durch das Aktivieren von \verb!inav_allow_dead_reckoning! kann das System seine Position abschätzen, ohne auf GPS angewiesen zu sein. Dadurch können Navigationsmodi auch in Innenräumen funktionieren, in denen der GPS-Empfang eingeschränkt oder nicht vorhanden ist.
+In INAV gibt es im Gegensatz zu ArduPilot keine direkte Möglichkeit, Optical Flow und einen Entfernungsmesser als primäres Navigationssystem zu verwenden. INAV bietet jedoch eine Funktion, mit der Navigationsverhalten auch dann aktiviert werden kann, wenn GPS-Signale schwach oder nicht verfügbar sind. Durch das Aktivieren von \verb!inav_allow_dead_reckoning! kann das System seine Position abschätzen, ohne auf GPS angewiesen zu sein. Dadurch können Navigationsmodi auch in Innenräumen funktionieren, in denen der GPS-Empfang eingeschränkt oder nicht vorhanden ist.
 
 \coleng
 
@@ -1085,10 +1081,10 @@ Um Optical Flow und einen Entfernungsmesser im Position-Hold-Modus zu verwenden,
 
 \colstart
 
-\textsl{Tip:} If the drone refuses to arm due to navigation pre-arm checks, set the throttle to zero and move the yaw stick to its maximum position (typically to the right corner). Hold this position while activating the arm switch.
+\textsl{Note:} If the drone refuses to arm due to navigation pre-arm checks, set the throttle to zero and move the yaw stick to its maximum position (typically to the right corner). Hold this position while activating the arm switch.
 
 \colger
 
-\textsl{Tipp:} Falls sich die Drohne aufgrund der navigationsbezogenen Pre-Arm-Prüfungen nicht armen lässt, sollte der Throttle auf null gesetzt und der Yaw-Stick auf seine maximale Position bewegt werden (typischerweise in die rechte Ecke). Diese Position muss gehalten werden, während gleichzeitig der Arm-Schalter aktiviert wird.
+\textsl{Hinweis:} Falls sich die Drohne aufgrund der navigationsbezogenen Pre-Arm-Prüfungen nicht armen lässt, sollte der Throttle auf null gesetzt und der Yaw-Stick auf seine maximale Position bewegt werden (typischerweise in die rechte Ecke). Diese Position muss gehalten werden, während gleichzeitig der Arm-Schalter aktiviert wird.
 
 \colende
