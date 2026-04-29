@@ -66,17 +66,18 @@ Das komplette Werk ist unter der Creative-Commons-Lizenz mit den Einschränkunge
 
 ## Presse & Medien | Press & Media
 
-- **Heise Online:** [Frankfurter Universität veröffentlicht Handbuch mit KI-Drohnen-Bauanleitungen](https://www.heise.de/news/Frankfurter-Universitaet-veroeffentlicht-Handbuch-mit-KI-Drohnen-Bauanleitungen-11182234.html)
-- **hessian.ai:** [Handbuch mit Bauanleitungen für KI-fähige Drohnen veröffentlicht](https://hessian.ai/de/handbuch-mit-bauanleitungen-fur-ki-fahige-drohnen-veroffentlicht/)
-- **idw-Nachrichten:** [Manual with building instructions for AI-enabled drones published
+- **idw-Nachrichten:** (2026/03/03) [Manual with building instructions for AI-enabled drones published
 ](https://idw-online.de/de/news866929)
-- **Deutsche Gesellschaft für Luft- und Raumfahrt:** [Handbuch mit Bauanleitungen für KI-fähige Drohnen veröffentlicht](https://www.dglr.de/nc/informieren/meldungen/newsmeldung-einzel/article/handbuch-mit-bauanleitungen-fuer-ki-faehige-drohnen-veroeffentlicht/)
-- **Frankfurt UAS Presse:** [Handbuch mit Bauanleitungen für KI-fähige Drohnen veröffentlicht
+- **channel-e:** (2026/02/20) [Download: Handbuch zum Bau von KI-fähigen Drohnen](https://www.channel-e.de/nachrichten/article/download-handbuch-zum-bau-von-ki-faehigen-drohnen)
+- **Heise Online:** (2026/02/19) [Frankfurter Universität veröffentlicht Handbuch mit KI-Drohnen-Bauanleitungen](https://www.heise.de/news/Frankfurter-Universitaet-veroeffentlicht-Handbuch-mit-KI-Drohnen-Bauanleitungen-11182234.html)
+- **hessian.ai:** (2026/02/19) [Handbuch mit Bauanleitungen für KI-fähige Drohnen veröffentlicht](https://hessian.ai/de/handbuch-mit-bauanleitungen-fur-ki-fahige-drohnen-veroffentlicht/)
+- **Deutsche Gesellschaft für Luft- und Raumfahrt:** (2026/02/17) [Handbuch mit Bauanleitungen für KI-fähige Drohnen veröffentlicht](https://www.dglr.de/nc/informieren/meldungen/newsmeldung-einzel/article/handbuch-mit-bauanleitungen-fuer-ki-faehige-drohnen-veroeffentlicht/)
+- **Frankfurt UAS Presse:** (2026/02/17) [Handbuch mit Bauanleitungen für KI-fähige Drohnen veröffentlicht
 ](https://www.frankfurt-university.de/de/news/n-pressemitteilungen/handbuch-mit-bauanleitungen-fuer-ki-fahige-drohnen-veroffentlicht/)
-- **idw-Nachrichten:** [Bauanleitungen für günstige und KI-fähige Drohnen](https://nachrichten.idw-online.de/2025/07/02/bauanleitungen-fuer-guenstige-und-ki-faehige-drohnen)
-- **Frankfurt UAS Presse:** [Bauanleitungen für günstige und KI-fähige Drohnen](https://www.frankfurt-university.de/de/news/n-pressemitteilungen/bauanleitungen-fuer-guenstige-und-ki-fahige-drohnen-1/)
-- **Instagram Reel:** [Projektvorstellung als Kurzvideo](https://www.instagram.com/reel/DMzzJG9N52W/)
-- **channel-e:** [Download: Handbuch zum Bau von KI-fähigen Drohnen](https://www.channel-e.de/nachrichten/article/download-handbuch-zum-bau-von-ki-faehigen-drohnen)
+- **Instagram Reel:** (2025/08/01) [Projektvorstellung als Kurzvideo](https://www.instagram.com/reel/DMzzJG9N52W/)
+- **idw-Nachrichten:** (2025/07/02) [Bauanleitungen für günstige und KI-fähige Drohnen](https://nachrichten.idw-online.de/2025/07/02/bauanleitungen-fuer-guenstige-und-ki-faehige-drohnen)
+- **Frankfurt UAS Presse:** (2025/07/02) [Bauanleitungen für günstige und KI-fähige Drohnen](https://www.frankfurt-university.de/de/news/n-pressemitteilungen/bauanleitungen-fuer-guenstige-und-ki-fahige-drohnen-1/)
+
  
 ## Kontakt \| Contact
 
