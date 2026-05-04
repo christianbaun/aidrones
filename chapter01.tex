@@ -416,11 +416,11 @@ Die Motoren von FPV-Drohnen sind dreiphasige, bürstenlose Gleichstrommotoren. J
 
 \coleng
 
-The motors consist of a stator and a rotor. The stator contains the windings and the bearing, while the rotor—the motor bell—carries the magnets and performs the actual rotation.  Each motor is identified by a numerical code that specifies the stator’s diameter and height in millimeters. For example, a motor labeled *2306* has a stator with a diameter of 23 mm and a height of 6 mm.
+The motors consist of a stator and a rotor. The stator contains the windings and the bearing, while the rotor—the motor bell—carries the magnets and performs the actual rotation.  Each motor is identified by a numerical code that specifies the stator’s diameter and height in millimeters. For example, a motor labeled 2306 has a stator with a diameter of 23 mm and a height of 6 mm.
 
 \colger
 
-Die Motoren bestehen aus einem Stator und einem Rotor. Der Stator enthält die Wicklungen und das Kugellager, während der Rotor -- die Motorglocke -- die Magnete trägt und die eigentliche Drehbewegung ausführt. Jeder Motor ist mit einer Zahlenkombination gekennzeichnet, die den Durchmesser und die Höhe des Stators in Millimetern angibt. Ein Motor mit der Bezeichnung *2306* besitzt beispielsweise einen Stator mit 23 mm Durchmesser und 6 mm Höhe.
+Die Motoren bestehen aus einem Stator und einem Rotor. Der Stator enthält die Wicklungen und das Kugellager, während der Rotor -- die Motorglocke -- die Magnete trägt und die eigentliche Drehbewegung ausführt. Jeder Motor ist mit einer Zahlenkombination gekennzeichnet, die den Durchmesser und die Höhe des Stators in Millimetern angibt. Ein Motor mit der Bezeichnung 2306 besitzt beispielsweise einen Stator mit 23 mm Durchmesser und 6 mm Höhe.
 
 \coleng
 
@@ -438,7 +438,16 @@ Propellers (see Section~\ref{AbschnittMotorenPropelleraufnahme}) are typically m
 
 Die Propelleraufnahme (siehe Abschnitt~\ref{AbschnittMotorenPropelleraufnahme}) erfolgt in der Regel auf einer M5-Welle mit 5 mm Durchmesser und einer passenden Mutter oder alternativ auf einer 1,5 mm-Welle, die mit zwei kleinen M2-Schrauben am Motor befestigt wird.
 
+
+Table~\ref{TabelleMotorenuebersicht} shows typical motors for the different frame sizes.
+
+\colger
+
+Tabelle~\ref{TabelleMotorenuebersicht} zeigt typische Motoren für die verschiedenen Rahmengrößen.
+
 \colende
+
+
 
 \renewcommand{\deutschertitel}{Elektrische Spannung}
 \renewcommand{\englischertitel}{Electrical Voltage}
@@ -566,6 +575,30 @@ The motor shown in Figure~\ref{AbbildungTMotor2306KV2400} has a hole spacing of 
 Der in Abbildung~\ref{AbbildungTMotor2306KV2400} gezeigte Motor weist einen Lochabstand von 12\,mm auf, während der in Abbildung~\ref{AbbildungTMotor1604KV2850} dargestellte Motor einen Lochabstand von 7\,mm besitzt.
 
 \colende
+
+\begin{table}[htb!]
+\centering
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1}
+\captionabove{Typical Motor Configurations for Drones}
+\label{TabelleMotorenuebersicht}
+\begin{tabularx}{\linewidth}{lcccX}
+\toprule
+Frame Size & Motor Size      & KV (4S)                          & KV (6S)                         & Typical Use \\
+\midrule
+2"   & 1103-1204\phantom{.0} & 9000-11000                       & ---                             & Whoop, Indoor, Micro Drones \\
+2.5" & 1203-1404\phantom{.0} & 6000-8000\phantom{0}             & 4000-5500                       & Cinewhoop, Toothpick, Freestyle \\
+3"   & 1204-1505\phantom{.0} & 4500-6500\phantom{0}             & 3000-4000                       & Cinewhoop, Freestyle \\
+3.5" & 1404-1804\phantom{.0} & 3500-4500\phantom{0}             & 2500-3000                       & Cinewhoop, Freestyle \\
+4"   & 1505-2004\phantom{.0} & 3000-4000\phantom{0}             & 2000-2500                       & Freestyle, Light Long-Range \\
+5"   & 2207-2308\phantom{.0} & 2300-2700\phantom{0}             & 1600-1900                       & Freestyle \\
+6"   & 2207-2507\phantom{.0} & 1700-2200\phantom{0}             & 1300-1600                       & Freestyle, Long-Range \\
+7"   & 2507-2806.5           & 1300-1700\phantom{0}             & \phantom{0}900-1300             & Long-Range \\
+8"+  & 2808-3110\phantom{.0} & \phantom{0}900-1300\phantom{0}   & \phantom{0}600-900\phantom{0}   & Heavy-Lift, Long-Range \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\FloatBarrier
 
 \renewcommand{\deutschertitel}{Propeller}
 \renewcommand{\englischertitel}{Propeller}
