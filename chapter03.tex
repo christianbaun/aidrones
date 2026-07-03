@@ -430,11 +430,11 @@ To ensure reliable operation, sufficient link bandwidth must be available to sup
 \label{AbschnittExpressLRSMavlinkAnforderungen}
 
 \begin{itemize}
-\item \textsl{Minimum version of ExpressLRS 3.5 on both TX and RX modules} - If this requirement is not met, refer to Section~\ref{AbschnittExpressLRS} for instructions on updating ExpressLRS on both the transmitter and receiver.
+\item \texttt{Minimum version of ExpressLRS 3.5 on both TX and RX modules} - If this requirement is not met, refer to Section~\ref{AbschnittExpressLRS} for instructions on updating ExpressLRS on both the transmitter and receiver.
 \end{itemize}
 
 \begin{itemize}
-\item \textsl{Minimum version of Backpack version 1.5} - If this requirement is not met, refer to Section~\ref{AbbildungExpressLRSTXBackpack1} for instructions on updating the Backpack firmware.
+\item \texttt{Minimum version of Backpack version 1.5} - If this requirement is not met, refer to Section~\ref{AbbildungExpressLRSTXBackpack1} for instructions on updating the Backpack firmware.
 \end{itemize}
 
 \colger
@@ -444,7 +444,7 @@ TBD
 \colende
 
 \renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Configuring ELRS TX and RX }
+\renewcommand{\englischertitel}{Configuring ELRS TX, RX and Backpack for Mavlink Telemetry via WiFi}
 \makrounterabschnitt
 \label{AbschnittExpressLRSMavlinkTXRXKonfiguration}
 
@@ -456,7 +456,7 @@ TBD
 
 \coleng
 
-Next, on the radio controller (TX), open the ExpressLRS Lua script and navigate to ExpressLRS Lua script \(\longrightarrow\) Other Devices \(\longrightarrow\) Select appropriate receiver \(\longrightarrow\) configure the serial protocol to MAVLink. This step is no longer required starting from ExpressLRS version 4, where automatic configuration is supported.
+\texttt{Change the receiver serial protocol to MAVLink} - On the radio controller (TX), open the ExpressLRS Lua script and navigate to ExpressLRS Lua script \(\longrightarrow\) Other Devices \(\longrightarrow\) Select appropriate receiver \(\longrightarrow\) configure the serial protocol to MAVLink. Once configured, power off the receiver (This step is no longer required starting from ExpressLRS version 4, where automatic configuration is supported).
 
 \colger
 
@@ -464,24 +464,28 @@ TBD
 
 \coleng
 
-After configuration, power off the receiver on the UAV. Then, on the radio controller (TX), open the ExpressLRS Lua script and enter Link Mode, setting it to Normal to MAVLink mode. Finally, power on the receiver again and verify that the transmitter successfully establishes a connection with the receiver.
+\texttt{Change the transmitter link mode to MAVLink} - On the radio controller (TX), open the ExpressLRS Lua script, navigate to Link Mode, and change it from Normal to MAVLink.
+
+\colger
+
+TBD
+
+\coleng
+
+\texttt{Enable telemetry via Wi-Fi} - On the radio controller (TX), open the ExpressLRS Lua script, navigate to Backpack \(\longrightarrow\) Telemetry, and set the mode to WiFi. This process automatically configures the Backpack, including the assignment of the UDP port (14550). If the Backpack is not connected to a home Wi-Fi network, it will create a dedicated access point named similar to \verb!ExpressLRS TX Backpack XXXXXX!, with the default password \verb!expresslrs!. Devices connected to this access point can access telemetry data via the assigned UDP port. Alternatively, if the Backpack is connected to a home Wi-Fi network, devices on the same network can access telemetry data via the assigned UDP port.
+
+\colger
+
+TBD
 
 \colende
 
 \renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Configuring Backpack for Wi-Fi MAVLink Telemetry}
+\renewcommand{\englischertitel}{Configuring Mavlink telemetry for ArduPilot}
 \makrounterabschnitt
-\label{AbschnittExpressLRSMavlinkBackpackKonfiguration}
+\label{AbschnittExpressLRSMavlinkArduPilotKonfiguration}
 
-To enable wireless telemetry communication via Wi-Fi, the ExpressLRS Backpack must be configured accordingly. In the ExpressLRS Lua script, navigate to Backpack \(\longrightarrow\) Telemetry and set the mode to WiFi. This process automatically configures the Backpack, including the assignment of the UDP port (14550).
-
-\colger
-
-TBD
-
-\coleng
-
-If the Backpack is not connected to a home Wi-Fi network, it will create a dedicated access point named similar to \verb!ExpressLRS TX Backpack XXXXXX!, with the default password \verb!expresslrs!. Devices connected to this access point can access telemetry data via the assigned UDP port. Alternatively, if the Backpack is connected to a home Wi-Fi network, devices on the same network can access telemetry data via the assigned UDP port.
+To enable MAVLink telemetry on the ArduPilot flight controller, the UART port to which the ExpressLRS receiver is connected must first be identified. Once the correct UART number has been determined, navigate to Config \(\longrightarrow\) Full Parameter List and configure the following ArduPilot parameters (where x denotes the corresponding UART number): \verb!SERIALx_PROTOCOL=2!, \verb!SERIALx_BAUD=460!, and \verb!RSSI_TYPE=5!	.
 
 \colger
 
@@ -489,19 +493,20 @@ TBD
 
 \colende
 
-% \renewcommand{\deutschertitel}{TBD}
-% \renewcommand{\englischertitel}{Configuring Mavlink telemetry for ArduPilot}
-% \makrounterabschnitt
-% \label{AbschnittExpressLRSMavlinkArduPilotKonfiguration}
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Mavlink_ArduPilot_Configuration.png}
+	\caption{MAVLink communication configuration in ArduPilot.}
+	\label{AbbildungExpressLRSMavlinkArduPilotKonfiguration}
+\end{figure}
+\FloatBarrier
 
-% TBD
+\colstart
 
-% \colger
+Next, in the Full Parameter List, search for the parameters beginning with SRx (where x is the same UART number). Set all \verb!SRx_*! parameters to 1, except for \verb!SRx_ADSB!, \verb!SRx_PARAMS!, and \verb!SRx_RAW_CTRL!, which should remain set to 0 (see Figure~\ref{AbbildungExpressLRSMavlinkArduPilotKonfiguration}). Once done reboot the flight controller and verify that the telemetry data is being received on the ground station device.
 
-% TBD
+\colger
 
-% \colger
+TBD
 
-% TBD
-
-% \colende
+\colende
