@@ -386,7 +386,7 @@ TBD
 
 \colstart
 
-When MAVLink telemetry is transmitted, the communication channel carries both radio control (RC) commands and telemetry data. To accommodate this dual-purpose communication, ELRS allocates approximately 50% of the available link bandwidth to telemetry transmission (i.e., 1/2 ratio). 
+When MAVLink telemetry is transmitted, the communication channel carries both radio control (RC) commands and telemetry data. To accommodate this dual-purpose communication, ELRS allocates approximately 50\% of the available link bandwidth to telemetry transmission (i.e., 1/2 ratio). 
 
 \colger
 
@@ -503,7 +503,15 @@ TBD
 
 \colstart
 
-Next, in the Full Parameter List, search for the parameters beginning with SRx (where x is the same UART number). Set all \verb!SRx_*! parameters to 1, except for \verb!SRx_ADSB!, \verb!SRx_PARAMS!, and \verb!SRx_RAW_CTRL!, which should remain set to 0 (see Figure~\ref{AbbildungExpressLRSMavlinkArduPilotKonfiguration}). Once done reboot the flight controller and verify that the telemetry data is being received on the ground station device.
+Next, in the Full Parameter List, search for the parameters beginning with SRx (where x is the same UART number). Set all \verb!SRx_*! parameters to 1, except for \verb!SRx_ADSB!, \verb!SRx_PARAMS!, and \verb!SRx_RAW_CTRL!, which should remain set to 0 (see Figure~\ref{AbbildungExpressLRSMavlinkArduPilotKonfiguration}).
+
+\colger
+
+TBD
+
+\coleng
+
+Finally, reboot the flight controller and verify that telemetry data is being received on the ground station device. Ground station applications such as Mission Planner, QGroundControl, and MicoAir Configurator can be connected to the Backpack via WiFi using the assigned UDP port (14550) to receive telemetry data.
 
 \colger
 
