@@ -37,6 +37,547 @@ TBD
 
 \colende
 
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Flashing Raspberry Pi OS}
+\makrounterabschnitt
+
+It is recommended to install the headless version of Raspberry Pi OS, which is designed to operate without a monitor, keyboard, or mouse. Since the Raspberry Pi serves as a companion computer mounted on the UAV and is intended to be used remotely, a headless operating system is the most suitable choice. In addition, the absence of a graphical desktop environment reduces CPU utilization, memory consumption, and power usage.
+
+\colger
+
+TBD
+
+\coleng
+
+To flash Raspberry Pi OS, the following components are required:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+	\item Raspberry pi
+\end{itemize}
+
+\begin{itemize}
+	\item MicroSD card (at least 4 GB)
+\end{itemize}
+
+\begin{itemize}
+	\item MicroSD card reader
+\end{itemize}
+
+\begin{itemize}
+	\item Raspberry Pi Imager software (available for Windows, macOS, and Linux)
+\end{itemize}
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pi_imager_screenshot_1.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pi_imager_screenshot_2.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Raspberry Pi Imager Software Screenshots. Left: OS selection. Right: Network configuration.}
+  \label{AbbildungRaspberryPiImagerSoftwareScreenshots1}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Next, open Raspberry Pi Imager and select the appropriate Raspberry Pi model. Under Operating System, choose Raspberry Pi OS (Other) → Raspberry Pi OS Lite (See Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots1} left).
+
+\colger
+
+TBD
+
+\coleng
+
+Before writing the operating system to the microSD card, it is essential to do some configuration.
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+	\item Configure the home WiFi network by entering the SSID and WiFi password (See Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots1} right).
+\end{itemize}
+
+\begin{itemize}
+	\item Configure the username and password to access the Raspberry Pi remotely, or enable SSH access with a public key (See Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots2} left).
+\end{itemize}
+
+\colende
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pi_imager_screenshot_3.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pi_imager_screenshot_4.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Raspberry Pi Imager Software Screenshots. Left: Password configuration. Right: Configuration summary.}
+  \label{AbbildungRaspberryPiImagerSoftwareScreenshots2}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Once the configuration is complete, click Write to flash the operating system onto the microSD card. After the flashing process has finished, insert the microSD card into the Raspberry Pi and power on the device.
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Configuring Remote Communication}
+\makrounterabschnitt
+
+After booting, the Raspberry Pi automatically attempts to connect to the configured home WiFi network. If the connection is successful, the router assigns an IP address to the device.
+
+\colger
+
+TBD
+
+\coleng
+
+To determine the assigned IP address, open a command prompt on a computer connected to the same network and execute:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+ping <hostname>.local
+//example: ping raspberrypi.local
+\end{lstlisting}
+
+\colstart
+
+Alternatively, the IP address can be obtained from the list of connected devices in the router's administration interface.
+
+\colger
+
+TBD
+
+\coleng
+
+Once the IP address has been identified, establish an SSH connection using:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+ssh <username>@<ip_address>
+//example: ssh pi@192.168.0.153
+\end{lstlisting}
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Configuring a Fallback WiFi Hotspot}
+\makrounterunterabschnitt
+
+For field operations, a known WiFi network may not always be available. Therefore, it is useful to configure the Raspberry Pi so that it automatically creates its own wireless access point whenever it cannot connect to a predefined network. The desired behavior is as follows:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+	\item Known WiFi network available: Connect to the known network, allwing the other devices on the network to communicate with the Raspberry Pi.
+\end{itemize}
+
+\begin{itemize}
+	\item \item No known WiFi network available: Create a wireless access point for the Raspberry Pi, enabling direct communication with other devices without relying on an external network.
+\end{itemize}
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Step 1: Create a new WiFi connection using NetworkManager:}
+\makrounterunterabschnitt
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo nmcli connection add \
+  type wifi \
+  ifname wlan0 \
+  con-name Pi-Hotspot \
+  autoconnect no \
+  ssid RespberryPi-Hotspot \
+\end{lstlisting}
+
+\colstart
+
+The connection should be configured as an access point:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo nmcli connection modify Pi-Hotspot \
+    802-11-wireless.mode ap \
+    ipv4.method shared \
+    wifi-sec.key-mgmt wpa-psk \
+    wifi-sec.psk "ChooseAStrongPassword"
+\end{lstlisting}
+
+\colstart
+
+To verify that both the home WiFi connection and the hotspot configuration are stored, execute:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+nmcli connection show
+// This should show:
+// HomeWiFi
+// Pi-Hotspot
+\end{lstlisting}
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Step 2: Create a Fallback Script}
+\makrounterunterabschnitt
+
+This script checks whether the Raspberry Pi has successfully connected to a WiFi network. If no connection is detected, the hotspot is activated. The script can be saved as \verb!/usr/local/bin/wifi-fallback.sh! using the following command:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo nano /usr/local/bin/wifi-fallback.sh
+\end{lstlisting}
+
+\colstart
+
+Insert the following configuration into the file:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+#!/bin/bash
+
+# Wait a little after boot
+sleep 30
+
+# Check whether WiFi is connected
+if nmcli -t -f GENERAL.STATE device show wlan0 | grep -q "100"; then
+    exit 0
+fi
+
+echo "Could not connect to WiFi. Starting hotspot..."
+
+nmcli connection up Pi-Hotspot
+\end{lstlisting}
+
+\colstart
+
+Once the script is saved, make it executable with the following command:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo nano /etc/systemd/system/wifi-fallback.service
+\end{lstlisting}
+
+\colstart
+
+Now, in order to execute the fallback script automatically during system startup, create a systemd service:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo nano /etc/systemd/system/wifi-fallback.service
+\end{lstlisting}
+
+\colstart
+
+Insert the following configuration into the file:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+[Unit]
+Description=Fallback WiFi Hotspot
+After=NetworkManager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/wifi-fallback.sh
+
+[Install]
+WantedBy=multi-user.target
+\end{lstlisting}
+
+\colstart
+
+Save the file and enable the service to start automatically during system boot:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo systemctl daemon-reload
+sudo systemctl enable wifi-fallback.service
+\end{lstlisting}
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Step 3: Verifying the Fallback Configuration}
+\makrounterunterabschnitt
+
+To test the fallback mechanism, disable the home WiFi network and reboot the Raspberry Pi. After some time, the Raspberry Pi should create its wireless access point. Connect another device to the hotspot using the configured SSID and password. The Raspberry Pi typically assigns itself the IP address 10.42.0.1, allowing SSH access via:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+ssh pi@10.42.0.1
+// Here pi is the configured username.
+\end{lstlisting}
+
+\colstart
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=\linewidth]{Complete_Drone_Wiring_Diagram_with_Raspberry_Pi_Zero_2_W_Companion_Computer.png}
