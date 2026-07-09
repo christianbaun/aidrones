@@ -276,3 +276,245 @@ Empfänger von Radiomaster stellen nach etwa 30 Sekunden ohne Verbindung zu eine
 \end{figure}
 \FloatBarrier
 
+\colstart
+
+ESP-based ExpressLRS (ELRS) transmitter modules typically include a TX Backpack (WiFi-capable microcontroller). TX Backpack enables communication with external devices, such as a ground station. As described in a later section, this functionality can be used to establish a wireless communication link for directly controlling the drone from the ground station.
+
+\colger
+
+TBD
+
+\coleng
+
+The TX Backpack firmware can be installed using several methods, the simplest of which is via WiFi. Although WiFi installation requires that the device already contains a functional version of the Backpack firmware, nearly all Backpack-capable devices are shipped with the firmware preinstalled. Therefore, this guide focuses on the Wi-Fi-based installation procedure.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Installation_Backpack_1.png}
+	\caption{ExpressLRS Installation on TX Backpack: Step 1}
+	\label{AbbildungExpressLRSTXBackpack1}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Installation_Backpack_2.png}
+	\caption{ExpressLRS Installation on TX Backpack: Step 2}
+	\label{AbbildungExpressLRSTXBackpack2}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+The installation process of TX Backpack firmware is also similar to the firmware installation procedures described in the previous sections. First, the Backpack firmware must be generated using the ExpressLRS Configurator by selecting the appropriate target transmitter device. Here, WiFi should be selected as the flashing method (see Figure~\ref{AbbildungExpressLRSTXBackpack1}).
+
+\colger
+
+TBD
+
+\coleng
+
+During firmware generation, the credentials for a home WiFi network can be specified in the Network section by entering the WiFi SSID and password (also possible to do it after installation). If these settings are configured, the TX Backpack automatically connects to the specified network if it is available after the device starts up. Consequently, using local network communication, other devices connected to the same network (laptop or mobile device) can communicate directly with the Backpack.
+
+\colger
+
+TBD
+
+\coleng
+
+If the home network is unavailable or no network credentials are configured (left unchecked), the TX Backpack automatically creates its own wireless access point network named \verb!ExpressLRS TX Backpack XXXXXX! (password: \verb!expresslrs!). In this case, external devices must connect to this access point to establish communication with the Backpack.
+
+\colger
+
+TBD →
+
+\coleng 
+
+After generating the firmware, the Backpack WiFi must be enabled on the transmitter. This can be done from the ExpressLRS Lua script by navigating to WiFi Connectivity → Enable Backpack WiFi.
+
+\colger
+
+TBD
+
+\coleng
+
+Once the Backpack is connected, its web interface can be accessed using a web browser. If the Backpack is operating as a wireless access point, the interface is available at \verb!http://10.0.0.1/!. When connected to a home WiFi network, it can instead be accessed via \verb!http://elrs_txbp.local/!. The web interface provides a simple mechanism for uploading and installing the generated Backpack firmware (see Figure~\ref{AbbildungExpressLRSTXBackpack2}).
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{ExpressLRS: MAVLink Telemetry over ExpressLRS}
+\makroabschnitt
+\label{AbschnittExpressLRSMavlink}
+
+
+Starting with ExpressLRS (ELRS) version 3.5, it is now possible to use MAVLINK to transmit telemetry data from a UAV (unmanned aerial vehicle) to ground station devices such as laptops and tablets, in real time. These telemetry streams may include parameters such as battery voltage, GPS coordinates, altitude, airspeed or ground speed, and other relevant flight-status information. A detailed configuration guide for MAVLink telemetry with ExpressLRS can be found here:
+
+\colger
+
+TBD
+
+\colende
+
+\smallskip
+\url{https://www.expresslrs.org/software/mavlink/}
+\smallskip
+
+\colstart
+
+Among flight controllers, ArduPilot provides full support for MAVLink telemetry. Versions of Betaflight also support MAVLink telemetry, whereas iNav currently provides partial support. While this guide will focus on configuration for ArduPilot, the guide for Betaflight can be found here:
+
+\colger
+
+TBD
+
+\colende
+
+\smallskip
+\url{https://betaflight.com/docs/wiki/guides/current/MAVLinkELRS}
+\smallskip
+
+\colstart
+
+When MAVLink telemetry is transmitted, the communication channel carries both radio control (RC) commands and telemetry data. To accommodate this dual-purpose communication, ELRS allocates approximately 50\% of the available link bandwidth to telemetry transmission (i.e., 1/2 ratio). 
+
+\colger
+
+TBD
+
+\coleng
+
+Communication between the ELRS transmitter (TX) and the ground station can be established either through a USB connection or via Wi-Fi. USB connectivity is available only on external transmitter modules, whereas Wi-Fi connectivity is supported by both internal and external transmitter modules.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ELRS_Mavlink_telemetry.png}
+	\caption{ExpressLRS Mavlink Telemetry Reception on Ground Station}
+	\label{AbbildungExpressLRSMavlinkTelemetryReception}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Most ELRS transmitters come with an additional Wi-Fi-enabled microcontroller, commonly referred to as the TX Backpack. This component is responsible for receiving telemetry data from the ELRS system and forwarding it to ground station devices over a Wi-Fi network.
+
+\colger
+
+TBD
+
+\coleng
+
+To ensure reliable operation, sufficient link bandwidth must be available to support both RC control and telemetry traffic without introducing unacceptable latency in the control channel. For this reason, the 2.4 GHz configuration is generally recommended, as it provides higher data throughput compared to lower-frequency alternatives. Otherwise, a dual-band system is recommended.
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Requirements for Mavlink Telemetry Support in ExpressLRS}
+\makrounterabschnitt
+\label{AbschnittExpressLRSMavlinkAnforderungen}
+
+\begin{itemize}
+\item \texttt{Minimum version of ExpressLRS 3.5 on both TX and RX modules} - If this requirement is not met, refer to Section~\ref{AbschnittExpressLRS} for instructions on updating ExpressLRS on both the transmitter and receiver.
+\end{itemize}
+
+\begin{itemize}
+\item \texttt{Minimum version of Backpack version 1.5} - If this requirement is not met, refer to Section~\ref{AbbildungExpressLRSTXBackpack1} for instructions on updating the Backpack firmware.
+\end{itemize}
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Configuring ELRS TX, RX and Backpack for Mavlink Telemetry via WiFi}
+\makrounterabschnitt
+\label{AbschnittExpressLRSMavlinkTXRXKonfiguration}
+
+First, the radio controller (transmitter, TX) must be connected to the onboard receiver (RX) installed on the UAV/drone.
+
+\colger
+
+TBD
+
+\coleng
+
+\texttt{Change the receiver serial protocol to MAVLink} - On the radio controller (TX), open the ExpressLRS Lua script and navigate to ExpressLRS Lua script \(\longrightarrow\) Other Devices \(\longrightarrow\) Select appropriate receiver \(\longrightarrow\) configure the serial protocol to MAVLink. Once configured, power off the receiver (This step is no longer required starting from ExpressLRS version 4, where automatic configuration is supported).
+
+\colger
+
+TBD
+
+\coleng
+
+\texttt{Change the transmitter link mode to MAVLink} - On the radio controller (TX), open the ExpressLRS Lua script, navigate to Link Mode, and change it from Normal to MAVLink.
+
+\colger
+
+TBD
+
+\coleng
+
+\texttt{Enable telemetry via Wi-Fi} - On the radio controller (TX), open the ExpressLRS Lua script, navigate to Backpack \(\longrightarrow\) Telemetry, and set the mode to WiFi. This process automatically configures the Backpack, including the assignment of the UDP port (14550). If the Backpack is not connected to a home Wi-Fi network, it will create a dedicated access point named similar to \verb!ExpressLRS TX Backpack XXXXXX!, with the default password \verb!expresslrs!. Devices connected to this access point can access telemetry data via the assigned UDP port. Alternatively, if the Backpack is connected to a home Wi-Fi network, devices on the same network can access telemetry data via the assigned UDP port.
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Configuring Mavlink telemetry for ArduPilot}
+\makrounterabschnitt
+\label{AbschnittExpressLRSMavlinkArduPilotKonfiguration}
+
+To enable MAVLink telemetry on the ArduPilot flight controller, the UART port to which the ExpressLRS receiver is connected must first be identified. Once the correct UART number has been determined, navigate to Config \(\longrightarrow\) Full Parameter List and configure the following ArduPilot parameters (where x denotes the corresponding UART number): \verb!SERIALx_PROTOCOL=2!, \verb!SERIALx_BAUD=460!, and \verb!RSSI_TYPE=5!	.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{ExpressLRS_Mavlink_ArduPilot_Configuration.png}
+	\caption{MAVLink communication configuration in ArduPilot.}
+	\label{AbbildungExpressLRSMavlinkArduPilotKonfiguration}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Next, in the Full Parameter List, search for the parameters beginning with SRx (where x is the same UART number). Set all \verb!SRx_*! parameters to 1, except for \verb!SRx_ADSB!, \verb!SRx_PARAMS!, and \verb!SRx_RAW_CTRL!, which should remain set to 0 (see Figure~\ref{AbbildungExpressLRSMavlinkArduPilotKonfiguration}).
+
+\colger
+
+TBD
+
+\coleng
+
+Finally, reboot the flight controller and verify that telemetry data is being received on the ground station device. Ground station applications such as Mission Planner, QGroundControl, and MicoAir Configurator can be connected to the Backpack via WiFi using the assigned UDP port (14550) to receive telemetry data.
+
+\colger
+
+TBD
+
+\colende
