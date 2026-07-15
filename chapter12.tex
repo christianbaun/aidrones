@@ -1,0 +1,1141 @@
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Companion Computer}
+\chapter[\texorpdfstring{\protect{\vspace{2pt}\englischertitel}}{\englischertitel}]{}
+\kapitel{\deutschertitel}
+\thispagestyle{empty}
+
+\label{KapitelCompanionComputer}
+
+\begin{paracol}{2}[]
+
+{\raggedright\huge\bfseries\sffamily \englischertitel \par\ } \\[1.8ex]
+
+\switchcolumn
+
+{\raggedright\huge\bfseries\sffamily \deutschertitel \par\ } \\[1.8ex]
+
+\coleng
+
+A companion computer is useful for handling computationally intensive tasks such as artificial intelligence, computer vision, dynamic path replanning, cloud communication, and mission planning, while leaving the drone’s stabilization and low-level flight control to the flight controller. Common examples of companion computers include the Raspberry Pi and NVIDIA Jetson platforms.
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Raspberry Pi as a Companion Computer}
+\makroabschnitt
+\label{AbschnittRaspberryPiCompanionComputer}
+
+There are different versions of the Raspberry Pi, each serving different purposes depending on performance requirements and intended applications. To assist in selecting the appropriate model, a brief description of the available versions is provided in Section~\ref{AbschnittObjekterkennungHuckepack}.
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Flashing Raspberry Pi OS}
+\makrounterabschnitt
+
+It is recommended to install the headless version of Raspberry Pi OS, which is designed to operate without a monitor, keyboard, or mouse. Since the Raspberry Pi serves as a companion computer mounted on the UAV and is intended to be used remotely, a headless operating system is the most suitable choice. In addition, the absence of a graphical desktop environment reduces CPU utilization, memory consumption, and power usage.
+
+\colger
+
+TBD
+
+\coleng
+
+To flash Raspberry Pi OS, the following components are required:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+	\item Raspberry pi
+\end{itemize}
+
+\begin{itemize}
+	\item MicroSD card (at least 4 GB)
+\end{itemize}
+
+\begin{itemize}
+	\item MicroSD card reader
+\end{itemize}
+
+\begin{itemize}
+	\item Raspberry Pi Imager software (available for Windows, macOS, and Linux)
+\end{itemize}
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pi_imager_screenshot_1.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pi_imager_screenshot_2.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Raspberry Pi Imager Software Screenshots. Left: OS selection. Right: Network configuration.}
+  \label{AbbildungRaspberryPiImagerSoftwareScreenshots1}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Next, open Raspberry Pi Imager and select the appropriate Raspberry Pi model. Under Operating System, choose Raspberry Pi OS (Other) → Raspberry Pi OS Lite (See Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots1} left).
+
+\colger
+
+TBD
+
+\coleng
+
+Before writing the operating system to the microSD card, it is essential to do some configuration.
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+	\item Configure the home WiFi network by entering the SSID and WiFi password (See Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots1} right).
+\end{itemize}
+
+\begin{itemize}
+	\item Configure the username and password to access the Raspberry Pi remotely, or enable SSH access with a public key (See Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots2} left).
+\end{itemize}
+
+\colende
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pi_imager_screenshot_3.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pi_imager_screenshot_4.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Raspberry Pi Imager Software Screenshots. Left: Password configuration. Right: Configuration summary.}
+  \label{AbbildungRaspberryPiImagerSoftwareScreenshots2}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+Once the configuration is complete, click Write to flash the operating system onto the microSD card. After the flashing process has finished, insert the microSD card into the Raspberry Pi and power on the device.
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Configuring Remote Communication}
+\makrounterabschnitt
+
+After booting, the Raspberry Pi automatically attempts to connect to the configured home WiFi network. If the connection is successful, the router assigns an IP address to the device.
+
+\colger
+
+TBD
+
+\coleng
+
+To determine the assigned IP address, open a command prompt on a computer connected to the same network and execute:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+ping <hostname>.local
+//example: ping raspberrypi.local
+\end{lstlisting}
+
+\colstart
+
+Alternatively, the IP address can be obtained from the list of connected devices in the router's administration interface.
+
+\colger
+
+TBD
+
+\coleng
+
+Once the IP address has been identified, establish an SSH connection using:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+ssh <username>@<ip_address>
+//example: ssh pi@192.168.0.153
+\end{lstlisting}
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Configuring a Fallback WiFi Hotspot}
+\makrounterunterabschnitt
+
+For field operations, a known WiFi network may not always be available. Therefore, it is useful to configure the Raspberry Pi so that it automatically creates its own wireless access point whenever it cannot connect to a predefined network. The desired behavior is as follows:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+	\item Known WiFi network available: Connect to the known network, allwing the other devices on the network to communicate with the Raspberry Pi.
+\end{itemize}
+
+\begin{itemize}
+	\item \item No known WiFi network available: Create a wireless access point for the Raspberry Pi, enabling direct communication with other devices without relying on an external network.
+\end{itemize}
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Step 1: Create a new WiFi connection using NetworkManager:}
+\makrounterunterabschnitt
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo nmcli connection add \
+  type wifi \
+  ifname wlan0 \
+  con-name Pi-Hotspot \
+  autoconnect no \
+  ssid RespberryPi-Hotspot \
+\end{lstlisting}
+
+\colstart
+
+The connection should be configured as an access point:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo nmcli connection modify Pi-Hotspot \
+    802-11-wireless.mode ap \
+    ipv4.method shared \
+    wifi-sec.key-mgmt wpa-psk \
+    wifi-sec.psk "ChooseAStrongPassword"
+\end{lstlisting}
+
+\colstart
+
+To verify that both the home WiFi connection and the hotspot configuration are stored, execute:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+nmcli connection show
+// This should show:
+// HomeWiFi
+// Pi-Hotspot
+\end{lstlisting}
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Step 2: Create a Fallback Script}
+\makrounterunterabschnitt
+
+This script checks whether the Raspberry Pi has successfully connected to a WiFi network. If no connection is detected, the hotspot is activated. The script can be saved as \verb!/usr/local/bin/wifi-fallback.sh! using the following command:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo nano /usr/local/bin/wifi-fallback.sh
+\end{lstlisting}
+
+\colstart
+
+Insert the following configuration into the file:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+#!/bin/bash
+
+# Wait a little after boot
+sleep 30
+
+# Check whether WiFi is connected
+if nmcli -t -f GENERAL.STATE device show wlan0 | grep -q "100"; then
+    exit 0
+fi
+
+echo "Could not connect to WiFi. Starting hotspot..."
+
+nmcli connection up Pi-Hotspot
+\end{lstlisting}
+
+\colstart
+
+Once the script is saved, make it executable with the following command:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo nano /etc/systemd/system/wifi-fallback.service
+\end{lstlisting}
+
+\colstart
+
+Now, in order to execute the fallback script automatically during system startup, create a systemd service:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo nano /etc/systemd/system/wifi-fallback.service
+\end{lstlisting}
+
+\colstart
+
+Insert the following configuration into the file:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+[Unit]
+Description=Fallback WiFi Hotspot
+After=NetworkManager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/wifi-fallback.sh
+
+[Install]
+WantedBy=multi-user.target
+\end{lstlisting}
+
+\colstart
+
+Save the file and enable the service to start automatically during system boot:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+sudo systemctl daemon-reload
+sudo systemctl enable wifi-fallback.service
+\end{lstlisting}
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Step 3: Verifying the Fallback Configuration}
+\makrounterunterabschnitt
+
+To test the fallback mechanism, disable the home WiFi network and reboot the Raspberry Pi. After some time, the Raspberry Pi should create its wireless access point. Connect another device to the hotspot using the configured SSID and password. The Raspberry Pi typically assigns itself the IP address 10.42.0.1, allowing SSH access via:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        % <-- Zeilenumbruch aktivieren
+  breakatwhitespace=true, % <-- nur bei Leerzeichen umbrechen 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % Pfeil am Zeilenende
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60}
+}
+
+\begin{lstlisting}[style=shell]
+ssh pi@10.42.0.1
+// Here pi is the configured username.
+\end{lstlisting}
+
+\colstart
+
+TBD
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Hardware Connections}
+\makrounterabschnitt
+
+Connect the RX pin of the flight controller (FC) to the TX pin of the Raspberry Pi, and the TX pin of the FC to the RX pin of the Raspberry Pi (See figure \ref{AbbildungCompleteDroneWiringDiagramWithRaspberryPiZero2WCompanionComputer}). Detailed information about the Raspberry Pi GPIO pins and serial interfaces can be found at the following website:
+
+\colger
+
+TBD
+
+\colende
+
+\smallskip
+\url{https://elinux.org/RPi_Low-level_peripherals}
+\smallskip
+
+\colstart
+
+Powering the Raspberry Pi from the flight controller requires careful consideration. Most FPV flight controllers can supply a maximum current of approximately 2 A through their regulated 5 V output. Based on the version and heavy computation, the Raspberry Pi may consume a significant portion of this available current, leaving insufficient power for other peripherals such as the ExpressLRS receiver, GPS module, and video transmission system. Although in some cases, Pi can be powered directly from the flight controller's 5 V telemetry output, this configuration is generally not recommended.
+
+\colger
+
+TBD
+
+\coleng
+
+A more reliable solution is illustrated in Figure~\ref{AbbildungCompleteDroneWiringDiagramWithRaspberryPiZero2WCompanionComputer}, where the Raspberry Pi is powered directly from the main battery (VBAT) through a Battery Eliminator Circuit (BEC). In that case an extra component is required to step down the battery voltage to a stable 5 V supply for the Raspberry Pi. To know more about BECs, see Section~\ref{AbschnittObjekterkennungImplementierungHuckepack}.
+
+\colger
+
+TBD
+
+\colende
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Complete_Drone_Wiring_Diagram_with_Raspberry_Pi_Zero_2_W_Companion_Computer.png}
+	\caption{Complete Drone Wiring Diagram with Raspberry Pi Zero 2 W Companion Computer.}
+	\label{AbbildungCompleteDroneWiringDiagramWithRaspberryPiZero2WCompanionComputer}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Configuring ArduPilot for Companion Computer Communication}
+\makrounterabschnitt
+
+To enable communication between ArduPilot and the companion computer, open Config → Full Parameter List and modify the following parameters:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+  \item \verb!SERIAL1_PROTOCOL! = 9 (Enables the MAVLink 2 protocol for the corresponding serial port)
+\end{itemize}
+
+\begin{itemize}
+  \item \verb!SERIAL1_BAUD! = 921 (Sets the serial communication baud rate to 921600 bps.)
+\end{itemize}
+
+\colger
+
+TBD
+
+\coleng
+
+Replace x with the UART number of the flight controller to which the Raspberry Pi is connected (e.g., SERIAL2).
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Configuring the Raspberry Pi Serial Port}
+\makrounterabschnitt
+
+Log in to the Raspberry Pi via SSH and launch the Raspberry Pi configuration utility by executing:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        
+  breakatwhitespace=false, 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, 
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60},
+  columns=fullflexible,
+  keepspaces=true
+}
+
+\begin{lstlisting}[style=shell]
+sudo raspi-config
+\end{lstlisting}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pi_software_configuration_tool_screenshot_1.png}
+    \vspace{0pt} % sorgt für Top-Ausrichtung
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{pi_software_configuration_tool_screenshot_2.png}
+    \vspace{0pt}
+  \end{minipage}
+  \caption{Raspberry Pi Software Configuration Tool.}
+  \label{AbbildungRaspiConfigTool}
+\end{figure}
+\FloatBarrier
+
+\colstart
+
+From the configuration menu, navigate to Interface Options → Serial Port (See Figure~\ref{AbbildungRaspiConfigTool}) and configure as follows:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+  \item Select No when prompted with "Would you like a login shell to be accessible over serial?"
+\end{itemize}
+
+\begin{itemize}
+  \item Select Yes when prompted with "Would you like the serial port hardware to be enabled?"
+\end{itemize}
+
+\colger
+
+TBD
+
+\coleng
+
+Once completed and restarted, the primary UART of the Rasberry pi will abe avaliable at \verb!/dev/serial0! and can be used for communication with the flight controller.
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Safety Considerations Before Flight Testing}
+\makrounterabschnitt
+
+Before performing any flight tests using the companion computer, appropriate safety measures should be taken. When the UAV is controlled through the companion computer using MAVLink commands, the manual throttle, roll, pitch, and yaw inputs from the radio controller are overridden. Consequently, it is highly recommended to configure one or more emergency switches on the radio controller before testing.
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+  \item Assign a switch to change the flight mode to a safe mode, such as Land or RTL.
+\end{itemize}
+
+\begin{itemize}
+  \item Assign a separate switch to disarm the vehicle immediately in case of unexpected behavior.
+\end{itemize}
+
+\begin{itemize}
+  \item Verify that the emergency switches function correctly before enabling companion computer control.
+\end{itemize}
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Test Flight Using the Raspberry Pi}
+\makrounterabschnitt
+
+This section assumes that communication between the Raspberry Pi and the flight controller has already been established, and that the Raspberry Pi is accessible via SSH.
+
+\colger
+
+TBD
+
+\coleng
+
+The following software packages are required to execute the example Python scripts.
+
+\colger
+
+TBD
+
+\coleng
+
+Step 1: Update the package repository and install Vim to edit text:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        
+  breakatwhitespace=false, 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, 
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60},
+  columns=fullflexible,
+  keepspaces=true
+}
+
+\begin{lstlisting}[style=shell]
+sudo apt update 
+sudo apt install vim -y
+\end{lstlisting}
+
+\colstart
+
+Step 2: Install the Python virtual environment package and create a dedicated virtual environment for the project:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        
+  breakatwhitespace=false, 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, 
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60},
+  columns=fullflexible,
+  keepspaces=true
+}
+
+\begin{lstlisting}[style=shell]
+sudo apt update 
+sudo apt install python3-venv -y 
+python3.11 -m venv venv
+\end{lstlisting}
+
+\colstart
+
+Activate the virtual environment:
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        
+  breakatwhitespace=false, 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, 
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60},
+  columns=fullflexible,
+  keepspaces=true
+}
+
+\begin{lstlisting}[style=shell]
+source venv/bin/activate
+\end{lstlisting}
+
+\colstart
+
+Step 3: Install the required Python packages
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        
+  breakatwhitespace=false, 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, 
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60},
+  columns=fullflexible,
+  keepspaces=true
+}
+
+\begin{lstlisting}[style=shell]
+pip install pymavlink mavproxy future
+\end{lstlisting}
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Testing Basic Vehicle Control from Companion Computer}
+\makrounterabschnitt
+
+Run the following Python script to verify that the Raspberry Pi can successfully communicate with the flight controller by issuing arm and disarm commands. If the connection does not work, verify that the serial port configuration and baud rate match the settings configured on the flight controller and Pi.
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        
+  breakatwhitespace=false, 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, 
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60},
+  columns=fullflexible,
+  keepspaces=true
+}
+
+\begin{lstlisting}[style=shell]
+from pymavlink import mavutil
+import time
+
+master = mavutil.mavlink_connection("/dev/serial0", baud=921600)
+
+print("Waiting for heartbeat...")
+master.wait_heartbeat()
+print("Connected")
+
+# ARM
+print("Arming motors...")
+master.arducopter_arm()
+
+# Wait until armed
+master.motors_armed_wait()
+print("Armed!")
+
+# Wait 2 seconds
+time.sleep(5)
+
+# DISARM
+print("Disarming motors...")
+master.arducopter_disarm()
+
+print("Done")
+\end{lstlisting}
+
+\colstart
+
+The following is test code for arming the UAV, taking off to an altitude of approximately 0.5 m, and then landing after completing the test sequence.
+
+\colger
+
+TBD
+
+\colende
+
+\lstdefinestyle{shell}{
+  backgroundcolor=\color{gray!10},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,        
+  breakatwhitespace=false, 
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, 
+  showstringspaces=false,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  framerule=0.5pt,
+  rulecolor=\color{gray!60},
+  columns=fullflexible,
+  keepspaces=true
+}
+
+\begin{lstlisting}[style=shell]
+from pymavlink import mavutil
+import time
+import sys
+
+# ---------------- Configuration ----------------
+PORT = "/dev/serial0"
+BAUD = 921600
+
+TAKEOFF_ALT = 0.4      # meters
+MAX_ALTITUDE = 0.5     # meters
+# ------------------------------------------------
+
+
+def set_mode(master, mode_name):
+    mode_mapping = master.mode_mapping()
+
+    if mode_name not in mode_mapping:
+        raise Exception(f"Mode {mode_name} not supported")
+
+    mode_id = mode_mapping[mode_name]
+
+    master.mav.set_mode_send(
+        master.target_system,
+        mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED,
+        mode_id,
+    )
+
+    print(f"Switching to {mode_name} mode...")
+    time.sleep(2)
+
+
+def request_position_stream(master):
+    master.mav.request_data_stream_send(
+        master.target_system,
+        master.target_component,
+        mavutil.mavlink.MAV_DATA_STREAM_POSITION,
+        10,     # 10 Hz
+        1
+    )
+
+
+def get_relative_alt(master):
+    while True:
+        msg = master.recv_match(blocking=True, timeout=3)
+
+        if msg is None:
+            print("No MAVLink message received")
+            return None
+
+        msg_type = msg.get_type()
+        print("Received:", msg_type)
+
+        if msg_type == "GLOBAL_POSITION_INT":
+            altitude = msg.relative_alt / 1000.0
+            print(f"Altitude = {altitude:.2f} m")
+            return altitude
+
+
+def emergency_land(master):
+    print("Switching to LAND mode")
+    set_mode(master, "LAND")
+
+
+print("Connecting...")
+master = mavutil.mavlink_connection(PORT, baud=BAUD)
+
+print("Waiting for heartbeat...")
+master.wait_heartbeat()
+
+print("Connected")
+
+# Ask ArduPilot to send position messages
+request_position_stream(master)
+
+# Change mode
+print("Setting mode to guided...")
+set_mode(master, "GUIDED")
+
+# Arm
+print("Arming...")
+master.arducopter_arm()
+master.motors_armed_wait()
+print("Armed")
+
+time.sleep(2)
+
+# Takeoff
+print(f"Taking off to {TAKEOFF_ALT} meters")
+
+master.mav.command_long_send(
+    master.target_system,
+    master.target_component,
+    mavutil.mavlink.MAV_CMD_NAV_TAKEOFF,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    TAKEOFF_ALT,
+)
+
+missing = 0
+
+while True:
+
+    altitude = get_relative_alt(master)
+
+    if altitude is None:
+        missing += 1
+        print(f"No altitude data ({missing}/10)")
+
+        if missing >= 10:
+            print("No altitude received. Landing.")
+            emergency_land(master)
+            break
+
+        continue
+
+    missing = 0
+
+    if altitude >= TAKEOFF_ALT * 0.95:
+        print("Target altitude reached")
+        break
+
+    if altitude > MAX_ALTITUDE:
+        print("Altitude limit exceeded")
+        emergency_land(master)
+        break
+
+    time.sleep(0.2)
+
+print("Hovering...")
+time.sleep(8)
+
+print("Landing...")
+set_mode(master, "LAND")
+
+print("Done")
+\end{lstlisting}
+
+\colstart
+
+Before executing the flight script, verify that the UAV is operating in a safe environment, the battery is sufficiently charged, GPS and EKF status are healthy, and the emergency switches (Land, Disarm) on the radio controller are functioning correctly.
+
+\colger
+
+TBD
+
+\colende
