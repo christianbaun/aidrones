@@ -1424,8 +1424,6 @@ Dieser Abschnitt der Dokumentation führt in die grundlegenden Konzepte der Log-
 \makrounterabschnitt
 \label{ArdupilotLogConfiguration}
 
-\coleng
-
 Logging is a resource-intensive process that can impact the Flight Controller’s (FC) real-time performance, particularly on F4-based controllers and, to a lesser extent, on some F7-based controllers. Since ArduPilot itself already requires significant computational resources, it is important to be conservative when adding additional load to the flight controller. This documentation focuses on a minimalist logging strategy, prioritizing high-bandwidth vibration data in order to preserve memory and processing capacity.
 
 \colger
@@ -1627,8 +1625,6 @@ Darüber hinaus stellt ArduPilot über die WebTools (\url{https://firmware.ardup
 \renewcommand{\englischertitel}{Vibration Reduction via Notch and Gyro Filter}
 \makrounterabschnitt
 \label{ArdupilotVibrationReduction}
-
-\coleng
 
 Vibration reduction is an important factor for achieving stable flight performance in ArduPilot-based drones. High vibration levels can lead to unstable or even uncontrollable flight and negatively affect position estimation algorithms such as the Extended Kalman Filter (EKF). Left unaddressed, high-frequency vibrations often manifest as erratic flight behavior, increased power consumption due to motor oscillation, and motor overheating, potentially leading to motor damage.
 
@@ -2048,6 +2044,30 @@ Therefore, it is recommended to gradually increase the gyro low-pass filter usin
 \colger
 
 Daher wird empfohlen, den Gyro-Tiefpassfilter schrittweise über den Parameter \textsl{INS\_GYRO\_FILTER} zu erhöhen. Nach jeder Anpassung sollte ein kurzer Testflug durchgeführt werden, um ein stabiles Flugverhalten sicherzustellen. Die daraus resultierenden Log-Daten sollten anschließend mit dem ArduPilot Filter Review Tool analysiert werden, um zu überprüfen, dass im nachgefilterten Signal kein signifikantes Rauschen vorhanden ist (siehe Abbildung~\ref{ArduPilotFilterReviewIMUSpectrumVsTimeWithNotchPostFilter}). Dieser iterative Ansatz gewährleistet ein optimales Gleichgewicht zwischen Reaktionsfähigkeit und Rauschunterdrückung.
+
+\coleng
+
+\textsl{Disable Logging}: Once log analysis has been completed, it is recommended to disable logging, as logging failures may prevent the drone from being armed. To disable logging, navigate to the Config tab, select Full Parameter List, and set the following parameters:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+	\item \verb!LOG_BACKEND_TYPE! = 0
+	\item \verb!LOG_BITMASK! = 0
+	\item \verb!LOG_DISARMED! = 0
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+	\item \verb!LOG_BACKEND_TYPE! = 0
+	\item \verb!LOG_BITMASK! = 0
+	\item \verb!LOG_DISARMED! = 0
+\end{itemize}
 
 \colende
 
