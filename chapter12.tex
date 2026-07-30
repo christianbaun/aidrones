@@ -674,6 +674,70 @@ TBD
 
 \colende
 
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{MicoAirConfigarator_ArduPilot_EK3_Config_Companion_Computer.png}
+	\caption{Utilizing the MicroAir configurator to set the EK3 source1 parameters for GPS-denied indoor flight via a companion computer.}
+	\label{AbbildungMicoAirConfigaratorArduPilotEK3ConfigCompanionComputer}
+\end{figure}
+\FloatBarrier
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{ArduPilot for Indoor Flight with Companion Computer (Optical Flow and a Rangefinder)}
+\makrounterabschnitt
+
+The companion computer uses Guided mode to control the drone, and Guided mode relies on the \verb!EK3_SRC1! parameters for position estimation. Therefore, the following configuration is required for indoor flight using optical flow and a rangefinder:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+  \item \verb!EK3_ENABLE! = 1 \quad (Enables the EKF3 estimator)
+  \item \verb!EK3_SRC1_POSXY! = 0 \quad (Disables GPS as the horizontal position source)
+  \item \verb!EK3_SRC1_POSZ! = 2 \quad (Sets the rangefinder as the primary source for vertical position)
+  \item \verb!EK3_SRC1_VELXY! = 5 \quad (Sets optical flow as the source for horizontal velocity)
+  \item \verb!EK3_SRC1_VELZ! = 0 \quad (Disables the vertical velocity source)
+  \item \verb!EK3_SRC1_YAW! = 1 \quad (Sets the compass as the yaw source; set to 0 if unavailable)
+\end{itemize}
+
+\colger
+
+TBD
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{ArduPilot for Outdoor Flight with Companion Computer (GPS and  Barometer)}
+\makrounterabschnitt
+
+If the UAV is intended for outdoor flight using GPS and a barometer, the following configuration must be applied instead of the previous indoor settings. These parameters ensure the EKF3 estimator prioritizes GPS navigation and Air pressure for stabilization:
+
+\colger
+
+TBD
+
+\coleng
+
+\begin{itemize}
+
+\item \verb!EK3_ENABLE! = 1 \quad (Enables the EKF3 estimator)
+\item \verb!EK3_SRC1_POSXY! = 3 \quad (Sets GPS as the primary source for horizontal position)
+\item \verb!EK3_SRC1_POSZ! = 1 \quad (Sets Barometer as the primary source for vertical position)
+\item \verb!EK3_SRC1_VELXY! = 3 \quad (Sets GPS as the source for horizontal velocity)
+\item \verb!EK3_SRC1_VELZ! = 3 \quad (Sets GPS as the source for vertical velocity)
+\item \verb!EK3_SRC1_YAW! = 1 \quad (Sets Compass as the primary source for yaw/heading)
+
+\end{itemize}
+
+\colger
+
+TBD
+
+\colende
+
 \renewcommand{\deutschertitel}{TBD}
 \renewcommand{\englischertitel}{Configuring the Raspberry Pi Serial Port}
 \makrounterabschnitt
@@ -1000,9 +1064,13 @@ TBD
 \colende
 
 \renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Troubleshooting and Diagnostics}
+\renewcommand{\englischertitel}{Troubleshooting and Diagnostics - (indoor)}
 \makrounterunterabschnitt
 
 See Section~\ref{TroubleshootingOpticalFlowAndRangefinderAruPilotNoGPS}, as the optical-flow and rangefinder troubleshooting procedures described in the ArduPilot Optical flow and rangefinder documentation are also relevant to this issue.
+
+\colger
+
+TBD
 
 \colende
