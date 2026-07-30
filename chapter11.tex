@@ -816,6 +816,47 @@ Nachdem diese Konfiguration abgeschlossen ist, sollte die Drohne die Daten des o
 
 \colende
 
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Troubleshooting and Diagnostics}
+\label{TroubleshootingOpticalFlowAndRangefinderAruPilotNoGPS}
+\makrounterunterabschnitt
+
+Various issues can arise in Loiter mode due to ArduPilot’s pre-arm safety protocols. If the system reports "AHRS: waiting for home," it indicates an insufficient GPS lock for establishing a home position. For indoor environments where GPS is unavailable, the origin can be set automatically to reuse saved coordinates. This is configured by setting the following parameter in the Full Parameter List:
+
+\colger
+
+Im Loitering-Modus können verschiedene Probleme auftreten, da ArduPilot vor der Scharfschaltung spezifische Sicherheitsprüfungen durchführt. Die Meldung „AHRS: waiting for home“ weist dabei auf ein unzureichendes GPS-Signal zur Bestimmung der Home-Position hin. Für den Innenbereich, in dem GPS oft nicht verfügbar ist, kann der Ursprung automatisch gesetzt werden, um gespeicherte Koordinaten wiederzuverwenden. Diese Konfiguration erfolgt in der Full Parameter List durch folgenden Parameter:
+
+\coleng
+
+\begin{itemize}
+\item \verb!AHRS_OPTIONS! = 16 \quad (Bit 4): For further details, refer to the ArduPilot documentation on \href{https://ardupilot.org/copter/docs/common-non-gps-navigation-landing-page.html}{Non-GPS Navigation}.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \verb!AHRS_OPTIONS! = 16 \quad (Bit 4) : Weitere Details finden Sie in der ArduPilot-Dokumentation unter \href{https://ardupilot.org/copter/docs/common-non-gps-navigation-landing-page.html}{Non-GPS Navigation}.
+\end{itemize}
+
+\coleng
+
+The error \verb!EKF Need Position Estimate! typically indicates an incorrect EKF source configuration or sensor calibration issues. Ensure that the EKF source is correctly assigned and the accelerometer and compass are properly calibrated.
+
+\colger
+
+TBD
+
+\coleng
+
+This issue may also arise if the rangefinder or optical flow sensor data is unreadable. Since the default firmware for some flight controllers does not support optical flow, a custom firmware build may be required (\href{https://ardupilot.org/copter/docs/common-non-gps-navigation-landing-page.html}{https://ardupilot.org/copter/docs/common-non-gps-navigation-landing-page.html}). Ensure \verb!Enable EKF3! and \verb!Enable OpticalFlow fusion for EKF3! are activated in the AHRS section. For MAVLink-based sensors, enable \verb!MAVLink!, \verb!MAVLink Rangefinder! from Mavlink section; and the \verb!Optical Flow MAVLink sensor! in the sensor section; for other protocols, adjust settings accordingly.
+
+\colger
+
+TBD
+
+\colende
+
 \renewcommand{\deutschertitel}{Optischer Fluss und LiDAR Entfernungsmessung (INAV)}
 \renewcommand{\englischertitel}{Optical Flow and LiDAR Sensor Configuration (INAV)}
 \makrounterabschnitt
