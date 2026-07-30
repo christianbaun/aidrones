@@ -341,27 +341,27 @@ Für Sensoren mit hoher Datenrate, wie optische Flusssensoren oder GNSS-Empfäng
 \coleng
 
 \begin{enumerate} 
-\item Set \texttt{SERIALx\_SPEED} in the \textit{Setup} tab \(\longrightarrow\) \textit{Full Parameter List}.
+\item Set \texttt{SERIALx\_SPEED} in the \textit{Setup} tab \(\longrightarrow\) \textit{Full Parameter List}. For most optical flow and LiDAR sensors, the recommended value is 115200.
 \end{enumerate} 
 
 \colger
 
 \begin{enumerate}
-\item Setzen Sie den Parameter \texttt{SERIALx\_SPEED} im Menü \textit{Setup} \(\longrightarrow\) \textit{Full Parameter List}.
+\item Setzen Sie den Parameter \texttt{SERIALx\_SPEED} im Menü \textit{Setup} \(\longrightarrow\) \textit{Full Parameter List}. Für die meisten optischen Flusssensoren (Optical-Flow-Sensoren) und LiDAR-Sensoren wird der Wert 115200 empfohlen.
 \end{enumerate}
 
 \coleng
 
 \begin{enumerate} 
 \setcounter{enumi}{1}
-\item Set \texttt{SERIALx\_PROTOCOL} in the \textit{Setup} tab \(\longrightarrow\) \textit{Full Parameter List}.
+\item Set \texttt{SERIALx\_PROTOCOL} in the \textit{Setup} tab \(\longrightarrow\) \textit{Full Parameter List} (e.g., MAVLink, MSP, etc.).
 \end{enumerate} 
 
 \colger
 
 \begin{enumerate}
 \setcounter{enumi}{1}
-\item Setzen Sie den Parameter \texttt{SERIALx\_PROTOCOL} im Menü \textit{Setup} \(\longrightarrow\) \textit{Full Parameter List}.
+\item Setzen Sie den Parameter \texttt{SERIALx\_PROTOCOL} im Menü \textit{Setup} \(\longrightarrow\) \textit{Full Parameter List} (z. B. MAVLink, MSP usw.).
 \end{enumerate}
 
 \coleng
@@ -424,13 +424,13 @@ Abschließend muss zur Festlegung der Ausrichtung eines nach unten gerichteten E
 \coleng
 
 \begin{enumerate} 
-  \item Set \texttt{FLOW\_TYPE} to value 7 (MSP), 10 (MAVLink), or another value depending on the sensor protocol.
+  \item Set \texttt{FLOW\_TYPE} to value 7 (MSP), 5 (MAVLink), or another value depending on the sensor protocol.
 \end{enumerate} 
 
 \colger
 
 \begin{enumerate}
-  \item Setzen Sie den Parameter \texttt{FLOW\_TYPE} auf den Wert 7 (MSP), 10 (MAVLink) oder einen anderen Wert entsprechend dem verwendeten Sensorprotokoll.
+  \item Setzen Sie den Parameter \texttt{FLOW\_TYPE} auf den Wert 7 (MSP), 5 (MAVLink) oder einen anderen Wert entsprechend dem verwendeten Sensorprotokoll.
 \end{enumerate}
 
 \coleng
@@ -813,6 +813,47 @@ Once these configurations are completed, the drone should be able to use optical
 \colger
 
 Nachdem diese Konfiguration abgeschlossen ist, sollte die Drohne die Daten des optischen Flusssensors und des Entfernungsmessers nutzen können, um automatische Flugmodi wie \textit{Loiter} zu ermöglichen. Falls das System nicht wie erwartet funktioniert, können mögliche Ursachen beispielsweise starke Vibrationen, eine hohe Auslastung des Flugcontrollers oder eine notwendige Sensorkalibrierung sein. Detaillierte Anleitungen zur Kalibrierung und zum Test von optischen Flusssensoren sind in der ArduPilot-Dokumentation verfügbar: \href{https://ardupilot.org/copter/docs/common-optical-flow-sensor-setup.html}{https://ardupilot.org/copter/docs/common-optical-flow-sensor-setup.html}  
+
+\colende
+
+\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\englischertitel}{Troubleshooting and Diagnostics}
+\label{TroubleshootingOpticalFlowAndRangefinderAruPilotNoGPS}
+\makrounterunterabschnitt
+
+Various issues can arise in Loiter mode due to ArduPilot’s pre-arm safety protocols. If the system reports "AHRS: waiting for home," it indicates an insufficient GPS lock for establishing a home position. For indoor environments where GPS is unavailable, the origin can be set automatically to reuse saved coordinates. This is configured by setting the following parameter in the Full Parameter List:
+
+\colger
+
+Im Loitering-Modus können verschiedene Probleme auftreten, da ArduPilot vor der Scharfschaltung spezifische Sicherheitsprüfungen durchführt. Die Meldung „AHRS: waiting for home“ weist dabei auf ein unzureichendes GPS-Signal zur Bestimmung der Home-Position hin. Für den Innenbereich, in dem GPS oft nicht verfügbar ist, kann der Ursprung automatisch gesetzt werden, um gespeicherte Koordinaten wiederzuverwenden. Diese Konfiguration erfolgt in der Full Parameter List durch folgenden Parameter:
+
+\coleng
+
+\begin{itemize}
+\item \verb!AHRS_OPTIONS! = 16 \quad (Bit 4): For further details, refer to the ArduPilot documentation on \href{https://ardupilot.org/copter/docs/common-non-gps-navigation-landing-page.html}{Non-GPS Navigation}.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \verb!AHRS_OPTIONS! = 16 \quad (Bit 4) : Weitere Details finden Sie in der ArduPilot-Dokumentation unter \href{https://ardupilot.org/copter/docs/common-non-gps-navigation-landing-page.html}{Non-GPS Navigation}.
+\end{itemize}
+
+\coleng
+
+The error \verb!EKF Need Position Estimate! typically indicates an incorrect EKF source configuration or sensor calibration issues. Ensure that the EKF source is correctly assigned and the accelerometer and compass are properly calibrated.
+
+\colger
+
+TBD
+
+\coleng
+
+This issue may also arise if the rangefinder or optical flow sensor data is unreadable. Since the default firmware for some flight controllers does not support optical flow, a custom firmware build may be required (\href{https://ardupilot.org/copter/docs/common-non-gps-navigation-landing-page.html}{https://ardupilot.org/copter/docs/common-non-gps-navigation-landing-page.html}). Ensure \verb!Enable EKF3! and \verb!Enable OpticalFlow fusion for EKF3! are activated in the AHRS section. For MAVLink-based sensors, enable \verb!MAVLink!, \verb!MAVLink Rangefinder! from Mavlink section; and the \verb!Optical Flow MAVLink sensor! in the sensor section; for other protocols, adjust settings accordingly.
+
+\colger
+
+TBD
 
 \colende
 
