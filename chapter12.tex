@@ -1,4 +1,4 @@
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{Begleitcomputer}
 \renewcommand{\englischertitel}{Companion Computer}
 \chapter[\texorpdfstring{\protect{\vspace{2pt}\englischertitel}}{\englischertitel}]{}
 \kapitel{\deutschertitel}
@@ -16,66 +16,92 @@
 
 \coleng
 
-A companion computer is useful for handling computationally intensive tasks such as artificial intelligence, computer vision, dynamic path replanning, cloud communication, and mission planning, while leaving the drone’s stabilization and low-level flight control to the flight controller. Common examples of companion computers include the Raspberry Pi and NVIDIA Jetson platforms.
+A companion computer can perform computationally intensive tasks such as artificial intelligence, computer vision, dynamic path replanning, cloud communication, and high-level mission planning, while the flight controller remains responsible for stabilizing the drone and executing low-level flight-control tasks. Common companion-computer platforms include the Raspberry Pi and NVIDIA Jetson.
 
 \colger
 
-TBD
+Ein Begleitcomputer kann rechenintensive Aufgaben wie künstliche Intelligenz, maschinelles Sehen, die dynamische Neuberechnung von Flugwegen, die Kommunikation mit Cloud-Diensten und die übergeordnete Missionsplanung übernehmen. Der Flugcontroller bleibt dabei für die Stabilisierung der Drohne und die Ausführung der grundlegenden Flugsteuerungsaufgaben verantwortlich. Häufig eingesetzte Begleitcomputer sind beispielsweise Plattformen der Produktfamilien Raspberry Pi und NVIDIA Jetson.
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{Raspberry Pi als Begleitcomputer}
 \renewcommand{\englischertitel}{Raspberry Pi as a Companion Computer}
 \makroabschnitt
 \label{AbschnittRaspberryPiCompanionComputer}
 
-There are different versions of the Raspberry Pi, each serving different purposes depending on performance requirements and intended applications. To assist in selecting the appropriate model, a brief description of the available versions is provided in Section~\ref{AbschnittObjekterkennungHuckepack}.
+Various Raspberry Pi models are available, each suited to different performance requirements and applications. To help select an appropriate model, Section~\ref{AbschnittObjekterkennungHuckepack} provides a brief overview of the available variants.
 
 \colger
 
-TBD
+Es sind verschiedene Raspberry-Pi-Modelle erhältlich, die sich jeweils für unterschiedliche Leistungsanforderungen und Anwendungsbereiche eignen. Zur Unterstützung bei der Auswahl eines geeigneten Modells gibt Abschnitt~\ref{AbschnittObjekterkennungHuckepack} einen kurzen Überblick über die verfügbaren Varianten.
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Flashing Raspberry Pi OS}
+\renewcommand{\deutschertitel}{Installation von Raspberry Pi OS}
+\renewcommand{\englischertitel}{Installing Raspberry Pi OS}
 \makrounterabschnitt
 
-It is recommended to install the headless version of Raspberry Pi OS, which is designed to operate without a monitor, keyboard, or mouse. Since the Raspberry Pi serves as a companion computer mounted on the UAV and is intended to be used remotely, a headless operating system is the most suitable choice. In addition, the absence of a graphical desktop environment reduces CPU utilization, memory consumption, and power usage.
+It is recommended to install the headless version of Raspberry Pi OS, which operates without a monitor, keyboard, or mouse. Since the Raspberry Pi is mounted on the UAV as a companion computer and is intended to be accessed remotely, a headless operating system is the most suitable choice. The absence of a graphical desktop environment also reduces processor load, memory requirements, and power consumption.
 
 \colger
 
-TBD
+Es wird empfohlen, die Headless-Version von Raspberry Pi OS zu installieren, die ohne Monitor, Tastatur und Maus betrieben wird. Da der Raspberry Pi als Begleitcomputer auf dem unbemannten Luftfahrzeug montiert und für den Fernzugriff vorgesehen ist, eignet sich ein Betriebssystem ohne grafische Benutzeroberfläche besonders gut. Der Verzicht auf eine grafische Desktop-Umgebung reduziert zudem die Prozessorlast, den Speicherbedarf und den Energieverbrauch.
 
 \coleng
 
-To flash Raspberry Pi OS, the following components are required:
+The following components are required to install Raspberry Pi OS:
 
 \colger
 
-TBD
+Für die Installation von Raspberry Pi OS werden die folgenden Komponenten benötigt:
 
 \coleng
 
 \begin{itemize}
-	\item Raspberry pi
+	\item Raspberry Pi
 \end{itemize}
 
+\colger
+
 \begin{itemize}
-	\item MicroSD card (at least 4 GB)
+	\item Raspberry Pi
 \end{itemize}
+
+\coleng
+
+\begin{itemize}
+	\item MicroSD card with a capacity of at least 4\,GB
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+	\item MicroSD-Karte mit einer Speicherkapazität von mindestens 4\,GB
+\end{itemize}
+
+\coleng
 
 \begin{itemize}
 	\item MicroSD card reader
 \end{itemize}
 
+\colger
+
 \begin{itemize}
-	\item Raspberry Pi Imager software (available for Windows, macOS, and Linux)
+	\item MicroSD-Kartenleser
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+	\item Raspberry Pi Imager software, available for Windows, macOS, and Linux
 \end{itemize}
 
 \colger
 
-TBD
+\begin{itemize}
+	\item Software Raspberry Pi Imager, verfügbar für Windows, macOS und Linux
+\end{itemize}
 
 \colende
 
@@ -91,35 +117,49 @@ TBD
     \includegraphics[width=\linewidth]{pi_imager_screenshot_2.png}
     \vspace{0pt}
   \end{minipage}
-  \caption{Raspberry Pi Imager Software Screenshots. Left: OS selection. Right: Network configuration.}
+\caption{Raspberry Pi Imager. Left: Operating System Selection. Right: Network Configuration.} 
   \label{AbbildungRaspberryPiImagerSoftwareScreenshots1}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-Next, open Raspberry Pi Imager and select the appropriate Raspberry Pi model. Under Operating System, choose Raspberry Pi OS (Other) → Raspberry Pi OS Lite (See Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots1} left).
+Next, open Raspberry Pi Imager and select the appropriate Raspberry Pi model. Under Operating System, select Raspberry Pi OS (Other) \(\rightarrow\) Raspberry Pi OS Lite (see Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots1}, left).
 
 \colger
 
-TBD
+Öffnen Sie anschließend Raspberry Pi Imager und wählen Sie das entsprechende Raspberry-Pi-Modell aus. Wählen Sie unter Operating System den Eintrag Raspberry Pi OS (Other) \(\rightarrow\) Raspberry Pi OS Lite aus (siehe Abbildung~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots1}, links).
 
 \coleng
 
-Before writing the operating system to the microSD card, it is essential to do some configuration.
+Before writing the operating system image to the microSD card, several settings must be configured.
 
 \colger
 
-TBD
+Bevor das Betriebssystemabbild auf die MicroSD-Karte geschrieben wird, müssen einige Einstellungen vorgenommen werden.
 
 \coleng
 
 \begin{itemize}
-	\item Configure the home WiFi network by entering the SSID and WiFi password (See Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots1} right).
+	\item Configure the home WiFi network by entering its SSID and password (see Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots1}, right).
 \end{itemize}
 
+\colger
+
 \begin{itemize}
-	\item Configure the username and password to access the Raspberry Pi remotely, or enable SSH access with a public key (See Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots2} left).
+	\item Konfigurieren Sie das WLAN-Heimnetz, indem Sie dessen SSID und Passwort eingeben (siehe Abbildung~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots1}, rechts).
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+	\item Configure a username and password for remote access to the Raspberry Pi or enable SSH authentication using a public key (see Figure~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots2}, left).
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+	\item Konfigurieren Sie einen Benutzernamen und ein Passwort für den Fernzugriff auf den Raspberry Pi oder aktivieren Sie die SSH-Authentifizierung mit einem öffentlichen Schlüssel (siehe Abbildung~\ref{AbbildungRaspberryPiImagerSoftwareScreenshots2}, links).
 \end{itemize}
 
 \colende
@@ -136,38 +176,37 @@ TBD
     \includegraphics[width=\linewidth]{pi_imager_screenshot_4.png}
     \vspace{0pt}
   \end{minipage}
-  \caption{Raspberry Pi Imager Software Screenshots. Left: Password configuration. Right: Configuration summary.}
-  \label{AbbildungRaspberryPiImagerSoftwareScreenshots2}
+\caption{Raspberry Pi Imager. Left: Password Configuration. Right: Configuration Summary.}  \label{AbbildungRaspberryPiImagerSoftwareScreenshots2}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-Once the configuration is complete, click Write to flash the operating system onto the microSD card. After the flashing process has finished, insert the microSD card into the Raspberry Pi and power on the device.
+Once the configuration is complete, click Write to install the operating system on the MicroSD card. After the installation process has finished, insert the MicroSD card into the Raspberry Pi and switch on the device.
 
 \colger
 
-TBD
+Klicken Sie nach Abschluss der Konfiguration auf Write, um das Betriebssystem auf der MicroSD-Karte zu installieren. Setzen Sie die MicroSD-Karte nach Abschluss des Installationsvorgangs in den Raspberry Pi ein und schalten Sie das Gerät ein.
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{Konfiguration der Fernkommunikation}
 \renewcommand{\englischertitel}{Configuring Remote Communication}
 \makrounterabschnitt
 
-After booting, the Raspberry Pi automatically attempts to connect to the configured home WiFi network. If the connection is successful, the router assigns an IP address to the device.
+After booting, the Raspberry Pi automatically attempts to connect to the configured WiFi network. If the connection is successful, the router assigns an IP address to the device.
 
 \colger
 
-TBD
+Nach dem Start versucht der Raspberry Pi automatisch, eine Verbindung mit dem konfigurierten WLAN herzustellen. Wenn die Verbindung erfolgreich hergestellt wurde, weist der Router dem Gerät eine IP-Adresse zu.
 
 \coleng
 
-To determine the assigned IP address, open a command prompt on a computer connected to the same network and execute:
+To determine the assigned IP address, open a terminal on a computer connected to the same network and execute the following command:
 
 \colger
 
-TBD
+Um die zugewiesene IP-Adresse zu ermitteln, öffnen Sie auf einem Computer im selben Netzwerk ein Terminal und führen Sie den folgenden Befehl aus:
 
 \colende
 
@@ -189,22 +228,21 @@ TBD
 ping <hostname>.local
 //example: ping raspberrypi.local
 \end{lstlisting}
-
 \colstart
 
 Alternatively, the IP address can be obtained from the list of connected devices in the router's administration interface.
 
 \colger
 
-TBD
+Alternativ kann die IP-Adresse der Liste der verbundenen Geräte in der Administrationsoberfläche des Routers entnommen werden.
 
 \coleng
 
-Once the IP address has been identified, establish an SSH connection using:
+Once the IP address has been determined, establish an SSH connection using the following command:
 
 \colger
 
-TBD
+Nachdem die IP-Adresse ermittelt wurde, stellen Sie mit dem folgenden Befehl eine SSH-Verbindung her:
 
 \colende
 
@@ -229,34 +267,44 @@ ssh <username>@<ip_address>
 //example: ssh pi@192.168.0.153
 \end{lstlisting}
 
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{Konfiguration eines WLAN-Hotspots als Rückfalllösung}
 \renewcommand{\englischertitel}{Configuring a Fallback WiFi Hotspot}
 \makrounterunterabschnitt
 
-For field operations, a known WiFi network may not always be available. Therefore, it is useful to configure the Raspberry Pi so that it automatically creates its own wireless access point whenever it cannot connect to a predefined network. The desired behavior is as follows:
+For field operations, a known WiFi network may not always be available. It is therefore useful to configure the Raspberry Pi to automatically create its own wireless access point whenever it cannot connect to a predefined network. The desired behavior is as follows:
 
 \colger
 
-TBD
+Bei Einsätzen im Feld steht möglicherweise nicht immer ein bekanntes WLAN zur Verfügung. Daher ist es sinnvoll, den Raspberry Pi so zu konfigurieren, dass er automatisch einen eigenen WLAN-Zugangspunkt erstellt, wenn er keine Verbindung zu einem vorkonfigurierten Netzwerk herstellen kann. Das gewünschte Verhalten ist wie folgt:
 
 \coleng
 
 \begin{itemize}
-	\item Known WiFi network available: Connect to the known network, allwing the other devices on the network to communicate with the Raspberry Pi.
-\end{itemize}
-
-\begin{itemize}
-	\item \item No known WiFi network available: Create a wireless access point for the Raspberry Pi, enabling direct communication with other devices without relying on an external network.
+	\item Known WiFi network available: The Raspberry Pi connects to the known network, allowing other devices on the same network to communicate with it.
 \end{itemize}
 
 \colger
 
-TBD
+\begin{itemize}
+	\item Bekanntes WLAN verfügbar: Der Raspberry Pi verbindet sich mit dem bekannten Netzwerk, sodass andere Geräte im selben Netzwerk mit ihm kommunizieren können.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+	\item No known WiFi network available: The Raspberry Pi creates its own wireless access point, enabling direct communication with other devices without relying on an external network.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+	\item Kein bekanntes WLAN verfügbar: Der Raspberry Pi erstellt einen eigenen WLAN-Zugangspunkt und ermöglicht dadurch die direkte Kommunikation mit anderen Geräten, ohne auf ein externes Netzwerk angewiesen zu sein.
+\end{itemize}
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Step 1: Create a new WiFi connection using NetworkManager:}
+\renewcommand{\deutschertitel}{Schritt 1: Neue WLAN-Verbindung mit NetworkManager erstellen}
+\renewcommand{\englischertitel}{Step 1: Create a New WiFi Connection Using NetworkManager}
 \makrounterunterabschnitt
 
 \colende
@@ -288,11 +336,11 @@ sudo nmcli connection add \
 
 \colstart
 
-The connection should be configured as an access point:
+Configure the connection as a wireless access point:
 
 \colger
 
-TBD
+Konfigurieren Sie die Verbindung als WLAN-Zugangspunkt:
 
 \colende
 
@@ -322,11 +370,11 @@ sudo nmcli connection modify Pi-Hotspot \
 
 \colstart
 
-To verify that both the home WiFi connection and the hotspot configuration are stored, execute:
+To verify that the configurations for both the home WiFi network and the fallback access point have been saved, execute the following command:
 
 \colger
 
-TBD
+Um zu überprüfen, ob die Konfigurationen für das WLAN-Heimnetz und den als Rückfalllösung vorgesehenen Zugangspunkt gespeichert wurden, führen Sie den folgenden Befehl aus:
 
 \colende
 
@@ -351,15 +399,15 @@ nmcli connection show
 // Pi-Hotspot
 \end{lstlisting}
 
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{Schritt 2: Skript für die Rückfalllösung erstellen}
 \renewcommand{\englischertitel}{Step 2: Create a Fallback Script}
 \makrounterunterabschnitt
 
-This script checks whether the Raspberry Pi has successfully connected to a WiFi network. If no connection is detected, the hotspot is activated. The script can be saved as \verb!/usr/local/bin/wifi-fallback.sh! using the following command:
+This script checks whether the Raspberry Pi has successfully connected to a known WiFi network. If no connection is detected, it activates the fallback access point. The script can be created as \verb!/usr/local/bin/wifi-fallback.sh! using the following command:
 
 \colger
 
-TBD
+Dieses Skript prüft, ob der Raspberry Pi erfolgreich eine Verbindung mit einem bekannten WLAN hergestellt hat. Wenn keine Verbindung erkannt wird, aktiviert es den als Rückfalllösung vorgesehenen WLAN-Zugangspunkt. Das Skript kann mit dem folgenden Befehl unter \verb!/usr/local/bin/wifi-fallback.sh! erstellt werden:
 
 \colende
 
@@ -385,11 +433,11 @@ sudo nano /usr/local/bin/wifi-fallback.sh
 
 \colstart
 
-Insert the following configuration into the file:
+Insert the following content into the file:
 
 \colger
 
-TBD
+Fügen Sie den folgenden Inhalt in die Datei ein:
 
 \colende
 
@@ -427,11 +475,11 @@ nmcli connection up Pi-Hotspot
 
 \colstart
 
-Once the script is saved, make it executable with the following command:
+After saving the script, make it executable using the following command:
 
 \colger
 
-TBD
+Machen Sie das Skript nach dem Speichern mit dem folgenden Befehl ausführbar:
 
 \colende
 
@@ -457,11 +505,11 @@ sudo chmod +x /usr/local/bin/wifi-fallback.sh
 
 \colstart
 
-Now, in order to execute the fallback script automatically during system startup, create a systemd service:
+To run the fallback script automatically during system startup, create a systemd service:
 
 \colger
 
-TBD
+Erstellen Sie einen systemd-Dienst, damit das Skript für die Rückfalllösung beim Systemstart automatisch ausgeführt wird:
 
 \colende
 
@@ -487,11 +535,11 @@ sudo nano /etc/systemd/system/wifi-fallback.service
 
 \colstart
 
-Insert the following configuration into the file:
+Insert the following content into the file:
 
 \colger
 
-TBD
+Fügen Sie den folgenden Inhalt in die Datei ein:
 
 \colende
 
@@ -526,11 +574,11 @@ WantedBy=multi-user.target
 
 \colstart
 
-Save the file and enable the service to start automatically during system boot:
+Save the file, then enable the service so that it starts automatically during system startup:
 
 \colger
 
-TBD
+Speichern Sie die Datei und aktivieren Sie anschließend den Dienst, damit er beim Systemstart automatisch ausgeführt wird:
 
 \colende
 
@@ -555,15 +603,15 @@ sudo systemctl daemon-reload
 sudo systemctl enable wifi-fallback.service
 \end{lstlisting}
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Step 3: Verifying the Fallback Configuration}
+\renewcommand{\deutschertitel}{Schritt 3: Konfiguration der Rückfalllösung überprüfen}
+\renewcommand{\englischertitel}{Step 3: Verify the Fallback Configuration}
 \makrounterunterabschnitt
 
-To test the fallback mechanism, disable the home WiFi network and reboot the Raspberry Pi. After some time, the Raspberry Pi should create its wireless access point. Connect another device to the hotspot using the configured SSID and password. The Raspberry Pi typically assigns itself the IP address 10.42.0.1, allowing SSH access via:
+To test the fallback mechanism, disable the home WiFi network and restart the Raspberry Pi. After a short delay, the Raspberry Pi should create its own wireless access point. Connect another device to this access point using the configured SSID and password. NetworkManager typically assigns the Raspberry Pi the IP address \verb!10.42.0.1!, allowing an SSH connection to be established using:
 
 \colger
 
-TBD
+Um die Rückfalllösung zu testen, deaktivieren Sie das WLAN-Heimnetz und starten Sie den Raspberry Pi neu. Nach einer kurzen Wartezeit sollte der Raspberry Pi einen eigenen WLAN-Zugangspunkt erstellen. Verbinden Sie ein anderes Gerät unter Verwendung der konfigurierten SSID und des zugehörigen Passworts mit diesem Zugangspunkt. NetworkManager weist dem Raspberry Pi üblicherweise die IP-Adresse \verb!10.42.0.1! zu. Dadurch kann mit dem folgenden Befehl eine SSH-Verbindung hergestellt werden:
 
 \colende
 
@@ -588,165 +636,277 @@ ssh pi@10.42.0.1
 // Here pi is the configured username.
 \end{lstlisting}
 
-\colstart
 
-TBD
-
-\colger
-
-TBD
-
-\colende
-
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{Hardwareverbindungen}
 \renewcommand{\englischertitel}{Hardware Connections}
 \makrounterabschnitt
 
-Connect the RX pin of the flight controller (FC) to the TX pin of the Raspberry Pi, and the TX pin of the FC to the RX pin of the Raspberry Pi (See figure \ref{AbbildungCompleteDroneWiringDiagramWithRaspberryPiZero2WCompanionComputer}). Detailed information about the Raspberry Pi GPIO pins and serial interfaces can be found at the following website:
+Connect the RX pin of the flight controller (FC) to the TX pin of the Raspberry Pi and the TX pin of the flight controller to the RX pin of the Raspberry Pi. The flight controller and the Raspberry Pi must also share a common ground connection (see Figure~\ref{AbbildungCompleteDroneWiringDiagramWithRaspberryPiZero2WCompanionComputer}). Detailed information about the Raspberry Pi GPIO pins and serial interfaces is available on the following website:
 
 \colger
 
-TBD
+Verbinden Sie den RX-Anschluss des Flugcontrollers (FC) mit dem TX-Anschluss des Raspberry Pi und den TX-Anschluss des Flugcontrollers mit dem RX-Anschluss des Raspberry Pi. Der Flugcontroller und der Raspberry Pi müssen außerdem über eine gemeinsame Masseverbindung verfügen (siehe Abbildung~\ref{AbbildungCompleteDroneWiringDiagramWithRaspberryPiZero2WCompanionComputer}). Ausführliche Informationen zu den GPIO-Anschlüssen und seriellen Schnittstellen des Raspberry Pi finden Sie auf der folgenden Webseite:
 
 \colende
 
 \smallskip
 \url{https://elinux.org/RPi_Low-level_peripherals}
 \smallskip
-
 \colstart
 
-Powering the Raspberry Pi from the flight controller requires careful consideration. Most FPV flight controllers can supply a maximum current of approximately 2 A through their regulated 5 V output. Based on the version and heavy computation, the Raspberry Pi may consume a significant portion of this available current, leaving insufficient power for other peripherals such as the ExpressLRS receiver, GPS module, and video transmission system. Although in some cases, Pi can be powered directly from the flight controller's 5 V telemetry output, this configuration is generally not recommended.
+Powering the Raspberry Pi through the flight controller requires careful consideration. The regulated 5\,V outputs of many FPV flight controllers can supply a maximum current of approximately 2\,A. Depending on the Raspberry Pi model and the computational workload, the Raspberry Pi may consume a substantial portion of the available current. Consequently, insufficient power may remain for other peripherals such as the ExpressLRS receiver, GPS module, and video transmitter. Although some Raspberry Pi models can be powered directly from a suitable 5\,V output of the flight controller, this configuration is generally not recommended.
 
 \colger
 
-TBD
+Die Stromversorgung des Raspberry Pi über den Flugcontroller muss sorgfältig geplant werden. Die geregelten 5-V-Ausgänge vieler FPV-Flugcontroller können einen maximalen Strom von ungefähr 2\,A bereitstellen. Abhängig vom Raspberry-Pi-Modell und der Rechenlast kann der Raspberry Pi einen erheblichen Teil des verfügbaren Stroms benötigen. Dadurch steht möglicherweise nicht mehr genügend Leistung für weitere Peripheriegeräte wie den ExpressLRS-Empfänger, das GPS-Modul und den Videosender zur Verfügung. Obwohl einige Raspberry-Pi-Modelle direkt über einen geeigneten 5-V-Ausgang des Flugcontrollers mit Strom versorgt werden können, wird diese Konfiguration grundsätzlich nicht empfohlen.
 
 \coleng
 
-A more reliable solution is illustrated in Figure~\ref{AbbildungCompleteDroneWiringDiagramWithRaspberryPiZero2WCompanionComputer}, where the Raspberry Pi is powered directly from the main battery (VBAT) through a Battery Eliminator Circuit (BEC). In that case an extra component is required to step down the battery voltage to a stable 5 V supply for the Raspberry Pi. To know more about BECs, see Section~\ref{AbschnittObjekterkennungImplementierungHuckepack}.
+A more reliable solution is shown in Figure~\ref{AbbildungCompleteDroneWiringDiagramWithRaspberryPiZero2WCompanionComputer}. In this configuration, the Raspberry Pi is powered from the main battery (VBAT) through a separate battery eliminator circuit (BEC). The BEC converts the battery voltage into a stable 5\,V supply with sufficient current capacity for the Raspberry Pi. Further information about BECs is provided in Section~\ref{AbschnittObjekterkennungImplementierungHuckepack}.
 
 \colger
 
-TBD
+Eine zuverlässigere Lösung ist in Abbildung~\ref{AbbildungCompleteDroneWiringDiagramWithRaspberryPiZero2WCompanionComputer} dargestellt. Bei dieser Konfiguration wird der Raspberry Pi über einen separaten Battery Eliminator Circuit (BEC) aus dem Hauptakku (VBAT) mit Strom versorgt. Der BEC wandelt die Akkuspannung in eine stabile 5-V-Versorgung mit ausreichbarer Strombelastbarkeit für den Raspberry Pi um. Weitere Informationen zu BECs finden Sie in Abschnitt~\ref{AbschnittObjekterkennungImplementierungHuckepack}.
 
 \colende
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=\linewidth]{Complete_Drone_Wiring_Diagram_with_Raspberry_Pi_Zero_2_W_Companion_Computer.png}
-	\caption{Complete Drone Wiring Diagram with Raspberry Pi Zero 2 W Companion Computer.}
+\caption{Complete Wiring Diagram of a Drone with a Raspberry Pi Zero 2 W as a Companion Computer}
 	\label{AbbildungCompleteDroneWiringDiagramWithRaspberryPiZero2WCompanionComputer}
 \end{figure}
 \FloatBarrier
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Configuring ArduPilot for Companion Computer Communication}
+\renewcommand{\deutschertitel}{ArduPilot für die Kommunikation mit einem Begleitcomputer konfigurieren}
+\renewcommand{\englischertitel}{Configuring ArduPilot for Communication with a Companion Computer}
 \makrounterabschnitt
 
-To enable communication between ArduPilot and the companion computer, open Config → Full Parameter List and modify the following parameters:
+To enable communication between ArduPilot and the companion computer, open Config \(\rightarrow\) Full Parameter List and configure the following parameters:
 
 \colger
 
-TBD
+Um die Kommunikation zwischen ArduPilot und dem Begleitcomputer zu ermöglichen, öffnen Sie Config \(\rightarrow\) Full Parameter List und konfigurieren Sie die folgenden Parameter:
 
 \coleng
 
 \begin{itemize}
-  \item \verb!SERIAL1_PROTOCOL! = 2 (Enables the MAVLink 2 protocol for the corresponding serial port)
-\end{itemize}
-
-\begin{itemize}
-  \item \verb!SERIAL1_BAUD! = 921 (Sets the serial communication baud rate to 921600 bps.)
+  \item \verb!SERIALx_PROTOCOL! = 2 (Enables the MAVLink 2 protocol on the corresponding serial interface.)
 \end{itemize}
 
 \colger
 
-TBD
+\begin{itemize}
+  \item \verb!SERIALx_PROTOCOL! = 2 (Aktiviert das MAVLink-2-Protokoll auf der entsprechenden seriellen Schnittstelle.)
+\end{itemize}
 
 \coleng
 
-Replace x with the UART number of the flight controller to which the Raspberry Pi is connected (e.g., SERIAL2).
+\begin{itemize}
+  \item \verb!SERIALx_BAUD! = 921 (Sets the baud rate of the serial interface to 921600\,bps.)
+\end{itemize}
 
 \colger
 
-TBD
+\begin{itemize}
+  \item \verb!SERIALx_BAUD! = 921 (Setzt die Baudrate der seriellen Schnittstelle auf 921600\,Bit/s.)
+\end{itemize}
+
+\coleng
+
+Replace \verb!x! with the number of the ArduPilot serial interface associated with the UART to which the Raspberry Pi is connected, for example \verb!SERIAL2!.
+
+\colger
+
+Ersetzen Sie \verb!x! durch die Nummer der seriellen ArduPilot-Schnittstelle, die dem UART-Anschluss des Raspberry Pi zugeordnet ist, beispielsweise \verb!SERIAL2!.
 
 \colende
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=\linewidth]{MicoAirConfigarator_ArduPilot_EK3_Config_Companion_Computer.png}
-	\caption{Utilizing the MicroAir configurator to set the EK3 source1 parameters for GPS-denied indoor flight via a companion computer.}
-	\label{AbbildungMicoAirConfigaratorArduPilotEK3ConfigCompanionComputer}
+\caption{Configuring the EKF3 Source 1 Parameters for GPS-Denied Indoor Flight via a Companion Computer Using MicoAir Configurator}
+\label{AbbildungMicoAirConfigaratorArduPilotEK3ConfigCompanionComputer}
 \end{figure}
 \FloatBarrier
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ArduPilot for Indoor Flight with Companion Computer (Optical Flow and a Rangefinder)}
+\renewcommand{\deutschertitel}{ArduPilot für den Hallenflug mit Begleitcomputer, optischem Fluss und Entfernungsmesser}
+\renewcommand{\englischertitel}{ArduPilot for Indoor Flight with a Companion Computer, Optical Flow, and a Rangefinder}
 \makrounterabschnitt
 
-The companion computer uses Guided mode to control the drone, and Guided mode relies on the \verb!EK3_SRC1! parameters for position estimation. Therefore, the following configuration is required for indoor flight using optical flow and a rangefinder:
+To provide the state estimate required for position-controlled commands in Guided mode, ArduPilot uses the sources configured with the \verb!EK3_SRC1_*! parameters. The following configuration can be used for indoor flight with optical flow and a downward-facing rangefinder:
 
 \colger
 
-TBD
+Für die in Guided Mode ausgeführten positionsbasierten Steuerbefehle benötigt ArduPilot eine geeignete Zustandsschätzung. Hierfür werden die mit den Parametern \verb!EK3_SRC1_*! konfigurierten Quellen verwendet. Für den Hallenflug mit Optical Flow und einem nach unten gerichteten Entfernungsmesser kann die folgende Konfiguration verwendet werden:
 
 \coleng
 
 \begin{itemize}
-  \item \verb!EK3_ENABLE! = 1 \quad (Enables the EKF3 estimator)
-  \item \verb!EK3_SRC1_POSXY! = 0 \quad (Disables GPS as the horizontal position source)
-  \item \verb!EK3_SRC1_POSZ! = 2 \quad (Sets the rangefinder as the primary source for vertical position)
-  \item \verb!EK3_SRC1_VELXY! = 5 \quad (Sets optical flow as the source for horizontal velocity)
-  \item \verb!EK3_SRC1_VELZ! = 0 \quad (Disables the vertical velocity source)
-  \item \verb!EK3_SRC1_YAW! = 1 \quad (Sets the compass as the yaw source; set to 0 if unavailable)
+\item \verb!EK3_ENABLE! = 1 \quad (Enables the EKF3 estimator.)
 \end{itemize}
-
+  
 \colger
 
-TBD
-
-\colende
-
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{ArduPilot for Outdoor Flight with Companion Computer (GPS and  Barometer)}
-\makrounterabschnitt
-
-If the UAV is intended for outdoor flight using GPS and a barometer, the following configuration must be applied instead of the previous indoor settings. These parameters ensure the EKF3 estimator prioritizes GPS navigation and Air pressure for stabilization:
-
-\colger
-
-TBD
+\begin{itemize}
+\item \verb!EK3_ENABLE! = 1 \quad (Aktiviert den EKF3-Schätzer.)
+\end{itemize}
 
 \coleng
 
 \begin{itemize}
+\item \verb!EK3_SRC1_POSXY! = 0 \quad (Disables the use of an absolute horizontal position source.)
+\end{itemize}
+  
+\colger
 
-\item \verb!EK3_ENABLE! = 1 \quad (Enables the EKF3 estimator)
-\item \verb!EK3_SRC1_POSXY! = 3 \quad (Sets GPS as the primary source for horizontal position)
-\item \verb!EK3_SRC1_POSZ! = 1 \quad (Sets Barometer as the primary source for vertical position)
-\item \verb!EK3_SRC1_VELXY! = 3 \quad (Sets GPS as the source for horizontal velocity)
-\item \verb!EK3_SRC1_VELZ! = 3 \quad (Sets GPS as the source for vertical velocity)
-\item \verb!EK3_SRC1_YAW! = 1 \quad (Sets Compass as the primary source for yaw/heading)
+\begin{itemize}
+\item \verb!EK3_SRC1_POSXY! = 0 \quad (Deaktiviert die Verwendung einer absoluten horizontalen Positionsquelle.)
+\end{itemize}
 
+\coleng
+
+\begin{itemize}
+\item \verb!EK3_SRC1_POSZ! = 2 \quad (Sets the rangefinder as the primary source for vertical position.)
+\end{itemize}
+  
+\colger
+
+\begin{itemize}
+\item \verb!EK3_SRC1_POSZ! = 2 \quad (Legt den Entfernungsmesser als primäre Quelle für die vertikale Position fest.)
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \verb!EK3_SRC1_VELXY! = 5 \quad (Sets optical flow as the source for horizontal velocity.)
+\end{itemize}
+  
+\colger
+
+\begin{itemize}
+\item \verb!EK3_SRC1_VELXY! = 5 \quad (Legt Optical Flow als Quelle für die horizontale Geschwindigkeit fest.)
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \verb!EK3_SRC1_VELZ! = 0 \quad (Disables the use of a dedicated vertical velocity source.)
+\end{itemize}
+  
+\colger
+
+\begin{itemize}
+\item \verb!EK3_SRC1_VELZ! = 0 \quad (Deaktiviert die Verwendung einer separaten Quelle für die vertikale Geschwindigkeit.)
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \verb!EK3_SRC1_YAW! = 1 \quad (Sets the compass as the yaw source. Set this parameter to 0 if no compass is available.)
 \end{itemize}
 
 \colger
 
-TBD
+\begin{itemize}
+\item \verb!EK3_SRC1_YAW! = 1 \quad (Legt den Kompass als Quelle für den Gierwinkel fest. Setzen Sie diesen Parameter auf 0, wenn kein Kompass verfügbar ist.)
+\end{itemize}
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{ArduPilot für den Außenflug mit Begleitcomputer, GPS und Barometer}
+\renewcommand{\englischertitel}{ArduPilot for Outdoor Flight with a Companion Computer, GPS, and a Barometer}
+\makrounterabschnitt
+
+If the UAV is intended for outdoor flight using GPS and a barometer, the following configuration must be applied instead of the previously described indoor settings. These parameters configure EKF3 to use GPS for horizontal position and velocity estimation and the barometer for altitude estimation:
+
+\colger
+
+Wenn das unbemannte Luftfahrzeug für Außenflüge mit GPS und Barometer vorgesehen ist, muss anstelle der zuvor beschriebenen Einstellungen für den Hallenflug die folgende Konfiguration verwendet werden. Mit diesen Parametern verwendet EKF3 das GPS für die Schätzung der horizontalen Position und Geschwindigkeit sowie das Barometer für die Schätzung der Flughöhe:
+
+\coleng
+
+\begin{itemize}
+\item \verb!EK3_ENABLE! = 1 \quad (Enables the EKF3 estimator.)
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \verb!EK3_ENABLE! = 1 \quad (Aktiviert den EKF3-Schätzer.)
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \verb!EK3_SRC1_POSXY! = 3 \quad (Sets GPS as the primary source for horizontal position.)
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \verb!EK3_SRC1_POSXY! = 3 \quad (Legt GPS als primäre Quelle für die horizontale Position fest.)
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \verb!EK3_SRC1_POSZ! = 1 \quad (Sets the barometer as the primary source for vertical position.)
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \verb!EK3_SRC1_POSZ! = 1 \quad (Legt das Barometer als primäre Quelle für die vertikale Position fest.)
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \verb!EK3_SRC1_VELXY! = 3 \quad (Sets GPS as the source for horizontal velocity.)
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \verb!EK3_SRC1_VELXY! = 3 \quad (Legt GPS als Quelle für die horizontale Geschwindigkeit fest.)
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \verb!EK3_SRC1_VELZ! = 3 \quad (Sets GPS as the source for vertical velocity.)
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \verb!EK3_SRC1_VELZ! = 3 \quad (Legt GPS als Quelle für die vertikale Geschwindigkeit fest.)
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+\item \verb!EK3_SRC1_YAW! = 1 \quad (Sets the compass as the primary source for yaw and heading.)
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+\item \verb!EK3_SRC1_YAW! = 1 \quad (Legt den Kompass als primäre Quelle für Gierwinkel und Flugrichtung fest.)
+\end{itemize}
+
+\colende
+
+\renewcommand{\deutschertitel}{Konfiguration der seriellen Schnittstelle des Raspberry Pi}
 \renewcommand{\englischertitel}{Configuring the Raspberry Pi Serial Port}
 \makrounterabschnitt
 
-Log in to the Raspberry Pi via SSH and launch the Raspberry Pi configuration utility by executing:
+Log in to the Raspberry Pi via SSH and start the Raspberry Pi configuration utility using the following command:
 
 \colger
 
-TBD
+Melden Sie sich über SSH am Raspberry Pi an und starten Sie das Konfigurationsprogramm des Raspberry Pi mit dem folgenden Befehl:
 
 \colende
 
@@ -782,98 +942,126 @@ sudo raspi-config
     \includegraphics[width=\linewidth]{pi_software_configuration_tool_screenshot_2.png}
     \vspace{0pt}
   \end{minipage}
-  \caption{Raspberry Pi Software Configuration Tool.}
+  \caption{Raspberry Pi Software Configuration Tool}
   \label{AbbildungRaspiConfigTool}
 \end{figure}
 \FloatBarrier
 
 \colstart
 
-From the configuration menu, navigate to Interface Options → Serial Port (See Figure~\ref{AbbildungRaspiConfigTool}) and configure as follows:
+In the configuration menu, select Interface Options \(\rightarrow\) Serial Port (see Figure~\ref{AbbildungRaspiConfigTool}) and configure the following settings:
 
 \colger
 
-TBD
+Wählen Sie im Konfigurationsmenü Interface Options \(\rightarrow\) Serial Port aus (siehe Abbildung~\ref{AbbildungRaspiConfigTool}) und nehmen Sie die folgenden Einstellungen vor:
 
 \coleng
 
 \begin{itemize}
-  \item Select No when prompted with "Would you like a login shell to be accessible over serial?"
-\end{itemize}
-
-\begin{itemize}
-  \item Select Yes when prompted with "Would you like the serial port hardware to be enabled?"
+  \item Select No when prompted with ``Would you like a login shell to be accessible over serial?''
 \end{itemize}
 
 \colger
 
-TBD
+\begin{itemize}
+  \item Wählen Sie No, wenn die Frage ``Would you like a login shell to be accessible over serial?'' angezeigt wird.
+\end{itemize}
 
 \coleng
 
-Once completed and restarted, the primary UART of the Rasberry pi will abe avaliable at \verb!/dev/serial0! and can be used for communication with the flight controller.
+\begin{itemize}
+  \item Select Yes when prompted with ``Would you like the serial port hardware to be enabled?''
+\end{itemize}
 
 \colger
 
-TBD
+\begin{itemize}
+  \item Wählen Sie Yes, wenn die Frage ``Would you like the serial port hardware to be enabled?'' angezeigt wird.
+\end{itemize}
+
+\coleng
+
+After completing the configuration, restart the Raspberry Pi. The primary UART will then be available as \verb!/dev/serial0! and can be used to communicate with the flight controller.
+
+\colger
+
+Starten Sie den Raspberry Pi nach Abschluss der Konfiguration neu. Der primäre UART ist anschließend unter \verb!/dev/serial0! verfügbar und kann für die Kommunikation mit dem Flugcontroller verwendet werden.
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{Sicherheitshinweise vor den Flugtests}
 \renewcommand{\englischertitel}{Safety Considerations Before Flight Testing}
 \makrounterabschnitt
 
-Before performing any flight tests using the companion computer, appropriate safety measures should be taken. When the UAV is controlled through the companion computer using MAVLink commands, the manual throttle, roll, pitch, and yaw inputs from the radio controller are overridden. Consequently, it is highly recommended to configure one or more emergency switches on the radio controller before testing.
+Before conducting flight tests with the companion computer, appropriate safety precautions must be taken. When the UAV is controlled by MAVLink commands in Guided mode, the commands from the companion computer determine its movement. Manual stick inputs may therefore have no effect or only a limited effect, depending on the ArduPilot configuration. Before testing, configure one or more emergency switches on the radio transmitter so that the pilot can immediately regain control.
 
 \colger
 
-TBD
+Vor der Durchführung von Flugtests mit dem Begleitcomputer müssen geeignete Sicherheitsvorkehrungen getroffen werden. Wird das unbemannte Luftfahrzeug im Guided Mode durch MAVLink-Befehle gesteuert, bestimmen die Befehle des Begleitcomputers seine Bewegung. Abhängig von der ArduPilot-Konfiguration haben manuelle Steuerknüppelbewegungen daher möglicherweise keine oder nur eine eingeschränkte Wirkung. Konfigurieren Sie vor den Tests einen oder mehrere Sicherheitsschalter am Funksender, damit der Pilot die Steuerung unverzüglich wieder übernehmen kann.
 
 \coleng
 
 \begin{itemize}
-  \item Assign a switch to change the flight mode to a safe mode, such as Land or RTL.
-\end{itemize}
-
-\begin{itemize}
-  \item Assign a separate switch to disarm the vehicle immediately in case of unexpected behavior.
-\end{itemize}
-
-\begin{itemize}
-  \item Verify that the emergency switches function correctly before enabling companion computer control.
+  \item Assign a switch to change from Guided mode to an appropriate manually controlled flight mode. For indoor tests, Stabilize is generally preferable because Land and RTL may depend on a valid position estimate.
 \end{itemize}
 
 \colger
 
-TBD
+\begin{itemize}
+  \item Belegen Sie einen Schalter, um vom Guided Mode in einen geeigneten manuell gesteuerten Flugmodus zu wechseln. Für Flugtests in Innenräumen ist Stabilize grundsätzlich vorzuziehen, da Land und RTL von einer gültigen Positionsschätzung abhängig sein können.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+  \item If an emergency disarm switch is configured, use it only as a last resort because disarming the motors during flight causes the UAV to fall immediately.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+  \item Wenn ein Schalter zum sofortigen Entschärfen der Drohne konfiguriert wird, darf er nur als letzte Notfallmaßnahme verwendet werden, da das Abschalten der Motoren während des Fluges zum unmittelbaren Absturz des unbemannten Luftfahrzeugs führt.
+\end{itemize}
+
+\coleng
+
+\begin{itemize}
+  \item With the propellers removed, verify that the flight-mode and emergency switches operate correctly before enabling control through the companion computer.
+\end{itemize}
+
+\colger
+
+\begin{itemize}
+  \item Prüfen Sie bei demontierten Propellern die korrekte Funktion des Flugmodus- und des Sicherheitsschalters, bevor Sie die Steuerung über den Begleitcomputer aktivieren.
+\end{itemize}
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
+\renewcommand{\deutschertitel}{Testflug mit dem Raspberry Pi}
 \renewcommand{\englischertitel}{Test Flight Using the Raspberry Pi}
 \makrounterabschnitt
 
-This section assumes that communication between the Raspberry Pi and the flight controller has already been established, and that the Raspberry Pi is accessible via SSH.
+This section assumes that communication between the Raspberry Pi and the flight controller has already been established and that the Raspberry Pi can be accessed via SSH.
 
 \colger
 
-TBD
+Dieser Abschnitt setzt voraus, dass die Kommunikation zwischen dem Raspberry Pi und dem Flugcontroller bereits eingerichtet wurde und der Raspberry Pi über SSH erreichbar ist.
 
 \coleng
 
-The following software packages are required to execute the example Python scripts.
+The following software packages are required to run the Python example scripts.
 
 \colger
 
-TBD
+Zur Ausführung der Python-Beispielskripte werden die folgenden Softwarepakete benötigt.
 
 \coleng
 
-Step 1: Update the package repository and install Vim to edit text:
+Step 1: Update the package information and install Vim for editing text files:
 
 \colger
 
-TBD
+Schritt 1: Aktualisieren Sie die Paketinformationen und installieren Sie Vim zum Bearbeiten von Textdateien:
 
 \colende
 
@@ -900,11 +1088,11 @@ sudo apt install vim -y
 
 \colstart
 
-Step 2: Install the Python virtual environment package and create a dedicated virtual environment for the project:
+Step 2: Install the package for creating Python virtual environments and create a dedicated virtual environment for the project:
 
 \colger
 
-TBD
+Schritt 2: Installieren Sie das Paket zum Erstellen virtueller Python-Umgebungen und erstellen Sie eine eigene virtuelle Umgebung für das Projekt:
 
 \colende
 
@@ -936,7 +1124,7 @@ Activate the virtual environment:
 
 \colger
 
-TBD
+Aktivieren Sie die virtuelle Umgebung:
 
 \colende
 
@@ -962,11 +1150,11 @@ source venv/bin/activate
 
 \colstart
 
-Step 3: Install the required Python packages
+Step 3: Install the required Python packages:
 
 \colger
 
-TBD
+Schritt 3: Installieren Sie die erforderlichen Python-Pakete:
 
 \colende
 
@@ -990,14 +1178,15 @@ TBD
 pip install pymavlink mavproxy future
 \end{lstlisting}
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Testing Basic Vehicle Control from Companion Computer}
+\renewcommand{\deutschertitel}{Grundlegende Fahrzeugsteuerung mit dem Begleitcomputer testen}
+\renewcommand{\englischertitel}{Testing Basic Vehicle Control from a Companion Computer}
 \makrounterabschnitt
 
-Run the following Python script to verify that the Raspberry Pi can successfully communicate with the flight controller by issuing arm and disarm commands. If the connection does not work, verify that the serial port configuration and baud rate match the settings configured on the flight controller and Pi.
+With the propellers removed, run the following Python script to verify that the Raspberry Pi can communicate successfully with the flight controller by sending arm and disarm commands. If the connection cannot be established, verify the wiring and ensure that the serial interface and baud rate configured on the Raspberry Pi match the corresponding settings on the flight controller.
+
 \colger
 
-TBD
+Führen Sie bei demontierten Propellern das folgende Python-Skript aus, um durch das Senden von Befehlen zum Scharf- und Unscharfschalten zu überprüfen, ob der Raspberry Pi erfolgreich mit dem Flugcontroller kommunizieren kann. Wenn keine Verbindung hergestellt werden kann, überprüfen Sie die Verkabelung und stellen Sie sicher, dass die auf dem Raspberry Pi konfigurierte serielle Schnittstelle und Baudrate mit den entsprechenden Einstellungen des Flugcontrollers übereinstimmen.
 
 \colende
 
@@ -1047,30 +1236,30 @@ print("Done")
 
 \colstart
 
-A test script for arming the UAV, commanding takeoff to a specified altitude, and landing after the test sequence is available at: \href{https://github.com/christianbaun/aidrones/tree/main/src/companion/fly_800CM_and_land.py}{Test script: \texttt{fly\_800CM\_and\_land.py}}.
+A test script that arms the UAV, commands it to take off to an altitude of 800\,cm, and initiates landing after completing the test sequence is available here: \href{https://github.com/christianbaun/aidrones/blob/main/src/companion/fly_800CM_and_land.py}{Test script: \texttt{fly\_800CM\_and\_land.py}}.
 
 \colger
 
-TBD
+Ein Testskript, das das unbemannte Luftfahrzeug scharfschaltet, einen Start auf eine Flughöhe von 800\,cm ausführt und nach Abschluss der Testsequenz die Landung einleitet, ist hier verfügbar: \href{https://github.com/christianbaun/aidrones/blob/main/src/companion/fly_800CM_and_land.py}{Testskript: \texttt{fly\_800CM\_and\_land.py}}.
 
 \coleng
 
-Before executing the flight script, verify that the UAV is operating in a safe environment, the battery is sufficiently charged, GPS and EKF status are healthy, and the emergency switches (Land, Disarm) on the radio controller are functioning correctly.
+Before running the flight script, ensure that the UAV is in a sufficiently large and secured test area, the battery is adequately charged, and the EKF and all required positioning sensors are operating correctly. For outdoor flight, this includes a valid GPS position estimate. For indoor flight, verify the optical flow and rangefinder data. Also confirm that the configured flight-mode and emergency switches on the radio transmitter function correctly. An immediate disarm during flight must be used only as a last resort because it causes the UAV to fall.
 
 \colger
 
-TBD
+Stellen Sie vor der Ausführung des Flugskripts sicher, dass sich das unbemannte Luftfahrzeug in einem ausreichend großen und abgesicherten Testbereich befindet, der Akku ausreichend geladen ist und der EKF sowie alle benötigten Sensoren zur Positionsbestimmung ordnungsgemäß funktionieren. Bei Außenflügen schließt dies eine gültige GPS-Positionsschätzung ein. Prüfen Sie bei Hallenflügen die Daten des Optical-Flow-Sensors und des Entfernungsmessers. Stellen Sie außerdem sicher, dass die konfigurierten Flugmodus- und Sicherheitsschalter am Funksender ordnungsgemäß funktionieren. Das sofortige Unscharfschalten während des Fluges darf nur als letzte Notfallmaßnahme eingesetzt werden, da das unbemannte Luftfahrzeug dadurch abstürzt.
 
 \colende
 
-\renewcommand{\deutschertitel}{TBD}
-\renewcommand{\englischertitel}{Troubleshooting and Diagnostics - (indoor)}
+\renewcommand{\deutschertitel}{Fehlerbehebung und Diagnose bei Hallenflügen}
+\renewcommand{\englischertitel}{Troubleshooting and Diagnostics for Indoor Flight}
 \makrounterunterabschnitt
 
-See Section~\ref{TroubleshootingOpticalFlowAndRangefinderAruPilotNoGPS}, as the optical-flow and rangefinder troubleshooting procedures described in the ArduPilot Optical flow and rangefinder documentation are also relevant to this issue.
+Refer to Section~\ref{TroubleshootingOpticalFlowAndRangefinderAruPilotNoGPS}, because the troubleshooting procedures for optical flow and rangefinder sensors described there are also relevant to this issue.
 
 \colger
 
-TBD
+Beachten Sie Abschnitt~\ref{TroubleshootingOpticalFlowAndRangefinderAruPilotNoGPS}, da die dort beschriebenen Maßnahmen zur Fehlerbehebung bei Optical-Flow-Sensoren und Entfernungsmessern auch für dieses Problem relevant sind.
 
 \colende
